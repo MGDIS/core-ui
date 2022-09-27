@@ -1,0 +1,39 @@
+/**
+ * Used to define width input
+ * Kept it nested for coming widths
+ */
+
+.mg-input {
+  &.mg-input--width-full {
+    &:not(.mg-input--label-on-top) {
+      justify-content: space-between;
+    }
+
+    .mg-input__input-container {
+      flex: auto;
+      width: 100%;
+
+      .mg-input__box {
+        width: 100%;
+      }
+    }
+  }
+
+  &.mg-input--width-16 {
+    .mg-input__box {
+      width: 21rem;
+    }
+  }
+
+  &.mg-input--width-4 {
+    .mg-input__box {
+      width: 7rem;
+    }
+  }
+
+  &.mg-input--width-2 {
+    .mg-input__box {
+      width: 5rem;
+    }
+  }
+}

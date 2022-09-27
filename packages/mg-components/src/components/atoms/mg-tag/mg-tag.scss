@@ -1,0 +1,50 @@
+/* Variables */
+$mg-tag-border-width: 0.1rem;
+$mg-tag-padding-horizontal: 0.7rem;
+
+/* Mixins */
+@mixin tag-variant($name, $backgroundColor, $color) {
+  &.mg-tag--#{$name} {
+    // Decoration
+    background-color: hsl(var(--color-#{$backgroundColor}));
+    border-color: hsl(var(--color-#{$backgroundColor}));
+    // Font
+    color: hsl(var(--color-#{$color}));
+
+    &.mg-tag--outline {
+      // Decoration
+      background-color: transparent;
+      // Font
+      color: hsl(var(--color-#{$backgroundColor}));
+    }
+  }
+}
+
+/* Styles */
+.mg-tag {
+  // Display
+  padding: calc((var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2) $mg-tag-padding-horizontal - $mg-tag-border-width;
+  min-height: var(--mg-tag-height);
+  box-sizing: border-box;
+  // Decoration
+  border-radius: var(--mg-tag-border-radius);
+  border: $mg-tag-border-width solid;
+  // Font
+  font-size: var(--mg-tag-font-size);
+  font-weight: 600;
+  text-align: center;
+
+  // Variant
+  @include tag-variant('primary', 'dark', 'light');
+  @include tag-variant('secondary', 'light', 'dark');
+  @include tag-variant('success', 'success', 'dark');
+  @include tag-variant('warning', 'warning', 'dark');
+  @include tag-variant('danger', 'danger', 'light');
+  @include tag-variant('info', 'info', 'light');
+}
+
+.mg-tag,
+mg-tag {
+  display: inline-block;
+  vertical-align: middle;
+}

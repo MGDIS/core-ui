@@ -1,0 +1,57 @@
+:host {
+  display: inline-block;
+}
+
+.mg-tooltip {
+  // Display
+  display: none;
+  padding: 0.5rem 0.8rem;
+  z-index: 9999;
+  // Decoration
+  border-radius: var(--mg-tooltip-border-radius);
+  background-color: hsl(var(--mg-tooltip-background-color));
+  // Font
+  color: hsl(var(--mg-tooltip-font-color));
+  text-align: start;
+
+  &[data-show] {
+    display: block;
+  }
+
+  .mg-tooltip__arrow,
+  .mg-tooltip__arrow::before {
+    // Display
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    z-index: 9999;
+    // Decoration
+    background: inherit;
+  }
+
+  .mg-tooltip__arrow {
+    visibility: hidden;
+  }
+
+  .mg-tooltip__arrow::before {
+    visibility: visible;
+    content: '';
+    transform: rotate(45deg);
+  }
+
+  &[data-popper-placement^='top'] > .mg-tooltip__arrow {
+    bottom: -4px;
+  }
+
+  &[data-popper-placement^='bottom'] > .mg-tooltip__arrow {
+    top: -4px;
+  }
+
+  &[data-popper-placement^='left'] > .mg-tooltip__arrow {
+    right: -4px;
+  }
+
+  &[data-popper-placement^='right'] > .mg-tooltip__arrow {
+    left: -4px;
+  }
+}

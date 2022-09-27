@@ -1,0 +1,51 @@
+{
+	"name": "@mgdis/core-ui",
+	"version": "1.0.0",
+	"description": "Core UI",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@7.12.2",
+	"engineStrict": true,
+	"engines": {
+		"pnpm": ">=7",
+		"node": ">=16"
+	},
+	"repository": {
+		"type": "git",
+		"url": "gitlab@gitlab.mgdis.fr:core/core-ui/core-ui.git"
+	},
+	"scripts": {
+		"postinstall": "manypkg check",
+		"test": "cross-env FORCE_COLOR=1 turbo run test",
+		"test:watch": "cross-env FORCE_COLOR=1 turbo run test:watch",
+		"coverage": "run-s turbo:coverage report:merge junit:merge",
+		"turbo:coverage": "cross-env FORCE_COLOR=1 turbo run coverage",
+		"junit:merge": "jrm ./coverage/junit.xml ./packages/**/junit.xml",
+		"report:merge": "cross-env FORCE_COLOR=1 monomerge && nyc report",
+		"lint": "cross-env FORCE_COLOR=1 turbo run lint",
+		"build": "cross-env FORCE_COLOR=1 turbo run build",
+		"change": "changeset",
+		"change:empty": "changeset --empty",
+		"release:status": "changeset status",
+		"release": "./utils/release.sh"
+	},
+	"manypkg": {
+		"ignoredRules": [
+			"INTERNAL_MISMATCH"
+		]
+	},
+	"dependencies": {
+		"@changesets/cli": "^2.24.4",
+		"@manypkg/cli": "latest",
+		"codename": "^0.0.6",
+		"cross-env": "^7.0.3",
+		"junit-report-merger": "^4.0.0",
+		"monomerge": "^0.1.0",
+		"npm-run-all": "^4.1.5",
+		"nyc": "^15.1.0",
+		"prettier": "^2.7.1",
+		"turbo": "latest",
+		"typescript": "^4.8.3"
+	}
+}

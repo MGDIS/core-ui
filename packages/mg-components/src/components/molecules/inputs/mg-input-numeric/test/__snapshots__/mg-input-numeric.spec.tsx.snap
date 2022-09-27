@@ -1,0 +1,1768 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-input-numeric display error message with locale: fr 1`] = `
+<mg-input-numeric lang="fr">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          Ce champ est obligatoire.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric display error message with locale: xx 1`] = `
+<mg-input-numeric lang="xx">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  disabled: true,
+  value: '1234567890'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" disabled="" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  labelHide: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title class="sr-only" identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  readonly: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  readonly: true,
+  labelOnTop: true,
+  tooltip: 'Tooltip message'
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric mg-input--readonly">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  readonly: true,
+  value: '1234567890'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  readonly: true,
+  value: '1234567890',
+  lang: 'fr'
+}: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1 234 567 890,00&nbsp;$US
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  readonly: true,
+  value: '1234567890',
+  lang: 'xx'
+}: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  tooltip: 'My Tooltip Message'
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-icon mg-icon--info-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+                  <path d="M8 .67A7.33 7.33 0 1 0 15.33 8 7.33 7.33 0 0 0 8 .67ZM9 12a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V7.32A.29.29 0 0 1 7.33 7h1.32a.29.29 0 0 1 .35.3Zm0-6.74a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V4a.29.29 0 0 1 .28-.3h1.32a.29.29 0 0 1 .3.28V4Z" fill="currentColor"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-icon mg-icon--info-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+                <path d="M8 .67A7.33 7.33 0 1 0 15.33 8 7.33 7.33 0 0 0 8 .67ZM9 12a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V7.32A.29.29 0 0 1 7.33 7h1.32a.29.29 0 0 1 .35.3Zm0-6.74a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V4a.29.29 0 0 1 .28-.3h1.32a.29.29 0 0 1 .3.28V4Z" fill="currentColor"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  value: '1234567890',
+  currency: 'EUR'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="€1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  value: '1234567890',
+  lang: 'fr'
+}: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890,00&nbsp;$US">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'currency',
+  value: '1234567890',
+  lang: 'xx'
+}: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with args { label: 'label', identifier: 'identifier', type: 'currency' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with slot. 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--is-input-group-append mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <mg-button slot="append-input">
+    <!---->
+    <button aria-label="search" class="mg-button mg-button--primary" id="button-identifier">
+      <div class="mg-button__content">
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--calculator mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <path d="M12.83.67H3.17a.5.5 0 0 0-.5.5v13.66a.5.5 0 0 0 .5.5h9.66a.5.5 0 0 0 .5-.5V1.17a.5.5 0 0 0-.5-.5ZM5.58 13.39a.29.29 0 0 1-.28.3H4.1a.29.29 0 0 1-.3-.28v-1.2a.29.29 0 0 1 .28-.3h1.2a.29.29 0 0 1 .3.28v1.2Zm0-3.28a.29.29 0 0 1-.3.3H4.1a.29.29 0 0 1-.3-.3V8.93a.29.29 0 0 1 .28-.3h1.2a.29.29 0 0 1 .3.28v1.2Zm3.29 3.28a.29.29 0 0 1-.3.3H7.38a.29.29 0 0 1-.3-.3v-1.18a.29.29 0 0 1 .3-.3h1.19a.29.29 0 0 1 .3.3Zm0-3.28a.32.32 0 0 1-.3.3H7.38a.32.32 0 0 1-.3-.3V8.93a.29.29 0 0 1 .3-.3h1.19a.29.29 0 0 1 .3.3Zm3.33 3.28a.29.29 0 0 1-.28.3h-1.25a.29.29 0 0 1-.3-.28V8.93a.29.29 0 0 1 .28-.3h1.25a.29.29 0 0 1 .3.28v4.48Zm0-7.15a.29.29 0 0 1-.3.3H4.1a.29.29 0 0 1-.3-.3V2.61a.29.29 0 0 1 .28-.3h7.82a.29.29 0 0 1 .3.28v3.65Z" fill="currentColor"></path>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+        Calculate
+      </div>
+    </button>
+  </mg-button>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should render with slot. 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--is-append-input-slot-content mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <span slot="append-input">
+    km
+  </span>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should trigger events 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="identifier-help-text" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should update display value when value props change 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Should update display value when value props change 2`] = `
+<mg-input-numeric value="10">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="$10.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency display error with displayError component's public method 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency display error with displayError component's public method 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" disabled="" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  disabled: true,
+  value: '1234567890'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  labelHide: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title class="sr-only" identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  readonly: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  readonly: true,
+  labelOnTop: true,
+  tooltip: 'Tooltip message'
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric mg-input--readonly">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  readonly: true,
+  value: '1234567890'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1,234,567,890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  readonly: true,
+  value: '1234567890',
+  lang: 'fr'
+}: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1 234 567 890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  readonly: true,
+  value: '1234567890',
+  lang: 'xx'
+}: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1,234,567,890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  tooltip: 'My Tooltip Message'
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-icon mg-icon--info-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+                  <path d="M8 .67A7.33 7.33 0 1 0 15.33 8 7.33 7.33 0 0 0 8 .67ZM9 12a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V7.32A.29.29 0 0 1 7.33 7h1.32a.29.29 0 0 1 .35.3Zm0-6.74a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V4a.29.29 0 0 1 .28-.3h1.32a.29.29 0 0 1 .3.28V4Z" fill="currentColor"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-icon mg-icon--info-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+                <path d="M8 .67A7.33 7.33 0 1 0 15.33 8 7.33 7.33 0 0 0 8 .67ZM9 12a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V7.32A.29.29 0 0 1 7.33 7h1.32a.29.29 0 0 1 .35.3Zm0-6.74a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V4a.29.29 0 0 1 .28-.3h1.32a.29.29 0 0 1 .3.28V4Z" fill="currentColor"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  value: '1234567890',
+  currency: 'EUR'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  value: '1234567890',
+  lang: 'fr'
+}: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'decimal',
+  value: '1234567890',
+  lang: 'xx'
+}: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { label: 'label', identifier: 'identifier', type: 'decimal' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--is-input-group-append mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <mg-button slot="append-input">
+    <!---->
+    <button aria-label="search" class="mg-button mg-button--primary" id="button-identifier">
+      <div class="mg-button__content">
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--calculator mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <path d="M12.83.67H3.17a.5.5 0 0 0-.5.5v13.66a.5.5 0 0 0 .5.5h9.66a.5.5 0 0 0 .5-.5V1.17a.5.5 0 0 0-.5-.5ZM5.58 13.39a.29.29 0 0 1-.28.3H4.1a.29.29 0 0 1-.3-.28v-1.2a.29.29 0 0 1 .28-.3h1.2a.29.29 0 0 1 .3.28v1.2Zm0-3.28a.29.29 0 0 1-.3.3H4.1a.29.29 0 0 1-.3-.3V8.93a.29.29 0 0 1 .28-.3h1.2a.29.29 0 0 1 .3.28v1.2Zm3.29 3.28a.29.29 0 0 1-.3.3H7.38a.29.29 0 0 1-.3-.3v-1.18a.29.29 0 0 1 .3-.3h1.19a.29.29 0 0 1 .3.3Zm0-3.28a.32.32 0 0 1-.3.3H7.38a.32.32 0 0 1-.3-.3V8.93a.29.29 0 0 1 .3-.3h1.19a.29.29 0 0 1 .3.3Zm3.33 3.28a.29.29 0 0 1-.28.3h-1.25a.29.29 0 0 1-.3-.28V8.93a.29.29 0 0 1 .28-.3h1.25a.29.29 0 0 1 .3.28v4.48Zm0-7.15a.29.29 0 0 1-.3.3H4.1a.29.29 0 0 1-.3-.3V2.61a.29.29 0 0 1 .28-.3h7.82a.29.29 0 0 1 .3.28v3.65Z" fill="currentColor"></path>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+        Calculate
+      </div>
+    </button>
+  </mg-button>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--is-append-input-slot-content mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <span slot="append-input">
+    km
+  </span>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should trigger events 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="identifier-help-text" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should update display value when value props change 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should update display value when value props change 2`] = `
+<mg-input-numeric value="10">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="10">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal display error with displayError component's public method 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal display error with displayError component's public method 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" disabled="" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  disabled: true,
+  value: '1234567890'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  labelHide: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title class="sr-only" identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  readonly: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  readonly: true,
+  labelOnTop: true,
+  tooltip: 'Tooltip message'
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric mg-input--readonly">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  readonly: true,
+  value: '1234567890'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1,234,567,890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  readonly: true,
+  value: '1234567890',
+  lang: 'fr'
+}: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1 234 567 890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  readonly: true,
+  value: '1234567890',
+  lang: 'xx'
+}: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong>
+          1,234,567,890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  tooltip: 'My Tooltip Message'
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-icon mg-icon--info-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+                  <path d="M8 .67A7.33 7.33 0 1 0 15.33 8 7.33 7.33 0 0 0 8 .67ZM9 12a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V7.32A.29.29 0 0 1 7.33 7h1.32a.29.29 0 0 1 .35.3Zm0-6.74a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V4a.29.29 0 0 1 .28-.3h1.32a.29.29 0 0 1 .3.28V4Z" fill="currentColor"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--label-on-top mg-input--numeric">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-icon mg-icon--info-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+                <path d="M8 .67A7.33 7.33 0 1 0 15.33 8 7.33 7.33 0 0 0 8 .67ZM9 12a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V7.32A.29.29 0 0 1 7.33 7h1.32a.29.29 0 0 1 .35.3Zm0-6.74a.29.29 0 0 1-.3.3H7.35a.29.29 0 0 1-.3-.3V4a.29.29 0 0 1 .28-.3h1.32a.29.29 0 0 1 .3.28V4Z" fill="currentColor"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  value: '1234567890',
+  currency: 'EUR'
+}: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  value: '1234567890',
+  lang: 'fr'
+}: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  type: 'integer',
+  value: '1234567890',
+  lang: 'xx'
+}: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { label: 'label', identifier: 'identifier', type: 'integer' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with slot. 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--is-input-group-append mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <mg-button slot="append-input">
+    <!---->
+    <button aria-label="search" class="mg-button mg-button--primary" id="button-identifier">
+      <div class="mg-button__content">
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--calculator mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <path d="M12.83.67H3.17a.5.5 0 0 0-.5.5v13.66a.5.5 0 0 0 .5.5h9.66a.5.5 0 0 0 .5-.5V1.17a.5.5 0 0 0-.5-.5ZM5.58 13.39a.29.29 0 0 1-.28.3H4.1a.29.29 0 0 1-.3-.28v-1.2a.29.29 0 0 1 .28-.3h1.2a.29.29 0 0 1 .3.28v1.2Zm0-3.28a.29.29 0 0 1-.3.3H4.1a.29.29 0 0 1-.3-.3V8.93a.29.29 0 0 1 .28-.3h1.2a.29.29 0 0 1 .3.28v1.2Zm3.29 3.28a.29.29 0 0 1-.3.3H7.38a.29.29 0 0 1-.3-.3v-1.18a.29.29 0 0 1 .3-.3h1.19a.29.29 0 0 1 .3.3Zm0-3.28a.32.32 0 0 1-.3.3H7.38a.32.32 0 0 1-.3-.3V8.93a.29.29 0 0 1 .3-.3h1.19a.29.29 0 0 1 .3.3Zm3.33 3.28a.29.29 0 0 1-.28.3h-1.25a.29.29 0 0 1-.3-.28V8.93a.29.29 0 0 1 .28-.3h1.25a.29.29 0 0 1 .3.28v4.48Zm0-7.15a.29.29 0 0 1-.3.3H4.1a.29.29 0 0 1-.3-.3V2.61a.29.29 0 0 1 .28-.3h7.82a.29.29 0 0 1 .3.28v3.65Z" fill="currentColor"></path>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+        Calculate
+      </div>
+    </button>
+  </mg-button>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with slot. 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--is-append-input-slot-content mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <span slot="append-input">
+    km
+  </span>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should trigger events 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="identifier-help-text" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should update display value when value props change 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should update display value when value props change 2`] = `
+<mg-input-numeric value="10">
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text" value="10">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer display error with displayError component's public method 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer display error with displayError component's public method 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" disabled="" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--readonly">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <strong></strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;

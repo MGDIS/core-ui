@@ -1,0 +1,54 @@
+$header-padding: 0.3rem;
+
+.mg-panel {
+  background-color: hsl(var(--mg-panel-background));
+  border-radius: var(--mg-panel-border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.mg-panel__header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 1rem 0 $header-padding;
+  align-items: flex-start;
+}
+
+.mg-panel__header-left,
+.mg-panel__header-right {
+  display: flex;
+  margin: $header-padding 0;
+}
+
+.mg-panel__header-left--full {
+  flex: 1 1 auto;
+}
+
+.mg-panel__header-right {
+  flex: 1 auto;
+}
+
+.mg-panel__header-left mg-input-text {
+  flex-grow: 1;
+}
+
+.mg-panel__header-left mg-button:not([slot='append-input']) {
+  margin: 0 $header-padding 0 0;
+
+  & > *:first-of-type {
+    font-family: var(--font-family-heading);
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+}
+
+.mg-panel__content {
+  padding: 1.5rem;
+}
+
+.mg-panel ::slotted([slot='header-right']) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: auto;
+}
