@@ -60,6 +60,11 @@ export class MgPagination {
   @Prop({ mutable: true }) label: string;
 
   /**
+   * Hide navigation label
+   */
+  @Prop() hideNavigationLabels: boolean;
+
+  /**
    * Component total pages
    */
   @Prop() totalPages = 1;
@@ -119,10 +124,11 @@ export class MgPagination {
    * Go to 'previous/next' page button handler
    *
    * @param {string} action navigation action
+   * @param {boolean} disabled button disable state
    * @returns {void}
    */
-  private handleGoToPage = (action: string): void => {
-    this.goToPage(action === NavigationAction.NEXT ? this.currentPage + 1 : this.currentPage - 1);
+  private handleGoToPage = (action: string, disabled: boolean): void => {
+    !disabled && this.goToPage(action === NavigationAction.NEXT ? this.currentPage + 1 : this.currentPage - 1);
   };
 
   /*************
@@ -155,21 +161,21 @@ export class MgPagination {
     const navigationActionButton = (disabled: boolean, action: string) => (
       <mg-button
         identifier={`${this.identifier}-button-${action}`}
-        class="mg-pagination__button"
         label={this.messages.pagination[`${action}Page`]}
         // eslint-disable-next-line react/jsx-no-bind
-        onClick={() => this.handleGoToPage(action)}
+        onClick={() => this.handleGoToPage(action, disabled)}
         disabled={disabled}
         variant="flat"
+        isIcon={this.hideNavigationLabels}
       >
         {action === NavigationAction.PREVIOUS && <mg-icon icon="chevron-left"></mg-icon>}
-        {this.messages.general[action]}
+        {!this.hideNavigationLabels && this.messages.general[action]}
         {action === NavigationAction.NEXT && <mg-icon icon="chevron-right"></mg-icon>}
       </mg-button>
     );
 
     return (
-      <nav aria-label={this.label} id={this.identifier} class="mg-pagination__nav">
+      <nav aria-label={this.label} id={this.identifier} class="mg-pagination">
         {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
         <mg-input-select
           identifier={`${this.identifier}-select`}

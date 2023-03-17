@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { cloneDeep } from '../../../../../utils/test.utils';
+import { cloneDeep } from '../../../../../utils/unit.test.utils';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue } from '../mg-input-checkbox.conf';
@@ -34,6 +34,8 @@ describe('mg-input-checkbox', () => {
     { label: 'label', identifier: 'identifier', value: cloneDeep(items), labelHide: true },
     { label: 'label', identifier: 'identifier', value: cloneDeep(items), inputVerticalList: true },
     { label: 'label', identifier: 'identifier', value: cloneDeep(items), required: true },
+    { label: 'label', identifier: 'identifier', value: cloneDeep(items), required: true, readonly: true, helpText: 'Hello joker' },
+    { label: 'label', identifier: 'identifier', value: cloneDeep(items), required: true, disabled: true, helpText: 'Hello joker' },
     { label: 'label', identifier: 'identifier', value: cloneDeep(items), readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
     { label: 'label', identifier: 'identifier', value: cloneDeep(items), disabled: true },
     { label: 'label', identifier: 'identifier', value: cloneDeep(items), helpText: 'Hello joker' },
@@ -43,17 +45,37 @@ describe('mg-input-checkbox', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test.each(['', undefined])('Should not render with invalid label property : %s', async value => {
+  test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
+    expect.assertions(1);
     try {
-      await getPage({ label: value, value: cloneDeep(items) });
+      await getPage({ identifier, value: cloneDeep(items) });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required');
+      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
     }
   });
 
-  test('Should not render with invalid label property : %s', async () => {
+  test.each(['', ' ', undefined])('Should not render with invalid label property: %s', async label => {
+    expect.assertions(1);
     try {
-      await getPage({ label: 'label', value: ['batman', 'joker', 'bane'] });
+      await getPage({ identifier: 'identifier', label, value: cloneDeep(items) });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+    }
+  });
+
+  test('Should not render when using labelOnTop and labelHide: %s', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', value: cloneDeep(items), labelOnTop: true, labelHide: true });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+    }
+  });
+
+  test('Should not render with invalid value property: %s', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', value: ['batman', 'joker', 'bane'] });
     } catch (err) {
       expect(err.message).toMatch('<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem.');
     }
@@ -63,7 +85,6 @@ describe('mg-input-checkbox', () => {
     const value: CheckboxValue[] = cloneDeep(items) as CheckboxValue[];
     const args = { label: 'label', identifier: 'identifier', helpText: 'My help text', value };
     const page = await getPage(args);
-
     const element = page.doc.querySelector('mg-input-checkbox');
     const allInputs = element.shadowRoot.querySelectorAll('input');
     const input = allInputs[2];
@@ -96,14 +117,13 @@ describe('mg-input-checkbox', () => {
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.root).toMatchSnapshot(); //Snapshot on focus
+    expect(page.root).toMatchSnapshot(); //Snapshot on blur
   });
 
   test('Should trigger events, case validity check false', async () => {
     const value: CheckboxValue[] = cloneDeep(items) as CheckboxValue[];
     const args = { label: 'label', identifier: 'identifier', helpText: 'My help text', value };
     const page = await getPage(args);
-
     const element = page.doc.querySelector('mg-input-checkbox');
     const allInputs = element.shadowRoot.querySelectorAll('input');
     const input = allInputs[0];
@@ -136,7 +156,7 @@ describe('mg-input-checkbox', () => {
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.root).toMatchSnapshot(); //Snapshot on focus
+    expect(page.root).toMatchSnapshot(); //Snapshot on blur
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
@@ -147,7 +167,6 @@ describe('mg-input-checkbox', () => {
     ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing, value }) => {
       const args = { label: 'label', identifier: 'identifier', value, helpText: 'My help text' };
       const page = await getPage(args);
-
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = element.shadowRoot.querySelectorAll('input');
       const input = allInputs[0];
@@ -180,59 +199,112 @@ describe('mg-input-checkbox', () => {
         expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
       }
     });
+  });
 
-    test("display error with displayError component's public method", async () => {
-      const value = cloneDeep(items);
-      value[0].value = false;
+  test("display error with displayError component's public method", async () => {
+    const value = cloneDeep(items);
+    value[0].value = false;
+    const page = await getPage({ label: 'label', identifier: 'identifier', value, helpText: 'My help text', required: true });
 
-      const page = await getPage({ label: 'label', identifier: 'identifier', value, helpText: 'My help text', required: true });
+    expect(page.root).toMatchSnapshot();
 
-      expect(page.root).toMatchSnapshot();
+    const element = page.doc.querySelector('mg-input-checkbox');
+    const allInputs = element.shadowRoot.querySelectorAll('input');
 
-      const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs = element.shadowRoot.querySelectorAll('input');
-
-      //mock validity
-      allInputs.forEach(input => {
-        input.checkValidity = jest.fn(() => false);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: true,
-          })),
-        });
+    //mock validity
+    allInputs.forEach(input => {
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
       });
-
-      await element.displayError();
-
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
     });
 
-    test.each(['fr', 'xx'])('Should render component with locale: %s', async lang => {
-      const value = cloneDeep(items);
-      value[0].value = false;
+    await element.displayError();
+    await page.waitForChanges();
 
-      const page = await getPage({ label: 'label', identifier: 'identifier', value, helpText: 'My help text', required: true, lang });
+    expect(page.root).toMatchSnapshot();
+  });
 
-      const element = page.doc.querySelector('mg-input-checkbox');
-      const allInputs = element.shadowRoot.querySelectorAll('input');
+  test.each(['fr', 'xx'])('Should render component with locale: %s', async lang => {
+    const value = cloneDeep(items);
+    value[0].value = false;
+    const page = await getPage({ label: 'label', identifier: 'identifier', value, helpText: 'My help text', required: true, lang });
+    const element = page.doc.querySelector('mg-input-checkbox');
+    const allInputs = element.shadowRoot.querySelectorAll('input');
 
-      //mock validity
-      allInputs.forEach(input => {
-        input.checkValidity = jest.fn(() => false);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: true,
-          })),
-        });
+    //mock validity
+    allInputs.forEach(input => {
+      input.checkValidity = jest.fn(() => false);
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          valueMissing: true,
+        })),
       });
-
-      await element.displayError();
-
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
     });
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should remove error on input when required change dynamically', async () => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      value: [
+        { title: 'batman', value: false },
+        { title: 'robin', value: false },
+      ],
+      required: true,
+    });
+    const element = page.doc.querySelector('mg-input-checkbox');
+    const allInputs = element.shadowRoot.querySelectorAll('input');
+
+    //mock validity
+    allInputs[0].checkValidity = jest
+      .fn()
+      .mockReturnValueOnce(false) //1
+      .mockReturnValueOnce(false) //1
+      .mockReturnValueOnce(true) //2
+      .mockReturnValueOnce(true) //2
+      .mockReturnValueOnce(false) //3
+      .mockReturnValueOnce(false); //3
+    allInputs[1].checkValidity = jest.fn().mockReturnValueOnce(true).mockReturnValueOnce(true); //2
+    Object.defineProperty(allInputs[0], 'validity', {
+      get: jest
+        .fn()
+        .mockReturnValueOnce({
+          valueMissing: true, //1
+        })
+        .mockReturnValueOnce({
+          valueMissing: false, //2
+        })
+        .mockReturnValueOnce({
+          valueMissing: true, //3
+        }),
+    });
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
+    expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
+
+    element.required = false;
+    await page.waitForChanges();
+
+    // Error message should disapear and change the hasDisplayedError status
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
+
+    element.required = true;
+    await page.waitForChanges();
+
+    // If back on required the message is still not displayed
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 });

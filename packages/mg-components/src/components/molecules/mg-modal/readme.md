@@ -77,10 +77,19 @@ Ex: if I put a check in front of the term "Delete" which is the validation butto
 
 ### Backdrop
 
-Color: [@color-light](?path=/docs/style-colors--page) with an opacity set to 85%.
+Color: [@color-light](./?path=/docs/style-colors--page) with an opacity set to 85%.
+
+## CSS Variables
+
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-modal-border-radius`: Define border radius modal, default: `0.5rem`
+- `--mg-modal-title-font-size`: Define modal title font size, default: `1.8rem`
+- `--mg-modal-content-font-size`: Define modall content font size, default: `1.2rem`
+
+Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.
 
 <!-- Auto Generated Below -->
-
 
 ## Properties
 
@@ -91,7 +100,6 @@ Color: [@color-light](?path=/docs/style-colors--page) with an opacity set to 85%
 | `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`  | `createID('mg-modal')` |
 | `modalTitle` _(required)_ | `modal-title`  | Displayed modal title required                                                                              | `string`  | `undefined`            |
 
-
 ## Events
 
 | Event            | Description                          | Type                  |
@@ -99,23 +107,25 @@ Color: [@color-light](?path=/docs/style-colors--page) with an opacity set to 85%
 | `component-hide` | Emmited event when modal is hidden   | `CustomEvent<string>` |
 | `component-show` | Emmited event when modal is diplayed | `CustomEvent<string>` |
 
-
 ## Dependencies
 
 ### Depends on
 
+- [mg-card](../../atoms/mg-card)
 - [mg-button](../../atoms/mg-button)
 - [mg-icon](../../atoms/mg-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
+  mg-modal --> mg-card
   mg-modal --> mg-button
   mg-modal --> mg-icon
   mg-button --> mg-icon
   style mg-modal fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

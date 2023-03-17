@@ -1,17 +1,132 @@
 {
-  "timestamp": "2022-09-28T13:06:12",
+  "timestamp": "2023-03-17T15:43:38",
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.18.0",
-    "typescriptVersion": "4.7.4"
+    "version": "2.22.3",
+    "typescriptVersion": "4.9.4"
   },
   "components": [
+    {
+      "filePath": "./src/components/molecules/mg-action-more/mg-action-more.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-action-more",
+      "readme": "## Anatomy\n\n![](./mg-action-more/doc/img/mg-action-more-anatomy.png) \n\n## Specifications\n\n![](./mg-action-more/doc/img/mg-action-more-popover-spacing.png) \n\n### Spacing\nPopover padding should be 10px up/down, 0px left/right.\n\n## Behavior\n\n### Action\n\nIn addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.\n\n## Options\n\n### Button's variant\n\n![](./mg-action-more/doc/img/mg-action-more-options-variant.png) \n\nBy default, button variant is \"flat\".\nIt is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/story/atoms-mg-button--mg-button)).\n\n### Icon\n\n![](./mg-action-more/doc/img/mg-action-more-options-icon.png)\n\nBy default, icon is *ellipsis*. \nIt is possible to set another icon\n\n\n### Label\n\n![](./mg-action-more/doc/img/mg-action-more-options-label.png) \n\nBy default, label is *Actions* and hidden. \nIt is possible to set another label.\n\n### Chevron\n\n![](./mg-action-more/doc/img/mg-action-more-options-chevron.png) \n\nIt is possible to display a chevron on the label right side, it make a 180 degree rotation on click.\n",
+      "docs": "![](./mg-action-more/doc/img/mg-action-more-anatomy.png)",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "button",
+          "type": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define button properties\nDefault: {variant: 'flat', isIcon: true}.",
+          "docsTags": [],
+          "default": "{ variant: 'flat', isIcon: true }",
+          "values": [
+            {
+              "type": "{ isIcon: boolean; variant: \"flat\""
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "link",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "type": "\"danger-alt\"; label?: string; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "displayChevron",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "display-chevron",
+          "reflectToAttr": false,
+          "docs": "Define if chevron is display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "{ icon: string; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define displaied icon\nDefault: {icon: 'ellipsis'}",
+          "docsTags": [],
+          "default": "{ icon: 'ellipsis' }",
+          "values": [
+            {
+              "type": "{ icon: string; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "items",
+          "type": "MgActionMoreItemType[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define the menu-items elements",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "MgActionMoreItemType[]"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": ["mg-icon", "mg-popover", "mg-button", "mg-menu", "mg-menu-item", "mg-badge"],
+      "dependencyGraph": {
+        "mg-action-more": ["mg-icon", "mg-popover", "mg-button", "mg-menu", "mg-menu-item", "mg-badge"],
+        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
+        "mg-button": ["mg-icon"],
+        "mg-menu-item": ["mg-badge", "mg-icon", "mg-popover"]
+      }
+    },
     {
       "filePath": "./src/components/atoms/mg-badge/mg-badge.tsx",
       "encapsulation": "shadow",
       "tag": "mg-badge",
-      "readme": "## Design\n\nThe badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number or a punctuation character.\n\n## Specs\n\n![](./mg-badge/doc/img/mg-badge-specs.png)\n\n## Theming\n\n![](./mg-badge/doc/img/mg-badge-styles.png)\n",
-      "docs": "The badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number or a punctuation character.",
+      "readme": "## Design\n\nThe badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.\n\n## Specs\n\n![](./mg-badge/doc/img/mg-badge-specs.png)\n\n## Theming\n\n![](./mg-badge/doc/img/mg-badge-styles.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-badge-size`: define badge height and min-width, default: `1.6rem`\n- `--mg-badge-font-size`: define badge font size, default: `1.1rem`\n- `--mg-badge-text-color`: define badge color for text-color variant, default: `--color-light`\n",
+      "docs": "The badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -68,7 +183,7 @@
         },
         {
           "name": "variant",
-          "type": "string",
+          "type": "\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"text-color\" | \"warning\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -77,10 +192,35 @@
           "default": "variants[0]",
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "text-color",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -90,41 +230,23 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-tabs"
-      ],
+      "dependents": ["mg-action-more", "mg-menu-item", "mg-tabs"],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-tabs": [
-          "mg-badge"
-        ]
+        "mg-action-more": ["mg-badge"],
+        "mg-menu-item": ["mg-badge"],
+        "mg-tabs": ["mg-badge"]
       }
     },
     {
       "filePath": "./src/components/atoms/mg-button/mg-button.tsx",
-      "encapsulation": "scoped",
+      "encapsulation": "shadow",
       "tag": "mg-button",
-      "readme": "## Usage\n\nA primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".\n\n## Specs\n\n![](./mg-button/doc/img/mg-button-specs.png)\n\n## Placement\n\n![](./mg-button/doc/img/mg-button-placement.png)\n\nTo manage the space between two buttons you can use the helper [.mg-group-elements](/?path=/docs/style-buttons--buttons)\n\n## Theming\n\n![](./mg-button/doc/img/mg-button-styles.png)\n",
-      "docs": "A primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".",
+      "readme": "## Usage\n\nA primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".\n\n## Specs\n\n![](./mg-button/doc/img/mg-button-specs.png)\n\n## Placement\n\n![](./mg-button/doc/img/mg-button-placement.png)\n\nTo manage the space between two buttons you can use the helper [.mg-group-elements](/?path=/docs/style-buttons--buttons)\n\n## Theming\n\n![](./mg-button/doc/img/mg-button-styles.png)\n\nFocused `mg-button` style is the one from the browser (outline).\n\n## Attributes combination: `disable-on-click` and `disabled`\n\nWhen a click is triggered, the component sets the `disabled` prop to true.\n\nTo benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.\n\nTo reset the loader after the process has completed, you need to set the `disabled` prop asynchronously.\n\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n### Global\n\n- `--mg-button-border-radius`: define button border radius, default: `0.3rem`\n- `--mg-button-icon-border-radius`: define button border radius in icon mode, default: `--default-size`\n- `--mg-button-disabled-opacity`: define button opacity when disabled, default: `--mg-disabled-opacity`\n- `--mg-button-gradient`: define if button use gradient, possible values 0 (no gradient) or 1 (with gradient), default: `1`\n- `--mg-button-border-variation`: define if button has a border based on background color, possible values 0 (no border) or 1 (with border), default: `1`\n\n### Variant\n\nVariants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--page).\n\n#### Primary\n\n- `--mg-button-primary-color-h`: define hue color value for primary button, default: `--color-dark-h`\n- `--mg-button-primary-color-s`: define saturation color value for primary button, default: `--color-dark-s`\n- `--mg-button-primary-color-l`: define lightness color value for primary button, default: `--color-dark-l`\n- `--mg-button-primary-font-color`: define font color for primary button, default: `--color-neutral`\n\n#### Secondary\n\n- `--mg-button-secondary-color-h`: define hue color value for secondary button, default: `--color-neutral-h`\n- `--mg-button-secondary-color-s`: define saturation color value for secondary button, default: `--color-neutral-s`\n- `--mg-button-secondary-color-l`: define lightness color value for secondary button, default: `--color-neutral-l`\n- `--mg-button-secondary-font-color`: define font color for secondary button, default: `--color-dark`\n",
+      "docs": "A primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".",
       "docsTags": [],
       "usage": {},
       "props": [
-        {
-          "name": "controls",
-          "type": "string",
-          "mutable": false,
-          "attr": "controls",
-          "reflectToAttr": false,
-          "docs": "Prop to set aria-controls on button element",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
         {
           "name": "disableOnClick",
           "type": "boolean",
@@ -159,22 +281,6 @@
           "required": false
         },
         {
-          "name": "expanded",
-          "type": "boolean",
-          "mutable": false,
-          "attr": "expanded",
-          "reflectToAttr": false,
-          "docs": "Prop to set aria-expanded on button element",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "form",
           "type": "string",
           "mutable": true,
@@ -191,34 +297,15 @@
           "required": false
         },
         {
-          "name": "haspopup",
-          "type": "\"dialog\" | \"grid\" | \"listbox\" | \"menu\" | \"tree\" | boolean",
-          "mutable": false,
-          "attr": "haspopup",
+          "name": "fullWidth",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "full-width",
           "reflectToAttr": false,
-          "docs": "Option to set aria-haspopup\nThe aria-haspopup state informs assistive technology users that there is a popup and the type of popup it is, but provides no interactivity.",
+          "docs": "Set button to full-width",
           "docsTags": [],
+          "default": "false",
           "values": [
-            {
-              "value": "dialog",
-              "type": "string"
-            },
-            {
-              "value": "grid",
-              "type": "string"
-            },
-            {
-              "value": "listbox",
-              "type": "string"
-            },
-            {
-              "value": "menu",
-              "type": "string"
-            },
-            {
-              "value": "tree",
-              "type": "string"
-            },
             {
               "type": "boolean"
             }
@@ -232,9 +319,8 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-button')",
           "values": [
             {
               "type": "string"
@@ -282,7 +368,7 @@
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Define button type\nDefault: 'submit', as HTMLButtonElement type is submit by default",
+          "docs": "Define button type",
           "docsTags": [],
           "values": [
             {
@@ -303,7 +389,7 @@
         },
         {
           "name": "variant",
-          "type": "string",
+          "type": "\"danger\" | \"danger-alt\" | \"flat\" | \"info\" | \"link\" | \"primary\" | \"secondary\" | \"success\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -312,6 +398,35 @@
           "default": "variants[0]",
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "danger-alt",
+              "type": "string"
+            },
+            {
+              "value": "flat",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "link",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
               "type": "string"
             }
           ],
@@ -320,40 +435,55 @@
         }
       ],
       "methods": [],
+      "events": [
+        {
+          "event": "disabled-change",
+          "detail": "boolean",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emmited event when disabled change",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": ["mg-action-more", "mg-message", "mg-modal", "mg-pagination", "mg-panel", "mg-popover"],
+      "dependencies": ["mg-icon"],
+      "dependencyGraph": {
+        "mg-button": ["mg-icon"],
+        "mg-action-more": ["mg-button"],
+        "mg-message": ["mg-button"],
+        "mg-modal": ["mg-button"],
+        "mg-pagination": ["mg-button"],
+        "mg-panel": ["mg-button"],
+        "mg-popover": ["mg-button"]
+      }
+    },
+    {
+      "filePath": "./src/components/atoms/mg-card/mg-card.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-card",
+      "readme": "## Specs\n\n### Style\n\n![](./mg-card/doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--page)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--page)\n\n### Spacing\n\n![](./mg-card/doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./mg-card/doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
       "events": [],
       "listeners": [],
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-message",
-        "mg-modal",
-        "mg-pagination",
-        "mg-panel",
-        "mg-popover"
-      ],
-      "dependencies": [
-        "mg-icon"
-      ],
+      "dependents": ["mg-message", "mg-modal", "mg-panel", "mg-popover"],
+      "dependencies": [],
       "dependencyGraph": {
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-message": [
-          "mg-button"
-        ],
-        "mg-modal": [
-          "mg-button"
-        ],
-        "mg-pagination": [
-          "mg-button"
-        ],
-        "mg-panel": [
-          "mg-button"
-        ],
-        "mg-popover": [
-          "mg-button"
-        ]
+        "mg-message": ["mg-card"],
+        "mg-modal": ["mg-card"],
+        "mg-panel": ["mg-card"],
+        "mg-popover": ["mg-card"]
       }
     },
     {
@@ -421,18 +551,11 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-input-text",
-        "mg-input-textarea"
-      ],
+      "dependents": ["mg-input-text", "mg-input-textarea"],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-text": [
-          "mg-character-left"
-        ],
-        "mg-input-textarea": [
-          "mg-character-left"
-        ]
+        "mg-input-text": ["mg-character-left"],
+        "mg-input-textarea": ["mg-character-left"]
       }
     },
     {
@@ -462,6 +585,23 @@
           "required": false
         },
         {
+          "name": "hideSummary",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-summary",
+          "reflectToAttr": false,
+          "docs": "Hide summary element",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "toggleClosed",
           "type": "string",
           "mutable": false,
@@ -475,7 +615,7 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "toggleOpened",
@@ -491,7 +631,7 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         }
       ],
       "methods": [],
@@ -511,21 +651,59 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-icon"
-      ],
+      "dependencies": ["mg-icon"],
       "dependencyGraph": {
-        "mg-details": [
-          "mg-icon"
-        ]
+        "mg-details": ["mg-icon"]
       }
+    },
+    {
+      "filePath": "./src/components/atoms/mg-divider/mg-divider.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-divider",
+      "readme": "## Sizing\n\n![](./mg-divider/doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible :\n\n- Regular : 120px\n- Full : 100%\n\nRules :\n\n- Regular is the default mode.\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.\n\n## Spacing\n\n![](./mg-divider/doc/img/mg-divider-spacing.png)\n\nDefault margin applied on top and bottom of the divider is set to 40px.\n\n## Color\n\n![](./mg-divider/doc/img/mg-divider-color.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-divider-background-color`: define the divider background color, default: `hsla(var(--color-danger), 15%)`\n- `--mg-divider-thickness`: define the divider thickness, default: `0.1rem`\n- `--mg-divider-vertical-spacing`: define the divider vertical spacing, default: `4rem`\n",
+      "docs": "![](./mg-divider/doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible :\n\n- Regular : 120px\n- Full : 100%\n\nRules :\n\n- Regular is the default mode.\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "size",
+          "type": "\"full\" | \"regular\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Define component size",
+          "docsTags": [],
+          "default": "'regular'",
+          "values": [
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "regular",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/molecules/mg-form/mg-form.tsx",
       "encapsulation": "shadow",
       "tag": "mg-form",
-      "readme": "## Anatomy\n\n![](./mg-form/doc/img/mg-form-anatomy.png)\n\n- zone for required message (12px)\n- field area\n- actions area (submit, cancel)\n\n#### Spacing\n\n![](./mg-form/doc/img/mg-form-spacing.png)\n\nTo edit space bewteen the title and the input you must do as follow:\n\n```html\n<style>.mg-form--custom-grid {\n  --mg-form-inputs-title-width: 50rem //add here your custom value\n}</style>\n<mg-form class=\"mg-form--custom-grid\">\n  <!-- your content -->\n</mgform>\n```\n\n## Example\n\n**Code example does not reflect all the code.**\n\nHere we have a `form-valid` event listener on the `mg-form` to define if the \"submit\" button should be enable or not.  \nThe \"Display errors\" button use the `mg-form` `displayError()` method.\n",
-      "docs": "![](./mg-form/doc/img/mg-form-anatomy.png)\n\n- zone for required message (12px)\n- field area\n- actions area (submit, cancel)",
+      "readme": "## Use\n\nUse mg-form to build clean forms.  \nThe component manages :\n\n- the spacing between inputs\n- the required fileds message\n\n## Anatomy\n\n![](./mg-form/doc/img/mg-form-anatomy.png)\n\n1. Required field(s) message\n2. Inputs zone\n3. Actions zone\n\n## Style\n\n### Required field(s) message\n\n![](./mg-form/doc/img/mg-form-style-required-message.png)\n\nText is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--page)  \nThe \"\\*\" is in [@color-danger](./?path=/docs/style-colors--page)\n\n## Spacing\n\n### Inputs\n\nForm adds a 15px margin to the bottom of inputs.  \nThe gap between the label and the input zone is rising to 30px.\n\n![](./mg-form/doc/img/mg-form-spacing-inputs.png)\n\n## Behavior\n\n### Required field(s) message\n\nThis message is automatically generated by the component.\n\n- If there is only 1 input required (among other inputs)\n\n  > Field with a \\* is required\n\n- If there are many required inputs (among other inputs)\n\n  > Fields with a \\* are required\n\n- If there is only 1 input and it is required\n\n  > The field is required\n\n  In this case, the \"\\*\" is hidden on inputs labels.\n\n- If all inputs are required\n\n  > All fields are required\n\n  In this case, the \"\\*\" is hidden on inputs labels.\n\n## 👍 Good practices\n\n### Enabling _submit_ button\n\nYou can disable _submit button_ until all required fields are empty.\nFor this, use \"valid/invalid\" options.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-form-inputs-title-width`: Define slotted input label width, default: `15rem`\n\n## Example\n\n**Code example does not reflect all the code.**\n\nHere we have a `form-valid` event listener on the `mg-form` to define if the \"submit\" button should be enable or not.  \nThe \"Display errors\" button use the `mg-form` `displayError()` method.\n",
+      "docs": "Use mg-form to build clean forms.  \nThe component manages :\n\n- the spacing between inputs\n- the required fileds message",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -679,7 +857,7 @@
       "filePath": "./src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
-      "readme": "## Design\n\n### Standard\n\nSizes (px) :\n\n- 12x12 small\n- 16x16 regular\n- 24x24 large\n- 36x36 extra-large\n\nColor: text of the page (usually [@color-dark](?path=/docs/style-colors--page))\n\n### Use alone with informative color\n\nWhen using a pictograph alone with an informative color, the color must be displayed in the background for accessibility reasons.\n\nThe colors to be used are variations of the standard colors, with the brightness increased by 20%.\n\nRule applicable for all except \"info\" blue. \"Info\" pictographs without text are usually displayed in the font color.\n\n![](./mg-icon/doc/img/mg-icon-color-bg.png)\n\n### File naming\n\n- Separator: \"-\" (dash). By default, the pictographs are the \"filled\" version, but this doesn't need to be specified in the naming\n- Variant: \"-outline\". If pictograph variant has a background that has a full circle > add \"-circle\" ex : check-circle, check-circle-outline\n",
+      "readme": "## Design\n\n### Standard\n\nSizes (px) :\n\n- 12x12 small\n- 16x16 regular\n- 24x24 large\n- 36x36 extra-large\n\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))\n\n### Use alone with informative color\n\nWhen using a pictograph alone with an informative color, the color must be displayed in the background for accessibility reasons.\n\nThe colors to be used are variations of the standard colors, with the brightness increased by 20%.\n\nRule applicable for all except \"info\" blue. \"Info\" pictographs without text are usually displayed in the font color.\n\n![](./mg-icon/doc/img/mg-icon-color-bg.png)\n\n### File naming\n\n- Separator: \"-\" (dash). By default, the pictographs are the \"filled\" version, but this doesn't need to be specified in the naming\n- Variant: \"-outline\". If pictograph variant has a background that has a full circle > add \"-circle\" ex : check-circle, check-circle-outline\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -702,7 +880,7 @@
         },
         {
           "name": "size",
-          "type": "string",
+          "type": "\"extra-large\" | \"large\" | \"regular\" | \"small\"",
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -711,6 +889,19 @@
           "default": "'regular'",
           "values": [
             {
+              "value": "extra-large",
+              "type": "string"
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "regular",
+              "type": "string"
+            },
+            {
+              "value": "small",
               "type": "string"
             }
           ],
@@ -736,7 +927,7 @@
         },
         {
           "name": "variant",
-          "type": "string",
+          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -744,10 +935,23 @@
           "docsTags": [],
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -758,6 +962,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
+        "mg-action-more",
         "mg-button",
         "mg-details",
         "mg-input-checkbox",
@@ -769,6 +974,8 @@
         "mg-input-text",
         "mg-input-textarea",
         "mg-input-toggle",
+        "mg-item-more",
+        "mg-menu-item",
         "mg-message",
         "mg-modal",
         "mg-pagination",
@@ -778,68 +985,59 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-details": [
-          "mg-icon"
-        ],
-        "mg-input-checkbox": [
-          "mg-icon"
-        ],
-        "mg-input-date": [
-          "mg-icon"
-        ],
-        "mg-input-numeric": [
-          "mg-icon"
-        ],
-        "mg-input-password": [
-          "mg-icon"
-        ],
-        "mg-input-radio": [
-          "mg-icon"
-        ],
-        "mg-input-select": [
-          "mg-icon"
-        ],
-        "mg-input-text": [
-          "mg-icon"
-        ],
-        "mg-input-textarea": [
-          "mg-icon"
-        ],
-        "mg-input-toggle": [
-          "mg-icon"
-        ],
-        "mg-message": [
-          "mg-icon"
-        ],
-        "mg-modal": [
-          "mg-icon"
-        ],
-        "mg-pagination": [
-          "mg-icon"
-        ],
-        "mg-panel": [
-          "mg-icon"
-        ],
-        "mg-popover": [
-          "mg-icon"
-        ],
-        "mg-tabs": [
-          "mg-icon"
-        ]
+        "mg-action-more": ["mg-icon"],
+        "mg-button": ["mg-icon"],
+        "mg-details": ["mg-icon"],
+        "mg-input-checkbox": ["mg-icon"],
+        "mg-input-date": ["mg-icon"],
+        "mg-input-numeric": ["mg-icon"],
+        "mg-input-password": ["mg-icon"],
+        "mg-input-radio": ["mg-icon"],
+        "mg-input-select": ["mg-icon"],
+        "mg-input-text": ["mg-icon"],
+        "mg-input-textarea": ["mg-icon"],
+        "mg-input-toggle": ["mg-icon"],
+        "mg-item-more": ["mg-icon"],
+        "mg-menu-item": ["mg-icon"],
+        "mg-message": ["mg-icon"],
+        "mg-modal": ["mg-icon"],
+        "mg-pagination": ["mg-icon"],
+        "mg-panel": ["mg-icon"],
+        "mg-popover": ["mg-icon"],
+        "mg-tabs": ["mg-icon"]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-illustrated-message/mg-illustrated-message.tsx",
       "encapsulation": "shadow",
       "tag": "mg-illustrated-message",
-      "readme": "## Specs\n\n### Anatomy\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-anatomy.png) \n\nComponent is built with : \n- an illustration\n- a title\n\nOptionnally : \n- one or more _details_ slot wich accept HTML content (text, button...)\n\n### Style\n\n- _title_ : Open Sans, 20px, Regular\n- All contents are centered.\n\n### Spacing\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-spacing.png) \n\n30px between the bottom of the _illustration_ and top of the _title_.\n20px for the top of the _details_ zone.\n\n15px between left/right border of the screen and the component\n\n### Sizing\n\nThe maximum width of the component is 475px.\n\nThe maximum height of the illustration is 335px. Illustration must keep its proportionnality.\nIllustration can be displayed in \"small\" size so its maximum height is set to 60px.\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-sizing-small.png) \n\n## Behavior\n\nThe slotted elements (illustration, title and details) are centered horizontally in the page.\n\n\n\n",
+      "readme": "## Specs\n\n### Vertical\n\n#### Anatomy\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-vertical-anatomy.png)\n\nComponent is built with :\n\n- an illustration\n- a title\n\nOptionnally :\n\n- one or more _details_ slot which accept HTML content (text, button...)\n\n#### Style\n\n- _title_ : Open Sans, 20px, Regular\n- All contents are centered.\n\n#### Spacing\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-vertical-spacing.png).\n\n30px between the bottom of the _illustration_ and top of the _title_.\n\n20px for the top of the _details_ zone.\n\n15px between left/right border of the screen and the component\n\n#### Sizing\n\nThe maximum width of the component is 475px.\n\nThe maximum height of the illustration is 184px. Illustration must keep its proportionnality.\nIllustration can be displayed in \"small\" size so its maximum height is set to 60px.\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-vertical-sizing-small.png)\n\n### Horizontal\n\n#### Anatomy\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-horizontal-anatomy.png)\n\n#### Spacing\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-horizontal-spacing.png)\n\nBy default the margin is set to 40px on top and bottom. It's possible to modify this props.\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-horizontal-spacing-2.png)\n\nBetween the image and the group title/action.\n\n#### Alignment\n\n![](./mg-illustrated-message/doc/img/mg-illustrated-message-horizontal-alignment.png)\n\nThe image/illustration and the group tittle/details/action are vertically centred between them in the background.\n\n#### Responsive\n\nWhen there is not enough space the component take is default appearance.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-illustrated-message-padding-vertical`: define component vertical padding, default: `4rem`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "direction",
+          "type": "\"horizontal\" | \"vertical\"",
+          "mutable": false,
+          "attr": "direction",
+          "reflectToAttr": false,
+          "docs": "Define component orientation",
+          "docsTags": [],
+          "default": "'vertical'",
+          "values": [
+            {
+              "value": "horizontal",
+              "type": "string"
+            },
+            {
+              "value": "vertical",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "size",
           "type": "\"regular\" | \"small\"",
@@ -877,7 +1075,7 @@
       "filePath": "./src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-checkbox",
-      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n",
+      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
       "docs": "True/False value notion.\nOnly 2 possible values.",
       "docsTags": [],
       "usage": {},
@@ -921,16 +1119,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-checkbox')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "inputVerticalList",
@@ -1155,17 +1352,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-checkbox": ["mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
@@ -1216,16 +1405,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-date')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "invalid",
@@ -1466,17 +1654,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-date": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-date": ["mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
@@ -1561,16 +1741,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-numeric')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "integerLength",
@@ -1890,17 +2069,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-numeric": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-numeric": ["mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
@@ -1951,16 +2122,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-password')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "invalid",
@@ -2215,24 +2385,16 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-password": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-password": ["mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
       "filePath": "./src/components/molecules/inputs/mg-input-radio/mg-input-radio.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-radio",
-      "readme": "## Usage\n\n- Always used in a group with minimum 2 options\n- Only one selected option is possible from all the options in the group\n- The label option is clickable and selects the option\n- The group can be initialized without any default value\n\n### Theming\n\nThe style of the active radio button is that of the browser.\n\n## Specs\n\n![](./mg-input-radio/doc/img/mg-input-radio-specs.png)\n",
+      "readme": "## Usage\n\n- Always used in a group with minimum 2 options\n- Only one selected option is possible from all the options in the group\n- The label option is clickable and selects the option\n- The group can be initialized without any default value\n\n### Theming\n\nThe style of the active radio button is that of the browser.\n\n## Specs\n\n![](./mg-input-radio/doc/img/mg-input-radio-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define radio input size, default: `1.3rem`\n",
       "docs": "- Always used in a group with minimum 2 options\n- Only one selected option is possible from all the options in the group\n- The label option is clickable and selects the option\n- The group can be initialized without any default value",
       "docsTags": [],
       "usage": {},
@@ -2276,16 +2438,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-radio')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "inputVerticalList",
@@ -2530,25 +2691,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-radio": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-radio": ["mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
       "filePath": "./src/components/molecules/inputs/mg-input-select/mg-input-select.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-select",
-      "readme": "## Design\n\nThe placeholder of the list is \"Select a value\".\n\nThe behavior, style and position of the chevron on the right of the field are those of the native browser.\nThe spacing between the text and the chevron is at least 10px.\n",
-      "docs": "The placeholder of the list is \"Select a value\".\n\nThe behavior, style and position of the chevron on the right of the field are those of the native browser.\nThe spacing between the text and the chevron is at least 10px.",
+      "readme": "## Design\n\nThe placeholder of the list is \"Select a value\".\n\nThe behavior, style and position of the chevron on the right of the field are those of the native browser.  \nThe spacing between the text and the chevron is at least 10px.\n\n### Sizing\n\nThe width of the component is defined by the largest option of the options.\n",
+      "docs": "The placeholder of the list is \"Select a value\".\n\nThe behavior, style and position of the chevron on the right of the field are those of the native browser.  \nThe spacing between the text and the chevron is at least 10px.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2591,16 +2744,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-select')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "invalid",
@@ -2905,30 +3057,18 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-pagination"
-      ],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependents": ["mg-pagination"],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-select": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ],
-        "mg-pagination": [
-          "mg-input-select"
-        ]
+        "mg-input-select": ["mg-tooltip", "mg-icon", "mg-input-title"],
+        "mg-pagination": ["mg-input-select"]
       }
     },
     {
       "filePath": "./src/components/molecules/inputs/mg-input-text/mg-input-text.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-text",
-      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./mg-input-text/doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](?path=/docs/style-colors--page), opacity : 0.6\n\n#### Spacing\n\n![](./mg-input-text/doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./mg-input-text/doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as search input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field. \n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n",
+      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./mg-input-text/doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6\n\n#### Spacing\n\n![](./mg-input-text/doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./mg-input-text/doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as search input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field. \n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3005,16 +3145,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-text')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "invalid",
@@ -3354,32 +3493,18 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-panel"
-      ],
-      "dependencies": [
-        "mg-icon",
-        "mg-character-left",
-        "mg-tooltip",
-        "mg-input-title"
-      ],
+      "dependents": ["mg-panel"],
+      "dependencies": ["mg-icon", "mg-character-left", "mg-tooltip", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-text": [
-          "mg-icon",
-          "mg-character-left",
-          "mg-tooltip",
-          "mg-input-title"
-        ],
-        "mg-panel": [
-          "mg-input-text"
-        ]
+        "mg-input-text": ["mg-icon", "mg-character-left", "mg-tooltip", "mg-input-title"],
+        "mg-panel": ["mg-input-text"]
       }
     },
     {
       "filePath": "./src/components/molecules/inputs/mg-input-textarea/mg-input-textarea.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-textarea",
-      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 4000 alpha numeric characters\n\n#### Font\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](?path=/docs/style-colors--page), opacity : 0.6\n\n#### Spacing\n\n![](./mg-input-textarea/doc/img/mg-input-textarea-spacing.png)\n\n### Dimensions\n\n- the height of the component is by default 3 lines of text (this value is configurable)\n- by default, the input field cannot be resized\n",
+      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 4000 alpha numeric characters\n\n#### Font\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6\n\n#### Spacing\n\n![](./mg-input-textarea/doc/img/mg-input-textarea-spacing.png)\n\n### Dimensions\n\n- the height of the component is by default 3 lines of text (this value is configurable)\n- by default, the input field cannot be resized\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3440,16 +3565,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-textarea')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "invalid",
@@ -3800,19 +3924,9 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-character-left",
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-character-left", "mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-textarea": [
-          "mg-character-left",
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-textarea": ["mg-character-left", "mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
@@ -3893,40 +4007,22 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-input-title"
-        ],
-        "mg-input-date": [
-          "mg-input-title"
-        ],
-        "mg-input-numeric": [
-          "mg-input-title"
-        ],
-        "mg-input-password": [
-          "mg-input-title"
-        ],
-        "mg-input-radio": [
-          "mg-input-title"
-        ],
-        "mg-input-select": [
-          "mg-input-title"
-        ],
-        "mg-input-text": [
-          "mg-input-title"
-        ],
-        "mg-input-textarea": [
-          "mg-input-title"
-        ],
-        "mg-input-toggle": [
-          "mg-input-title"
-        ]
+        "mg-input-checkbox": ["mg-input-title"],
+        "mg-input-date": ["mg-input-title"],
+        "mg-input-numeric": ["mg-input-title"],
+        "mg-input-password": ["mg-input-title"],
+        "mg-input-radio": ["mg-input-title"],
+        "mg-input-select": ["mg-input-title"],
+        "mg-input-text": ["mg-input-title"],
+        "mg-input-textarea": ["mg-input-title"],
+        "mg-input-toggle": ["mg-input-title"]
       }
     },
     {
       "filePath": "./src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-toggle",
-      "readme": "## Usage\n\nClicking anywhere on the entire component area toggles the selected value.\n\nThe first value is always selected by default.\n\nWhen the \"on/off\" property is used, the first value is always the disabled value and the style is adjusted.\n\nThe values must be transcribed by texts or icons.\n\n### Types\n\n![](./mg-input-toggle/doc/img/mg-input-toggle-use.png)\n\n### Specs\n\n![](./mg-input-toggle/doc/img/mg-input-toggle-specs.png)\n\n### Readonly\n\n![](./mg-input-toggle/doc/img/mg-input-toggle-readonly.png)\n",
+      "readme": "## Usage\n\nClicking anywhere on the entire component area toggles the selected value.\n\nThe first value is always selected by default.\n\nWhen the \"on/off\" property is used, the first value is always the disabled value and the style is adjusted.\n\nThe values must be transcribed by texts or icons.\n\n### Types\n\n![](./mg-input-toggle/doc/img/mg-input-toggle-use.png)\n\n### Specs\n\n![](./mg-input-toggle/doc/img/mg-input-toggle-specs.png)\n\n### Readonly\n\n![](./mg-input-toggle/doc/img/mg-input-toggle-readonly.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`\n",
       "docs": "Clicking anywhere on the entire component area toggles the selected value.\n\nThe first value is always selected by default.\n\nWhen the \"on/off\" property is used, the first value is always the disabled value and the style is adjusted.\n\nThe values must be transcribed by texts or icons.",
       "docsTags": [],
       "usage": {},
@@ -3970,16 +4066,15 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
           "docsTags": [],
-          "default": "createID('mg-input-toggle')",
           "values": [
             {
               "type": "string"
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "isIcon",
@@ -4179,24 +4274,317 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
-      ],
+      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-toggle": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-input-toggle": ["mg-tooltip", "mg-icon", "mg-input-title"]
+      }
+    },
+    {
+      "filePath": "./src/components/molecules/mg-item-more/mg-item-more.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-item-more",
+      "readme": "# mg-item-more\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "icon",
+          "type": "{ icon: string; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define icon\nDefault: {icon: 'ellipsis-vertical'}",
+          "docsTags": [],
+          "default": "{ icon: 'ellipsis-vertical' }",
+          "values": [
+            {
+              "type": "{ icon: string; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"regular\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Define component child menu size.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "regular",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "slotlabel",
+          "type": "{ label?: string; display?: boolean; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define slot label element\nDefault: {display: false}",
+          "docsTags": [],
+          "default": "{ display: false }",
+          "values": [
+            {
+              "type": "{ label?: string; display?: boolean; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": ["mg-menu-item", "mg-icon", "mg-menu"],
+      "dependencyGraph": {
+        "mg-item-more": ["mg-menu-item", "mg-icon", "mg-menu"],
+        "mg-menu-item": ["mg-badge", "mg-icon", "mg-popover"],
+        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
+        "mg-button": ["mg-icon"]
+      }
+    },
+    {
+      "filePath": "./src/components/molecules/menu/mg-menu/mg-menu.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-menu",
+      "readme": "## Horizontal\n\n### Use\n\n![](./mg-menu/doc/img/mg-menu-exemple.png)\n\nHorizontal menu is used with large (\"desktop\") resolutions, it is placed in the upper area of the screen.\n\n### Anatomy\n\n![](./mg-menu/doc/img/mg-menu-horizontal-anatomy.png) \n\n![](./mg-menu/doc/img/mg-menu-horizontal-item-anatomy.png) \n\n### Options\n\n#### Meta\n\nMeta text is optional.\n\n#### Icon\n\nIcon is optional.\nUse it on all or none of the menu items.\n\n#### Illustration\n\nIllustration is optional.\nAn SVG can be specified instead of an icon.\n\n#### Badge\n\nBadge is optional.\nUse it when you need to notify new events in this section.\n\n### Behavior\n\n#### Sizing\n\n![](./mg-menu/doc/img/mg-menu-horizontal-sizing.png) \n\nA horizontal menu can display different item sizes: regular, medium, large.\n\n![](./mg-menu/doc/img/mg-menu-horizontal-sizing-itemmaxwidth.png) \n\nThe content of the element determines its width, but to handle the case where the content is too large (long label), it is possible to specify a maximum width for the element._Label_ and _Meta_ are then truncated.\n\n#### Sub-content\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-submenu.png)\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-slot.png) \n\nA \"submenu\" or a \"free content\" can be set to the item.\nAn icon \"chevron-down\" at the right of the item informs the user.\n\n##### Badge\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-badge.png) \n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./mg-menu/doc/img/mg-menu-horizontal-plus.png) \n\nWhen not all items can be displayed due to the width of the menu container, the items are grouped into a \"plus item\".\n\n## Vertical\n\n### Use\n\n![](./mg-menu/doc/img/mg-menu-vertical-use.png) \n\nThe horizontal menu is used with large resolutions (\"desktop\"), it is mainly placed in the left area of the screen.\n\n### Anatomy\n\n![](./mg-menu/doc/img/mg-menu-vertical-anatomy.png) \n\n![](./mg-menu/doc/img/mg-menu-vertical-item-anatomy.png) \n\n### Options\n\n#### Icon\n\nIcon is optional.\n\nUse it on all levels or none of the menu items.\n\n#### Badge\n\nBadge is optional.\n\nUse it when you need to notify new events in this section.\n\n### Behavior\n\n#### Sub content\n\nAn item can display a sub content which can be another vertical menu.\nThis item displays a chevron to its right.\nThe submenu is displayed by clicking on the item.\n\n##### Badge\n\n![](./mg-menu/doc/img/mg-menu-vertical-subcontent-badge.png) \n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./mg-menu/doc/img/mg-menu-vertical-scroll.png) \n\nWhen not all items can be displayed due to the height of the menu container, a scroll bar helps to see hidden items.\n\n**🔺child mg-menu-item slots image / information**\n\nWith a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attributes** instead, because the behavior uses the [cloneNode](https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode) method which breaks properties.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-background-color-hsl`: define mg-menu background color. Default: `--color-light`.\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "direction",
+          "type": "Direction.HORIZONTAL | Direction.VERTICAL",
+          "mutable": false,
+          "attr": "direction",
+          "reflectToAttr": true,
+          "docs": "Component display direction. Default: \"horizontal\"",
+          "docsTags": [],
+          "default": "Direction.HORIZONTAL",
+          "values": [
+            {
+              "type": "Direction.HORIZONTAL"
+            },
+            {
+              "type": "Direction.VERTICAL"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "itemMore",
+          "type": "{ size: \"regular\" | \"large\" | \"medium\"; icon: IconType; slotlabel: SlotLabelType; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Customize \"mg-item-more\" element\nUsed with direction: 'vertical' to manage overflow",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ size: \"regular\""
+            },
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "type": "\"medium\"; icon: IconType; slotlabel: SlotLabelType; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Menu label. Include short menu description.\nRequired for accessibility",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "size",
+          "type": "\"large\" | \"medium\" | \"regular\"",
+          "mutable": false,
+          "attr": "size",
+          "reflectToAttr": false,
+          "docs": "Define mg-menu size\nDefault: 'regular'",
+          "docsTags": [],
+          "default": "'regular'",
+          "values": [
+            {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
+              "type": "string"
+            },
+            {
+              "value": "regular",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": ["mg-action-more", "mg-item-more"],
+      "dependencies": [],
+      "dependencyGraph": {
+        "mg-action-more": ["mg-menu"],
+        "mg-item-more": ["mg-menu"]
+      }
+    },
+    {
+      "filePath": "./src/components/molecules/menu/mg-menu-item/mg-menu-item.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-menu-item",
+      "readme": "## Use\n\nItem menu is used with horizontal, vertical or mobile menus.\n\n## Anatomy\n\n![](./mg-menu-item/doc/img/mg-menu-item-anatomy.png)\n\nAn item must have a label.\nAn icon can be added before the text.\nA badge can be added after the text.\nWhen a submenu is available, a chevron is displayed (in horizontal and vertical menus) to indicate its presence.\n\n## Specs\n\nItem's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical, mobile).\n\n### Spacing\n\n![](./mg-menu-item/doc/img/mg-menu-item-spacing.png)\n\n### Sizing\n\n#### Horizontal menu\n\n![](./mg-menu-item/doc/img/mg-menu-item-sizing-horizontal.png)\n\nWidth of the item depends on its content.\n\n![](./mg-menu-item/doc/img/mg-menu-item-sizing-maxwidth.png)\n\nIf a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.\n\n#### Vertical menu\n\n![](./mg-menu-item/doc/img/mg-menu-item-sizing-vertical.png)\n\nWidth of the item is 100% width of the menu.\n\n#### Mobile\n\n![](./mg-menu-item/doc/img/mg-menu-item-sizing-mobile.png)\n\nWidth of the item is equal to the width of the menu divided by number of items displayed.\n\n### Alignment\n\n#### Horizontal and vertical menus\n\n![](./mg-menu-item/doc/img/mg-menu-item-alignment.png)\n\nAll contents are aligned vertically.\n\n#### Vertical menu\n\n![](./mg-menu-item/doc/img/mg-menu-item-alignment-vertical.png)\n\nAll items are aligned to left.\nThe chevron is aligned to the right of the item.\n\n#### Mobile\n\n![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile.png)\n\nContent of the item is centered\n\n![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile-badge.png)\n\nBadge is positionned to 20px right and -15px up from the center of the item.\n\n### Styling\n\n![](./mg-menu-item/doc/img/mg-menu-item-styling.png)\n\nHover item: the background is colored\nActive item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal and mobile menus), at the left of the item for vertical menus.\n\n#### Colors\n\nStandard color is @color-dark.\nActive color is the color of the app.\nHover color is the color of the app with an opacity set to 10%.\nDisabled item's opacity is set to 40%.\n\n#### Fonts\n\nFamily: Open Sans\nRegular size: 13px\nMedium/Large size: 15px\nMobile: 12px\n\n#### Icons\n\nRegular/Medium/Large menus: regular size\nMobile menu: large size\n\n## Behavior\n\n### Click\n\nClick on an item of the menu can:\n\n- redirect to a url\n- display child content (see below)\n\nIf child content is available, an icon \"chevron-down\" is displayed at the right of the item.\nWhen opening the child content, the chevron makes a 180° rotation.\nWhen closing the child content, the chevron returns to position 0°.\n\n## Child content\n\n### Horizontal and vertical menus\n\nChild content is displayed\n\n- by clicking on the item\n- by pressing the space or enter key\n\nIt is closed\n\n- by clicking on the item\n- by pressing the space or enter key\n- by clicking outside of the child content if the menu is horizontal\n\nThe child content can be:\n\n- another horizontal or vertical menu with sub items\n- a slot for HTML content\n\n#### In an horizontal menu\n\n![](./mg-menu-item/doc/img/mg-menu-submenu-alignment.png)\n\nChild content is displayed in a floating component over the content (like a popover).\nIt is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.\n\nIf the floating component is higher than the screen size, there is no overflow, user has to scroll the page.\n\n![](./mg-menu-item/doc/img/mg-menu-item-child-styling.png)\n\nThe floating component has a _@color-light_ background and a _@shadow_.\n\n![](./mg-menu-item/doc/img/mg-menu-item-child-menu-spacing.png)\n\nIf the floating component displays a submenu, there are top and bottom spacing of 10px.\n\n![](./mg-menu-item/doc/img/mg-menu-item-child-slot-spacing.png)\n\nIf the floating component displays a slot, there is no spacing.\n\n![](./mg-menu-item/doc/img/mg-menu-submenu-slot.png)\n\nThe minimal width of the submenu is the item's width.\nWidth of the submenu is determined by the width of the largest item or the content of the slot.\n\n#### In a vertical menu\n\n![](./mg-menu-item/doc/img/mg-menu-submenu-vertical-menu.png)\n\nMenu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**\nIdem for the slot.\nThere is no space to display child content.\nItems below are pushed to bottom.\n\n##### Spacing\n\nSub-items add to their left spacing the spacing between left border and content of their parent's item.\n\n### Mobile menu\n\nChild content is displayed via an **mg-tray** component.\n\n![](./mg-menu-item/doc/img/mg-menu-submenu-tray.png)\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-item-focused-background-color-hsl`: define mg-menu-item focused background color. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-border-color-active-hsl`: define mg-menu-item border color. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-color-hsl`: define mg-menu-item font color. default: `--mg-color-dark`.\n- `--mg-menu-item-color-active-hsl`: define mg-menu-item font color active. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-navigation-button-column-gap`: define mg-menu-item button column gap. default: `unset`.\n\n### navigation-button\n\n- `--mg-menu-item-navigation-button-max-width`: define mg-menu-item button max-width. Useful to apply `text-overflow: ellipsis;` on `mg-menu-item__navigation-button-text` element. default: `unset`.\n",
+      "docs": "Item menu is used with horizontal, vertical or mobile menus.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "expanded",
+          "type": "boolean",
+          "mutable": true,
+          "attr": "expanded",
+          "reflectToAttr": false,
+          "docs": "Define menu-item content expanded. Default: false.",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "mutable": false,
+          "attr": "href",
+          "reflectToAttr": false,
+          "docs": "Define menu-item href\nwhen defined menu-item contain an anchor instead of button",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "Identifier is used to control mg-popover\nDefault: createID('mg-menu-item');",
+          "docsTags": [],
+          "default": "createID('mg-menu-item')",
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+          "mutable": true,
+          "attr": "status",
+          "reflectToAttr": true,
+          "docs": "Define menu-item status. Default: \"visible\"",
+          "docsTags": [],
+          "default": "Status.VISIBLE",
+          "values": [
+            {
+              "type": "Status.ACTIVE"
+            },
+            {
+              "type": "Status.DISABLED"
+            },
+            {
+              "type": "Status.HIDDEN"
+            },
+            {
+              "type": "Status.VISIBLE"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "status-change",
+          "detail": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when status change",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": ["mg-action-more", "mg-item-more"],
+      "dependencies": ["mg-badge", "mg-icon", "mg-popover"],
+      "dependencyGraph": {
+        "mg-menu-item": ["mg-badge", "mg-icon", "mg-popover"],
+        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
+        "mg-button": ["mg-icon"],
+        "mg-action-more": ["mg-menu-item"],
+        "mg-item-more": ["mg-menu-item"]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-message/mg-message.tsx",
       "encapsulation": "shadow",
       "tag": "mg-message",
-      "readme": "## Usage\n\n### Types\n\nThe element can be of four different types depending on the message to be indicated:\n\n- validation (green)\n- information (blue)\n- warning (orange)\n- error (red)\n\nWhen a trigger (button...) is set up, it can trigger the display of a message. By default, the execution of the trigger erases the previous messages in the screen of the same type.\n\n## Specs\n\n![](./mg-message/doc/img/mg-message-specs.png)\n",
+      "readme": "## Usage\n\n### Types\n\nThe element can be of four different types depending on the message to be indicated:\n\n- validation (green)\n- information (blue)\n- warning (orange)\n- error (red)\n\nWhen a trigger (button...) is set up, it can trigger the display of a message. By default, the execution of the trigger erases the previous messages in the screen of the same type.\n\n## Specs\n\n![](./mg-message/doc/img/mg-message-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-message-border-radius`: Define message border radius, default: `0.3rem`\n\nPlease note that the mg-message component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-message. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-message to your design.\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4312,25 +4700,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-icon",
-        "mg-button"
-      ],
+      "dependencies": ["mg-card", "mg-icon", "mg-button"],
       "dependencyGraph": {
-        "mg-message": [
-          "mg-icon",
-          "mg-button"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ]
+        "mg-message": ["mg-card", "mg-icon", "mg-button"],
+        "mg-button": ["mg-icon"]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-modal/mg-modal.tsx",
       "encapsulation": "shadow",
       "tag": "mg-modal",
-      "readme": "## Anatomy\n\nA modal has :\n\n- a closing cross at the top right corner\n- a title\n- a body composed of fields or a message\n- a validation button\n- a cancel button\n\n## Behavior\n\nWhen clicking on the cross, the cancel button or the `<Escape>` key is pressed the modal closes and no processing is done.\n\nWhen the validation button is clicked, processing is performed and the modal closes.\n\nAs long as the user does not press one of these three buttons, the modal does not close.\n\nThe modal allows focusing the attention on what it is asking: a confirmation or a cancellation.  \nIn this sense the rest of the screen should not be accessible:\n\n- it is hidden by a backdrop\n- clicking on the backdrop does not close the modal\n\nThe title of the modal has a written name.\nEx : Add value\n\nThe wording of the validation button is the infinitive verb of the current action.  \nAvoid the verb \"Validate\" if a more explicit one is possible.  \nEx : \"Add\" for adding a value, \"Delete\" to delete a value, \"Modify\" to modify a value.\n\n### Icon or not icon on the action buttons ?\n\nIn the case of a targeted action, the icon can help to understand or even reassure > check icon that validates the action.\n\nIn the case of a confirmation/cancellation choice: not necessary or even superfluous > the term \"Save/Cancel\" is enough.\n\nEx: if I put a check in front of the term \"Delete\" which is the validation button of a deletion, the check refers to positive while the action of deletion is negative, and the Cancel button also, so not to add to the confusion, do not put an icon...\n\n## Specs\n\n### Shapes\n\n![](./mg-modal/doc/img/mg-modal-shapes.png)\n\n### Fonts\n\n![](./mg-modal/doc/img/mg-modal-fonts.png)\n\n### Spacing\n\n#### Spacing between edges and content\n\n![](./mg-modal/doc/img/mg-modal-spaces-borders.png)\n\n#### Spacing between title, text and buttons\n\n![](./mg-modal/doc/img/mg-modal-spaces-slot.png)\n![](./mg-modal/doc/img/mg-modal-spaces-slot-title.png)\n\n#### Spacing between the title and the cross button\n\n![](./mg-modal/doc/img/mg-modal-spaces-title.png)\n![](./mg-modal/doc/img/mg-modal-spaces-title-multiline.png)\n\n### Alignments\n\n![](./mg-modal/doc/img/mg-modal-alignments.png)\n\n### Sizes\n\n![](./mg-modal/doc/img/mg-modal-sizes.png)\n\n### Colors\n\n![](./mg-modal/doc/img/mg-modal-colors.png)\n\n### Backdrop\n\nColor: [@color-light](?path=/docs/style-colors--page) with an opacity set to 85%.\n",
+      "readme": "## Anatomy\n\nA modal has :\n\n- a closing cross at the top right corner\n- a title\n- a body composed of fields or a message\n- a validation button\n- a cancel button\n\n## Behavior\n\nWhen clicking on the cross, the cancel button or the `<Escape>` key is pressed the modal closes and no processing is done.\n\nWhen the validation button is clicked, processing is performed and the modal closes.\n\nAs long as the user does not press one of these three buttons, the modal does not close.\n\nThe modal allows focusing the attention on what it is asking: a confirmation or a cancellation.  \nIn this sense the rest of the screen should not be accessible:\n\n- it is hidden by a backdrop\n- clicking on the backdrop does not close the modal\n\nThe title of the modal has a written name.\nEx : Add value\n\nThe wording of the validation button is the infinitive verb of the current action.  \nAvoid the verb \"Validate\" if a more explicit one is possible.  \nEx : \"Add\" for adding a value, \"Delete\" to delete a value, \"Modify\" to modify a value.\n\n### Icon or not icon on the action buttons ?\n\nIn the case of a targeted action, the icon can help to understand or even reassure > check icon that validates the action.\n\nIn the case of a confirmation/cancellation choice: not necessary or even superfluous > the term \"Save/Cancel\" is enough.\n\nEx: if I put a check in front of the term \"Delete\" which is the validation button of a deletion, the check refers to positive while the action of deletion is negative, and the Cancel button also, so not to add to the confusion, do not put an icon...\n\n## Specs\n\n### Shapes\n\n![](./mg-modal/doc/img/mg-modal-shapes.png)\n\n### Fonts\n\n![](./mg-modal/doc/img/mg-modal-fonts.png)\n\n### Spacing\n\n#### Spacing between edges and content\n\n![](./mg-modal/doc/img/mg-modal-spaces-borders.png)\n\n#### Spacing between title, text and buttons\n\n![](./mg-modal/doc/img/mg-modal-spaces-slot.png)\n![](./mg-modal/doc/img/mg-modal-spaces-slot-title.png)\n\n#### Spacing between the title and the cross button\n\n![](./mg-modal/doc/img/mg-modal-spaces-title.png)\n![](./mg-modal/doc/img/mg-modal-spaces-title-multiline.png)\n\n### Alignments\n\n![](./mg-modal/doc/img/mg-modal-alignments.png)\n\n### Sizes\n\n![](./mg-modal/doc/img/mg-modal-sizes.png)\n\n### Colors\n\n![](./mg-modal/doc/img/mg-modal-colors.png)\n\n### Backdrop\n\nColor: [@color-light](./?path=/docs/style-colors--page) with an opacity set to 85%.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-modal-border-radius`: Define border radius modal, default: `0.5rem`\n- `--mg-modal-title-font-size`: Define modal title font size, default: `1.8rem`\n- `--mg-modal-content-font-size`: Define modall content font size, default: `1.2rem`\n\nPlease note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.\n",
       "docs": "A modal has :\n\n- a closing cross at the top right corner\n- a title\n- a body composed of fields or a message\n- a validation button\n- a cancel button",
       "docsTags": [],
       "usage": {},
@@ -4436,25 +4816,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-button",
-        "mg-icon"
-      ],
+      "dependencies": ["mg-card", "mg-button", "mg-icon"],
       "dependencyGraph": {
-        "mg-modal": [
-          "mg-button",
-          "mg-icon"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ]
+        "mg-modal": ["mg-card", "mg-button", "mg-icon"],
+        "mg-button": ["mg-icon"]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-pagination/mg-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "mg-pagination",
-      "readme": "## Anatomy\n\n![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)\n\n## Specs\n\n![](./mg-pagination/doc/img/mg-pagination-nav-specs.png)\n",
+      "readme": "## Anatomy\n\n![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)\n\n## Specs\n\n![](./mg-pagination/doc/img/mg-pagination-nav-specs.png)\n\nIt's possible to hide the labels \"prev\" and \"next\" to show only the \"chevron\" icons\n\n![](./mg-pagination/doc/img/mg-pagination-nav-label-hide.png)\n\n",
       "docs": "![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)",
       "docsTags": [],
       "usage": {},
@@ -4471,6 +4843,22 @@
           "values": [
             {
               "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "hideNavigationLabels",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-navigation-labels",
+          "reflectToAttr": false,
+          "docs": "Hide navigation label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
@@ -4544,32 +4932,18 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-button",
-        "mg-icon",
-        "mg-input-select"
-      ],
+      "dependencies": ["mg-button", "mg-icon", "mg-input-select"],
       "dependencyGraph": {
-        "mg-pagination": [
-          "mg-button",
-          "mg-icon",
-          "mg-input-select"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-input-select": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ]
+        "mg-pagination": ["mg-button", "mg-icon", "mg-input-select"],
+        "mg-button": ["mg-icon"],
+        "mg-input-select": ["mg-tooltip", "mg-icon", "mg-input-title"]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-panel/mg-panel.tsx",
       "encapsulation": "shadow",
       "tag": "mg-panel",
-      "readme": "## Behavior\n\nThe left zone of the header displays the item label, this zone is clickable and allows the user to unfold/fold the panel.\nIf no content is available, the panel cannot be unfolded.\nWhen the panel is unfolded, the icon is vertically inverted.\n\nThe right area of the header can accommodate any component.\n\n## Anatomy\n\n![](./mg-panel/doc/img/mg-panel-anatomy.png)\n\n## Specs\n\n### Sizing\n\n![](./mg-panel/doc/img/mg-panel-sizing.png)\n\n### Spacing\n\n![](./mg-panel/doc/img/mg-panel-spacing.png)\n\n### Alignments\n\n![](./mg-panel/doc/img/mg-panel-align.png)\n\n### Styles\n\n![](./mg-panel/doc/img/mg-panel-style.png)\n",
+      "readme": "## Behavior\n\nThe left zone of the header displays the item label, this zone is clickable and allows the user to unfold/fold the panel.\nIf no content is available, the panel cannot be unfolded.\nWhen the panel is unfolded, the icon is vertically inverted.\n\nThe right area of the header can accommodate any component.\n\n## Anatomy\n\n![](./mg-panel/doc/img/mg-panel-anatomy.png)\n\n## Specs\n\n### Sizing\n\n![](./mg-panel/doc/img/mg-panel-sizing.png)\n\n### Spacing\n\n![](./mg-panel/doc/img/mg-panel-spacing.png)\n\nSlot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.\n\n### Alignments\n\n![](./mg-panel/doc/img/mg-panel-align.png)\n\n### Styles\n\n![](./mg-panel/doc/img/mg-panel-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`\n- `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`\n- `--mg-panel-box-shadow`: Define panel box shadow, default: `var(--box-shadow)`\n- `--mg-panel-content-padding`: Define panel content padding, default: `1.5rem`\n\nPlease note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.\n",
       "docs": "The left zone of the header displays the item label, this zone is clickable and allows the user to unfold/fold the panel.\nIf no content is available, the panel cannot be unfolded.\nWhen the panel is unfolded, the icon is vertically inverted.\n\nThe right area of the header can accommodate any component.",
       "docsTags": [],
       "usage": {},
@@ -4716,37 +5090,39 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-button",
-        "mg-icon",
-        "mg-input-text"
-      ],
+      "dependencies": ["mg-button", "mg-icon", "mg-input-text", "mg-card"],
       "dependencyGraph": {
-        "mg-panel": [
-          "mg-button",
-          "mg-icon",
-          "mg-input-text"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-input-text": [
-          "mg-icon",
-          "mg-character-left",
-          "mg-tooltip",
-          "mg-input-title"
-        ]
+        "mg-panel": ["mg-button", "mg-icon", "mg-input-text", "mg-card"],
+        "mg-button": ["mg-icon"],
+        "mg-input-text": ["mg-icon", "mg-character-left", "mg-tooltip", "mg-input-title"]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-popover/mg-popover.tsx",
-      "encapsulation": "scoped",
+      "encapsulation": "shadow",
       "tag": "mg-popover",
-      "readme": "## Usage\n\nA popover is more enhanced than a tooltip but less blocking than a modal.\n\n## Behavior\n\nThe window is displayed when clicking on its trigger.\n\nThe window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.\n\nThe window closes:\n\n- when clicking on its trigger\n- clicking outside the window\n- when the ESC key is pressed\n- when clicking on the close button at the top right corner\n\nThe size of the window is determined by the content (set a maximum size to avoid problems).\n\nThe title and the close button are optional.\n\n## Specs\n\n### Fonts\n\n![](./mg-popover/doc/img/mg-popover-fonts.png)\n\n### Spacing\n\n![](./mg-popover/doc/img/mg-popover-spacing.png)\n\n### Sizing\n\n![](./mg-popover/doc/img/mg-popover-sizing.png)\n\n### Alignments\n\n![](./mg-popover/doc/img/mg-popover-align.png)\n\n### Positioning\n\n#### Item\n\n![](./mg-popover/doc/img/mg-popover-position.png)\n\n#### Screen\n\n![](./mg-popover/doc/img/mg-popover-position-screen.png)\n\n### Style\n\n![](./mg-popover/doc/img/mg-popover-style.png)\n",
+      "readme": "## Usage\n\nA popover is more enhanced than a tooltip but less blocking than a modal.\n\n## Behavior\n\nThe window is displayed when clicking on its trigger.\n\nThe window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.\n\nThe window closes:\n\n- when clicking on its trigger\n- clicking outside the window\n- when the ESC key is pressed\n- when clicking on the close button at the top right corner\n\nThe size of the window is determined by the content (set a maximum size to avoid problems).\n\nThe title and the close button are optional.\n\n## Specs\n\n### Fonts\n\n![](./mg-popover/doc/img/mg-popover-fonts.png)\n\n### Spacing\n\n![](./mg-popover/doc/img/mg-popover-spacing.png)\n\n### Sizing\n\n![](./mg-popover/doc/img/mg-popover-sizing.png)\n\n### Alignments\n\n![](./mg-popover/doc/img/mg-popover-align.png)\n\n### Positioning\n\n#### Item\n\n![](./mg-popover/doc/img/mg-popover-position.png)\n\n#### Screen\n\n![](./mg-popover/doc/img/mg-popover-position-screen.png)\n\n### Style\n\n![](./mg-popover/doc/img/mg-popover-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`\n- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`\n- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`\n- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`\n- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`\n\nPlease note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.\n",
       "docs": "A popover is more enhanced than a tooltip but less blocking than a modal.",
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "arrowHide",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "arrow-hide",
+          "reflectToAttr": false,
+          "docs": "Hide popover arrow",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "closeButton",
           "type": "boolean",
@@ -4906,26 +5282,65 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
-      "dependencies": [
-        "mg-button",
-        "mg-icon"
-      ],
+      "dependents": ["mg-action-more", "mg-menu-item"],
+      "dependencies": ["mg-card", "mg-button", "mg-icon"],
       "dependencyGraph": {
-        "mg-popover": [
-          "mg-button",
-          "mg-icon"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ]
+        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
+        "mg-button": ["mg-icon"],
+        "mg-action-more": ["mg-popover"],
+        "mg-menu-item": ["mg-popover"]
       }
+    },
+    {
+      "filePath": "./src/components/molecules/mg-skip-links/mg-skip-links.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-skip-links",
+      "readme": "## Behavior\n\nOn the first tab, a banner with the link(s) is displayed by pushing the content down.\n\nThe number of links will be added according to the content of the page.\n\n## Specs\n\n### Sizing\n\nThe minimum height of the banner is 55px.\n\n### Spacing\n\nItems have an internal margin of 12px and are spaced 6px apart.\n\n### Styling\n\n- The links are in [@color-dark](./?path=/docs/style-colors--page).\n- The background of the banner is in [@color-light](./?path=/docs/style-colors--page).\n\n#### On hover\n\nThe background of the item takes the color [@color-dark](./?path=/docs/style-colors--page) at 10% opacity.\n\n#### Focus taking\n\nNative browser behavior is retained.\n\n## Code example\n\nYou need to press <kbd>Tab</kbd> in the code example to see the component.\n\n## Integration\n\nThe `mg-skip-links` must be integrated at the very top of your page to be the first focusable element.\n\n## Implementation with a \"#\" based router\n\n`mg-skip-links` uses native anchor behavior, but if your site/app uses a \"#\" link-based router, like AngularJS does, you'll need to use the \"go-to-anchor\" component event. This event returns its detail property to the target anchor, then you can apply the scrollTo anchor behavior:\n- if the anchor is in the same window, with native javascript:\n\n```js\nconst goToAnchor = (anchor) => {\n    const top = document.querySelector(anchor).offsetTop;\n    window.scrollTo(0, top);\n\n    // set focus on next element to put keyboard navigation at the right place\n    anchor.focus();\n}\n\n// optionaly you can use a timeout to wait document ready\nsetTimeout(()=> {\n    // you must add listener on skip links element to prevent redirection\n    Array.from(document.querySelector('mg-skip-links').shadowRoot.querySelectorAll('a')).forEach(anchor => {\n        anchor.addEventListener('click', event => {\n            event.preventDefault();\n        })\n    })​\n})\n```\n\n- in case the anchor is in another window, with the [iframeRisizer's moveToAnchor method](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md#movetoanchoranchor)\n",
+      "docs": "On the first tab, a banner with the link(s) is displayed by pushing the content down.\n\nThe number of links will be added according to the content of the page.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "links",
+          "type": "SkipLink[]",
+          "mutable": true,
+          "reflectToAttr": false,
+          "docs": "Skip links",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "SkipLink[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "go-to-anchor",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when link is clicked",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/molecules/mg-tabs/mg-tabs.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tabs",
-      "readme": "## Anatomy\n\n![](./mg-tabs/doc/img/mg-tabs-anatomy.png)\n\n## Specs\n\n### Spacing\n\n- Standard : @base = 10px\n- Large : @base = 18px\n\n![](./mg-tabs/doc/img/mg-tabs-spacing.png)\n\n- if only text, no extra spacing,\n- if no badge : no extra spacing on the right\n- if only icon : no extra spacing on the right\n\n### Sizing\n\n![](./mg-tabs/doc/img/mg-tabs-sizing.png)\n\n### States\n\n![](./mg-tabs/doc/img/mg-tabs-states.png)\n\n### Responsive\n\n#### Line breaks (current management)\n\n![](./mg-tabs/doc/img/mg-tabs-responsive.png)\n",
+      "readme": "## Anatomy\n\n![](./mg-tabs/doc/img/mg-tabs-anatomy.png)\n\n## Specs\n\n### Spacing\n\n- Regular\n  - X = 20px;\n  - Y = 10px;\n- Large\n  - X = 30px;\n  - Y = 15px;\n\n![](./mg-tabs/doc/img/mg-tabs-spacing.png)\n\n- if only text, no extra spacing,\n- if no badge : no extra spacing on the right\n- if only icon : no extra spacing on the right\n\n### Sizing\n\n![](./mg-tabs/doc/img/mg-tabs-sizing.png)\n\n### States\n\n![](./mg-tabs/doc/img/mg-tabs-states.png)\n\n### Responsive\n\n#### Line breaks (current management)\n\n![](./mg-tabs/doc/img/mg-tabs-responsive.png)\n",
       "docs": "![](./mg-tabs/doc/img/mg-tabs-anatomy.png)",
       "docsTags": [],
       "usage": {},
@@ -4936,9 +5351,8 @@
           "mutable": true,
           "attr": "active-tab",
           "reflectToAttr": true,
-          "docs": "Active tab number\ndefault: first is 1",
+          "docs": "Active tab number",
           "docsTags": [],
-          "default": "1",
           "values": [
             {
               "type": "number"
@@ -5000,7 +5414,7 @@
         },
         {
           "name": "size",
-          "type": "string",
+          "type": "\"large\" | \"regular\"",
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -5009,6 +5423,11 @@
           "default": "'regular'",
           "values": [
             {
+              "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "regular",
               "type": "string"
             }
           ],
@@ -5033,22 +5452,16 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": [
-        "mg-icon",
-        "mg-badge"
-      ],
+      "dependencies": ["mg-icon", "mg-badge"],
       "dependencyGraph": {
-        "mg-tabs": [
-          "mg-icon",
-          "mg-badge"
-        ]
+        "mg-tabs": ["mg-icon", "mg-badge"]
       }
     },
     {
       "filePath": "./src/components/atoms/mg-tag/mg-tag.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tag",
-      "readme": "## Specs\n\n![](./mg-tag/doc/img/mg-tag-specs.png)\n\n## Theming\n\n![](./mg-tag/doc/img/mg-tag-theming.png)\n",
+      "readme": "## Specs\n\n![](./mg-tag/doc/img/mg-tag-specs.png)\n\n### Fill / Outline tags\n\n#### Colors\n\n![](./mg-tag/doc/img/mg-tag-colors.png)\n\nIcons take the color of the label.\n\n### Soft tags\n\n#### Font\n\n![](./mg-tag/doc/img/mg-tag-font.png)\n\nThey are not on SemiBold but **Regular**.\n\n#### Colors\n\n![](./mg-tag/doc/img/mg-tag-icons-colors.png)\n\n1. Icons takes the color of the tag variant.\n2. Labels are [**@color-dark**](./?path=/docs/style-colors--page) for all.\n3. Color background is **90% lightness** of the tag variant.\n\n#### Rules\n\n![](./mg-tag/doc/img/mg-tag-use.png)\n\nFor accessibility, soft variant tags cannot use an icon on its own.\n\n## Theming\n\n![](./mg-tag/doc/img/mg-tag-variants.png)\n\n### With Icons\n\n![](./mg-tag/doc/img/mg-tag-icons.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n### Global\n\n- `--mg-tag-height`: Define tag min height, default: `2.3rem`\n- `--mg-tag-border-radius`: Define tag border radius, default: `0.5rem`\n- `--mg-tag-font-size`: Define tag font size, default: `1.2rem`\n\n### Variant\n\nVariants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--page).\n",
       "docs": "![](./mg-tag/doc/img/mg-tag-specs.png)",
       "docsTags": [],
       "usage": {},
@@ -5059,7 +5472,23 @@
           "mutable": false,
           "attr": "outline",
           "reflectToAttr": false,
-          "docs": "Define if button is using outline style",
+          "docs": "Define if tag is using outline style",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "soft",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "soft",
+          "reflectToAttr": false,
+          "docs": "Define if tag is using soft style",
           "docsTags": [],
           "values": [
             {
@@ -5071,15 +5500,36 @@
         },
         {
           "name": "variant",
-          "type": "string",
+          "type": "\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Define button variant",
+          "docs": "Define tag variant",
           "docsTags": [],
           "default": "variants[0]",
           "values": [
             {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "value": "secondary",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
               "type": "string"
             }
           ],
@@ -5099,9 +5549,9 @@
     },
     {
       "filePath": "./src/components/atoms/mg-tooltip/mg-tooltip.tsx",
-      "encapsulation": "scoped",
+      "encapsulation": "shadow",
       "tag": "mg-tooltip",
-      "readme": "## Usage\n\nTooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.\n\n## Behavior\n\nThe tooltip must be displayed when the element that allows its display :\n\n- Is hovered over by the mouse.\n- Takes the keyboard focus.\n\nThe tooltip must be hidden when the element that allows its display :\n\n- Is no longer hovered over by the mouse.\n- Loses the keyboard focus.\n- Pressing the Escape key must hide the tooltip.\n\nThe tooltip must remain displayed when its content is hovered over by the mouse.\n\nThe tooltip can be placed above, to the right, below or to the left of the element it describes.\n\nBy default, the message is displayed at the bottom of the element.\n\nIf the element is located at the edge of the screen, the tooltip is shifted to be always visible.\n\n## Specs\n\n### Shapes\n\n![](./mg-tooltip/doc/img/mg-tooltip-shape.png)\n\n### Fonts\n\n![](./mg-tooltip/doc/img/mg-tooltip-font.png)\n\n### Spacing\n\n![](./mg-tooltip/doc/img/mg-tooltip-spaces.png)\n\n### Alignments\n\n![](./mg-tooltip/doc/img/mg-tooltip-alignments-text.png)\n\n### Positioning\n\nTriangle is always centered on the call component\n\n![](./mg-tooltip/doc/img/mg-tooltip-positioning.png)\n![](./mg-tooltip/doc/img/mg-tooltip-positioning2.png)\n\n### Colors\n\n![](./mg-tooltip/doc/img/mg-tooltip-colors.png)\n\n### Sizes\n\n![](./mg-tooltip/doc/img/mg-tooltip-sizing.png)\n",
+      "readme": "## Usage\n\nTooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.\n\n## Behavior\n\nThe tooltip must be displayed when the element that allows its display :\n\n- Is hovered over by the mouse.\n- Takes the keyboard focus.\n\nThe tooltip must be hidden when the element that allows its display :\n\n- Is no longer hovered over by the mouse.\n- Loses the keyboard focus.\n- Pressing the Escape key must hide the tooltip.\n\nThe tooltip must remain displayed when its content is hovered over by the mouse.\n\nThe tooltip can be placed above, to the right, below or to the left of the element it describes.\n\nBy default, the message is displayed at the bottom of the element.\n\nIf the element is located at the edge of the screen, the tooltip is shifted to be always visible.\n\n## Specs\n\n### Shapes\n\n![](./mg-tooltip/doc/img/mg-tooltip-shape.png)\n\n### Fonts\n\n![](./mg-tooltip/doc/img/mg-tooltip-font.png)\n\n### Spacing\n\n![](./mg-tooltip/doc/img/mg-tooltip-spaces.png)\n\n### Alignments\n\n![](./mg-tooltip/doc/img/mg-tooltip-alignments-text.png)\n\n### Positioning\n\nTriangle is always centered on the call component\n\n![](./mg-tooltip/doc/img/mg-tooltip-positioning.png)\n![](./mg-tooltip/doc/img/mg-tooltip-positioning2.png)\n\n### Colors\n\n![](./mg-tooltip/doc/img/mg-tooltip-colors.png)\n\n### Sizes\n\n![](./mg-tooltip/doc/img/mg-tooltip-sizing.png)\n\nComponent's max-width is 400px.\n\n![](./mg-tooltip/doc/img/mg-tooltip-max-width.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`\n- `--mg-tooltip-background-color`: Define tooltip background color, default: `--color-dark`\n- `--mg-tooltip-font-color`: Define tooltip font color, default: `--color-font-light`\n",
       "docs": "Tooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.",
       "docsTags": [],
       "usage": {},
@@ -5267,33 +5717,15 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-tooltip"
-        ],
-        "mg-input-date": [
-          "mg-tooltip"
-        ],
-        "mg-input-numeric": [
-          "mg-tooltip"
-        ],
-        "mg-input-password": [
-          "mg-tooltip"
-        ],
-        "mg-input-radio": [
-          "mg-tooltip"
-        ],
-        "mg-input-select": [
-          "mg-tooltip"
-        ],
-        "mg-input-text": [
-          "mg-tooltip"
-        ],
-        "mg-input-textarea": [
-          "mg-tooltip"
-        ],
-        "mg-input-toggle": [
-          "mg-tooltip"
-        ]
+        "mg-input-checkbox": ["mg-tooltip"],
+        "mg-input-date": ["mg-tooltip"],
+        "mg-input-numeric": ["mg-tooltip"],
+        "mg-input-password": ["mg-tooltip"],
+        "mg-input-radio": ["mg-tooltip"],
+        "mg-input-select": ["mg-tooltip"],
+        "mg-input-text": ["mg-tooltip"],
+        "mg-input-textarea": ["mg-tooltip"],
+        "mg-input-toggle": ["mg-tooltip"]
       }
     }
   ]

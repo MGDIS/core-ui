@@ -13,14 +13,18 @@ export class MgMessage {
    * Internal *
    ************/
 
-  // classes
-  private classHide = 'mg-message--hide';
+  // Classes
+  private readonly classHide = 'mg-message--hide';
 
   // IDs
   private closeButtonId = '';
 
   // Stored timer setted when hide action is run from setTimeOut
   private storedTimer: ReturnType<typeof setTimeout> = null;
+
+  // Manage hover
+  private isFocused = false;
+  private isHovered = false;
 
   // Locales
   private messages;
@@ -29,6 +33,9 @@ export class MgMessage {
    * Decorators *
    **************/
 
+  /**
+   * Get component DOM element
+   */
   @Element() element: HTMLMgMessageElement;
 
   /**
@@ -56,7 +63,7 @@ export class MgMessage {
   @Watch('variant')
   validateVariant(newValue: string, oldValue?: string): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variant" must be one of : ${variants.join(', ')}`);
+      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
       if (oldValue !== undefined) {
         this.classList.delete(`mg-message--${oldValue}`);
@@ -87,11 +94,25 @@ export class MgMessage {
     if (newValue) {
       this.componentHide.emit();
       this.classList.add(this.classHide);
+      // Remove event Listener
+      ['focusin', 'mouseenter'].forEach(event => {
+        this.element.removeEventListener(event, this.timerEvents);
+      });
+      // Clear Timer
+      this.clearTimer();
     } else {
       this.componentShow.emit();
       this.classList.delete(this.classHide);
+      // If delay is set
+      if (this.delay > 1) {
+        // Start timer
+        this.setTimer();
+        // Stop timer when get focus or mouse enter
+        ['focusin', 'mouseenter'].forEach(event => {
+          this.element.addEventListener(event, this.timerEvents);
+        });
+      }
     }
-    this.hideWithDelay();
   }
 
   /**
@@ -115,21 +136,52 @@ export class MgMessage {
   @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<string>;
 
   /**
+   * Set timer
+   *
+   * @returns {void}
+   */
+  private setTimer = (): void => {
+    this.storedTimer = setTimeout(() => (this.hide = true), this.delay * 1000);
+  };
+
+  /**
+   * Clear timer
+   *
+   * @returns {void}
+   */
+  private clearTimer = (): void => {
+    clearTimeout(this.storedTimer);
+  };
+
+  /**
+   * Event to add on element
+   *
+   * @param {MouseEvent | FocusEvent} event  event
+   * @returns {void}
+   */
+  private timerEvents = (event: MouseEvent | FocusEvent): void => {
+    this.clearTimer();
+    const isMouseEvent: boolean = event.type === 'mouseenter';
+    // Needed to ensure we don't start the timer
+    this[isMouseEvent ? 'isHovered' : 'isFocused'] = true;
+
+    // Restart timer when loose focus AND mouse leave
+    this.element.addEventListener(
+      isMouseEvent ? 'mouseleave' : 'focusout',
+      eventOut => {
+        this[eventOut.type === 'mouseleave' ? 'isHovered' : 'isFocused'] = false;
+        // Start timer if needed
+        if (!this.isFocused && !this.isHovered) this.setTimer();
+      },
+      { once: true },
+    );
+  };
+
+  /**
    * Handle close button
    */
   private handleClose = (): void => {
     this.hide = true;
-  };
-
-  /**
-   * Hide component whith delay
-   */
-  private hideWithDelay = (): void => {
-    if (this.delay > 0 && this.hide !== true) {
-      this.storedTimer = setTimeout(() => (this.hide = true), this.delay * 1000);
-    } else if (this.storedTimer !== null) {
-      clearTimeout(this.storedTimer);
-    }
   };
 
   /**
@@ -183,27 +235,30 @@ export class MgMessage {
   render(): HTMLElement {
     return (
       <div id={this.identifier} class={this.classList.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
-        <span class="mg-message__icon">
-          <mg-icon icon={this.getIcon()}></mg-icon>
-        </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
-            <slot></slot>
+        <mg-card>
+          <span class="mg-message__bar"></span>
+          <span class="mg-message__icon">
+            <mg-icon icon={this.getIcon()}></mg-icon>
           </span>
-          {this.hasActions && <span class="mg-message__content-separator"></span>}
-          {this.hasActions && (
-            <span class="mg-message__content-actions-slot">
-              <slot name="actions"></slot>
+          <div class="mg-message__content">
+            <span class="mg-message__content-slot">
+              <slot></slot>
+            </span>
+            {this.hasActions && <span class="mg-message__content-separator"></span>}
+            {this.hasActions && (
+              <span class="mg-message__content-actions-slot">
+                <slot name="actions"></slot>
+              </span>
+            )}
+          </div>
+          {this.closeButton && (
+            <span class="mg-message__close-button">
+              <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.message.closeButton} onClick={this.handleClose}>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
             </span>
           )}
-        </div>
-        {this.closeButton && (
-          <span class="mg-message__close-button">
-            <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.message.closeButton} onClick={this.handleClose}>
-              <mg-icon icon="cross"></mg-icon>
-            </mg-button>
-          </span>
-        )}
+        </mg-card>
       </div>
     );
   }

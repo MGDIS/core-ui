@@ -53,7 +53,9 @@ describe('mg-input-radio', () => {
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], labelOnTop: true },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], labelHide: true },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], inputVerticalList: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true },
+    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true, helpText: 'My help text', value: 'batman' },
+    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true, readonly: true, helpText: 'My help text', value: 'batman' },
+    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true, disabled: true, helpText: 'My help text', value: 'batman' },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], readonly: true },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], disabled: true },
@@ -65,25 +67,37 @@ describe('mg-input-radio', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test.each(['', undefined])('Should throw error with invalid label property : %s', async value => {
+  test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
+    expect.assertions(1);
     try {
-      await getPage({ label: value, items: ['batman', 'robin', 'joker', 'bane'] });
+      await getPage({ identifier, items: ['batman', 'robin', 'joker', 'bane'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required');
+      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+    }
+  });
+
+  test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label, items: ['batman', 'robin', 'joker', 'bane'] });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "label" is required.');
     }
   });
 
   test('Should throw an error with labelOnTop & labelHide set to true', async () => {
+    expect.assertions(1);
     try {
-      await getPage({ label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
+      await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
     }
   });
 
   test.each([[['batman']], [[{ title: 'batman', value: 'u' }]]])('Should throw an error with less than 2 items, case %s', async items => {
+    expect.assertions(1);
     try {
-      await getPage({ label: 'batman', labelOnTop: true, labelHide: true, items });
+      await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items });
     } catch (err) {
       expect(err.message).toMatch('<mg-input-radio> prop "items" require at least 2 items.');
     }
@@ -102,7 +116,8 @@ describe('mg-input-radio', () => {
         { title: 'batman', value: 'test' },
       ],
     ],
-  ])('Should throw error with invalid items property : %s', async items => {
+  ])('Should throw error with invalid items property: %s', async items => {
+    expect.assertions(1);
     try {
       await getPage({ label: 'Label', items });
     } catch (err) {
@@ -256,5 +271,60 @@ describe('mg-input-radio', () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should remove error on input when required change dynamically', async () => {
+    const page = await getPage({
+      label: 'label',
+      identifier: 'identifier',
+      items: ['batman', 'robin'],
+      required: true,
+    });
+    const element = page.doc.querySelector('mg-input-radio');
+    const allInputs = element.shadowRoot.querySelectorAll('input');
+
+    //mock validity
+    allInputs[0].checkValidity = jest
+      .fn()
+      .mockReturnValueOnce(false) //1
+      .mockReturnValueOnce(false) //1
+      .mockReturnValueOnce(true) //2
+      .mockReturnValueOnce(true) //2
+      .mockReturnValueOnce(false) //3
+      .mockReturnValueOnce(false); //3
+    allInputs[1].checkValidity = jest.fn().mockReturnValueOnce(true).mockReturnValueOnce(true); //2
+    Object.defineProperty(allInputs[0], 'validity', {
+      get: jest
+        .fn()
+        .mockReturnValueOnce({
+          valueMissing: true, //1
+        })
+        .mockReturnValueOnce({
+          valueMissing: false, //2
+        })
+        .mockReturnValueOnce({
+          valueMissing: true, //3
+        }),
+    });
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
+    expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
+
+    element.required = false;
+    await page.waitForChanges();
+
+    // Error message should disapear and change the hasDisplayedError status
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
+
+    element.required = true;
+    await page.waitForChanges();
+
+    // If back on required the message is still not displayed
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 });

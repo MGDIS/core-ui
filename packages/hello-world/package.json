@@ -1,0 +1,25 @@
+{
+	"name": "@mgdis/monorepo-hello-world",
+	"version": "1.4.1",
+	"description": "",
+	"main": "dist/src/index.js",
+	"types": "dist/src/index.d.ts",
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"scripts": {
+		"build": "tsc",
+		"test": "jest",
+		"test:watch": "jest --watch",
+		"coverage": "jest --coverage"
+	},
+	"devDependencies": {
+		"@jest/globals": "^27.0.3",
+		"jest": "^27.0.3",
+		"jest-config": "workspace:*",
+		"jest-junit": "^14.0.1",
+		"ts-jest": "^27.0.3",
+		"tsconfig": "workspace:*",
+		"typescript": "^4.9.5"
+	}
+}

@@ -32,6 +32,9 @@ describe('mg-input-date', () => {
     { label: 'label', identifier: 'identifier', readonly: true },
     { label: 'label', identifier: 'identifier', readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02' },
+    { label: 'label', identifier: 'identifier', required: true, value: '2022-06-02', helpText: 'My help text' },
+    { label: 'label', identifier: 'identifier', required: true, readonly: true, value: '2022-06-02', helpText: 'My help text' },
+    { label: 'label', identifier: 'identifier', required: true, disabled: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
@@ -45,28 +48,67 @@ describe('mg-input-date', () => {
    * Test
    */
 
-  test.each(['', undefined])('Should throw an error with invalid label property : %s', async value => {
+  test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
+    expect.assertions(1);
     try {
-      await getPage({ label: value });
+      await getPage({ identifier });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required');
+      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
     }
   });
 
-  test.each(['', 2021, '31-12-2022', '2022-02-24T08:01:44.460Z'])('Should throw an error with invalid value property : %s', async value => {
+  test.each(['', ' ', undefined])('Should throw an error with invalid label property: %s', async label => {
+    expect.assertions(1);
     try {
-      await getPage({ label: 'label', value });
+      await getPage({ identifier: 'identifier', label });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+    }
+  });
+
+  test('Should throw an error with labelOnTop & labelHide set to true', async () => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+    }
+  });
+
+  test.each([2021, '31-12-2022', '2022-02-24T08:01:44.460Z'])('Should throw an error with invalid value property: %s', async value => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', value });
     } catch (err) {
       expect(err.message).toMatch("<mg-input-date> props 'value' doesn't match pattern: yyyy-mm-dd");
     }
   });
 
-  test('Should throw an error with labelOnTop & labelHide set to true', async () => {
-    try {
-      await getPage({ label: 'batman', labelOnTop: true, labelHide: true });
-    } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
-    }
+  test('Should emit null value when receive an empty string', async () => {
+    const args = { label: 'label', identifier: 'identifier', helpText: 'My help text' };
+    const page = await getPage(args);
+
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn(() => true);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: false,
+        badInput: false,
+      })),
+    });
+
+    jest.spyOn(page.rootInstance.valueChange, 'emit');
+
+    input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+
+    input.value = '';
+    input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+    await page.waitForChanges();
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(null);
   });
 
   test('Should trigger events', async () => {
@@ -178,8 +220,8 @@ describe('mg-input-date', () => {
       expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.minMax.replace('{min}', localeDate(date.first, 'en')).replace('{max}', localeDate(date.middle, 'en')));
     }
 
-    expect(page.rootInstance.valid).toBeFalsy();
-    expect(page.rootInstance.invalid).toBeTruthy();
+    expect(page.rootInstance.valid).toEqual(false);
+    expect(page.rootInstance.invalid).toEqual(true);
   });
   test.each([
     { min: '', max: undefined },
@@ -191,6 +233,7 @@ describe('mg-input-date', () => {
     { min: undefined, max: '01/01/2022' },
     { min: undefined, max: '2022' },
   ])('Should return error when value does not match min and max setting (%s)', async minMax => {
+    expect.assertions(1);
     try {
       await getPage({
         label: 'label',
@@ -273,19 +316,64 @@ describe('mg-input-date', () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.hasError).toBeTruthy();
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
     input.value = '1982-06-02';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.rootInstance.hasError).toBeTruthy();
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toBeUndefined();
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.rootInstance.hasError).toBeFalsy();
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+  });
+
+  test('Should remove error on input when required change dynamically', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true);
+    Object.defineProperty(input, 'validity', {
+      get: jest
+        .fn()
+        .mockReturnValueOnce({
+          valueMissing: true,
+        })
+        .mockReturnValueOnce({
+          valueMissing: true,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+        }),
+    });
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
+    expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
+
+    element.required = false;
+    await page.waitForChanges();
+
+    // Error message should disapear and change the hasDisplayedError status
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
+
+    element.required = true;
+    await page.waitForChanges();
+
+    // If back on required the message is still not displayed
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 });

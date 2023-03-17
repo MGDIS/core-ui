@@ -15,8 +15,15 @@ When a trigger (button...) is set up, it can trigger the display of a message. B
 
 ![](./mg-message/doc/img/mg-message-specs.png)
 
-<!-- Auto Generated Below -->
+## CSS Variables
 
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-message-border-radius`: Define message border radius, default: `0.3rem`
+
+Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-message. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-message to your design.
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -28,7 +35,6 @@ When a trigger (button...) is set up, it can trigger the display of a message. B
 | `identifier`  | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.                   | `string`  | `createID('mg-message')` |
 | `variant`     | `variant`      | Message variant                                                                                                               | `string`  | `variants[0]`            |
 
-
 ## Events
 
 | Event            | Description                           | Type                  |
@@ -36,23 +42,25 @@ When a trigger (button...) is set up, it can trigger the display of a message. B
 | `component-hide` | Emited event when message is hidden   | `CustomEvent<string>` |
 | `component-show` | Emited event when message is diplayed | `CustomEvent<string>` |
 
-
 ## Dependencies
 
 ### Depends on
 
+- [mg-card](../../atoms/mg-card)
 - [mg-icon](../../atoms/mg-icon)
 - [mg-button](../../atoms/mg-button)
 
 ### Graph
+
 ```mermaid
 graph TD;
+  mg-message --> mg-card
   mg-message --> mg-icon
   mg-message --> mg-button
   mg-button --> mg-icon
   style mg-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

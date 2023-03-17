@@ -11,10 +11,12 @@
         font-size: 62.5%;
       }
       body {
-        padding: 1rem;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         font-size: 1.3rem;
         line-height: 1.4;
+      }
+      main {
+        padding: 1rem;
       }
       #custom-border-color {
         --mg-button-danger-alt-border-color: 188, 100%, 50%;
@@ -35,15 +37,24 @@
     <link rel="stylesheet" href="/build/variables.css" />
     <link rel="stylesheet" href="/build/mg-components.css" />
     <script type="module" src="/build/mg-components.esm.js"></script>
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@4/dist/mg-components/variables.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@4/dist/mg-components/mg-components.css" />
-    <script type="module" src="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@4.0.1/dist/mg-components/mg-components.esm.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@5.5.0/dist/mg-components/variables.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@5.5.0/dist/mg-components/mg-components.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@5.5.0/dist/mg-components/mg-components.esm.js"></script> -->
   </head>
   <body>
+    <mg-skip-links></mg-skip-links>
+    <script>
+      const mgSkipLink = document.querySelector('mg-skip-links');
+      mgSkipLink.links = [
+        { href: '#typography', label: 'Typo' },
+        { href: '#icons', label: 'Icons' },
+        { href: '#menu', label: 'Menu' },
+      ];
+    </script>
     <main>
       <h1>MG Components</h1>
       <section>
-        <h2>Typography</h2>
+        <h2 id="typography">Typography</h2>
         <h1>The h1 heading element</h1>
         <h2>The h2 heading element</h2>
         <h3>The h3 heading element</h3>
@@ -56,7 +67,7 @@
         <p><a href="#">A link</a></p>
       </section>
       <section>
-        <h2>Icons</h2>
+        <h2 id="icons">Icons</h2>
         <div class="mg-group-elements">
           <mg-icon icon="info-circle"></mg-icon>
           <mg-icon icon="info-circle" size="large"></mg-icon>
@@ -97,14 +108,291 @@
         </div>
       </section>
       <section>
+        <h2 id="menu">Menu</h2>
+        <h3>Horiztonal menu</h3>
+        <mg-menu label="Batman menu">
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-1</span>
+          </mg-menu-item>
+          <mg-menu-item size="medium" status="disabled">
+            <span slot="label">level-1 - label-2 long</span>
+          </mg-menu-item>
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-3 very very very very very long</span>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+          </mg-menu-item>
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-4</span>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+            <mg-badge value="2" label="hello" slot="information"></mg-badge>
+            <mg-menu label="submenu" direction="vertical">
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-1</span>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-2</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-3 very long</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-4</span>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-menu label="submenu 2" direction="vertical">
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-1</span>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-2</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-3</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                    <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-5</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+              </mg-menu-item>
+            </mg-menu>
+          </mg-menu-item>
+          <mg-menu-item size="regular">
+            <span slot="label">level-1 - slot content</span>
+            <span slot="metadata">my very long metadatas</span>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+            <mg-badge value="2" label="hello" slot="information"></mg-badge>
+            <div>
+              <h3>Demo title</h3>
+              <p>some content</p>
+            </div>
+          </mg-menu-item>
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-6</span>
+            <mg-badge value="2" label="hello" slot="information"></mg-badge>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+            <mg-menu label="submenu" direction="vertical">
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-1</span>
+                <mg-menu label="submenu" direction="vertical">
+                  <mg-menu-item size="medium">
+                    <span slot="label">level-3 - label-1</span>
+                    <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                    <mg-menu label="submenu 2" direction="vertical">
+                      <mg-menu-item size="medium" status="{Status.ACTIVE}">
+                        <span slot="label">level-4 - label-1</span>
+                      </mg-menu-item>
+                      <mg-menu-item size="medium">
+                        <span slot="label">level-4 - label-2</span>
+                        <mg-icon icon="user" slot="illustration"></mg-icon>
+                      </mg-menu-item>
+                      <mg-menu-item size="medium">
+                        <span slot="label">level-4 - label-3</span>
+                        <mg-icon icon="user" slot="illustration"></mg-icon>
+                        <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                      </mg-menu-item>
+                    </mg-menu>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-2</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-3</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-4 very long</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                <mg-menu label="submenu 2" direction="vertical">
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-1</span>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-2</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-3</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                    <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-5</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+              </mg-menu-item>
+            </mg-menu>
+          </mg-menu-item>
+        </mg-menu>
+        <h3>Vertical menu</h3>
+        <mg-menu label="Batman menu" direction="vertical">
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-1</span>
+          </mg-menu-item>
+          <mg-menu-item size="medium" status="disabled">
+            <span slot="label">level-1 - label-2 long</span>
+          </mg-menu-item>
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-3 very very very very very long</span>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+          </mg-menu-item>
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-4</span>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+            <mg-badge value="2" label="hello" slot="information"></mg-badge>
+            <mg-menu label="submenu" direction="vertical">
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-1</span>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-2</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-3 very long</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-4</span>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-menu label="submenu 2" direction="vertical">
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-1</span>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-2</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-3</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                    <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-5</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+              </mg-menu-item>
+            </mg-menu>
+          </mg-menu-item>
+          <mg-menu-item size="regular">
+            <span slot="label">level-1 - slot content</span>
+            <span slot="metadata">my very long metadatas</span>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+            <mg-badge value="2" label="hello" slot="information"></mg-badge>
+            <div>
+              <h3>Demo title</h3>
+              <p>some content</p>
+            </div>
+          </mg-menu-item>
+          <mg-menu-item size="medium">
+            <span slot="label">level-1 - label-6</span>
+            <mg-badge value="2" label="hello" slot="information"></mg-badge>
+            <mg-icon icon="user" slot="illustration"></mg-icon>
+            <mg-menu label="submenu" direction="vertical">
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-1</span>
+                <mg-menu label="submenu" direction="vertical">
+                  <mg-menu-item size="medium">
+                    <span slot="label">level-3 - label-1</span>
+                    <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                    <mg-menu label="submenu 2" direction="vertical">
+                      <mg-menu-item size="medium" status="{Status.ACTIVE}">
+                        <span slot="label">level-4 - label-1</span>
+                      </mg-menu-item>
+                      <mg-menu-item size="medium">
+                        <span slot="label">level-4 - label-2</span>
+                        <mg-icon icon="user" slot="illustration"></mg-icon>
+                      </mg-menu-item>
+                      <mg-menu-item size="medium">
+                        <span slot="label">level-4 - label-3</span>
+                        <mg-icon icon="user" slot="illustration"></mg-icon>
+                        <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                      </mg-menu-item>
+                    </mg-menu>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-2</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-3</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-4 very long</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                <mg-menu label="submenu 2" direction="vertical">
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-1</span>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-2</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                  </mg-menu-item>
+                  <mg-menu-item size="regular">
+                    <span slot="label">level-3 - label-3</span>
+                    <mg-icon icon="user" slot="illustration"></mg-icon>
+                    <mg-badge value="2" label="hello" slot="information"></mg-badge>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+              <mg-menu-item size="medium">
+                <span slot="label">level-2 - label-5</span>
+                <mg-icon icon="user" slot="illustration"></mg-icon>
+                <mg-badge value="2" label="hello" slot="information"></mg-badge>
+              </mg-menu-item>
+            </mg-menu>
+          </mg-menu-item>
+        </mg-menu>
+      </section>
+      <section>
         <h2>Buttons</h2>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-button variant="primary">Primary</mg-button>
+          <mg-button variant="secondary">Secondary</mg-button>
+          <mg-button variant="danger">Alert</mg-button>
+          <mg-button variant="danger-alt">Alert-alt</mg-button>
+          <mg-button variant="info">Info</mg-button>
+          <mg-button variant="flat">flat</mg-button>
+          <mg-button variant="link">link</mg-button>
+          <mg-button variant="link" class="custom-link">link</mg-button>
+          <style>
+            .custom-link {
+              --mg-button-border-radius: 1rem;
+            }
+          </style>
+        </div>
+        <div class="mg-group-elements" style="padding: 0 0 1rem">
+          <mg-button variant="primary"><mg-icon icon="check-circle"></mg-icon>Primary</mg-button>
           <mg-button variant="secondary"><mg-icon icon="check-circle"></mg-icon>Secondary </mg-button>
           <mg-button variant="danger"><mg-icon icon="exclamation-circle"></mg-icon>Alert</mg-button>
           <mg-button variant="danger-alt"><mg-icon icon="exclamation-triangle"></mg-icon>Alert-alt</mg-button>
           <mg-button variant="info"><mg-icon icon="info-circle"></mg-icon>Info</mg-button>
           <mg-button variant="flat"><mg-icon icon="info-circle"></mg-icon>flat</mg-button>
+          <mg-button variant="link"><mg-icon icon="info-circle"></mg-icon>link</mg-button>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-button disabled variant="primary">Primary</mg-button>
@@ -113,6 +401,7 @@
           <mg-button disabled variant="danger-alt"><mg-icon icon="exclamation-triangle"></mg-icon>Alert-alt</mg-button>
           <mg-button disabled variant="info"><mg-icon icon="info-circle"></mg-icon>Info</mg-button>
           <mg-button disabled variant="flat"><mg-icon icon="info-circle"></mg-icon>flat</mg-button>
+          <mg-button disabled variant="link"><mg-icon icon="info-circle"></mg-icon>link</mg-button>
         </div>
         <div id="custom-border-color" class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-button variant="primary">Primary</mg-button>
@@ -121,6 +410,7 @@
           <mg-button variant="danger-alt"><mg-icon icon="exclamation-triangle"></mg-icon>Alert-alt</mg-button>
           <mg-button variant="info"><mg-icon icon="info-circle"></mg-icon>Info</mg-button>
           <mg-button variant="flat"><mg-icon icon="info-circle"></mg-icon>flat</mg-button>
+          <mg-button variant="link"><mg-icon icon="info-circle"></mg-icon>link</mg-button>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-button variant="primary" is-icon label="Label"><mg-icon icon="check-circle"></mg-icon></mg-button>
@@ -129,6 +419,7 @@
           <mg-button variant="danger-alt" is-icon label="Label"><mg-icon icon="check-circle"></mg-icon></mg-button>
           <mg-button variant="info" is-icon label="Label"><mg-icon icon="check-circle"></mg-icon></mg-button>
           <mg-button variant="flat" is-icon label="Label"><mg-icon icon="cross"></mg-icon></mg-button>
+          <mg-button variant="link" is-icon label="Label"><mg-icon icon="cross"></mg-icon></mg-button>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-button variant="primary" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
@@ -137,6 +428,7 @@
           <mg-button variant="danger-alt" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
           <mg-button variant="info" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
           <mg-button variant="flat" is-icon label="Label"><mg-icon size="extra-large" icon="cross"></mg-icon></mg-button>
+          <mg-button variant="link" is-icon label="Label"><mg-icon size="extra-large" icon="cross"></mg-icon></mg-button>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-button variant="primary" is-icon label="Label"><mg-icon size="large" icon="check-circle"></mg-icon></mg-button>
@@ -145,9 +437,19 @@
           <mg-button variant="danger-alt" is-icon label="Label"><mg-icon size="large" icon="check-circle"></mg-icon></mg-button>
           <mg-button variant="info" is-icon label="Label"><mg-icon size="large" icon="check-circle"></mg-icon></mg-button>
           <mg-button variant="flat" is-icon label="Label"><mg-icon size="large" icon="cross"></mg-icon></mg-button>
+          <mg-button variant="link" is-icon label="Label"><mg-icon size="large" icon="cross"></mg-icon></mg-button>
         </div>
         <div style="padding: 0 0 1rem">
           <mg-button variant="primary"><mg-icon icon="check-circle"></mg-icon>Court Texte <br />avec br</mg-button>
+          <mg-button variant="primary">Court Texte <br />avec br et sans icone</mg-button>
+        </div>
+        <div style="padding: 0 0 1rem">
+          <mg-button variant="primary" full-width><mg-icon icon="check-circle"></mg-icon>full width button</mg-button>
+          <mg-button variant="primary" id="button-full-2">full width button</mg-button>
+          <script>
+            const mgButton2 = document.querySelector('#button-full-2');
+            mgButton2.fullWidth = true;
+          </script>
         </div>
         <div style="padding: 0 0 1rem">
           <mg-button variant="primary">
@@ -165,6 +467,13 @@
           <mg-button disable-on-click><mg-icon icon="check-circle"></mg-icon>Blu</mg-button>
           <mg-button is-icon label="Ce bouton se désactive après un clic" disable-on-click><mg-icon icon="check-circle"></mg-icon></mg-button>
         </div>
+        <h3>Disabled button</h3>
+        <div class="mg-group-elements" style="padding: 0 0 1rem">
+          <mg-button disabled onclick="alert('blu')" id="toggle-disabled-button">alert('blu')</mg-button>
+          <mg-button onclick="document.getElementById('toggle-disabled-button').disabled = !document.getElementById('toggle-disabled-button').disabled"
+            >👈 Toggle disabled</mg-button
+          >
+        </div>
         <h3>a.mg-button</h3>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <a href="#" class="mg-button mg-button--primary">a.mg-button</a>
@@ -173,43 +482,92 @@
         </div>
       </section>
       <section>
+        <h2>Card</h2>
+        <mg-card>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </mg-card>
+        <mg-card> Lorem ipsum dolor sit amet </mg-card>
+        <mg-card class="custom-mg-card--danger"><mg-card>Custom card</mg-card></mg-card>
+        <mg-card class="custom-mg-card--danger"><mg-card class="custom-mg-card--info">Custom card</mg-card></mg-card>
+        <mg-card class="custom-mg-card--danger"
+          ><mg-card class="custom-mg-card--info"><mg-card>Custom card</mg-card></mg-card></mg-card
+        >
+        <style>
+          .custom-mg-card--danger {
+            --mg-card-background: hsl(var(--color-danger));
+          }
+          .custom-mg-card--info {
+            --mg-card-background: hsl(var(--color-info));
+          }
+        </style>
+      </section>
+      <section>
+        <h2>Divider</h2>
+        <mg-divider></mg-divider>
+        <mg-divider size="full"></mg-divider>
+      </section>
+      <section>
         <h2>Messages</h2>
         <mg-message variant="info">
-          <p><strong>Coucou</strong>toi !</p></mg-message
-        >
+          <p><strong>Coucou</strong> toi !</p>
+        </mg-message>
         <mg-message variant="warning" close-button>
-          <p><strong>Coucou</strong>toi !</p></mg-message
-        >
+          <p><strong>Coucou</strong> toi !</p>
+        </mg-message>
         <mg-message variant="success">
-          <p><strong>Coucou</strong>toi !</p>
+          <p><strong>Coucou</strong> toi !</p>
           <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
             <mg-button>Primary</mg-button>
             <mg-button variant="secondary">Secondary</mg-button>
-          </div></mg-message
-        >
+          </div>
+        </mg-message>
         <mg-message variant="danger">
           <p>
-            <strong>Coucou</strong>toi ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            <strong>Coucou</strong> toi ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
             minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <p>
-            <strong>Coucou</strong>toi ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            <strong>Coucou</strong> toi ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
             minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
           <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
             <mg-button>Primary</mg-button>
             <mg-button variant="secondary">Secondary</mg-button>
-          </div></mg-message
-        >
+          </div>
+        </mg-message>
         <mg-message variant="info" close-button>
           <p>
-            <strong>Coucou</strong>toi ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+            <strong>Coucou</strong> toi ! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
             minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          </p></mg-message
-        >
+          </p>
+        </mg-message>
+        <div>
+          <mg-button type="button" id="button-with-delay">Toggle mg-message w/ delay</mg-button>
+        </div>
+        <mg-message variant="info" close-button delay="10" identifier="message-with-delay">
+          <p>with delay</p>
+          <mg-input-text identifier="input-with-delay" label="input to get focus"></mg-input-text>
+        </mg-message>
+        <mg-message class="custom-message-card">
+          <mg-card>child card</mg-card>
+        </mg-message>
+        <style>
+          .custom-message-card {
+            --mg-card-background: hsl(var(--color-danger));
+          }
+        </style>
+        <script>
+          const messageWithDelay = document.querySelector('[identifier="message-with-delay"]');
+          const buttonWithDelay = document.getElementById('button-with-delay');
+          buttonWithDelay.addEventListener('click', event => {
+            messageWithDelay.hide = !messageWithDelay.hide;
+          });
+        </script>
       </section>
       <section>
         <h2>Illustrated message</h2>
@@ -226,14 +584,44 @@
           <h3 slot="details">Je suis ton père !</h3>
           <div slot="details"><mg-button>Nooooooo</mg-button> <mg-button>Ok</mg-button></div>
         </mg-illustrated-message>
+        <mg-illustrated-message direction="horizontal">
+          <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 0H15C23.2843 0 30 6.71573 30 15V290H40V15C40 6.71573 46.7157 0 55 0C63.2843 0 70 6.71573 70 15V275C70 277.761 67.7615 280 65 280H60V40H50V340H60V290H65C67.7615 290 70 292.239 70 295V340H80V295C80 291.158 78.5558 287.654 76.1805 285C78.5558 282.346 80 278.842 80 275V0H95C103.284 0 110 6.71573 110 15V25C110 28.8418 108.556 32.3462 106.181 35C108.556 37.6538 110 41.1582 110 45V305C110 307.761 107.761 310 105 310H100V45C100 42.2386 97.7615 40 95 40H90V325C90 333.284 96.7157 340 105 340H120V330H105C102.239 330 100 327.761 100 325V320H105C113.284 320 120 313.284 120 305V15C120 6.71573 126.716 0 135 0C143.284 0 150 6.71573 150 15V330H140V15C140 12.2386 137.761 10 135 10C132.239 10 130 12.2386 130 15V340H165C173.284 340 180 333.284 180 325V15C180 12.2386 177.761 10 175 10H170V325C170 327.761 167.761 330 165 330H160V0H175C183.284 0 190 6.71573 190 15V350H0V0ZM10 325C10 333.284 16.7157 340 25 340C33.2843 340 40 333.284 40 325V300H30V325C30 327.761 27.7615 330 25 330C22.2385 330 20 327.761 20 325V15C20 12.2386 17.7615 10 15 10H10V325ZM60 15V30H50V15C50 12.2386 52.2385 10 55 10C57.7615 10 60 12.2386 60 15ZM95 30H90V10H95C97.7615 10 100 12.2386 100 15V25C100 27.7614 97.7615 30 95 30Z"
+              fill="black"
+            />
+          </svg>
+          <h2 slot="title">Daron Crew</h2>
+          <h3 slot="details">Je suis ton père !</h3>
+          <div slot="details"><mg-button>Nooooooo</mg-button> <mg-button>Ok</mg-button></div>
+        </mg-illustrated-message>
+        <mg-illustrated-message direction="horizontal">
+          <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 0H15C23.2843 0 30 6.71573 30 15V290H40V15C40 6.71573 46.7157 0 55 0C63.2843 0 70 6.71573 70 15V275C70 277.761 67.7615 280 65 280H60V40H50V340H60V290H65C67.7615 290 70 292.239 70 295V340H80V295C80 291.158 78.5558 287.654 76.1805 285C78.5558 282.346 80 278.842 80 275V0H95C103.284 0 110 6.71573 110 15V25C110 28.8418 108.556 32.3462 106.181 35C108.556 37.6538 110 41.1582 110 45V305C110 307.761 107.761 310 105 310H100V45C100 42.2386 97.7615 40 95 40H90V325C90 333.284 96.7157 340 105 340H120V330H105C102.239 330 100 327.761 100 325V320H105C113.284 320 120 313.284 120 305V15C120 6.71573 126.716 0 135 0C143.284 0 150 6.71573 150 15V330H140V15C140 12.2386 137.761 10 135 10C132.239 10 130 12.2386 130 15V340H165C173.284 340 180 333.284 180 325V15C180 12.2386 177.761 10 175 10H170V325C170 327.761 167.761 330 165 330H160V0H175C183.284 0 190 6.71573 190 15V350H0V0ZM10 325C10 333.284 16.7157 340 25 340C33.2843 340 40 333.284 40 325V300H30V325C30 327.761 27.7615 330 25 330C22.2385 330 20 327.761 20 325V15C20 12.2386 17.7615 10 15 10H10V325ZM60 15V30H50V15C50 12.2386 52.2385 10 55 10C57.7615 10 60 12.2386 60 15ZM95 30H90V10H95C97.7615 10 100 12.2386 100 15V25C100 27.7614 97.7615 30 95 30Z"
+              fill="black"
+            />
+          </svg>
+          <h2 slot="title">The standard Lorem Ipsum passage, used since the 1500s</h2>
+          <h3 slot="details">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </h3>
+          <div slot="details"><mg-button>Nooooooo</mg-button> <mg-button>Ok</mg-button></div>
+        </mg-illustrated-message>
       </section>
       <section>
         <h2>Tabs</h2>
-        <mg-tabs>
+        <mg-tabs label="the tab">
           <div slot="tab_content-1">Content 1</div>
           <div slot="tab_content-2">Content 2</div>
-          <div slot="tab_content-3">Content 3</div></mg-tabs
-        >
+          <div slot="tab_content-3">Content 3</div>
+        </mg-tabs>
         <script>
           const mgTabs = document.querySelector('mg-tabs');
           mgTabs.items = [
@@ -257,6 +645,33 @@
         <mg-panel panel-title="panel title" title-editable>
           <div>Content</div>
           <div slot="header-right">
+            <mg-tag>Label</mg-tag>
+            <mg-icon icon="check-circle" variant="success"></mg-icon>
+          </div>
+        </mg-panel>
+
+        <mg-panel panel-title="panel title" class="custom-panel-card">
+          <mg-card>Content</mg-card>
+        </mg-panel>
+        <style>
+          .custom-panel-card {
+            --mg-panel-background: var(--color-danger);
+          }
+        </style>
+
+        <mg-panel panel-title="panel title" title-editable>
+          <div>Content</div>
+          <div slot="header-right">
+            <mg-button variant="secondary"> <mg-icon icon="file-upload"></mg-icon> Upload </mg-button>
+            <mg-button is-icon variant="secondary" label="delete">
+              <mg-icon icon="trash"></mg-icon>
+            </mg-button>
+          </div>
+        </mg-panel>
+
+        <mg-panel panel-title="panel title" title-editable style="--mg-panel-background: none; --mg-panel-border-radius: 0; --mg-panel-box-shadow: none">
+          <div>Content</div>
+          <div slot="header-right">
             <mg-button variant="secondary"> <mg-icon icon="file-upload"></mg-icon> Upload </mg-button>
             <mg-button is-icon variant="secondary" label="delete">
               <mg-icon icon="trash"></mg-icon>
@@ -277,6 +692,7 @@
       <section>
         <h2>Tags</h2>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
+          <mg-tag variant="primary"><mg-icon icon="check-circle"></mg-icon>primary</mg-tag>
           <mg-tag variant="primary">primary</mg-tag>
           <mg-tag variant="secondary">secondary</mg-tag>
           <mg-tag variant="danger">danger</mg-tag>
@@ -294,28 +710,28 @@
       <section>
         <h2>Badges</h2>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
-          <mg-badge variant="primary" value="1"></mg-badge>
-          <mg-badge variant="secondary" value="1"></mg-badge>
-          <mg-badge variant="danger" value="1"></mg-badge>
-          <mg-badge variant="success" value="1"></mg-badge>
-          <mg-badge variant="info" value="1"></mg-badge>
+          <mg-badge label="label" variant="primary" value="1"></mg-badge>
+          <mg-badge label="label" variant="secondary" value="1"></mg-badge>
+          <mg-badge label="label" variant="danger" value="1"></mg-badge>
+          <mg-badge label="label" variant="success" value="1"></mg-badge>
+          <mg-badge label="label" variant="info" value="1"></mg-badge>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
-          <mg-badge outline variant="primary" value="1"></mg-badge>
-          <mg-badge outline variant="secondary" value="1"></mg-badge>
-          <mg-badge outline variant="danger" value="1"></mg-badge>
-          <mg-badge outline variant="success" value="1"></mg-badge>
-          <mg-badge outline variant="info" value="1"></mg-badge>
+          <mg-badge label="label" outline variant="primary" value="1"></mg-badge>
+          <mg-badge label="label" outline variant="secondary" value="1"></mg-badge>
+          <mg-badge label="label" outline variant="danger" value="1"></mg-badge>
+          <mg-badge label="label" outline variant="success" value="1"></mg-badge>
+          <mg-badge label="label" outline variant="info" value="1"></mg-badge>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
-          <mg-badge variant="primary" value="1"></mg-badge>
-          <mg-badge variant="secondary" value="1"></mg-badge>
-          <mg-badge variant="danger" value="1"></mg-badge>
-          <mg-badge variant="success" value="1"></mg-badge>
-          <mg-badge variant="info" value="1"></mg-badge>
+          <mg-badge label="label" variant="primary" value="1"></mg-badge>
+          <mg-badge label="label" variant="secondary" value="1"></mg-badge>
+          <mg-badge label="label" variant="danger" value="1"></mg-badge>
+          <mg-badge label="label" variant="success" value="1"></mg-badge>
+          <mg-badge label="label" variant="info" value="1"></mg-badge>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
-          <mg-button>mg-button <mg-badge value="1"></mg-badge></mg-button>
+          <mg-button>mg-button <mg-badge label="label" value="1"></mg-badge></mg-button>
         </div>
       </section>
       <section>
@@ -323,15 +739,24 @@
         <h3>Atoms</h3>
         <h4>Labels</h4>
         <div>
-          <mg-input-title>Label</mg-input-title>
+          <mg-input-title identifier="identifier">Label</mg-input-title>
         </div>
         <div>
-          <mg-input-title is-legend>Legend</mg-input-title>
+          <mg-input-title identifier="identifier" is-legend>Legend</mg-input-title>
         </div>
         <div>
-          <mg-input-title required>Label when required</mg-input-title>
+          <mg-input-title identifier="identifier" required>Label when required</mg-input-title>
         </div>
-        <!-- <h4>Tooltips</h4>
+        <h4>Tooltips</h4>
+        <div class="mg-group-elements" style="padding: 0 0 1rem">
+          <mg-tooltip message="Blu">
+            <mg-input-checkbox id="blo" label="bli" identifier="bla" label-hide></mg-input-checkbox>
+            <script>
+              const mgInputCheckboxWithTooltip = document.querySelector('mg-input-checkbox#blo');
+              mgInputCheckboxWithTooltip.value = [{ title: '', value: true }];
+            </script>
+          </mg-tooltip>
+        </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-tooltip
             message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
@@ -357,17 +782,29 @@
           <mg-tooltip message="my tooltip mg-button" id="tp-disabled" disabled display>
             <mg-button onclick="document.getElementById('tp-disabled').removeAttribute('disabled')">mg-button</mg-button></mg-tooltip
           >
-        </div> -->
-        <!-- 
+        </div>
+
         <h4>Modal</h4>
         <mg-button id="modal-button">Open modal</mg-button>
-        <mg-modal modal-title="Modal title" hide close-button>
+        <mg-modal modal-title="Modal title" close-button hide>
           <p slot="content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <div slot="actions" class="mg-group-elements mg-group-elements--align-right"><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>
+          <mg-popover slot="content" close-button>
+            <mg-tooltip message="Blublu">
+              <mg-button>Display popover</mg-button>
+            </mg-tooltip>
+            <div slot="content">Lorem ipsum dolor sit amet</div>
+            <h1 slot="title">Titre Normal</h1>
+          </mg-popover>
+          <mg-input-text slot="content" identifier="modal-mg-input-text" label="label"></mg-input-text>
+          <mg-button slot="content" onclick="alert('blu')">Primary</mg-button>
+          <input slot="content" type="text" />
+          <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
+            <mg-button>Primary</mg-button><mg-button variant="secondary" onclick="closeModal()">close</mg-button>
+          </div>
         </mg-modal>
         <script>
           document.querySelector('#modal-button').addEventListener('click', () => {
@@ -380,21 +817,91 @@
               mgModal.hide = true;
             }
           });
-        </script>-->
+          const closeModal = () => {
+            document.querySelector('mg-modal').hide = true;
+          };
+        </script>
         <h4>Popover</h4>
         <mg-popover>
           <mg-button>Display popover</mg-button>
-          <div slot="content">Coucou</div></mg-popover
-        >
-        <mg-popover close-button display>
+          <div slot="content">
+            <mg-button onclick="javascript:alert('coucou')">Coucou</mg-button>
+          </div>
+        </mg-popover>
+        <mg-popover close-button>
+          <mg-button>Display popover</mg-button>
+          <div slot="content">Lorem ipsum dolor sit amet</div>
+          <h1 slot="title">Titre Normal</h1>
+        </mg-popover>
+        <mg-popover close-button display placement="right-start">
           <div slot="content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </div>
           <h1 slot="title">Titre un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long</h1>
-          <mg-button>Display popover</mg-button>
+          <mg-button variant="flat">Display popover</mg-button>
         </mg-popover>
+        <mg-popover class="custom-popover">
+          <mg-button>Display custom popover</mg-button>
+          <div slot="content">Coucou</div>
+        </mg-popover>
+        <mg-popover class="custom-popover--card">
+          <mg-button>Display custom popover card</mg-button>
+          <mg-card slot="content">Coucou</mg-card>
+        </mg-popover>
+        <style>
+          .custom-popover {
+            --mg-card-padding: 5rem;
+            --mg-card-border-radius: 5rem;
+          }
+          .custom-popover--card {
+            --mg-popover-background-color: var(--color-danger);
+          }
+        </style>
+        <iframe src="./iframe.html" title="test popover iframe" frameborder="0"></iframe>
+        <iframe src="./iframe.html" title="test popover second iframe" frameborder="0"></iframe>
+        <h4>mg-action-more</h4>
+        <div>
+          <mg-action-more id="mg-action-more-pt5495n51w" style="margin-left: 2rem"></mg-action-more>
+          <script>
+            const element6pcboi3rg6 = document.querySelector('#mg-action-more-pt5495n51w');
+            element6pcboi3rg6.items = [
+              { label: 'batman', mouseEventHandler: () => 'hello batman' },
+              { label: 'robin', mouseEventHandler: () => 'hello batman', status: 'hidden' },
+              { label: 'joker', mouseEventHandler: () => 'hello batman', badge: { value: 2, label: 'badge' } },
+              { label: 'bane', mouseEventHandler: () => 'hello batman', icon: 'user', href: '#' },
+            ];
+          </script>
+        </div>
+        <div>
+          <mg-action-more id="mg-action-more-tbjb0visau" style="margin-left: 2rem"></mg-action-more>
+          <script>
+            const elementd8ckmajgye = document.querySelector('#mg-action-more-tbjb0visau');
+            elementd8ckmajgye.items = [
+              { label: 'batman', mouseEventHandler: () => 'hello batman' },
+              { label: 'robin', mouseEventHandler: () => 'hello batman', status: 'hidden' },
+              { label: 'joker', mouseEventHandler: () => 'hello batman', badge: { value: 2, label: 'badge' } },
+              { label: 'bane', mouseEventHandler: () => 'hello batman', icon: 'user', href: '#' },
+            ];
+            elementd8ckmajgye.button = { label: 'dc-comics', variant: 'primary', isIcon: false };
+            elementd8ckmajgye.icon = { icon: 'plus' };
+          </script>
+        </div>
+        <div>
+          <mg-action-more display-chevron="true" id="mg-action-more-t54e476a4l" style="margin-left: 2rem"></mg-action-more>
+          <script>
+            const elementvnvy6dimtb = document.querySelector('#mg-action-more-t54e476a4l');
+            elementvnvy6dimtb.items = [
+              { label: 'batman', mouseEventHandler: () => 'hello batman' },
+              { label: 'robin', mouseEventHandler: () => 'hello batman', status: 'hidden' },
+              { label: 'joker', mouseEventHandler: () => 'hello batman', badge: { value: 2, label: 'badge' } },
+              { label: 'bane', mouseEventHandler: () => 'hello batman', icon: 'user', href: '#' },
+            ];
+            elementvnvy6dimtb.button = { variant: 'flat', isIcon: false };
+          </script>
+        </div>
+
         <!--
         <h4>Character left</h4>
         <mg-character-left maxlength="400"></mg-character-left>
@@ -445,8 +952,8 @@
           value="blu"
         ></mg-input-textarea>
       -->
-        <h3>Input Select</h3>
-        <mg-input-select style="display: inline-block" placeholder-hide label="Libellé plutôt long on va dire" required></mg-input-select> <span>un texte qui suit le select</span>
+        <!-- <h3>Input Select</h3>
+        <mg-input-select placeholder-hide label="Libellé plutôt long on va dire" required identifier="blu"></mg-input-select>
         <script>
           const mgInputSelect = document.querySelector('mg-input-select');
           const mgInputSelectFullWidth = document.querySelector('mg-input-select.mg-input-width-full');
@@ -471,7 +978,7 @@
           mgInputSelect.addEventListener('value-change', e => {
             console.log(e.target.value);
           });
-        </script>
+        </script> -->
         <!--
         <h3>Input Date</h3>
         <mg-input-date
@@ -665,18 +1172,65 @@
               <mg-input-text required class="mg-grid__col no-padding" mg-width="2" label="Libellé" tooltip="message tooltip" value="" maxlength="2"></mg-input-text>
               <mg-input-text class="mg-grid__col no-padding" mg-width="2" label="Libellé" tooltip="message tooltip" value="BA" maxlength="2"></mg-input-text>
             </div> -->
-            <mg-input-checkbox identifier="mg-input-checkbox" label="mg-input-checkbox label"></mg-input-checkbox>
-            <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
+            <mg-input-checkbox label="mg-input-checkbox label" identifier="mg-input-checkbox-id"></mg-input-checkbox>
+            <script>
+              const mgInputCheckbox = document.querySelector('mg-input-checkbox[identifier="mg-input-checkbox-id"]');
+              mgInputCheckbox.value = [
+                { title: 'oui', value: false },
+                { title: 'non', value: false },
+              ];
+            </script>
+
+            <mg-input-date label="mg-input-date label" identifier="mg-input-date-id"></mg-input-date>
+            <script>
+              const mgInputDate = document.querySelector('mg-input-date');
+            </script>
+
             <mg-input-numeric class="align-left" identifier="mg-input-numeric" label="mg-input-numeric label"></mg-input-numeric>
+            <script>
+              const mgInputNumeric = document.querySelector('mg-input-numeric');
+            </script>
+
             <mg-input-password identifier="mg-input-password" label="mg-input-password label"></mg-input-password>
-            <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label" value="blu"></mg-input-radio>
+            <script>
+              const mgInputPassword = document.querySelector('mg-input-password');
+            </script>
+
+            <mg-input-radio identifier="mg-input-radio" label="mg-input-radio label"></mg-input-radio>
+            <script>
+              const mgInputRadio = document.querySelector('mg-input-radio');
+              mgInputRadio.items = [
+                { title: 'blu', value: 'blu' },
+                { title: 'bli', value: 'bli' },
+                { title: 'bla', value: 'bla', disabled: true },
+                { title: 'blo', value: 'blo' },
+              ];
+              // mgInputRadio.value = mgInputRadio.items[1].value;
+              // mgInputRadio.value = 'bli';
+            </script>
+
             <mg-input-select identifier="mg-input-select" label="mg-input-select label" value="blo" tooltip="non"></mg-input-select>
+            <script>
+              const mgInputSelect = document.querySelector('mg-input-select');
+              // mgInputSelect.items = ['blu', 'bli', 'bla', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'];
+              // mgInputSelect.items = [
+              //   { title: 'blu', value: undefined },
+              //   { title: 'bli', value: { blu: 'bli' } },
+              //   { title: 'bla', value: 'bla' },
+              //   { title: 'blo', value: 5 },
+              // ];
+              mgInputSelect.items = [];
+              // mgInputSelect.value = 'bli';
+              // mgInputSelect.value = mgInputSelect.items[2];
+              // mgInputSelect.value = undefined;
+            </script>
+
             <mg-input-text
               identifier="mg-input-text"
               label="mg-input-text label"
               pattern="[a-z]*"
               pattern-error-message="non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non non"
-              help-text="A l'aide !"
+              help-text="A l'aide ! <a href='javascript:alert(1)'>script</a>"
               mg-width="16"
               maxlength="20"
             ></mg-input-text>
@@ -684,71 +1238,92 @@
             <mg-input-text icon="check-circle" identifier="mg-input-text-serch" label="mg-input-text label">
               <mg-button slot="append-input" label="search"><mg-icon icon="magnifying-glass"></mg-icon> Search</mg-button>
             </mg-input-text>
+            <script>
+              const mgInputText = document.querySelector('mg-input-text');
+            </script>
+
             <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label" help-text="aide"></mg-input-textarea>
-            <mg-input-toggle identifier="mg-input-toggle" label="mg-input-toggle label" value="oui">
+            <script>
+              const mgInputTextarea = document.querySelector('mg-input-textarea');
+            </script>
+
+            <mg-input-toggle identifier="mg-input-toggle-required" label="All fields are required">
               <span slot="item-1">non</span>
               <span slot="item-2">oui</span>
             </mg-input-toggle>
+            <script>
+              const mgInputToggle = document.querySelector('mg-input-toggle');
+              mgInputToggle.items = [
+                { title: 'non', value: false },
+                { title: 'oui', value: true },
+              ];
+              mgInputToggle.addEventListener('value-change', e => {
+                console.log('---------- toggle-required ----------');
+                Array.from(document.querySelectorAll('mg-form *'))
+                  .filter(node => node.nodeName.startsWith('MG-INPUT-') && node !== mgInputToggle)
+                  .forEach(node => (node.required = e.detail));
+              });
+              // mgInputToggle.value = 'non';
+              // mgInputToggle.value = mgInputToggle.items[1].value;
+            </script>
+
             <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
-              <mg-button id="can-submit">Primary</mg-button>
-              <mg-button variant="secondary">Secondary</mg-button>
+              <mg-button id="can-submit">Can Submit</mg-button>
+              <mg-button id="display-error" variant="secondary" type="button">Chek errors</mg-button>
+              <mg-button id="toggle-readonly" variant="secondary" type="button">Toggle Inputs Readonly</mg-button>
+              <mg-button id="toggle-readonly-form" variant="secondary" type="button">Set Form Readonly</mg-button>
+              <mg-button id="toggle-disabled" variant="secondary" type="button">Toggle Inputs Disabled</mg-button>
+              <mg-button id="toggle-disabled-form" variant="secondary" type="button">Set Form Disabled</mg-button>
+              <mg-button id="add-input" variant="secondary" type="button">Add Required Input</mg-button>
             </div>
           </mg-form>
           <script>
             const mgForm = document.querySelector('mg-form');
+            mgForm.addEventListener('form-valid', e => {
+              console.log('form-valid', e.detail);
+            });
             const mgFormButton = document.querySelector('#can-submit');
             mgForm.addEventListener('form-valid', function (e) {
               mgFormButton.disabled = !e.detail;
             });
-            // setTimeout(function () {
-            //   mgForm.displayError();
-            // }, 1500);
+            const mgFormButtonErrors = document.querySelector('#display-error');
+            mgFormButtonErrors.addEventListener('click', () => {
+              mgForm.displayError();
+            });
+            const mgFormButtonToggleReadonly = document.querySelector('#toggle-readonly');
+            mgFormButtonToggleReadonly.addEventListener('click', () => {
+              console.log('---------- toggle-readonly ----------');
+              Array.from(mgForm.querySelectorAll('*'))
+                .filter(node => node.nodeName.startsWith('MG-INPUT-'))
+                .forEach(node => {
+                  node.readonly = !node.readonly;
+                  console.log(node.tagName, node.readonly);
+                });
+            });
+            const mgFormButtonToggleReadonlyForm = document.querySelector('#toggle-readonly-form');
+            mgFormButtonToggleReadonlyForm.addEventListener('click', () => {
+              mgForm.readonly = true;
+            });
+            const mgFormButtonToggleDisabled = document.querySelector('#toggle-disabled');
+            mgFormButtonToggleDisabled.addEventListener('click', () => {
+              Array.from(mgForm.querySelectorAll('*'))
+                .filter(node => node.nodeName.startsWith('MG-INPUT-'))
+                .forEach(node => (node.disabled = !node.disabled));
+            });
+            const mgFormButtonToggleDisabledForm = document.querySelector('#toggle-disabled-form');
+            mgFormButtonToggleDisabledForm.addEventListener('click', () => {
+              mgForm.disabled = true;
+            });
+            const mgFormButtonAddInput = document.querySelector('#add-input');
+            mgFormButtonAddInput.addEventListener('click', () => {
+              const mgInput = document.createElement('mg-input-text');
+              mgInput.label = 'mg-input JS creation';
+              mgInput.identifier = 'mg-input-js-creation';
+              mgInput.required = '';
+              mgForm.append(mgInput);
+            });
           </script>
           <script>
-            const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-            const mgInputDate = document.querySelector('mg-input-date');
-            const mgInputNumeric = document.querySelector('mg-input-numeric');
-            const mgInputPassword = document.querySelector('mg-input-password');
-            const mgInputRadio = document.querySelector('mg-input-radio');
-            const mgInputSelect = document.querySelector('mg-input-select');
-            const mgInputText = document.querySelector('mg-input-text');
-            const mgInputTextarea = document.querySelector('mg-input-textarea');
-            const mgInputToggle = document.querySelector('mg-input-toggle');
-
-            mgInputCheckbox.value = [
-              { title: 'oui', value: false },
-              { title: 'non', value: false },
-            ];
-            mgInputRadio.items = [
-              { title: 'blu', value: 'blu' },
-              { title: 'bli', value: 'bli' },
-              { title: 'bla', value: 'bla', disabled: true },
-              { title: 'blo', value: 'blo' },
-            ];
-            // mgInputRadio.value = mgInputRadio.items[1].value;
-            // mgInputRadio.value = 'bli';
-            // mgInputSelect.items = ['blu', 'bli', 'bla', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'];
-            mgInputSelect.items = [
-              { title: 'blu', value: undefined },
-              { title: 'bli', value: { blu: 'bli' } },
-              { title: 'bla', value: 'bla' },
-              { title: 'blo', value: 5 },
-            ];
-            // mgInputSelect.value = 'bli';
-            // mgInputSelect.value = mgInputSelect.items[2];
-            mgInputSelect.value = undefined;
-            mgInputToggle.items = [
-              { title: 'non', value: 'non' },
-              { title: 'oui', value: 'oui' },
-            ];
-            // mgInputToggle.value = 'non';
-            // mgInputToggle.value = mgInputToggle.items[1].value;
-          </script>
-          <script>
-            // mgInputCheckbox.value = [
-            //   { title: 'oui', value: true },
-            //   { title: 'non', value: false },
-            // ];
             // mgInputDate.value = '2022-04-15';
             // mgInputNumeric.value = 1234567890;
             // mgInputPassword.value = 'p455w0rD';
@@ -758,16 +1333,14 @@
             // mgInputTextarea.value =
             //   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
             // mgInputToggle.value = mgInputToggle.items[1].value;
-          </script>
-          <script>
-            mgInputCheckbox.required = true;
-            mgInputDate.required = true;
-            mgInputNumeric.required = true;
-            mgInputPassword.required = true;
-            mgInputRadio.required = true;
-            mgInputSelect.required = true;
-            mgInputText.required = true;
-            mgInputTextarea.required = true;
+            // mgInputCheckbox.readonly = true;
+            // mgInputDate.readonly = true;
+            // mgInputNumeric.readonly = true;
+            // mgInputPassword.readonly = true;
+            // mgInputRadio.readonly = true;
+            // mgInputSelect.readonly = true;
+            // mgInputText.readonly = true;
+            // mgInputTextarea.readonly = true;
           </script>
         </section>
         <h2>.mg-form-group</h2>
@@ -775,6 +1348,7 @@
           <div class="mg-grid__col mg-grid__col-10">
             <div class="mg-form-group">
               <mg-input-text
+                identifier="mg-input-text"
                 placeholder="placeholder"
                 help-text="Message du mg-input-text"
                 label="Libellé du mg-input-text"
@@ -786,7 +1360,7 @@
           </div>
         </div>
         <div class="mg-form-group">
-          <mg-input-select
+          <!-- <mg-input-select
             identifier="second"
             placeholder="placeholder"
             help-text="Message du mg-input-select"
@@ -804,19 +1378,21 @@
               { title: 'bla', value: 'blabla' },
               { title: 'blo', value: 'bloblo' },
             ];
-          </script>
+          </script> -->
         </div>
         <div class="mg-form-group">
-          <mg-input-date
+          <!-- <mg-input-date
+            identifier="mg-input-date"
             placeholder="placeholder"
             help-text="Message du mg-input-date"
             label="Libellé du mg-input-date"
             tooltip="message tooltip du mg-input-date"
             value="1982-06-02"
-          ></mg-input-date>
+          ></mg-input-date> -->
         </div>
         <div class="mg-form-group">
           <mg-input-numeric
+            identifier="mg-input-numeric"
             placeholder="placeholder"
             help-text="Message du mg-input-numeric"
             label="Libellé du mg-input-numeric"
@@ -826,6 +1402,7 @@
         </div>
         <div class="mg-form-group">
           <mg-input-text
+            identifier="mg-input-text"
             placeholder="placeholder"
             help-text="Message du mg-input-text"
             label="Libellé du mg-input-text"

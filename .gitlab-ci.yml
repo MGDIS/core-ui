@@ -1,4 +1,8 @@
-image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:16-build
+image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:18-build
+
+include:
+  - project: 'build/gitlab/gitlab-ci'
+    file: '/templates/base.yml'
 
 stages:
   - test
@@ -7,11 +11,6 @@ stages:
 
 default:
   interruptible: true # allows to cancel the job automatically
-
-variables:
-  TURBO_API: http://217.182.143.147:3000
-  TURBO_TEAM: mgdis
-  TURBO_TOKEN: EX2U6LMC0R
 
 .dependencies:
   before_script:
@@ -26,7 +25,7 @@ lint:
   script:
     - pnpm lint
 
-test:
+test:unit:
   stage: test
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
@@ -41,6 +40,17 @@ test:
     reports:
       junit:
         - coverage/junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage/cobertura-coverage.xml
+
+test:e2e:
+  stage: test
+  extends:
+    - .dependencies
+  script:
+    - pnpm test:e2e
+  retry: 2
 
 sonar:
   stage: sonar
@@ -55,7 +65,7 @@ sonar:
     - sonar-scanner -D sonar.login=$SONAR_KEY
     - gitlabci-sonar-compare report
   needs:
-    - test
+    - test:unit
 
 release:
   stage: release

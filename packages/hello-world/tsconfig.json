@@ -1,0 +1,9 @@
+{
+	"extends": "tsconfig/base.node16.json",
+	"include": ["./src/**/*.ts", "./src/**/*.json", "./src/**/*.d.ts"],
+	"exclude": ["./src/**/*.spec.ts"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"outDir": "dist"
+	}
+}

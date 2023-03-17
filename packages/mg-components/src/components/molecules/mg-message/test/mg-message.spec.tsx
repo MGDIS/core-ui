@@ -45,15 +45,17 @@ describe('mg-message', () => {
     expect(classDanger).not.toBeNull();
   });
 
-  test.each(['', 'blu', undefined])('Should throw error with invalid variant property : %s', async variant => {
+  test.each(['', 'blu'])('Should throw error with invalid variant property: %s', async variant => {
+    expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', variant }, getDefaultContent());
     } catch (err) {
-      expect(err.message).toMatch('<mg-message> prop "variant" must be one of :');
+      expect(err.message).toMatch('<mg-message> prop "variant" must be one of:');
     }
   });
 
-  test('Should throw error with invalid delay property : 50ms', async () => {
+  test('Should throw error with invalid delay property: 50ms', async () => {
+    expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', delay: 1 }, getDefaultContent());
     } catch (err) {
@@ -62,6 +64,7 @@ describe('mg-message', () => {
   });
 
   test('Should throw error when using prop "close-button" with an action slot', async () => {
+    expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', closeButton: true }, [
         getDefaultContent(),
@@ -100,7 +103,7 @@ describe('mg-message', () => {
 
     expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
 
-    jest.advanceTimersByTime(2000);
+    jest.advanceTimersByTime(args.delay * 1000);
 
     expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
@@ -111,9 +114,36 @@ describe('mg-message', () => {
     expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
     expect(page.rootInstance.componentShow.emit).toHaveBeenCalledTimes(1);
 
-    jest.advanceTimersByTime(2000);
+    jest.advanceTimersByTime(args.delay * 1000);
 
     expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(2);
+  });
+
+  test.each(['focus', 'mouse'])('Should manage event %s with delay', async eventType => {
+    const args = { identifier: 'identifier', delay: 2 };
+    const page = await getPage(args, getDefaultContent());
+
+    jest.spyOn(page.rootInstance.componentHide, 'emit');
+    jest.spyOn(page.rootInstance.componentShow, 'emit');
+
+    const element = page.doc.querySelector('mg-message');
+
+    expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
+
+    jest.advanceTimersByTime((args.delay / 2) * 1000);
+
+    element.dispatchEvent(eventType === 'focus' ? new FocusEvent('focusin') : new MouseEvent('mouseenter'));
+
+    jest.advanceTimersByTime(args.delay * 1000);
+
+    expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
+
+    element.dispatchEvent(eventType === 'focus' ? new FocusEvent('focusout') : new MouseEvent('mouseleave'));
+
+    jest.advanceTimersByTime(args.delay * 1000);
+
+    expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
+    expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
   });
 });

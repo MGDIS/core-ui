@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { variants, BadgeType } from './mg-badge.conf';
+import { variants, BadgeVariantType } from './mg-badge.conf';
 import { ClassList } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-badge',
@@ -11,8 +11,8 @@ export class MgBadge {
    * Internal *
    ************/
 
-  // classes
-  private classOutline = `mg-badge--outline`;
+  // Classes
+  private readonly classOutline = `mg-badge--outline`;
 
   /**************
    * Decorators *
@@ -21,11 +21,11 @@ export class MgBadge {
   /**
    * Badge value
    */
-  @Prop({ mutable: true }) value!: BadgeType['value'];
+  @Prop({ mutable: true }) value!: string | number;
   @Watch('value')
-  validateValue(newValue: BadgeType['value']): void {
-    if (`${newValue}`.match(/^(\d+|[?*!a-z])$/i) === null) {
-      throw new Error('<mg-badge> prop "value" must be interger or ponctuation character.');
+  validateValue(newValue: MgBadge['value']): void {
+    if (`${newValue}`.match(/^(\d+\+*|[?*!a-z])$/i) === null) {
+      throw new Error('<mg-badge> prop "value" must be integer or ponctuation character.');
     }
   }
 
@@ -33,16 +33,22 @@ export class MgBadge {
    * Badge label. Include short description.
    * Required for accessibility
    */
-  @Prop() label!: BadgeType['label'];
+  @Prop() label!: string;
+  @Watch('label')
+  validateLabel(newValue: MgBadge['label']): void {
+    if (typeof newValue !== 'string' || newValue.trim() === '') {
+      throw new Error('<mg-badge> prop "label" is required.');
+    }
+  }
 
   /**
    * Define button variant
    */
-  @Prop() variant: string = variants[0]; // info
+  @Prop() variant?: BadgeVariantType = variants[0]; // info
   @Watch('variant')
-  validateVariant(newValue: string, oldValue?: string): void {
+  validateVariant(newValue: MgBadge['variant'], oldValue?: MgBadge['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-badge> prop "variant" must be one of : ${variants.join(', ')}.`);
+      throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
       if (oldValue !== undefined) {
         this.classList.delete(`mg-badge--${oldValue}`);
@@ -56,7 +62,7 @@ export class MgBadge {
    */
   @Prop() outline: boolean;
   @Watch('outline')
-  validateOutline(newValue: boolean): void {
+  validateOutline(newValue: MgBadge['outline']): void {
     if (newValue) this.classList.add(this.classOutline);
     else this.classList.delete(this.classOutline);
   }
@@ -73,6 +79,7 @@ export class MgBadge {
    */
   componentWillLoad(): void {
     this.validateValue(this.value);
+    this.validateLabel(this.label);
     this.validateVariant(this.variant);
     this.validateOutline(this.outline);
   }
@@ -85,7 +92,7 @@ export class MgBadge {
   render(): HTMLElement {
     return (
       <span class={this.classList.join()}>
-        {this.value}
+        <span class="mg-badge__value">{this.value}</span>
         <span class="sr-only">{this.label}</span>
       </span>
     );

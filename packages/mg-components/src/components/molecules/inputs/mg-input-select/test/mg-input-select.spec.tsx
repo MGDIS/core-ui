@@ -19,6 +19,7 @@ describe('mg-input-select', () => {
   beforeEach(() => jest.useFakeTimers());
   afterEach(() => jest.runOnlyPendingTimers());
   test.each([
+    { label: 'label', identifier: 'identifier', items: [] },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'] },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], labelHide: true },
     {
@@ -44,6 +45,9 @@ describe('mg-input-select', () => {
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], labelOnTop: true },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], readonly: true },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, helpText: 'My help text', value: 'blu' },
+    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, readonly: true, helpText: 'My help text', value: 'blu' },
+    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, disabled: true, helpText: 'My help text', value: 'blu' },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', labelOnTop: true },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder' },
@@ -55,29 +59,41 @@ describe('mg-input-select', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test.each(['', undefined])('Should throw error with invalid label property : %s', async value => {
+  test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
+    expect.assertions(1);
     try {
-      await getPage({ label: value, items: ['blu', 'bli', 'blo', 'bla'] });
+      await getPage({ identifier, items: ['blu', 'bli', 'blo', 'bla'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required');
+      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+    }
+  });
+
+  test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label, items: ['blu', 'bli', 'blo', 'bla'] });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "label" is required.');
     }
   });
 
   test('Should throw an error with labelOnTop & labelHide set to true', async () => {
+    expect.assertions(1);
     try {
-      await getPage({ label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
+      await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
     }
   });
 
   test.each([[['blu', { title: 'blu', value: 'blu' }]], [['blu', { blu: 'blu' }]], [[{ title: 'blu', value: 'blu' }, { blu: 'blu' }]]])(
-    'Should throw error with invalid items property : %s',
+    'Should throw error with invalid items property: %s',
     async items => {
+      expect.assertions(1);
       try {
         await getPage({ label: 'Label', items });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input-select> prop "items" is required and all items must be the same type, string or Option.');
+        expect(err.message).toMatch('<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option.');
       }
     },
   );
@@ -271,19 +287,64 @@ describe('mg-input-select', () => {
 
     await page.waitForChanges();
 
-    expect(page.rootInstance.hasError).toBeTruthy();
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
 
     input.value = 'batman';
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.rootInstance.hasError).toBeTruthy();
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
     expect(page.rootInstance.errorMessage).toBeUndefined();
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(page.rootInstance.hasError).toBeFalsy();
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+  });
+
+  test('Should remove error on input when required change dynamically', async () => {
+    const page = await getPage({ label: 'label', items: ['batman', 'robin', 'joker', 'bane'], identifier: 'identifier', required: true });
+    const element = page.doc.querySelector('mg-input-select');
+    const input = element.shadowRoot.querySelector('select');
+
+    //mock validity
+    input.checkValidity = jest.fn().mockReturnValueOnce(false).mockReturnValueOnce(true).mockReturnValueOnce(true);
+    Object.defineProperty(input, 'validity', {
+      get: jest
+        .fn()
+        .mockReturnValueOnce({
+          valueMissing: true,
+        })
+        .mockReturnValueOnce({
+          valueMissing: true,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+        })
+        .mockReturnValueOnce({
+          valueMissing: false,
+        }),
+    });
+
+    await element.displayError();
+    await page.waitForChanges();
+
+    expect(page.rootInstance.hasDisplayedError).toEqual(true);
+    expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
+
+    element.required = false;
+    await page.waitForChanges();
+
+    // Error message should disapear and change the hasDisplayedError status
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
+
+    element.required = true;
+    await page.waitForChanges();
+
+    // If back on required the message is still not displayed
+    expect(page.rootInstance.hasDisplayedError).toEqual(false);
+    expect(page.rootInstance.errorMessage).toBeUndefined();
   });
 });

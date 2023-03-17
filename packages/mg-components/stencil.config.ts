@@ -4,12 +4,10 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'mg-components',
   globalStyle: 'src/styles/global.scss',
-  extras: {
-    cloneNodeFix: true,
-  },
   devServer: {
     openBrowser: false,
   },
+  tsconfig: 'tsconfig.build.json',
   outputTargets: [
     {
       type: 'dist',
@@ -20,12 +18,20 @@ export const config: Config = {
           dest: 'variables.css', // export variable in a seperate file for component inside another framework
         },
         {
-          src: 'styles/variables.css',
-          dest: 'variables.scss', // keeping scss file to prevent breaking change
+          src: 'styles/**/*.scss',
+          dest: './styles', // export variable in a seperate file for component inside another framework
         },
         {
           src: 'styles/fonts',
           dest: 'fonts', // export fonts
+        },
+        {
+          src: 'locales/en',
+          dest: 'locales/en',
+        },
+        {
+          src: 'locales/fr',
+          dest: 'locales/fr',
         },
       ],
     },
@@ -45,6 +51,9 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
       copy: [
         {
+          src: 'iframe.html',
+        },
+        {
           src: 'styles/variables.css',
           dest: 'build/variables.css', // export variable for working space
         },
@@ -58,7 +67,6 @@ export const config: Config = {
   plugins: [sass()],
   testing: {
     timers: 'fake',
-    reporters: ['default', 'jest-junit'],
     /**
      * Gitlab CI doesn't allow sandbox, therefor this parameters must be passed to your Headless Chrome
      * before it can run your tests

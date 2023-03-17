@@ -5,7 +5,7 @@
  * @param {number} length ID length
  * @returns {string} ID
  */
-export function createID(prefix = '', length = 10): string {
+export const createID = (prefix = '', length = 10): string => {
   let ID = '';
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   const charsLength = chars.length;
@@ -13,7 +13,7 @@ export function createID(prefix = '', length = 10): string {
     ID += chars.charAt(Math.floor(Math.random() * charsLength));
   }
   return (prefix !== '' ? `${prefix}-` : '') + ID;
-}
+};
 
 /**
  * Class to manage component classlist
@@ -77,9 +77,9 @@ export class ClassList {
  * @param {string[]} items items to check
  * @returns {boolean} all items are string
  */
-export function allItemsAreString(items: string[]): boolean {
+export const allItemsAreString = (items: string[]): boolean => {
   return items && items.every(item => typeof item === 'string');
-}
+};
 
 /**
  * Check if element is a heading
@@ -88,6 +88,65 @@ export function allItemsAreString(items: string[]): boolean {
  * @param {string[]} tagNames allowed tag names list
  * @returns {boolean} element is a heading
  */
-export function isTagName(element: Element, tagNames: string[]): boolean {
+export const isTagName = (element: Element, tagNames: string[]): boolean => {
   return tagNames.includes(element?.tagName.toLowerCase());
-}
+};
+
+/**
+ * Focusable elements query selector
+ */
+export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier]';
+
+/**
+ *
+ * @param {Window} localWindow the window we are lookink for other windows
+ * @returns {Window[]} The list of windows found
+ */
+export const getWindows = (localWindow: Window): Window[] => {
+  const parentWindows = getParentWindows(localWindow);
+  const childWindows = getChildWindows(localWindow);
+  return [localWindow, ...parentWindows, ...childWindows];
+};
+
+/**
+ * Get parent windows
+ *
+ * @param {Window} localWindow the window we are lookink for parents
+ * @param {Window[]} windows The list of allready found windows
+ * @returns {Window[]} The list of windows found
+ */
+export const getParentWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
+  // Check if is in iframe
+  if (localWindow.self !== localWindow.top) {
+    // Check if we have permission to access parent
+    try {
+      const parentWindow: Window = localWindow.parent;
+      windows.push(parentWindow);
+      return getParentWindows(parentWindow, windows);
+    } catch (err) {
+      console.error('Different hosts between iframes:', err);
+      return windows;
+    }
+  }
+  return windows;
+};
+
+/**
+ * Get child windows
+ *
+ * @param {Window} localWindow the window we are lookink for children
+ * @param {Window[]} windows The list of allready found windows
+ * @returns {Window[]} The list of windows found
+ */
+const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
+  if (localWindow.frames.length > 0) {
+    // Window.frames is an array-like object, needs a classic for loop
+    // https://developer.mozilla.org/en-US/docs/Web/API/Window/frames
+    for (let i = 0; i < localWindow.frames.length; i++) {
+      const childWindow: Window = localWindow.frames[i];
+      windows.push(childWindow);
+      getChildWindows(childWindow, windows);
+    }
+  }
+  return windows;
+};

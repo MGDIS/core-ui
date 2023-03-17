@@ -1,9 +1,11 @@
 packages:
   # all configs in subdirs of configs/
-  - "configs/**"
+  - 'configs/**'
   # all packages in direct subdirs of packages/
-  - "packages/*"
+  - 'packages/*'
   # all apps in subdirs of apps/
-  - "apps/**"
+  - 'apps/**'
+  # all tools in direct subdirs of tools/
+  - 'tools/*'
   # exclude packages that are inside test directories
-  - "!**/test/**"
+  - '!**/test/**'

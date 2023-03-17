@@ -1,5 +1,6 @@
 {
 	"$schema": "https://turborepo.org/schema.json",
+	"globalEnv": ["GITLAB_CI"],
 	"pipeline": {
 		"build": {
 			"dependsOn": ["^build"],
@@ -9,18 +10,19 @@
 			"outputs": []
 		},
 		"test": {
-			"dependsOn": ["^build"],
-			"outputs": [],
-			"inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+			"outputs": []
+		},
+		"test:unit": {
+			"outputs": []
+		},
+		"test:e2e": {
+			"outputs": []
 		},
 		"test:watch": {
-			"dependsOn": ["^build"],
-			"outputs": [],
-			"inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+			"outputs": []
 		},
 		"coverage": {
-			"outputs": ["coverage/**"],
-			"inputs": ["src/**/*.tsx", "src/**/*.ts", "test/**/*.ts", "test/**/*.tsx"]
+			"outputs": ["coverage/**", ".nyc_output/**"]
 		},
 		"lint": {
 			"outputs": []

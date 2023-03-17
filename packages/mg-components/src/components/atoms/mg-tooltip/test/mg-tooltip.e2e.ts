@@ -1,4 +1,6 @@
-import { createPage } from '../../../../utils/test.utils';
+import { createPage } from '../../../../utils/e2e.test.utils';
+
+const style = '<style>mg-icon{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}</style>';
 
 describe('mg-tooltip', () => {
   describe.each([
@@ -19,13 +21,11 @@ describe('mg-tooltip', () => {
     'left-end',
   ])('placement %s', placement => {
     test('Should render', async () => {
-      const page = await createPage(
-        `<style>mg-icon{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}</style><mg-tooltip message="this is a tooltip message" placement="${placement}"><mg-icon icon="info-circle"></mg-icon></mg-tooltip>`,
-      );
+      const page = await createPage(`${style}<mg-tooltip message="this is a tooltip message" placement="${placement}"><mg-icon icon="info-circle"></mg-icon></mg-tooltip>`);
 
       const mgTooltip = await page.find('mg-tooltip');
       const mgIcon = await page.find('mg-icon');
-      const tooltip = await page.find('[role="tooltip"]');
+      const tooltip = await page.find('mg-tooltip >>> .mg-tooltip');
 
       expect(mgTooltip).toHaveClass('hydrated');
 
@@ -66,7 +66,7 @@ describe('mg-tooltip', () => {
       const page = await createPage(template);
 
       const mgTooltip = await page.find('mg-tooltip');
-      const tooltip = await page.find('[role="tooltip"]');
+      const tooltip = await page.find('mg-tooltip >>> .mg-tooltip');
 
       expect(mgTooltip).toHaveClass('hydrated');
 
@@ -85,7 +85,7 @@ describe('mg-tooltip', () => {
       const page = await createPage(template);
 
       const mgTooltip = await page.find('mg-tooltip');
-      const tooltip = await page.find('[role="tooltip"]');
+      const tooltip = await page.find('mg-tooltip >>> .mg-tooltip');
 
       expect(mgTooltip).toHaveClass('hydrated');
 
@@ -105,7 +105,7 @@ describe('mg-tooltip', () => {
     const page = await createPage('<mg-tooltip identifier="identifier" message="Batman tooltip"><mg-icon icon="user"></mg-icon></mg-tooltip>');
 
     const tooltipedElement = await page.find('mg-icon');
-    const tooltipElement = await page.find('[role="tooltip"]');
+    const tooltipElement = await page.find('mg-tooltip >>> .mg-tooltip');
 
     // 1. take focus on tooltipedElement and display tooltip
     tooltipedElement.triggerEvent('focus');
@@ -130,5 +130,59 @@ describe('mg-tooltip', () => {
     await page.waitForChanges();
 
     expect(tooltipElement).not.toHaveAttribute('data-show');
+  });
+
+  test('Should keep tooltip arrow when update message', async () => {
+    const page = await createPage('<mg-tooltip message="Batman tooltip"><mg-icon icon="user"></mg-icon></mg-tooltip>');
+
+    await page.keyboard.down('Tab');
+    await page.waitForChanges();
+
+    await page.setViewport({ width: 400, height: 100 });
+
+    let screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
+
+    await page.$eval('mg-tooltip', elm => {
+      (elm as HTMLMgTooltipElement).message = 'Joker is here';
+    });
+    await page.waitForChanges();
+
+    screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
+  });
+
+  test('Should display long tooltip with max width', async () => {
+    const page = await createPage(
+      '<mg-tooltip identifier="identifier" message="my very long content should return to line because of the max-width set to 400px in the design specification"><mg-icon icon="user"></mg-icon></mg-tooltip>',
+    );
+
+    const tooltipedElement = await page.find('mg-icon');
+
+    await page.setViewport({ width: 500, height: 100 });
+
+    tooltipedElement.triggerEvent('focus');
+    await page.waitForChanges();
+
+    const screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
+  });
+
+  test('Should keep tooltip center when update "message" prop', async () => {
+    const page = await createPage(`${style}<mg-tooltip identifier="identifier" message="short tooltip" display><mg-icon icon="user"></mg-icon></mg-tooltip>`);
+
+    await page.setViewport({ width: 400, height: 400 });
+
+    let screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
+
+    await page.$eval('mg-tooltip', (mgTooltip: HTMLMgTooltipElement) => {
+      mgTooltip.message = 'my very long content should return to line because of the max-width set to 400px in the design specification';
+    });
+
+    await page.waitForChanges();
+
+    screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
   });
 });

@@ -2,37 +2,42 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgPopover } from '../mg-popover';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
-import { placements } from '../mg-popover.conf';
+import { mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
 
-// fix popper console.error in test
-// it is generated in @popperjs/core/dist/cjs/popper.js l.1859
-// this is due to internal function isHTMLElement(), so we can not mock it directly.
-// this function check if test DOM element mockHTMLElement instance is 'instanceof HTMLElement'
-// so we only override the console.error side effect for this error
-const errorFunction = console.error;
-const mock = jest.spyOn(console, 'error');
-mock.mockImplementation(error => {
-  const compareWith = 'Popper: "arrow" element must be an HTMLElement (not an SVGElement). To use an SVG arrow, wrap it in an HTMLElement that will be used as the arrow.';
-  if (error !== compareWith) {
-    errorFunction(error);
-  }
-});
+mockConsoleError();
+mockWindowFrames();
 
-const getPage = (args, element) =>
-  newSpecPage({
+const getPage = (args, slot, parent?: boolean) => {
+  const popover = () => <mg-popover {...args}>{slot}</mg-popover>;
+  return newSpecPage({
     components: [MgPopover, MgButton],
-    template: () => <mg-popover {...args}>{element}</mg-popover>,
+    template: () => (parent ? <span data-mg-popover-guard={args.identifier}>{popover()}</span> : popover()),
   });
+};
 
 describe('mg-popover', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+    setupResizeObserverMock({
+      observe: function () {
+        return null;
+      },
+      disconnect: function () {
+        return null;
+      },
+    });
+  });
+  afterEach(() => jest.clearAllTimers());
+
   test.each([
     { identifier: 'identifier' },
-    { identifier: 'identifier', placement: placements[0] },
+    { identifier: 'identifier', placement: 'auto' },
     { identifier: 'identifier', display: true },
     { identifier: 'identifier', closeButton: true },
     { identifier: 'identifier', display: true },
     { identifier: 'identifier', closeButton: true, lang: 'fr' },
     { identifier: 'identifier', closeButton: true, lang: 'xx' },
+    { identifier: 'identifier', arrowHide: true },
   ])('Should render with element', async args => {
     const { root } = await getPage(args, [
       <h2 slot="title">Blu bli blo bla</h2>,
@@ -52,24 +57,28 @@ describe('mg-popover', () => {
     { eventIn: 'click', eventOut: 'clickCross' },
     { eventIn: 'click', eventOut: 'clickDocument' },
     { eventIn: 'click', eventOut: 'clickPopover' },
+    { eventIn: 'click', eventOut: 'clickGuard' },
   ])('Should manage display on events %s', async ({ eventIn, eventOut }) => {
-    jest.clearAllTimers();
-
     const args = { identifier: 'identifier', closeButton: true };
-    const page = await getPage(args, [
-      <h2 slot="title">Blu bli blo bla</h2>,
-      <p slot="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>,
-      <mg-button identifier="identifier-btn">mg-button</mg-button>,
-    ]);
+    const page = await getPage(
+      args,
+      [
+        <h2 slot="title">Blu bli blo bla</h2>,
+        <p slot="content">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>,
+        <mg-button identifier="identifier-btn">mg-button</mg-button>,
+      ],
+      eventOut === 'clickGuard',
+    );
 
     const mgPopover = page.doc.querySelector('mg-popover');
     const interactiveElement = mgPopover.querySelector(`[aria-controls*='${args.identifier}']`);
-    const popover = mgPopover.querySelector(`#${args.identifier}`);
+    const popover = mgPopover.shadowRoot.querySelector(`#${args.identifier}`);
     const popoverButton = popover.querySelector(`mg-button`);
+    const dataGuard = page.doc.querySelector('[data-mg-popover-guard]');
 
     const displayChangeSpy = jest.spyOn(page.rootInstance.displayChange, 'emit');
 
@@ -88,13 +97,15 @@ describe('mg-popover', () => {
         document.dispatchEvent(new Event('click', { bubbles: true }));
       } else if (eventOut === 'clickPopover') {
         popover.dispatchEvent(new Event('click', { bubbles: true }));
+      } else if (eventOut === 'clickGuard') {
+        dataGuard.dispatchEvent(new Event('click', { bubbles: true }));
       }
     } else {
       mgPopover.dispatchEvent(new KeyboardEvent('keydown', { code: eventOut.code }));
     }
     await page.waitForChanges();
 
-    if (eventOut === 'clickPopover') {
+    if (typeof eventOut === 'string' && ['clickPopover', 'clickGuard'].includes(eventOut)) {
       expect(popover).toHaveAttribute('data-show');
       expect(displayChangeSpy).toHaveBeenCalledWith(true);
     } else {
@@ -103,46 +114,8 @@ describe('mg-popover', () => {
     }
   });
 
-  test.each([false, true])('Should not toggle display when disabled', async display => {
-    const args = { identifier: 'identifier', closeButton: true, disabled: true, display };
-    const page = await getPage(args, [
-      <h2 slot="title">Blu bli blo bla</h2>,
-      <p slot="content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>,
-      <mg-button identifier="identifier-btn">mg-button</mg-button>,
-    ]);
-
-    const mgPopover = page.doc.querySelector('mg-popover');
-    const interactiveElement = mgPopover.querySelector(`[aria-controls*='${args.identifier}']`);
-    const popover = mgPopover.querySelector(`#${args.identifier}`);
-    const popoverButton = popover.querySelector(`mg-button`);
-
-    const displayChangeSpy = jest.spyOn(page.rootInstance.displayChange, 'emit');
-
-    expect(popoverButton).toBeNull();
-
-    if (display) expect(popover).toHaveAttribute('data-show');
-    else expect(popover).not.toHaveAttribute('data-show');
-
-    interactiveElement.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-    await page.waitForChanges();
-
-    if (display) expect(popover).toHaveAttribute('data-show');
-    else expect(popover).not.toHaveAttribute('data-show');
-
-    mgPopover.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
-    await page.waitForChanges();
-
-    if (display) expect(popover).toHaveAttribute('data-show');
-    else expect(popover).not.toHaveAttribute('data-show');
-
-    expect(displayChangeSpy).not.toHaveBeenCalled();
-  });
-
   test('Should throw error if slot title element is not a heading', async () => {
+    expect.assertions(1);
     try {
       const args = { identifier: 'identifier', closeButton: true };
       await getPage(args, [
@@ -157,5 +130,29 @@ describe('mg-popover', () => {
     } catch (err) {
       expect(err.message).toContain('<mg-popover> Slotted title must be a heading: ');
     }
+  });
+
+  test.each(['content', 'title', null])('should update popper instance when slot %s update', async slot => {
+    const page = await getPage({ identifier: 'identifier', display: true }, [
+      <h2 slot="title">Blu bli blo bla</h2>,
+      <p slot="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>,
+      <mg-button identifier="identifier-btn">mg-button</mg-button>,
+    ]);
+    expect(page.root).toMatchSnapshot();
+
+    const spy = jest.spyOn(page.rootInstance.popper, 'update');
+
+    const target = page.doc.querySelector(slot === null ? 'mg-button' : `[slot="${slot}"]`);
+
+    page.rootInstance.resizeObserver.cb([{ target }]);
+
+    if (slot === null) expect(spy).not.toHaveBeenCalled();
+    else expect(spy).toHaveBeenCalled();
+
+    expect(page.root).toMatchSnapshot();
   });
 });

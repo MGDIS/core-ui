@@ -51,19 +51,30 @@ The title and the close button are optional.
 
 ![](./mg-popover/doc/img/mg-popover-style.png)
 
-<!-- Auto Generated Below -->
+## CSS Variables
 
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`
+- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`
+- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`
+- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`
+- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`
+
+Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
 | Property      | Attribute      | Description                                                                      | Type                                                                                                                                                                                                         | Default                  |
 | ------------- | -------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ |
+| `arrowHide`   | `arrow-hide`   | Hide popover arrow                                                               | `boolean`                                                                                                                                                                                                    | `false`                  |
 | `closeButton` | `close-button` | Define if popover has a cross button                                             | `boolean`                                                                                                                                                                                                    | `false`                  |
 | `disabled`    | `disabled`     | Disable popover                                                                  | `boolean`                                                                                                                                                                                                    | `false`                  |
 | `display`     | `display`      | Display popover                                                                  | `boolean`                                                                                                                                                                                                    | `false`                  |
 | `identifier`  | `identifier`   | Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`. | `string`                                                                                                                                                                                                     | `createID('mg-popover')` |
 | `placement`   | `placement`    | Popover placement                                                                | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`               |
-
 
 ## Events
 
@@ -71,23 +82,32 @@ The title and the close button are optional.
 | ---------------- | -------------------------------------- | ---------------------- |
 | `display-change` | Emited event when display value change | `CustomEvent<boolean>` |
 
-
 ## Dependencies
+
+### Used by
+
+- [mg-action-more](../mg-action-more)
+- [mg-menu-item](../menu/mg-menu-item)
 
 ### Depends on
 
+- [mg-card](../../atoms/mg-card)
 - [mg-button](../../atoms/mg-button)
 - [mg-icon](../../atoms/mg-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
+  mg-popover --> mg-card
   mg-popover --> mg-button
   mg-popover --> mg-icon
   mg-button --> mg-icon
+  mg-action-more --> mg-popover
+  mg-menu-item --> mg-popover
   style mg-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

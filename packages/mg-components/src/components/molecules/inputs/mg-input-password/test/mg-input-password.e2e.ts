@@ -1,11 +1,11 @@
-import { createPage } from '../../../../../utils/test.utils';
+import { createPage } from '../../../../../utils/e2e.test.utils';
 
 describe('mg-input-password', () => {
   describe.each([
-    `<mg-input-password label="label"></mg-input-password>`,
-    `<mg-input-password label="label" label-on-top></mg-input-password>`,
-    `<mg-input-password label="label" label-hide></mg-input-password>`,
-    `<mg-input-password label="label" placeholder="placeholder" help-text="HelpText Message"></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label"></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" label-on-top></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" label-hide></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" placeholder="placeholder" help-text="HelpText Message"></mg-input-password>`,
   ])('without tooltip', html => {
     test('render', async () => {
       const page = await createPage(html);
@@ -43,7 +43,7 @@ describe('mg-input-password', () => {
   });
 
   test.each([true, false])('render with tooltip, case label-on-top %s', async labelOnTop => {
-    const page = await createPage(`<mg-input-password label="label" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-password>`);
+    const page = await createPage(`<mg-input-password identifier="identifier" label="label" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-password>`);
 
     const element = await page.find('mg-input-password');
 
@@ -67,13 +67,16 @@ describe('mg-input-password', () => {
   });
 
   describe.each([
-    `<mg-input-password label="label" readonly></mg-input-password>`,
-    `<mg-input-password label="label" value="blu"></mg-input-password>`,
-    `<mg-input-password label="label" value="blu" readonly></mg-input-password>`,
-    `<mg-input-password label="label" value="blu" readonly label-on-top></mg-input-password>`,
-    `<mg-input-password label="label" disabled></mg-input-password>`,
-    `<mg-input-password label="label" value="blu" disabled></mg-input-password>`,
-    `<mg-input-password label="label" value="batman" help-text='<mg-icon icon="user" size="small"></mg-icon> Welcome batman'></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" readonly></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu"></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" readonly></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" readonly label-on-top></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" disabled></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" disabled></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="batman" help-text='<mg-icon icon="user" size="small"></mg-icon> Welcome batman'></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required readonly></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required disabled></mg-input-password>`,
   ])('Should render with template', html => {
     test('render', async () => {
       const page = await createPage(html);
@@ -87,7 +90,10 @@ describe('mg-input-password', () => {
     });
   });
 
-  describe.each([`<mg-input-password label="label" required></mg-input-password>`, `<mg-input-password label="label" required lang="fr"></mg-input-password>`])('%s', html => {
+  describe.each([
+    `<mg-input-password identifier="identifier" label="label" required></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" required lang="fr"></mg-input-password>`,
+  ])('%s', html => {
     test('Should render error when leaving an empty required input', async () => {
       const page = await createPage(html);
 
@@ -106,8 +112,8 @@ describe('mg-input-password', () => {
   });
 
   describe.each([
-    '<mg-input-password label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-password>',
-    '<mg-input-password label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-password>',
+    '<mg-input-password identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-password>',
+    '<mg-input-password identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-password>',
   ])('inside a div.mg-form-group', html => {
     test('render', async () => {
       const page = await createPage(`<div class="mg-form-group">${html}</div>`);
@@ -123,7 +129,7 @@ describe('mg-input-password', () => {
 
   describe.each([16])('with custom width: %s', width => {
     test.each([false, true])('with label on top: %s', async labelOnTop => {
-      const page = await createPage(`<mg-input-password label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-password>`);
+      const page = await createPage(`<mg-input-password identifier="identifier" label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-password>`);
 
       const element = await page.find('mg-input-password');
 
@@ -132,5 +138,18 @@ describe('mg-input-password', () => {
       const screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
     });
+  });
+
+  test.each([false, true])('Ensure component fit in width 200px with label-on-top: %s', async labelOnTop => {
+    const page = await createPage(`<mg-input-password identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-password>`);
+
+    const element = await page.find('mg-input-password');
+
+    expect(element).toHaveClass('hydrated');
+
+    await page.setViewport({ width: 200, height: 100 });
+
+    const screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
   });
 });

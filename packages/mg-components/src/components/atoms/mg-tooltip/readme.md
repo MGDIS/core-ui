@@ -59,8 +59,19 @@ Triangle is always centered on the call component
 
 ![](./mg-tooltip/doc/img/mg-tooltip-sizing.png)
 
-<!-- Auto Generated Below -->
+Component's max-width is 400px.
 
+![](./mg-tooltip/doc/img/mg-tooltip-max-width.png)
+
+## CSS Variables
+
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`
+- `--mg-tooltip-background-color`: Define tooltip background color, default: `--color-dark`
+- `--mg-tooltip-font-color`: Define tooltip font color, default: `--color-font-light`
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -72,22 +83,22 @@ Triangle is always centered on the call component
 | `message` _(required)_ | `message`    | Displayed message in the tooltip                                                 | `string`                                                                                                                                                                                                     | `undefined`              |
 | `placement`            | `placement`  | Tooltip placement                                                                | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`               |
 
-
 ## Dependencies
 
 ### Used by
 
- - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
- - [mg-input-date](../../molecules/inputs/mg-input-date)
- - [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
- - [mg-input-password](../../molecules/inputs/mg-input-password)
- - [mg-input-radio](../../molecules/inputs/mg-input-radio)
- - [mg-input-select](../../molecules/inputs/mg-input-select)
- - [mg-input-text](../../molecules/inputs/mg-input-text)
- - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
- - [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
+- [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+- [mg-input-date](../../molecules/inputs/mg-input-date)
+- [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
+- [mg-input-password](../../molecules/inputs/mg-input-password)
+- [mg-input-radio](../../molecules/inputs/mg-input-radio)
+- [mg-input-select](../../molecules/inputs/mg-input-select)
+- [mg-input-text](../../molecules/inputs/mg-input-text)
+- [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
+- [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-input-checkbox --> mg-tooltip
@@ -102,6 +113,6 @@ graph TD;
   style mg-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

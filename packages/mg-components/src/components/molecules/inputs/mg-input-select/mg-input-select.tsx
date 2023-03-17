@@ -3,7 +3,7 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { createID, ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 
@@ -60,8 +60,8 @@ export class MgInputSelect {
   // Locales
   private messages;
 
-  // hasError (triggered by blur event)
-  private hasError = false;
+  // hasDisplayedError (triggered by blur event)
+  private hasDisplayedError = false;
 
   /**************
    * Decorators *
@@ -92,13 +92,17 @@ export class MgInputSelect {
   @Prop() items!: string[] | SelectOption[];
   @Watch('items')
   validateItems(newValue: string[] | SelectOption[]): void {
+    // Empty options
+    if (newValue.length === 0) {
+      this.options = [];
+    }
     // String array
-    if (allItemsAreString(newValue as string[])) {
+    else if (allItemsAreString(newValue as string[])) {
       this.valueExist = (newValue as string[]).includes(this.value as string);
       this.options = (newValue as string[]).map((item: string) => ({ title: item, value: item }));
     }
     // Object array
-    else if (newValue && (newValue as SelectOption[]).every(item => isOption(item))) {
+    else if ((newValue as SelectOption[]).every(item => isOption(item))) {
       this.valueExist = (newValue as SelectOption[]).map(item => item.value).includes(this.value);
       // Grouped object options
       if ((newValue as SelectOption[]).some(item => item.group !== undefined)) {
@@ -109,15 +113,14 @@ export class MgInputSelect {
         this.options = newValue as SelectOption[];
       }
     } else {
-      throw new Error('<mg-input-select> prop "items" is required and all items must be the same type, string or Option.');
+      throw new Error('<mg-input-select> prop "items" is required, can be an empty Array or all items must be the same type: string or Option.');
     }
   }
 
   /**
    * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-   * If not set, it will be created.
    */
-  @Prop() identifier: string = createID('mg-input-select');
+  @Prop() identifier!: string;
 
   /**
    * Input name
@@ -170,6 +173,19 @@ export class MgInputSelect {
    * Define if input is disabled
    */
   @Prop() disabled = false;
+  @Watch('required')
+  @Watch('readonly')
+  @Watch('disabled')
+  handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
+    if (this.input !== undefined) {
+      this.input[prop] = newValue;
+      this.checkValidity();
+      if (this.hasDisplayedError) {
+        this.setErrorMessage();
+        this.hasDisplayedError = false;
+      }
+    }
+  }
 
   /**
    * Define input width
@@ -239,8 +255,8 @@ export class MgInputSelect {
   @Method()
   async displayError(): Promise<void> {
     this.checkValidity();
-    this.checkError();
-    this.hasError = this.invalid;
+    this.setErrorMessage();
+    this.hasDisplayedError = this.invalid;
   }
 
   /**
@@ -248,8 +264,8 @@ export class MgInputSelect {
    */
   private handleInput = (): void => {
     this.checkValidity();
-    if (this.hasError) {
-      this.checkError();
+    if (this.hasDisplayedError) {
+      this.setErrorMessage();
     }
     if (this.input.value !== '') {
       this.value = allItemsAreString(this.items as string[]) ? this.input.value : (this.items as SelectOption[]).find(item => item.title === this.input.value).value;
@@ -269,22 +285,16 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    if (!this.readonly && this.input !== undefined) {
-      const validity = this.input.checkValidity && this.input.checkValidity();
-
-      // Set validity
-      this.valid = validity;
-      this.invalid = !validity;
-
-      //Send event
-      this.inputValid.emit(validity);
-    }
+    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
   };
 
   /**
-   * Check input errors
+   * Set input error message
    */
-  private checkError = (): void => {
+  private setErrorMessage = (): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid && this.input.validity.valueMissing) {
@@ -352,7 +362,9 @@ export class MgInputSelect {
           required={this.required}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
-          ref={el => (this.input = el as HTMLSelectElement)}
+          ref={el => {
+            if (el !== null) this.input = el as HTMLSelectElement;
+          }}
         >
           {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder
             <option value="" disabled={this.placeholderDisabled && this.valueExist}>
@@ -363,7 +375,7 @@ export class MgInputSelect {
             option.group !== undefined ? (
               <optgroup label={option.group}>
                 {(option as OptGroup).options.map(optgroup => (
-                  <option value={optgroup.title} selected={JSON.stringify(this.value) === JSON.stringify(optgroup.value)} disabled={optgroup.disabled}>
+                  <option key={optgroup.title} value={optgroup.title} selected={JSON.stringify(this.value) === JSON.stringify(optgroup.value)} disabled={optgroup.disabled}>
                     {optgroup.title}
                   </option>
                 ))}

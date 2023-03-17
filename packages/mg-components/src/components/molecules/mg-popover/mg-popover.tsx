@@ -1,13 +1,12 @@
-import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
-import { createID, isTagName } from '../../../utils/components.utils';
-import { Instance as PopperInstance, createPopper } from '@popperjs/core';
+import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event, State } from '@stencil/core';
+import { createID, isTagName, getWindows, ClassList } from '../../../utils/components.utils';
+import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { initLocales } from '../../../locales';
-import { Placement } from './mg-popover.conf';
 
 @Component({
   tag: 'mg-popover',
   styleUrl: 'mg-popover.scss',
-  scoped: true,
+  shadow: true,
 })
 export class MgPopover {
   /************
@@ -17,9 +16,14 @@ export class MgPopover {
   private popper: PopperInstance;
   private popover: HTMLElement;
   private closeButtonId = '';
+  private windows;
+  private resizeObserver: ResizeObserver;
 
   // Locales
   private messages;
+
+  // Classes
+  private readonly classArrowHide = `mg-popover--arrow-hide`;
 
   /**************
    * Decorators *
@@ -40,6 +44,16 @@ export class MgPopover {
    * Popover placement
    */
   @Prop() placement: Placement = 'bottom';
+
+  /**
+   * Hide popover arrow
+   */
+  @Prop() arrowHide = false;
+  @Watch('arrowHide')
+  validateArrowHide(newValue: MgPopover['arrowHide']): void {
+    if (newValue) this.classList.add(this.classArrowHide);
+    else this.classList.delete(this.classArrowHide);
+  }
 
   /**
    * Define if popover has a cross button
@@ -66,6 +80,11 @@ export class MgPopover {
   @Prop({ mutable: true }) disabled = false;
 
   /**
+   * Component classes
+   */
+  @State() classList: ClassList = new ClassList(['mg-popover']);
+
+  /**
    * Emited event when display value change
    */
   @Event({ eventName: 'display-change' }) displayChange: EventEmitter<boolean>;
@@ -77,7 +96,11 @@ export class MgPopover {
    * @returns {void}
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
-    if (!this.disabled && event.target.closest(`#${this.identifier}`)?.parentElement.nodeName !== 'MG-POPOVER') {
+    if (
+      !this.disabled &&
+      event.target.closest('mg-popover') !== this.element &&
+      !((event.target.closest(`[data-mg-popover-guard]`) as HTMLElement)?.dataset.mgPopoverGuard === this.identifier)
+    ) {
       this.display = false;
     }
   };
@@ -89,7 +112,7 @@ export class MgPopover {
    */
   private show = (): void => {
     // Make the popover visible
-    this.popover.setAttribute('data-show', '');
+    this.popover.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -100,7 +123,9 @@ export class MgPopover {
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
-      document.addEventListener('click', this.clickOutside, false);
+      this.windows.forEach((localWindow: Window) => {
+        localWindow.addEventListener('click', this.clickOutside, false);
+      });
     }, 0);
   };
 
@@ -118,7 +143,9 @@ export class MgPopover {
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }],
     }));
     // Remove event listener
-    document.removeEventListener('click', this.clickOutside, false);
+    this.windows.forEach((localWindow: Window) => {
+      localWindow.removeEventListener('click', this.clickOutside, false);
+    });
   };
 
   /**
@@ -140,8 +167,11 @@ export class MgPopover {
    * @returns {void} timeout
    */
   componentWillLoad(): void {
+    // Get windows to attach events
+    this.windows = getWindows(window);
     // Get locales
     this.messages = initLocales(this.element).messages;
+    this.validateArrowHide(this.arrowHide);
   }
 
   /**
@@ -152,8 +182,8 @@ export class MgPopover {
   componentDidLoad(): void {
     const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
-    const slotedTitleElement = this.element.querySelector('[slot="title"]');
-    if (slotedTitleElement && !isTagName(slotedTitleElement, headingTags)) {
+    const slottedTitleElement = this.element.querySelector('[slot="title"]');
+    if (slottedTitleElement && !isTagName(slottedTitleElement, headingTags)) {
       throw new Error(`<mg-popover> Slotted title must be a heading: ${headingTags.join(', ')}`);
     }
 
@@ -163,10 +193,10 @@ export class MgPopover {
     }
 
     // Get popover content
-    this.popover = this.element.querySelector(`#${this.identifier}`);
+    this.popover = this.element.shadowRoot.getElementById(this.identifier);
 
-    //Get interactive element
-    const interactiveElement = this.element.firstElementChild as HTMLElement;
+    //Get interactive element (first element without slot attribute)
+    const interactiveElement = this.element.querySelector(':not([slot])') as HTMLElement;
     // Add aria attributes
     interactiveElement.setAttribute('aria-controls', this.identifier);
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
@@ -174,15 +204,28 @@ export class MgPopover {
     // Create popperjs popover
     this.popper = createPopper(interactiveElement, this.popover, {
       placement: this.placement,
+      strategy: 'fixed',
       modifiers: [
         {
           name: 'offset',
           options: {
-            offset: [0, 10],
+            offset: [0, 0],
           },
         },
       ],
     });
+
+    if (this.resizeObserver === undefined) {
+      // add resize observer
+      this.resizeObserver = new ResizeObserver(entries => {
+        if (entries.some(entrie => entrie.target.getAttribute('slot') !== null)) {
+          this.popper.update();
+        }
+      });
+      Array.from(this.element.querySelectorAll('[slot]')).forEach(element => {
+        this.resizeObserver.observe(element);
+      });
+    }
 
     // Add events to toggle display
     interactiveElement.addEventListener('click', () => {
@@ -206,17 +249,20 @@ export class MgPopover {
     return (
       <Host>
         <slot></slot>
-        <div id={this.identifier} class="mg-popover">
-          {!this.disabled && this.closeButton && (
-            <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.general.close} onClick={this.handleCloseButton}>
-              <mg-icon icon="cross"></mg-icon>
-            </mg-button>
-          )}
-          <div class="mg-popover__title">
-            <slot name="title"></slot>
-          </div>
-          <slot name="content"></slot>
-          <div class="mg-popover__arrow" data-popper-arrow></div>
+        <div id={this.identifier} class={this.classList.join()}>
+          <mg-card>
+            {this.closeButton && (
+              <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.general.close} onClick={this.handleCloseButton}>
+                <mg-icon icon="cross"></mg-icon>
+              </mg-button>
+            )}
+            <div class="mg-popover__title">
+              <slot name="title"></slot>
+            </div>
+            <slot name="content"></slot>
+          </mg-card>
+
+          {!this.arrowHide && <div class="mg-popover__arrow" data-popper-arrow></div>}
         </div>
       </Host>
     );

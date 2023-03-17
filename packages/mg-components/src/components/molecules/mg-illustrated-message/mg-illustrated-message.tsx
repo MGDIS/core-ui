@@ -21,6 +21,11 @@ export class MgIllustratedMessage {
    */
   @Prop() size: 'regular' | 'small' = 'regular';
 
+  /**
+   * Define component orientation
+   */
+  @Prop() direction: 'vertical' | 'horizontal' = 'vertical';
+
   /*************
    * Lifecycle *
    *************/
@@ -32,13 +37,15 @@ export class MgIllustratedMessage {
    */
   componentDidLoad(): void {
     const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-    const imageTags = ['img', 'svg'];
+    const slottedIllustrations = this.element.querySelectorAll('[slot="illustration"]');
 
     if (!isTagName(this.element.querySelector('[slot="title"]'), headingTags)) {
       throw new Error(`<mg-illustrated-message> Slotted title must be a heading: ${headingTags.join(', ')}`);
-    } else if (!isTagName(this.element.querySelector('[slot="illustration"]'), imageTags)) {
-      throw new Error(`<mg-illustrated-message> Slotted illustration must be an image: ${imageTags.join(', ')}`);
+    } else if (slottedIllustrations.length !== 1) {
+      throw new Error('<mg-illustrated-message> Slotted illustration must be present and unique.');
     }
+
+    slottedIllustrations[0].setAttribute('aria-hidden', 'true');
   }
 
   /**
@@ -48,7 +55,12 @@ export class MgIllustratedMessage {
    */
   render(): HTMLElement {
     return (
-      <div class="mg-illustrated-message">
+      <div
+        class={{
+          'mg-illustrated-message': true,
+          'mg-illustrated-message--horizontal': this.direction === 'horizontal',
+        }}
+      >
         <div
           class={{
             'mg-illustrated-message__illustration': true,
@@ -57,11 +69,13 @@ export class MgIllustratedMessage {
         >
           <slot name="illustration"></slot>
         </div>
-        <div class="mg-illustrated-message__title">
-          <slot name="title"></slot>
-        </div>
-        <div class="mg-illustrated-message__details">
-          <slot name="details"></slot>
+        <div class="mg-illustrated-message__slots">
+          <div class="mg-illustrated-message__title">
+            <slot name="title"></slot>
+          </div>
+          <div class="mg-illustrated-message__details">
+            <slot name="details"></slot>
+          </div>
         </div>
       </div>
     );

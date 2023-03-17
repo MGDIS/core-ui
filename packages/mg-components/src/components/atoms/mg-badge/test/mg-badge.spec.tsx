@@ -17,7 +17,7 @@ describe('mg-badge', () => {
     });
   });
 
-  test.each([1, 100, '!', '?'])('value %s', async value => {
+  test.each([1, 100, '!', '?', '99+'])('value %s', async value => {
     const { root } = await getPage({ value, label: 'Batman' });
     expect(root).toMatchSnapshot();
   });
@@ -50,19 +50,30 @@ describe('mg-badge', () => {
   });
 
   describe('errors', () => {
-    test.each(['', 'Batman', undefined])('Should throw error, case invalid variant prop', async variant => {
+    test.each(['', ' ', undefined])('Should throw error, case invalid label prop', async label => {
+      expect.assertions(1);
+      try {
+        await getPage({ value: 1, label });
+      } catch (err) {
+        expect(err.message).toContain('<mg-badge> prop "label" is required.');
+      }
+    });
+
+    test.each(['', 'Batman'])('Should throw error, case invalid variant prop', async variant => {
+      expect.assertions(1);
       try {
         await getPage({ variant, value: 1, label: 'Batman' });
       } catch (err) {
-        expect(err.message).toContain('<mg-badge> prop "variant" must be one of : ');
+        expect(err.message).toContain('<mg-badge> prop "variant" must be one of: ');
       }
     });
 
     test.each(['', 'Batman', '+', '99?'])('Should throw error, case invalid value prop', async value => {
+      expect.assertions(1);
       try {
         await getPage({ value, label: 'Batman' });
       } catch (err) {
-        expect(err.message).toContain('<mg-badge> prop "value" must be interger or ponctuation character.');
+        expect(err.message).toContain('<mg-badge> prop "value" must be integer or ponctuation character.');
       }
     });
   });

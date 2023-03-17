@@ -1,4 +1,4 @@
-import { createPage } from '../../../../utils/test.utils';
+import { createPage } from '../../../../utils/e2e.test.utils';
 
 const getSlots = ({ content, actions }: { content?: boolean; actions?: boolean }): string => {
   let slots = '';
@@ -88,6 +88,22 @@ describe('mg-modal', () => {
     });
   });
 
+  describe('style', () => {
+    test('Should render with child mg-card', async () => {
+      const page = await createPage(
+        `<mg-modal modal-title="child mg-card" class="custom-modal-card">
+        <mg-card slot="content">child card</mg-card>
+        </mg-modal>
+        <style>.custom-modal-card {--mg-card-background: hsl(var(--color-danger));}</style>`,
+      );
+
+      await page.setViewport({ width: 800, height: 500 });
+
+      const screenshot = await page.screenshot();
+      expect(screenshot).toMatchImageSnapshot();
+    });
+  });
+
   describe('navigation', () => {
     test('Should trigger modal and close modal.', async () => {
       const page = await createPage(`
@@ -110,12 +126,12 @@ describe('mg-modal', () => {
         });
       });
 
-      const mgBUtton = await page.find('mg-button');
+      const mgButton = await page.find('mg-button');
 
       const screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
 
-      mgBUtton.triggerEvent('click');
+      mgButton.triggerEvent('click');
       await page.waitForChanges();
 
       const screenshot2 = await page.screenshot();

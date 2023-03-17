@@ -1,4 +1,6 @@
-# Component name
+# Component name here
+
+CORE-NUMBER
 
 ## Checklist
 
@@ -12,6 +14,7 @@
 - [ ] Browser tests
   - [ ] Chrome
   - [ ] Firefox
+  - [ ] Edge
 
 ## Reviewers
 

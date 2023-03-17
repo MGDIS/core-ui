@@ -38,7 +38,10 @@ export class MgPanel {
    */
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
-  handelTileChange(newValue: string): void {
+  validatePanelTitle(newValue: string): void {
+    if (typeof newValue !== 'string' || newValue.trim() === '') {
+      throw new Error('<mg-panel> prop "panelTitle" is required.');
+    }
     this.titleChange.emit(newValue);
   }
 
@@ -51,7 +54,7 @@ export class MgPanel {
     if (newValue && !this.titleEditable) {
       throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
     }
-    if (newValue && this.titlePatternErrorMessage === undefined) {
+    if (newValue && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
       throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
     }
   }
@@ -189,6 +192,7 @@ export class MgPanel {
     this.messages = initLocales(this.element).messages;
     // Validate
     this.validatetitlePattern(this.titlePattern);
+    this.validatePanelTitle(this.panelTitle);
   }
 
   /**
@@ -203,19 +207,21 @@ export class MgPanel {
         onClick={this.handleCollapseButton}
         variant="flat"
         identifier={`${this.identifier}-collapse-button`}
-        expanded={this.expanded}
-        controls={`${this.identifier}-content`}
+        aria-expanded={this.expanded !== undefined && this.expanded.toString()}
+        aria-controls={`${this.identifier}-content`}
         disabled={this.expandToggleDisabled}
       >
-        <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
-        {!this.isEditing && this.panelTitle}
+        <span class="mg-panel__collapse-button-content">
+          <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
+          {!this.isEditing && this.panelTitle}
+        </span>
       </mg-button>
     );
 
     if (this.titleEditable && !this.isEditing) {
       return [
         collapseButton(),
-        <mg-button is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton} identifier={`${this.identifier}-edit-button`}>
+        <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton} identifier={`${this.identifier}-edit-button`}>
           <mg-icon icon="pen"></mg-icon>
         </mg-button>,
       ];
@@ -225,6 +231,7 @@ export class MgPanel {
       return [
         collapseButton(),
         <mg-input-text
+          key="edition-input"
           label={this.messages.panel.editLabel}
           label-hide
           value={this.panelTitle}
@@ -282,15 +289,17 @@ export class MgPanel {
   render(): HTMLElement {
     return (
       <section class={this.classList.join()} id={this.identifier}>
-        <header class="mg-panel__header" id={`${this.identifier}-header`}>
-          <div class={`mg-panel__header-left ${this.isEditing ? 'mg-panel__header-left--full' : ''}`}>{this.headerLeft()}</div>
-          <div class="mg-panel__header-right">
-            <slot name="header-right"></slot>
-          </div>
-        </header>
-        <article class="mg-panel__content" id={`${this.identifier}-content`} aria-labelledby={`${this.identifier}-header`} hidden={!this.expanded}>
-          <slot></slot>
-        </article>
+        <mg-card>
+          <header class="mg-panel__header" id={`${this.identifier}-header`}>
+            <div class={`mg-panel__header-left ${this.isEditing ? 'mg-panel__header-left--full' : ''}`}>{this.headerLeft()}</div>
+            <div class="mg-panel__header-right">
+              <slot name="header-right"></slot>
+            </div>
+          </header>
+          <article class="mg-panel__content" id={`${this.identifier}-content`} aria-labelledby={`${this.identifier}-header`} hidden={!this.expanded}>
+            <slot></slot>
+          </article>
+        </mg-card>
       </section>
     );
   }

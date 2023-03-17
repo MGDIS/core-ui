@@ -94,12 +94,20 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Check required properties
    */
-  if (typeof props.label !== 'string' || props.label === '') {
-    throw new Error('<mg-input> prop "label" is required');
+  if (typeof props.identifier !== 'string' || props.identifier.trim() === '') {
+    throw new Error('<mg-input> prop "identifier" is required.');
+  }
+  if (typeof props.label !== 'string' || props.label.trim() === '') {
+    throw new Error('<mg-input> prop "label" is required.');
   }
   if (props.labelOnTop && props.labelHide) {
-    throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+    throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
   }
+
+  /**
+   * Set readonly value
+   */
+  if (props.readonlyValue === undefined) props.readonlyValue = props.value;
 
   /**
    * Component classes
@@ -124,15 +132,6 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   }
 
   /**
-   * Update input(s) in children
-   */
-  if (props.readonly) {
-    children = children.filter(child => child.$name$ === 'append-input');
-  } else {
-    children = applyAriadescribedBy(children, ariaDescribedbyIDs, utils);
-  }
-
-  /**
    * Return template
    *
    * +--------+--------------+---------+
@@ -148,7 +147,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
    * Error message is based on this aria method: https://www.w3.org/WAI/tutorials/forms/notifications/#on-focus-change
    */
 
-  const TagName = getTagName(props.isFieldset);
+  const TagName: string = getTagName(props.isFieldset);
 
   /**
    * Get tooltip node
@@ -163,11 +162,17 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
 
   /**
    * Get input title (label) node
+   * Display asterisk only if not disabled and not readonly
    *
    * @returns {VNode[]} mg-input-title
    */
   const getInputTitle = (): VNode[] => (
-    <mg-input-title identifier={props.identifier} class={props.labelHide ? 'sr-only' : undefined} required={props.required && !props.disabled} is-legend={props.isFieldset}>
+    <mg-input-title
+      identifier={props.identifier}
+      class={props.labelHide ? 'sr-only' : undefined}
+      required={props.required && !props.disabled && !props.readonly}
+      is-legend={props.isFieldset}
+    >
       {props.label}
     </mg-input-title>
   );
@@ -184,13 +189,13 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
       )}
       {props.readonly ? (
         <div class="mg-input__input-container">
-          <strong>{props.readonlyValue || props.value}</strong>
-          {children}
+          <strong>{props.readonlyValue}</strong>
+          {children.filter(child => child.$name$ === 'append-input')}
         </div>
       ) : (
         <div class="mg-input__input-container">
           <div class={{ 'mg-input__input': true, 'mg-input__input--has-error': props.errorMessage !== undefined }}>
-            {children}
+            {applyAriadescribedBy(children, ariaDescribedbyIDs, utils)}
             {!props.labelOnTop && props.tooltip && getTooltip()}
           </div>
           {props.helpText && <div id={helpTextId} class="mg-input__help-text" innerHTML={props.helpText}></div>}

@@ -20,6 +20,8 @@ The right area of the header can accommodate any component.
 
 ![](./mg-panel/doc/img/mg-panel-spacing.png)
 
+Slot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.
+
 ### Alignments
 
 ![](./mg-panel/doc/img/mg-panel-align.png)
@@ -28,8 +30,18 @@ The right area of the header can accommodate any component.
 
 ![](./mg-panel/doc/img/mg-panel-style.png)
 
-<!-- Auto Generated Below -->
+## CSS Variables
 
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`
+- `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`
+- `--mg-panel-box-shadow`: Define panel box shadow, default: `var(--box-shadow)`
+- `--mg-panel-content-padding`: Define panel content padding, default: `1.5rem`
+
+Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -43,14 +55,12 @@ The right area of the header can accommodate any component.
 | `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`  | `undefined`            |
 | `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`  | `undefined`            |
 
-
 ## Events
 
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
 | `title-change`    | Emmited event when title change    | `CustomEvent<string>`  |
-
 
 ## Dependencies
 
@@ -59,13 +69,16 @@ The right area of the header can accommodate any component.
 - [mg-button](../../atoms/mg-button)
 - [mg-icon](../../atoms/mg-icon)
 - [mg-input-text](../inputs/mg-input-text)
+- [mg-card](../../atoms/mg-card)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-panel --> mg-button
   mg-panel --> mg-icon
   mg-panel --> mg-input-text
+  mg-panel --> mg-card
   mg-button --> mg-icon
   mg-input-text --> mg-icon
   mg-input-text --> mg-character-left
@@ -74,6 +87,6 @@ graph TD;
   style mg-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
