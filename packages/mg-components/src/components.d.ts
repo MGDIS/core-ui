@@ -574,7 +574,7 @@ export namespace Components {
     /**
      * Items are the possible options to select
      */
-    items: string[] | SelectOption[];
+    items: (string | SelectOption)[];
     /**
      * Input label
      */
@@ -906,7 +906,7 @@ export namespace Components {
     /**
      * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
      */
-    itemMore: ItemMoreType;
+    itemmore: ItemMoreType;
     /**
      * Menu label. Include short menu description. Required for accessibility
      */
@@ -1617,11 +1617,11 @@ declare namespace LocalJSX {
     /**
      * Emited event when checking validity
      */
-    'onInput-valid'?: (event: MgInputCheckboxCustomEvent<boolean>) => void;
+    'onInput-valid'?: (event: MgInputCheckboxCustomEvent<MgInputCheckbox['valid']>) => void;
     /**
      * Emitted event when value change
      */
-    'onValue-change'?: (event: MgInputCheckboxCustomEvent<CheckboxValue[]>) => void;
+    'onValue-change'?: (event: MgInputCheckboxCustomEvent<MgInputCheckbox['value']>) => void;
     /**
      * Define if input is readonly
      */
@@ -1967,7 +1967,7 @@ declare namespace LocalJSX {
     /**
      * Items are the possible options to select
      */
-    'items': string[] | SelectOption[];
+    'items': (string | SelectOption)[];
     /**
      * Input label
      */
@@ -1995,7 +1995,7 @@ declare namespace LocalJSX {
     /**
      * Emited event when value change
      */
-    'onValue-change'?: (event: MgInputSelectCustomEvent<any>) => void;
+    'onValue-change'?: (event: MgInputSelectCustomEvent<MgInputSelect['value']>) => void;
     /**
      * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
      */
@@ -2316,7 +2316,7 @@ declare namespace LocalJSX {
     /**
      * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
      */
-    itemMore?: ItemMoreType;
+    itemmore?: ItemMoreType;
     /**
      * Menu label. Include short menu description. Required for accessibility
      */
@@ -2339,6 +2339,10 @@ declare namespace LocalJSX {
      * Identifier is used to control mg-popover Default: createID('mg-menu-item');
      */
     'identifier'?: string;
+    /**
+     * Emited event when item is loaded
+     */
+    'onItem-loaded'?: (event: MgMenuItemCustomEvent<void>) => void;
     /**
      * Emited event when status change
      */
