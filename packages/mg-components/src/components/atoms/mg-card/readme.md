@@ -35,17 +35,17 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Dependencies
 
 ### Used by
 
-- [mg-message](../../molecules/mg-message)
-- [mg-modal](../../molecules/mg-modal)
-- [mg-panel](../../molecules/mg-panel)
-- [mg-popover](../../molecules/mg-popover)
+ - [mg-message](../../molecules/mg-message)
+ - [mg-modal](../../molecules/mg-modal)
+ - [mg-panel](../../molecules/mg-panel)
+ - [mg-popover](../../molecules/mg-popover)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-message --> mg-card
@@ -55,6 +55,6 @@ graph TD;
   style mg-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

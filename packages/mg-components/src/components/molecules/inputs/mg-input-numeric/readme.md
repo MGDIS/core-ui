@@ -34,6 +34,7 @@ Unit term must be placed into the field slot using a "space" character before th
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute        | Description                                                                                                                                    | Type                     | Default           |
@@ -60,12 +61,14 @@ Unit term must be placed into the field slot using a "space" character before th
 | `valid`                   | `valid`          | Define input pattern to validate                                                                                                               | `boolean`                | `undefined`       |
 | `value`                   | `value`          | Component value                                                                                                                                | `string`                 | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                   |
 | -------------- | ----------------------------------- | ---------------------- |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
 | `value-change` | Emited event when value change      | `CustomEvent<number>`  |
+
 
 ## Methods
 
@@ -77,6 +80,9 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -86,7 +92,6 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-numeric --> mg-tooltip
@@ -95,6 +100,6 @@ graph TD;
   style mg-input-numeric fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

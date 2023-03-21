@@ -11,6 +11,7 @@ The width of the component is defined by the largest option of the options.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute              | Description                                                                                                                                    | Type                         | Default           |
@@ -34,12 +35,14 @@ The width of the component is defined by the largest option of the options.
 | `valid`                   | `valid`                | Define input valid state                                                                                                                       | `boolean`                    | `undefined`       |
 | `value`                   | `value`                | Component value                                                                                                                                | `any`                        | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                   |
 | -------------- | ----------------------------------- | ---------------------- |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
 | `value-change` | Emited event when value change      | `CustomEvent<any>`     |
+
 
 ## Methods
 
@@ -51,11 +54,14 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Used by
 
-- [mg-pagination](../../mg-pagination)
+ - [mg-pagination](../../mg-pagination)
 
 ### Depends on
 
@@ -64,7 +70,6 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-select --> mg-tooltip
@@ -74,6 +79,6 @@ graph TD;
   style mg-input-select fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

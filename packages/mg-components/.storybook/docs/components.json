@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-03-21T14:50:21",
+  "timestamp": "2023-03-21T21:04:53",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -10,7 +10,7 @@
       "filePath": "./src/components/molecules/mg-action-more/mg-action-more.tsx",
       "encapsulation": "shadow",
       "tag": "mg-action-more",
-      "readme": "## Anatomy\n\n![](./mg-action-more/doc/img/mg-action-more-anatomy.png) \n\n## Specifications\n\n![](./mg-action-more/doc/img/mg-action-more-popover-spacing.png) \n\n### Spacing\nPopover padding should be 10px up/down, 0px left/right.\n\n## Behavior\n\n### Action\n\nIn addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.\n\n## Options\n\n### Button's variant\n\n![](./mg-action-more/doc/img/mg-action-more-options-variant.png) \n\nBy default, button variant is \"flat\".\nIt is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/story/atoms-mg-button--mg-button)).\n\n### Icon\n\n![](./mg-action-more/doc/img/mg-action-more-options-icon.png)\n\nBy default, icon is *ellipsis*. \nIt is possible to set another icon\n\n\n### Label\n\n![](./mg-action-more/doc/img/mg-action-more-options-label.png) \n\nBy default, label is *Actions* and hidden. \nIt is possible to set another label.\n\n### Chevron\n\n![](./mg-action-more/doc/img/mg-action-more-options-chevron.png) \n\nIt is possible to display a chevron on the label right side, it make a 180 degree rotation on click.\n",
+      "readme": "## Anatomy\n\n![](./mg-action-more/doc/img/mg-action-more-anatomy.png)\n\n## Specifications\n\n![](./mg-action-more/doc/img/mg-action-more-popover-spacing.png)\n\n### Spacing\n\nPopover padding should be 10px up/down, 0px left/right.\n\n## Behavior\n\n### Action\n\nIn addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.\n\n## Options\n\n### Button's variant\n\n![](./mg-action-more/doc/img/mg-action-more-options-variant.png)\n\nBy default, button variant is \"flat\".\nIt is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/story/atoms-mg-button--mg-button)).\n\n### Icon\n\n![](./mg-action-more/doc/img/mg-action-more-options-icon.png)\n\nBy default, icon is _ellipsis_. \nIt is possible to set another icon\n\n### Label\n\n![](./mg-action-more/doc/img/mg-action-more-options-label.png)\n\nBy default, label is _Actions_ and hidden. \nIt is possible to set another label.\n\n### Chevron\n\n![](./mg-action-more/doc/img/mg-action-more-options-chevron.png)\n\nIt is possible to display a chevron on the label right side, it make a 180 degree rotation on click.\n",
       "docs": "![](./mg-action-more/doc/img/mg-action-more-anatomy.png)",
       "docsTags": [],
       "usage": {},
@@ -113,12 +113,36 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-icon", "mg-popover", "mg-button", "mg-menu", "mg-menu-item", "mg-badge"],
+      "dependencies": [
+        "mg-icon",
+        "mg-popover",
+        "mg-button",
+        "mg-menu",
+        "mg-menu-item",
+        "mg-badge"
+      ],
       "dependencyGraph": {
-        "mg-action-more": ["mg-icon", "mg-popover", "mg-button", "mg-menu", "mg-menu-item", "mg-badge"],
-        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
-        "mg-button": ["mg-icon"],
-        "mg-menu-item": ["mg-badge", "mg-icon", "mg-popover"]
+        "mg-action-more": [
+          "mg-icon",
+          "mg-popover",
+          "mg-button",
+          "mg-menu",
+          "mg-menu-item",
+          "mg-badge"
+        ],
+        "mg-popover": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-menu-item": [
+          "mg-badge",
+          "mg-icon",
+          "mg-popover"
+        ]
       }
     },
     {
@@ -230,12 +254,22 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-menu-item", "mg-tabs"],
+      "dependents": [
+        "mg-action-more",
+        "mg-menu-item",
+        "mg-tabs"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-action-more": ["mg-badge"],
-        "mg-menu-item": ["mg-badge"],
-        "mg-tabs": ["mg-badge"]
+        "mg-action-more": [
+          "mg-badge"
+        ],
+        "mg-menu-item": [
+          "mg-badge"
+        ],
+        "mg-tabs": [
+          "mg-badge"
+        ]
       }
     },
     {
@@ -450,16 +484,39 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-message", "mg-modal", "mg-pagination", "mg-panel", "mg-popover"],
-      "dependencies": ["mg-icon"],
+      "dependents": [
+        "mg-action-more",
+        "mg-message",
+        "mg-modal",
+        "mg-pagination",
+        "mg-panel",
+        "mg-popover"
+      ],
+      "dependencies": [
+        "mg-icon"
+      ],
       "dependencyGraph": {
-        "mg-button": ["mg-icon"],
-        "mg-action-more": ["mg-button"],
-        "mg-message": ["mg-button"],
-        "mg-modal": ["mg-button"],
-        "mg-pagination": ["mg-button"],
-        "mg-panel": ["mg-button"],
-        "mg-popover": ["mg-button"]
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-action-more": [
+          "mg-button"
+        ],
+        "mg-message": [
+          "mg-button"
+        ],
+        "mg-modal": [
+          "mg-button"
+        ],
+        "mg-pagination": [
+          "mg-button"
+        ],
+        "mg-panel": [
+          "mg-button"
+        ],
+        "mg-popover": [
+          "mg-button"
+        ]
       }
     },
     {
@@ -477,13 +534,26 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-message", "mg-modal", "mg-panel", "mg-popover"],
+      "dependents": [
+        "mg-message",
+        "mg-modal",
+        "mg-panel",
+        "mg-popover"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-message": ["mg-card"],
-        "mg-modal": ["mg-card"],
-        "mg-panel": ["mg-card"],
-        "mg-popover": ["mg-card"]
+        "mg-message": [
+          "mg-card"
+        ],
+        "mg-modal": [
+          "mg-card"
+        ],
+        "mg-panel": [
+          "mg-card"
+        ],
+        "mg-popover": [
+          "mg-card"
+        ]
       }
     },
     {
@@ -551,18 +621,25 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-input-text", "mg-input-textarea"],
+      "dependents": [
+        "mg-input-text",
+        "mg-input-textarea"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-text": ["mg-character-left"],
-        "mg-input-textarea": ["mg-character-left"]
+        "mg-input-text": [
+          "mg-character-left"
+        ],
+        "mg-input-textarea": [
+          "mg-character-left"
+        ]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-details/mg-details.tsx",
       "encapsulation": "shadow",
       "tag": "mg-details",
-      "readme": "## Properties\n \n![](./mg-details/doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state\n\n## Behavior\n\n### Action\n\nThe complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.\n \n![](./mg-details/doc/img/mg-details-behavior.png)\n\n### Position\n\n_Toggle_ follows the _summary_ and is always on the top right.\n \n![](./mg-details/doc/img/mg-details-position.png)\n\n### Responsive\n\nIn mobile resolution, the text of the _toggle_ is hidden\n \n![](./mg-details/doc/img/mg-details-responsive.png)\n\n## Specs\n\n### Spacing\n \n![](./mg-details/doc/img/mg-details-spacing.png)\n",
+      "readme": "## Properties\n\n![](./mg-details/doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state\n\n## Behavior\n\n### Action\n\nThe complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.\n\n![](./mg-details/doc/img/mg-details-behavior.png)\n\n### Position\n\n_Toggle_ follows the _summary_ and is always on the top right.\n\n![](./mg-details/doc/img/mg-details-position.png)\n\n### Responsive\n\nIn mobile resolution, the text of the _toggle_ is hidden\n\n![](./mg-details/doc/img/mg-details-responsive.png)\n\n## Specs\n\n### Spacing\n\n![](./mg-details/doc/img/mg-details-spacing.png)\n",
       "docs": "![](./mg-details/doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state",
       "docsTags": [],
       "usage": {},
@@ -651,9 +728,13 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-icon"],
+      "dependencies": [
+        "mg-icon"
+      ],
       "dependencyGraph": {
-        "mg-details": ["mg-icon"]
+        "mg-details": [
+          "mg-icon"
+        ]
       }
     },
     {
@@ -985,26 +1066,66 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-action-more": ["mg-icon"],
-        "mg-button": ["mg-icon"],
-        "mg-details": ["mg-icon"],
-        "mg-input-checkbox": ["mg-icon"],
-        "mg-input-date": ["mg-icon"],
-        "mg-input-numeric": ["mg-icon"],
-        "mg-input-password": ["mg-icon"],
-        "mg-input-radio": ["mg-icon"],
-        "mg-input-select": ["mg-icon"],
-        "mg-input-text": ["mg-icon"],
-        "mg-input-textarea": ["mg-icon"],
-        "mg-input-toggle": ["mg-icon"],
-        "mg-item-more": ["mg-icon"],
-        "mg-menu-item": ["mg-icon"],
-        "mg-message": ["mg-icon"],
-        "mg-modal": ["mg-icon"],
-        "mg-pagination": ["mg-icon"],
-        "mg-panel": ["mg-icon"],
-        "mg-popover": ["mg-icon"],
-        "mg-tabs": ["mg-icon"]
+        "mg-action-more": [
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-details": [
+          "mg-icon"
+        ],
+        "mg-input-checkbox": [
+          "mg-icon"
+        ],
+        "mg-input-date": [
+          "mg-icon"
+        ],
+        "mg-input-numeric": [
+          "mg-icon"
+        ],
+        "mg-input-password": [
+          "mg-icon"
+        ],
+        "mg-input-radio": [
+          "mg-icon"
+        ],
+        "mg-input-select": [
+          "mg-icon"
+        ],
+        "mg-input-text": [
+          "mg-icon"
+        ],
+        "mg-input-textarea": [
+          "mg-icon"
+        ],
+        "mg-input-toggle": [
+          "mg-icon"
+        ],
+        "mg-item-more": [
+          "mg-icon"
+        ],
+        "mg-menu-item": [
+          "mg-icon"
+        ],
+        "mg-message": [
+          "mg-icon"
+        ],
+        "mg-modal": [
+          "mg-icon"
+        ],
+        "mg-pagination": [
+          "mg-icon"
+        ],
+        "mg-panel": [
+          "mg-icon"
+        ],
+        "mg-popover": [
+          "mg-icon"
+        ],
+        "mg-tabs": [
+          "mg-icon"
+        ]
       }
     },
     {
@@ -1352,9 +1473,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-checkbox": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-checkbox": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -1654,9 +1783,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-date": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-date": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -2069,9 +2206,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-numeric": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-numeric": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -2385,9 +2530,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-password": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-password": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -2691,9 +2844,17 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-radio": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-radio": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -3057,18 +3218,30 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-pagination"],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependents": [
+        "mg-pagination"
+      ],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-select": ["mg-tooltip", "mg-icon", "mg-input-title"],
-        "mg-pagination": ["mg-input-select"]
+        "mg-input-select": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ],
+        "mg-pagination": [
+          "mg-input-select"
+        ]
       }
     },
     {
       "filePath": "./src/components/molecules/inputs/mg-input-text/mg-input-text.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-text",
-      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./mg-input-text/doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6\n\n#### Spacing\n\n![](./mg-input-text/doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./mg-input-text/doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as search input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field. \n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n",
+      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./mg-input-text/doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6\n\n#### Spacing\n\n![](./mg-input-text/doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./mg-input-text/doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as search input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3493,11 +3666,25 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-panel"],
-      "dependencies": ["mg-icon", "mg-character-left", "mg-tooltip", "mg-input-title"],
+      "dependents": [
+        "mg-panel"
+      ],
+      "dependencies": [
+        "mg-icon",
+        "mg-character-left",
+        "mg-tooltip",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-text": ["mg-icon", "mg-character-left", "mg-tooltip", "mg-input-title"],
-        "mg-panel": ["mg-input-text"]
+        "mg-input-text": [
+          "mg-icon",
+          "mg-character-left",
+          "mg-tooltip",
+          "mg-input-title"
+        ],
+        "mg-panel": [
+          "mg-input-text"
+        ]
       }
     },
     {
@@ -3924,9 +4111,19 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-character-left", "mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-character-left",
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-textarea": ["mg-character-left", "mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-textarea": [
+          "mg-character-left",
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -4007,15 +4204,33 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-checkbox": ["mg-input-title"],
-        "mg-input-date": ["mg-input-title"],
-        "mg-input-numeric": ["mg-input-title"],
-        "mg-input-password": ["mg-input-title"],
-        "mg-input-radio": ["mg-input-title"],
-        "mg-input-select": ["mg-input-title"],
-        "mg-input-text": ["mg-input-title"],
-        "mg-input-textarea": ["mg-input-title"],
-        "mg-input-toggle": ["mg-input-title"]
+        "mg-input-checkbox": [
+          "mg-input-title"
+        ],
+        "mg-input-date": [
+          "mg-input-title"
+        ],
+        "mg-input-numeric": [
+          "mg-input-title"
+        ],
+        "mg-input-password": [
+          "mg-input-title"
+        ],
+        "mg-input-radio": [
+          "mg-input-title"
+        ],
+        "mg-input-select": [
+          "mg-input-title"
+        ],
+        "mg-input-text": [
+          "mg-input-title"
+        ],
+        "mg-input-textarea": [
+          "mg-input-title"
+        ],
+        "mg-input-toggle": [
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -4274,16 +4489,24 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
       "dependencyGraph": {
-        "mg-input-toggle": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-toggle": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-item-more/mg-item-more.tsx",
       "encapsulation": "shadow",
       "tag": "mg-item-more",
-      "readme": "# mg-item-more\n\n\n",
+      "readme": "# mg-item-more\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4353,19 +4576,37 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-menu-item", "mg-icon", "mg-menu"],
+      "dependencies": [
+        "mg-menu-item",
+        "mg-icon",
+        "mg-menu"
+      ],
       "dependencyGraph": {
-        "mg-item-more": ["mg-menu-item", "mg-icon", "mg-menu"],
-        "mg-menu-item": ["mg-badge", "mg-icon", "mg-popover"],
-        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
-        "mg-button": ["mg-icon"]
+        "mg-item-more": [
+          "mg-menu-item",
+          "mg-icon",
+          "mg-menu"
+        ],
+        "mg-menu-item": [
+          "mg-badge",
+          "mg-icon",
+          "mg-popover"
+        ],
+        "mg-popover": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ]
       }
     },
     {
       "filePath": "./src/components/molecules/menu/mg-menu/mg-menu.tsx",
       "encapsulation": "shadow",
       "tag": "mg-menu",
-      "readme": "## Horizontal\n\n### Use\n\n![](./mg-menu/doc/img/mg-menu-exemple.png)\n\nHorizontal menu is used with large (\"desktop\") resolutions, it is placed in the upper area of the screen.\n\n### Anatomy\n\n![](./mg-menu/doc/img/mg-menu-horizontal-anatomy.png) \n\n![](./mg-menu/doc/img/mg-menu-horizontal-item-anatomy.png) \n\n### Options\n\n#### Meta\n\nMeta text is optional.\n\n#### Icon\n\nIcon is optional.\nUse it on all or none of the menu items.\n\n#### Illustration\n\nIllustration is optional.\nAn SVG can be specified instead of an icon.\n\n#### Badge\n\nBadge is optional.\nUse it when you need to notify new events in this section.\n\n### Behavior\n\n#### Sizing\n\n![](./mg-menu/doc/img/mg-menu-horizontal-sizing.png) \n\nA horizontal menu can display different item sizes: regular, medium, large.\n\n![](./mg-menu/doc/img/mg-menu-horizontal-sizing-itemmaxwidth.png) \n\nThe content of the element determines its width, but to handle the case where the content is too large (long label), it is possible to specify a maximum width for the element._Label_ and _Meta_ are then truncated.\n\n#### Sub-content\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-submenu.png)\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-slot.png) \n\nA \"submenu\" or a \"free content\" can be set to the item.\nAn icon \"chevron-down\" at the right of the item informs the user.\n\n##### Badge\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-badge.png) \n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./mg-menu/doc/img/mg-menu-horizontal-plus.png) \n\nWhen not all items can be displayed due to the width of the menu container, the items are grouped into a \"plus item\".\n\n## Vertical\n\n### Use\n\n![](./mg-menu/doc/img/mg-menu-vertical-use.png) \n\nThe horizontal menu is used with large resolutions (\"desktop\"), it is mainly placed in the left area of the screen.\n\n### Anatomy\n\n![](./mg-menu/doc/img/mg-menu-vertical-anatomy.png) \n\n![](./mg-menu/doc/img/mg-menu-vertical-item-anatomy.png) \n\n### Options\n\n#### Icon\n\nIcon is optional.\n\nUse it on all levels or none of the menu items.\n\n#### Badge\n\nBadge is optional.\n\nUse it when you need to notify new events in this section.\n\n### Behavior\n\n#### Sub content\n\nAn item can display a sub content which can be another vertical menu.\nThis item displays a chevron to its right.\nThe submenu is displayed by clicking on the item.\n\n##### Badge\n\n![](./mg-menu/doc/img/mg-menu-vertical-subcontent-badge.png) \n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./mg-menu/doc/img/mg-menu-vertical-scroll.png) \n\nWhen not all items can be displayed due to the height of the menu container, a scroll bar helps to see hidden items.\n\n**🔺child mg-menu-item slots image / information**\n\nWith a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attributes** instead, because the behavior uses the [cloneNode](https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode) method which breaks properties.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-background-color-hsl`: define mg-menu background color. Default: `--color-light`.\n",
+      "readme": "## Horizontal\n\n### Use\n\n![](./mg-menu/doc/img/mg-menu-exemple.png)\n\nHorizontal menu is used with large (\"desktop\") resolutions, it is placed in the upper area of the screen.\n\n### Anatomy\n\n![](./mg-menu/doc/img/mg-menu-horizontal-anatomy.png)\n\n![](./mg-menu/doc/img/mg-menu-horizontal-item-anatomy.png)\n\n### Options\n\n#### Meta\n\nMeta text is optional.\n\n#### Icon\n\nIcon is optional.\nUse it on all or none of the menu items.\n\n#### Illustration\n\nIllustration is optional.\nAn SVG can be specified instead of an icon.\n\n#### Badge\n\nBadge is optional.\nUse it when you need to notify new events in this section.\n\n### Behavior\n\n#### Sizing\n\n![](./mg-menu/doc/img/mg-menu-horizontal-sizing.png)\n\nA horizontal menu can display different item sizes: regular, medium, large.\n\n![](./mg-menu/doc/img/mg-menu-horizontal-sizing-itemmaxwidth.png)\n\nThe content of the element determines its width, but to handle the case where the content is too large (long label), it is possible to specify a maximum width for the element._Label_ and _Meta_ are then truncated.\n\n#### Sub-content\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-submenu.png)\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-slot.png)\n\nA \"submenu\" or a \"free content\" can be set to the item.\nAn icon \"chevron-down\" at the right of the item informs the user.\n\n##### Badge\n\n![](./mg-menu/doc/img/mg-menu-horizontal-subcontent-badge.png)\n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./mg-menu/doc/img/mg-menu-horizontal-plus.png)\n\nWhen not all items can be displayed due to the width of the menu container, the items are grouped into a \"plus item\".\n\n## Vertical\n\n### Use\n\n![](./mg-menu/doc/img/mg-menu-vertical-use.png)\n\nThe horizontal menu is used with large resolutions (\"desktop\"), it is mainly placed in the left area of the screen.\n\n### Anatomy\n\n![](./mg-menu/doc/img/mg-menu-vertical-anatomy.png)\n\n![](./mg-menu/doc/img/mg-menu-vertical-item-anatomy.png)\n\n### Options\n\n#### Icon\n\nIcon is optional.\n\nUse it on all levels or none of the menu items.\n\n#### Badge\n\nBadge is optional.\n\nUse it when you need to notify new events in this section.\n\n### Behavior\n\n#### Sub content\n\nAn item can display a sub content which can be another vertical menu.\nThis item displays a chevron to its right.\nThe submenu is displayed by clicking on the item.\n\n##### Badge\n\n![](./mg-menu/doc/img/mg-menu-vertical-subcontent-badge.png)\n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./mg-menu/doc/img/mg-menu-vertical-scroll.png)\n\nWhen not all items can be displayed due to the height of the menu container, a scroll bar helps to see hidden items.\n\n**🔺child mg-menu-item slots image / information**\n\nWith a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attributes** instead, because the behavior uses the [cloneNode](https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode) method which breaks properties.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-background-color-hsl`: define mg-menu background color. Default: `--color-light`.\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -4461,11 +4702,18 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-item-more"],
+      "dependents": [
+        "mg-action-more",
+        "mg-item-more"
+      ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-action-more": ["mg-menu"],
-        "mg-item-more": ["mg-menu"]
+        "mg-action-more": [
+          "mg-menu"
+        ],
+        "mg-item-more": [
+          "mg-menu"
+        ]
       }
     },
     {
@@ -4579,14 +4827,35 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-item-more"],
-      "dependencies": ["mg-badge", "mg-icon", "mg-popover"],
+      "dependents": [
+        "mg-action-more",
+        "mg-item-more"
+      ],
+      "dependencies": [
+        "mg-badge",
+        "mg-icon",
+        "mg-popover"
+      ],
       "dependencyGraph": {
-        "mg-menu-item": ["mg-badge", "mg-icon", "mg-popover"],
-        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
-        "mg-button": ["mg-icon"],
-        "mg-action-more": ["mg-menu-item"],
-        "mg-item-more": ["mg-menu-item"]
+        "mg-menu-item": [
+          "mg-badge",
+          "mg-icon",
+          "mg-popover"
+        ],
+        "mg-popover": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-action-more": [
+          "mg-menu-item"
+        ],
+        "mg-item-more": [
+          "mg-menu-item"
+        ]
       }
     },
     {
@@ -4709,10 +4978,20 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-card", "mg-icon", "mg-button"],
+      "dependencies": [
+        "mg-card",
+        "mg-icon",
+        "mg-button"
+      ],
       "dependencyGraph": {
-        "mg-message": ["mg-card", "mg-icon", "mg-button"],
-        "mg-button": ["mg-icon"]
+        "mg-message": [
+          "mg-card",
+          "mg-icon",
+          "mg-button"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ]
       }
     },
     {
@@ -4825,17 +5104,27 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-card", "mg-button", "mg-icon"],
+      "dependencies": [
+        "mg-card",
+        "mg-button",
+        "mg-icon"
+      ],
       "dependencyGraph": {
-        "mg-modal": ["mg-card", "mg-button", "mg-icon"],
-        "mg-button": ["mg-icon"]
+        "mg-modal": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-pagination/mg-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "mg-pagination",
-      "readme": "## Anatomy\n\n![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)\n\n## Specs\n\n![](./mg-pagination/doc/img/mg-pagination-nav-specs.png)\n\nIt's possible to hide the labels \"prev\" and \"next\" to show only the \"chevron\" icons\n\n![](./mg-pagination/doc/img/mg-pagination-nav-label-hide.png)\n\n",
+      "readme": "## Anatomy\n\n![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)\n\n## Specs\n\n![](./mg-pagination/doc/img/mg-pagination-nav-specs.png)\n\nIt's possible to hide the labels \"prev\" and \"next\" to show only the \"chevron\" icons\n\n![](./mg-pagination/doc/img/mg-pagination-nav-label-hide.png)\n",
       "docs": "![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)",
       "docsTags": [],
       "usage": {},
@@ -4941,11 +5230,25 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-button", "mg-icon", "mg-input-select"],
+      "dependencies": [
+        "mg-button",
+        "mg-icon",
+        "mg-input-select"
+      ],
       "dependencyGraph": {
-        "mg-pagination": ["mg-button", "mg-icon", "mg-input-select"],
-        "mg-button": ["mg-icon"],
-        "mg-input-select": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-pagination": [
+          "mg-button",
+          "mg-icon",
+          "mg-input-select"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-input-select": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -5099,11 +5402,28 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-button", "mg-icon", "mg-input-text", "mg-card"],
+      "dependencies": [
+        "mg-button",
+        "mg-icon",
+        "mg-input-text",
+        "mg-card"
+      ],
       "dependencyGraph": {
-        "mg-panel": ["mg-button", "mg-icon", "mg-input-text", "mg-card"],
-        "mg-button": ["mg-icon"],
-        "mg-input-text": ["mg-icon", "mg-character-left", "mg-tooltip", "mg-input-title"]
+        "mg-panel": [
+          "mg-button",
+          "mg-icon",
+          "mg-input-text",
+          "mg-card"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-input-text": [
+          "mg-icon",
+          "mg-character-left",
+          "mg-tooltip",
+          "mg-input-title"
+        ]
       }
     },
     {
@@ -5291,20 +5611,37 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-menu-item"],
-      "dependencies": ["mg-card", "mg-button", "mg-icon"],
+      "dependents": [
+        "mg-action-more",
+        "mg-menu-item"
+      ],
+      "dependencies": [
+        "mg-card",
+        "mg-button",
+        "mg-icon"
+      ],
       "dependencyGraph": {
-        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
-        "mg-button": ["mg-icon"],
-        "mg-action-more": ["mg-popover"],
-        "mg-menu-item": ["mg-popover"]
+        "mg-popover": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-action-more": [
+          "mg-popover"
+        ],
+        "mg-menu-item": [
+          "mg-popover"
+        ]
       }
     },
     {
       "filePath": "./src/components/molecules/mg-skip-links/mg-skip-links.tsx",
       "encapsulation": "shadow",
       "tag": "mg-skip-links",
-      "readme": "## Behavior\n\nOn the first tab, a banner with the link(s) is displayed by pushing the content down.\n\nThe number of links will be added according to the content of the page.\n\n## Specs\n\n### Sizing\n\nThe minimum height of the banner is 55px.\n\n### Spacing\n\nItems have an internal margin of 12px and are spaced 6px apart.\n\n### Styling\n\n- The links are in [@color-dark](./?path=/docs/style-colors--page).\n- The background of the banner is in [@color-light](./?path=/docs/style-colors--page).\n\n#### On hover\n\nThe background of the item takes the color [@color-dark](./?path=/docs/style-colors--page) at 10% opacity.\n\n#### Focus taking\n\nNative browser behavior is retained.\n\n## Code example\n\nYou need to press <kbd>Tab</kbd> in the code example to see the component.\n\n## Integration\n\nThe `mg-skip-links` must be integrated at the very top of your page to be the first focusable element.\n\n## Implementation with a \"#\" based router\n\n`mg-skip-links` uses native anchor behavior, but if your site/app uses a \"#\" link-based router, like AngularJS does, you'll need to use the \"go-to-anchor\" component event. This event returns its detail property to the target anchor, then you can apply the scrollTo anchor behavior:\n- if the anchor is in the same window, with native javascript:\n\n```js\nconst goToAnchor = (anchor) => {\n    const top = document.querySelector(anchor).offsetTop;\n    window.scrollTo(0, top);\n\n    // set focus on next element to put keyboard navigation at the right place\n    anchor.focus();\n}\n\n// optionaly you can use a timeout to wait document ready\nsetTimeout(()=> {\n    // you must add listener on skip links element to prevent redirection\n    Array.from(document.querySelector('mg-skip-links').shadowRoot.querySelectorAll('a')).forEach(anchor => {\n        anchor.addEventListener('click', event => {\n            event.preventDefault();\n        })\n    })​\n})\n```\n\n- in case the anchor is in another window, with the [iframeRisizer's moveToAnchor method](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md#movetoanchoranchor)\n",
+      "readme": "## Behavior\n\nOn the first tab, a banner with the link(s) is displayed by pushing the content down.\n\nThe number of links will be added according to the content of the page.\n\n## Specs\n\n### Sizing\n\nThe minimum height of the banner is 55px.\n\n### Spacing\n\nItems have an internal margin of 12px and are spaced 6px apart.\n\n### Styling\n\n- The links are in [@color-dark](./?path=/docs/style-colors--page).\n- The background of the banner is in [@color-light](./?path=/docs/style-colors--page).\n\n#### On hover\n\nThe background of the item takes the color [@color-dark](./?path=/docs/style-colors--page) at 10% opacity.\n\n#### Focus taking\n\nNative browser behavior is retained.\n\n## Code example\n\nYou need to press <kbd>Tab</kbd> in the code example to see the component.\n\n## Integration\n\nThe `mg-skip-links` must be integrated at the very top of your page to be the first focusable element.\n\n## Implementation with a \"#\" based router\n\n`mg-skip-links` uses native anchor behavior, but if your site/app uses a \"#\" link-based router, like AngularJS does, you'll need to use the \"go-to-anchor\" component event. This event returns its detail property to the target anchor, then you can apply the scrollTo anchor behavior:\n\n- if the anchor is in the same window, with native javascript:\n\n```js\nconst goToAnchor = (anchor) => {\n    const top = document.querySelector(anchor).offsetTop;\n    window.scrollTo(0, top);\n\n    // set focus on next element to put keyboard navigation at the right place\n    anchor.focus();\n}\n\n// optionaly you can use a timeout to wait document ready\nsetTimeout(()=> {\n    // you must add listener on skip links element to prevent redirection\n    Array.from(document.querySelector('mg-skip-links').shadowRoot.querySelectorAll('a')).forEach(anchor => {\n        anchor.addEventListener('click', event => {\n            event.preventDefault();\n        })\n    })​\n})\n```\n\n- in case the anchor is in another window, with the [iframeRisizer's moveToAnchor method](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md#movetoanchoranchor)\n",
       "docs": "On the first tab, a banner with the link(s) is displayed by pushing the content down.\n\nThe number of links will be added according to the content of the page.",
       "docsTags": [],
       "usage": {},
@@ -5461,9 +5798,15 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-icon", "mg-badge"],
+      "dependencies": [
+        "mg-icon",
+        "mg-badge"
+      ],
       "dependencyGraph": {
-        "mg-tabs": ["mg-icon", "mg-badge"]
+        "mg-tabs": [
+          "mg-icon",
+          "mg-badge"
+        ]
       }
     },
     {
@@ -5726,15 +6069,33 @@
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-checkbox": ["mg-tooltip"],
-        "mg-input-date": ["mg-tooltip"],
-        "mg-input-numeric": ["mg-tooltip"],
-        "mg-input-password": ["mg-tooltip"],
-        "mg-input-radio": ["mg-tooltip"],
-        "mg-input-select": ["mg-tooltip"],
-        "mg-input-text": ["mg-tooltip"],
-        "mg-input-textarea": ["mg-tooltip"],
-        "mg-input-toggle": ["mg-tooltip"]
+        "mg-input-checkbox": [
+          "mg-tooltip"
+        ],
+        "mg-input-date": [
+          "mg-tooltip"
+        ],
+        "mg-input-numeric": [
+          "mg-tooltip"
+        ],
+        "mg-input-password": [
+          "mg-tooltip"
+        ],
+        "mg-input-radio": [
+          "mg-tooltip"
+        ],
+        "mg-input-select": [
+          "mg-tooltip"
+        ],
+        "mg-input-text": [
+          "mg-tooltip"
+        ],
+        "mg-input-textarea": [
+          "mg-tooltip"
+        ],
+        "mg-input-toggle": [
+          "mg-tooltip"
+        ]
       }
     }
   ]

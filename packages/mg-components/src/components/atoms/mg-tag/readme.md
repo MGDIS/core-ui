@@ -56,6 +56,7 @@ Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be c
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute | Description                          | Type                                                                       | Default       |
@@ -64,6 +65,7 @@ Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be c
 | `soft`    | `soft`    | Define if tag is using soft style    | `boolean`                                                                  | `undefined`   |
 | `variant` | `variant` | Define tag variant                   | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "warning"` | `variants[0]` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

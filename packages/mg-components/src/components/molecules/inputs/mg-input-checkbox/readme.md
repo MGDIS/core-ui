@@ -23,6 +23,7 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute             | Description                                                                                 | Type              | Default           |
@@ -42,12 +43,14 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | `valid`                   | `valid`               | Define input valid state                                                                    | `boolean`         | `undefined`       |
 | `value` _(required)_      | --                    | Component value If item.value is `null`, checkbox will be indeterminate by default Required | `CheckboxValue[]` | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                           |
 | -------------- | ----------------------------------- | ------------------------------ |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`         |
 | `value-change` | Emitted event when value change     | `CustomEvent<CheckboxValue[]>` |
+
 
 ## Methods
 
@@ -59,6 +62,9 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -68,7 +74,6 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-checkbox --> mg-tooltip
@@ -77,6 +82,6 @@ graph TD;
   style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -33,12 +33,14 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description           | Type                  | Default     |
 | -------- | --------- | --------------------- | --------------------- | ----------- |
 | `size`   | `size`    | Define component size | `"full" \| "regular"` | `'regular'` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

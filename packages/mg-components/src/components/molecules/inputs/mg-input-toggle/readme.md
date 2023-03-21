@@ -28,6 +28,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute      | Description                                                                 | Type                        | Default           |
@@ -46,12 +47,14 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `tooltip`                 | `tooltip`      | Add a tooltip message next to the input                                     | `string`                    | `undefined`       |
 | `value`                   | `value`        | Component value                                                             | `any`                       | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                   |
 | -------------- | ----------------------------------- | ---------------------- |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
 | `value-change` | Emited event when value change      | `CustomEvent<any>`     |
+
 
 ## Dependencies
 
@@ -62,7 +65,6 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-toggle --> mg-tooltip
@@ -71,6 +73,6 @@ graph TD;
   style mg-input-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

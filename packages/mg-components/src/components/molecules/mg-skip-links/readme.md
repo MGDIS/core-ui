@@ -65,11 +65,13 @@ setTimeout(()=> {
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property | Attribute | Description | Type         | Default     |
 | -------- | --------- | ----------- | ------------ | ----------- |
 | `links`  | --        | Skip links  | `SkipLink[]` | `undefined` |
+
 
 ## Events
 
@@ -77,6 +79,7 @@ setTimeout(()=> {
 | -------------- | --------------------------------- | --------------------- |
 | `go-to-anchor` | Emited event when link is clicked | `CustomEvent<string>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

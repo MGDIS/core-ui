@@ -37,6 +37,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property  | Attribute | Description                                                             | Type                                               | Default     |
@@ -46,33 +47,33 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `spin`    | `spin`    | Make the icon spin                                                      | `boolean`                                          | `false`     |
 | `variant` | `variant` | Define icon variant Add a background to the icon based on variant color | `"danger" \| "info" \| "success" \| "warning"`     | `undefined` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [mg-action-more](../../molecules/mg-action-more)
-- [mg-button](../mg-button)
-- [mg-details](../../molecules/mg-details)
-- [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
-- [mg-input-date](../../molecules/inputs/mg-input-date)
-- [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
-- [mg-input-password](../../molecules/inputs/mg-input-password)
-- [mg-input-radio](../../molecules/inputs/mg-input-radio)
-- [mg-input-select](../../molecules/inputs/mg-input-select)
-- [mg-input-text](../../molecules/inputs/mg-input-text)
-- [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
-- [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
-- [mg-item-more](../../molecules/mg-item-more)
-- [mg-menu-item](../../molecules/menu/mg-menu-item)
-- [mg-message](../../molecules/mg-message)
-- [mg-modal](../../molecules/mg-modal)
-- [mg-pagination](../../molecules/mg-pagination)
-- [mg-panel](../../molecules/mg-panel)
-- [mg-popover](../../molecules/mg-popover)
-- [mg-tabs](../../molecules/mg-tabs)
+ - [mg-action-more](../../molecules/mg-action-more)
+ - [mg-button](../mg-button)
+ - [mg-details](../../molecules/mg-details)
+ - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+ - [mg-input-date](../../molecules/inputs/mg-input-date)
+ - [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
+ - [mg-input-password](../../molecules/inputs/mg-input-password)
+ - [mg-input-radio](../../molecules/inputs/mg-input-radio)
+ - [mg-input-select](../../molecules/inputs/mg-input-select)
+ - [mg-input-text](../../molecules/inputs/mg-input-text)
+ - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
+ - [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
+ - [mg-item-more](../../molecules/mg-item-more)
+ - [mg-menu-item](../../molecules/menu/mg-menu-item)
+ - [mg-message](../../molecules/mg-message)
+ - [mg-modal](../../molecules/mg-modal)
+ - [mg-pagination](../../molecules/mg-pagination)
+ - [mg-panel](../../molecules/mg-panel)
+ - [mg-popover](../../molecules/mg-popover)
+ - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-action-more --> mg-icon
@@ -98,6 +99,6 @@ graph TD;
   style mg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

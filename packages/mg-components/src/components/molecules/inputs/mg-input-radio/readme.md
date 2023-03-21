@@ -21,6 +21,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute             | Description                                                                 | Type                        | Default           |
@@ -41,12 +42,14 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `valid`                   | `valid`               | Define input valid state                                                    | `boolean`                   | `undefined`       |
 | `value`                   | `value`               | Component value                                                             | `any`                       | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                   |
 | -------------- | ----------------------------------- | ---------------------- |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
 | `value-change` | Emitted event when value change     | `CustomEvent<any>`     |
+
 
 ## Methods
 
@@ -58,6 +61,9 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -67,7 +73,6 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-radio --> mg-tooltip
@@ -76,6 +81,6 @@ graph TD;
   style mg-input-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -126,6 +126,7 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute   | Description                                                                         | Type                                                                                    | Default                |
@@ -135,15 +136,15 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 | `label` _(required)_ | `label`     | Menu label. Include short menu description. Required for accessibility              | `string`                                                                                | `undefined`            |
 | `size`               | `size`      | Define mg-menu size Default: 'regular'                                              | `"large" \| "medium" \| "regular"`                                                      | `'regular'`            |
 
+
 ## Dependencies
 
 ### Used by
 
-- [mg-action-more](../../mg-action-more)
-- [mg-item-more](../../mg-item-more)
+ - [mg-action-more](../../mg-action-more)
+ - [mg-item-more](../../mg-item-more)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-action-more --> mg-menu
@@ -151,6 +152,6 @@ graph TD;
   style mg-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

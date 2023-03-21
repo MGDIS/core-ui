@@ -22,6 +22,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute | Description                                                        | Type                                                                                       | Default       |
@@ -31,16 +32,16 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `value` _(required)_ | `value`   | Badge value                                                        | `number \| string`                                                                         | `undefined`   |
 | `variant`            | `variant` | Define button variant                                              | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "text-color" \| "warning"` | `variants[0]` |
 
+
 ## Dependencies
 
 ### Used by
 
-- [mg-action-more](../../molecules/mg-action-more)
-- [mg-menu-item](../../molecules/menu/mg-menu-item)
-- [mg-tabs](../../molecules/mg-tabs)
+ - [mg-action-more](../../molecules/mg-action-more)
+ - [mg-menu-item](../../molecules/menu/mg-menu-item)
+ - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-action-more --> mg-badge
@@ -49,6 +50,6 @@ graph TD;
   style mg-badge fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

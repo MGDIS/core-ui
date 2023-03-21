@@ -73,6 +73,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property               | Attribute    | Description                                                                      | Type                                                                                                                                                                                                         | Default                  |
@@ -83,22 +84,22 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `message` _(required)_ | `message`    | Displayed message in the tooltip                                                 | `string`                                                                                                                                                                                                     | `undefined`              |
 | `placement`            | `placement`  | Tooltip placement                                                                | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`               |
 
+
 ## Dependencies
 
 ### Used by
 
-- [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
-- [mg-input-date](../../molecules/inputs/mg-input-date)
-- [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
-- [mg-input-password](../../molecules/inputs/mg-input-password)
-- [mg-input-radio](../../molecules/inputs/mg-input-radio)
-- [mg-input-select](../../molecules/inputs/mg-input-select)
-- [mg-input-text](../../molecules/inputs/mg-input-text)
-- [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
-- [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
+ - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+ - [mg-input-date](../../molecules/inputs/mg-input-date)
+ - [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
+ - [mg-input-password](../../molecules/inputs/mg-input-password)
+ - [mg-input-radio](../../molecules/inputs/mg-input-radio)
+ - [mg-input-select](../../molecules/inputs/mg-input-select)
+ - [mg-input-text](../../molecules/inputs/mg-input-text)
+ - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
+ - [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-checkbox --> mg-tooltip
@@ -113,6 +114,6 @@ graph TD;
   style mg-tooltip fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

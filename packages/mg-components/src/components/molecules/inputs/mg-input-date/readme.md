@@ -8,6 +8,7 @@ Calendar and trigger: The style is the browser's native style.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute      | Description                                                                 | Type      | Default           |
@@ -28,12 +29,14 @@ Calendar and trigger: The style is the browser's native style.
 | `valid`                   | `valid`        | Define input valid state                                                    | `boolean` | `undefined`       |
 | `value`                   | `value`        | Component value                                                             | `string`  | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                   |
 | -------------- | ----------------------------------- | ---------------------- |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
 | `value-change` | Emited event when value change      | `CustomEvent<string>`  |
+
 
 ## Methods
 
@@ -45,6 +48,9 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -54,7 +60,6 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-date --> mg-tooltip
@@ -63,6 +68,6 @@ graph TD;
   style mg-input-date fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

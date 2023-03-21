@@ -43,6 +43,7 @@ Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-m
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                   | Attribute                     | Description                                                                                                 | Type      | Default                |
@@ -55,12 +56,14 @@ Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-m
 | `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`  | `undefined`            |
 | `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`  | `undefined`            |
 
+
 ## Events
 
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
 | `title-change`    | Emmited event when title change    | `CustomEvent<string>`  |
+
 
 ## Dependencies
 
@@ -72,7 +75,6 @@ Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-m
 - [mg-card](../../atoms/mg-card)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-panel --> mg-button
@@ -87,6 +89,6 @@ graph TD;
   style mg-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

@@ -35,6 +35,7 @@ In mobile resolution, the text of the _toggle_ is hidden
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                    | Attribute       | Description                             | Type      | Default     |
@@ -44,11 +45,13 @@ In mobile resolution, the text of the _toggle_ is hidden
 | `toggleClosed` _(required)_ | `toggle-closed` | Displayed title when details are closed | `string`  | `undefined` |
 | `toggleOpened` _(required)_ | `toggle-opened` | Displayed title when details are opened | `string`  | `undefined` |
 
+
 ## Events
 
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
+
 
 ## Dependencies
 
@@ -57,13 +60,12 @@ In mobile resolution, the text of the _toggle_ is hidden
 - [mg-icon](../../atoms/mg-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-details --> mg-icon
   style mg-details fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

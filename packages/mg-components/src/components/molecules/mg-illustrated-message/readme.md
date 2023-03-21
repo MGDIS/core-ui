@@ -73,6 +73,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute   | Description                  | Type                         | Default      |
@@ -80,6 +81,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `direction` | `direction` | Define component orientation | `"horizontal" \| "vertical"` | `'vertical'` |
 | `size`      | `size`      | Define illustration size     | `"regular" \| "small"`       | `'regular'`  |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

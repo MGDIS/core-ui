@@ -35,6 +35,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property             | Attribute    | Description                                                                                                 | Type                    | Default               |
@@ -45,11 +46,13 @@
 | `label` _(required)_ | `label`      | Tabs label. Include short tabs description. Required for accessibility                                      | `string`                | `undefined`           |
 | `size`               | `size`       | Define tabs size                                                                                            | `"large" \| "regular"`  | `'regular'`           |
 
+
 ## Events
 
 | Event               | Description                         | Type                  |
 | ------------------- | ----------------------------------- | --------------------- |
 | `active-tab-change` | Emited event when active tab change | `CustomEvent<number>` |
+
 
 ## Dependencies
 
@@ -59,7 +62,6 @@
 - [mg-badge](../../atoms/mg-badge)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-tabs --> mg-icon
@@ -67,6 +69,6 @@ graph TD;
   style mg-tabs fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
