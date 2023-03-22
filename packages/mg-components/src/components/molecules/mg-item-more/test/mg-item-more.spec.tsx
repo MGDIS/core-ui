@@ -107,7 +107,7 @@ describe('mg-item-more', () => {
 
       const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
       const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
-      const spy = jest.spyOn(mgMenuItemBase.shadowRoot.querySelector(isHref ? 'a' : 'button'), 'dispatchEvent');
+      const spy = jest.spyOn(mgMenuItemBase.shadowRoot.querySelector(isHref ? 'a' : 'button'), 'click');
 
       mgMenuItemProxy.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();

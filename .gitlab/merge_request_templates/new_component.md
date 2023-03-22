@@ -15,6 +15,8 @@ CORE-NUMBER
   - [ ] Chrome
   - [ ] Firefox
   - [ ] Edge
+- [ ] Release
+  - [ ] Create changeset
 
 ## Reviewers
 
