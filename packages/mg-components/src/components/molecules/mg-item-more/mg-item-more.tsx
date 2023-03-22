@@ -86,7 +86,7 @@ export class MgItemMore {
       // manage click on proxy to mirror it on initial element
       proxy.addEventListener('click', () => {
         // be carefull to use element.click() method instead of dispatchEvent to ensure bubbles outside shadowDom
-        (allMenuItem[index].shadowRoot.querySelector('a') || allMenuItem[index].shadowRoot.querySelector('button')).click();
+        allMenuItem[index].shadowRoot.querySelector('a, buttont').click();
       });
 
       // add id suffix to prevent duplicate key. default html id is: '';
