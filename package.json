@@ -32,8 +32,9 @@
 		"build": "turbo build",
 		"change": "changeset",
 		"change:empty": "changeset --empty",
+		"release": "./utils/release.sh",
 		"release:status": "changeset status",
-		"release": "./utils/release.sh"
+		"prerelease": "./utils/prerelease.sh"
 	},
 	"manypkg": {
 		"ignoredRules": [
