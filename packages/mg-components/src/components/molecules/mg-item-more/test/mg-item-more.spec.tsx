@@ -1,10 +1,19 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
-import { setupMutationObserverMock, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
+import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
 import { MgItemMore } from '../mg-item-more';
 import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../../menu/mg-menu/mg-menu';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
+import { MgPopover } from '../../mg-popover/mg-popover';
+
+mockConsoleError();
+mockWindowFrames();
+
+const udpateItemMorePopoverId = page => {
+  const moreMenuItem = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu-item');
+  forcePopoverId(moreMenuItem, `mg-popover-test_more-item`);
+};
 
 let id;
 /**
@@ -17,7 +26,7 @@ const setId = (hasId: boolean): string => (hasId ? `my-id-${id++}` : undefined);
 
 const getPage = async args => {
   const page = await newSpecPage({
-    components: [MgMenu, MgMenuItem, MgItemMore],
+    components: [MgMenu, MgMenuItem, MgItemMore, MgPopover],
     template: () => (
       <mg-menu {...args}>
         <mg-menu-item href={args.isHref ? '#' : undefined} id={setId(args.hasId)}>
@@ -36,6 +45,10 @@ const getPage = async args => {
   jest.runAllTimers();
 
   await page.waitForChanges();
+
+  jest.runOnlyPendingTimers();
+
+  udpateItemMorePopoverId(page);
 
   return page;
 };
@@ -99,6 +112,8 @@ describe('mg-item-more', () => {
 
       await page.waitForChanges();
       expect(mgMenuItemProxy).toHaveProperty('status', Status.ACTIVE);
+
+      udpateItemMorePopoverId(page);
       expect(page.root).toMatchSnapshot();
     });
 
@@ -114,6 +129,7 @@ describe('mg-item-more', () => {
 
       expect(spy).toBeCalledTimes(1);
 
+      udpateItemMorePopoverId(page);
       expect(page.root).toMatchSnapshot();
     });
   });
