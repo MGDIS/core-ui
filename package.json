@@ -27,6 +27,7 @@
 		"junit:merge": "jrm ./coverage/junit.xml ./packages/**/junit.xml",
 		"report:merge": "monomerge && nyc report",
 		"lint": "turbo lint",
+		"lint:fix": "turbo lint:fix",
 		"prettier:fix": "prettier --write --ignore-unknown **",
 		"build": "turbo build",
 		"change": "changeset",

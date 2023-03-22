@@ -85,7 +85,8 @@ export class MgItemMore {
     Array.from(moreElementMenuItem.querySelectorAll('mg-menu-item:not([data-overflow-more])')).forEach((proxy, index) => {
       // manage click on proxy to mirror it on initial element
       proxy.addEventListener('click', () => {
-        (allMenuItem[index].shadowRoot.querySelector('a') || allMenuItem[index].shadowRoot.querySelector('button')).dispatchEvent(new MouseEvent('click', { bubbles: true }));
+        // be carefull to use element.click() method instead of dispatchEvent to ensure bubbles outside shadowDom
+        (allMenuItem[index].shadowRoot.querySelector('a, button') as HTMLButtonElement | HTMLAnchorElement).click();
       });
 
       // add id suffix to prevent duplicate key. default html id is: '';
