@@ -71,15 +71,14 @@ test:unit:
         coverage_format: cobertura
         path: coverage/cobertura-coverage.xml
 
-# TODO: uncomment this block (taking too long and break)
-# test:e2e:
-#   stage: test
-#   extends:
-#     - .rules:except-tags
-#     - .install_dependencies
-#   script:
-#     - pnpm test:e2e
-#   retry: 2
+test:e2e:
+  stage: test
+  extends:
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpm test:e2e
+  retry: 2
 
 sonar:
   stage: test
@@ -94,7 +93,7 @@ sonar:
     - gitlabci-sonar-compare report
   needs:
     - test:unit
-    # - test:e2e
+    - test:e2e
 
 #################
 # mg-components #
