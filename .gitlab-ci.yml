@@ -18,6 +18,13 @@ stages:
     - changes:
         - 'packages/mg-components'
 
+# Rule to execute job only on notification-center folder content changes
+.rules:changes:notification-center:
+  rules:
+    - changes:
+        - 'packages/notification-center'
+        - 'apps/notification-center'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -74,11 +81,23 @@ test:unit:
 test:e2e:
   stage: test
   extends:
+    - .rules:changes:mg-components # for now only mg-components use test:e2e
     - .rules:except-tags
     - .install_dependencies
   script:
     - pnpm test:e2e
   retry: 2
+
+test:e2e:playwright:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.31.0-focal
+  extends:
+    - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpx playwright install
+    - pnpm test:e2e:playwright
 
 sonar:
   stage: test
@@ -93,7 +112,15 @@ sonar:
     - gitlabci-sonar-compare report
   needs:
     - test:unit
-    - test:e2e
+
+release:
+  stage: release
+  extends:
+    - .rules:tags
+    - .install_dependencies
+  script:
+    - pnpm build
+    - pnpm publish -r --no-git-checks
 
 #################
 # mg-components #
@@ -155,12 +182,3 @@ pages:
   artifacts:
     paths:
       - public
-
-release:
-  stage: mg-components
-  extends:
-    - .rules:tags
-    - .install_dependencies
-  script:
-    - !reference [.mg-components:build, script]
-    - pnpm publish --no-git-checks

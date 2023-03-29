@@ -1,7 +1,7 @@
 {
 	"name": "notification-center",
 	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
@@ -13,7 +13,7 @@
 		"vite": "^3.2.3"
 	},
 	"dependencies": {
-		"@mgdis/mg-components": "5",
+		"@mgdis/mg-components": "workspace:*",
 		"@mgdis/notification-center": "workspace:*"
 	}
 }

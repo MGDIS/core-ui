@@ -34,6 +34,17 @@ describe('Notification center', () => {
 		expect(spyConsole.mock.calls[0]?.[0]).toEqual('Different hosts between iframes:');
 	});
 
+	it('Should throw an error when parent document is undefined', () => {
+		const spyConsole = jest.spyOn(console, 'error');
+		const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => ({}));
+
+		notifsCenter = new NotificationCenter();
+
+		expect(notifsCenter).toBeDefined();
+		expect(spyWindowParent).toHaveBeenCalled();
+		expect(spyConsole.mock.calls[0]?.[0]).toEqual('Different hosts between iframes:');
+	});
+
 	describe('defined custom elements', () => {
 		beforeAll(() => {
 			// load mg-components

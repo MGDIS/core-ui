@@ -10,14 +10,15 @@
 			"outputs": []
 		},
 		"test": {
-			"dependsOn": ["^build"],
 			"outputs": []
 		},
 		"test:unit": {
-			"dependsOn": ["^build"],
 			"outputs": []
 		},
 		"test:e2e": {
+			"outputs": []
+		},
+		"test:e2e:playwright": {
 			"dependsOn": ["^build"],
 			"outputs": []
 		},
