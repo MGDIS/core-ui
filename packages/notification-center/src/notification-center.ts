@@ -1,12 +1,6 @@
 /* eslint-disable no-console */
-
-type MessageData = {
-	content: string;
-	variant?: string;
-	delay?: number;
-	context?: string;
-	appId?: string;
-};
+import type { MessageData } from './types';
+import sanitizeHtml from 'sanitize-html';
 
 /**
  * NotificationCenter class
@@ -157,7 +151,7 @@ class NotificationCenter {
 			mgMessage.remove();
 		});
 		// Add content
-		mgMessage.innerHTML = content;
+		mgMessage.innerHTML = sanitizeHtml(content);
 		// Add mg-message
 		this.#messagesReceiver.appendChild(mgMessage);
 	};

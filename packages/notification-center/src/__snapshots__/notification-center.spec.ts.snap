@@ -91,3 +91,13 @@ exports[`Notification center defined custom elements Should remove previous mess
   </mg-message>
 </div>
 `;
+
+exports[`Notification center defined custom elements Should remove unsafe or unknown html 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button>
+    <p>
+      Content with unsafe or unknown html
+    </p>
+  </mg-message>
+</div>
+`;

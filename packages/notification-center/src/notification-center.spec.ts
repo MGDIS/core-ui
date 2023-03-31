@@ -76,6 +76,21 @@ describe('Notification center', () => {
 			expect(document.body.innerHTML).toMatchSnapshot();
 		});
 
+		it('Should remove unsafe or unknown html', () => {
+			window.dispatchEvent(new Event('DOMContentLoaded'));
+			window.dispatchEvent(
+				new MessageEvent('message', {
+					data: {
+						content: `<p>Content with unsafe or unknown html</p>
+<script>alert("blu")<script>
+<not-tag>not a tag</not-tag>`,
+						appId: 'mg-notification-center',
+					},
+				})
+			);
+			expect(document.body.innerHTML).toMatchSnapshot();
+		});
+
 		it('Should post a message', () => {
 			const messageData = { content: 'Default example' };
 			const spyPostMessage = jest.spyOn(window, 'postMessage');
