@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+const fs = require('node:fs');
 const axios = require('axios');
 const showdown = require('showdown');
 
@@ -9,28 +10,45 @@ const converter = new showdown.Converter();
  * Extract version changelog and publish it into a MS Teams chan
  */
 (async function run() {
-	if (!process.env.TEAMS_WEBHOOK_URL || !process.env.CI_JOB_TOKEN) {
-		console.error('FATAL - Missing environment variable');
+	if (!process.env.TEAMS_WEBHOOK_URL) {
+		console.error('FATAL - Missing TEAMS_WEBHOOK_URL variable');
 		process.exit(1);
 	}
-
 	const webhookUrl = process.env.TEAMS_WEBHOOK_URL;
+	const rootChangelogFile = fs.readFileSync(`${__dirname}/../../../CHANGELOG.md`, 'utf-8');
+	let sectionStart = false;
 
-	const { data: gitlabTags } = await axios({
-		method: 'GET',
-		url: 'https://gitlab.mgdis.fr/api/v4/projects/1968/repository/tags',
-		headers: {
-			'PRIVATE-TOKEN': process.env.CI_JOB_TOKEN,
-		},
-	});
+	const changelog = [];
 
-	const lastTag = gitlabTags[0];
-	const version = lastTag.release.tag_name;
-	const changelog = `${lastTag.release.description}\r\n\r\n[View the complete changelog file](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/tags/${version})`;
+	let title = '';
+
+	for (const line of rootChangelogFile.split(/\r?\n/)) {
+		if (!sectionStart && line.startsWith('## ')) {
+			sectionStart = true;
+			title = line.replace('##', '').trim();
+
+			changelog.push(line);
+			changelog.push('\n');
+		} else {
+			if (sectionStart && line.startsWith('## ')) {
+				sectionStart = false;
+				break;
+			}
+			if (sectionStart && line.length) {
+				changelog.push(line);
+				changelog.push('\n');
+			}
+		}
+	}
+
+	// TODO: Storybook is for now dedicated to mg-components but it is planned to make it the core-ui website.
+	changelog.push(
+		`\nView the complete changelog file here : [CHANGELOG](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/story/changelog--page)`
+	);
 
 	const message = {
-		title: `Nouvelle version de MG Components (${version})`,
-		text: converter.makeHtml(changelog).replace('\u2026', '...').replace(/\n/g, ''),
+		title,
+		text: converter.makeHtml(changelog.join('\n')).replace('\u2026', '...'),
 	};
 
 	await axios({

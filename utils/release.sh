@@ -6,10 +6,10 @@ set -e
 pnpm changeset status
 
 # Prompt the user for confirmation
-read -e -p $'\nThis is a release!!.\n\nAll current changes will be released and pushed.\n\nAre you sure you want to continue?\n(enter \'yes\' to confirm): ' confirm
+read -e -p $'\nThis is a release!!!\n\nAll current changes will be released and pushed.\n\nAre you sure you want to continue? [y/N]: ' confirm
 
 # Check the user's response
-if [[ "$confirm" == "yes" ]]; then
+if [[ "$confirm" == "y" ]]; then
   echo -e "User confirmed, continuing...\n\n"
 else
   echo -e "User cancelled, exiting.\n\n"
@@ -56,4 +56,4 @@ git commit -m "chore(release): $complete_name"
 # tag release name
 git tag -a "$complete_name" -m ""
 # push commit
-git push --atomic --follow-tags
+git push --atomic

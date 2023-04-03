@@ -122,6 +122,17 @@ release:
     - pnpm build
     - pnpm publish -r --no-git-checks
 
+bot-publish:
+  stage: release
+  extends:
+    - .rules:tags
+    - .install_dependencies
+  script:
+    - cd tools/release-bot
+    - ./bin/release.js
+  needs:
+    - release
+
 #################
 # mg-components #
 #################
