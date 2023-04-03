@@ -1,0 +1,19 @@
+{
+	"name": "notification-center",
+	"private": true,
+	"version": "1.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"typescript": "^4.9.5",
+		"vite": "^3.2.3"
+	},
+	"dependencies": {
+		"@mgdis/mg-components": "workspace:*",
+		"@mgdis/notification-center": "workspace:*"
+	}
+}

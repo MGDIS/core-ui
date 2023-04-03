@@ -1,7 +1,7 @@
 {
 	"name": "core-ui",
 	"license": "BSD-3-Clause",
-	"packageManager": "pnpm@7.14.0",
+	"packageManager": "pnpm@7.30.0",
 	"engineStrict": true,
 	"engines": {
 		"pnpm": ">=7",
@@ -21,6 +21,7 @@
 		"test": "run-s -l test:unit test:e2e",
 		"test:unit": "turbo test:unit",
 		"test:e2e": "turbo test:e2e",
+		"test:e2e:playwright": "turbo test:e2e:playwright",
 		"test:watch": "turbo test:watch",
 		"coverage": "run-s -l turbo:coverage report:merge junit:merge",
 		"turbo:coverage": "turbo coverage --concurrency=1",
@@ -34,7 +35,8 @@
 		"change:empty": "changeset --empty",
 		"release": "./utils/release.sh",
 		"release:status": "changeset status",
-		"prerelease": "./utils/prerelease.sh"
+		"prerelease": "./utils/prerelease.sh",
+		"apps:notification-center": "cd apps/notification-center && pnpm dev --port 3210"
 	},
 	"manypkg": {
 		"ignoredRules": [
@@ -44,9 +46,15 @@
 	"dependencies": {
 		"@changesets/cli": "^2.26.0",
 		"@manypkg/cli": "latest",
+		"@swc/jest": "^0.2.24",
+		"@typescript-eslint/eslint-plugin": "^4.33.0",
+		"@typescript-eslint/parser": "^4.33.0",
 		"codename": "^0.0.6",
 		"cross-env": "^7.0.3",
+		"eslint": "^7.32.0",
+		"eslint-plugin-tsdoc": "^0.2.17",
 		"husky": "^8.0.3",
+		"jest-junit": "^15.0.0",
 		"junit-report-merger": "^4.0.1",
 		"lint-staged": "^13.2.0",
 		"monomerge": "latest",

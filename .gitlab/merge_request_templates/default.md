@@ -6,7 +6,6 @@
 
 - [ ] Add link to the issue
 - [ ] Add link to the Jira
-- [ ] Update changelog
 - [ ] Create changeset
 
 ## Reviewers
