@@ -426,7 +426,7 @@ export class MgMenuItem {
               'mg-a11y-animation': true,
             }}
           >
-            <mg-icon icon="chevron-down"></mg-icon>
+            <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         )}
       </TagName>

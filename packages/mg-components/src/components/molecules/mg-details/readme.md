@@ -21,7 +21,7 @@ _Toggle_ follows the _summary_ and is always on the top right.
 
 ![](./mg-details/doc/img/mg-details-position.png)
 
-### Responsive
+### Responsive TODO
 
 In mobile resolution, the text of the _toggle_ is hidden
 
@@ -32,6 +32,17 @@ In mobile resolution, the text of the _toggle_ is hidden
 ### Spacing
 
 ![](./mg-details/doc/img/mg-details-spacing.png)
+
+### Icons
+
+Toggle's icon is chevron-down when closed.
+Toggle's icon is chevron-up when opened.
+
+The icon is displayed in "small" size.
+
+### Style
+
+Text of the toggle is in 'Open Sans', 13px, Regular, @color-dark.
 
 <!-- Auto Generated Below -->
 
