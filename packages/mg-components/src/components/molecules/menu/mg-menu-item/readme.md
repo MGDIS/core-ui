@@ -37,7 +37,7 @@ If a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate th
 
 Width of the item is 100% width of the menu.
 
-#### Mobile
+#### Mobile (todo)
 
 ![](./mg-menu-item/doc/img/mg-menu-item-sizing-mobile.png)
 
@@ -58,7 +58,7 @@ All contents are aligned vertically.
 All items are aligned to left.
 The chevron is aligned to the right of the item.
 
-#### Mobile
+#### Mobile (todo)
 
 ![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile.png)
 
@@ -166,7 +166,7 @@ Items below are pushed to bottom.
 
 Sub-items add to their left spacing the spacing between left border and content of their parent's item.
 
-### Mobile menu
+### Mobile menu (todo)
 
 Child content is displayed via an **mg-tray** component.
 

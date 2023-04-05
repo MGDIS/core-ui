@@ -6,7 +6,7 @@ import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 
 export default {
   component: 'mg-menu',
-  title: 'Beta/Menus/mg-menu',
+  title: 'Molecules/Menus/mg-menu',
   argTypes: {
     direction: {
       options: [undefined, Direction.HORIZONTAL, Direction.VERTICAL],
