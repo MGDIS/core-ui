@@ -21,7 +21,7 @@ _Toggle_ follows the _summary_ and is always on the top right.
 
 ![](./mg-details/doc/img/mg-details-position.png)
 
-### Responsive TODO
+### Responsive
 
 In mobile resolution, the text of the _toggle_ is hidden
 
