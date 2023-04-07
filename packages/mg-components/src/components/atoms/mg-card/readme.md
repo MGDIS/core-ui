@@ -32,6 +32,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 - `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`
 - `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`
 - `--mg-card-box-overflow`: define card overflow, default: `unset`
+- `--mg-card-max-width`: define card max-width, default: `unset`
 
 <!-- Auto Generated Below -->
 
