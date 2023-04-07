@@ -40,12 +40,13 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ## Properties
 
-| Property  | Attribute | Description                                                             | Type                                               | Default     |
-| --------- | --------- | ----------------------------------------------------------------------- | -------------------------------------------------- | ----------- |
-| `icon`    | `icon`    | Icon to display                                                         | `string`                                           | `undefined` |
-| `size`    | `size`    | Define icon size                                                        | `"extra-large" \| "large" \| "regular" \| "small"` | `'regular'` |
-| `spin`    | `spin`    | Make the icon spin                                                      | `boolean`                                          | `false`     |
-| `variant` | `variant` | Define icon variant Add a background to the icon based on variant color | `"danger" \| "info" \| "success" \| "warning"`     | `undefined` |
+| Property      | Attribute      | Description                                                              | Type                                                           | Default     |
+| ------------- | -------------- | ------------------------------------------------------------------------ | -------------------------------------------------------------- | ----------- |
+| `icon`        | `icon`         | Icon to display                                                          | `string`                                                       | `undefined` |
+| `iconVariant` | `icon-variant` | Define icon color variant Add a color to the icon based on variant color | `"app" \| "danger" \| "info" \| "success" \| "warning"`        | `undefined` |
+| `size`        | `size`         | Define icon size                                                         | `"extra-large" \| "large" \| "medium" \| "regular" \| "small"` | `'regular'` |
+| `spin`        | `spin`         | Make the icon spin                                                       | `boolean`                                                      | `false`     |
+| `variant`     | `variant`      | Define icon variant Add a background to the icon based on variant color  | `"app" \| "danger" \| "info" \| "success" \| "warning"`        | `undefined` |
 
 
 ## Dependencies

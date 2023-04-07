@@ -18,6 +18,10 @@ export default {
       options: [undefined, ...variants],
       control: { type: 'select' },
     },
+    iconVariant: {
+      options: [undefined, ...variants],
+      control: { type: 'select' },
+    },
   },
 };
 

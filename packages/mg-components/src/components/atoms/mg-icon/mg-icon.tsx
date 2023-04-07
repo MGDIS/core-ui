@@ -58,6 +58,22 @@ export class MgIcon {
   }
 
   /**
+   * Define icon color variant
+   * Add a color to the icon based on variant color
+   */
+  @Prop() iconVariant: IconVariantType;
+  @Watch('iconVariant')
+  validateIconVariant(newValue: MgIcon['iconVariant'], oldValue?: MgIcon['iconVariant']): void {
+    if (Boolean(newValue) && Boolean(this.variant) && !this.variant.includes(newValue))
+      throw new Error(`<mg-icon> prop "iconVariant" must be the same as "variant" props, when variant is defined.`);
+    else if (Boolean(newValue) && !variants.includes(newValue)) throw new Error(`<mg-icon> prop "iconVariant" must be one of: ${variants.join(', ')}`);
+    else if (Boolean(newValue)) {
+      if (Boolean(oldValue)) this.classList.delete(`mg-icon--icon-variant-${oldValue}`);
+      this.classList.add(`mg-icon--icon-variant-${newValue}`);
+    }
+  }
+
+  /**
    * Make the icon spin
    */
   @Prop() spin = false;
@@ -93,6 +109,7 @@ export class MgIcon {
     this.validateIcon(this.icon);
     this.validateSize(this.size);
     this.validateVariant(this.variant);
+    this.validateIconVariant(this.iconVariant);
     this.handleSpin(this.spin);
   }
 

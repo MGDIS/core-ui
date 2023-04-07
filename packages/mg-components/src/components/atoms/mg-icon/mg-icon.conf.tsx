@@ -876,7 +876,7 @@ export const icons: unknown = {
 /**
  * List of all possibles sizes
  */
-export const sizes = ['small', 'regular', 'large', 'extra-large'] as const;
+export const sizes = ['small', 'regular', 'medium', 'large', 'extra-large'] as const;
 
 /**
  * Icon Size from sizes
@@ -886,7 +886,7 @@ export type IconSizeType = (typeof sizes)[number];
 /**
  * List of all possibles variants
  */
-export const variants = ['success', 'warning', 'danger', 'info'] as const;
+export const variants = ['success', 'warning', 'danger', 'info', 'app'] as const;
 
 /**
  * Variant type from variants

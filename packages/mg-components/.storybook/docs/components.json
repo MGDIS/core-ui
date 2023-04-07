@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-03-29T19:48:15",
+  "timestamp": "2023-04-07T14:33:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -960,8 +960,41 @@
           "required": false
         },
         {
+          "name": "iconVariant",
+          "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+          "mutable": false,
+          "attr": "icon-variant",
+          "reflectToAttr": false,
+          "docs": "Define icon color variant\nAdd a color to the icon based on variant color",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "app",
+              "type": "string"
+            },
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "size",
-          "type": "\"extra-large\" | \"large\" | \"regular\" | \"small\"",
+          "type": "\"extra-large\" | \"large\" | \"medium\" | \"regular\" | \"small\"",
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -975,6 +1008,10 @@
             },
             {
               "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
               "type": "string"
             },
             {
@@ -1008,13 +1045,17 @@
         },
         {
           "name": "variant",
-          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+          "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
           "docs": "Define icon variant\nAdd a background to the icon based on variant color",
           "docsTags": [],
           "values": [
+            {
+              "value": "app",
+              "type": "string"
+            },
             {
               "value": "danger",
               "type": "string"
@@ -4633,7 +4674,7 @@
         },
         {
           "name": "itemmore",
-          "type": "{ size: \"regular\" | \"large\" | \"medium\"; icon: IconType; slotlabel: SlotLabelType; }",
+          "type": "{ size: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Customize \"mg-item-more\" element\nUsed with direction: 'vertical' to manage overflow",
@@ -4643,11 +4684,11 @@
               "type": "{ size: \"regular\""
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
-              "type": "\"medium\"; icon: IconType; slotlabel: SlotLabelType; }"
+              "type": "\"large\"; icon: IconType; slotlabel: SlotLabelType; }"
             }
           ],
           "optional": false,

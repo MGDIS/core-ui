@@ -173,6 +173,10 @@ export namespace Components {
          */
         "icon": string;
         /**
+          * Define icon color variant Add a color to the icon based on variant color
+         */
+        "iconVariant": IconVariantType;
+        /**
           * Define icon size
          */
         "size": IconSizeType;
@@ -1588,6 +1592,10 @@ declare namespace LocalJSX {
           * Icon to display
          */
         "icon"?: string;
+        /**
+          * Define icon color variant Add a color to the icon based on variant color
+         */
+        "iconVariant"?: IconVariantType;
         /**
           * Define icon size
          */
