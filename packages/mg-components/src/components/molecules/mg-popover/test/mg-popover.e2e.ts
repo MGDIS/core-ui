@@ -48,7 +48,7 @@ describe('mg-popover', () => {
 
       expect(popover).toHaveAttribute('data-show');
 
-      await page.setViewport({ width: 800, height: 350 });
+      await page.setViewport({ width: 800, height: 800 });
 
       const screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
@@ -148,6 +148,30 @@ describe('mg-popover', () => {
         <style>
           .custom-popover-card {
             --mg-popover-background-color: var(--color-danger);
+          }
+        </style>
+        `,
+      );
+
+      const mgPopover = await page.find('mg-popover');
+
+      expect(mgPopover).toHaveClass('hydrated');
+
+      await page.setViewport({ width: 500, height: 300 });
+
+      const screenshot = await page.screenshot();
+      expect(screenshot).toMatchImageSnapshot();
+    });
+
+    test.each(['content', 'title'])('Should render with --mg-popover-max-width', async slot => {
+      const page = await createPage(
+        `<mg-popover display close-button class="custom-popover">
+        <mg-button>Button</mg-button>
+        <h2 slot="${slot}">Titre un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long</h2>
+        </mg-popover>
+        <style>
+          .custom-popover {
+            --mg-popover-max-width: 10rem;
           }
         </style>
         `,
