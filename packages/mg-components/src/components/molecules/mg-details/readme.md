@@ -42,7 +42,7 @@ The icon is displayed in "small" size.
 
 ### Style
 
-Text of the toggle is in 'Open Sans', 13px, Regular, @color-dark.
+Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--page).
 
 <!-- Auto Generated Below -->
 
