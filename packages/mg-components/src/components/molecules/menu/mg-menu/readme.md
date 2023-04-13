@@ -2,7 +2,7 @@
 
 ### Use
 
-![](./mg-menu/doc/img/mg-menu-exemple.png)
+![](./mg-menu/doc/img/mg-menu-horizontal-exemple.png)
 
 Horizontal menu is used with large ("desktop") resolutions, it is placed in the upper area of the screen.
 
