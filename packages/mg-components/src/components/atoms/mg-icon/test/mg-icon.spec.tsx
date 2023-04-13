@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgIcon } from '../mg-icon';
-import { icons, sizes, variants } from '../mg-icon.conf';
+import { icons, sizes, variantStyles, variants } from '../mg-icon.conf';
 
 const getPage = args =>
   newSpecPage({
@@ -20,6 +20,11 @@ describe('mg-icon', () => {
       const { root } = await getPage({ icon, variant });
       expect(root).toMatchSnapshot();
     });
+
+    test.each(variants.flatMap(variant => variantStyles.map(variantStyle => ({ variant, variantStyle }))))('using %s variant', async ({ variant, variantStyle }) => {
+      const { root } = await getPage({ icon, variant, variantStyle });
+      expect(root).toMatchSnapshot();
+    });
   });
 
   test('Should render a spin icon', async () => {
@@ -31,10 +36,10 @@ describe('mg-icon', () => {
     { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-icon--chevron-up'], nextProps: { icon: 'chevron-down' }, nextClass: ['.mg-icon--chevron-down'] },
     { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-icon--size-regular'], nextProps: { size: 'large' }, nextClass: ['.mg-icon--size-large'] },
     {
-      initialProps: { icon: 'chevron-up', variant: 'success', iconVariant: 'success' },
-      initialClass: ['.mg-icon--variant-success', '.mg-icon--icon-variant-success'],
-      nextProps: { variant: 'danger', iconVariant: 'danger' },
-      nextClass: ['.mg-icon--variant-danger', '.mg-icon--icon-variant-danger'],
+      initialProps: { icon: 'chevron-up', variant: 'success', variantStyle: 'icon' },
+      initialClass: ['.mg-icon--variant-success', '.mg-icon--variant-style-icon'],
+      nextProps: { variant: 'danger', variantStyle: 'background' },
+      nextClass: ['.mg-icon--variant-danger', '.mg-icon--variant-style-background'],
     },
   ])('Should replace classes on icon changes', async ({ initialProps, initialClass, nextProps, nextClass }) => {
     const page = await getPage(initialProps);
@@ -70,25 +75,18 @@ describe('mg-icon', () => {
     const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}` }));
     const sizeError = ['', 'blu'].map(size => ({ props: { icon: 'check-circle', size }, error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}` }));
     const variantError = ['', 'blu'].map(variant => ({ props: { icon: 'check-circle', variant }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}` }));
-    const iconVariantError = ['', 'blu'].map(iconVariant => ({
-      props: { icon: 'check-circle', iconVariant },
-      error: `<mg-icon> prop "iconVariant" must be one of: ${variants.join(', ')}`,
+    const variantStyleError = ['', 'blu'].map(variantStyle => ({
+      props: { icon: 'check-circle', variantStyle },
+      error: `<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`,
     }));
-    const variantAndIconVariantError = {
-      props: { icon: 'check-circle', iconVariant: variants[1], variant: variants[0] },
-      error: '<mg-icon> prop "iconVariant" must be the same as "variant" props when variant is defined.',
-    };
 
-    test.each([...iconError, ...sizeError, ...variantError, ...iconVariantError, variantAndIconVariantError])(
-      'Should throw error with invalid icon property: %s',
-      async ({ props, error }) => {
-        expect.assertions(1);
-        try {
-          await getPage(props);
-        } catch (err) {
-          expect(err.message).toMatch(error);
-        }
-      },
-    );
+    test.each([...iconError, ...sizeError, ...variantError, ...variantStyleError])('Should throw error with invalid icon property: %s', async ({ props, error }) => {
+      expect.assertions(1);
+      try {
+        await getPage(props);
+      } catch (err) {
+        expect(err.message).toMatch(error);
+      }
+    });
   });
 });

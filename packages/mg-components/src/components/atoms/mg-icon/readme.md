@@ -28,17 +28,17 @@ The icon is centered in it.
 Default color for the icon is the color used for the text.
 Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))
 
-### Icon variant
+### Variant style
 
-![](./mg-icon/doc/img/mg-icon-styling-iconVariant.png) 
-
-"iconVariant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or "app color" to the icon
 
 ### Variant
+![](./mg-icon/doc/img/mg-icon-styling-iconVariant.png) 
+
 
 ![](./mg-icon/doc/img/mg-icon-styling-variant.png) 
 
 "variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or "app color" to the background of the icon with Lightness set to 90% 
+You can select "variant style" to apply "variant" on the icon or the background or both.
 
 # File naming
 
@@ -61,13 +61,13 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ## Properties
 
-| Property            | Attribute      | Description                                                                                          | Type                                                           | Default     |
-| ------------------- | -------------- | ---------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------- |
-| `icon` _(required)_ | `icon`         | Icon to display. Required.                                                                           | `string`                                                       | `undefined` |
-| `iconVariant`       | `icon-variant` | Define icon color variant Add a color to the icon based on variant color                             | `"app" \| "danger" \| "info" \| "success" \| "warning"`        | `undefined` |
-| `size`              | `size`         | Define icon size Default: 'regular'                                                                  | `"extra-large" \| "large" \| "medium" \| "regular" \| "small"` | `'regular'` |
-| `spin`              | `spin`         | Make the icon spin Default: false                                                                    | `boolean`                                                      | `false`     |
-| `variant`           | `variant`      | Define icon variant Used to set a background to the icon with a circular shape and a specified color | `"app" \| "danger" \| "info" \| "success" \| "warning"`        | `undefined` |
+| Property            | Attribute       | Description                                                                                                                                                                                                                                                                                                   | Type                                                           | Default     |
+| ------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------- |
+| `icon` _(required)_ | `icon`          | Icon to display. Required.                                                                                                                                                                                                                                                                                    | `string`                                                       | `undefined` |
+| `size`              | `size`          | Define icon size Default: 'regular'                                                                                                                                                                                                                                                                           | `"extra-large" \| "large" \| "medium" \| "regular" \| "small"` | `'regular'` |
+| `spin`              | `spin`          | Make the icon spin Default: false                                                                                                                                                                                                                                                                             | `boolean`                                                      | `false`     |
+| `variant`           | `variant`       | Define icon variant color                                                                                                                                                                                                                                                                                     | `"app" \| "danger" \| "info" \| "success" \| "warning"`        | `undefined` |
+| `variantStyle`      | `variant-style` | Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon | `"background" \| "full" \| "icon"`                             | `undefined` |
 
 
 ## Dependencies

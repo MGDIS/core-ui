@@ -7,6 +7,7 @@
 
 $sizes: ('small', 'regular', 'medium', 'large', 'extra-large');
 $colors: ('success', 'warning', 'danger', 'info', 'app');
+$variantStyles: ('icon', 'background', 'full');
 
 @function getColorPrefix($color) {
   @if $color == 'app' {
@@ -20,21 +21,22 @@ $colors: ('success', 'warning', 'danger', 'info', 'app');
   &.mg-icon--size-#{$size} {
     width: var(--mg-icon-#{$size}-size);
     height: var(--mg-icon-#{$size}-size);
-    &[class*='mg-icon--variant-'] {
+    &[class*='mg-icon--variant-']:not(.mg-icon--variant-style-icon) {
       padding: calc(var(--mg-icon-#{$size}-size) / 2);
     }
   }
 }
 
-@mixin variant-background($color) {
-  &.mg-icon--variant-#{$color} {
-    background-color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) 90%);
-  }
-}
-
-@mixin variant-icon($color) {
-  &.mg-icon--icon-variant-#{$color} {
-    color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) var(--#{getColorPrefix($color)}-#{$color}-l));
+@mixin variant-style($style) {
+  @each $color in $colors {
+    &.mg-icon--variant-#{$color}.mg-icon--variant-style-#{$style} {
+      @if ($style == 'icon' or $style == 'full') {
+        color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) var(--#{getColorPrefix($color)}-#{$color}-l));
+      }
+      @if ($style == 'background' or $style == 'full') {
+        background-color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) 90%);
+      }
+    }
   }
 }
 
@@ -44,12 +46,8 @@ $colors: ('success', 'warning', 'danger', 'info', 'app');
     @include variant-size($size);
   }
 
-  @each $color in $colors {
-    @include variant-background($color);
-  }
-
-  @each $color in $colors {
-    @include variant-icon($color);
+  @each $style in $variantStyles {
+    @include variant-style($style);
   }
 
   &[class*='mg-icon--variant-'] {

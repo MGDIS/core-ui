@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-04-13T08:28:49",
+  "timestamp": "2023-04-13T14:25:21",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -938,7 +938,7 @@
       "filePath": "./src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
-      "readme": "## Specifications\n\n### Sizing\n\n![](./mg-icon/doc/img/mg-icon-sizing.png) \n\nSizes (px) :\n\n- small : 12x12\n- regular : 16x16\n- medium : 20x20\n- large : 24x24\n- extra-large : 32x32\n\n### With \"variant\" applied\n\n![](./mg-icon/doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./mg-icon/doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))\n\n### Icon variant\n\n![](./mg-icon/doc/img/mg-icon-styling-iconVariant.png) \n\n\"iconVariant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or \"app color\" to the icon\n\n### Variant\n\n![](./mg-icon/doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or \"app color\" to the background of the icon with Lightness set to 90% \n\n# File naming\n\nSeparator : \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant : \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex : check-circle, check-circle-outline*\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--./mg-icon/doc/img/mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--./mg-icon/doc/img/mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--./mg-icon/doc/img/mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--./mg-icon/doc/img/mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n- `--./mg-icon/doc/img/mg-icon-border-radius`: Define icon border radiys, default: `50%`\n",
+      "readme": "## Specifications\n\n### Sizing\n\n![](./mg-icon/doc/img/mg-icon-sizing.png) \n\nSizes (px) :\n\n- small : 12x12\n- regular : 16x16\n- medium : 20x20\n- large : 24x24\n- extra-large : 32x32\n\n### With \"variant\" applied\n\n![](./mg-icon/doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./mg-icon/doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))\n\n### Variant style\n\n\n### Variant\n![](./mg-icon/doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./mg-icon/doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator : \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant : \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex : check-circle, check-circle-outline*\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--./mg-icon/doc/img/mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--./mg-icon/doc/img/mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--./mg-icon/doc/img/mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--./mg-icon/doc/img/mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n- `--./mg-icon/doc/img/mg-icon-border-radius`: Define icon border radiys, default: `50%`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -958,39 +958,6 @@
           ],
           "optional": false,
           "required": true
-        },
-        {
-          "name": "iconVariant",
-          "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
-          "mutable": false,
-          "attr": "icon-variant",
-          "reflectToAttr": false,
-          "docs": "Define icon color variant\nAdd a color to the icon based on variant color",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "app",
-              "type": "string"
-            },
-            {
-              "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
         },
         {
           "name": "size",
@@ -1049,7 +1016,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Define icon variant\nUsed to set a background to the icon with a circular shape and a specified color",
+          "docs": "Define icon variant color",
           "docsTags": [],
           "values": [
             {
@@ -1073,7 +1040,32 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variantStyle",
+          "type": "\"background\" | \"full\" | \"icon\"",
+          "mutable": true,
+          "attr": "variant-style",
+          "reflectToAttr": false,
+          "docs": "Define icon color variant style\nAdd a color to the icon based on variant color with given style\n'full': Used to set a circular background with variant soft color and icon variant color\n'background': Used to set a circular background with variant soft color\n'icon': Used to set a color only to the icon",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "background",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],

@@ -1,5 +1,5 @@
 import { Component, h, Prop, Watch, State } from '@stencil/core';
-import { icons, sizes, variants, IconVariantType, IconSizeType } from './mg-icon.conf';
+import { icons, sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
 import { ClassList } from '../../../utils/components.utils';
 
 @Component({
@@ -14,9 +14,8 @@ export class MgIcon {
   @Prop() icon!: string;
   @Watch('icon')
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
-    if (!Object.keys(icons).includes(newValue)) {
-      throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}`);
-    } else {
+    if (!Object.keys(icons).includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}`);
+    else {
       if (oldValue !== undefined) this.classList.delete(`mg-icon--${oldValue}`);
       this.classList.add(`mg-icon--${newValue}`);
     }
@@ -29,46 +28,41 @@ export class MgIcon {
   @Prop() size: IconSizeType = 'regular';
   @Watch('size')
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
-    if (!sizes.includes(newValue)) {
-      throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}`);
-    } else {
-      if (oldValue !== undefined) {
-        this.classList.delete(`mg-icon--size-${oldValue}`);
-      }
+    if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}`);
+    else {
+      if (oldValue !== undefined) this.classList.delete(`mg-icon--size-${oldValue}`);
       this.classList.add(`mg-icon--size-${newValue}`);
     }
   }
 
   /**
-   * Define icon variant
-   * Used to set a background to the icon with a circular shape and a specified color
+   * Define icon variant color
    */
-  @Prop() variant?: IconVariantType;
+  @Prop() variant: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
-    if (newValue !== undefined && !variants.includes(newValue)) {
-      throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
-    } else if (newValue !== undefined) {
-      if (oldValue !== undefined) {
-        this.classList.delete(`mg-icon--variant-${oldValue}`);
-      }
+    if (newValue !== undefined && !variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
+    else if (Boolean(newValue)) {
+      if (this.variantStyle === undefined) this.variantStyle = 'background';
+      if (Boolean(oldValue)) this.classList.delete(`mg-icon--variant-${oldValue}`);
       this.classList.add(`mg-icon--variant-${newValue}`);
     }
   }
 
   /**
-   * Define icon color variant
-   * Add a color to the icon based on variant color
+   * Define icon color variant style
+   * Add a color to the icon based on variant color with given style
+   * 'full': Used to set a circular background with variant soft color and icon variant color
+   * 'background': Used to set a circular background with variant soft color
+   * 'icon': Used to set a color only to the icon
    */
-  @Prop() iconVariant: IconVariantType;
-  @Watch('iconVariant')
-  validateIconVariant(newValue: MgIcon['iconVariant'], oldValue?: MgIcon['iconVariant']): void {
-    if (newValue !== undefined && !variants.includes(newValue)) throw new Error(`<mg-icon> prop "iconVariant" must be one of: ${variants.join(', ')}`);
-    else if (Boolean(this.variant) && Boolean(newValue) && newValue !== this.variant)
-      throw new Error(`<mg-icon> prop "iconVariant" must be the same as "variant" props when variant is defined.`);
+  @Prop({ mutable: true }) variantStyle: IconVariantStyleType;
+  @Watch('variantStyle')
+  validateVariantStyle(newValue: MgIcon['variantStyle'], oldValue?: MgIcon['variantStyle']): void {
+    if (newValue !== undefined && !variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
     else if (Boolean(newValue)) {
-      if (Boolean(oldValue)) this.classList.delete(`mg-icon--icon-variant-${oldValue}`);
-      this.classList.add(`mg-icon--icon-variant-${newValue}`);
+      if (Boolean(oldValue)) this.classList.delete(`mg-icon--variant-style-${oldValue}`);
+      this.classList.add(`mg-icon--variant-style-${newValue}`);
     }
   }
 
@@ -109,7 +103,7 @@ export class MgIcon {
     this.validateIcon(this.icon);
     this.validateSize(this.size);
     this.validateVariant(this.variant);
-    this.validateIconVariant(this.iconVariant);
+    this.validateVariantStyle(this.variantStyle);
     this.handleSpin(this.spin);
   }
 

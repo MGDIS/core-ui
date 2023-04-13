@@ -8,7 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
-import { IconSizeType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -173,10 +173,6 @@ export namespace Components {
          */
         "icon": string;
         /**
-          * Define icon color variant Add a color to the icon based on variant color
-         */
-        "iconVariant": IconVariantType;
-        /**
           * Define icon size Default: 'regular'
          */
         "size": IconSizeType;
@@ -185,9 +181,13 @@ export namespace Components {
          */
         "spin": boolean;
         /**
-          * Define icon variant Used to set a background to the icon with a circular shape and a specified color
+          * Define icon variant color
          */
-        "variant"?: IconVariantType;
+        "variant": IconVariantType;
+        /**
+          * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
+         */
+        "variantStyle": IconVariantStyleType;
     }
     interface MgIllustratedMessage {
         /**
@@ -1593,10 +1593,6 @@ declare namespace LocalJSX {
          */
         "icon": string;
         /**
-          * Define icon color variant Add a color to the icon based on variant color
-         */
-        "iconVariant"?: IconVariantType;
-        /**
           * Define icon size Default: 'regular'
          */
         "size"?: IconSizeType;
@@ -1605,9 +1601,13 @@ declare namespace LocalJSX {
          */
         "spin"?: boolean;
         /**
-          * Define icon variant Used to set a background to the icon with a circular shape and a specified color
+          * Define icon variant color
          */
         "variant"?: IconVariantType;
+        /**
+          * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
+         */
+        "variantStyle"?: IconVariantStyleType;
     }
     interface MgIllustratedMessage {
         /**

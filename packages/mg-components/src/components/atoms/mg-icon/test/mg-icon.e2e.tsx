@@ -1,13 +1,13 @@
 import { createPage, renderAttributes } from '../../../../utils/e2e.test.utils';
 import { MgIcon } from '../mg-icon';
-import { icons, sizes, variants } from '../mg-icon.conf';
+import { icons, sizes, variantStyles, variants } from '../mg-icon.conf';
 
 const getIconWidth = (size: MgIcon['size']): number => {
   switch (size) {
     case 'small':
       return 12;
     case 'medium':
-      return 2;
+      return 20;
     case 'large':
       return 24;
     case 'extra-large':
@@ -17,7 +17,7 @@ const getIconWidth = (size: MgIcon['size']): number => {
   }
 };
 
-const style = `<style>[variant='app']{ --mg-color-app-h: 260; }</style>`;
+const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
 describe('mg-icon', () => {
   test('renders icons', async () => {
@@ -40,15 +40,16 @@ describe('mg-icon', () => {
     expect(screenshot).toMatchImageSnapshot();
   });
 
-  test('renders variants', async () => {
+  test.each(variantStyles)('renders variants, with variantStyle %s', async variantStyle => {
     let width = 0;
+    const variantStyleIsIcon = variantStyle !== 'icon';
 
     const html = variants
       .map(variant =>
         sizes
           .map(size => {
-            width += getIconWidth(size) * 2.5;
-            return `<mg-icon ${renderAttributes({ icon: 'check-circle', variant, size })}></mg-icon>`;
+            width += variantStyleIsIcon ? getIconWidth(size) * 2 : getIconWidth(size);
+            return `<mg-icon ${renderAttributes({ icon: 'check-circle', variant: variant, variantStyle, size })}></mg-icon>`;
           })
           .join(''),
       )
@@ -56,29 +57,7 @@ describe('mg-icon', () => {
 
     const page = await createPage(html + style);
 
-    await page.setViewport({ width, height: getIconWidth('extra-large') * 2 });
-
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
-  });
-
-  test('renders icon-variants', async () => {
-    let width = 0;
-
-    const html = variants
-      .map(variant =>
-        sizes
-          .map(size => {
-            width += getIconWidth(size) * 2.5;
-            return `<mg-icon ${renderAttributes({ icon: 'check-circle', variant, iconVariant: variant, size })}></mg-icon>`;
-          })
-          .join(''),
-      )
-      .join('');
-
-    const page = await createPage(html + style);
-
-    await page.setViewport({ width, height: getIconWidth('extra-large') * 2 });
+    await page.setViewport({ width, height: variantStyleIsIcon ? getIconWidth('extra-large') * 2 : getIconWidth('extra-large') });
 
     const screenshot = await page.screenshot();
     expect(screenshot).toMatchImageSnapshot();
