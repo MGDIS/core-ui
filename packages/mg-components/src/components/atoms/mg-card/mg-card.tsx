@@ -1,4 +1,6 @@
-import { Component, h } from '@stencil/core';
+import { Component, h, Prop, State, Watch } from '@stencil/core';
+import { ClassList } from '../../../utils/components.utils';
+import { type VariantStyleType, variantStyles, type VariantType, variants } from './mg-card.conf';
 
 @Component({
   tag: 'mg-card',
@@ -7,8 +9,59 @@ import { Component, h } from '@stencil/core';
 })
 export class MgCard {
   /*************
+   * Private *
+   *************/
+
+  private readonly name = 'mg-card';
+  private readonly baseClass = this.name;
+
+  /*************
    * Lifecycle *
    *************/
+
+  /**
+   * Define variant prop
+   * Default: undefined
+   */
+  @Prop() variant: undefined | VariantType;
+  @Watch('variant')
+  validateVariant(newValue: MgCard['variant'], oldValue?: MgCard['variant']) {
+    if (newValue && !variants.includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
+    if (Boolean(newValue)) {
+      if (this.variantStyle === undefined) this.variantStyle = 'bar-left';
+      this.classList.add(`${this.baseClass}--${newValue}`);
+    }
+    if (Boolean(oldValue)) this.classList.delete(`${this.baseClass}--${oldValue}`);
+  }
+
+  /**
+   * Define variantStyle prop
+   * Default: undefined
+   */
+  @Prop({ mutable: true }) variantStyle: undefined | VariantStyleType;
+  @Watch('variantStyle')
+  validateVariantStyle(newValue: MgCard['variantStyle'], oldValue?: MgCard['variantStyle']) {
+    if (newValue && !variantStyles.includes(newValue)) throw new Error(`<${this.name}> prop "variantStyle" must match VariantStyleType type.`);
+    else if (Boolean(newValue) && !variants.includes(this.variant))
+      throw new Error(`<${this.name}> prop "variantStyle" must be paired with ${JSON.stringify(variants)} "variant" prop.`);
+    if (Boolean(newValue)) this.classList.add(`${this.baseClass}--${newValue}`);
+    if (Boolean(oldValue)) this.classList.delete(`${this.baseClass}--${oldValue}`);
+  }
+
+  /**
+   * Component classes
+   */
+  @State() classList: ClassList = new ClassList([this.baseClass]);
+
+  /**
+   * Check if props are well configured on init
+   *
+   * @returns {void}
+   */
+  componentWillLoad(): void {
+    this.validateVariant(this.variant);
+    this.validateVariantStyle(this.variantStyle);
+  }
 
   /**
    * Render
@@ -17,7 +70,8 @@ export class MgCard {
    */
   render(): HTMLElement {
     return (
-      <div class="mg-card">
+      <div class={this.classList.join()}>
+        {this.variantStyle?.startsWith('bar-') && <span class="mg-card__bar"></span>}
         <slot></slot>
       </div>
     );
