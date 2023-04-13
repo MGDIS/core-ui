@@ -33,6 +33,9 @@ The title and the close button are optional.
 
 ![](./mg-popover/doc/img/mg-popover-sizing.png)
 
+Default max-width : 400px
+The value of the max-width can be modified according to the case via the CSS variable.
+
 ### Alignments
 
 ![](./mg-popover/doc/img/mg-popover-align.png)
@@ -60,6 +63,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 - `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`
 - `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`
 - `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`
+- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;
 
 Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.
 
