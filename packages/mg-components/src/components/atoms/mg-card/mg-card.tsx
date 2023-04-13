@@ -26,10 +26,11 @@ export class MgCard {
   @Prop() variant: undefined | VariantType;
   @Watch('variant')
   validateVariant(newValue: MgCard['variant'], oldValue?: MgCard['variant']) {
-    if (newValue && ![undefined, ...variants].includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
-    else if (Boolean(newValue) && !variantStyles.includes(this.variantStyle))
-      throw new Error(`<${this.name}> prop "variant" must be paired with ${JSON.stringify(variantStyles)} "variantStyle" prop.`);
-    if (Boolean(newValue)) this.classList.add(`${this.baseClass}--${newValue}`);
+    if (newValue && !variants.includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
+    if (Boolean(newValue)) {
+      if (this.variantStyle === undefined) this.variantStyle = 'bar-left';
+      this.classList.add(`${this.baseClass}--${newValue}`);
+    }
     if (Boolean(oldValue)) this.classList.delete(`${this.baseClass}--${oldValue}`);
   }
 
@@ -37,10 +38,10 @@ export class MgCard {
    * Define variantStyle prop
    * Default: undefined
    */
-  @Prop() variantStyle: undefined | VariantStyleType;
+  @Prop({ mutable: true }) variantStyle: undefined | VariantStyleType;
   @Watch('variantStyle')
   validateVariantStyle(newValue: MgCard['variantStyle'], oldValue?: MgCard['variantStyle']) {
-    if (newValue && ![undefined, ...variantStyles].includes(newValue)) throw new Error(`<${this.name}> prop "variantStyle" must match VariantStyleType type.`);
+    if (newValue && !variantStyles.includes(newValue)) throw new Error(`<${this.name}> prop "variantStyle" must match VariantStyleType type.`);
     else if (Boolean(newValue) && !variants.includes(this.variant))
       throw new Error(`<${this.name}> prop "variantStyle" must be paired with ${JSON.stringify(variants)} "variant" prop.`);
     if (Boolean(newValue)) this.classList.add(`${this.baseClass}--${newValue}`);
