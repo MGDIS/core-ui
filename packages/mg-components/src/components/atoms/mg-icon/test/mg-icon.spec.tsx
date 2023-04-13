@@ -27,72 +27,68 @@ describe('mg-icon', () => {
     expect(root).toMatchSnapshot();
   });
 
-  test('Should replace classes on icon changes', async () => {
-    const page = await getPage({ icon: 'chevron-up', variant: 'success' });
+  test.each([
+    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-icon--chevron-up'], nextProps: { icon: 'chevron-down' }, nextClass: ['.mg-icon--chevron-down'] },
+    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-icon--size-regular'], nextProps: { size: 'large' }, nextClass: ['.mg-icon--size-large'] },
+    {
+      initialProps: { icon: 'chevron-up', variant: 'success', iconVariant: 'success' },
+      initialClass: ['.mg-icon--variant-success', '.mg-icon--icon-variant-success'],
+      nextProps: { variant: 'danger', iconVariant: 'danger' },
+      nextClass: ['.mg-icon--variant-danger', '.mg-icon--icon-variant-danger'],
+    },
+  ])('Should replace classes on icon changes', async ({ initialProps, initialClass, nextProps, nextClass }) => {
+    const page = await getPage(initialProps);
     const element = page.doc.querySelector('mg-icon');
-    let classChevronUp = element.shadowRoot.querySelector('.mg-icon--chevron-up');
-    let classSizeRegular = element.shadowRoot.querySelector('.mg-icon--size-regular');
-    let classVariantSuccess = element.shadowRoot.querySelector('.mg-icon--variant-success');
 
-    expect(classChevronUp).not.toBeNull();
-    expect(classSizeRegular).not.toBeNull();
-    expect(classVariantSuccess).not.toBeNull();
+    // validate inital state
+    initialClass.forEach(className => {
+      expect(element.shadowRoot.querySelector(className)).not.toBeNull();
+    });
 
-    // Change icon
-    element.icon = 'chevron-down';
+    nextClass.forEach(className => {
+      expect(element.shadowRoot.querySelector(className)).toBeNull();
+    });
+
+    // update props
+    Object.keys(nextProps).forEach(key => {
+      element[key] = nextProps[key];
+    });
+
     await page.waitForChanges();
 
-    classChevronUp = element.shadowRoot.querySelector('.mg-icon--chevron-up');
-    const classChevronDown = element.shadowRoot.querySelector('.mg-icon--chevron-down');
+    // validate next state
+    initialClass.forEach(className => {
+      expect(element.shadowRoot.querySelector(className)).toBeNull();
+    });
 
-    expect(classChevronUp).toBeNull();
-    expect(classChevronDown).not.toBeNull();
-
-    // Change size
-    element.size = 'large';
-    await page.waitForChanges();
-
-    classSizeRegular = element.shadowRoot.querySelector('.mg-icon--size-regular');
-    const classSizeLarge = element.shadowRoot.querySelector('.mg-icon--size-large');
-
-    expect(classSizeRegular).toBeNull();
-    expect(classSizeLarge).not.toBeNull();
-
-    // Change variant
-    element.variant = 'danger';
-    await page.waitForChanges();
-
-    classVariantSuccess = element.shadowRoot.querySelector('.mg-icon--variant-success');
-    const classVariantDanger = element.shadowRoot.querySelector('.mg-icon--variant-danger');
-
-    expect(classVariantSuccess).toBeNull();
-    expect(classVariantDanger).not.toBeNull();
+    nextClass.forEach(className => {
+      expect(element.shadowRoot.querySelector(className)).not.toBeNull();
+    });
   });
 
-  test.each(['', 'blu', undefined])('Should throw error with invalid icon property: %s', async icon => {
-    expect.assertions(1);
-    try {
-      await getPage({ icon });
-    } catch (err) {
-      expect(err.message).toMatch('<mg-icon> prop "icon" must be one of: ');
-    }
-  });
+  describe('errors', () => {
+    const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}` }));
+    const sizeError = ['', 'blu'].map(size => ({ props: { icon: 'check-circle', size }, error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}` }));
+    const variantError = ['', 'blu'].map(variant => ({ props: { icon: 'check-circle', variant }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}` }));
+    const iconVariantError = ['', 'blu'].map(iconVariant => ({
+      props: { icon: 'check-circle', iconVariant },
+      error: `<mg-icon> prop "iconVariant" must be one of: ${variants.join(', ')}`,
+    }));
+    const variantAndIconVariantError = {
+      props: { icon: 'check-circle', iconVariant: variants[1], variant: variants[0] },
+      error: '<mg-icon> prop "iconVariant" must be the same as "variant" props when variant is defined.',
+    };
 
-  test.each(['', 'blu'])('Should throw error with invalid size property: %s', async size => {
-    expect.assertions(1);
-    try {
-      await getPage({ icon: 'check-circle', size });
-    } catch (err) {
-      expect(err.message).toMatch('<mg-icon> prop "size" must be one of: ');
-    }
-  });
-
-  test.each(['', 'blu'])('Should throw error with invalid variant property: %s', async variant => {
-    expect.assertions(1);
-    try {
-      await getPage({ icon: 'check-circle', variant });
-    } catch (err) {
-      expect(err.message).toMatch('<mg-icon> prop "variant" must be one of: ');
-    }
+    test.each([...iconError, ...sizeError, ...variantError, ...iconVariantError, variantAndIconVariantError])(
+      'Should throw error with invalid icon property: %s',
+      async ({ props, error }) => {
+        expect.assertions(1);
+        try {
+          await getPage(props);
+        } catch (err) {
+          expect(err.message).toMatch(error);
+        }
+      },
+    );
   });
 });

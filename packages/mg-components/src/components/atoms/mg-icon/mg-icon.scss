@@ -53,7 +53,7 @@ $colors: ('success', 'warning', 'danger', 'info', 'app');
   }
 
   &[class*='mg-icon--variant-'] {
-    border-radius: 50%;
+    border-radius: var(--mg-icon-border-radius);
   }
 }
 

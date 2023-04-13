@@ -169,7 +169,7 @@ export namespace Components {
     }
     interface MgIcon {
         /**
-          * Icon to display
+          * Icon to display. Required.
          */
         "icon": string;
         /**
@@ -177,15 +177,15 @@ export namespace Components {
          */
         "iconVariant": IconVariantType;
         /**
-          * Define icon size
+          * Define icon size Default: 'regular'
          */
         "size": IconSizeType;
         /**
-          * Make the icon spin
+          * Make the icon spin Default: false
          */
         "spin": boolean;
         /**
-          * Define icon variant Add a background to the icon based on variant color
+          * Define icon variant Used to set a background to the icon with a circular shape and a specified color
          */
         "variant"?: IconVariantType;
     }
@@ -1589,23 +1589,23 @@ declare namespace LocalJSX {
     }
     interface MgIcon {
         /**
-          * Icon to display
+          * Icon to display. Required.
          */
-        "icon"?: string;
+        "icon": string;
         /**
           * Define icon color variant Add a color to the icon based on variant color
          */
         "iconVariant"?: IconVariantType;
         /**
-          * Define icon size
+          * Define icon size Default: 'regular'
          */
         "size"?: IconSizeType;
         /**
-          * Make the icon spin
+          * Make the icon spin Default: false
          */
         "spin"?: boolean;
         /**
-          * Define icon variant Add a background to the icon based on variant color
+          * Define icon variant Used to set a background to the icon with a circular shape and a specified color
          */
         "variant"?: IconVariantType;
     }
