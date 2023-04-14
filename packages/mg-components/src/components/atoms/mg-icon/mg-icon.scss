@@ -34,7 +34,7 @@ $variantStyles: ('icon', 'background', 'full');
         color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) var(--#{getColorPrefix($color)}-#{$color}-l));
       }
       @if ($style == 'background' or $style == 'full') {
-        background-color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) 90%);
+        background-color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) var(--mg-color-soft-l));
       }
     }
   }
