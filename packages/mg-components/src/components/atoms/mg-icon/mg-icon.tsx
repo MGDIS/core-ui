@@ -41,11 +41,13 @@ export class MgIcon {
   @Prop() variant: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
-    if (newValue !== undefined && !variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
-    else if (Boolean(newValue)) {
-      if (this.variantStyle === undefined) this.variantStyle = 'background';
-      if (Boolean(oldValue)) this.classList.delete(`mg-icon--variant-${oldValue}`);
-      this.classList.add(`mg-icon--variant-${newValue}`);
+    if (Boolean(newValue)) {
+      if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
+      else {
+        if (this.variantStyle === undefined) this.variantStyle = 'background';
+        if (oldValue !== undefined) this.classList.delete(`mg-icon--variant-${oldValue}`);
+        this.classList.add(`mg-icon--variant-${newValue}`);
+      }
     }
   }
 
@@ -59,10 +61,12 @@ export class MgIcon {
   @Prop({ mutable: true }) variantStyle: IconVariantStyleType;
   @Watch('variantStyle')
   validateVariantStyle(newValue: MgIcon['variantStyle'], oldValue?: MgIcon['variantStyle']): void {
-    if (newValue !== undefined && !variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
-    else if (Boolean(newValue)) {
-      if (Boolean(oldValue)) this.classList.delete(`mg-icon--variant-style-${oldValue}`);
-      this.classList.add(`mg-icon--variant-style-${newValue}`);
+    if (Boolean(newValue)) {
+      if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
+      else {
+        if (oldValue !== undefined) this.classList.delete(`mg-icon--variant-style-${oldValue}`);
+        this.classList.add(`mg-icon--variant-style-${newValue}`);
+      }
     }
   }
 

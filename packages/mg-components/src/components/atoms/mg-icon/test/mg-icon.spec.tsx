@@ -74,13 +74,13 @@ describe('mg-icon', () => {
   describe('errors', () => {
     const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}` }));
     const sizeError = ['', 'blu'].map(size => ({ props: { icon: 'check-circle', size }, error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}` }));
-    const variantError = ['', 'blu'].map(variant => ({ props: { icon: 'check-circle', variant }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}` }));
-    const variantStyleError = ['', 'blu'].map(variantStyle => ({
-      props: { icon: 'check-circle', variantStyle },
+    const variantError = { props: { icon: 'check-circle', variant: 'blu' }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}` };
+    const variantStyleError = {
+      props: { icon: 'check-circle', variantStyle: 'blu' },
       error: `<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`,
-    }));
+    };
 
-    test.each([...iconError, ...sizeError, ...variantError, ...variantStyleError])('Should throw error with invalid icon property: %s', async ({ props, error }) => {
+    test.each([...iconError, ...sizeError, variantError, variantStyleError])('Should throw error with invalid icon property: %s', async ({ props, error }) => {
       expect.assertions(1);
       try {
         await getPage(props);
