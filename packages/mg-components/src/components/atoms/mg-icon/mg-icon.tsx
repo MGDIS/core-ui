@@ -9,7 +9,7 @@ import { ClassList } from '../../../utils/components.utils';
 })
 export class MgIcon {
   /**
-   * Icon to display. Required.
+   * Icon to display.
    */
   @Prop() icon!: string;
   @Watch('icon')
@@ -23,7 +23,6 @@ export class MgIcon {
 
   /**
    * Define icon size
-   * Default: 'regular'
    */
   @Prop() size: IconSizeType = 'regular';
   @Watch('size')
@@ -72,7 +71,6 @@ export class MgIcon {
 
   /**
    * Make the icon spin
-   * Default: false
    */
   @Prop() spin = false;
   @Watch('spin')

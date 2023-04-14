@@ -179,15 +179,15 @@ export namespace Components {
     }
     interface MgIcon {
         /**
-          * Icon to display. Required.
+          * Icon to display.
          */
         "icon": string;
         /**
-          * Define icon size Default: 'regular'
+          * Define icon size
          */
         "size": IconSizeType;
         /**
-          * Make the icon spin Default: false
+          * Make the icon spin
          */
         "spin": boolean;
         /**
@@ -1607,15 +1607,15 @@ declare namespace LocalJSX {
     }
     interface MgIcon {
         /**
-          * Icon to display. Required.
+          * Icon to display.
          */
         "icon": string;
         /**
-          * Define icon size Default: 'regular'
+          * Define icon size
          */
         "size"?: IconSizeType;
         /**
-          * Make the icon spin Default: false
+          * Make the icon spin
          */
         "spin"?: boolean;
         /**

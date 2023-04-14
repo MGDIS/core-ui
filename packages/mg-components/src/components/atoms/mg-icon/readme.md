@@ -50,11 +50,12 @@ Variant : "-outline". If pictogram variant has a background that has a full circ
 
 If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
 
-- `--./mg-icon/doc/img/mg-icon-small-size`: Define small icon size, default: `1.2rem`
-- `--./mg-icon/doc/img/mg-icon-regular-size`: Define regular icon size, default: `1.6rem`
-- `--./mg-icon/doc/img/mg-icon-large-size`: Define large icon size, default: `2.4rem`
-- `--./mg-icon/doc/img/mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`
-- `--./mg-icon/doc/img/mg-icon-border-radius`: Define icon border radiys, default: `50%`
+- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`
+- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`
+- `--mg-icon-medium-size`: Define medium icon size, default: `2rem`
+- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`
+- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`
+- `--mg-icon-border-radius`: Define icon border radiys, default: `50%`
 
 <!-- Auto Generated Below -->
 
@@ -63,9 +64,9 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 | Property            | Attribute       | Description                                                                                                                                                                                                                                                                                                   | Type                                                           | Default     |
 | ------------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- | ----------- |
-| `icon` _(required)_ | `icon`          | Icon to display. Required.                                                                                                                                                                                                                                                                                    | `string`                                                       | `undefined` |
-| `size`              | `size`          | Define icon size Default: 'regular'                                                                                                                                                                                                                                                                           | `"extra-large" \| "large" \| "medium" \| "regular" \| "small"` | `'regular'` |
-| `spin`              | `spin`          | Make the icon spin Default: false                                                                                                                                                                                                                                                                             | `boolean`                                                      | `false`     |
+| `icon` _(required)_ | `icon`          | Icon to display.                                                                                                                                                                                                                                                                                              | `string`                                                       | `undefined` |
+| `size`              | `size`          | Define icon size                                                                                                                                                                                                                                                                                              | `"extra-large" \| "large" \| "medium" \| "regular" \| "small"` | `'regular'` |
+| `spin`              | `spin`          | Make the icon spin                                                                                                                                                                                                                                                                                            | `boolean`                                                      | `false`     |
 | `variant`           | `variant`       | Define icon variant color                                                                                                                                                                                                                                                                                     | `"app" \| "danger" \| "info" \| "success" \| "warning"`        | `undefined` |
 | `variantStyle`      | `variant-style` | Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon | `"background" \| "full" \| "icon"`                             | `undefined` |
 
