@@ -394,7 +394,7 @@
 - [**`<mg-input-toggle>`**](?/path=story/molecules-inputs-mg-input-toggle--mg-input-toggle) new component refers to [PDA9-770](https://jira.mgdis.fr/browse/PDA9-770)
 - All inputs also refers to [PDA9-723](https://jira.mgdis.fr/browse/PDA9-723).
 - [**`<mg-icon>`**](./?path=/docs/atoms-mg-icon--mg-icon) for accessibility, sometimes we need to add a background on icons, it is now possible with the attribute `variant`
-- [**`<mg-input-message>`**](./?path=/story/molecules-mg-message--mg-message&args=closeButton:true;delay:10) can now be hidden after a defined delay using the `delay` attribute
+- [**`<mg-message>`**](./?path=/story/molecules-mg-message--mg-message&args=closeButton:true;delay:10) can now be hidden after a defined delay using the `delay` attribute
 - [**`<mg-input-...>`**](./?path=/story/molecules-inputs-mg-input-date--mg-input-date&args=labelOnTop:true) Tooltip icon moved next to label when used with the attribute `label-on-top`
 
 ### Patch Changes
