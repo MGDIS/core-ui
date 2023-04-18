@@ -4,9 +4,9 @@ default:
   interruptible: true # allows to cancel the job automatically
 
 stages:
-  - test
+  - tests
+  - artifacts
   - mg-components
-  - notification-center
   - release
 
 ###########
@@ -47,12 +47,12 @@ stages:
     - corepack enable
     - pnpm i
 
-########
-# test #
-########
+#########
+# tests #
+#########
 
 lint:
-  stage: test
+  stage: tests
   extends:
     - .rules:except-tags
     - .install_dependencies
@@ -60,7 +60,7 @@ lint:
     - pnpm lint
 
 test:unit:
-  stage: test
+  stage: tests
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:except-tags
@@ -80,7 +80,7 @@ test:unit:
         path: coverage/cobertura-coverage.xml
 
 sonar:
-  stage: test
+  stage: tests
   variables:
     GIT_DEPTH: 0
   extends:
@@ -92,6 +92,10 @@ sonar:
     - gitlabci-sonar-compare report
   needs:
     - test:unit
+
+###########
+# release #
+###########
 
 release:
   stage: release
@@ -129,7 +133,7 @@ bot-publish:
     - mv storybook-static ../../public
 
 test:e2e:mg-components:
-  stage: mg-components
+  stage: tests
   extends:
     - .rules:changes:mg-components # for now only mg-components use test:e2e
     - .rules:except-tags
@@ -140,8 +144,8 @@ test:e2e:mg-components:
   needs:
     - lint
 
-artifact:mg-components:
-  stage: mg-components
+mg-components:artifact:
+  stage: artifacts
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
@@ -151,6 +155,8 @@ artifact:mg-components:
     - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
     - pnpm version --no-git-tag-version $version
     - pnpm publish --no-git-checks
+  needs:
+    - lint
 
 storybook-mr:
   stage: mg-components
@@ -191,7 +197,7 @@ pages:
 #######################
 
 test:e2e:playwright:
-  stage: notification-center
+  stage: tests
   image: mcr.microsoft.com/playwright:v1.31.0-focal
   extends:
     - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
@@ -208,17 +214,18 @@ test:e2e:playwright:
       - packages/notification-center/results.xml
     reports:
       junit: packages/notification-center/results.xml
-  needs:
-    - lint
 
-artifact:notification-center:
-  stage: notification-center
+notification-center:artifact:
+  stage: artifacts
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install_dependencies
   script:
     - cd packages/notification-center
+    - pnpm build
     - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
     - pnpm version --no-git-tag-version $version
     - pnpm publish --no-git-checks
+  needs:
+    - lint
