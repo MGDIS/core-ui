@@ -6,6 +6,7 @@ default:
 stages:
   - test
   - mg-components
+  - notification-center
   - release
 
 ###########
@@ -78,27 +79,6 @@ test:unit:
         coverage_format: cobertura
         path: coverage/cobertura-coverage.xml
 
-test:e2e:
-  stage: test
-  extends:
-    - .rules:changes:mg-components # for now only mg-components use test:e2e
-    - .rules:except-tags
-    - .install_dependencies
-  script:
-    - pnpm test:e2e
-  retry: 2
-
-test:e2e:playwright:
-  stage: test
-  image: mcr.microsoft.com/playwright:v1.31.0-focal
-  extends:
-    - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
-    - .rules:except-tags
-    - .install_dependencies
-  script:
-    - pnpx playwright install
-    - pnpm test:e2e:playwright
-
 sonar:
   stage: test
   variables:
@@ -148,7 +128,19 @@ bot-publish:
     - pnpm storybook:build
     - mv storybook-static ../../public
 
-artifact:
+test:e2e:mg-components:
+  stage: mg-components
+  extends:
+    - .rules:changes:mg-components # for now only mg-components use test:e2e
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpm test:e2e
+  retry: 2
+  needs:
+    - lint
+
+artifact:mg-components:
   stage: mg-components
   extends:
     - .rules:changes:mg-components
@@ -193,3 +185,32 @@ pages:
   artifacts:
     paths:
       - public
+
+#######################
+# notification-center #
+#######################
+
+test:e2e:playwright:
+  stage: notification-center
+  image: mcr.microsoft.com/playwright:v1.31.0-focal
+  extends:
+    - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpx playwright install
+    - pnpm test:e2e:playwright
+  needs:
+    - lint
+
+artifact:notification-center:
+  stage: notification-center
+  extends:
+    - .rules:changes:mg-components
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - cd packages/notification-center
+    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
+    - pnpm version --no-git-tag-version $version
+    - pnpm publish --no-git-checks
