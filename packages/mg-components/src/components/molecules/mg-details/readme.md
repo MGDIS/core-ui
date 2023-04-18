@@ -33,6 +33,17 @@ In mobile resolution, the text of the _toggle_ is hidden
 
 ![](./mg-details/doc/img/mg-details-spacing.png)
 
+### Icons
+
+Toggle's icon is chevron-down when closed.
+Toggle's icon is chevron-up when opened.
+
+The icon is displayed in "small" size.
+
+### Style
+
+Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--page).
+
 <!-- Auto Generated Below -->
 
 

@@ -1,7 +1,8 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
 import { createID, ClassList } from '../../../utils/components.utils';
-import { variants } from './mg-message.conf';
+import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
+import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
 @Component({
   tag: 'mg-message',
@@ -50,7 +51,7 @@ export class MgMessage {
    */
   @Prop() delay: number;
   @Watch('delay')
-  validateDelay(newValue: number): void {
+  validateDelay(newValue: MgMessage['delay']): void {
     if (newValue && newValue < 2) {
       throw new Error(`<mg-message> prop "delay" must be greater than 2 seconds.`);
     }
@@ -59,9 +60,9 @@ export class MgMessage {
   /**
    * Message variant
    */
-  @Prop() variant: string = variants[0]; // info
+  @Prop() variant: VariantType = variants[0]; // info
   @Watch('variant')
-  validateVariant(newValue: string, oldValue?: string): void {
+  validateVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
     if (!variants.includes(newValue)) {
       throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
@@ -78,7 +79,7 @@ export class MgMessage {
    */
   @Prop({ mutable: true }) closeButton = false;
   @Watch('closeButton')
-  validateCloseButton(newValue: boolean): void {
+  validateCloseButton(newValue: MgMessage['closeButton']): void {
     if (newValue && this.hasActions) {
       this.closeButton = false;
       throw new Error('<mg-message> prop "close-button" can\'t be used with the actions slot.');
@@ -90,7 +91,7 @@ export class MgMessage {
    */
   @Prop({ mutable: true }) hide = false;
   @Watch('hide')
-  validateHide(newValue: boolean): void {
+  validateHide(newValue: MgMessage['hide']): void {
     if (newValue) {
       this.componentHide.emit();
       this.classList.add(this.classHide);
@@ -189,7 +190,7 @@ export class MgMessage {
    *
    * @returns {string} icon
    */
-  private getIcon = (): string => {
+  private getIcon = (): MgIcon['icon'] => {
     switch (this.variant) {
       case 'info':
         return 'info-circle';
@@ -235,8 +236,7 @@ export class MgMessage {
   render(): HTMLElement {
     return (
       <div id={this.identifier} class={this.classList.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
-        <mg-card>
-          <span class="mg-message__bar"></span>
+        <mg-card variant={this.variant} variant-style="bar-left">
           <span class="mg-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>

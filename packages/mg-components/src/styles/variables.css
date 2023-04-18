@@ -98,6 +98,9 @@
   /* Shadow */
   --box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--color-dark), 0.15);
 
+  /* Soft style */
+  --mg-color-soft-l: 90%;
+
   /*
     Global
    */
@@ -109,8 +112,10 @@
    */
   --mg-icon-small-size: 1.2rem;
   --mg-icon-regular-size: 1.6rem;
+  --mg-icon-medium-size: 2rem;
   --mg-icon-large-size: 2.4rem;
-  --mg-icon-extra-large-size: 3.6rem;
+  --mg-icon-extra-large-size: 3.2rem;
+  --mg-icon-border-radius: 50%;
 
   /*
     <mg-button>
@@ -160,6 +165,7 @@
   --mg-popover-background-color: var(--color-light);
   --mg-popover-font-color: var(--color-font-dark);
   --mg-popover-title-font-size: 1.4rem;
+  --mg-popover-max-width: 40rem;
 
   /*
     <mg-message>

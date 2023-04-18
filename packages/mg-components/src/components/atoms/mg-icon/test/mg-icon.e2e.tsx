@@ -1,18 +1,23 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
-import { icons, sizes, variants } from '../mg-icon.conf';
+import { createPage, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { MgIcon } from '../mg-icon';
+import { icons, sizes, variantStyles, variants } from '../mg-icon.conf';
 
-const getIconWidth = (size: string): number => {
+const getIconWidth = (size: MgIcon['size']): number => {
   switch (size) {
     case 'small':
       return 12;
+    case 'medium':
+      return 20;
     case 'large':
       return 24;
     case 'extra-large':
-      return 36;
+      return 32;
     default:
       return 16;
   }
 };
+
+const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
 describe('mg-icon', () => {
   test('renders icons', async () => {
@@ -26,28 +31,33 @@ describe('mg-icon', () => {
   });
 
   test('renders sizes', async () => {
-    const html = sizes.map(size => `<mg-icon icon="thumb-up" size="${size}"></mg-icon>`).join('');
+    const html = sizes.map(size => `<mg-icon ${renderAttributes({ icon: 'thumb-up', size })}></mg-icon>`).join('');
     const page = await createPage(html);
 
-    await page.setViewport({ width: 88, height: 36 });
+    await page.setViewport({ width: 120, height: getIconWidth('extra-large') });
 
     const screenshot = await page.screenshot();
     expect(screenshot).toMatchImageSnapshot();
   });
 
-  test('renders variants', async () => {
-    let html = '';
+  test.each(variantStyles)('renders variants, with variantStyle %s', async variantStyle => {
     let width = 0;
-    for (const variant of variants) {
-      for (const size of sizes) {
-        width += getIconWidth(size) + 6;
-        html += `<mg-icon icon="check-circle" variant="${variant}" size="${size}"></mg-icon>`;
-      }
-    }
+    const variantStyleIsIcon = variantStyle !== 'icon';
 
-    const page = await createPage(html);
+    const html = variants
+      .map(variant =>
+        sizes
+          .map(size => {
+            width += variantStyleIsIcon ? getIconWidth(size) * 2 : getIconWidth(size);
+            return `<mg-icon ${renderAttributes({ icon: 'check-circle', variant: variant, variantStyle, size })}></mg-icon>`;
+          })
+          .join(''),
+      )
+      .join('');
 
-    await page.setViewport({ width, height: 42 });
+    const page = await createPage(html + style);
+
+    await page.setViewport({ width, height: variantStyleIsIcon ? getIconWidth('extra-large') * 2 : getIconWidth('extra-large') });
 
     const screenshot = await page.screenshot();
     expect(screenshot).toMatchImageSnapshot();

@@ -1,4 +1,4 @@
-## Specs
+## Specifications
 
 ### Style
 
@@ -8,6 +8,25 @@
 2. Background: [@color-light](./?path=/docs/style-colors--page)
 3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%
 4. Shadow: [@shadow](./?path=/docs/style-colors--page)
+
+### Variant on bar / on background
+
+You can set variant color on left bar or on background of the card
+
+Values for variant colors are : 
+- info
+- success
+- warning
+- danger
+- app
+
+![](./mg-card/doc/img/mg-card-variant.png)
+
+*exemple of "app color" for the last one*
+
+Variant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**
+
+Variant applied on the background uses **[soft colors](./?path=/docs/style-colors--page)**
 
 ### Spacing
 
@@ -32,8 +51,17 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 - `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`
 - `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`
 - `--mg-card-box-overflow`: define card overflow, default: `unset`
+- `--mg-card-max-width`: define card max-width, default: `unset`
 
 <!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property       | Attribute       | Description                                 | Type                                                    | Default     |
+| -------------- | --------------- | ------------------------------------------- | ------------------------------------------------------- | ----------- |
+| `variant`      | `variant`       | Define variant prop Default: undefined      | `"app" \| "danger" \| "info" \| "success" \| "warning"` | `undefined` |
+| `variantStyle` | `variant-style` | Define variantStyle prop Default: undefined | `"bar-left" \| "fill"`                                  | `undefined` |
 
 
 ## Dependencies

@@ -24,7 +24,7 @@ They are not on SemiBold but **Regular**.
 
 1. Icons takes the color of the tag variant.
 2. Labels are [**@color-dark**](./?path=/docs/style-colors--page) for all.
-3. Color background is **90% lightness** of the tag variant.
+3. Color background is **[**soft color**](./?path=/docs/style-colors--page)** of the tag variant.
 
 #### Rules
 

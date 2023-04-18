@@ -11,7 +11,7 @@ exports[`mg-details with args {
       <summary>
         <slot name="summary"></slot>
         <span class="mg-details__toggle">
-          <mg-icon icon="chevron-up"></mg-icon>
+          <mg-icon icon="chevron-up" size="small"></mg-icon>
           <span>
             Hide details
           </span>
@@ -42,7 +42,7 @@ exports[`mg-details with args {
       <summary>
         <slot name="summary"></slot>
         <span class="mg-details__toggle">
-          <mg-icon icon="chevron-down"></mg-icon>
+          <mg-icon icon="chevron-down" size="small"></mg-icon>
           <span class="sr-only">
             Show details
           </span>
@@ -69,7 +69,7 @@ exports[`mg-details with args { toggleClosed: 'Show details', toggleOpened: 'Hid
       <summary>
         <slot name="summary"></slot>
         <span class="mg-details__toggle">
-          <mg-icon icon="chevron-down"></mg-icon>
+          <mg-icon icon="chevron-down" size="small"></mg-icon>
           <span>
             Show details
           </span>

@@ -8,7 +8,8 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
-import { IconSizeType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
+import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -17,6 +18,7 @@ import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-in
 import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
@@ -97,6 +99,14 @@ export namespace Components {
         "variant": VariantType;
     }
     interface MgCard {
+        /**
+          * Define variant prop Default: undefined
+         */
+        "variant": undefined | VariantType1;
+        /**
+          * Define variantStyle prop Default: undefined
+         */
+        "variantStyle": undefined | VariantStyleType;
     }
     interface MgCharacterLeft {
         /**
@@ -169,7 +179,7 @@ export namespace Components {
     }
     interface MgIcon {
         /**
-          * Icon to display
+          * Icon to display.
          */
         "icon": string;
         /**
@@ -181,9 +191,13 @@ export namespace Components {
          */
         "spin": boolean;
         /**
-          * Define icon variant Add a background to the icon based on variant color
+          * Define icon variant color
          */
-        "variant"?: IconVariantType;
+        "variant": IconVariantType;
+        /**
+          * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
+         */
+        "variantStyle": IconVariantStyleType;
     }
     interface MgIllustratedMessage {
         /**
@@ -955,7 +969,7 @@ export namespace Components {
         /**
           * Message variant
          */
-        "variant": string;
+        "variant": VariantType2;
     }
     interface MgModal {
         /**
@@ -1506,6 +1520,14 @@ declare namespace LocalJSX {
         "variant"?: VariantType;
     }
     interface MgCard {
+        /**
+          * Define variant prop Default: undefined
+         */
+        "variant"?: undefined | VariantType1;
+        /**
+          * Define variantStyle prop Default: undefined
+         */
+        "variantStyle"?: undefined | VariantStyleType;
     }
     interface MgCharacterLeft {
         /**
@@ -1585,9 +1607,9 @@ declare namespace LocalJSX {
     }
     interface MgIcon {
         /**
-          * Icon to display
+          * Icon to display.
          */
-        "icon"?: string;
+        "icon": string;
         /**
           * Define icon size
          */
@@ -1597,9 +1619,13 @@ declare namespace LocalJSX {
          */
         "spin"?: boolean;
         /**
-          * Define icon variant Add a background to the icon based on variant color
+          * Define icon variant color
          */
         "variant"?: IconVariantType;
+        /**
+          * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
+         */
+        "variantStyle"?: IconVariantStyleType;
     }
     interface MgIllustratedMessage {
         /**
@@ -2414,7 +2440,7 @@ declare namespace LocalJSX {
         /**
           * Message variant
          */
-        "variant"?: string;
+        "variant"?: VariantType2;
     }
     interface MgModal {
         /**
