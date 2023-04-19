@@ -1,13 +1,10 @@
 {
-	"name": "tsconfig",
-	"version": "1.0.0",
+	"name": "playwright-config",
 	"private": true,
-	"files": [
-		"./base.node18.json"
-	],
+	"version": "1.0.0",
 	"license": "ISC",
 	"dependencies": {
-		"@tsconfig/node18": "^1.0.1"
+		"@playwright/test": "^1.29.0"
 	},
 	"devDependencies": {
 		"@types/node": "^18.14.0"

@@ -6,7 +6,7 @@
 	"scripts": {
 		"build": "tsc --build",
 		"test:unit": "jest --coverage",
-		"test:e2e:playwright": "npx playwright test",
+		"test:e2e:playwright": "pnpm build && npx playwright test",
 		"test:watch": "jest --watch",
 		"coverage": "jest --coverage"
 	},
@@ -22,12 +22,13 @@
 		"jest-config": "workspace:*",
 		"jest-environment-jsdom": "^29.5.0",
 		"jest-serializer-html": "^7.1.0",
+		"playwright-config": "workspace:*",
 		"ts-jest": "^29.0.5",
 		"tsconfig": "workspace:*",
 		"typescript": "^4.9.5"
 	},
 	"peerDependencies": {
-		"@mgdis/mg-components": "workspace:*"
+		"@mgdis/mg-components": "3"
 	},
 	"dependencies": {
 		"sanitize-html": "^2.10.0"
