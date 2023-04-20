@@ -1,5 +1,6 @@
 import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
-import { createPage, DesignSystemE2EPage, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { createPage, DesignSystemE2EPage } from '../../../../utils/stencil.e2e.test.utils';
+import { renderAttributes } from '../../../../utils/e2e.test.utils';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
 

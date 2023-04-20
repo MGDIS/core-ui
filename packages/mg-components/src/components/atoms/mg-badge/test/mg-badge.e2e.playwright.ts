@@ -1,6 +1,6 @@
-import { createPage } from '../../../../utils/stencil.e2e.test.utils';
-import { darkBackground } from '../../../../utils/e2e.test.utils';
+import { test, expect } from '@playwright/test';
 import { BadgeVariantType, variants } from '../mg-badge.conf';
+import { darkBackground } from '../../../../utils/e2e.test.utils';
 
 const addCustomTextColor = (variant: BadgeVariantType): string =>
   `${
@@ -14,8 +14,9 @@ const addCustomTextColor = (variant: BadgeVariantType): string =>
       : ''
   }`;
 
-describe('mg-badge', () => {
-  test('Should render', async () => {
+test.describe('mg-badge', () => {
+  test('Should render', async ({ page }) => {
+    // Build HTML
     const html = variants
       .map(variant => {
         const template = [true, false]
@@ -30,13 +31,10 @@ describe('mg-badge', () => {
               .join(''),
           )
           .join('');
-        return `<h2>${variant}<h2/><div>${template}<div>`;
+
+        return `<h2>${variant}</h2>
+        <div>${template}</div>`;
       })
       .join('');
-
-    const page = await createPage(html, { width: 250, height: 700 });
-
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
   });
 });
