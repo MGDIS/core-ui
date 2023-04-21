@@ -99,6 +99,19 @@ test:e2e:playwright:
   script:
     - pnpx playwright install
     - pnpm test:e2e:playwright
+  artifacts:
+    when: always
+    paths:
+      - packages/notification-center/playwright-report/
+      - packages/notification-center/test-results/
+      - packages/notification-center/results.xml
+      - packages/mg-components/playwright-report/
+      - packages/mg-components/test-results/
+      - packages/mg-components/results.xml
+    reports:
+      junit:
+        - packages/notification-center/results.xml
+        - packages/mg-components/results.xml
 
 sonar:
   stage: test
