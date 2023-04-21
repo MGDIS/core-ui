@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { setPageContent } from '../../../../utils/playwright.e2e.test.utils';
 import { BadgeVariantType, variants } from '../mg-badge.conf';
 import { darkBackground } from '../../../../utils/e2e.test.utils';
 
@@ -36,5 +37,11 @@ test.describe('mg-badge', () => {
         <div>${template}</div>`;
       })
       .join('');
+
+    // Set page content
+    await setPageContent(page, html, { width: 250, height: 720 });
+
+    // Screenshot
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

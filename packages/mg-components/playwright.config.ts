@@ -22,17 +22,7 @@ const config: PlaywrightTestConfig = {
   },
   use: {
     baseURL: 'http://localhost:3333',
-    trace: 'on',
   },
-  // for tests
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome'],
-      },
-    },
-  ],
 };
 
 export default config;

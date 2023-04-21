@@ -92,7 +92,8 @@ test:e2e:playwright:
   stage: test
   image: mcr.microsoft.com/playwright:v1.31.0-focal
   extends:
-    - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
+    - .rules:changes:notification-center
+    - .rules:changes:mg-components
     - .rules:except-tags
     - .install_dependencies
   script:
