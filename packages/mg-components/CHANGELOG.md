@@ -1,5 +1,15 @@
 # @mgdis/mg-components
 
+## 5.9.0
+
+### Minor Changes
+
+- 5a18625: [**`<mg-popover>`**](./?path=/docs/molecules-mg-popover--mg-popover) add max-width CSS variable.
+- 5c8001b: [**`<mg-card>`**](./?path=/docs/atoms-mg-card--mg-card) add `variant` and `variantStyle` props
+- b4b8c1b: Added variants to [**`<mg-icon>`**](./?path=/docs/atoms-mg-icon--mg-icon).
+- 9ae6765: Added icons to [**`<mg-icon>`**](./?path=/docs/atoms-mg-icon--mg-icon), [see all the availables icons](?path=/story/style-icons--icons).
+- d382117: [**`<mg-details>`**](./?path=/docs/molecules-mg-details--mg-details) [**`<mg-menu>`**](./?path=/docs/beta-menus-mg-menu--mg-menu) use small "chevron" icon
+
 ## 5.8.2
 
 ### Patch Changes
