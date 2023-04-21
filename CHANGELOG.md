@@ -6,5 +6,3 @@
 
 - [mg-components changelog](packages/mg-components/CHANGELOG.md)
 - [notification-center changelog](packages/notification-center/CHANGELOG.md)
-
-## Release
