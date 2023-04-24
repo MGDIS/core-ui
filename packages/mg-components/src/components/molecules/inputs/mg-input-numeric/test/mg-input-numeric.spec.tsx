@@ -215,6 +215,17 @@ describe('mg-input-numeric', () => {
 
       expect(page.rootInstance.valid).toEqual(false);
       expect(page.rootInstance.invalid).toEqual(true);
+
+      // as nullish value is a '' we set a null value with ''
+      input.value = '';
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.rootInstance.valid).toEqual(true);
+      expect(page.rootInstance.invalid).toEqual(false);
     });
 
     test('Should filter entered value', async () => {
