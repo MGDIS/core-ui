@@ -5,6 +5,11 @@ export default {
   component: 'mg-action-more',
   title: 'Molecules/mg-action-more',
   parameters: { actions: { handles: ['click'] } },
+  argTypes: {
+    button: {
+      control: { type: 'object' },
+    },
+  },
 };
 
 const mouseEventHandler = () => {
@@ -47,6 +52,7 @@ MgActionMore.args = {
       href: '#',
     },
   ],
+  displayChevron: false,
 };
 
 export const MgActionMoreCustom = Template.bind({});
