@@ -96,6 +96,85 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 </mg-tooltip>
 `;
 
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 1`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <div class="mg-tooltip" data-show id="identifier" role="tooltip" style="position: fixed; left: 0; top: 0; margin: 0;">
+      <span>
+        blu
+      </span>
+      <div class="mg-tooltip__arrow" data-popper-arrow style="position: absolute;"></div>
+    </div>
+  </mock:shadow-root>
+  <span aria-describedby="identifier" tabindex="0">
+    span
+  </span>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 2`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <div class="mg-tooltip" data-show id="identifier" role="tooltip" style="position: fixed; left: 0; top: 0; margin: 0;">
+      <span>
+        blu
+      </span>
+      <div class="mg-tooltip__arrow" data-popper-arrow style="position: absolute;"></div>
+    </div>
+  </mock:shadow-root>
+  <button aria-describedby="blu identifier">
+    button
+  </button>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 3`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <div class="mg-tooltip" data-show id="identifier" role="tooltip" style="position: fixed; left: 0; top: 0; margin: 0;">
+      <span>
+        blu
+      </span>
+      <div class="mg-tooltip__arrow" data-popper-arrow style="position: absolute;"></div>
+    </div>
+  </mock:shadow-root>
+  <mg-icon aria-describedby="identifier" tabindex="0">
+    <mock:shadow-root>
+      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+        <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
+      </svg>
+    </mock:shadow-root>
+  </mg-icon>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 4`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <div class="mg-tooltip" data-show id="identifier" role="tooltip" style="position: fixed; left: 0; top: 0; margin: 0;">
+      <span>
+        blu
+      </span>
+      <div class="mg-tooltip__arrow" data-popper-arrow style="position: absolute;"></div>
+    </div>
+  </mock:shadow-root>
+  <mg-button aria-describedby="identifier" role="button" tabindex="0">
+    <mock:shadow-root>
+      <div class="mg-button mg-button--primary" id="identifier-mg-button">
+        <div class="mg-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </mock:shadow-root>
+    mg-button
+  </mg-button>
+</mg-tooltip>
+`;
+
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'mouseleave' }, leave with %s element 1`] = `
 <mg-tooltip>
   <mock:shadow-root>
