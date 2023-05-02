@@ -90,7 +90,7 @@ test:e2e:
 
 test:e2e:playwright:
   stage: test
-  image: mcr.microsoft.com/playwright:v1.31.0-focal
+  image: mcr.microsoft.com/playwright:v1.32.1-focal
   extends:
     - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
     - .rules:except-tags
