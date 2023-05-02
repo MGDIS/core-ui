@@ -69,10 +69,10 @@ importers:
 
   configs/playwright-config:
     specifiers:
-      '@playwright/test': ^1.29.0
+      '@playwright/test': ^1.33.0
       '@types/node': ^18.14.0
     dependencies:
-      '@playwright/test': 1.32.1
+      '@playwright/test': 1.33.0
     devDependencies:
       '@types/node': 18.15.10
 
@@ -89,7 +89,7 @@ importers:
     specifiers:
       '@babel/core': ^7.20.12
       '@babel/plugin-transform-react-jsx': ^7.20.13
-      '@playwright/test': ^1.29.0
+      '@playwright/test': ^1.33.0
       '@popperjs/core': ^2.11.6
       '@pxtrn/storybook-addon-docs-stencil': ^6.4.1
       '@stencil/core': ^2.22.1
@@ -139,7 +139,7 @@ importers:
     devDependencies:
       '@babel/core': 7.21.3
       '@babel/plugin-transform-react-jsx': 7.21.0_@babel+core@7.21.3
-      '@playwright/test': 1.32.1
+      '@playwright/test': 1.33.0
       '@pxtrn/storybook-addon-docs-stencil': 6.4.1
       '@stencil/eslint-plugin': 0.4.0_ajvvvysp2bxcarwmq6shjhr3ey
       '@stencil/sass': 1.5.2_@stencil+core@2.22.1
@@ -183,7 +183,7 @@ importers:
   packages/notification-center:
     specifiers:
       '@mgdis/mg-components': workspace:*
-      '@playwright/test': ^1.29.0
+      '@playwright/test': ^1.33.0
       '@types/jest': ^29.5.0
       '@types/sanitize-html': ^2.9.0
       jest: ^29.5.0
@@ -199,7 +199,7 @@ importers:
       sanitize-html: 2.10.0
     devDependencies:
       '@mgdis/mg-components': link:../mg-components
-      '@playwright/test': 1.32.1
+      '@playwright/test': 1.33.0
       '@types/jest': 29.5.0
       '@types/sanitize-html': 2.9.0
       jest: 29.5.0
@@ -2563,13 +2563,13 @@ packages:
     engines: {node: '>=8.0'}
     dev: false
 
-  /@playwright/test/1.32.1:
-    resolution: {integrity: sha512-FTwjCuhlm1qHUGf4hWjfr64UMJD/z0hXYbk+O387Ioe6WdyZQ+0TBDAc6P+pHjx2xCv1VYNgrKbYrNixFWy4Dg==}
+  /@playwright/test/1.33.0:
+    resolution: {integrity: sha512-YunBa2mE7Hq4CfPkGzQRK916a4tuZoVx/EpLjeWlTVOnD4S2+fdaQZE0LJkbfhN5FTSKNLdcl7MoT5XB37bTkg==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.15.10
-      playwright-core: 1.32.1
+      playwright-core: 1.33.0
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -8742,7 +8742,7 @@ packages:
     resolution: {integrity: sha512-oWb1Z6mkHIskLzEJ/XWX0srkpkTQ7vaopMQkyaEIoq0fmtFVxOthb8cCxeT+p3ynTdkk/RZwbgG4brR5BeWECw==}
     engines: {node: '>= 4.0'}
     os: [darwin]
-    deprecated: fsevents 1 will break on node v14+ and could be using insecure binaries. Upgrade to fsevents 2.
+    deprecated: The v1 package contains DANGEROUS / INSECURE binaries. Upgrade to safe fsevents v2
     requiresBuild: true
     dependencies:
       bindings: 1.5.0
@@ -12854,8 +12854,8 @@ packages:
       find-up: 5.0.0
     dev: true
 
-  /playwright-core/1.32.1:
-    resolution: {integrity: sha512-KZYUQC10mXD2Am1rGlidaalNGYk3LU1vZqqNk0gT4XPty1jOqgup8KDP8l2CUlqoNKhXM5IfGjWgW37xvGllBA==}
+  /playwright-core/1.33.0:
+    resolution: {integrity: sha512-aizyPE1Cj62vAECdph1iaMILpT0WUDCq3E6rW6I+dleSbBoGbktvJtzS6VHkZ4DKNEOG9qJpiom/ZxO+S15LAw==}
     engines: {node: '>=14'}
     hasBin: true
 

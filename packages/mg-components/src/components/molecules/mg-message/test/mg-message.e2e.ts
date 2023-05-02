@@ -1,4 +1,4 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
+import { createPage } from '../../../../utils/stencil.e2e.test.utils';
 import { variants } from '../mg-message.conf';
 
 const getContent = (contentSize, withAction) => {

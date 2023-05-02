@@ -1,5 +1,6 @@
 import { Page, ViewportSize } from '@playwright/test';
 import { readFile } from 'fs/promises';
+import { join } from 'path';
 
 /**
  * Add mg-components to browser page
@@ -16,7 +17,7 @@ export const setPageContent = async (page: Page, html: string, viewportSize?: Vi
    */
 
   // CSS
-  const css = await readFile('./www/build/mg-components.css', { encoding: 'utf8' });
+  const css = await readFile(join(__dirname, '../../www/build/mg-components.css'), { encoding: 'utf8' });
   await page.addStyleTag({ content: css });
 
   // JS

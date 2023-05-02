@@ -90,14 +90,14 @@ test:e2e:
 
 test:e2e:playwright:
   stage: test
-  image: mcr.microsoft.com/playwright:v1.32.1-focal
+  image: mcr.microsoft.com/playwright:v1.33.0-focal
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install_dependencies
   script:
-    - pnpx playwright install
+    - pnpm dlx playwright install
     - pnpm test:e2e:playwright
   artifacts:
     when: always
@@ -196,7 +196,7 @@ chromatic-publish:
     - .install_dependencies
   script:
     - !reference [.mg-components:build, script]
-    - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
+    - pnpm dlx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
 
 pages:
   stage: mg-components
