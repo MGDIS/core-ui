@@ -6,7 +6,7 @@ set -e
 pnpm changeset status
 
 # Prompt the user for confirmation
-read -e -p $'\nThis is a release changelog files preview!!!\n\Updated files are not commited, it is recommanded to discard all changes after.\n\nPress enter to continue.' confirm
+read -e -p $'\nThis is a release changelog files preview!!!\n\nUpdated files are not commited, it is recommanded to discard all changes after.\n\nPress enter to continue.' confirm
 
 # current directory
 cwd=$(dirname "$0")
