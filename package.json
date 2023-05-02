@@ -35,7 +35,7 @@
 		"change:empty": "changeset --empty",
 		"release": "./utils/release.sh",
 		"release:status": "changeset status",
-		"prerelease": "./utils/prerelease.sh",
+		"release:preview": "./utils/release-preview.sh",
 		"apps:notification-center": "cd apps/notification-center && pnpm dev --port 3210"
 	},
 	"manypkg": {
