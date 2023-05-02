@@ -20,12 +20,9 @@ const converter = new showdown.Converter();
 
 	const changelog = [];
 
-	let title = '';
-
 	for (const line of rootChangelogFile.split(/\r?\n/)) {
 		if (!sectionStart && line.startsWith('## ')) {
 			sectionStart = true;
-			title = line.replace('##', '').trim();
 
 			changelog.push(line);
 			changelog.push('\n');
@@ -47,7 +44,7 @@ const converter = new showdown.Converter();
 	);
 
 	const message = {
-		title,
+		title: 'Core UI release',
 		text: converter.makeHtml(changelog.join('\n')).replace('\u2026', '...'),
 	};
 
