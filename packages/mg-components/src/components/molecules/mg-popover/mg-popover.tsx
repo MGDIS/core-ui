@@ -16,7 +16,7 @@ export class MgPopover {
   private popper: PopperInstance;
   private popover: HTMLElement;
   private closeButtonId = '';
-  private windows;
+  private windows: Window[];
   private resizeObserver: ResizeObserver;
 
   // Locales

@@ -1,5 +1,13 @@
 # @mgdis/mg-components
 
+## 5.9.1
+
+### Patch Changes
+
+- 484ada7: - [#296](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/296) mg-tooltip: when hovering over the mg-tooltip, then ECHAP, undisplay the tooltip
+- 609d520: [#308](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/308) mg-action-more - update storybook controls
+- e7d07a2: - [#302](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/302) mg-input-numeric: checkValidity is trigger even if a blank field is not required
+
 ## 5.9.0
 
 ### Minor Changes
