@@ -87,6 +87,10 @@ test:e2e:
   script:
     - pnpm test:e2e
   retry: 2
+  artifacts:
+    when: on_failure
+    paths:
+      - /**/__diff_output__/
 
 test:e2e:playwright:
   stage: test
