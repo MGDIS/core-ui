@@ -1,0 +1,17 @@
+{
+  "name": "linting-stencil",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "eslint-config-stencil": "workspace:*",
+    "prettier-config": "workspace:*"
+  }
+}
