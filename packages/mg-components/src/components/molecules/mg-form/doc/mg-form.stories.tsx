@@ -16,7 +16,6 @@ const args = {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */

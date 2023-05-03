@@ -194,7 +194,6 @@ export class MgInputText {
 
   /**
    * Public method to play input focus
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -204,7 +203,6 @@ export class MgInputText {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -216,7 +214,6 @@ export class MgInputText {
 
   /**
    * Handle input event
-   *
    * @returns {void}
    */
   private handleInput = (): void => {
@@ -229,7 +226,6 @@ export class MgInputText {
 
   /**
    * Handle focus event
-   *
    * @returns {void}
    */
   private handleFocus = (): void => {
@@ -239,7 +235,6 @@ export class MgInputText {
 
   /**
    * Handle blur event
-   *
    * @returns {void}
    */
   private handleBlur = (): void => {
@@ -252,7 +247,6 @@ export class MgInputText {
 
   /**
    * Check if input is valid
-   *
    * @returns {void}
    */
   private checkValidity = (): void => {
@@ -264,7 +258,6 @@ export class MgInputText {
 
   /**
    * Set input error message
-   *
    * @returns {void}
    */
   private setErrorMessage = (): void => {
@@ -282,7 +275,6 @@ export class MgInputText {
 
   /**
    * Validate pattern configuration
-   *
    * @returns {void}
    */
   private validatePattern = (): void => {
@@ -298,7 +290,6 @@ export class MgInputText {
 
   /**
    * Validate append slot
-   *
    * @returns {void}
    */
   private validateAppendSlot = (): void => {
@@ -318,7 +309,6 @@ export class MgInputText {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -339,7 +329,6 @@ export class MgInputText {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

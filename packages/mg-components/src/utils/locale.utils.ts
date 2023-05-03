@@ -1,6 +1,5 @@
 /**
  * Format number to the locale currency
- *
  * @param {number} number number to format
  * @param {string} locale locale to apply
  * @param {string} currency currency to apply
@@ -12,7 +11,6 @@ export const localeCurrency = (number: number, locale: string, currency: string)
 
 /**
  * Format number to locale
- *
  * @param {number} number number to format
  * @param {string} locale locale to apply
  * @returns {string} formatted number
@@ -28,7 +26,6 @@ export const dateRegExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
 /**
  * Locale date format
- *
  * @param {string} date date to format
  * @param {string} locale locale to apply
  * @returns {string} formatted date
@@ -43,7 +40,6 @@ export const localeDate = (date: string, locale: string): string => {
 /**
  * Get locale and messages
  * We load the defined locale but for now we only support the first subtag for messages
- *
  * @param {HTMLElement} element element we need to get the language
  * @param {unknown} messages messages to use
  * @param {string} defaultLocale default messages locale

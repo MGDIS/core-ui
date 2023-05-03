@@ -4,7 +4,6 @@ import { ClassList } from '../../../utils/components.utils';
 
 /**
  * Apply in all input child node the aria-describedby attribute
- *
  * @param {VNode[]} children Represent scoped elements
  * @param {Set<string>} ariaDescribedbyIDs List of IDs
  * @param {FunctionalUtilities} utils Stencil.js utils
@@ -32,7 +31,6 @@ const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>
 
 /**
  * Add classes based on props
- *
  * @param {MgInputProps} props MgInput Interface Props
  */
 const manageClasses = (props: MgInputProps): void => {
@@ -47,7 +45,6 @@ const manageClasses = (props: MgInputProps): void => {
 
 /**
  * Get tagname
- *
  * @param {boolean} isFieldset is fieldset
  * @returns {string} tag name
  */
@@ -84,7 +81,6 @@ interface MgInputProps {
 
 /**
  * Get input template
- *
  * @param {MgInputProps} props MgInput Interface Props
  * @param {VNode[]} children Represent scoped elements
  * @param {FunctionalUtilities} utils Stencil.js utils
@@ -151,7 +147,6 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
 
   /**
    * Get tooltip node
-   *
    * @returns {VNode[]} mg-tooltip
    */
   const getTooltip = (): VNode[] => (
@@ -163,7 +158,6 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Get input title (label) node
    * Display asterisk only if not disabled and not readonly
-   *
    * @returns {VNode[]} mg-input-title
    */
   const getInputTitle = (): VNode[] => (

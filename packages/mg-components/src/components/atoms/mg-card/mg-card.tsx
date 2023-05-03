@@ -16,7 +16,7 @@ export class MgCard {
   private readonly baseClass = this.name;
 
   /*************
-   * Lifecycle *
+   * Decorators *
    *************/
 
   /**
@@ -28,7 +28,7 @@ export class MgCard {
   validateVariant(newValue: MgCard['variant'], oldValue?: MgCard['variant']) {
     if (newValue && !variants.includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
     if (Boolean(newValue)) {
-      if (this.variantStyle === undefined) this.variantStyle = 'bar-left';
+      this.setDefaultVariantStyle();
       this.classList.add(`${this.baseClass}--${newValue}`);
     }
     if (Boolean(oldValue)) this.classList.delete(`${this.baseClass}--${oldValue}`);
@@ -54,8 +54,20 @@ export class MgCard {
   @State() classList: ClassList = new ClassList([this.baseClass]);
 
   /**
+   * Methode to set default varianStyle props
+   * needeed has stencil doesn't know that props is mutated when updated in prop watcher
+   * @returns {void}
+   */
+  private setDefaultVariantStyle = (): void => {
+    if (this.variantStyle === undefined) this.variantStyle = 'bar-left';
+  };
+
+  /*************
+   * Lifecycle *
+   *************/
+
+  /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -65,7 +77,6 @@ export class MgCard {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

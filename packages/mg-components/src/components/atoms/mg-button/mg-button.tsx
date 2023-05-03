@@ -61,7 +61,7 @@ export class MgButton {
   /**
    * Set button to full-width
    */
-  @Prop({ mutable: true }) fullWidth = false;
+  @Prop() fullWidth = false;
   @Watch('fullWidth')
   validateFullWidth(newValue: MgButton['fullWidth']): void {
     if (newValue && this.isIcon) {
@@ -77,7 +77,7 @@ export class MgButton {
    * Define form id to attach button with.
    * If this attribute is not set, the <button> is associated with its ancestor <form> element.
    */
-  @Prop({ mutable: true }) form: string;
+  @Prop() form: string;
 
   /**
    * Disable button
@@ -143,7 +143,6 @@ export class MgButton {
 
   /**
    * Trigger actions onClick event
-   *
    * @param {MouseEvent} event click event
    * @returns {void}
    */
@@ -158,7 +157,6 @@ export class MgButton {
 
   /**
    * Handle onKeydown event
-   *
    * @param {KeyboardEvent} event keyboard event
    * @returns {void}
    */
@@ -173,7 +171,6 @@ export class MgButton {
 
   /**
    * Handle onKeyup event
-   *
    * @param {KeyboardEvent} event keyboard event
    * @returns {void}
    */
@@ -186,7 +183,6 @@ export class MgButton {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -205,7 +201,6 @@ export class MgButton {
 
   /**
    * Render component
-   *
    * @returns {HTMLElement} html element
    */
   render(): HTMLElement {

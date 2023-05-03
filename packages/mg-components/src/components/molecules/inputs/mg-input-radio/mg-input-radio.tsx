@@ -9,7 +9,6 @@ import { RadioOption } from './mg-input-radio.conf';
 
 /**
  * type Option validation function
- *
  * @param {RadioOption} option radio option
  * @returns {boolean} radio option type is valid
  */
@@ -181,7 +180,6 @@ export class MgInputRadio {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -193,7 +191,6 @@ export class MgInputRadio {
 
   /**
    * Handle input event
-   *
    * @param {event} event input event
    * @returns {void}
    */
@@ -204,7 +201,6 @@ export class MgInputRadio {
 
   /**
    * Handle blur event
-   *
    * @returns {void}
    */
   private handleBlur = (): void => {
@@ -214,7 +210,6 @@ export class MgInputRadio {
 
   /**
    * Check if input is valid
-   *
    * @returns {void}
    */
   private checkValidity = (): void => {
@@ -226,7 +221,6 @@ export class MgInputRadio {
 
   /**
    * Set input error message
-   *
    * @returns {void}
    */
   private setErrorMessage = (): void => {
@@ -241,7 +235,6 @@ export class MgInputRadio {
 
   /**
    * get invalid element
-   *
    * @returns {HTMLInputElement} element
    */
   private getInvalidElement = (): HTMLInputElement => this.inputs.find((input: HTMLInputElement) => !input.disabled && !input.readOnly && !input.checkValidity());
@@ -252,7 +245,6 @@ export class MgInputRadio {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -270,7 +262,6 @@ export class MgInputRadio {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

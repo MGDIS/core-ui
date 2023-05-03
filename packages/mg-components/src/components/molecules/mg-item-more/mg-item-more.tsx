@@ -70,7 +70,6 @@ export class MgItemMore {
 
   /**
    * render mg-item-more overflow element
-   *
    * @returns {HTMLMgItemMoreElement} mg-item-more element
    */
   private renderMgMenuItemOverflowElement = (): HTMLMgItemMoreElement => {
@@ -107,7 +106,6 @@ export class MgItemMore {
 
   /**
    * Disconnect overflow ResizeObserver
-   *
    * @returns {void} run overflow resize obeserver disconnexion
    */
   disconnectedCallback(): void {
@@ -116,7 +114,6 @@ export class MgItemMore {
 
   /**
    * Set variables and validate props
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -133,7 +130,6 @@ export class MgItemMore {
 
   /**
    * Add overflow behavior
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -142,7 +138,6 @@ export class MgItemMore {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

@@ -194,7 +194,6 @@ export class MgInputTextarea {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -237,7 +236,6 @@ export class MgInputTextarea {
   /**
    * Get pattern validity
    * Pattern is not defined on textarea field: https://developer.mozilla.org/fr/docs/Web/HTML/Element/Textarea
-   *
    * @returns {boolean} is pattern valid
    */
   private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.value);
@@ -288,7 +286,6 @@ export class MgInputTextarea {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -308,7 +305,6 @@ export class MgInputTextarea {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

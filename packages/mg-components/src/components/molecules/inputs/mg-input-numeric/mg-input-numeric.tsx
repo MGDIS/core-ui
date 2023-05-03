@@ -233,7 +233,6 @@ export class MgInputNumeric {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -246,7 +245,6 @@ export class MgInputNumeric {
   /**
    * Displayed value in input
    * Change on focus/blur
-   *
    * @returns {MgInputNumeric['value'] | MgInputNumeric['readonlyValue']} display value
    */
   private displayValue(): MgInputNumeric['value'] | MgInputNumeric['readonlyValue'] {
@@ -255,7 +253,6 @@ export class MgInputNumeric {
 
   /**
    * Handle input event
-   *
    * @returns {void}
    */
   private handleInput = (): void => {
@@ -269,7 +266,6 @@ export class MgInputNumeric {
 
   /**
    * Handle focus event
-   *
    * @returns {void}
    */
   private handleFocus = (): void => {
@@ -278,7 +274,6 @@ export class MgInputNumeric {
 
   /**
    * Handle blur event
-   *
    * @returns {void}
    */
   private handleBlur = (): void => {
@@ -289,7 +284,6 @@ export class MgInputNumeric {
 
   /**
    * Check if input is valid
-   *
    * @returns {void}
    */
   private checkValidity = (): void => {
@@ -301,7 +295,6 @@ export class MgInputNumeric {
 
   /**
    * Set input error message
-   *
    * @returns {void}
    */
   private setErrorMessage = (): void => {
@@ -319,7 +312,6 @@ export class MgInputNumeric {
 
   /**
    * Get input error code
-   *
    * @returns {null | InputError} error code
    */
   private getInputError = (): null | InputError => {
@@ -348,7 +340,6 @@ export class MgInputNumeric {
 
   /**
    * Format value based on type
-   *
    * @param {number} value value to format
    * @returns {string} formated local value
    */
@@ -356,7 +347,6 @@ export class MgInputNumeric {
 
   /**
    * Validate append slot
-   *
    * @returns {void}
    */
   private validateAppendSlot = (): void => {
@@ -372,7 +362,6 @@ export class MgInputNumeric {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -397,7 +386,6 @@ export class MgInputNumeric {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

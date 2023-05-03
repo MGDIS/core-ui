@@ -1,6 +1,5 @@
 /**
  * MgItemMore type guard
- *
  * @param {HTMLElement} element element to control type
  * @returns {boolean} truthy if element is mg-item-more
  */
@@ -37,7 +36,6 @@ export class OverflowBehavior {
 
   /**
    * Disconnect ResizeObserver
-   *
    * @returns {void}
    */
   public disconnect = (): void => {
@@ -50,7 +48,6 @@ export class OverflowBehavior {
 
   /**
    * run overflow behavior
-   *
    * @param {number} width width of the container. Optional.
    * @returns {void}
    */
@@ -78,7 +75,6 @@ export class OverflowBehavior {
 
   /**
    * Get interactive children filtred by authorized nodeName ['MG-MENU-ITEM', 'MG-BUTTON']
-   *
    * @param {Element} element element to parse
    * @returns {Element[]} children
    */
@@ -87,7 +83,6 @@ export class OverflowBehavior {
 
   /**
    * Update displayed items in container from a given available space
-   *
    * @param {number} availableWidth available width in container to display child items
    * @returns {void}
    */
@@ -113,7 +108,6 @@ export class OverflowBehavior {
 
   /**
    * Utility method to know if item overflow partialy or totaly in the container
-   *
    * @param {number} cumulateWidth previous sibling elements cumulate width + item width
    * @param {HTMLElement} item item HTML element
    * @param {number} availableWidth container available width
@@ -127,7 +121,6 @@ export class OverflowBehavior {
 
   /**
    * Utility method to know if a given element is the 'MORE' element
-   *
    * @param {Element} element element to match with 'MORE' element
    * @returns {boolean} truthy if element is the 'MORE' element
    */
@@ -135,7 +128,6 @@ export class OverflowBehavior {
 
   /**
    * Toggle display item element
-   *
    * @param {HTMLElement} item item to control
    * @param {boolean} isHidden is item hidden
    * @returns {void}
@@ -151,7 +143,6 @@ export class OverflowBehavior {
 
   /**
    * Toggle element's hidde attribute
-   *
    * @param {Element} element element to toggle
    * @param {boolean} isHidden element is hidden
    * @returns {void}
@@ -163,7 +154,6 @@ export class OverflowBehavior {
 
   /**
    * Remove hidden attributes on all items
-   *
    * @returns {void}
    */
   private restoreItems = (): void => {

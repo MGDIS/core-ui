@@ -50,7 +50,6 @@ export class MgCharacterLeft {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -60,7 +59,6 @@ export class MgCharacterLeft {
 
   /**
    * Render component
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

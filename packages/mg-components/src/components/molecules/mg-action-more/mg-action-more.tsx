@@ -7,7 +7,6 @@ import { createID } from '../../../utils/components.utils';
 
 /**
  * MgActionMore['items'] type guard
- *
  * @param {unknown} prop commponent items prop
  * @returns {boolean} return true if type is valid
  */
@@ -18,7 +17,6 @@ const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
 
 /**
  * MgActionMore['button'] type guard
- *
  * @param {unknown} prop commponent button prop
  * @returns {boolean} return true if type is valid
  */
@@ -29,7 +27,6 @@ const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => 
 
 /**
  * MgActionMore['icon'] type guard
- *
  * @param {unknown} prop commponent icon prop
  * @returns {boolean} return true if type is valid
  */
@@ -117,7 +114,6 @@ export class MgActionMore {
 
   /**
    * Toogle expanded props
-   *
    * @returns {void}
    */
   private toggleExpanded = (): void => {
@@ -126,7 +122,6 @@ export class MgActionMore {
 
   /**
    * Button click handler
-   *
    * @returns {void}
    */
   private handleButton = (): void => {
@@ -135,7 +130,6 @@ export class MgActionMore {
 
   /**
    * Item click handler
-   *
    * @param {MouseEvent} event click event
    * @param {MgActionMoreItemType['mouseEventHandler']} customHandler item['mouseEventHandler']
    * @returns {void}
@@ -151,7 +145,6 @@ export class MgActionMore {
 
   /**
    * Validate props
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -164,7 +157,6 @@ export class MgActionMore {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

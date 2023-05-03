@@ -27,7 +27,7 @@ export class MgSkipLinks {
   /**
    * Skip links
    */
-  @Prop({ mutable: true }) links: SkipLink[];
+  @Prop() links: SkipLink[];
   @Watch('links')
   validateLinks(links: SkipLink[]): void {
     if (
@@ -50,7 +50,6 @@ export class MgSkipLinks {
 
   /**
    * Handle link click and emit go-to-anchor event
-   *
    * @param {MouseEvent} event mouse event
    * @returns {void}
    */
@@ -65,7 +64,6 @@ export class MgSkipLinks {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -75,7 +73,6 @@ export class MgSkipLinks {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

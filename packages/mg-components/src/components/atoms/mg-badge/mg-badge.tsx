@@ -21,7 +21,7 @@ export class MgBadge {
   /**
    * Badge value
    */
-  @Prop({ mutable: true }) value!: string | number;
+  @Prop() value!: string | number;
   @Watch('value')
   validateValue(newValue: MgBadge['value']): void {
     if (`${newValue}`.match(/^(\d+\+*|[?*!a-z])$/i) === null) {
@@ -74,7 +74,6 @@ export class MgBadge {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -86,7 +85,6 @@ export class MgBadge {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {
