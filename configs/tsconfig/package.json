@@ -1,18 +1,23 @@
 {
-	"name": "tsconfig",
-	"version": "1.0.0",
-	"private": true,
-	"description": "",
-	"files": [
-		"./tsconfig.base.node18.json"
-	],
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"@tsconfig/node18": "^1.0.1"
-	},
-	"devDependencies": {
-		"@types/node": "^18.14.0"
-	}
+  "name": "tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "files": [
+    "./tsconfig.base.node18.json"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "lint": "prettier --check **/*.json",
+    "lint:fix": "prettier --write **/*.json"
+  },
+  "dependencies": {
+    "@tsconfig/node18": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.14.0",
+    "prettier-config": "workspace:*"
+  }
 }

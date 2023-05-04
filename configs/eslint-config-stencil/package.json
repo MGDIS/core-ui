@@ -2,11 +2,16 @@
   "name": "eslint-config-stencil",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "private": true,
   "scripts": {
-    "lint": "eslint",
-    "lint:fix": "eslint --fix"
+    "build:config": "tsc --build --clean && tsc --build",
+    "lint": "run-s lint:es lint:prettier",
+    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint:es": "eslint src/**/*.ts",
+    "lint:es:fix": "eslint src/**/*.ts --fix",
+    "lint:prettier": "prettier --check **/*.{js,ts,json}",
+    "lint:prettier:fix": "prettier --write **/*.{js,ts,json}"
   },
   "keywords": [],
   "author": "",
@@ -20,7 +25,9 @@
     "eslint-plugin-jsx-a11y": "^6.7.1"
   },
   "devDependencies": {
+    "@types/eslint": "^8.37.0",
     "eslint-plugin-react": "^7.32.2",
+    "prettier-config": "workspace:*",
     "typescript": "^4.9.5"
   }
 }

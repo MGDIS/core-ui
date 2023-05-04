@@ -1,10 +1,9 @@
-const { eslintrc } = require('linting-stencil');
+const { setupEslint } = require('linting-stencil');
 
 module.exports = {
-  ...eslintrc,
+  ...setupEslint({extends: ["plugin:storybook/recommended"]}),
   root: true,
   parserOptions: {
     project: "./tsconfig.json"
   },
-  extends: [...eslintrc.extends, "plugin:storybook/recommended"]
 }

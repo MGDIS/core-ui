@@ -1,0 +1,10 @@
+{
+  "extends": "./base.node18.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["ES2020", "ES5"],
+    "noImplicitAny": true
+  }
+}

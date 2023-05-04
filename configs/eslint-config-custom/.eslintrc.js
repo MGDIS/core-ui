@@ -1,4 +1,4 @@
-const { setupEslint } = require('eslint-config-custom');
+const { setupEslint } = require('./dist');
 
 module.exports = {
   root: true,

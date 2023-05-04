@@ -36,7 +36,7 @@ describe('Notification center', () => {
 
   it('Should throw an error when parent document is undefined', () => {
     const spyConsole = jest.spyOn(console, 'error');
-    const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => ({}));
+    const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => ({} as Window));
 
     notifsCenter = new NotificationCenter();
 
@@ -72,7 +72,11 @@ describe('Notification center', () => {
       { content: 'With context', context: 'blu' },
     ])('Should display a notification %s', eventData => {
       window.dispatchEvent(new Event('DOMContentLoaded'));
-      window.dispatchEvent(new MessageEvent('message', { data: { ...eventData, appId: 'mg-notification-center' } }));
+      window.dispatchEvent(
+        new MessageEvent('message', {
+          data: { ...eventData, appId: 'mg-notification-center' },
+        }),
+      );
       expect(document.body.innerHTML).toMatchSnapshot();
     });
 
@@ -102,13 +106,21 @@ describe('Notification center', () => {
       window.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(
         new MessageEvent('message', {
-          data: { content: 'First message with context', context: 'blu', appId: 'mg-notification-center' },
+          data: {
+            content: 'First message with context',
+            context: 'blu',
+            appId: 'mg-notification-center',
+          },
         }),
       );
       expect(document.body.innerHTML).toMatchSnapshot();
       window.dispatchEvent(
         new MessageEvent('message', {
-          data: { content: 'Second message with same context', context: 'blu', appId: 'mg-notification-center' },
+          data: {
+            content: 'Second message with same context',
+            context: 'blu',
+            appId: 'mg-notification-center',
+          },
         }),
       );
       expect(document.body.innerHTML).toMatchSnapshot();
@@ -118,7 +130,10 @@ describe('Notification center', () => {
       window.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(
         new MessageEvent('message', {
-          data: { content: 'Message to close', appId: 'mg-notification-center' },
+          data: {
+            content: 'Message to close',
+            appId: 'mg-notification-center',
+          },
         }),
       );
       expect(document.body.innerHTML).toMatchSnapshot();

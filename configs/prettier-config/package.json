@@ -2,12 +2,20 @@
   "name": "prettier-config",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "./dist/index.js",
   "private": true,
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "scripts": {
+    "build:config": "tsc --build --clean && tsc --build",
+    "lint": "prettier --check **/*.{js,ts,json}",
+    "lint:fix": "prettier --write **/*.{js,ts,json}"
+  },
   "dependencies": {
     "prettier": "^2.8.4"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.5"
   }
 }
