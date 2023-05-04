@@ -1,5 +1,7 @@
-import { createPage, darkBackground } from '../../../../utils/e2e.test.utils';
+import { test, expect } from '@playwright/test';
+import { setPageContent } from '../../../../utils/playwright.e2e.test.utils';
 import { BadgeVariantType, variants } from '../mg-badge.conf';
+import { darkBackground } from '../../../../utils/e2e.test.utils';
 
 const addCustomTextColor = (variant: BadgeVariantType): string =>
   `${
@@ -13,8 +15,9 @@ const addCustomTextColor = (variant: BadgeVariantType): string =>
       : ''
   }`;
 
-describe('mg-badge', () => {
-  test('Should render', async () => {
+test.describe('mg-badge', () => {
+  test('Should render', async ({ page }) => {
+    // Build HTML
     const html = variants
       .map(variant => {
         const template = [true, false]
@@ -29,13 +32,16 @@ describe('mg-badge', () => {
               .join(''),
           )
           .join('');
-        return `<h2>${variant}<h2/><div>${template}<div>`;
+
+        return `<h2>${variant}</h2>
+        <div>${template}</div>`;
       })
       .join('');
 
-    const page = await createPage(html, { width: 250, height: 700 });
+    // Set page content
+    await setPageContent(page, html, { width: 250, height: 720 });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    // Screenshot
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });
