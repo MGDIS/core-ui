@@ -1,4 +1,4 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
+import { createPage } from '../../../../utils/stencil.e2e.test.utils';
 
 const style = '<style>mg-icon{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}</style>';
 

@@ -79,6 +79,45 @@ test:unit:
         coverage_format: cobertura
         path: coverage/cobertura-coverage.xml
 
+test:e2e:
+  stage: test
+  extends:
+    - .rules:changes:mg-components # for now only mg-components use test:e2e
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpm test:e2e
+  retry: 2
+  artifacts:
+    when: on_failure
+    paths:
+      - /**/__diff_output__/
+
+test:e2e:playwright:
+  stage: test
+  image: mcr.microsoft.com/playwright:v1.33.0-focal
+  extends:
+    - .rules:changes:notification-center
+    - .rules:changes:mg-components
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpm dlx playwright install
+    - pnpm test:e2e:playwright
+  artifacts:
+    when: always
+    paths:
+      - packages/notification-center/playwright-report/
+      - packages/notification-center/test-results/
+      - packages/notification-center/results.xml
+      - packages/mg-components/playwright-report/
+      - packages/mg-components/test-results/
+      - packages/mg-components/results.xml
+    reports:
+      junit:
+        - packages/notification-center/results.xml
+        - packages/mg-components/results.xml
+
 sonar:
   stage: tests
   variables:
@@ -180,7 +219,7 @@ chromatic-publish:
     - .install_dependencies
   script:
     - !reference [.mg-components:build, script]
-    - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
+    - pnpm dlx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
 
 pages:
   stage: mg-components
@@ -195,25 +234,6 @@ pages:
 #######################
 # notification-center #
 #######################
-
-test:e2e:playwright:
-  stage: tests
-  image: mcr.microsoft.com/playwright:v1.31.0-focal
-  extends:
-    - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
-    - .rules:except-tags
-    - .install_dependencies
-  script:
-    - pnpx playwright install
-    - pnpm test:e2e:playwright
-  artifacts:
-    when: always
-    paths:
-      - packages/notification-center/playwright-report/
-      - packages/notification-center/test-results/
-      - packages/notification-center/results.xml
-    reports:
-      junit: packages/notification-center/results.xml
 
 notification-center:artifact:
   stage: artifacts
