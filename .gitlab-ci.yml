@@ -80,7 +80,7 @@ test:unit:
         path: coverage/cobertura-coverage.xml
 
 test:e2e:
-  stage: test
+  stage: tests
   extends:
     - .rules:changes:mg-components # for now only mg-components use test:e2e
     - .rules:except-tags
@@ -94,7 +94,7 @@ test:e2e:
       - /**/__diff_output__/
 
 test:e2e:playwright:
-  stage: test
+  stage: tests
   image: mcr.microsoft.com/playwright:v1.33.0-focal
   extends:
     - .rules:changes:notification-center
