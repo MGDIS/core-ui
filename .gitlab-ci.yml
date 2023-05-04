@@ -239,8 +239,8 @@ notification-center:artifact:
     - .rules:except-tags
     - .install_dependencies
   script:
-    - cd packages/notification-center
     - pnpm build
+    - cd packages/notification-center
     - !reference [.artifact, script]
   needs:
     - lint
