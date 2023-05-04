@@ -47,6 +47,17 @@ stages:
     - corepack enable
     - pnpm i
 
+###########
+# Scripts #
+###########
+
+# artifact
+.artifact:
+  script:
+    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
+    - pnpm version --no-git-tag-version $version
+    - pnpm publish --no-git-checks
+
 #########
 # tests #
 #########
@@ -82,7 +93,7 @@ test:unit:
 test:e2e:
   stage: tests
   extends:
-    - .rules:changes:mg-components # for now only mg-components use test:e2e
+    - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
     - .install_dependencies
   script:
@@ -171,18 +182,6 @@ bot-publish:
     - pnpm storybook:build
     - mv storybook-static ../../public
 
-test:e2e:mg-components:
-  stage: tests
-  extends:
-    - .rules:changes:mg-components # for now only mg-components use test:e2e
-    - .rules:except-tags
-    - .install_dependencies
-  script:
-    - pnpm test:e2e
-  retry: 2
-  needs:
-    - lint
-
 mg-components:artifact:
   stage: artifacts
   extends:
@@ -191,9 +190,7 @@ mg-components:artifact:
     - .install_dependencies
   script:
     - cd packages/mg-components
-    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
-    - pnpm version --no-git-tag-version $version
-    - pnpm publish --no-git-checks
+    - !reference [.artifact, script]
   needs:
     - lint
 
@@ -244,8 +241,6 @@ notification-center:artifact:
   script:
     - cd packages/notification-center
     - pnpm build
-    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
-    - pnpm version --no-git-tag-version $version
-    - pnpm publish --no-git-checks
+    - !reference [.artifact, script]
   needs:
     - lint
