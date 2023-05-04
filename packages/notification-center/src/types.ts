@@ -1,9 +1,9 @@
+import { MgMessage } from '@mgdis/mg-components/dist/components/mg-message';
+
 export type MessageData = {
 	content: string;
-	variant?: Variant;
+	variant?: MgMessage['variant'];
 	delay?: number;
 	context?: string;
 	appId?: string;
 };
-
-export type Variant = 'info' | 'success' | 'danger' | 'warning';
