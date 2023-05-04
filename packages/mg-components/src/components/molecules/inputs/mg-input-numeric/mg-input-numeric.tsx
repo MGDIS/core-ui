@@ -45,8 +45,9 @@ export class MgInputNumeric {
    */
   @Prop({ mutable: true, reflect: true }) value: string;
   @Watch('value')
-  validateValue(newValue: string): void {
-    if (newValue !== undefined && newValue !== null) {
+  validateValue(newValue: MgInputNumeric['value']): void {
+    // has input value is always render as string we get a stringified value or a '' for nullish value, so we test string type
+    if (typeof newValue === 'string') {
       // Split number and decimal
       const [integer, decimal = ''] = newValue.replace('-', '').split(/[\.,]/);
       // Regex
@@ -63,7 +64,7 @@ export class MgInputNumeric {
       this.value = newValue;
       if (this.input !== undefined) this.input.value = this.value;
       // emit numeric value
-      this.numericValue = this.value !== '' && this.value !== null ? parseFloat(this.value.replace(',', '.')) : null;
+      this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
       this.valueChange.emit(this.numericValue);
       // Set readonlyValue
       this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
@@ -150,7 +151,7 @@ export class MgInputNumeric {
    */
   @Prop() type: string = types[0];
   @Watch('type')
-  validateType(newValue: string): void {
+  validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
       throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
     }
@@ -177,7 +178,7 @@ export class MgInputNumeric {
    */
   @Prop() integerLength = 13;
   @Watch('integerLength')
-  validateIntegerLength(newValue: number): void {
+  validateIntegerLength(newValue: MgInputNumeric['integerLength']): void {
     if (newValue < 1) {
       throw new Error(`<mg-input-numeric> prop "integer-length" must be a positive number.`);
     }
@@ -189,7 +190,7 @@ export class MgInputNumeric {
    */
   @Prop() decimalLength = 2;
   @Watch('decimalLength')
-  validateDecimalLength(newValue: number): void {
+  validateDecimalLength(newValue: MgInputNumeric['decimalLength']): void {
     if (newValue < 1) {
       throw new Error(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead.`);
     }
@@ -246,9 +247,9 @@ export class MgInputNumeric {
    * Displayed value in input
    * Change on focus/blur
    *
-   * @returns {string} display value
+   * @returns {MgInputNumeric['value'] | MgInputNumeric['readonlyValue']} display value
    */
-  private displayValue(): string {
+  private displayValue(): MgInputNumeric['value'] | MgInputNumeric['readonlyValue'] {
     return this.hasFocus ? this.value : this.readonlyValue;
   }
 
@@ -323,20 +324,22 @@ export class MgInputNumeric {
    */
   private getInputError = (): null | InputError => {
     let inputError = null;
-    if (this.input === undefined || this.input === null) return inputError;
+    const hasNotEmptyValues = (toControl: unknown[]) => !toControl.some(value => [null, undefined].includes(value));
+
+    if (!hasNotEmptyValues([this.input])) return inputError;
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {
       inputError = InputError.REQUIRED;
     }
     // Min & Max
-    else if (this.min !== undefined && this.numericValue < this.min && this.max === undefined) {
+    else if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
       // Only a min value is set
       inputError = InputError.MIN;
-    } else if (this.max !== undefined && this.numericValue > this.max && this.min === undefined) {
+    } else if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
       // Only a max value is set
       inputError = InputError.MAX;
-    } else if ((this.min !== undefined && this.numericValue < this.min) || (this.max !== undefined && this.numericValue > this.max)) {
+    } else if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
       // both min and max values are set
       inputError = InputError.MINMAX;
     }
@@ -377,11 +380,12 @@ export class MgInputNumeric {
     const locales = initLocales(this.element);
     this.locale = locales.locale;
     this.messages = locales.messages;
-    // Validate
-    this.validateValue(this.value);
+    // Validate component config
     this.validateType(this.type);
     this.validateIntegerLength(this.integerLength);
     this.validateDecimalLength(this.decimalLength);
+    // validate value
+    this.validateValue(this.value);
     this.validateAppendSlot();
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().

@@ -19,6 +19,6 @@ CORE-NUMBER
 
 ## Reviewers
 
-@duhem-s @core/core-ui
+<!-- Uncomment reviewers when MR is ready @duhem-s @core/core-ui -->
 
 /label ~core-ui

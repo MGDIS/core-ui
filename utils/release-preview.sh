@@ -6,15 +6,7 @@ set -e
 pnpm changeset status
 
 # Prompt the user for confirmation
-read -e -p $'\nThis is a release!!!\n\nAll current changes will be released and pushed.\n\nAre you sure you want to continue? [y/N]: ' confirm
-
-# Check the user's response
-if [[ "$confirm" == "y" ]]; then
-  echo -e "User confirmed, continuing...\n\n"
-else
-  echo -e "User cancelled, exiting.\n\n"
-  exit 1
-fi
+read -e -p $'\nThis is a release changelog files preview!!!\n\nUpdated files are not commited, it is recommanded to discard all changes after.\n\nPress enter to continue.' confirm
 
 # current directory
 cwd=$(dirname "$0")
@@ -48,12 +40,3 @@ pnpm changeset version
 
 # update lock file
 pnpm i
-
-# add all files to git stash
-git add --all
-# commit all changes
-git commit -m "chore(release): $complete_name"
-# tag release name
-git tag -a "$complete_name" -m ""
-# push commit
-git push --atomic --follow-tags

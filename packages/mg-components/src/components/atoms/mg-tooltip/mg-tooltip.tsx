@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements } from '../../../utils/components.utils';
+import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
@@ -16,6 +16,7 @@ export class MgTooltip {
   private popper: PopperInstance;
   private tooltip: HTMLElement;
   private tooltipedElement: HTMLElement;
+  private windows: Window[];
 
   // tooltip actions guards
   private guard: Guard;
@@ -85,6 +86,14 @@ export class MgTooltip {
     }));
     // Update its position
     this.popper.update();
+    // hide when click outside
+    // setTimeout is used to prevent event to trigger after creation
+    setTimeout(() => {
+      this.windows.forEach((localWindow: Window) => {
+        localWindow.addEventListener('click', this.clickOutside, false);
+        localWindow.addEventListener('keydown', this.pressEscape, false);
+      });
+    }, 0);
   };
 
   /**
@@ -100,6 +109,31 @@ export class MgTooltip {
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }],
     }));
+    // Remove event listener
+    this.windows.forEach((localWindow: Window) => {
+      localWindow.removeEventListener('click', this.clickOutside, false);
+      localWindow.removeEventListener('keyboard', this.pressEscape, false);
+    });
+  };
+
+  /**
+   * Check if clicked outside of component and hidde tooltip
+   *
+   * @param {MouseEvent} event mouse event
+   * @returns {void}
+   */
+  private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
+    if (event.target.closest('mg-tooltip') !== this.element) this.setDisplay(false);
+  };
+
+  /**
+   * Check if 'Escape' key is pressed of component and hidde tooltip
+   *
+   * @param {KeyboardEvent} event keyboard event
+   * @returns {void}
+   */
+  private pressEscape = (event: KeyboardEvent): void => {
+    if (event.code === 'Escape') this.setDisplay(false);
   };
 
   /**
@@ -208,9 +242,7 @@ export class MgTooltip {
       this.setDisplay(false);
     });
 
-    document.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (event.code === 'Escape') this.setDisplay(false);
-    });
+    document.addEventListener('keydown', this.pressEscape);
 
     // manage tooltipElement & tooltipedElement mouseenter/mouseleave events
     ['mouseenter', 'mouseleave'].forEach(eventType => {
@@ -229,6 +261,16 @@ export class MgTooltip {
   /*************
    * Lifecycle *
    *************/
+
+  /**
+   * set variables
+   *
+   * @returns {void}
+   */
+  componentWillLoad(): void {
+    // Get windows to attach events
+    this.windows = getWindows(window);
+  }
 
   /**
    * Get slotted element
