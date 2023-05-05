@@ -35,7 +35,7 @@
     "generate": "stencil generate",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
     "storybook:build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook",
-    "coverage": "TZ=UTC stencil test --spec --collectCoverage --reporters=\"default\" --reporters=\"jest-junit\""
+    "coverage": "TZ=UTC stencil test --spec --no-build --collectCoverage --reporters=\"default\" --reporters=\"jest-junit\""
   },
   "jest-junit": {
     "outputDirectory": "coverage",
