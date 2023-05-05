@@ -1,19 +1,25 @@
 {
   "name": "@mgdis/linting-stencil",
   "version": "1.0.0",
-  "description": "",
+  "description": "Stencil Linting MGDIS rules",
   "main": "./dist/index.js",
+  "bin": {
+    "linting-stencil-prepare": "./bin/linting-stencil-prepare.js"
+  },
+  "maintainers": [
+    "Simon Duhem <duhem-s@mgdis.fr>",
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>",
+    "Johan Le Lan <lelan-j@mgdis.fr>"
+  ],
   "scripts": {
     "build:config": "tsc --build --clean && tsc --build",
     "lint": "run-s lint:es lint:prettier",
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
-    "lint:es": "eslint src/**/*.ts",
-    "lint:es:fix": "eslint src/**/*.ts --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,json}",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,json}"
+    "lint:es": "eslint ./{src,bin}/**/*.{js,ts}",
+    "lint:es:fix": "eslint ./{src,bin}/**/*.{js,ts} --fix",
+    "lint:prettier": "prettier --check **/*.{js,ts,json,md}",
+    "lint:prettier:fix": "prettier --write **/*.{js,ts,json,md}"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "eslint-config-stencil": "workspace:*",
