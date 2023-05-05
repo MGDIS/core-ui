@@ -21,7 +21,7 @@
 		"test": "run-s -l test:unit test:e2e",
 		"test:unit": "turbo test:unit",
 		"test:e2e": "turbo test:e2e",
-		"test:e2e:playwright": "turbo test:e2e:playwright",
+		"test:e2e:playwright": "turbo test:e2e:playwright --concurrency=1",
 		"test:watch": "turbo test:watch",
 		"coverage": "run-s -l turbo:coverage report:merge junit:merge",
 		"turbo:coverage": "turbo coverage --concurrency=1",

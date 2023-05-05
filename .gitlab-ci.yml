@@ -4,7 +4,8 @@ default:
   interruptible: true # allows to cancel the job automatically
 
 stages:
-  - test
+  - tests
+  - artifacts
   - mg-components
   - release
 
@@ -46,12 +47,23 @@ stages:
     - corepack enable
     - pnpm i
 
-########
-# test #
-########
+###########
+# Scripts #
+###########
+
+# artifact
+.artifact:
+  script:
+    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
+    - pnpm version --no-git-tag-version $version
+    - pnpm publish --no-git-checks
+
+#########
+# tests #
+#########
 
 lint:
-  stage: test
+  stage: tests
   extends:
     - .rules:except-tags
     - .install_dependencies
@@ -59,7 +71,7 @@ lint:
     - pnpm lint
 
 test:unit:
-  stage: test
+  stage: tests
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:except-tags
@@ -79,9 +91,9 @@ test:unit:
         path: coverage/cobertura-coverage.xml
 
 test:e2e:
-  stage: test
+  stage: tests
   extends:
-    - .rules:changes:mg-components # for now only mg-components use test:e2e
+    - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
     - .install_dependencies
   script:
@@ -93,7 +105,7 @@ test:e2e:
       - /**/__diff_output__/
 
 test:e2e:playwright:
-  stage: test
+  stage: tests
   image: mcr.microsoft.com/playwright:v1.33.0-focal
   extends:
     - .rules:changes:notification-center
@@ -118,7 +130,7 @@ test:e2e:playwright:
         - packages/mg-components/results.xml
 
 sonar:
-  stage: test
+  stage: tests
   variables:
     GIT_DEPTH: 0
   extends:
@@ -130,6 +142,10 @@ sonar:
     - gitlabci-sonar-compare report
   needs:
     - test:unit
+
+###########
+# release #
+###########
 
 release:
   stage: release
@@ -166,17 +182,17 @@ bot-publish:
     - pnpm storybook:build
     - mv storybook-static ../../public
 
-artifact:
-  stage: mg-components
+mg-components:artifact:
+  stage: artifacts
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install_dependencies
   script:
     - cd packages/mg-components
-    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
-    - pnpm version --no-git-tag-version $version
-    - pnpm publish --no-git-checks
+    - !reference [.artifact, script]
+  needs:
+    - lint
 
 storybook-mr:
   stage: mg-components
@@ -211,3 +227,20 @@ pages:
   artifacts:
     paths:
       - public
+
+#######################
+# notification-center #
+#######################
+
+notification-center:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:mg-components
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpm build
+    - cd packages/notification-center
+    - !reference [.artifact, script]
+  needs:
+    - lint

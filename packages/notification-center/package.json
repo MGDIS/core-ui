@@ -2,17 +2,27 @@
 	"name": "@mgdis/notification-center",
 	"version": "1.0.1",
 	"description": "Display notifications throught iframes",
-	"main": "dist/src/index.js",
+	"author": "<duhem-s@mgdis.fr> Simon Duhem",
+	"license": "BSD-3-Clause",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "tsc --build",
+		"build": "tsc --noEmit && vite build",
 		"test:unit": "jest --coverage",
 		"test:e2e:playwright": "pnpm dlx playwright test",
 		"test:watch": "jest --watch",
 		"coverage": "jest --coverage"
 	},
-	"keywords": [],
-	"author": "<duhem-s@mgdis.fr> Simon Duhem",
-	"license": "BSD-3-Clause",
+	"files": [
+		"dist"
+	],
+	"main": "./dist/notification-center.umd.js",
+	"module": "./dist/notification-center.es.js",
+	"exports": {
+		".": {
+			"import": "./dist/notification-center.es.js",
+			"require": "./dist/notification-center.umd.js"
+		}
+	},
 	"devDependencies": {
 		"@mgdis/mg-components": "workspace:*",
 		"@playwright/test": "^1.33.0",
@@ -25,7 +35,8 @@
 		"playwright-config": "workspace:*",
 		"ts-jest": "^29.0.5",
 		"tsconfig": "workspace:*",
-		"typescript": "^4.9.5"
+		"vite": "^4.3.2",
+		"vite-plugin-dts": "^2.3.0"
 	},
 	"dependencies": {
 		"sanitize-html": "^2.10.0"

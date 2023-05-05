@@ -141,10 +141,13 @@ class NotificationCenter {
 		// Init mg-message
 		const mgMessage: HTMLElement = document.createElement('mg-message');
 		mgMessage.setAttribute('close-button', '');
+		// Variant
 		if (variant) mgMessage.setAttribute('variant', variant);
-		let messageDelay: number | undefined = delay !== undefined && delay > 2 ? delay : undefined;
-		if (messageDelay === undefined && variant === 'success') messageDelay = 5;
-		if (messageDelay) mgMessage.setAttribute('delay', messageDelay.toString());
+		// Delay
+		if (delay === undefined && variant === 'success') delay = 5;
+		else if (delay !== undefined && delay < 3) delay = undefined;
+		if (delay) mgMessage.setAttribute('delay', delay.toString());
+		// Context
 		if (context) mgMessage.dataset.mgMessageContext = context;
 		// Remove message on close
 		mgMessage.addEventListener('component-hide', () => {
