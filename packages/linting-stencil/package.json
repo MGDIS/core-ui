@@ -6,10 +6,14 @@
   "bin": {
     "linting-stencil-prepare": "./bin/linting-stencil-prepare.js"
   },
+  "license": "BSD-3-Clause",
+  "files": [
+    "dist"
+  ],
+  "author": "Nicolas Jouanno <jouanno-n@mgdis.fr>",
   "maintainers": [
     "Simon Duhem <duhem-s@mgdis.fr>",
-    "Nicolas Jouanno <jouanno-n@mgdis.fr>",
-    "Johan Le Lan <lelan-j@mgdis.fr>"
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>"
   ],
   "scripts": {
     "build:config": "tsc --build --clean && tsc --build",
@@ -17,10 +21,9 @@
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
     "lint:es": "eslint ./{src,bin}/**/*.{js,ts}",
     "lint:es:fix": "eslint ./{src,bin}/**/*.{js,ts} --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,json,md}",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,json,md}"
+    "lint:prettier": "prettier --check **/*.{js,ts,json,md} --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,ts,json,md} --ignore-path ../../.gitignore"
   },
-  "license": "ISC",
   "dependencies": {
     "eslint-config-stencil": "workspace:*",
     "prettier-config": "workspace:*"

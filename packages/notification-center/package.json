@@ -13,8 +13,8 @@
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
     "lint:es": "eslint src/**/*.{ts,tsx}",
     "lint:es:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,tsx,scss,html,mdx,json}",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,tsx,scss,html,mdx,json}"
+    "lint:prettier": "prettier --check **/*.{js,ts,tsx,scss,html,mdx,json} --ignore-path .gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,ts,tsx,scss,html,mdx,json} --ignore-path .gitignore"
   },
   "keywords": [],
   "author": "<duhem-s@mgdis.fr> Simon Duhem",

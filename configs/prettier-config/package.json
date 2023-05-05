@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
   "private": true,
   "keywords": [],
   "author": "",
   "license": "ISC",
   "scripts": {
     "build:config": "tsc --build --clean && tsc --build",
-    "lint": "prettier --check **/*.{js,ts,json}",
-    "lint:fix": "prettier --write **/*.{js,ts,json}"
+    "lint": "prettier --check **/*.{js,ts,json} --ignore-path ../../.gitignore",
+    "lint:fix": "prettier --write **/*.{js,ts,json} --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "prettier": "^2.8.4"

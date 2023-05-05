@@ -13,8 +13,8 @@
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
     "lint:es": "eslint src/**/*.ts",
     "lint:es:fix": "eslint src/**/*.ts --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,json}",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,json}"
+    "lint:prettier": "prettier --check **/*.{js,ts,json} --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,ts,json} --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.2",
