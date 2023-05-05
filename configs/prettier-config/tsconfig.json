@@ -3,8 +3,10 @@
   "include": ["src"],
   "exclude": ["dist"],
   "compilerOptions": {
-    "rootDir": "src/",
-    "baseUrl": "src/",
-    "outDir": "dist/"
+    "rootDir": "src",
+    "baseUrl": "src",
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "composite": false
   }
 }

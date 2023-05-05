@@ -4,7 +4,7 @@
 /**
  * This file copy all lint rc files to local folder
  */
-const fs = require('fs-extra');
+const { writeFile } = require('fs').promises;
 const { name } = require('../package.json');
 
 const scriptName = 'linting-stencil-prepare';
@@ -29,7 +29,7 @@ const files = {
   console.log(`[${scriptName}] adding linting files...`);
 
   for await (const file of Object.keys(files)) {
-    await fs.writeFile(`${file}`, files[file]);
+    await writeFile(`${file}`, files[file]);
     console.log(`[${scriptName}] '${file}' added to your project.`);
   }
 })();
