@@ -271,7 +271,7 @@ export class MgInputTextarea {
    */
   private validatePattern = (): void => {
     if (
-      this.pattern &&
+      this.pattern !== undefined &&
       typeof this.pattern === 'string' &&
       this.pattern !== '' &&
       (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')

@@ -1,6 +1,6 @@
 {
-  "extends": "../../configs/tsconfig/commonjs.build.json",
-  "include": ["./src/*.ts"],
+  "extends": "tsconfig/commonjs.build.json",
+  "include": ["src"],
   "exclude": ["/dist"],
   "compilerOptions": {
     "rootDir": "./src/",

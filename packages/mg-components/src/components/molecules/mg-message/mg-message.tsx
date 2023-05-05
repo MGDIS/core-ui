@@ -52,7 +52,7 @@ export class MgMessage {
   @Prop() delay: number;
   @Watch('delay')
   validateDelay(newValue: MgMessage['delay']): void {
-    if (newValue && newValue < 2) {
+    if (newValue !== undefined && newValue < 2) {
       throw new Error(`<mg-message> prop "delay" must be greater than 2 seconds.`);
     }
   }

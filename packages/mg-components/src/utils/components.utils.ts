@@ -89,7 +89,7 @@ export const isTagName = (element: Element, tagNames: string[]): boolean => {
 export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier]';
 
 /**
- *
+ * Get windows
  * @param {Window} localWindow the window we are lookink for other windows
  * @returns {Window[]} The list of windows found
  */

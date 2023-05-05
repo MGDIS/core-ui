@@ -51,10 +51,10 @@ export class MgPanel {
   @Prop() titlePattern: string;
   @Watch('titlePattern')
   validatetitlePattern(newValue: string): void {
-    if (newValue && !this.titleEditable) {
+    if (newValue !== undefined && !this.titleEditable) {
       throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
     }
-    if (newValue && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
+    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
       throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
     }
   }

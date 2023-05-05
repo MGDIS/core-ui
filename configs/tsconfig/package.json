@@ -4,20 +4,16 @@
   "private": true,
   "description": "",
   "files": [
-    "./tsconfig.base.node18.json"
+    "./base.node18.json",
+    "./commonjs.build.json"
   ],
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "scripts": {
-    "lint": "prettier --check **/*.json",
-    "lint:fix": "prettier --write **/*.json"
-  },
   "dependencies": {
     "@tsconfig/node18": "^1.0.1"
   },
   "devDependencies": {
-    "@types/node": "^18.14.0",
-    "prettier-config": "workspace:*"
+    "@types/node": "^18.14.0"
   }
 }

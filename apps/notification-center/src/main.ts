@@ -6,6 +6,7 @@ import '@mgdis/mg-components/dist/components';
 const notif = new NotificationCenter();
 
 document.querySelectorAll('mg-button').forEach(button => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   button.addEventListener('click', ({ target }: { target: any }) => {
     const {
       dataset: { variant, delay, context },

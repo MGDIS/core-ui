@@ -80,17 +80,16 @@ class NotificationCenter {
   /**
    * Check if the window is in an iframe
    *
-   * @param {Window} localWindow the window that load the script
-   * @returns {boolean} the window is in an iframe
+   * @param localWindow - the window that load the script
+   * @returns the window is in an iframe
    */
   #isInIframe = (localWindow: Window): boolean => localWindow.self !== localWindow.top;
 
   /**
    * Add event listener on window
    *
-   * @param {Window} targetWindow window that will listen to events
-   * @param {any} callback method to execute when we receive an event
-   * @returns {void}
+   * @param targetWindow - window that will listen to events
+   * @param callback - method to execute when we receive an event
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   #addEventListener = (targetWindow: Window, callback: any): void => {
@@ -100,8 +99,7 @@ class NotificationCenter {
   /**
    * Post message to root window
    *
-   * @param {object} message message data
-   * @returns {void}
+   * @param message - message data
    */
   postMessage = (message: MessageData): void => {
     this.#rootWindow.postMessage({ ...message, appId: this.#appId }, '*');
@@ -110,8 +108,8 @@ class NotificationCenter {
   /**
    * Get the root window
    *
-   * @param {Window} localWindow the window where we want to identify the root
-   * @returns {Window} the root window
+   * @param localWindow - the window where we want to identify the root
+   * @returns the root window
    */
   #getRootWindow = (localWindow: Window): Window => {
     // Check if we have permission to access parent
@@ -128,8 +126,7 @@ class NotificationCenter {
   /**
    * Display message
    *
-   * @param {MessageData} message message data
-   * @returns {void}
+   * @param message - message data
    */
   #displayMessage = ({ content, variant, delay, context }: MessageData): void => {
     // Remove mg-messages with same context

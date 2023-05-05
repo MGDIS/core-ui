@@ -6,8 +6,13 @@ const baseConfig = setup({
 });
 
 export const setupEslint = (config: Linter.BaseConfig = {}): Linter.BaseConfig => ({
+  ...baseConfig,
   ...config,
   plugins: [...(baseConfig.plugins as string[]), ...(config.plugins || [])],
   extends: [...(baseConfig.extends as string[]), ...(config.extends || [])],
   parser: config.parser || baseConfig.parser,
+  rules: {
+    ...baseConfig.rules,
+    ...config.rules,
+  },
 });
