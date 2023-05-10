@@ -96,7 +96,7 @@ export class MgIcon {
   private getIcon = (): HTMLElement => icons[this.icon]();
 
   /**
-   * Methode to set default varianStyle props
+   * Method to set default varianStyle props
    * needeed has stencil doesn't know that props is mutated when updated in prop watcher
    * @returns {void}
    */
