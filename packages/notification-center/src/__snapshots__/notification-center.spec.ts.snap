@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Notification center defined custom elements Should display a notification {
+  content: 'Success variant without delay',
+  variant: 'success',
+  delay: 0
+} 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              variant="success"
+  >
+    Success variant without delay
+  </mg-message>
+</div>
+`;
+
 exports[`Notification center defined custom elements Should display a notification { content: 'Danger variant', variant: 'danger' } 1`] = `
 <div id="mg-notification-center">
   <mg-message close-button

@@ -1,4 +1,5 @@
-import { createPage, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { renderAttributes } from '../../../../utils/e2e.test.utils';
 import { variantStyles, variants } from '../mg-card.conf';
 
 const style = `<style>.margin-y { margin: 1rem 0; } .d-block { display: block; } [variant='app'] { --mg-color-app-h: 250 }</style>`;

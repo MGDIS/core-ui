@@ -70,13 +70,10 @@ describe('Notification center', () => {
       { content: 'Success variant', variant: 'success' },
       { content: 'With delay', delay: 5 },
       { content: 'With context', context: 'blu' },
+      { content: 'Success variant without delay', variant: 'success', delay: 0 },
     ])('Should display a notification %s', eventData => {
       window.dispatchEvent(new Event('DOMContentLoaded'));
-      window.dispatchEvent(
-        new MessageEvent('message', {
-          data: { ...eventData, appId: 'mg-notification-center' },
-        }),
-      );
+      window.dispatchEvent(new MessageEvent('message', { data: { ...eventData, appId: 'mg-notification-center' } }));
       expect(document.body.innerHTML).toMatchSnapshot();
     });
 

@@ -1,4 +1,5 @@
-import { createPage, darkBackground } from '../../../../utils/e2e.test.utils';
+import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { darkBackground } from '../../../../utils/e2e.test.utils';
 import { variants } from '../mg-tag.conf';
 
 describe('mg-tag', () => {

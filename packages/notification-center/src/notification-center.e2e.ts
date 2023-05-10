@@ -1,6 +1,6 @@
 import { test, expect, Page, FrameLocator } from '@playwright/test';
 
-const displayMessage = (page: Page, hasText: string, frame?: FrameLocator): Promise<void> => (frame ?? page).locator('mg-button', { hasText }).click();
+const displayMessage = (page: Page, hasText: string, frame?: FrameLocator): Promise<void> => (frame ?? page).locator(`text="${hasText}"`).click();
 
 const expectedNotifications = (page: Page | FrameLocator, expected: number): Promise<void> => expect(page.locator('#mg-notification-center mg-message')).toHaveCount(expected);
 
@@ -42,11 +42,12 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
   await displayMessage(page, 'Danger', frame);
   await displayMessage(page, 'Warning', frame);
   await displayMessage(page, 'Success', frame);
+  await displayMessage(page, 'Success no delay', frame);
   await displayMessage(page, 'Delay', frame);
   await displayMessage(page, 'Long text', frame);
 
   // Expect to have 7 notifications
-  await expectedNotifications(page, 7);
+  await expectedNotifications(page, 8);
 
   // Expect to match screenshot
   await expect(page).toHaveScreenshot(`${[file, 'notification', frameTitle].filter(value => !!value).join('-')}.png`);
@@ -55,7 +56,7 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
   await page.waitForTimeout(5000);
 
   // Expect to have 5 notifications
-  await expectedNotifications(page, 5);
+  await expectedNotifications(page, 6);
 };
 
 test('Without iframe', async ({ page }) => {

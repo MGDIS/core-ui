@@ -2,11 +2,13 @@
   "name": "@mgdis/notification-center",
   "version": "1.0.1",
   "description": "Display notifications throught iframes",
-  "main": "dist/src/index.js",
+  "author": "<duhem-s@mgdis.fr> Simon Duhem",
+  "license": "BSD-3-Clause",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc --build",
+    "build": "tsc --noEmit && vite build",
     "test:unit": "jest --coverage",
-    "test:e2e:playwright": "npx playwright test",
+    "test:e2e:playwright": "pnpm dlx playwright test",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "lint": "run-s lint:es lint:prettier",
@@ -16,12 +18,20 @@
     "lint:prettier": "prettier --check **/*.{js,ts,tsx,scss,html,mdx,json} --ignore-path .gitignore",
     "lint:prettier:fix": "prettier --write **/*.{js,ts,tsx,scss,html,mdx,json} --ignore-path .gitignore"
   },
-  "keywords": [],
-  "author": "<duhem-s@mgdis.fr> Simon Duhem",
-  "license": "BSD-3-Clause",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/notification-center.umd.js",
+  "module": "./dist/notification-center.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/notification-center.es.js",
+      "require": "./dist/notification-center.umd.js"
+    }
+  },
   "devDependencies": {
     "@mgdis/mg-components": "workspace:*",
-    "@playwright/test": "^1.29.0",
+    "@playwright/test": "^1.33.0",
     "@types/jest": "^29.5.0",
     "@types/sanitize-html": "^2.9.0",
     "eslint-config-custom": "workspace:*",
@@ -30,11 +40,14 @@
     "jest-environment-jsdom": "^29.5.0",
     "jest-serializer-html": "^7.1.0",
     "npm-run-all": "^4.1.5",
+    "playwright-config": "workspace:*",
     "prettier": "^2.8.4",
     "prettier-config": "workspace:*",
     "ts-jest": "^29.0.5",
     "tsconfig": "workspace:*",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.3.2",
+    "vite-plugin-dts": "^2.3.0"
   },
   "dependencies": {
     "sanitize-html": "^2.10.0"

@@ -1,6 +1,6 @@
-# Monorepo Template
+# CORE-UI
 
-This is a template for a pnpm based monorepo.
+CORE-UI monorepo based on [pnpm monorepo template](https://gitlab.mgdis.fr/core/core-back/monorepo-template).
 
 ## How to use it
 
@@ -10,7 +10,7 @@ This is based in [pnpm](pnpm.io/), to activate it (via [corepack](https://nodejs
 corepack enable
 ```
 
-and then
+then:
 
 ```sh
 # install packages
@@ -19,15 +19,13 @@ pnpm i
 
 ## Structure
 
-All packages must be placed in [packages/](./packages/) folder
+All packages must be placed in [packages/](./packages/) folder.
 
 They must be written in [Typescript](https://www.typescriptlang.org/).
 
 Packages must be initialized in version: `0.0.0` and follow the `changeset` workflow.
 
 ## Tests
-
-Test config is centralized in root folder. [Vitest](https://vitest.dev/) is used as test framework.
 
 To launch tests:
 
@@ -51,7 +49,7 @@ To write a new changeset:
 pnpm change
 ```
 
-> There is no limit of changesets for a release, they will be merged when the release will be generated.
+There is no limit of changesets for a release, they will be merged when the release will be generated.
 
 To check what will be released:
 
@@ -65,4 +63,4 @@ To make a release (of all concerned packages):
 pnpm release
 ```
 
-> `BE CAREFUL`. The above command will: bump versions, create changelogs, make a commit, push changes.
+**`BE CAREFUL`. The above command will: bump versions, create changelogs, make a commit, push changes.**

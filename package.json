@@ -21,7 +21,7 @@
 		"test": "run-s -l test:unit test:e2e",
 		"test:unit": "turbo test:unit",
 		"test:e2e": "turbo test:e2e",
-		"test:e2e:playwright": "turbo test:e2e:playwright",
+		"test:e2e:playwright": "turbo test:e2e:playwright --concurrency=1",
 		"test:watch": "turbo test:watch",
 		"coverage": "run-s -l turbo:coverage report:merge junit:merge",
 		"turbo:coverage": "turbo coverage --concurrency=1",
@@ -46,7 +46,6 @@
 	"dependencies": {
 		"@changesets/cli": "^2.26.0",
 		"@manypkg/cli": "latest",
-		"@swc/jest": "^0.2.24",
 		"codename": "^0.0.6",
 		"cross-env": "^7.0.3",
 		"husky": "^8.0.3",
