@@ -70,6 +70,15 @@ notif.postMessage({
 });
 ```
 
+#### UMD
+
+Please note that some repositories may not support ES modules, which are a modern standard for organizing and sharing JavaScript code.  
+In such cases, it may be necessary to use a UMD (Universal Module Definition) build of the library instead. UMD is a format that is compatible with both modern ES modules and older module systems like CommonJS and AMD.
+
+To use a UMD build, simply include the appropriate script tag or import statement in your project.
+
+The exposed global variable name is `NotificationCenterModule`.
+
 ## Possible improvements
 
 - Add mg-details in message.

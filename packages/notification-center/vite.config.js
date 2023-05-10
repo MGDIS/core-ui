@@ -5,14 +5,12 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      name: 'NotificationCenter',
+      name: 'NotificationCenterModule',
       fileName: format => `notification-center.${format}.js`,
     },
     outDir: 'dist',
     rollupOptions: {
-      external: [],
       output: {
-        globals: {},
         exports: 'named',
         sourcemap: true,
       },
