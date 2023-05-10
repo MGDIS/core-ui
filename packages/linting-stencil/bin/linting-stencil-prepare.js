@@ -10,14 +10,12 @@ const { name } = require('../package.json');
 const scriptName = 'linting-stencil-prepare';
 
 const files = {
-  '.eslintrc.js': `const { setupEslint } = require("${name}");
-    
+  '.eslintrc.js': `
     module.exports = {
-      ...setupEslint({
-        parserOptions: {
-          project: "./tsconfig.json"
-        },
-      }),
+      parserOptions: {
+        project: "./tsconfig.json"
+      },
+      extends: ['stencil'],
     }
   `,
   '.prettierrc.js': `const { prettierrc } = require("${name}");

@@ -15,13 +15,13 @@
     "lint:prettier:fix": "prettier --write **/*.{js,ts,tsx,html,json} --ignore-path .gitignore"
   },
   "devDependencies": {
+    "eslint-config-custom": "workspace:*",
     "typescript": "^4.9.5",
     "vite": "^3.2.3"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
     "@mgdis/notification-center": "workspace:*",
-    "eslint-config-custom": "workspace:*",
     "prettier-config": "workspace:*"
   }
 }

@@ -82,15 +82,23 @@ module.exports = {
 
 ### Customize default configuration
 
-To set custom configuration to the default one, you can pass a valide ESLint config object in the `setupEslint` function. This will merge the default eslint config with your custom config. The standard case is the `parserOptions` setting as shown in the following exemple:
+To set custom configuration over the default one, you can pass a valide ESLint config object in the [`overrides` property](https://eslint.org/blog/2022/08/new-config-system-part-1/), as shown in the following exemple:
 
 ```js
 ...
 module.exports = {
-  ...setupEslint({
-    parserOptions: {
-      project: "./tsconfig.json"
-    },
-  }),
+  parserOptions: {
+    project: "./tsconfig.json"
+  },
+  extends: ['stencil'],
+  overrides: [
+    {
+      files: ["bin/*.js", "lib/*.js"],
+      excludedFiles: "*.test.js",
+      rules: {
+        quotes: ["error", "single"]
+      }
+    }
+  ]
 }
 ```

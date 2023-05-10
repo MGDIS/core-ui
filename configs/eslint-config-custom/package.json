@@ -2,24 +2,20 @@
   "name": "eslint-config-custom",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./src/index.js",
   "private": true,
   "keywords": [],
   "author": "",
   "license": "ISC",
   "scripts": {
-    "build": "tsc --build",
-    "build:config": "tsc --build --clean && tsc --build",
     "lint": "run-s lint:es lint:prettier",
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
-    "lint:es": "eslint src/**/*.ts",
-    "lint:es:fix": "eslint src/**/*.ts --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,json} --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,json} --ignore-path ../../.gitignore"
+    "lint:es": "eslint src/**/*.js -c ./src/index.js",
+    "lint:es:fix": "eslint src/**/*.js --fix -c ./src/index.js",
+    "lint:prettier": "prettier --check **/*.{js,json} --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,json} --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.59.2",
-    "@typescript-eslint/parser": "^5.59.2",
     "eslint": "^8.39.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-turbo": "^1.9.3",
@@ -27,9 +23,6 @@
     "eslint-plugin-tsdoc": "^0.2.17"
   },
   "devDependencies": {
-    "@types/eslint": "^8.37.0",
-    "prettier-config": "workspace:*",
-    "tsconfig": "workspace:*",
-    "typescript": "^4.9.5"
+    "prettier-config": "workspace:*"
   }
 }

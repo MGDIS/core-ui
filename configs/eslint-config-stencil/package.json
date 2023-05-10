@@ -2,17 +2,15 @@
   "name": "eslint-config-stencil",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "./src/index.js",
   "private": true,
   "scripts": {
-    "build": "tsc --build",
-    "build:config": "tsc --build --clean && tsc --build",
     "lint": "run-s lint:es lint:prettier",
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
-    "lint:es": "eslint src/**/*.ts",
-    "lint:es:fix": "eslint src/**/*.ts --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,json} --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,json} --ignore-path ../../.gitignore"
+    "lint:es": "eslint src/**/*.js",
+    "lint:es:fix": "eslint src/**/*.js --fix",
+    "lint:prettier": "prettier --check **/*.{js,json} --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,json} --ignore-path ../../.gitignore"
   },
   "keywords": [],
   "author": "",
@@ -26,7 +24,6 @@
     "eslint-plugin-jsx-a11y": "^6.7.1"
   },
   "devDependencies": {
-    "@types/eslint": "^8.37.0",
     "eslint-plugin-react": "^7.32.2",
     "prettier-config": "workspace:*",
     "tsconfig": "workspace:*",
