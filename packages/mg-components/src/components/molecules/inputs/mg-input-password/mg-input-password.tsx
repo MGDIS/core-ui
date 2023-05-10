@@ -148,7 +148,6 @@ export class MgInputPassword {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -204,7 +203,6 @@ export class MgInputPassword {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -220,7 +218,6 @@ export class MgInputPassword {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

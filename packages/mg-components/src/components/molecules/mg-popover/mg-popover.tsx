@@ -77,7 +77,7 @@ export class MgPopover {
   /**
    * Disable popover
    */
-  @Prop({ mutable: true }) disabled = false;
+  @Prop() disabled = false;
 
   /**
    * Component classes
@@ -91,7 +91,6 @@ export class MgPopover {
 
   /**
    * Check if clicked outside of component
-   *
    * @param {MouseEvent} event mouse event
    * @returns {void}
    */
@@ -107,7 +106,6 @@ export class MgPopover {
 
   /**
    * Show popover
-   *
    * @returns {void}
    */
   private show = (): void => {
@@ -131,7 +129,6 @@ export class MgPopover {
 
   /**
    * Hide popover
-   *
    * @returns {void}
    */
   private hide = (): void => {
@@ -150,7 +147,6 @@ export class MgPopover {
 
   /**
    * Handle action for close button
-   *
    * @returns {void}
    */
   private handleCloseButton = (): void => {
@@ -163,7 +159,6 @@ export class MgPopover {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void} timeout
    */
   componentWillLoad(): void {
@@ -176,7 +171,6 @@ export class MgPopover {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -242,7 +236,6 @@ export class MgPopover {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

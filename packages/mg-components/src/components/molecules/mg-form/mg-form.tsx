@@ -95,7 +95,6 @@ export class MgForm {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -111,7 +110,6 @@ export class MgForm {
   /**
    * Define required message based on mg-inputs required elements
    * Also
-   *
    * @returns {void}
    */
   private setRequiredMessage = (): void => {
@@ -138,7 +136,6 @@ export class MgForm {
 
   /**
    * Check if form is valid
-   *
    * @returns {void}
    */
   private checkValidity = (): void => {
@@ -153,7 +150,6 @@ export class MgForm {
 
   /**
    * Handle Form Submit
-   *
    * @param {SubmitEvent} event submit event
    * @returns {void}
    */
@@ -164,7 +160,6 @@ export class MgForm {
 
   /**
    * Set mgInputs
-   *
    * @returns {void}
    */
   private setMgInputs = (): void => {
@@ -185,7 +180,6 @@ export class MgForm {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -220,7 +214,6 @@ export class MgForm {
 
   /**
    * Add slot listeners
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -240,7 +233,6 @@ export class MgForm {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

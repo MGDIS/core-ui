@@ -23,6 +23,8 @@ All packages must be placed in [packages/](./packages/) folder.
 
 They must be written in [Typescript](https://www.typescriptlang.org/).
 
+Packages must be initialized in version: `0.0.0` and follow the `changeset` workflow.
+
 ## Tests
 
 To launch tests:

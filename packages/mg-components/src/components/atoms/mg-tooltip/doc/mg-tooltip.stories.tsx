@@ -16,7 +16,6 @@ export default {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */
@@ -39,7 +38,6 @@ MgTooltip.args = {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */
@@ -58,7 +56,6 @@ MgTooltipOnButton.args = {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */

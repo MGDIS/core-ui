@@ -32,7 +32,6 @@ export class MgIllustratedMessage {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -50,7 +49,6 @@ export class MgIllustratedMessage {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

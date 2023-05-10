@@ -9,7 +9,6 @@ import { SelectOption, OptGroup } from './mg-input-select.conf';
 
 /**
  * Check if item is a well configured option
- *
  * @param {unknown} option select option
  * @returns {boolean} select option type is valid
  */
@@ -17,7 +16,6 @@ const isOption = (option: unknown): option is SelectOption => typeof option === 
 
 /**
  * Check if items[] is SelectOption
- *
  * @param {unknown[]} items select option
  * @returns {boolean} select option array type is valid
  */
@@ -25,7 +23,6 @@ const allItemsAreOptions = (items: unknown[]): items is SelectOption[] => Array.
 
 /**
  * Check if item is a well configured optgroup
- *
  * @param {unknown} optgroup select option
  * @returns {boolean} select optgroup type is valid
  */
@@ -34,7 +31,6 @@ const isOptGroup = (optgroup: unknown): optgroup is OptGroup =>
 
 /**
  * Group options
- *
  * @param {(SelectOption | OptGroup)[]} acc reduce accumulator
  * @param {SelectOption} item item to add
  * @param {string} item.group item group
@@ -268,7 +264,6 @@ export class MgInputSelect {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -280,7 +275,6 @@ export class MgInputSelect {
 
   /**
    * Handle input event
-   *
    * @returns {void}
    */
   private handleInput = (): void => {
@@ -290,7 +284,6 @@ export class MgInputSelect {
 
   /**
    * Method to compare item.title with input.value
-   *
    * @param {SelectOption} item item to compare with
    * @returns {boolean} truthy if input.value is an item
    */
@@ -298,7 +291,6 @@ export class MgInputSelect {
 
   /**
    * value props setter
-   *
    * @param {MgInputSelect['value']} newValue value to update with
    * @returns {void}
    */
@@ -309,7 +301,6 @@ export class MgInputSelect {
 
   /**
    * Update value from input.value
-   *
    * @returns {void}
    */
   private updateValue = (): void => {
@@ -335,7 +326,6 @@ export class MgInputSelect {
 
   /**
    * Input value is disabled
-   *
    * @returns {boolean} truthy if input value is disabled
    */
   private isDisabledValue = (): boolean => allItemsAreOptions(this.options) && this.options.find(this.isInputValue)?.disabled === true;
@@ -367,7 +357,6 @@ export class MgInputSelect {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -390,7 +379,6 @@ export class MgInputSelect {
 
   /**
    * Render option
-   *
    * @param {SelectOption} option to render
    * @returns {HTMLElement} render option
    */
@@ -402,7 +390,6 @@ export class MgInputSelect {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

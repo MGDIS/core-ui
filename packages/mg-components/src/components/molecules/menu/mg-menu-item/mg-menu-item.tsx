@@ -169,7 +169,6 @@ export class MgMenuItem {
 
   /**
    * Toggle expanded prop value
-   *
    * @returns {void}
    */
   private toggleExpanded = (): void => {
@@ -178,7 +177,6 @@ export class MgMenuItem {
 
   /**
    * Does an Element have given Status
-   *
    * @param {HTMLMgMenuItemElement} mgMenuItemElement to parse
    * @param {MgMenuItem['status']} status to check
    * @returns {boolean} true if element with status is found
@@ -187,7 +185,6 @@ export class MgMenuItem {
 
   /**
    * Is component contextual direction match the given direction
-   *
    * @param {MgMenuItem['direction']} direction in parent menu
    * @param {MgMenuItem['direction']} compareWith direction to compare with. Default: `this.direction`
    * @returns {boolean} true is direction match the direction propertie
@@ -197,7 +194,6 @@ export class MgMenuItem {
   /**
    * Update displayNotificationBadge
    * current component notification badge have priority over the slot badge when submenu contain badge
-   *
    * @returns {void} update displayNotificationBadge value
    */
   private updateDisplayNotificationBadge = (): void => {
@@ -209,7 +205,6 @@ export class MgMenuItem {
 
   /**
    * Method to control if one of component children have active status
-   *
    * @returns {boolean} truthy if component has active child
    */
   private hasActiveChild = (): boolean =>
@@ -219,7 +214,6 @@ export class MgMenuItem {
 
   /**
    * Validate slots
-   *
    * @param {boolean} guard prevent action whith guard. Default: false.
    * @returns {void}
    */
@@ -237,7 +231,6 @@ export class MgMenuItem {
 
   /**
    * Update status
-   *
    * @param {Status[]} guard status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
    * @returns {void}
    */
@@ -249,7 +242,6 @@ export class MgMenuItem {
 
   /**
    * Init event-listeners
-   *
    * @returns {void}
    */
   private initListeners = (): void => {
@@ -266,14 +258,12 @@ export class MgMenuItem {
 
   /**
    * Get mg-popover identifier
-   *
    * @returns {MgPopover['identifier']} generated mg-popover identifier
    */
   private getPopoverIdentifier = (): MgPopover['identifier'] => `${this.identifier}-popover`;
 
   /**
    * Render popover clickoutside guard for content slot
-   *
    * @returns {void}
    */
   private updatePopoverGuard(): void {
@@ -285,7 +275,6 @@ export class MgMenuItem {
 
   /**
    * Condition to know if component should display a mg-popover
-   *
    * @returns {boolean} truthy if component display popover
    */
   private displayPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && this.hasChildren && this.href === undefined;
@@ -296,7 +285,6 @@ export class MgMenuItem {
 
   /**
    * Handle interacrtive element click
-   *
    * @param {MouseEvent} event click on element
    * @returns {void}
    */
@@ -312,7 +300,6 @@ export class MgMenuItem {
 
   /**
    * Handle popover element display-change event
-   *
    * @param {CustomEvent} event popover display event
    * @returns {void}
    */
@@ -326,7 +313,6 @@ export class MgMenuItem {
 
   /**
    * Validate props
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -346,7 +332,6 @@ export class MgMenuItem {
 
   /**
    * Check if component slots configuration
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
@@ -389,7 +374,6 @@ export class MgMenuItem {
 
   /**
    * Render ineractive element
-   *
    * @returns {HTMLElement} HTML Element
    */
   private renderInteractiveElement(): HTMLElement {
@@ -435,14 +419,12 @@ export class MgMenuItem {
 
   /**
    * Render slot
-   *
    * @returns {HTMLElement} HTML Element
    */
   private renderSlot = (): HTMLElement => <slot></slot>;
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

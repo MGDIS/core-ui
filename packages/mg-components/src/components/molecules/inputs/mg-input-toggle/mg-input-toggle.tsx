@@ -7,7 +7,6 @@ import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
  * type Option validation function
- *
  * @param {ToggleValue} option radio option
  * @returns {boolean} toggle option type is valid
  */
@@ -53,7 +52,6 @@ export class MgInputToggle {
 
   /**
    * Items are the possible options to select
-   *
    * @returns {void}
    */
   @Prop() items!: string[] | ToggleValue[];
@@ -186,7 +184,6 @@ export class MgInputToggle {
 
   /**
    * Change checked value
-   *
    * @returns {void}
    */
   private toggleChecked = (): void => {
@@ -195,7 +192,6 @@ export class MgInputToggle {
 
   /**
    * Slots validation
-   *
    * @returns {void}
    */
   private validateSlots = (): void => {
@@ -211,7 +207,6 @@ export class MgInputToggle {
 
   /**
    * set checked state
-   *
    * @returns {void}
    */
   private setChecked(): void {
@@ -258,7 +253,6 @@ export class MgInputToggle {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

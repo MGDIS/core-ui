@@ -75,7 +75,6 @@ export class MgTag {
 
   /**
    * Validate the given textContent
-   *
    * @param {string} textContent html element textContent property
    * @returns {void}
    */
@@ -89,7 +88,6 @@ export class MgTag {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -101,7 +99,6 @@ export class MgTag {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

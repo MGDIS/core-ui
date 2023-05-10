@@ -1,0 +1,28 @@
+{
+  "name": "eslint-config-custom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "private": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "lint": "run-s lint:es lint:prettier",
+    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint:es": "eslint src/**/*.js -c ./src/index.js",
+    "lint:es:fix": "eslint src/**/*.js --fix -c ./src/index.js",
+    "lint:prettier": "prettier --check **/*.{js,json} --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,json} --ignore-path ../../.gitignore"
+  },
+  "dependencies": {
+    "eslint": "^8.39.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-turbo": "^1.9.3",
+    "eslint-plugin-jsdoc": "^43.1.1",
+    "eslint-plugin-tsdoc": "^0.2.17"
+  },
+  "devDependencies": {
+    "prettier-config": "workspace:*"
+  }
+}

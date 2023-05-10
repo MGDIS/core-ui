@@ -69,11 +69,10 @@ export class MgTooltip {
   /**
    * Disable tooltip
    */
-  @Prop({ mutable: true }) disabled = false;
+  @Prop() disabled = false;
 
   /**
    * Show tooltip
-   *
    * @returns {void}
    */
   private show = (): void => {
@@ -98,7 +97,6 @@ export class MgTooltip {
 
   /**
    * Hide tooltip
-   *
    * @returns {void}
    */
   private hide = (): void => {
@@ -118,7 +116,6 @@ export class MgTooltip {
 
   /**
    * Check if clicked outside of component and hidde tooltip
-   *
    * @param {MouseEvent} event mouse event
    * @returns {void}
    */
@@ -128,7 +125,6 @@ export class MgTooltip {
 
   /**
    * Check if 'Escape' key is pressed of component and hidde tooltip
-   *
    * @param {KeyboardEvent} event keyboard event
    * @returns {void}
    */
@@ -138,7 +134,6 @@ export class MgTooltip {
 
   /**
    * Method to set display prop
-   *
    * @param {boolean} newValue display prop new value
    * @param {boolean} condition additionnal condition to apply display prop newValue
    * @returns {void}
@@ -149,7 +144,6 @@ export class MgTooltip {
 
   /**
    * Action for tooltip element and tooltiped element mouse listener
-   *
    * @param {Guard} elementGuard tooltip element guard
    * @param {boolean} isMouseenter mouseenter validation
    * @param {Guard} conditionalGuard guard condition
@@ -172,7 +166,6 @@ export class MgTooltip {
 
   /**
    * Method to reset guard value
-   *
    * @returns {void}
    */
   private resetGuard = (): void => {
@@ -181,7 +174,6 @@ export class MgTooltip {
 
   /**
    * Update slot content when it is a mg-button
-   *
    * @param {HTMLMgButtonElement} mgButton slotted mg-button
    * @returns {void}
    */
@@ -200,7 +192,6 @@ export class MgTooltip {
 
   /**
    * Init tooltip
-   *
    * @param {HTMLElement} slotElement slotted element
    * @param {HTMLElement} interactiveElement interactive element
    */
@@ -264,7 +255,6 @@ export class MgTooltip {
 
   /**
    * set variables
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -276,7 +266,6 @@ export class MgTooltip {
    * Get slotted element
    * Check if it already contain an interactive element, if not we need to add a tabIndex attribute
    * We need to attach the focused element to the tooltip (aria-describedby)
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -316,7 +305,6 @@ export class MgTooltip {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

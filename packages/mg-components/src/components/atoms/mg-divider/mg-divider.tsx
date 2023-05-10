@@ -17,7 +17,6 @@ export class MgDivider {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

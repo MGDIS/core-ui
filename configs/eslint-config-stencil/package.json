@@ -1,0 +1,32 @@
+{
+  "name": "eslint-config-stencil",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "private": true,
+  "scripts": {
+    "lint": "run-s lint:es lint:prettier",
+    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint:es": "eslint src/**/*.js",
+    "lint:es:fix": "eslint src/**/*.js --fix",
+    "lint:prettier": "prettier --check **/*.{js,json} --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{js,json} --ignore-path ../../.gitignore"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stencil-community/eslint-plugin": "^0.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.2",
+    "@typescript-eslint/parser": "^5.59.2",
+    "eslint": "^8.39.0",
+    "eslint-config-custom": "workspace:*",
+    "eslint-plugin-jsx-a11y": "^6.7.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.32.2",
+    "prettier-config": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^4.9.5"
+  }
+}

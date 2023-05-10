@@ -58,7 +58,7 @@ export class MgModal {
   /**
    * Define if modal has a cross button
    */
-  @Prop({ mutable: true }) closeButton = false;
+  @Prop() closeButton = false;
 
   /**
    * Define if modal is hidden
@@ -104,7 +104,6 @@ export class MgModal {
 
   /**
    * Handle 'escape' key down
-   *
    * @param {KeyboardEvent} event keydown event
    * @returns {void}
    */
@@ -156,7 +155,6 @@ export class MgModal {
 
   /**
    * Handle close button
-   *
    * @returns {void}
    */
   private handleClose = (): void => {
@@ -169,7 +167,6 @@ export class MgModal {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -190,7 +187,6 @@ export class MgModal {
 
   /**
    * Add observer on component to set focus when displayed
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -207,7 +203,6 @@ export class MgModal {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

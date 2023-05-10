@@ -4,7 +4,6 @@ import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
  * type TabItem validation function
- *
  * @param {TabItem} tab tab item
  * @returns {boolean} tab item type is valid
  */
@@ -128,7 +127,6 @@ export class MgTabs {
 
   /**
    * Method to know if given tab has the given status
-   *
    * @param {TabItem} tab item tab key to set to ACTIVE status
    * @param {Status} status status to valide
    * @returns {boolean} status comparaison
@@ -137,7 +135,6 @@ export class MgTabs {
 
   /**
    * Method to get element id from index
-   *
    * @param {string} element to get id
    * @param {number} index to generate id
    * @returns {string} generated element id
@@ -146,7 +143,6 @@ export class MgTabs {
 
   /**
    * Method to get tab item index
-   *
    * @param {number} index to get
    * @returns {number} index
    */
@@ -154,7 +150,6 @@ export class MgTabs {
 
   /**
    * Method to get the active-tab value
-   *
    * @returns {number} of the active-tab
    */
   private getActiveTab = (): number =>
@@ -162,7 +157,6 @@ export class MgTabs {
 
   /**
    * Handle click events on tabs
-   *
    * @param {MouseEvent} event mouse event
    */
   private handleClick = (event: MouseEvent & { currentTarget: HTMLElement }): void => {
@@ -178,7 +172,6 @@ export class MgTabs {
 
   /**
    * get navigation button class from given status
-   *
    * @param {Status} status button tab status
    * @returns {string} button class/selector variant
    */
@@ -186,7 +179,6 @@ export class MgTabs {
 
   /**
    * Handle keyboard event on tabs
-   *
    * @param {MouseEvent} event mouse event
    * @returns {void}
    */
@@ -224,7 +216,6 @@ export class MgTabs {
 
   /**
    * Method to reset focus behavior
-   *
    * @returns {void}
    */
   private resetFocus = (): void => {
@@ -251,7 +242,6 @@ export class MgTabs {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -265,7 +255,6 @@ export class MgTabs {
 
   /**
    * add listners
-   *
    * @returns {void}
    */
   componentDidLoad(): void {
@@ -280,7 +269,6 @@ export class MgTabs {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {
