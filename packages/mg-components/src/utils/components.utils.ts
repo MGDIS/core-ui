@@ -1,6 +1,5 @@
 /**
  * Create random ID
- *
  * @param {string} prefix  add prefix to created ID
  * @param {number} length ID length
  * @returns {string} ID
@@ -28,7 +27,6 @@ export class ClassList {
 
   /**
    * Add class
-   *
    * @param {string} className class name to add
    * @returns {void}
    */
@@ -40,7 +38,6 @@ export class ClassList {
 
   /**
    * Delete class
-   *
    * @param {string} className class name to delete
    * @returns {void}
    */
@@ -53,7 +50,6 @@ export class ClassList {
 
   /**
    * Check if class exist in list
-   *
    * @param {string} className class name to check
    * @returns {boolean} class name is in the list
    */
@@ -63,7 +59,6 @@ export class ClassList {
 
   /**
    * Join classes seperated by spaces
-   *
    * @returns {string} joined values
    */
   join = (): string => {
@@ -73,7 +68,6 @@ export class ClassList {
 
 /**
  * Check if all items are string
- *
  * @param {unknown} items items to check
  * @returns {boolean} all items are string
  */
@@ -81,7 +75,6 @@ export const allItemsAreString = (items: unknown): items is string[] => Array.is
 
 /**
  * Check if element is a heading
- *
  * @param {Element} element slotted element
  * @param {string[]} tagNames allowed tag names list
  * @returns {boolean} element is a heading
@@ -96,7 +89,7 @@ export const isTagName = (element: Element, tagNames: string[]): boolean => {
 export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier]';
 
 /**
- *
+ * Get windows
  * @param {Window} localWindow the window we are lookink for other windows
  * @returns {Window[]} The list of windows found
  */
@@ -108,7 +101,6 @@ export const getWindows = (localWindow: Window): Window[] => {
 
 /**
  * Get parent windows
- *
  * @param {Window} localWindow the window we are lookink for parents
  * @param {Window[]} windows The list of allready found windows
  * @returns {Window[]} The list of windows found
@@ -131,7 +123,6 @@ export const getParentWindows = (localWindow: Window, windows: Window[] = []): W
 
 /**
  * Get child windows
- *
  * @param {Window} localWindow the window we are lookink for children
  * @param {Window[]} windows The list of allready found windows
  * @returns {Window[]} The list of windows found

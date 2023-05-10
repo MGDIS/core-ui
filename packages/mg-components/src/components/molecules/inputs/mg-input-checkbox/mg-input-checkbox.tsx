@@ -7,7 +7,6 @@ import { CheckboxItem, CheckboxValue } from './mg-input-checkbox.conf';
 
 /**
  * type CheckboxItem validation function
- *
  * @param {unknown} items Checkbox item
  * @returns {boolean} match item type
  */
@@ -170,7 +169,6 @@ export class MgInputCheckbox {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -182,7 +180,6 @@ export class MgInputCheckbox {
 
   /**
    * Handle input event
-   *
    * @param {InputEvent} event input event
    */
   private handleInput = (event: InputEvent & { target: HTMLInputElement }): void => {
@@ -208,7 +205,6 @@ export class MgInputCheckbox {
 
   /**
    * get invalid element
-   *
    * @returns {HTMLInputElement} element
    */
   private getInvalidElement = (): HTMLInputElement => this.inputs.find((input: HTMLInputElement) => input !== null && !input.disabled && !input.checkValidity());
@@ -242,7 +238,6 @@ export class MgInputCheckbox {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -260,7 +255,6 @@ export class MgInputCheckbox {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

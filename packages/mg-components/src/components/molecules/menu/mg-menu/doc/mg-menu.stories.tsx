@@ -52,7 +52,6 @@ interface IGetMenuItemArgs {
 
 /**
  * Format item args from given params
- *
  * @param {ItemArgType} itemArgs - item arguments
  * @returns {ItemFormatedArgs} items formated args object
  */
@@ -71,7 +70,6 @@ const getItemArgs: IGetMenuItemArgs = ({ label, status, metadata, icon, badge, c
 
 /**
  * Render mg-menu-item
- *
  * @param {ItemFormatedArgs} args mg-menu-item args
  * @returns {HTMLElement} rendered mg-menu-item
  */
@@ -105,7 +103,6 @@ interface IGetMenuArgs {
 
 /**
  * Format menu args from given params
- *
  * @param {Direction} direction menu direction
  * @param {number} level menu level. Default: 0.
  * @param {MenuSizeType} size menu size. Default: 'regular'
@@ -155,7 +152,6 @@ const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'regular') => ({
 
 /**
  * Render mg-menu
- *
  * @param {MenuFormatedArgs} args mg-menu args
  * @returns {HTMLElement} rendered mg-menu
  */
@@ -165,7 +161,6 @@ const menu = (args: MenuFormatedArgs): HTMLMgMenuElement => (
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */

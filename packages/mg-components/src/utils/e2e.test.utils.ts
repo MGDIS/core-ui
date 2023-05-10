@@ -3,7 +3,6 @@ import { createID } from './components.utils';
 /**
  * Add a darker background
  * usefull for light rendered element
- *
  * @param {boolean} condition condition to add darker background
  * @param {string} html html to update
  * @returns {string} html to render
@@ -13,7 +12,6 @@ export const darkBackground = (condition: boolean, html: string): string =>
 
 /**
  * Render attributes from props objects
- *
  * @param {object} args argument to render as string. ex: {status: 'visible'}
  * @returns {string} formated inline attributed. ex: 'status="visible"'
  */
@@ -28,7 +26,6 @@ export const renderAttributes = (args: unknown): string =>
 /**
  * Render properties from props objects.
  * Insert return value in <script></script> element
- *
  * @param {object} args argument to render as script. ex: {status: 'visible'}
  * @param {string} selector querySelector get targetted element and bind properties on it
  * @returns {string} stringified properties script

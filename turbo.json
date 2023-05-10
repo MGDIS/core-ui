@@ -6,6 +6,10 @@
 			"dependsOn": ["^build"],
 			"outputs": ["dist/**", "build/**"]
 		},
+		"build:config": {
+			"dependsOn": ["^build:config"],
+			"outputs": ["dist/**"]
+		},
 		"dev": {},
 		"test": {},
 		"test:unit": {},
@@ -18,7 +22,11 @@
 			"dependsOn": ["build", "^build"],
 			"outputs": ["coverage/**", ".nyc_output/**"]
 		},
-		"lint": {},
-		"lint:fix": {}
+		"lint": {
+			"dependsOn": ["^build:config"]
+		},
+		"lint:fix": {
+			"dependsOn": ["^build:config"]
+		}
 	}
 }

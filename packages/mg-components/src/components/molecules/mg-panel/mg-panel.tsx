@@ -48,13 +48,13 @@ export class MgPanel {
   /**
    * Panel title pattern
    */
-  @Prop({ mutable: true }) titlePattern: string;
+  @Prop() titlePattern: string;
   @Watch('titlePattern')
   validatetitlePattern(newValue: string): void {
-    if (newValue && !this.titleEditable) {
+    if (newValue !== undefined && !this.titleEditable) {
       throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
     }
-    if (newValue && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
+    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
       throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
     }
   }
@@ -62,7 +62,7 @@ export class MgPanel {
   /**
    * Panel title pattern error message
    */
-  @Prop({ mutable: true }) titlePatternErrorMessage: string;
+  @Prop() titlePatternErrorMessage: string;
 
   /**
    * Panel is opened
@@ -76,7 +76,7 @@ export class MgPanel {
   /**
    * Disable possibility to toggle expand
    */
-  @Prop({ mutable: true }) expandToggleDisabled: boolean;
+  @Prop() expandToggleDisabled: boolean;
 
   /**
    * Panel title is editabled
@@ -114,7 +114,6 @@ export class MgPanel {
 
   /**
    * Toggle is editing state
-   *
    * @returns {void}
    */
   private toggleIsEditing = (): void => {
@@ -127,7 +126,6 @@ export class MgPanel {
 
   /**
    * Collapse button click handler
-   *
    * @returns {void}
    */
   private handleCollapseButton = (): void => {
@@ -138,7 +136,6 @@ export class MgPanel {
 
   /**
    * Edit button click handler
-   *
    * @returns {void}
    */
   private handleEditButton = (): void => {
@@ -147,7 +144,6 @@ export class MgPanel {
 
   /**
    * Update title handler
-   *
    * @param {CustomEvent<string>} event input value change event
    * @returns {void}
    */
@@ -157,7 +153,6 @@ export class MgPanel {
 
   /**
    * Cancel edition button handler
-   *
    * @returns {void}
    */
   private handleCancelEditButton = (): void => {
@@ -167,7 +162,6 @@ export class MgPanel {
 
   /**
    * Validate edition button handler
-   *
    * @returns {void}
    */
   private handleValidateEditButton = (): void => {
@@ -184,7 +178,6 @@ export class MgPanel {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -197,7 +190,6 @@ export class MgPanel {
 
   /**
    * Header left conditional render
-   *
    * @typedef {HTMLElement} HTMLMgButtonElement
    * @returns {HTMLMgButtonElement | HTMLElement | HTMLElement[]} header left element
    */
@@ -271,7 +263,6 @@ export class MgPanel {
 
   /**
    * Edit DOM after render
-   *
    * @returns {void}
    */
   componentDidRender(): void {
@@ -283,7 +274,6 @@ export class MgPanel {
 
   /**
    * Render component
-   *
    * @returns {HTMLElement} html element
    */
   render(): HTMLElement {

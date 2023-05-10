@@ -5,18 +5,18 @@ import '@mgdis/mg-components/dist/components';
 
 const notif = new NotificationCenter();
 
-document.querySelectorAll('mg-button').forEach((button) => {
-	button.addEventListener('click', ({ target }: { target: any }) => {
-		const {
-			dataset: { variant, delay, context },
-		} = target;
-		const content =
-			target.dataset.content ?? `message ${variant ?? 'info'} de ${target.closest('body')?.dataset.source}.html`;
-		notif.postMessage({
-			content,
-			variant,
-			delay: delay !== undefined ? parseInt(delay, 10) : undefined,
-			context,
-		});
-	});
+document.querySelectorAll('mg-button').forEach(button => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  button.addEventListener('click', ({ target }: { target: any }) => {
+    const {
+      dataset: { variant, delay, context },
+    } = target;
+    const content = target.dataset.content ?? `message ${variant ?? 'info'} de ${target.closest('body')?.dataset.source}.html`;
+    notif.postMessage({
+      content,
+      variant,
+      delay: delay !== undefined ? parseInt(delay, 10) : undefined,
+      context,
+    });
+  });
 });

@@ -42,7 +42,6 @@ export class MgInputTitle {
 
   /**
    * Init tag name
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -52,7 +51,6 @@ export class MgInputTitle {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

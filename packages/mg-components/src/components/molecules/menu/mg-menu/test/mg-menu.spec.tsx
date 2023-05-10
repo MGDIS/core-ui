@@ -13,7 +13,6 @@ mockWindowFrames();
 let id;
 /**
  * set id if param is true
- *
  * @param {boolean} hasId true if need a generated id
  * @returns {string} genereted id
  */

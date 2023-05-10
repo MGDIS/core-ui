@@ -55,7 +55,6 @@ export class MgDetails {
 
   /**
    * Handle details toggle
-   *
    * @returns {void}
    */
   private handleToggle = (): void => {
@@ -68,7 +67,6 @@ export class MgDetails {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -78,7 +76,6 @@ export class MgDetails {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

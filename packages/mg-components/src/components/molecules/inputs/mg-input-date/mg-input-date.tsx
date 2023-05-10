@@ -164,7 +164,6 @@ export class MgInputDate {
 
   /**
    * Public method to display errors
-   *
    * @returns {Promise<void>}
    */
   @Method()
@@ -204,7 +203,6 @@ export class MgInputDate {
 
   /**
    * get input error code
-   *
    * @returns {null | InputError} error code
    */
   private getInputError = (): null | InputError => {
@@ -232,7 +230,6 @@ export class MgInputDate {
 
   /**
    * Check input errors
-   *
    * @returns {void}
    */
   private setErrorMessage = (): void => {
@@ -262,7 +259,6 @@ export class MgInputDate {
 
   /**
    * Check if component props are well configured on init
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
@@ -284,7 +280,6 @@ export class MgInputDate {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

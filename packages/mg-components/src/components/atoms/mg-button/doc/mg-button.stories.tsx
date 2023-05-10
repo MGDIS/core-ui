@@ -17,7 +17,6 @@ export default {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */

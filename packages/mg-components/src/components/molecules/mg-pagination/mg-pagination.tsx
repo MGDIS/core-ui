@@ -17,7 +17,6 @@ import { initLocales } from './../../../locales';
  * range(1, 1) = [1]
  * range(1, 5) = [1, 2, 3, 4, 5]
  * range(10, 20, 2) = [10, 12, 14, 16, 18, 20]
- *
  * @param {number} start start range
  * @param {number} end start end
  * @param {number} step step size
@@ -97,7 +96,6 @@ export class MgPagination {
 
   /**
    * Change current page from target
-   *
    * @param {number} target target page
    * @returns {void}
    */
@@ -111,7 +109,6 @@ export class MgPagination {
 
   /**
    * select handler
-   *
    * @param {InputEvent} event value change event
    * @returns {void}
    */
@@ -122,7 +119,6 @@ export class MgPagination {
 
   /**
    * Go to 'previous/next' page button handler
-   *
    * @param {string} action navigation action
    * @param {boolean} disabled button disable state
    * @returns {void}
@@ -137,7 +133,6 @@ export class MgPagination {
 
   /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -154,7 +149,6 @@ export class MgPagination {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

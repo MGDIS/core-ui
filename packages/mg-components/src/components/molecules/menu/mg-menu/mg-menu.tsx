@@ -83,7 +83,6 @@ export class MgMenu {
 
   /**
    * Close matching menu-item
-   *
    * @param {HTMLElement} item menu-item to close
    * @param {boolean} condition addionnal condition
    * @returns {void}
@@ -96,21 +95,18 @@ export class MgMenu {
 
   /**
    * get mg-item-more element
-   *
    * @returns {HTMLMgItemMoreElement} mg-item-more element
    */
   private getItemMore = (): HTMLMgItemMoreElement => this.element.querySelector('mg-item-more');
 
   /**
    * get mg-item-more >>> mg-menu-item element
-   *
    * @returns {HTMLMgMenuItemElement} mg-item-more >>> mg-menu-item element
    */
   private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.getItemMore()?.shadowRoot?.querySelector('mg-menu-item');
 
   /**
    * Set item listend
-   *
    * @param {HTMLMgMenuItemElement} item mg-menu-item element
    * @param {MgMenu['focusedMenuItem']} index number
    * @returns {void}
@@ -129,7 +125,6 @@ export class MgMenu {
 
   /**
    * Store menu-items on component init and add listeners
-   *
    * @returns {void}
    */
   private initMenuItemsListeners = (): void => {
@@ -141,7 +136,6 @@ export class MgMenu {
 
   /**
    * Handle item-loaded event on mg-item-more element
-   *
    * @returns {void}
    */
   private handleItemLoaded = (): void => {
@@ -150,7 +144,6 @@ export class MgMenu {
 
   /**
    * render mg-item-more
-   *
    * @returns {void}
    */
   private renderMgItemMore = (): void => {
@@ -169,7 +162,6 @@ export class MgMenu {
 
   /**
    * Validate props
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -181,7 +173,6 @@ export class MgMenu {
 
   /**
    * Check if component slots configuration
-   *
    * @returns {ReturnType<typeof setTimeout>} timeout
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
@@ -213,7 +204,6 @@ export class MgMenu {
 
   /**
    * Add listeners to items
-   *
    * @returns {void}
    */
   componentDidRender(): void {
@@ -222,7 +212,6 @@ export class MgMenu {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

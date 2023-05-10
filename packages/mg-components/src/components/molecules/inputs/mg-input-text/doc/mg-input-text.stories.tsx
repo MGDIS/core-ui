@@ -15,7 +15,6 @@ export default {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */
@@ -131,7 +130,6 @@ URL.args = {
 
 /**
  * Template
- *
  * @param {any} args component arguments
  * @returns {HTMLElement} HTMLElement
  */

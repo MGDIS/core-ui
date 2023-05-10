@@ -43,7 +43,7 @@ export class MgIcon {
     if (Boolean(newValue)) {
       if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
       else {
-        if (this.variantStyle === undefined) this.variantStyle = 'background';
+        this.setDefaultVariantStyle();
         if (oldValue !== undefined) this.classList.delete(`mg-icon--variant-${oldValue}`);
         this.classList.add(`mg-icon--variant-${newValue}`);
       }
@@ -91,14 +91,21 @@ export class MgIcon {
 
   /**
    * getIcon
-   *
    * @returns {HTMLElement} icon html
    */
   private getIcon = (): HTMLElement => icons[this.icon]();
 
   /**
+   * Method to set default varianStyle props
+   * needeed has stencil doesn't know that props is mutated when updated in prop watcher
+   * @returns {void}
+   */
+  private setDefaultVariantStyle = (): void => {
+    if (this.variantStyle === undefined) this.variantStyle = 'background';
+  };
+
+  /**
    * Check if props are well configured on init
-   *
    * @returns {void}
    */
   componentWillLoad(): void {
@@ -111,7 +118,6 @@ export class MgIcon {
 
   /**
    * Render component
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

@@ -52,7 +52,7 @@ export class MgMessage {
   @Prop() delay: number;
   @Watch('delay')
   validateDelay(newValue: MgMessage['delay']): void {
-    if (newValue && newValue < 2) {
+    if (newValue !== undefined && newValue < 2) {
       throw new Error(`<mg-message> prop "delay" must be greater than 2 seconds.`);
     }
   }
@@ -138,7 +138,6 @@ export class MgMessage {
 
   /**
    * Set timer
-   *
    * @returns {void}
    */
   private setTimer = (): void => {
@@ -147,7 +146,6 @@ export class MgMessage {
 
   /**
    * Clear timer
-   *
    * @returns {void}
    */
   private clearTimer = (): void => {
@@ -156,7 +154,6 @@ export class MgMessage {
 
   /**
    * Event to add on element
-   *
    * @param {MouseEvent | FocusEvent} event  event
    * @returns {void}
    */
@@ -187,8 +184,7 @@ export class MgMessage {
 
   /**
    * Get icon corresponding to variant
-   *
-   * @returns {string} icon
+   * @returns {MgIcon['icon'] | undefined} icon
    */
   private getIcon = (): MgIcon['icon'] => {
     switch (this.variant) {
@@ -230,7 +226,6 @@ export class MgMessage {
 
   /**
    * Render
-   *
    * @returns {HTMLElement} HTML Element
    */
   render(): HTMLElement {

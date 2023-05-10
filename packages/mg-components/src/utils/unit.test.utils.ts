@@ -2,7 +2,6 @@ import { MockCustomEvent } from '@stencil/core/mock-doc';
 
 /**
  * Clone Deep function
- *
  * @param {unknown} obj object to clone
  * @returns {unknown} cloned json
  */
@@ -10,7 +9,6 @@ export const cloneDeep = (obj: unknown): unknown => JSON.parse(JSON.stringify(ob
 
 /**
  * Utility function that mocks the `MutationObserver` API. Recommended to execute inside `beforeEach`.
- *
  * @param mutationObserverMock - Parameter that is sent to the `Object.defineProperty`
  * overwrite method. `jest.fn()` mock functions can be passed here if the goal is to not only
  * mock the mutation observer, but its methods.
@@ -56,7 +54,6 @@ export const setupMutationObserverMock = ({ disconnect, observe, takeRecords }: 
 
 /**
  * Utility function that mocks the `ResizeObserver` API. Recommended to execute inside `beforeEach`.
- *
  * @param resizeObserverMock - Parameter that is sent to the `Object.defineProperty`
  * overwrite method. `jest.fn()` mock functions can be passed here if the goal is to not only
  * mock the resize observer, but its methods.
@@ -107,7 +104,6 @@ export const setupResizeObserverMock = ({ disconnect, observe }: setupResizeObse
 
 /**
  * Utility function that mocks the `SubmitEvent` API. Recommended to execute inside `beforeEach`.
- *
  * @returns {void}
  * @example
  * ```
@@ -134,7 +130,6 @@ export const setupSubmitEventMock = (): typeof MockCustomEvent => {
 
 /**
  * force popover id when component use randomed identifier
- *
  * @param {Element} component element wich include mg-popover
  * @param {string} id new fixed id
  * @param {string} interactiveElement element where attribute 'aria-controls' is set
@@ -154,7 +149,6 @@ export const forcePopoverId = (component: Element, id: string, interactiveElemen
  * this is due to internal function isHTMLElement(), so we can not mock it directly.
  * this function check if test DOM element mockHTMLElement instance is 'instanceof HTMLElement'
  * so we only override the console.error side effect for this error
- *
  * @returns {void}
  */
 export const mockConsoleError = (): void => {
@@ -167,7 +161,6 @@ export const mockConsoleError = (): void => {
 /**
  * Add missing window.frames property to test context
  * usefull for component with iframe listeners, ex: mg-popover
- *
  * @returns {void}
  */
 export const mockWindowFrames = (): void => {
