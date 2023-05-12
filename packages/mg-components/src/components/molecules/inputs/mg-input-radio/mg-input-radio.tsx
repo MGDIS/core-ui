@@ -9,8 +9,8 @@ import { RadioOption } from './mg-input-radio.conf';
 
 /**
  * type Option validation function
- * @param {RadioOption} option radio option
- * @returns {boolean} radio option type is valid
+ * @param option - radio option
+ * @returns  radio option type is valid
  */
 const isOption = (option: RadioOption): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
 
@@ -180,7 +180,6 @@ export class MgInputRadio {
 
   /**
    * Public method to display errors
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -191,8 +190,7 @@ export class MgInputRadio {
 
   /**
    * Handle input event
-   * @param {event} event input event
-   * @returns {void}
+   * @param event - input event
    */
   private handleInput = (event: InputEvent & { target: HTMLInputElement }) => {
     this.checkValidity();
@@ -201,7 +199,6 @@ export class MgInputRadio {
 
   /**
    * Handle blur event
-   * @returns {void}
    */
   private handleBlur = (): void => {
     this.checkValidity();
@@ -210,7 +207,6 @@ export class MgInputRadio {
 
   /**
    * Check if input is valid
-   * @returns {void}
    */
   private checkValidity = (): void => {
     this.valid = this.readonly || this.disabled || this.getInvalidElement() === undefined;
@@ -221,7 +217,6 @@ export class MgInputRadio {
 
   /**
    * Set input error message
-   * @returns {void}
    */
   private setErrorMessage = (): void => {
     const invalidElement = this.getInvalidElement();
@@ -235,7 +230,7 @@ export class MgInputRadio {
 
   /**
    * get invalid element
-   * @returns {HTMLInputElement} element
+   * @returns element
    */
   private getInvalidElement = (): HTMLInputElement => this.inputs.find((input: HTMLInputElement) => !input.disabled && !input.readOnly && !input.checkValidity());
 
@@ -245,7 +240,7 @@ export class MgInputRadio {
 
   /**
    * Check if component props are well configured on init
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -262,7 +257,7 @@ export class MgInputRadio {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

@@ -1,7 +1,7 @@
 /**
  * MgItemMore type guard
- * @param {HTMLElement} element element to control type
- * @returns {boolean} truthy if element is mg-item-more
+ * @param element - element to control type
+ * @returns  truthy if element is mg-item-more
  */
 const isMgItemMore = (element: HTMLElement): element is HTMLMgItemMoreElement => element.nodeName === 'MG-ITEM-MORE';
 
@@ -36,7 +36,6 @@ export class OverflowBehavior {
 
   /**
    * Disconnect ResizeObserver
-   * @returns {void}
    */
   public disconnect = (): void => {
     this._resizeObserver.disconnect();
@@ -48,8 +47,7 @@ export class OverflowBehavior {
 
   /**
    * run overflow behavior
-   * @param {number} width width of the container. Optional.
-   * @returns {void}
+   * @param width - width of the container. Optional.
    */
   private run = (width?: number): void => {
     if (this._moreElement === undefined) {
@@ -75,16 +73,15 @@ export class OverflowBehavior {
 
   /**
    * Get interactive children filtred by authorized nodeName ['MG-MENU-ITEM', 'MG-BUTTON']
-   * @param {Element} element element to parse
-   * @returns {Element[]} children
+   * @param element - element to parse
+   * @returns children
    */
   private getInteractiveItems = (element: Element) =>
     (element.children?.length > 0 ? Array.from(element.children) : []).filter(element => ['MG-MENU-ITEM', 'MG-BUTTON'].includes(element.nodeName));
 
   /**
    * Update displayed items in container from a given available space
-   * @param {number} availableWidth available width in container to display child items
-   * @returns {void}
+   * @param availableWidth - available width in container to display child items
    */
   private updateDisplayedItems = (availableWidth: number): void => {
     this.restoreItems();
@@ -108,10 +105,10 @@ export class OverflowBehavior {
 
   /**
    * Utility method to know if item overflow partialy or totaly in the container
-   * @param {number} cumulateWidth previous sibling elements cumulate width + item width
-   * @param {HTMLElement} item item HTML element
-   * @param {number} availableWidth container available width
-   * @returns {boolean} truthy if element is overflow
+   * @param cumulateWidth - previous sibling elements cumulate width + item width
+   * @param item - item HTML element
+   * @param availableWidth - container available width
+   * @returns truthy if element is overflow
    */
   private isOverflowElement = (cumulateWidth: number, item: HTMLElement, availableWidth: number): boolean => {
     if (item.previousElementSibling === null || this.isMoreElement(item)) return false;
@@ -121,16 +118,15 @@ export class OverflowBehavior {
 
   /**
    * Utility method to know if a given element is the 'MORE' element
-   * @param {Element} element element to match with 'MORE' element
-   * @returns {boolean} truthy if element is the 'MORE' element
+   * @param element - element to match with 'MORE' element
+   * @returns truthy if element is the 'MORE' element
    */
   private isMoreElement = (element: Element): boolean => element.nodeName === 'MG-ITEM-MORE';
 
   /**
    * Toggle display item element
-   * @param {HTMLElement} item item to control
-   * @param {boolean} isHidden is item hidden
-   * @returns {void}
+   * @param item - item to control
+   * @param isHidden - is item hidden
    */
   private toggleItem = (item: HTMLElement, isHidden: boolean): void => {
     const mgActionMenuindex = Number(item.getAttribute(OverflowBehaviorElements.BASE_INDEX));
@@ -143,9 +139,8 @@ export class OverflowBehavior {
 
   /**
    * Toggle element's hidde attribute
-   * @param {Element} element element to toggle
-   * @param {boolean} isHidden element is hidden
-   * @returns {void}
+   * @param element - element to toggle
+   * @param isHidden - element is hidden
    */
   private toggleElement = (element: Element, isHidden: boolean): void => {
     if (isHidden) element.setAttribute('hidden', '');
@@ -154,7 +149,6 @@ export class OverflowBehavior {
 
   /**
    * Remove hidden attributes on all items
-   * @returns {void}
    */
   private restoreItems = (): void => {
     [...this._baseChildren, this._moreElement].forEach(item => item.removeAttribute('hidden'));

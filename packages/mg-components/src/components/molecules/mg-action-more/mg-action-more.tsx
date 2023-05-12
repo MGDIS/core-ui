@@ -7,8 +7,8 @@ import { createID } from '../../../utils/components.utils';
 
 /**
  * MgActionMore['items'] type guard
- * @param {unknown} prop commponent items prop
- * @returns {boolean} return true if type is valid
+ * @param prop - commponent items prop
+ * @returns  return true if type is valid
  */
 const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
   const items = prop as MgActionMoreItemType[];
@@ -17,8 +17,8 @@ const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
 
 /**
  * MgActionMore['button'] type guard
- * @param {unknown} prop commponent button prop
- * @returns {boolean} return true if type is valid
+ * @param prop - commponent button prop
+ * @returns  return true if type is valid
  */
 const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => {
   const button = prop as MgActionMoreButtonType;
@@ -27,8 +27,8 @@ const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => 
 
 /**
  * MgActionMore['icon'] type guard
- * @param {unknown} prop commponent icon prop
- * @returns {boolean} return true if type is valid
+ * @param prop - commponent icon prop
+ * @returns  return true if type is valid
  */
 const isMgActionMoreIcon = (prop: unknown): prop is MgActionMoreIconType => {
   const icon = prop as MgActionMoreIconType;
@@ -59,7 +59,7 @@ export class MgActionMore {
 
   /**
    * Define displaied icon
-   * Default: {icon: 'ellipsis'}
+   * Default: `{icon: 'ellipsis'}`
    */
   @Prop() icon: MgActionMoreIconType = { icon: 'ellipsis' };
   @Watch('icon')
@@ -71,7 +71,7 @@ export class MgActionMore {
 
   /**
    * Define button properties
-   * Default: {variant: 'flat', isIcon: true}.
+   * Default: `{variant: 'flat', isIcon: true}`.
    */
   @Prop() button: MgActionMoreButtonType = { variant: 'flat', isIcon: true };
   @Watch('button')
@@ -114,7 +114,6 @@ export class MgActionMore {
 
   /**
    * Toogle expanded props
-   * @returns {void}
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
@@ -122,7 +121,6 @@ export class MgActionMore {
 
   /**
    * Button click handler
-   * @returns {void}
    */
   private handleButton = (): void => {
     this.toggleExpanded();
@@ -130,9 +128,8 @@ export class MgActionMore {
 
   /**
    * Item click handler
-   * @param {MouseEvent} event click event
-   * @param {MgActionMoreItemType['mouseEventHandler']} customHandler item['mouseEventHandler']
-   * @returns {void}
+   * @param event - click event
+   * @param customHandler - item['mouseEventHandler']
    */
   private handleItemClick = (event: MouseEvent, customHandler: MgActionMoreItemType['mouseEventHandler']) => {
     this.expanded = false;
@@ -145,7 +142,6 @@ export class MgActionMore {
 
   /**
    * Validate props
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.messages = initLocales(this.element).messages.actionMore as MgActionMoreMessageType;
@@ -157,7 +153,7 @@ export class MgActionMore {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     const buttonLabel = this.button.label || this.messages.label;

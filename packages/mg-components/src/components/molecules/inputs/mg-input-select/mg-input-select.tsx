@@ -9,35 +9,31 @@ import { SelectOption, OptGroup } from './mg-input-select.conf';
 
 /**
  * Check if item is a well configured option
- * @param {unknown} option select option
- * @returns {boolean} select option type is valid
+ * @param option - select option
+ * @returns select option type is valid
  */
 const isOption = (option: unknown): option is SelectOption => typeof option === 'object' && typeof (option as SelectOption).title === 'string';
 
 /**
  * Check if items[] is SelectOption
- * @param {unknown[]} items select option
- * @returns {boolean} select option array type is valid
+ * @param items - select option
+ * @returns select option array type is valid
  */
 const allItemsAreOptions = (items: unknown[]): items is SelectOption[] => Array.isArray(items) && items.every(item => isOption(item));
 
 /**
  * Check if item is a well configured optgroup
- * @param {unknown} optgroup select option
- * @returns {boolean} select optgroup type is valid
+ * @param optgroup - select option
+ * @returns  select optgroup type is valid
  */
 const isOptGroup = (optgroup: unknown): optgroup is OptGroup =>
   typeof optgroup === 'object' && typeof (optgroup as OptGroup).group === 'string' && allItemsAreOptions((optgroup as OptGroup).options);
 
 /**
  * Group options
- * @param {(SelectOption | OptGroup)[]} acc reduce accumulator
- * @param {SelectOption} item item to add
- * @param {string} item.group item group
- * @param {string} item.title item title
- * @param {unknown} item.value item value
- * @param {boolean} item.disabled is item disabled
- * @returns {(SelectOption | OptGroup)[]} grouped options
+ * @param acc - reduce accumulator
+ * @param item - item to add
+ * @returns grouped options
  */
 const groupOptions = (acc: (SelectOption | OptGroup)[], { group, title, value, disabled }: SelectOption): (SelectOption | OptGroup)[] => {
   if (group !== undefined) {
@@ -264,7 +260,6 @@ export class MgInputSelect {
 
   /**
    * Public method to display errors
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -275,7 +270,6 @@ export class MgInputSelect {
 
   /**
    * Handle input event
-   * @returns {void}
    */
   private handleInput = (): void => {
     this.updateValue();
@@ -284,15 +278,14 @@ export class MgInputSelect {
 
   /**
    * Method to compare item.title with input.value
-   * @param {SelectOption} item item to compare with
-   * @returns {boolean} truthy if input.value is an item
+   * @param item - item to compare with
+   * @returns truthy if input.value is an item
    */
   private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
 
   /**
    * value props setter
-   * @param {MgInputSelect['value']} newValue value to update with
-   * @returns {void}
+   * @param newValue - value to update with
    */
   private setValue = (newValue: MgInputSelect['value']): void => {
     this.checkValidity();
@@ -301,7 +294,6 @@ export class MgInputSelect {
 
   /**
    * Update value from input.value
-   * @returns {void}
    */
   private updateValue = (): void => {
     if (this.input.value === '') {
@@ -326,7 +318,7 @@ export class MgInputSelect {
 
   /**
    * Input value is disabled
-   * @returns {boolean} truthy if input value is disabled
+   * @returns truthy if input value is disabled
    */
   private isDisabledValue = (): boolean => allItemsAreOptions(this.options) && this.options.find(this.isInputValue)?.disabled === true;
 
@@ -357,7 +349,7 @@ export class MgInputSelect {
 
   /**
    * Check if component props are well configured on init
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -379,8 +371,8 @@ export class MgInputSelect {
 
   /**
    * Render option
-   * @param {SelectOption} option to render
-   * @returns {HTMLElement} render option
+   * @param option - to render
+   * @returns render option
    */
   private renderOption = (option: SelectOption): HTMLElement => (
     <option key={option.title} value={option.title} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
@@ -390,7 +382,7 @@ export class MgInputSelect {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

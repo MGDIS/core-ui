@@ -73,7 +73,6 @@ export class MgTooltip {
 
   /**
    * Show tooltip
-   * @returns {void}
    */
   private show = (): void => {
     // Make the tooltip visible
@@ -97,7 +96,6 @@ export class MgTooltip {
 
   /**
    * Hide tooltip
-   * @returns {void}
    */
   private hide = (): void => {
     // Hide the tooltip
@@ -116,8 +114,7 @@ export class MgTooltip {
 
   /**
    * Check if clicked outside of component and hidde tooltip
-   * @param {MouseEvent} event mouse event
-   * @returns {void}
+   * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
     if (event.target.closest('mg-tooltip') !== this.element) this.setDisplay(false);
@@ -125,8 +122,7 @@ export class MgTooltip {
 
   /**
    * Check if 'Escape' key is pressed of component and hidde tooltip
-   * @param {KeyboardEvent} event keyboard event
-   * @returns {void}
+   * @param event - keyboard event
    */
   private pressEscape = (event: KeyboardEvent): void => {
     if (event.code === 'Escape') this.setDisplay(false);
@@ -134,9 +130,8 @@ export class MgTooltip {
 
   /**
    * Method to set display prop
-   * @param {boolean} newValue display prop new value
-   * @param {boolean} condition additionnal condition to apply display prop newValue
-   * @returns {void}
+   * @param newValue - display prop new value
+   * @param condition - additionnal condition to apply display prop newValue
    */
   private setDisplay = (newValue: boolean, condition = true): void => {
     if (!this.disabled && condition) this.display = newValue;
@@ -144,10 +139,9 @@ export class MgTooltip {
 
   /**
    * Action for tooltip element and tooltiped element mouse listener
-   * @param {Guard} elementGuard tooltip element guard
-   * @param {boolean} isMouseenter mouseenter validation
-   * @param {Guard} conditionalGuard guard condition
-   * @returns {void}
+   * @param elementGuard -  tooltip element guard
+   * @param isMouseenter - mouseenter validation
+   * @param conditionalGuard - guard condition
    */
   private tooltipMouseListenerAction = (elementGuard: Guard, isMouseenter: boolean, conditionalGuard: Guard): void => {
     // we mutate elementGuard
@@ -166,7 +160,6 @@ export class MgTooltip {
 
   /**
    * Method to reset guard value
-   * @returns {void}
    */
   private resetGuard = (): void => {
     this.guard = undefined;
@@ -174,8 +167,7 @@ export class MgTooltip {
 
   /**
    * Update slot content when it is a mg-button
-   * @param {HTMLMgButtonElement} mgButton slotted mg-button
-   * @returns {void}
+   * @param mgButton - slotted mg-button
    */
   private setMgButtonWrapper = (mgButton: HTMLMgButtonElement): void => {
     if (mgButton.disabled) {
@@ -192,8 +184,8 @@ export class MgTooltip {
 
   /**
    * Init tooltip
-   * @param {HTMLElement} slotElement slotted element
-   * @param {HTMLElement} interactiveElement interactive element
+   * @param slotElement - slotted element
+   * @param interactiveElement - interactive element
    */
   private initTooltip = (slotElement: HTMLElement, interactiveElement: HTMLElement): void => {
     // Add tabindex to slotted element if we can't find any interactive element
@@ -255,7 +247,6 @@ export class MgTooltip {
 
   /**
    * set variables
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get windows to attach events
@@ -266,7 +257,6 @@ export class MgTooltip {
    * Get slotted element
    * Check if it already contain an interactive element, if not we need to add a tabIndex attribute
    * We need to attach the focused element to the tooltip (aria-describedby)
-   * @returns {void}
    */
   componentDidLoad(): void {
     // Get tooltip element
@@ -305,7 +295,7 @@ export class MgTooltip {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

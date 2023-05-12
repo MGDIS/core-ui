@@ -4,8 +4,8 @@ import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
  * type TabItem validation function
- * @param {TabItem} tab tab item
- * @returns {boolean} tab item type is valid
+ * @param tab - tab item
+ * @returns tab item type is valid
  */
 const isTabItem = (tab: TabItem): boolean => typeof tab === 'object' && typeof tab.label === 'string';
 
@@ -127,37 +127,37 @@ export class MgTabs {
 
   /**
    * Method to know if given tab has the given status
-   * @param {TabItem} tab item tab key to set to ACTIVE status
-   * @param {Status} status status to valide
-   * @returns {boolean} status comparaison
+   * @param tab - item tab key to set to ACTIVE status
+   * @param status - status to valide
+   * @returns  status comparaison
    */
   private tabHasStatus = (tab: TabItem, status: Status): boolean => tab.status === status;
 
   /**
    * Method to get element id from index
-   * @param {string} element to get id
-   * @param {number} index to generate id
-   * @returns {string} generated element id
+   * @param element - to get id
+   * @param index - to generate id
+   * @returns generated element id
    */
   private getElementId = (element: string, index: number): string => `${element}-${this.getTabItemIndex(index)}`;
 
   /**
    * Method to get tab item index
-   * @param {number} index to get
-   * @returns {number} index
+   * @param index - to get
+   * @returns index
    */
   private getTabItemIndex = (index: number): number => index + this.startIndex;
 
   /**
    * Method to get the active-tab value
-   * @returns {number} of the active-tab
+   * @returns of the active-tab
    */
   private getActiveTab = (): number =>
     this.activeTab || this.getTabItemIndex(this.tabs.map((tab, index) => ({ ...tab, index })).find(tab => this.tabHasStatus(tab, Status.ACTIVE)).index);
 
   /**
    * Handle click events on tabs
-   * @param {MouseEvent} event mouse event
+   * @param event - mouse event
    */
   private handleClick = (event: MouseEvent & { currentTarget: HTMLElement }): void => {
     const tabId = event.currentTarget.dataset.index;
@@ -172,15 +172,14 @@ export class MgTabs {
 
   /**
    * get navigation button class from given status
-   * @param {Status} status button tab status
-   * @returns {string} button class/selector variant
+   * @param status - button tab status
+   * @returns  button class/selector variant
    */
   private getNavigationButtonClass = (status: Status): string => `${this.buttonTabBaseClass}--${status}`;
 
   /**
    * Handle keyboard event on tabs
-   * @param {MouseEvent} event mouse event
-   * @returns {void}
+   * @param event - mouse event
    */
   private handleKeydown = (event: KeyboardEvent & { target: HTMLElement }): void => {
     const parent = event.target.parentElement;
@@ -216,7 +215,6 @@ export class MgTabs {
 
   /**
    * Method to reset focus behavior
-   * @returns {void}
    */
   private resetFocus = (): void => {
     // update asynchronously tabindex to prevent get focus on new tabindex at then end of event process
@@ -242,7 +240,6 @@ export class MgTabs {
 
   /**
    * Check if component props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Check tabs format
@@ -255,7 +252,6 @@ export class MgTabs {
 
   /**
    * add listners
-   * @returns {void}
    */
   componentDidLoad(): void {
     document.addEventListener(
@@ -269,7 +265,7 @@ export class MgTabs {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

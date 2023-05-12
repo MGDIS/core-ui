@@ -16,8 +16,8 @@ export default {
 
 /**
  * Template
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns  HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => (
@@ -38,8 +38,8 @@ MgTooltip.args = {
 
 /**
  * Template
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns  HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TemplateButton = (args: any): HTMLElement => (
@@ -56,8 +56,8 @@ MgTooltipOnButton.args = {
 
 /**
  * Template
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns  HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TemplateSpan = (args: any): HTMLElement => (

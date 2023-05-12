@@ -56,7 +56,6 @@ export class MgCard {
   /**
    * Methode to set default varianStyle props
    * needeed has stencil doesn't know that props is mutated when updated in prop watcher
-   * @returns {void}
    */
   private setDefaultVariantStyle = (): void => {
     if (this.variantStyle === undefined) this.variantStyle = 'bar-left';
@@ -68,7 +67,6 @@ export class MgCard {
 
   /**
    * Check if props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateVariant(this.variant);
@@ -77,7 +75,7 @@ export class MgCard {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns  HTML Element
    */
   render(): HTMLElement {
     return (

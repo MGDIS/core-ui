@@ -7,8 +7,8 @@ import { CheckboxItem, CheckboxValue } from './mg-input-checkbox.conf';
 
 /**
  * type CheckboxItem validation function
- * @param {unknown} items Checkbox item
- * @returns {boolean} match item type
+ * @param items - Checkbox item
+ * @returns  match item type
  */
 const isCheckboxItems = (items: unknown): items is CheckboxItem[] =>
   Array.isArray(items) &&
@@ -169,7 +169,6 @@ export class MgInputCheckbox {
 
   /**
    * Public method to display errors
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -180,7 +179,7 @@ export class MgInputCheckbox {
 
   /**
    * Handle input event
-   * @param {InputEvent} event input event
+   * @param event - input event
    */
   private handleInput = (event: InputEvent & { target: HTMLInputElement }): void => {
     this.checkboxItems = this.checkboxItems.map(item => {
@@ -205,7 +204,7 @@ export class MgInputCheckbox {
 
   /**
    * get invalid element
-   * @returns {HTMLInputElement} element
+   * @returns element
    */
   private getInvalidElement = (): HTMLInputElement => this.inputs.find((input: HTMLInputElement) => input !== null && !input.disabled && !input.checkValidity());
 
@@ -238,7 +237,7 @@ export class MgInputCheckbox {
 
   /**
    * Check if component props are well configured on init
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -255,7 +254,7 @@ export class MgInputCheckbox {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

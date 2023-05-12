@@ -15,8 +15,8 @@ export default {
 
 /**
  * Template
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns  HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => {
@@ -130,8 +130,8 @@ URL.args = {
 
 /**
  * Template
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns  HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SearchTemplate = (args: any): HTMLElement => {

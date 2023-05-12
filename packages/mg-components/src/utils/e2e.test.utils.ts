@@ -3,17 +3,17 @@ import { createID } from './components.utils';
 /**
  * Add a darker background
  * usefull for light rendered element
- * @param {boolean} condition condition to add darker background
- * @param {string} html html to update
- * @returns {string} html to render
+ * @param condition - condition to add darker background
+ * @param html - html to update
+ * @returns html to render
  */
 export const darkBackground = (condition: boolean, html: string): string =>
   `${condition ? '<span style="background:#999;display:inline-block;">' : ''}${html}${condition ? '</span>' : ''}`;
 
 /**
  * Render attributes from props objects
- * @param {object} args argument to render as string. ex: {status: 'visible'}
- * @returns {string} formated inline attributed. ex: 'status="visible"'
+ * @param args - argument to render as string. ex: `{status: 'visible'}`
+ * @returns formated inline attributed. ex: 'status="visible"'
  */
 export const renderAttributes = (args: unknown): string =>
   (typeof args === 'object' &&
@@ -26,9 +26,9 @@ export const renderAttributes = (args: unknown): string =>
 /**
  * Render properties from props objects.
  * Insert return value in <script></script> element
- * @param {object} args argument to render as script. ex: {status: 'visible'}
- * @param {string} selector querySelector get targetted element and bind properties on it
- * @returns {string} stringified properties script
+ * @param args - argument to render as script. ex: `{status: 'visible'}`
+ * @param selector - querySelector get targetted element and bind properties on it
+ * @returns stringified properties script
  */
 export const renderProperties = (args: unknown, selector: string): string => {
   if (typeof args !== 'object') return '';

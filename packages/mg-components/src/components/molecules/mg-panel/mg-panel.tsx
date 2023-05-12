@@ -114,7 +114,6 @@ export class MgPanel {
 
   /**
    * Toggle is editing state
-   * @returns {void}
    */
   private toggleIsEditing = (): void => {
     this.isEditing = !this.isEditing;
@@ -126,7 +125,6 @@ export class MgPanel {
 
   /**
    * Collapse button click handler
-   * @returns {void}
    */
   private handleCollapseButton = (): void => {
     if (!this.expandToggleDisabled) {
@@ -136,7 +134,6 @@ export class MgPanel {
 
   /**
    * Edit button click handler
-   * @returns {void}
    */
   private handleEditButton = (): void => {
     this.toggleIsEditing();
@@ -144,8 +141,7 @@ export class MgPanel {
 
   /**
    * Update title handler
-   * @param {CustomEvent<string>} event input value change event
-   * @returns {void}
+   * @param event - input value change event
    */
   private handleUpdateTitle = (event: CustomEvent<string>): void => {
     this.updatedPanelTitle = event.detail;
@@ -153,7 +149,6 @@ export class MgPanel {
 
   /**
    * Cancel edition button handler
-   * @returns {void}
    */
   private handleCancelEditButton = (): void => {
     this.updatedPanelTitle = undefined;
@@ -162,7 +157,6 @@ export class MgPanel {
 
   /**
    * Validate edition button handler
-   * @returns {void}
    */
   private handleValidateEditButton = (): void => {
     if (this.editInputElement.valid) {
@@ -178,7 +172,6 @@ export class MgPanel {
 
   /**
    * Check if props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get locales
@@ -190,8 +183,7 @@ export class MgPanel {
 
   /**
    * Header left conditional render
-   * @typedef {HTMLElement} HTMLMgButtonElement
-   * @returns {HTMLMgButtonElement | HTMLElement | HTMLElement[]} header left element
+   * @returns header left element
    */
   private headerLeft = (): HTMLMgButtonElement | HTMLElement | HTMLElement[] => {
     const collapseButton = (): HTMLMgButtonElement => (
@@ -263,7 +255,6 @@ export class MgPanel {
 
   /**
    * Edit DOM after render
-   * @returns {void}
    */
   componentDidRender(): void {
     // when we are editing we get focus on edition input
@@ -274,7 +265,7 @@ export class MgPanel {
 
   /**
    * Render component
-   * @returns {HTMLElement} html element
+   * @returns html element
    */
   render(): HTMLElement {
     return (

@@ -6,11 +6,9 @@ export type DesignSystemE2EPage = E2EPage & Pick<PuppeteerPage, 'screenshot' | '
 /**
  * Create E2E page
  *
- * @param {string} htmlString html to render
- * @param {object} viewPort custom page viewPort - optional
- * @param {number} viewPort.width viewPort width - optional
- * @param {number} viewPort.height viewPort height - optional
- * @returns {Promise<DesignSystemE2EPage>} page
+ * @param htmlString - html to render
+ * @param viewPort - custom page viewPort - optional
+ * @returns page
  */
 export async function createPage(htmlString: string, viewPort?: { width?: number; height?: number }): Promise<DesignSystemE2EPage> {
   const defaultSize = 600;
@@ -36,13 +34,6 @@ export async function createPage(htmlString: string, viewPort?: { width?: number
       clip: { x: 0, y: 0, width, height },
     });
   };
-
-  // get page messages in test logs
-  // page
-  //   .on('console', msg => {
-  //     console.log(msg.text());
-  //   })
-  //   .on('pageerror', error => console.log(error.message));
 
   return page;
 }

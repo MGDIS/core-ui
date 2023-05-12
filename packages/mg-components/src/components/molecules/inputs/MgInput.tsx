@@ -4,10 +4,10 @@ import { ClassList } from '../../../utils/components.utils';
 
 /**
  * Apply in all input child node the aria-describedby attribute
- * @param {VNode[]} children Represent scoped elements
- * @param {Set<string>} ariaDescribedbyIDs List of IDs
- * @param {FunctionalUtilities} utils Stencil.js utils
- * @returns {VNode[]} Children with aria-describedby attribute
+ * @param children - Represent scoped elements
+ * @param ariaDescribedbyIDs - List of IDs
+ * @param utils - Stencil.js utils
+ * @returns Children with aria-describedby attribute
  */
 const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>, utils: FunctionalUtilities): VNode[] =>
   utils.map(children, child => {
@@ -31,7 +31,7 @@ const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>
 
 /**
  * Add classes based on props
- * @param {MgInputProps} props MgInput Interface Props
+ * @param props - MgInput Interface Props
  */
 const manageClasses = (props: MgInputProps): void => {
   props.classList.add('mg-input');
@@ -45,8 +45,8 @@ const manageClasses = (props: MgInputProps): void => {
 
 /**
  * Get tagname
- * @param {boolean} isFieldset is fieldset
- * @returns {string} tag name
+ * @param isFieldset - is fieldset
+ * @returns tag name
  */
 const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : 'div');
 
@@ -81,10 +81,10 @@ interface MgInputProps {
 
 /**
  * Get input template
- * @param {MgInputProps} props MgInput Interface Props
- * @param {VNode[]} children Represent scoped elements
- * @param {FunctionalUtilities} utils Stencil.js utils
- * @returns {VNode[]} input template
+ * @param props - MgInput Interface Props
+ * @param children - Represent scoped elements
+ * @param utils - Stencil.js utils
+ * @returns input template
  */
 export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, children: VNode[], utils: FunctionalUtilities): VNode[] => {
   /**
@@ -147,7 +147,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
 
   /**
    * Get tooltip node
-   * @returns {VNode[]} mg-tooltip
+   * @returns mg-tooltip
    */
   const getTooltip = (): VNode[] => (
     <mg-tooltip identifier={`${props.identifier}-tooltip`} message={props.tooltip}>
@@ -158,7 +158,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Get input title (label) node
    * Display asterisk only if not disabled and not readonly
-   * @returns {VNode[]} mg-input-title
+   * @returns mg-input-title
    */
   const getInputTitle = (): VNode[] => (
     <mg-input-title

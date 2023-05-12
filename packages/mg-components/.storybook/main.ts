@@ -4,9 +4,9 @@ type Path = string;
 
 /**
  * List folders from a given path
- * @param {Path} path path we will parse to get childs
- * @param {Path[]} folders previsous folders list
- * @returns {Path[]} updated folders list
+ * @param path - path we will parse to get childs
+ * @param folders - previsous folders list
+ * @returns updated folders list
  */
 const listFoldersFrom = (path: Path, folders: Path[] = []): Path[] => {
   // get path child
@@ -27,9 +27,9 @@ const listFoldersFrom = (path: Path, folders: Path[] = []): Path[] => {
 
 /**
  * Create a new path from given path and offset
- * @param {Path} path set the origin folder
- * @param {number} offset set the folder offset
- * @returns {Path} get the working folder
+ * @param path - set the origin folder
+ * @param offset - set the folder offset
+ * @returns get the working folder
  */
 const getPathFromOffset = (path: Path, offset: number): Path => {
   // pathElements start after ./src, then we get a array of elements from the path

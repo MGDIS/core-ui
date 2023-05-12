@@ -194,7 +194,6 @@ export class MgInputText {
 
   /**
    * Public method to play input focus
-   * @returns {Promise<void>}
    */
   @Method()
   async setFocus(): Promise<void> {
@@ -203,7 +202,6 @@ export class MgInputText {
 
   /**
    * Public method to display errors
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -214,7 +212,6 @@ export class MgInputText {
 
   /**
    * Handle input event
-   * @returns {void}
    */
   private handleInput = (): void => {
     this.checkValidity();
@@ -226,7 +223,6 @@ export class MgInputText {
 
   /**
    * Handle focus event
-   * @returns {void}
    */
   private handleFocus = (): void => {
     this.classList.add(this.classFocus);
@@ -235,7 +231,6 @@ export class MgInputText {
 
   /**
    * Handle blur event
-   * @returns {void}
    */
   private handleBlur = (): void => {
     // Manage focus
@@ -247,7 +242,6 @@ export class MgInputText {
 
   /**
    * Check if input is valid
-   * @returns {void}
    */
   private checkValidity = (): void => {
     this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
@@ -258,7 +252,6 @@ export class MgInputText {
 
   /**
    * Set input error message
-   * @returns {void}
    */
   private setErrorMessage = (): void => {
     // Set error message
@@ -275,7 +268,6 @@ export class MgInputText {
 
   /**
    * Validate pattern configuration
-   * @returns {void}
    */
   private validatePattern = (): void => {
     if (
@@ -290,7 +282,6 @@ export class MgInputText {
 
   /**
    * Validate append slot
-   * @returns {void}
    */
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
@@ -309,7 +300,7 @@ export class MgInputText {
 
   /**
    * Check if component props are well configured on init
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -329,7 +320,7 @@ export class MgInputText {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

@@ -29,7 +29,7 @@ export class MgItemMore {
 
   /**
    * Define icon
-   * Default: {icon: 'ellipsis-vertical'}
+   * Default: `{icon: 'ellipsis-vertical'}`
    */
   @Prop() icon: IconType = { icon: 'ellipsis-vertical' };
   @Watch('icon')
@@ -40,7 +40,7 @@ export class MgItemMore {
 
   /**
    * Define slot label element
-   * Default: {display: false}
+   * Default: `{display: false}`
    */
   @Prop() slotlabel: SlotLabelType = { display: false };
   @Watch('slotlabel')
@@ -70,7 +70,7 @@ export class MgItemMore {
 
   /**
    * render mg-item-more overflow element
-   * @returns {HTMLMgItemMoreElement} mg-item-more element
+   * @returns mg-item-more element
    */
   private renderMgMenuItemOverflowElement = (): HTMLMgItemMoreElement => {
     // create menu items proxy element from item clones
@@ -106,7 +106,6 @@ export class MgItemMore {
 
   /**
    * Disconnect overflow ResizeObserver
-   * @returns {void} run overflow resize obeserver disconnexion
    */
   disconnectedCallback(): void {
     this.overflowBehavior.disconnect();
@@ -114,7 +113,6 @@ export class MgItemMore {
 
   /**
    * Set variables and validate props
-   * @returns {void}
    */
   componentWillLoad(): void {
     // init variables
@@ -130,7 +128,6 @@ export class MgItemMore {
 
   /**
    * Add overflow behavior
-   * @returns {void}
    */
   componentDidLoad(): void {
     this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.renderMgMenuItemOverflowElement);
@@ -138,7 +135,7 @@ export class MgItemMore {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

@@ -143,8 +143,7 @@ export class MgButton {
 
   /**
    * Trigger actions onClick event
-   * @param {MouseEvent} event click event
-   * @returns {void}
+   * @param event - click event
    */
   private handleClick = (event: MouseEvent): void => {
     if (this.disabled) event.stopPropagation();
@@ -157,8 +156,7 @@ export class MgButton {
 
   /**
    * Handle onKeydown event
-   * @param {KeyboardEvent} event keyboard event
-   * @returns {void}
+   * @param event - keyboard event
    */
   private handleKeydown = (event: KeyboardEvent): void => {
     if (!this.disabled && event.key === ' ') {
@@ -171,8 +169,7 @@ export class MgButton {
 
   /**
    * Handle onKeyup event
-   * @param {KeyboardEvent} event keyboard event
-   * @returns {void}
+   * @param event - keyboard event
    */
   private handleKeyup = (event: KeyboardEvent): void => {
     if (!this.disabled && event.key === ' ') {
@@ -183,7 +180,6 @@ export class MgButton {
 
   /**
    * Check if props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateVariant(this.variant);
@@ -201,7 +197,7 @@ export class MgButton {
 
   /**
    * Render component
-   * @returns {HTMLElement} html element
+   * @returns html element
    */
   render(): HTMLElement {
     return (

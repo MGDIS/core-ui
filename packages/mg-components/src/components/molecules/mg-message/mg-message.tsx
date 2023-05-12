@@ -138,7 +138,6 @@ export class MgMessage {
 
   /**
    * Set timer
-   * @returns {void}
    */
   private setTimer = (): void => {
     this.storedTimer = setTimeout(() => (this.hide = true), this.delay * 1000);
@@ -146,7 +145,6 @@ export class MgMessage {
 
   /**
    * Clear timer
-   * @returns {void}
    */
   private clearTimer = (): void => {
     clearTimeout(this.storedTimer);
@@ -154,8 +152,7 @@ export class MgMessage {
 
   /**
    * Event to add on element
-   * @param {MouseEvent | FocusEvent} event  event
-   * @returns {void}
+   * @param event - event
    */
   private timerEvents = (event: MouseEvent | FocusEvent): void => {
     this.clearTimer();
@@ -184,7 +181,7 @@ export class MgMessage {
 
   /**
    * Get icon corresponding to variant
-   * @returns {MgIcon['icon'] | undefined} icon
+   * @returns icon
    */
   private getIcon = (): MgIcon['icon'] => {
     switch (this.variant) {
@@ -226,7 +223,7 @@ export class MgMessage {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

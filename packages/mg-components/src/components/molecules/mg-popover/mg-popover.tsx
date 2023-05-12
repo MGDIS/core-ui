@@ -91,8 +91,7 @@ export class MgPopover {
 
   /**
    * Check if clicked outside of component
-   * @param {MouseEvent} event mouse event
-   * @returns {void}
+   * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
     if (
@@ -106,7 +105,6 @@ export class MgPopover {
 
   /**
    * Show popover
-   * @returns {void}
    */
   private show = (): void => {
     // Make the popover visible
@@ -129,7 +127,6 @@ export class MgPopover {
 
   /**
    * Hide popover
-   * @returns {void}
    */
   private hide = (): void => {
     // Hide the popover
@@ -147,7 +144,6 @@ export class MgPopover {
 
   /**
    * Handle action for close button
-   * @returns {void}
    */
   private handleCloseButton = (): void => {
     this.display = false;
@@ -159,7 +155,6 @@ export class MgPopover {
 
   /**
    * Check if component props are well configured on init
-   * @returns {void} timeout
    */
   componentWillLoad(): void {
     // Get windows to attach events
@@ -171,7 +166,6 @@ export class MgPopover {
 
   /**
    * Check if component props are well configured on init
-   * @returns {void}
    */
   componentDidLoad(): void {
     const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -236,7 +230,7 @@ export class MgPopover {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

@@ -7,8 +7,8 @@ import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
  * type Option validation function
- * @param {ToggleValue} option radio option
- * @returns {boolean} toggle option type is valid
+ * @param option - radio option
+ * @returns toggle option type is valid
  */
 const isOption = (option: ToggleValue): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
 
@@ -52,7 +52,6 @@ export class MgInputToggle {
 
   /**
    * Items are the possible options to select
-   * @returns {void}
    */
   @Prop() items!: string[] | ToggleValue[];
   @Watch('items')
@@ -184,7 +183,6 @@ export class MgInputToggle {
 
   /**
    * Change checked value
-   * @returns {void}
    */
   private toggleChecked = (): void => {
     this.checked = !this.checked;
@@ -192,7 +190,6 @@ export class MgInputToggle {
 
   /**
    * Slots validation
-   * @returns {void}
    */
   private validateSlots = (): void => {
     const slots = Array.from(this.element.children);
@@ -207,7 +204,6 @@ export class MgInputToggle {
 
   /**
    * set checked state
-   * @returns {void}
    */
   private setChecked(): void {
     const optionTrueValueIndex = this.options.map(option => option.value).findIndex(value => value === true);
@@ -253,7 +249,7 @@ export class MgInputToggle {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

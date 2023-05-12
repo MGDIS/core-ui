@@ -2,8 +2,8 @@ import { MockCustomEvent } from '@stencil/core/mock-doc';
 
 /**
  * Clone Deep function
- * @param {unknown} obj object to clone
- * @returns {unknown} cloned json
+ * @param obj - object to clone
+ * @returns cloned json
  */
 export const cloneDeep = (obj: unknown): unknown => JSON.parse(JSON.stringify(obj));
 
@@ -13,10 +13,8 @@ export const cloneDeep = (obj: unknown): unknown => JSON.parse(JSON.stringify(ob
  * overwrite method. `jest.fn()` mock functions can be passed here if the goal is to not only
  * mock the mutation observer, but its methods.
  * You can manually fire an intersection entry:
- * @param {Function} mutationObserverMock.disconnect disconnect function
- * @param {Function} mutationObserverMock.observe observe function
- * @param {Function} mutationObserverMock.takeRecords takeRecords function
- * @returns {MutationObserver} Mocked MutationObserver
+ * @param mutationObserverMock - configuration object
+ * @returns Mocked MutationObserver
  * @example
  * ```
  * let fireMo;
@@ -58,9 +56,8 @@ export const setupMutationObserverMock = ({ disconnect, observe, takeRecords }: 
  * overwrite method. `jest.fn()` mock functions can be passed here if the goal is to not only
  * mock the resize observer, but its methods.
  * You can manually fire an intersection entry:
- * @param {Function} resizeObserverMock.disconnect disconnect function
- * @param {Function} resizeObserverMock.observe observe function
- * @returns {ResizeObserver} Mocked ResizeObserver
+ * @param resizeObserverMock - configuration object
+ * @returns Mocked ResizeObserver
  * @example
  * ```
  * let fireRo;
@@ -104,11 +101,11 @@ export const setupResizeObserverMock = ({ disconnect, observe }: setupResizeObse
 
 /**
  * Utility function that mocks the `SubmitEvent` API. Recommended to execute inside `beforeEach`.
- * @returns {void}
  * @example
  * ```
  * setupSubmitEventMock();
  * ```
+ * @returns custom event mock
  */
 export const setupSubmitEventMock = (): typeof MockCustomEvent => {
   class SubmitEvent extends MockCustomEvent {
@@ -130,10 +127,9 @@ export const setupSubmitEventMock = (): typeof MockCustomEvent => {
 
 /**
  * force popover id when component use randomed identifier
- * @param {Element} component element wich include mg-popover
- * @param {string} id new fixed id
- * @param {string} interactiveElement element where attribute 'aria-controls' is set
- * @returns {void}
+ * @param component - element wich include mg-popover
+ * @param id - new fixed id
+ * @param interactiveElement - element where attribute 'aria-controls' is set
  */
 export const forcePopoverId = (component: Element, id: string, interactiveElement = 'button'): void => {
   const popover = component.shadowRoot.querySelector('mg-popover');
@@ -145,11 +141,10 @@ export const forcePopoverId = (component: Element, id: string, interactiveElemen
 
 /**
  * fix popper console.error in test
- * it is generated in @popperjs/core/dist/cjs/popper.js l.1859
+ * it is generated in `@popperjs/core/dist/cjs/popper.js l.1859`
  * this is due to internal function isHTMLElement(), so we can not mock it directly.
  * this function check if test DOM element mockHTMLElement instance is 'instanceof HTMLElement'
  * so we only override the console.error side effect for this error
- * @returns {void}
  */
 export const mockConsoleError = (): void => {
   jest.spyOn(console, 'error').mockImplementation(error => {
@@ -161,7 +156,6 @@ export const mockConsoleError = (): void => {
 /**
  * Add missing window.frames property to test context
  * usefull for component with iframe listeners, ex: mg-popover
- * @returns {void}
  */
 export const mockWindowFrames = (): void => {
   Object.defineProperty(window, 'frames', {
