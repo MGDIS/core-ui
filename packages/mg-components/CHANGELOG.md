@@ -1,5 +1,15 @@
 # @mgdis/mg-components
 
+## 5.10.0
+
+### Minor Changes
+
+- ae30a37: [#300](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/300) chore: use playwright in mg-components e2e tests
+
+### Patch Changes
+
+- 678d38f: [#301](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/301) chore(mg-components): implement monorepo linting
+
 ## 5.9.1
 
 ### Patch Changes

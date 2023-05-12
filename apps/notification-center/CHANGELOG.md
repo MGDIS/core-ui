@@ -1,5 +1,16 @@
 # notification-center
 
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [cd9dfb6]
+- Updated dependencies [ae30a37]
+- Updated dependencies [067160b]
+- Updated dependencies [678d38f]
+  - @mgdis/notification-center@1.1.0
+  - @mgdis/mg-components@5.10.0
+
 ## 1.0.3
 
 ### Patch Changes

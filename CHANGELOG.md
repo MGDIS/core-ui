@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2023-05-12-12-04_Elated-Electric-Lime-Echidna)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
 ## Release (2023-05-02-12-09_Careful-Caribbean-Green-Crane)
 
 ### Packages released
