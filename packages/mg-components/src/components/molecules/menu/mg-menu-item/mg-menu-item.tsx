@@ -37,7 +37,6 @@ export class MgMenuItem {
 
   /**
    * Identifier is used to control mg-popover
-   * Default: createID('mg-menu-item');
    */
   @Prop() identifier = createID('mg-menu-item');
 
@@ -48,7 +47,7 @@ export class MgMenuItem {
   @Prop() href: string;
 
   /**
-   * Define menu-item status. Default: "visible"
+   * Define menu-item status.
    */
   @Prop({ reflect: true, mutable: true }) status: Status = Status.VISIBLE;
   @Watch('status')
@@ -61,7 +60,7 @@ export class MgMenuItem {
   }
 
   /**
-   * Define menu-item content expanded. Default: false.
+   * Define menu-item content expanded.
    */
   @Prop({ mutable: true }) expanded = false;
   @Watch('expanded')
@@ -106,7 +105,7 @@ export class MgMenuItem {
    *********/
 
   /**
-   * Define menu-item size. Default: "regular".
+   * Define menu-item size.
    */
   @State() size: MenuSizeType = 'regular';
   @Watch('size')
@@ -148,7 +147,7 @@ export class MgMenuItem {
   @State() isItemMore: boolean;
 
   /**
-   * Does component have children. Default: false.
+   * Does component have children.
    */
   @State() hasChildren = false;
   @Watch('hasChildren')
@@ -178,7 +177,7 @@ export class MgMenuItem {
    * Does an Element have given Status
    * @param mgMenuItemElement - to parse
    * @param status - to check
-   * @returns  true if element with status is found
+   * @returns true if element with status is found
    */
   private hasStatus = (mgMenuItemElement: HTMLMgMenuItemElement, status: MgMenuItem['status']): boolean => mgMenuItemElement.status === status;
 

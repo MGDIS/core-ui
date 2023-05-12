@@ -10,7 +10,7 @@ import { RadioOption } from './mg-input-radio.conf';
 /**
  * type Option validation function
  * @param option - radio option
- * @returns  radio option type is valid
+ * @returns radio option type is valid
  */
 const isOption = (option: RadioOption): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
 

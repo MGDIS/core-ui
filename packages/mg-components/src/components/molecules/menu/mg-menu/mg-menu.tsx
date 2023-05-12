@@ -38,7 +38,7 @@ export class MgMenu {
   }
 
   /**
-   * Component display direction. Default: "horizontal"
+   * Component display direction.
    */
   @Prop({ reflect: true }) direction: Direction = Direction.HORIZONTAL;
   @Watch('direction')
@@ -62,7 +62,6 @@ export class MgMenu {
 
   /**
    * Define mg-menu size
-   * Default: 'regular'
    */
   @Prop() size: MenuSizeType = 'regular';
   @Watch('size')

@@ -2,7 +2,7 @@
  * Create random ID
  * @param prefix - add prefix to created ID
  * @param length - ID length
- * @returns  ID
+ * @returns ID
  */
 export const createID = (prefix = '', length = 10): string => {
   let ID = '';
@@ -49,7 +49,7 @@ export class ClassList {
   /**
    * Check if class exist in list
    * @param className - class name to check
-   * @returns  class name is in the list
+   * @returns class name is in the list
    */
   has = (className: string): boolean => {
     return this.classes.includes(className);
@@ -67,7 +67,7 @@ export class ClassList {
 /**
  * Check if all items are string
  * @param items - items to check
- * @returns  all items are string
+ * @returns all items are string
  */
 export const allItemsAreString = (items: unknown): items is string[] => Array.isArray(items) && items.every(item => typeof item === 'string');
 
@@ -75,7 +75,7 @@ export const allItemsAreString = (items: unknown): items is string[] => Array.is
  * Check if element is a heading
  * @param element - slotted element
  * @param tagNames - allowed tag names list
- * @returns  element is a heading
+ * @returns element is a heading
  */
 export const isTagName = (element: Element, tagNames: string[]): boolean => {
   return tagNames.includes(element?.tagName.toLowerCase());
@@ -101,7 +101,7 @@ export const getWindows = (localWindow: Window): Window[] => {
  * Get parent windows
  * @param localWindow - the window we are lookink for parents
  * @param windows - The list of allready found windows
- * @returns  The list of windows found
+ * @returns The list of windows found
  */
 export const getParentWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
   // Check if is in iframe
@@ -123,7 +123,7 @@ export const getParentWindows = (localWindow: Window, windows: Window[] = []): W
  * Get child windows
  * @param localWindow - the window we are lookink for children
  * @param windows - The list of allready found windows
- * @returns  The list of windows found
+ * @returns The list of windows found
  */
 const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
   if (localWindow.frames.length > 0) {

@@ -8,7 +8,7 @@ import { CheckboxItem, CheckboxValue } from './mg-input-checkbox.conf';
 /**
  * type CheckboxItem validation function
  * @param items - Checkbox item
- * @returns  match item type
+ * @returns match item type
  */
 const isCheckboxItems = (items: unknown): items is CheckboxItem[] =>
   Array.isArray(items) &&

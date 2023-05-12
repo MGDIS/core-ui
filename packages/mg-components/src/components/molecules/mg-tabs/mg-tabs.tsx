@@ -129,7 +129,7 @@ export class MgTabs {
    * Method to know if given tab has the given status
    * @param tab - item tab key to set to ACTIVE status
    * @param status - status to valide
-   * @returns  status comparaison
+   * @returns status comparaison
    */
   private tabHasStatus = (tab: TabItem, status: Status): boolean => tab.status === status;
 
@@ -173,7 +173,7 @@ export class MgTabs {
   /**
    * get navigation button class from given status
    * @param status - button tab status
-   * @returns  button class/selector variant
+   * @returns button class/selector variant
    */
   private getNavigationButtonClass = (status: Status): string => `${this.buttonTabBaseClass}--${status}`;
 

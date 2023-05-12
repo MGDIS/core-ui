@@ -335,7 +335,7 @@ export class MgInputNumeric {
   /**
    * Format value based on type
    * @param value - value to format
-   * @returns  formated local value
+   * @returns formated local value
    */
   private formatValue = (value: number): string => (this.type === 'currency' ? localeCurrency(value, this.locale, this.currency) : localeNumber(value, this.locale));
 

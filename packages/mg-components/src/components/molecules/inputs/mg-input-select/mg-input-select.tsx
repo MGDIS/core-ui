@@ -24,7 +24,7 @@ const allItemsAreOptions = (items: unknown[]): items is SelectOption[] => Array.
 /**
  * Check if item is a well configured optgroup
  * @param optgroup - select option
- * @returns  select optgroup type is valid
+ * @returns select optgroup type is valid
  */
 const isOptGroup = (optgroup: unknown): optgroup is OptGroup =>
   typeof optgroup === 'object' && typeof (optgroup as OptGroup).group === 'string' && allItemsAreOptions((optgroup as OptGroup).options);

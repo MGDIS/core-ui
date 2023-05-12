@@ -48,7 +48,7 @@ export class MgIllustratedMessage {
 
   /**
    * Render
-   * @returns  HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

@@ -199,7 +199,7 @@ export class MgModal {
 
   /**
    * Render
-   * @returns  HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

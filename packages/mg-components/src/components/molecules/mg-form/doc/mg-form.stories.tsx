@@ -17,7 +17,7 @@ const args = {
 /**
  * Template
  * @param args - component arguments
- * @returns  HTMLElement
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => {

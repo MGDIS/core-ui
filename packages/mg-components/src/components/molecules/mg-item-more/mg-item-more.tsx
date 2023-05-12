@@ -29,7 +29,6 @@ export class MgItemMore {
 
   /**
    * Define icon
-   * Default: `{icon: 'ellipsis-vertical'}`
    */
   @Prop() icon: IconType = { icon: 'ellipsis-vertical' };
   @Watch('icon')
@@ -40,7 +39,6 @@ export class MgItemMore {
 
   /**
    * Define slot label element
-   * Default: `{display: false}`
    */
   @Prop() slotlabel: SlotLabelType = { display: false };
   @Watch('slotlabel')

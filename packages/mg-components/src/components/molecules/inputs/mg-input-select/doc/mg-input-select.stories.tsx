@@ -25,7 +25,7 @@ export default {
 /**
  * Template
  * @param args - component arguments
- * @returns  HTMLElement
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-input-select {...filterArgs(args, { placeholder: messages.input.select.placeholder })}></mg-input-select>;

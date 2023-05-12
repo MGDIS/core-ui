@@ -8,7 +8,7 @@ import { createID } from '../../../utils/components.utils';
 /**
  * MgActionMore['items'] type guard
  * @param prop - commponent items prop
- * @returns  return true if type is valid
+ * @returns return true if type is valid
  */
 const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
   const items = prop as MgActionMoreItemType[];
@@ -18,7 +18,7 @@ const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
 /**
  * MgActionMore['button'] type guard
  * @param prop - commponent button prop
- * @returns  return true if type is valid
+ * @returns return true if type is valid
  */
 const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => {
   const button = prop as MgActionMoreButtonType;
@@ -28,7 +28,7 @@ const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => 
 /**
  * MgActionMore['icon'] type guard
  * @param prop - commponent icon prop
- * @returns  return true if type is valid
+ * @returns return true if type is valid
  */
 const isMgActionMoreIcon = (prop: unknown): prop is MgActionMoreIconType => {
   const icon = prop as MgActionMoreIconType;
@@ -59,7 +59,6 @@ export class MgActionMore {
 
   /**
    * Define displaied icon
-   * Default: `{icon: 'ellipsis'}`
    */
   @Prop() icon: MgActionMoreIconType = { icon: 'ellipsis' };
   @Watch('icon')
@@ -71,7 +70,6 @@ export class MgActionMore {
 
   /**
    * Define button properties
-   * Default: `{variant: 'flat', isIcon: true}`.
    */
   @Prop() button: MgActionMoreButtonType = { variant: 'flat', isIcon: true };
   @Watch('button')
@@ -104,7 +102,6 @@ export class MgActionMore {
   }
   /**
    * Menu expanded state
-   * Default: false.
    */
   @State() expanded = false;
 

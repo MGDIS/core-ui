@@ -26,7 +26,7 @@ import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export namespace Components {
     interface MgActionMore {
         /**
-          * Define button properties Default: {variant: 'flat', isIcon: true}.
+          * Define button properties
          */
         "button": MgActionMoreButtonType;
         /**
@@ -34,7 +34,7 @@ export namespace Components {
          */
         "displayChevron": boolean;
         /**
-          * Define displaied icon Default: {icon: 'ellipsis'}
+          * Define displaied icon
          */
         "icon": MgActionMoreIconType;
         /**
@@ -100,11 +100,11 @@ export namespace Components {
     }
     interface MgCard {
         /**
-          * Define variant prop Default: undefined
+          * Define variant prop
          */
         "variant": undefined | VariantType1;
         /**
-          * Define variantStyle prop Default: undefined
+          * Define variantStyle prop
          */
         "variantStyle": undefined | VariantStyleType;
     }
@@ -153,7 +153,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -216,7 +215,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -279,7 +277,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -354,7 +351,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -437,7 +433,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -504,7 +499,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -571,7 +565,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -654,7 +647,6 @@ export namespace Components {
         "displayCharacterLeft": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -719,7 +711,6 @@ export namespace Components {
         "required": boolean;
         /**
           * Public method to play input focus
-          * @returns
          */
         "setFocus": () => Promise<void>;
         /**
@@ -750,7 +741,6 @@ export namespace Components {
         "displayCharacterLeft": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -867,7 +857,6 @@ export namespace Components {
         "isOnOff": boolean;
         /**
           * Items are the possible options to select
-          * @returns
          */
         "items": string[] | ToggleValue[];
         /**
@@ -901,7 +890,7 @@ export namespace Components {
     }
     interface MgItemMore {
         /**
-          * Define icon Default: {icon: 'ellipsis-vertical'}
+          * Define icon
          */
         "icon": IconType;
         /**
@@ -909,13 +898,13 @@ export namespace Components {
          */
         "size": SizeType;
         /**
-          * Define slot label element Default: {display: false}
+          * Define slot label element
          */
         "slotlabel": SlotLabelType;
     }
     interface MgMenu {
         /**
-          * Component display direction. Default: "horizontal"
+          * Component display direction.
          */
         "direction": Direction;
         /**
@@ -927,13 +916,13 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Define mg-menu size Default: 'regular'
+          * Define mg-menu size
          */
         "size": MenuSizeType;
     }
     interface MgMenuItem {
         /**
-          * Define menu-item content expanded. Default: false.
+          * Define menu-item content expanded.
          */
         "expanded": boolean;
         /**
@@ -941,11 +930,11 @@ export namespace Components {
          */
         "href": string;
         /**
-          * Identifier is used to control mg-popover Default: createID('mg-menu-item');
+          * Identifier is used to control mg-popover
          */
         "identifier": string;
         /**
-          * Define menu-item status. Default: "visible"
+          * Define menu-item status.
          */
         "status": Status;
     }
@@ -1443,7 +1432,7 @@ declare global {
 declare namespace LocalJSX {
     interface MgActionMore {
         /**
-          * Define button properties Default: {variant: 'flat', isIcon: true}.
+          * Define button properties
          */
         "button"?: MgActionMoreButtonType;
         /**
@@ -1451,7 +1440,7 @@ declare namespace LocalJSX {
          */
         "displayChevron"?: boolean;
         /**
-          * Define displaied icon Default: {icon: 'ellipsis'}
+          * Define displaied icon
          */
         "icon"?: MgActionMoreIconType;
         /**
@@ -1521,11 +1510,11 @@ declare namespace LocalJSX {
     }
     interface MgCard {
         /**
-          * Define variant prop Default: undefined
+          * Define variant prop
          */
         "variant"?: undefined | VariantType1;
         /**
-          * Define variantStyle prop Default: undefined
+          * Define variantStyle prop
          */
         "variantStyle"?: undefined | VariantStyleType;
     }
@@ -2314,7 +2303,6 @@ declare namespace LocalJSX {
         "isOnOff"?: boolean;
         /**
           * Items are the possible options to select
-          * @returns
          */
         "items": string[] | ToggleValue[];
         /**
@@ -2356,7 +2344,7 @@ declare namespace LocalJSX {
     }
     interface MgItemMore {
         /**
-          * Define icon Default: {icon: 'ellipsis-vertical'}
+          * Define icon
          */
         "icon"?: IconType;
         /**
@@ -2364,13 +2352,13 @@ declare namespace LocalJSX {
          */
         "size"?: SizeType;
         /**
-          * Define slot label element Default: {display: false}
+          * Define slot label element
          */
         "slotlabel"?: SlotLabelType;
     }
     interface MgMenu {
         /**
-          * Component display direction. Default: "horizontal"
+          * Component display direction.
          */
         "direction"?: Direction;
         /**
@@ -2382,13 +2370,13 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Define mg-menu size Default: 'regular'
+          * Define mg-menu size
          */
         "size"?: MenuSizeType;
     }
     interface MgMenuItem {
         /**
-          * Define menu-item content expanded. Default: false.
+          * Define menu-item content expanded.
          */
         "expanded"?: boolean;
         /**
@@ -2396,7 +2384,7 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Identifier is used to control mg-popover Default: createID('mg-menu-item');
+          * Identifier is used to control mg-popover
          */
         "identifier"?: string;
         /**
@@ -2408,7 +2396,7 @@ declare namespace LocalJSX {
          */
         "onStatus-change"?: (event: MgMenuItemCustomEvent<MgMenuItem['status']>) => void;
         /**
-          * Define menu-item status. Default: "visible"
+          * Define menu-item status.
          */
         "status"?: Status;
     }

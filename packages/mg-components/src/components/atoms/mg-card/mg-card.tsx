@@ -21,7 +21,6 @@ export class MgCard {
 
   /**
    * Define variant prop
-   * Default: undefined
    */
   @Prop() variant: undefined | VariantType;
   @Watch('variant')
@@ -36,7 +35,6 @@ export class MgCard {
 
   /**
    * Define variantStyle prop
-   * Default: undefined
    */
   @Prop({ mutable: true }) variantStyle: undefined | VariantStyleType;
   @Watch('variantStyle')
@@ -75,7 +73,7 @@ export class MgCard {
 
   /**
    * Render
-   * @returns  HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

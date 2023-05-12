@@ -1,7 +1,7 @@
 /**
  * MgItemMore type guard
  * @param element - element to control type
- * @returns  truthy if element is mg-item-more
+ * @returns truthy if element is mg-item-more
  */
 const isMgItemMore = (element: HTMLElement): element is HTMLMgItemMoreElement => element.nodeName === 'MG-ITEM-MORE';
 

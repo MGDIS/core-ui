@@ -19,7 +19,7 @@ let id;
 /**
  * set id if param is true
  * @param hasId - true if need a generated id
- * @returns  genereted id
+ * @returns genereted id
  */
 const setId = (hasId: boolean): string => (hasId ? `my-id-${id++}` : undefined);
 

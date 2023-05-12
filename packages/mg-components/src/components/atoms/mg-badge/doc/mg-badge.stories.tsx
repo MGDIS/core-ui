@@ -15,7 +15,7 @@ export default {
 /**
  * Template
  * @param args - component arguments
- * @returns  HTMLElement
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
