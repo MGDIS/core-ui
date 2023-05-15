@@ -38,7 +38,7 @@ export class MgMenu {
   }
 
   /**
-   * Component display direction. Default: "horizontal"
+   * Component display direction.
    */
   @Prop({ reflect: true }) direction: Direction = Direction.HORIZONTAL;
   @Watch('direction')
@@ -62,7 +62,6 @@ export class MgMenu {
 
   /**
    * Define mg-menu size
-   * Default: 'regular'
    */
   @Prop() size: MenuSizeType = 'regular';
   @Watch('size')
@@ -83,9 +82,8 @@ export class MgMenu {
 
   /**
    * Close matching menu-item
-   * @param {HTMLElement} item menu-item to close
-   * @param {boolean} condition addionnal condition
-   * @returns {void}
+   * @param item - menu-item to close
+   * @param condition - addionnal condition
    */
   private closeMenuItem = (item: HTMLMgMenuItemElement, condition: boolean): void => {
     if (!this.isChildMenu && condition) {
@@ -95,21 +93,20 @@ export class MgMenu {
 
   /**
    * get mg-item-more element
-   * @returns {HTMLMgItemMoreElement} mg-item-more element
+   * @returns mg-item-more element
    */
   private getItemMore = (): HTMLMgItemMoreElement => this.element.querySelector('mg-item-more');
 
   /**
-   * get mg-item-more >>> mg-menu-item element
-   * @returns {HTMLMgMenuItemElement} mg-item-more >>> mg-menu-item element
+   * get mg-item-more child mg-menu-item element
+   * @returns mg-menu-item element
    */
   private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.getItemMore()?.shadowRoot?.querySelector('mg-menu-item');
 
   /**
    * Set item listend
-   * @param {HTMLMgMenuItemElement} item mg-menu-item element
-   * @param {MgMenu['focusedMenuItem']} index number
-   * @returns {void}
+   * @param item - mg-menu-item element
+   * @param index - number
    */
   private setItemListener = (item: HTMLMgMenuItemElement, index: MgMenu['focusedMenuItem']): void => {
     ['click', 'focus'].forEach(trigger => {
@@ -125,7 +122,6 @@ export class MgMenu {
 
   /**
    * Store menu-items on component init and add listeners
-   * @returns {void}
    */
   private initMenuItemsListeners = (): void => {
     // add listeners on menu item and edit index
@@ -136,7 +132,6 @@ export class MgMenu {
 
   /**
    * Handle item-loaded event on mg-item-more element
-   * @returns {void}
    */
   private handleItemLoaded = (): void => {
     this.setItemListener(this.getItemMoreMenuItem(), this.menuItems.length);
@@ -144,7 +139,6 @@ export class MgMenu {
 
   /**
    * render mg-item-more
-   * @returns {void}
    */
   private renderMgItemMore = (): void => {
     // /!\ externalise item tag name to get a string type and bypass type checking when value is used in next createElement
@@ -162,7 +156,6 @@ export class MgMenu {
 
   /**
    * Validate props
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateDirection(this.direction);
@@ -173,7 +166,7 @@ export class MgMenu {
 
   /**
    * Check if component slots configuration
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
     // update props and states after componentDidLoad hook
@@ -204,7 +197,6 @@ export class MgMenu {
 
   /**
    * Add listeners to items
-   * @returns {void}
    */
   componentDidRender(): void {
     this.initMenuItemsListeners();
@@ -212,7 +204,7 @@ export class MgMenu {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

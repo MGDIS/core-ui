@@ -13,7 +13,8 @@
 
 You can set variant color on left bar or on background of the card
 
-Values for variant colors are : 
+Values for variant colors are :
+
 - info
 - success
 - warning
@@ -22,7 +23,7 @@ Values for variant colors are :
 
 ![](./mg-card/doc/img/mg-card-variant.png)
 
-*exemple of "app color" for the last one*
+_exemple of "app color" for the last one_
 
 Variant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**
 
@@ -55,25 +56,24 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property       | Attribute       | Description                                 | Type                                                    | Default     |
-| -------------- | --------------- | ------------------------------------------- | ------------------------------------------------------- | ----------- |
-| `variant`      | `variant`       | Define variant prop Default: undefined      | `"app" \| "danger" \| "info" \| "success" \| "warning"` | `undefined` |
-| `variantStyle` | `variant-style` | Define variantStyle prop Default: undefined | `"bar-left" \| "fill"`                                  | `undefined` |
-
+| Property       | Attribute       | Description              | Type                                                    | Default     |
+| -------------- | --------------- | ------------------------ | ------------------------------------------------------- | ----------- |
+| `variant`      | `variant`       | Define variant prop      | `"app" \| "danger" \| "info" \| "success" \| "warning"` | `undefined` |
+| `variantStyle` | `variant-style` | Define variantStyle prop | `"bar-left" \| "fill"`                                  | `undefined` |
 
 ## Dependencies
 
 ### Used by
 
- - [mg-message](../../molecules/mg-message)
- - [mg-modal](../../molecules/mg-modal)
- - [mg-panel](../../molecules/mg-panel)
- - [mg-popover](../../molecules/mg-popover)
+- [mg-message](../../molecules/mg-message)
+- [mg-modal](../../molecules/mg-modal)
+- [mg-panel](../../molecules/mg-panel)
+- [mg-popover](../../molecules/mg-popover)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-message --> mg-card
@@ -83,6 +83,6 @@ graph TD;
   style mg-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

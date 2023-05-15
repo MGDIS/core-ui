@@ -188,16 +188,14 @@ Child content is displayed via an **mg-tray** component.
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property     | Attribute    | Description                                                                      | Type                                                                  | Default                    |
 | ------------ | ------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------- |
-| `expanded`   | `expanded`   | Define menu-item content expanded. Default: false.                               | `boolean`                                                             | `false`                    |
+| `expanded`   | `expanded`   | Define menu-item content expanded.                                               | `boolean`                                                             | `false`                    |
 | `href`       | `href`       | Define menu-item href when defined menu-item contain an anchor instead of button | `string`                                                              | `undefined`                |
-| `identifier` | `identifier` | Identifier is used to control mg-popover Default: createID('mg-menu-item');      | `string`                                                              | `createID('mg-menu-item')` |
-| `status`     | `status`     | Define menu-item status. Default: "visible"                                      | `Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE` | `Status.VISIBLE`           |
-
+| `identifier` | `identifier` | Identifier is used to control mg-popover                                         | `string`                                                              | `createID('mg-menu-item')` |
+| `status`     | `status`     | Define menu-item status.                                                         | `Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE` | `Status.VISIBLE`           |
 
 ## Events
 
@@ -206,13 +204,12 @@ Child content is displayed via an **mg-tray** component.
 | `item-loaded`   | Emited event when item is loaded | `CustomEvent<void>`                                                                |
 | `status-change` | Emited event when status change  | `CustomEvent<Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [mg-action-more](../../mg-action-more)
- - [mg-item-more](../../mg-item-more)
+- [mg-action-more](../../mg-action-more)
+- [mg-item-more](../../mg-item-more)
 
 ### Depends on
 
@@ -221,6 +218,7 @@ Child content is displayed via an **mg-tray** component.
 - [mg-popover](../../mg-popover)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-menu-item --> mg-badge
@@ -235,6 +233,6 @@ graph TD;
   style mg-menu-item fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

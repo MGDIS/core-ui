@@ -37,7 +37,6 @@ export class MgMenuItem {
 
   /**
    * Identifier is used to control mg-popover
-   * Default: createID('mg-menu-item');
    */
   @Prop() identifier = createID('mg-menu-item');
 
@@ -48,7 +47,7 @@ export class MgMenuItem {
   @Prop() href: string;
 
   /**
-   * Define menu-item status. Default: "visible"
+   * Define menu-item status.
    */
   @Prop({ reflect: true, mutable: true }) status: Status = Status.VISIBLE;
   @Watch('status')
@@ -61,7 +60,7 @@ export class MgMenuItem {
   }
 
   /**
-   * Define menu-item content expanded. Default: false.
+   * Define menu-item content expanded.
    */
   @Prop({ mutable: true }) expanded = false;
   @Watch('expanded')
@@ -106,7 +105,7 @@ export class MgMenuItem {
    *********/
 
   /**
-   * Define menu-item size. Default: "regular".
+   * Define menu-item size.
    */
   @State() size: MenuSizeType = 'regular';
   @Watch('size')
@@ -148,7 +147,7 @@ export class MgMenuItem {
   @State() isItemMore: boolean;
 
   /**
-   * Does component have children. Default: false.
+   * Does component have children.
    */
   @State() hasChildren = false;
   @Watch('hasChildren')
@@ -169,7 +168,6 @@ export class MgMenuItem {
 
   /**
    * Toggle expanded prop value
-   * @returns {void}
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
@@ -177,24 +175,23 @@ export class MgMenuItem {
 
   /**
    * Does an Element have given Status
-   * @param {HTMLMgMenuItemElement} mgMenuItemElement to parse
-   * @param {MgMenuItem['status']} status to check
-   * @returns {boolean} true if element with status is found
+   * @param mgMenuItemElement - to parse
+   * @param status - to check
+   * @returns true if element with status is found
    */
   private hasStatus = (mgMenuItemElement: HTMLMgMenuItemElement, status: MgMenuItem['status']): boolean => mgMenuItemElement.status === status;
 
   /**
    * Is component contextual direction match the given direction
-   * @param {MgMenuItem['direction']} direction in parent menu
-   * @param {MgMenuItem['direction']} compareWith direction to compare with. Default: `this.direction`
-   * @returns {boolean} true is direction match the direction propertie
+   * @param direction - in parent menu
+   * @param compareWith - direction to compare with. Default: `this.direction`
+   * @returns true is direction match the direction propertie
    */
   private isDirection = (direction: MgMenuItem['direction'], compareWith = this.direction): boolean => direction === compareWith;
 
   /**
    * Update displayNotificationBadge
    * current component notification badge have priority over the slot badge when submenu contain badge
-   * @returns {void} update displayNotificationBadge value
    */
   private updateDisplayNotificationBadge = (): void => {
     const childMenu = this.element.querySelector('mg-menu');
@@ -205,7 +202,7 @@ export class MgMenuItem {
 
   /**
    * Method to control if one of component children have active status
-   * @returns {boolean} truthy if component has active child
+   * @returns truthy if component has active child
    */
   private hasActiveChild = (): boolean =>
     Array.from(this.element.querySelector('mg-menu')?.children || []).some(
@@ -214,8 +211,7 @@ export class MgMenuItem {
 
   /**
    * Validate slots
-   * @param {boolean} guard prevent action whith guard. Default: false.
-   * @returns {void}
+   * @param guard - prevent action whith guard. Default: false.
    */
   private validateSlot = (guard = false): void => {
     // slot title AND metadata validation
@@ -231,8 +227,7 @@ export class MgMenuItem {
 
   /**
    * Update status
-   * @param {Status[]} guard status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
-   * @returns {void}
+   * @param guard - status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
    */
   private updateStatus = (guard = []): void => {
     if (![Status.HIDDEN, Status.DISABLED, ...guard].includes(this.status)) {
@@ -242,7 +237,6 @@ export class MgMenuItem {
 
   /**
    * Init event-listeners
-   * @returns {void}
    */
   private initListeners = (): void => {
     // manage first sub-level menu-items
@@ -258,13 +252,12 @@ export class MgMenuItem {
 
   /**
    * Get mg-popover identifier
-   * @returns {MgPopover['identifier']} generated mg-popover identifier
+   * @returns generated mg-popover identifier
    */
   private getPopoverIdentifier = (): MgPopover['identifier'] => `${this.identifier}-popover`;
 
   /**
    * Render popover clickoutside guard for content slot
-   * @returns {void}
    */
   private updatePopoverGuard(): void {
     if (this.displayPopover())
@@ -275,7 +268,7 @@ export class MgMenuItem {
 
   /**
    * Condition to know if component should display a mg-popover
-   * @returns {boolean} truthy if component display popover
+   * @returns truthy if component display popover
    */
   private displayPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && this.hasChildren && this.href === undefined;
 
@@ -285,8 +278,7 @@ export class MgMenuItem {
 
   /**
    * Handle interacrtive element click
-   * @param {MouseEvent} event click on element
-   * @returns {void}
+   * @param event - click on element
    */
   private handleElementCLick = (event: MouseEvent): void => {
     if ((this.hasChildren && !this.isInMainMenu) || this.status === Status.DISABLED) {
@@ -300,8 +292,7 @@ export class MgMenuItem {
 
   /**
    * Handle popover element display-change event
-   * @param {CustomEvent} event popover display event
-   * @returns {void}
+   * @param event - popover display event
    */
   private handlePopoverDisplay = (event: CustomEvent): void => {
     this.expanded = event.detail;
@@ -313,7 +304,6 @@ export class MgMenuItem {
 
   /**
    * Validate props
-   * @returns {void}
    */
   componentWillLoad(): void {
     // has children items that is NOT [slot='image' | 'information' | 'label' | 'metadata'] element
@@ -332,7 +322,7 @@ export class MgMenuItem {
 
   /**
    * Check if component slots configuration
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
     // validation
@@ -374,7 +364,7 @@ export class MgMenuItem {
 
   /**
    * Render ineractive element
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   private renderInteractiveElement(): HTMLElement {
     const TagName: string = this.href !== undefined ? 'a' : 'button';
@@ -419,13 +409,13 @@ export class MgMenuItem {
 
   /**
    * Render slot
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   private renderSlot = (): HTMLElement => <slot></slot>;
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     const getContainerClasses = () => ({

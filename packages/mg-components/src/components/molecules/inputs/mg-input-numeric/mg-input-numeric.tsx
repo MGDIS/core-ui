@@ -233,7 +233,6 @@ export class MgInputNumeric {
 
   /**
    * Public method to display errors
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -245,7 +244,7 @@ export class MgInputNumeric {
   /**
    * Displayed value in input
    * Change on focus/blur
-   * @returns {MgInputNumeric['value'] | MgInputNumeric['readonlyValue']} display value
+   * @returns display value
    */
   private displayValue(): MgInputNumeric['value'] | MgInputNumeric['readonlyValue'] {
     return this.hasFocus ? this.value : this.readonlyValue;
@@ -253,7 +252,6 @@ export class MgInputNumeric {
 
   /**
    * Handle input event
-   * @returns {void}
    */
   private handleInput = (): void => {
     // Check validity
@@ -266,7 +264,6 @@ export class MgInputNumeric {
 
   /**
    * Handle focus event
-   * @returns {void}
    */
   private handleFocus = (): void => {
     this.hasFocus = true;
@@ -274,7 +271,6 @@ export class MgInputNumeric {
 
   /**
    * Handle blur event
-   * @returns {void}
    */
   private handleBlur = (): void => {
     // Display Error
@@ -284,7 +280,6 @@ export class MgInputNumeric {
 
   /**
    * Check if input is valid
-   * @returns {void}
    */
   private checkValidity = (): void => {
     this.valid = this.readonly || this.disabled || this.getInputError() === null;
@@ -295,7 +290,6 @@ export class MgInputNumeric {
 
   /**
    * Set input error message
-   * @returns {void}
    */
   private setErrorMessage = (): void => {
     // Set error message
@@ -312,7 +306,7 @@ export class MgInputNumeric {
 
   /**
    * Get input error code
-   * @returns {null | InputError} error code
+   * @returns error code
    */
   private getInputError = (): null | InputError => {
     let inputError = null;
@@ -340,14 +334,13 @@ export class MgInputNumeric {
 
   /**
    * Format value based on type
-   * @param {number} value value to format
-   * @returns {string} formated local value
+   * @param value - value to format
+   * @returns formated local value
    */
   private formatValue = (value: number): string => (this.type === 'currency' ? localeCurrency(value, this.locale, this.currency) : localeNumber(value, this.locale));
 
   /**
    * Validate append slot
-   * @returns {void}
    */
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
@@ -362,7 +355,7 @@ export class MgInputNumeric {
 
   /**
    * Check if component props are well configured on init
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -386,7 +379,7 @@ export class MgInputNumeric {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

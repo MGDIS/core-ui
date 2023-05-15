@@ -55,7 +55,6 @@ export class MgDetails {
 
   /**
    * Handle details toggle
-   * @returns {void}
    */
   private handleToggle = (): void => {
     this.expanded = this.details.open;
@@ -67,7 +66,6 @@ export class MgDetails {
 
   /**
    * Check if component props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateTitles(this.toggleClosed);
@@ -76,7 +74,7 @@ export class MgDetails {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

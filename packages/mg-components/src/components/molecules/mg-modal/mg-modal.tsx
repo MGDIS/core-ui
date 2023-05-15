@@ -104,8 +104,7 @@ export class MgModal {
 
   /**
    * Handle 'escape' key down
-   * @param {KeyboardEvent} event keydown event
-   * @returns {void}
+   * @param event - keydown event
    */
   @Listen('keydown', {
     target: 'window',
@@ -155,7 +154,6 @@ export class MgModal {
 
   /**
    * Handle close button
-   * @returns {void}
    */
   private handleClose = (): void => {
     this.hide = true;
@@ -167,7 +165,6 @@ export class MgModal {
 
   /**
    * Check if component props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Store body overflow
@@ -187,7 +184,6 @@ export class MgModal {
 
   /**
    * Add observer on component to set focus when displayed
-   * @returns {void}
    */
   componentDidLoad(): void {
     new MutationObserver(mutationList => {
@@ -203,7 +199,7 @@ export class MgModal {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

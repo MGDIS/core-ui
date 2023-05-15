@@ -75,8 +75,7 @@ export class MgTag {
 
   /**
    * Validate the given textContent
-   * @param {string} textContent html element textContent property
-   * @returns {void}
+   * @param textContent - html element textContent property
    */
   private validateTextContent(textContent: string): void {
     if (typeof textContent !== 'string' || textContent.trim() === '') throw new Error('<mg-tag> slot must contain a text content.');
@@ -88,7 +87,6 @@ export class MgTag {
 
   /**
    * Check if props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateVariant(this.variant);
@@ -99,7 +97,7 @@ export class MgTag {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

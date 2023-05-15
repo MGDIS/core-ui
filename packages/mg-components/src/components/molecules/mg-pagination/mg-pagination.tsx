@@ -6,6 +6,7 @@ import { initLocales } from './../../../locales';
 /**
  * Range generator
  *
+ * ```
  * start by get the range length, add "+ 1" to include last value, ex: Math.ceil((3 + 1 - 1) / 1) => 3
  * then with Array(Math.ceil...) we get the final array with empty values, ex: Array(Math.ceil(2 + 1 - 1) / 1)) => [empty, empty, empty]
  * then with Array(Math.ceil...).keys() we get the Array Iterator from empty values
@@ -13,14 +14,15 @@ import { initLocales } from './../../../locales';
  * ex: Array.from(Array(Math.ceil((2 + 1 - 1) / 1) || 1).keys()) => [0, 1, 2]
  * finaly we map values from "start" range and apply the "step" coefficiant,
  * ex: Array.from(Array(Math.ceil((2 + 1 - 1) / 1) || 1).keys()).map(x => 1 + x * 1) => [1, 2, 3]
+ * ```
  *
  * range(1, 1) = [1]
  * range(1, 5) = [1, 2, 3, 4, 5]
  * range(10, 20, 2) = [10, 12, 14, 16, 18, 20]
- * @param {number} start start range
- * @param {number} end start end
- * @param {number} step step size
- * @returns {number[]} range numbers
+ * @param start - start range
+ * @param end - start end
+ * @param step - step size
+ * @returns range numbers
  */
 const range = (start: number, end: number, step = 1): number[] => Array.from(Array(Math.ceil((end + 1 - start) / step)).keys()).map(x => start + x * step);
 
@@ -96,8 +98,7 @@ export class MgPagination {
 
   /**
    * Change current page from target
-   * @param {number} target target page
-   * @returns {void}
+   * @param target - target page
    */
   private goToPage = (target: number): void => {
     this.currentPage = target;
@@ -109,8 +110,7 @@ export class MgPagination {
 
   /**
    * select handler
-   * @param {InputEvent} event value change event
-   * @returns {void}
+   * @param event - value change event
    */
   private handleSelect = (event: InputEvent & { target: HTMLInputElement }): void => {
     const to = Number(event.target.value);
@@ -119,9 +119,8 @@ export class MgPagination {
 
   /**
    * Go to 'previous/next' page button handler
-   * @param {string} action navigation action
-   * @param {boolean} disabled button disable state
-   * @returns {void}
+   * @param action - navigation action
+   * @param disabled - button disable state
    */
   private handleGoToPage = (action: string, disabled: boolean): void => {
     !disabled && this.goToPage(action === NavigationAction.NEXT ? this.currentPage + 1 : this.currentPage - 1);
@@ -133,7 +132,6 @@ export class MgPagination {
 
   /**
    * Check if props are well configured on init
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get locales
@@ -149,7 +147,7 @@ export class MgPagination {
 
   /**
    * Render
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     const navigationActionButton = (disabled: boolean, action: string) => (

@@ -126,25 +126,24 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property             | Attribute   | Description                                                                         | Type                                                                                    | Default                |
 | -------------------- | ----------- | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------- |
-| `direction`          | `direction` | Component display direction. Default: "horizontal"                                  | `Direction.HORIZONTAL \| Direction.VERTICAL`                                            | `Direction.HORIZONTAL` |
+| `direction`          | `direction` | Component display direction.                                                        | `Direction.HORIZONTAL \| Direction.VERTICAL`                                            | `Direction.HORIZONTAL` |
 | `itemmore`           | --          | Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow | `{ size: "regular" \| "medium" \| "large"; icon: IconType; slotlabel: SlotLabelType; }` | `undefined`            |
 | `label` _(required)_ | `label`     | Menu label. Include short menu description. Required for accessibility              | `string`                                                                                | `undefined`            |
-| `size`               | `size`      | Define mg-menu size Default: 'regular'                                              | `"large" \| "medium" \| "regular"`                                                      | `'regular'`            |
-
+| `size`               | `size`      | Define mg-menu size                                                                 | `"large" \| "medium" \| "regular"`                                                      | `'regular'`            |
 
 ## Dependencies
 
 ### Used by
 
- - [mg-action-more](../../mg-action-more)
- - [mg-item-more](../../mg-item-more)
+- [mg-action-more](../../mg-action-more)
+- [mg-item-more](../../mg-item-more)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-action-more --> mg-menu
@@ -152,6 +151,6 @@ graph TD;
   style mg-menu fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

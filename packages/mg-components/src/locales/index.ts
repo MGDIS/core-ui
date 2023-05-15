@@ -7,7 +7,7 @@ const messages = { en, fr };
 
 /**
  * Get Intl object
- * @param {HTMLElement} element element we need to get the language
- * @returns {{ locale: string; messages: Record<string, unknown> }} messages object
+ * @param element - element we need to get the language
+ * @returns messages object
  */
 export const initLocales = (element: HTMLElement): { locale: string; messages: Record<string, unknown> } => getLocaleMessages(element, messages, defaultLocale);
