@@ -53,7 +53,7 @@ export class MgInputNumeric {
       // Regex
       const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+[.,]?\d*$/;
       // Filter input
-      if (newValue === '' || (newValue.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))) {
+      if (['', '-'].includes(newValue) || (newValue.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))) {
         this.storedValue = newValue;
       } else if (this.storedValue !== undefined) {
         newValue = this.storedValue;
@@ -273,6 +273,7 @@ export class MgInputNumeric {
    * Handle blur event
    */
   private handleBlur = (): void => {
+    if (this.value === '-') this.value = '';
     // Display Error
     this.displayError();
     this.hasFocus = false;
