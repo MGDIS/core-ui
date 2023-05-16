@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassList } from '../../../utils/components.utils';
+import { createID, ClassCollection } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 
@@ -75,7 +75,7 @@ export class MgForm {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-form']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-form']);
 
   /**
    * Required message
@@ -112,7 +112,7 @@ export class MgForm {
   private setRequiredMessage = (): void => {
     // init required message
     this.requiredMessage = null;
-    this.classList.delete(this.classAllRequired);
+    this.classCollection.delete(this.classAllRequired);
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)
     if (!this.disabled && !this.readonly && !this.mgInputs.every(input => input.disabled || input.readonly)) {
@@ -122,7 +122,7 @@ export class MgForm {
       // mg-input-toggle can not be required
       if (requiredInputs.length > 0 && requiredInputs.length === this.mgInputs.filter(input => input.nodeName !== 'MG-INPUT-TOGGLE').length) {
         this.requiredMessage = requiredInputs.length === 1 ? this.messages.form.allRequiredSingle : this.messages.form.allRequired;
-        this.classList.add(this.classAllRequired);
+        this.classCollection.add(this.classAllRequired);
       }
       // Some fields are required
       else if (requiredInputs.length > 0) {
@@ -229,7 +229,7 @@ export class MgForm {
    */
   render(): HTMLElement {
     return (
-      <form class={this.classList.join()} id={this.identifier} name={this.name} ref={el => (this.form = el as HTMLFormElement)} onSubmit={this.handleFormSubmit}>
+      <form class={this.classCollection.join()} id={this.identifier} name={this.name} ref={el => (this.form = el as HTMLFormElement)} onSubmit={this.handleFormSubmit}>
         {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}

@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassCollection } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -77,9 +77,9 @@ export class MgInputText {
   @Watch('icon')
   validateIcon(newValue: string): void {
     if (newValue !== undefined) {
-      this.classList.add(this.classHasIcon);
+      this.classCollection.add(this.classHasIcon);
     } else {
-      this.classList.delete(this.classHasIcon);
+      this.classCollection.delete(this.classHasIcon);
     }
   }
 
@@ -175,7 +175,7 @@ export class MgInputText {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--text']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--text']);
 
   /**
    * Error message to display
@@ -225,8 +225,8 @@ export class MgInputText {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassCollection(this.classCollection.classes);
   };
 
   /**
@@ -234,8 +234,8 @@ export class MgInputText {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassCollection(this.classCollection.classes);
     // Display Error
     this.displayError();
   };
@@ -287,10 +287,10 @@ export class MgInputText {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
 
     if (slotAppendInput.length === 1) {
-      this.classList.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-input--is-append-input-slot-content');
     } else if (slotAppendInput.filter(slot => slot.nodeName === 'MG-BUTTON').length > 1) {
-      this.classList.add(this.classIsInputGroupAppend);
-      this.classList.add('mg-input--has-buttons-group-append');
+      this.classCollection.add(this.classIsInputGroupAppend);
+      this.classCollection.add('mg-input--has-buttons-group-append');
     }
   };
 
@@ -326,7 +326,7 @@ export class MgInputText {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}

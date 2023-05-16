@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassCollection } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-button',
@@ -36,9 +36,9 @@ export class MgButton {
       throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
       if (oldValue !== undefined) {
-        this.classList.delete(`mg-button--${oldValue}`);
+        this.classCollection.delete(`mg-button--${oldValue}`);
       }
-      this.classList.add(`mg-button--${newValue}`);
+      this.classCollection.add(`mg-button--${newValue}`);
     }
   }
 
@@ -67,9 +67,9 @@ export class MgButton {
     if (newValue && this.isIcon) {
       throw new Error('<mg-button> prop "fullWidth" cannot be used with prop "isIcon".');
     } else if (newValue) {
-      this.classList.add(this.classFullWidth);
+      this.classCollection.add(this.classFullWidth);
     } else {
-      this.classList.delete(this.classFullWidth);
+      this.classCollection.delete(this.classFullWidth);
     }
   }
 
@@ -95,9 +95,9 @@ export class MgButton {
 
     // apply style
     if (isDisabled) {
-      this.classList.add(this.classDisabled);
+      this.classCollection.add(this.classDisabled);
     } else {
-      this.classList.delete(this.classDisabled);
+      this.classCollection.delete(this.classDisabled);
     }
 
     // emit value update
@@ -125,16 +125,16 @@ export class MgButton {
   loadingHandler(newValue: MgButton['loading']): void {
     // we add loading style if it newvalue is true else we remove it
     if (newValue) {
-      this.classList.add(this.classLoading);
+      this.classCollection.add(this.classLoading);
     } else {
-      this.classList.delete(this.classLoading);
+      this.classCollection.delete(this.classLoading);
     }
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-button']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-button']);
 
   /**
    * Emmited event when disabled change
@@ -185,7 +185,7 @@ export class MgButton {
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
     if (this.isIcon) {
-      this.classList.add(`mg-button--icon`);
+      this.classCollection.add(`mg-button--icon`);
       if (typeof this.label !== 'string' || this.label.trim() === '') {
         throw new Error(`<mg-button> prop "label" is mandatory when prop "isIcon" is set to true.`);
       }
@@ -213,7 +213,7 @@ export class MgButton {
         onKeyup={this.handleKeyup}
         onKeydown={this.handleKeydown}
       >
-        <div class={this.classList.join()} id={this.identifier}>
+        <div class={this.classCollection.join()} id={this.identifier}>
           {this.loading && <mg-icon icon="loader" spin></mg-icon>}
           <div class="mg-button__content">
             <slot></slot>

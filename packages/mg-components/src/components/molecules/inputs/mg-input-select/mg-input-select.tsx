@@ -3,7 +3,7 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassCollection, allItemsAreString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 
@@ -226,7 +226,7 @@ export class MgInputSelect {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--select']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--select']);
 
   /**
    * Error message to display
@@ -388,7 +388,7 @@ export class MgInputSelect {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

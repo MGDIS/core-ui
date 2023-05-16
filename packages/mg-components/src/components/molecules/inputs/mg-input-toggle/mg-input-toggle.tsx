@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassCollection, allItemsAreString } from '../../../../utils/components.utils';
 import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
@@ -103,8 +103,8 @@ export class MgInputToggle {
   @Prop() isOnOff = false;
   @Watch('isOnOff')
   handleIsOnOff(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classOnOff);
-    else this.classList.delete(this.classOnOff);
+    if (newValue) this.classCollection.add(this.classOnOff);
+    else this.classCollection.delete(this.classOnOff);
   }
 
   /**
@@ -113,8 +113,8 @@ export class MgInputToggle {
   @Prop() isIcon = false;
   @Watch('isIcon')
   handleIsIcon(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classIcon);
-    else this.classList.delete(this.classIcon);
+    if (newValue) this.classCollection.add(this.classIcon);
+    else this.classCollection.delete(this.classIcon);
   }
 
   /**
@@ -123,8 +123,8 @@ export class MgInputToggle {
   @Prop() readonly = false;
   @Watch('readonly')
   handleReadonly(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classReadonly);
-    else this.classList.delete(this.classReadonly);
+    if (newValue) this.classCollection.add(this.classReadonly);
+    else this.classCollection.delete(this.classReadonly);
   }
 
   /**
@@ -133,8 +133,8 @@ export class MgInputToggle {
   @Prop() disabled = false;
   @Watch('disabled')
   handleDisabled(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classDisabled);
-    else this.classList.delete(this.classDisabled);
+    if (newValue) this.classCollection.add(this.classDisabled);
+    else this.classCollection.delete(this.classDisabled);
   }
 
   /**
@@ -150,7 +150,7 @@ export class MgInputToggle {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--toggle']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--toggle']);
 
   /**
    * Formated items for display
@@ -164,8 +164,8 @@ export class MgInputToggle {
   @Watch('checked')
   handleChecked(newValue: boolean): void {
     // style
-    if (newValue) this.classList.add(this.classIsActive);
-    else this.classList.delete(this.classIsActive);
+    if (newValue) this.classCollection.add(this.classIsActive);
+    else this.classCollection.delete(this.classIsActive);
 
     // update value
     this.value = this.options[newValue ? 1 : 0].value;
@@ -255,7 +255,7 @@ export class MgInputToggle {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

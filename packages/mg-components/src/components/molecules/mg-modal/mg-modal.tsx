@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
-import { createID, ClassList, focusableElements } from '../../../utils/components.utils';
+import { createID, ClassCollection, focusableElements } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 
 @Component({
@@ -68,11 +68,11 @@ export class MgModal {
   validateHide(newValue: boolean): void {
     if (newValue) {
       this.componentHide.emit();
-      this.classList.add(this.classHide);
+      this.classCollection.add(this.classHide);
       document.body.style.overflow = this.bodyOverflow;
     } else {
       this.componentShow.emit();
-      this.classList.delete(this.classHide);
+      this.classCollection.delete(this.classHide);
       document.body.style.overflow = 'hidden';
     }
   }
@@ -90,7 +90,7 @@ export class MgModal {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-modal']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-modal']);
 
   /**
    * Emmited event when modal is diplayed
@@ -203,7 +203,7 @@ export class MgModal {
    */
   render(): HTMLElement {
     return (
-      <div role="alertdialog" id={this.identifier} class={this.classList.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
+      <div role="alertdialog" id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
         <mg-card>
           <div class="mg-modal__dialog">
             <header class="mg-modal__header">

@@ -1,4 +1,4 @@
-import { createID, ClassList, allItemsAreString, isTagName, getWindows } from './components.utils';
+import { createID, ClassCollection, allItemsAreString, isTagName, getWindows } from './components.utils';
 import { mockConsoleError } from './unit.test.utils';
 
 mockConsoleError();
@@ -15,37 +15,37 @@ describe('components.utils', () => {
     });
   });
 
-  describe('ClassList', () => {
+  describe('ClassCollection', () => {
     test('Should add classes to list', () => {
-      const classList = new ClassList();
-      expect(classList.classes).toEqual([]);
-      classList.add('blu');
-      expect(classList.classes).toEqual(['blu']);
-      classList.add('bli');
-      expect(classList.classes).toEqual(['blu', 'bli']);
+      const classCollection = new ClassCollection();
+      expect(classCollection.classes).toEqual([]);
+      classCollection.add('blu');
+      expect(classCollection.classes).toEqual(['blu']);
+      classCollection.add('bli');
+      expect(classCollection.classes).toEqual(['blu', 'bli']);
       // Should not add classes if already in list
-      classList.add('blu');
-      expect(classList.classes).toEqual(['blu', 'bli']);
+      classCollection.add('blu');
+      expect(classCollection.classes).toEqual(['blu', 'bli']);
     });
 
     test('Should delete classes from list', () => {
-      const classList = new ClassList(['blu', 'bli']);
-      classList.delete('blu');
-      expect(classList.classes).toEqual(['bli']);
+      const classCollection = new ClassCollection(['blu', 'bli']);
+      classCollection.delete('blu');
+      expect(classCollection.classes).toEqual(['bli']);
       // List doesn't change if class name doesn't existe in list
-      classList.delete('bla');
-      expect(classList.classes).toEqual(['bli']);
+      classCollection.delete('bla');
+      expect(classCollection.classes).toEqual(['bli']);
     });
 
     test('Should check if class already in list', () => {
-      const classList = new ClassList(['blu']);
-      expect(classList.has('blu')).toEqual(true);
-      expect(classList.has('bli')).toEqual(false);
+      const classCollection = new ClassCollection(['blu']);
+      expect(classCollection.has('blu')).toEqual(true);
+      expect(classCollection.has('bli')).toEqual(false);
     });
 
     test('Should return seperated space classes list', () => {
-      const classList = new ClassList(['blu', 'bli']);
-      expect(classList.join()).toEqual('blu bli');
+      const classCollection = new ClassCollection(['blu', 'bli']);
+      expect(classCollection.join()).toEqual('blu bli');
     });
   });
 

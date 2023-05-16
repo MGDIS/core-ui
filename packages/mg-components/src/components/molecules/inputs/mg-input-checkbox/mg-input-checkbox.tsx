@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassCollection } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxValue } from './mg-input-checkbox.conf';
 
@@ -145,7 +145,7 @@ export class MgInputCheckbox {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--checkbox']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--checkbox']);
 
   /**
    * Error message to display
@@ -260,7 +260,7 @@ export class MgInputCheckbox {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

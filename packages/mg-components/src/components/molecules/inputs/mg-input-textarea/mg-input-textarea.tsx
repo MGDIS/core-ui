@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassCollection } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -146,9 +146,9 @@ export class MgInputTextarea {
   @Watch('displayCharacterLeft')
   validateDisplayCharacterLeft(newValue: boolean): void {
     if (newValue) {
-      this.classList.add(this.classHasDisplayCharacterLeft);
+      this.classCollection.add(this.classHasDisplayCharacterLeft);
     } else {
-      this.classList.delete(this.classHasDisplayCharacterLeft);
+      this.classCollection.delete(this.classHasDisplayCharacterLeft);
     }
   }
 
@@ -175,7 +175,7 @@ export class MgInputTextarea {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--textarea']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--textarea']);
 
   /**
    * Error message to display
@@ -217,8 +217,8 @@ export class MgInputTextarea {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassCollection(this.classCollection.classes);
   };
 
   /**
@@ -226,8 +226,8 @@ export class MgInputTextarea {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassCollection(this.classCollection.classes);
     // Display Error
     this.displayError();
   };
@@ -310,7 +310,7 @@ export class MgInputTextarea {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}

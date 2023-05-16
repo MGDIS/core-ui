@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { variants, BadgeVariantType } from './mg-badge.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassCollection } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-badge',
   styleUrl: 'mg-badge.scss',
@@ -51,9 +51,9 @@ export class MgBadge {
       throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
       if (oldValue !== undefined) {
-        this.classList.delete(`mg-badge--${oldValue}`);
+        this.classCollection.delete(`mg-badge--${oldValue}`);
       }
-      this.classList.add(`mg-badge--${newValue}`);
+      this.classCollection.add(`mg-badge--${newValue}`);
     }
   }
 
@@ -63,14 +63,14 @@ export class MgBadge {
   @Prop() outline: boolean;
   @Watch('outline')
   validateOutline(newValue: MgBadge['outline']): void {
-    if (newValue) this.classList.add(this.classOutline);
-    else this.classList.delete(this.classOutline);
+    if (newValue) this.classCollection.add(this.classOutline);
+    else this.classCollection.delete(this.classOutline);
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-badge']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-badge']);
 
   /**
    * Check if props are well configured on init
@@ -88,7 +88,7 @@ export class MgBadge {
    */
   render(): HTMLElement {
     return (
-      <span class={this.classList.join()}>
+      <span class={this.classCollection.join()}>
         <span class="mg-badge__value">{this.value}</span>
         <span class="sr-only">{this.label}</span>
       </span>

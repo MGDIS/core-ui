@@ -2,7 +2,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassCollection } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales/';
 import { localeCurrency, localeNumber } from '../../../../utils/locale.utils';
 
@@ -209,7 +209,7 @@ export class MgInputNumeric {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--numeric']);
+  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--numeric']);
 
   /**
    * Error message to display
@@ -346,7 +346,7 @@ export class MgInputNumeric {
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
     if (slotAppendInput !== null) {
-      this.classList.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-input--is-input-group-append' : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-input--is-input-group-append' : 'mg-input--is-append-input-slot-content');
     }
   };
 
@@ -386,7 +386,7 @@ export class MgInputNumeric {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

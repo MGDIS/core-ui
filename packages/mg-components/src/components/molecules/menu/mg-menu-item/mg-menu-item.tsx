@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID } from '../../../../utils/components.utils';
+import { ClassCollection, createID } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { Direction } from '../mg-menu/mg-menu.conf';
 import { Status } from './mg-menu-item.conf';
@@ -53,9 +53,9 @@ export class MgMenuItem {
   @Watch('status')
   validateStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
     if (oldValue !== undefined) {
-      this.navigationButtonClassList.delete(`${this.navigationButton}--${oldValue}`);
+      this.navigationButtonClassCollection.delete(`${this.navigationButton}--${oldValue}`);
     }
-    this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
+    this.navigationButtonClassCollection.add(`${this.navigationButton}--${newValue}`);
     this.statusChange.emit(newValue);
   }
 
@@ -110,14 +110,14 @@ export class MgMenuItem {
   @State() size: MenuSizeType = 'regular';
   @Watch('size')
   validateSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
-    this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
-    this.navigationButtonClassList.add(`${this.navigationButton}--size-${newValue}`);
+    this.navigationButtonClassCollection.delete(`${this.navigationButton}--size-${oldValue}`);
+    this.navigationButtonClassCollection.add(`${this.navigationButton}--size-${newValue}`);
   }
 
   /**
    * Component button classes
    */
-  @State() navigationButtonClassList: ClassList = new ClassList([this.navigationButton]);
+  @State() navigationButtonClassCollection: ClassCollection = new ClassCollection([this.navigationButton]);
 
   /**
    * Parent menu direction
@@ -127,7 +127,7 @@ export class MgMenuItem {
   validateDirection(newValue: MgMenuItem['direction']): void {
     // manage menu items style depending to parent menu horientation
     this.element.setAttribute(`data-style-direction-${newValue}`, '');
-    this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
+    this.navigationButtonClassCollection.add(`${this.navigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
     if (this.isDirection(Direction.VERTICAL, newValue)) {
       Array.from(this.element.querySelectorAll('mg-menu-item')).forEach(item => {
@@ -371,7 +371,7 @@ export class MgMenuItem {
     return (
       <TagName
         href={this.href}
-        class={this.navigationButtonClassList.join()}
+        class={this.navigationButtonClassCollection.join()}
         tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : 0}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
