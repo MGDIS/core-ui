@@ -1,7 +1,9 @@
 /**
  * Possible input width
  */
-export type Width = 2 | 4 | 16 | 'full';
+export const widths = [2, 4, 16, 'full'] as const;
+
+export type Width = (typeof widths)[number];
 
 /**
  * Possible Input types

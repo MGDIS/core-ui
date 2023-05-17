@@ -376,4 +376,29 @@ describe('mg-input-select', () => {
     expect(element.value).toBe('hello');
     expect(page.rootInstance.inputValid.emit).toHaveBeenCalledWith(false);
   });
+
+  test('Should update mg-width', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'] });
+    const element = page.doc.querySelector('mg-input-select');
+
+    element.mgWidth = 2;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 4;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 16;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 'full';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
