@@ -51,8 +51,8 @@ export class MgPopover {
   @Prop() arrowHide = false;
   @Watch('arrowHide')
   validateArrowHide(newValue: MgPopover['arrowHide']): void {
-    if (newValue) this.classList.add(this.classArrowHide);
-    else this.classList.delete(this.classArrowHide);
+    if (newValue) this.classCollection.add(this.classArrowHide);
+    else this.classCollection.delete(this.classArrowHide);
   }
 
   /**
@@ -82,7 +82,7 @@ export class MgPopover {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-popover']);
+  @State() classCollection: ClassList = new ClassList(['mg-popover']);
 
   /**
    * Emited event when display value change
@@ -236,7 +236,7 @@ export class MgPopover {
     return (
       <Host>
         <slot></slot>
-        <div id={this.identifier} class={this.classList.join()}>
+        <div id={this.identifier} class={this.classCollection.join()}>
           <mg-card>
             {this.closeButton && (
               <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.general.close} onClick={this.handleCloseButton}>

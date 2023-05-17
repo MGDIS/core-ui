@@ -145,7 +145,7 @@ export class MgInputDate {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--date']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--date']);
 
   /**
    * Error message to display
@@ -284,7 +284,7 @@ export class MgInputDate {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

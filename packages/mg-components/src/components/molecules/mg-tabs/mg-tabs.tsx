@@ -63,7 +63,7 @@ export class MgTabs {
     if (!sizes.includes(newValue)) {
       throw new Error(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}`);
     }
-    this.classList.add(`mg-tabs--size-${this.size}`);
+    this.classCollection.add(`mg-tabs--size-${this.size}`);
   }
 
   /**
@@ -118,7 +118,7 @@ export class MgTabs {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-tabs']);
+  @State() classCollection: ClassList = new ClassList(['mg-tabs']);
 
   /**
    * Emited event when active tab change
@@ -269,7 +269,7 @@ export class MgTabs {
    */
   render(): HTMLElement {
     return (
-      <div class={this.classList.join()}>
+      <div class={this.classCollection.join()}>
         <header role="tablist" aria-label={this.label} class="mg-tabs__header">
           {this.tabs.map((tab, index) => (
             <button

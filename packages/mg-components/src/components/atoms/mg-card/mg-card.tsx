@@ -28,9 +28,9 @@ export class MgCard {
     if (newValue && !variants.includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
     if (Boolean(newValue)) {
       this.setDefaultVariantStyle();
-      this.classList.add(`${this.baseClass}--${newValue}`);
+      this.classCollection.add(`${this.baseClass}--${newValue}`);
     }
-    if (Boolean(oldValue)) this.classList.delete(`${this.baseClass}--${oldValue}`);
+    if (Boolean(oldValue)) this.classCollection.delete(`${this.baseClass}--${oldValue}`);
   }
 
   /**
@@ -42,14 +42,14 @@ export class MgCard {
     if (newValue && !variantStyles.includes(newValue)) throw new Error(`<${this.name}> prop "variantStyle" must match VariantStyleType type.`);
     else if (Boolean(newValue) && !variants.includes(this.variant))
       throw new Error(`<${this.name}> prop "variantStyle" must be paired with ${JSON.stringify(variants)} "variant" prop.`);
-    if (Boolean(newValue)) this.classList.add(`${this.baseClass}--${newValue}`);
-    if (Boolean(oldValue)) this.classList.delete(`${this.baseClass}--${oldValue}`);
+    if (Boolean(newValue)) this.classCollection.add(`${this.baseClass}--${newValue}`);
+    if (Boolean(oldValue)) this.classCollection.delete(`${this.baseClass}--${oldValue}`);
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList([this.baseClass]);
+  @State() classCollection: ClassList = new ClassList([this.baseClass]);
 
   /**
    * Methode to set default varianStyle props
@@ -77,7 +77,7 @@ export class MgCard {
    */
   render(): HTMLElement {
     return (
-      <div class={this.classList.join()}>
+      <div class={this.classCollection.join()}>
         {this.variantStyle?.startsWith('bar-') && <span class="mg-card__bar"></span>}
         <slot></slot>
       </div>
