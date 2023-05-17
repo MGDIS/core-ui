@@ -77,7 +77,6 @@ test:unit:
     - .rules:except-tags
     - .install_dependencies
   script:
-    - pnpm build
     - pnpm coverage
   artifacts:
     when: always
