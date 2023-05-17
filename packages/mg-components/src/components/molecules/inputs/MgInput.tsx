@@ -1,6 +1,6 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
 import { widths, Width } from './MgInput.conf';
-import { ClassCollection } from '../../../utils/components.utils';
+import { ClassList } from '../../../utils/components.utils';
 
 /**
  * Apply in all input child node the aria-describedby attribute
@@ -61,7 +61,7 @@ const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : '
 interface MgInputProps {
   // Global
   identifier: string;
-  classCollection: ClassCollection;
+  classCollection: ClassList;
   // Label
   label: string;
   labelOnTop: boolean;

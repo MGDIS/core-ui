@@ -2,7 +2,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
-import { ClassCollection } from '../../../../utils/components.utils';
+import { ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales/';
 import { localeCurrency, localeNumber } from '../../../../utils/locale.utils';
 
@@ -209,7 +209,7 @@ export class MgInputNumeric {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--numeric']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--numeric']);
 
   /**
    * Error message to display

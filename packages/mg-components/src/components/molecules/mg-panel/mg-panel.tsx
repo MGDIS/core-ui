@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassCollection } from '../../../utils/components.utils';
+import { createID, ClassList } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 
 @Component({
@@ -86,7 +86,7 @@ export class MgPanel {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-panel']);
+  @State() classCollection: ClassList = new ClassList(['mg-panel']);
 
   /**
    * Title is in edition mode

@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
-import { createID, ClassCollection, allItemsAreString } from '../../../utils/components.utils';
+import { createID, ClassList, allItemsAreString } from '../../../utils/components.utils';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
@@ -118,7 +118,7 @@ export class MgTabs {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-tabs']);
+  @State() classCollection: ClassList = new ClassList(['mg-tabs']);
 
   /**
    * Emited event when active tab change

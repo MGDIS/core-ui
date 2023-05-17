@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
-import { ClassCollection } from '../../../../utils/components.utils';
+import { ClassList } from '../../../../utils/components.utils';
 import { localeDate, dateRegExp } from '../../../../utils/locale.utils';
 import { initLocales } from '../../../../locales';
 
@@ -145,7 +145,7 @@ export class MgInputDate {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--date']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--date']);
 
   /**
    * Error message to display

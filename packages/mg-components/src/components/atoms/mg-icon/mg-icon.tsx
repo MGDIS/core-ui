@@ -1,6 +1,6 @@
 import { Component, h, Prop, Watch, State } from '@stencil/core';
 import { icons, sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
-import { ClassCollection } from '../../../utils/components.utils';
+import { ClassList } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-icon',
@@ -87,7 +87,7 @@ export class MgIcon {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-icon']);
+  @State() classCollection: ClassList = new ClassList(['mg-icon']);
 
   /**
    * getIcon

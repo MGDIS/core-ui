@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassCollection } from '../../../../utils/components.utils';
+import { ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -175,7 +175,7 @@ export class MgInputTextarea {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--textarea']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--textarea']);
 
   /**
    * Error message to display
@@ -218,7 +218,7 @@ export class MgInputTextarea {
    */
   private handleFocus = (): void => {
     this.classCollection.add(this.classFocus);
-    this.classCollection = new ClassCollection(this.classCollection.classes);
+    this.classCollection = new ClassList(this.classCollection.classes);
   };
 
   /**
@@ -227,7 +227,7 @@ export class MgInputTextarea {
   private handleBlur = (): void => {
     // Manage focus
     this.classCollection.delete(this.classFocus);
-    this.classCollection = new ClassCollection(this.classCollection.classes);
+    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.displayError();
   };

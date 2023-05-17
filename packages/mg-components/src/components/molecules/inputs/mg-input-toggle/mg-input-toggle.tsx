@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassCollection, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
 import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
@@ -150,7 +150,7 @@ export class MgInputToggle {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--toggle']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--toggle']);
 
   /**
    * Formated items for display

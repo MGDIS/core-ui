@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassCollection } from '../../../utils/components.utils';
+import { createID, ClassList } from '../../../utils/components.utils';
 import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
@@ -119,7 +119,7 @@ export class MgMessage {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-message']);
+  @State() classCollection: ClassList = new ClassList(['mg-message']);
 
   /**
    * Define if component is using actions slot

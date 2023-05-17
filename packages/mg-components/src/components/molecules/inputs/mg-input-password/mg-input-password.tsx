@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassCollection } from '../../../../utils/components.utils';
+import { ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -129,7 +129,7 @@ export class MgInputPassword {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--password']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--password']);
 
   /**
    * Error message to display

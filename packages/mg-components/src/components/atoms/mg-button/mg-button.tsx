@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassCollection } from '../../../utils/components.utils';
+import { ClassList } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-button',
@@ -134,7 +134,7 @@ export class MgButton {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-button']);
+  @State() classCollection: ClassList = new ClassList(['mg-button']);
 
   /**
    * Emmited event when disabled change

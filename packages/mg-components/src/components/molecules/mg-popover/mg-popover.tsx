@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event, State } from '@stencil/core';
-import { createID, isTagName, getWindows, ClassCollection } from '../../../utils/components.utils';
+import { createID, isTagName, getWindows, ClassList } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { initLocales } from '../../../locales';
 
@@ -82,7 +82,7 @@ export class MgPopover {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-popover']);
+  @State() classCollection: ClassList = new ClassList(['mg-popover']);
 
   /**
    * Emited event when display value change

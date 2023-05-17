@@ -1,4 +1,4 @@
-import { createID, ClassCollection, allItemsAreString, isTagName, getWindows } from './components.utils';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows } from './components.utils';
 import { mockConsoleError } from './unit.test.utils';
 
 mockConsoleError();
@@ -15,9 +15,9 @@ describe('components.utils', () => {
     });
   });
 
-  describe('ClassCollection', () => {
+  describe('ClassList', () => {
     test('Should add classes to list', () => {
-      const classCollection = new ClassCollection();
+      const classCollection = new ClassList();
       expect(classCollection.classes).toEqual([]);
       classCollection.add('blu');
       expect(classCollection.classes).toEqual(['blu']);
@@ -29,7 +29,7 @@ describe('components.utils', () => {
     });
 
     test('Should delete classes from list', () => {
-      const classCollection = new ClassCollection(['blu', 'bli']);
+      const classCollection = new ClassList(['blu', 'bli']);
       classCollection.delete('blu');
       expect(classCollection.classes).toEqual(['bli']);
       // List doesn't change if class name doesn't existe in list
@@ -38,13 +38,13 @@ describe('components.utils', () => {
     });
 
     test('Should check if class already in list', () => {
-      const classCollection = new ClassCollection(['blu']);
+      const classCollection = new ClassList(['blu']);
       expect(classCollection.has('blu')).toEqual(true);
       expect(classCollection.has('bli')).toEqual(false);
     });
 
     test('Should return seperated space classes list', () => {
-      const classCollection = new ClassCollection(['blu', 'bli']);
+      const classCollection = new ClassList(['blu', 'bli']);
       expect(classCollection.join()).toEqual('blu bli');
     });
   });

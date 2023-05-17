@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch, Element } from '@stencil/core';
 import { TagVariantType, variants } from './mg-tag.conf';
-import { ClassCollection } from '../../../utils/components.utils';
+import { ClassList } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-tag',
   styleUrl: 'mg-tag.scss',
@@ -67,7 +67,7 @@ export class MgTag {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-tag']);
+  @State() classCollection: ClassList = new ClassList(['mg-tag']);
 
   /*************
    * Methods *

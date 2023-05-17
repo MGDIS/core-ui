@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { ClassCollection } from '../../../utils/components.utils';
+import { ClassList } from '../../../utils/components.utils';
 import { type VariantStyleType, variantStyles, type VariantType, variants } from './mg-card.conf';
 
 @Component({
@@ -49,7 +49,7 @@ export class MgCard {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection([this.baseClass]);
+  @State() classCollection: ClassList = new ClassList([this.baseClass]);
 
   /**
    * Methode to set default varianStyle props

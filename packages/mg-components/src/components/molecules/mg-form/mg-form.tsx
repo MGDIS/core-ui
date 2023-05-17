@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassCollection } from '../../../utils/components.utils';
+import { createID, ClassList } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 
@@ -75,7 +75,7 @@ export class MgForm {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-form']);
+  @State() classCollection: ClassList = new ClassList(['mg-form']);
 
   /**
    * Required message

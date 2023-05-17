@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassCollection, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
 
@@ -156,7 +156,7 @@ export class MgInputRadio {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-input--radio']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--radio']);
 
   /**
    * Error message to display

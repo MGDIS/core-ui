@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
-import { createID, ClassCollection, focusableElements } from '../../../utils/components.utils';
+import { createID, ClassList, focusableElements } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 
 @Component({
@@ -90,7 +90,7 @@ export class MgModal {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-modal']);
+  @State() classCollection: ClassList = new ClassList(['mg-modal']);
 
   /**
    * Emmited event when modal is diplayed

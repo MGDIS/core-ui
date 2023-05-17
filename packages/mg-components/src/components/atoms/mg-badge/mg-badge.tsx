@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { variants, BadgeVariantType } from './mg-badge.conf';
-import { ClassCollection } from '../../../utils/components.utils';
+import { ClassList } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-badge',
   styleUrl: 'mg-badge.scss',
@@ -70,7 +70,7 @@ export class MgBadge {
   /**
    * Component classes
    */
-  @State() classCollection: ClassCollection = new ClassCollection(['mg-badge']);
+  @State() classCollection: ClassList = new ClassList(['mg-badge']);
 
   /**
    * Check if props are well configured on init
