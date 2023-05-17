@@ -77,6 +77,7 @@ test:unit:
     - .rules:except-tags
     - .install_dependencies
   script:
+    - pnpm build
     - pnpm coverage
   artifacts:
     when: always
@@ -190,6 +191,7 @@ mg-components:artifact:
     - .install_dependencies
   script:
     - cd packages/mg-components
+    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint
@@ -235,7 +237,7 @@ pages:
 notification-center:artifact:
   stage: artifacts
   extends:
-    - .rules:changes:mg-components
+    - .rules:changes:notification-center
     - .rules:except-tags
     - .install_dependencies
   script:
