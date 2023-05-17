@@ -428,4 +428,29 @@ describe('mg-input-numeric', () => {
       expect(page.rootInstance.invalid).toEqual(false);
     }
   });
+
+  test('Should update mg-width', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const element = page.doc.querySelector('mg-input-numeric');
+
+    element.mgWidth = 2;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 4;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 16;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 'full';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
 });

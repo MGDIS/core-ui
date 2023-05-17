@@ -1,5 +1,77 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-input-numeric Should update mg-width 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--width-2">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric Should update mg-width 2`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--width-4">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric Should update mg-width 3`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--width-16">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric Should update mg-width 4`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <div class="mg-input mg-input--numeric mg-input--width-full">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="text">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
 exports[`mg-input-numeric display error message with locale: fr 1`] = `
 <mg-input-numeric lang="fr">
   <mock:shadow-root>

@@ -1,5 +1,5 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { Width } from './MgInput.conf';
+import { widths, Width } from './MgInput.conf';
 import { ClassList } from '../../../utils/components.utils';
 
 /**
@@ -37,9 +37,14 @@ const manageClasses = (props: MgInputProps): void => {
   props.classList.add('mg-input');
 
   if (props.labelOnTop) props.classList.add('mg-input--label-on-top');
+  else props.classList.delete('mg-input--label-on-top');
 
   if (props.readonly) props.classList.add('mg-input--readonly');
+  else props.classList.delete('mg-input--readonly');
 
+  widths.forEach(width => {
+    props.classList.delete(`mg-input--width-${width}`);
+  });
   if (props.mgWidth !== undefined) props.classList.add(`mg-input--width-${props.mgWidth}`);
 };
 
