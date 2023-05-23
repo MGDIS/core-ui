@@ -69,7 +69,6 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property      | Attribute      | Description                                                                      | Type                                                                                                                                                                                                         | Default                  |
@@ -81,20 +80,19 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 | `identifier`  | `identifier`   | Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`. | `string`                                                                                                                                                                                                     | `createID('mg-popover')` |
 | `placement`   | `placement`    | Popover placement                                                                | `"auto" \| "auto-end" \| "auto-start" \| "bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`               |
 
-
 ## Events
 
 | Event            | Description                            | Type                   |
 | ---------------- | -------------------------------------- | ---------------------- |
 | `display-change` | Emited event when display value change | `CustomEvent<boolean>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [mg-action-more](../mg-action-more)
- - [mg-menu-item](../menu/mg-menu-item)
+- [mg-action-more](../mg-action-more)
+- [mg-input-checkbox](../inputs/mg-input-checkbox)
+- [mg-menu-item](../menu/mg-menu-item)
 
 ### Depends on
 
@@ -103,6 +101,7 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 - [mg-icon](../../atoms/mg-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-popover --> mg-card
@@ -110,10 +109,11 @@ graph TD;
   mg-popover --> mg-icon
   mg-button --> mg-icon
   mg-action-more --> mg-popover
+  mg-input-checkbox --> mg-popover
   mg-menu-item --> mg-popover
   style mg-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

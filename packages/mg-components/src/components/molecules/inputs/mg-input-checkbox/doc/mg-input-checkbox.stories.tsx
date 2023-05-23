@@ -1,10 +1,17 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../../.storybook/utils';
+import { checkboxTypes } from '../mg-input-checkbox.conf';
 
 export default {
   component: 'mg-input-checkbox',
   title: 'Molecules/Inputs/mg-input-checkbox',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
+  argTypes: {
+    type: {
+      options: [undefined, ...checkboxTypes],
+      control: { type: 'select' },
+    },
+  },
 };
 
 /**
@@ -35,6 +42,7 @@ MgInputCheckbox.args = {
   ],
   identifier: 'identifier',
   name: 'input-name',
+  type: undefined,
   // Label
   label: 'Option',
   labelOnTop: false,

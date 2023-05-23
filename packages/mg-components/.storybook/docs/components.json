@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-05-12T12:43:31",
+  "timestamp": "2023-05-22T11:23:18",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -450,11 +450,12 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-message", "mg-modal", "mg-pagination", "mg-panel", "mg-popover"],
+      "dependents": ["mg-action-more", "mg-input-checkbox", "mg-message", "mg-modal", "mg-pagination", "mg-panel", "mg-popover"],
       "dependencies": ["mg-icon"],
       "dependencyGraph": {
         "mg-button": ["mg-icon"],
         "mg-action-more": ["mg-button"],
+        "mg-input-checkbox": ["mg-button"],
         "mg-message": ["mg-button"],
         "mg-modal": ["mg-button"],
         "mg-pagination": ["mg-button"],
@@ -466,7 +467,7 @@
       "filePath": "./src/components/atoms/mg-card/mg-card.tsx",
       "encapsulation": "shadow",
       "tag": "mg-card",
-      "readme": "## Specifications\n\n### Style\n\n![](./mg-card/doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--page)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--page)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are : \n- info\n- success\n- warning\n- danger\n- app\n\n![](./mg-card/doc/img/mg-card-variant.png)\n\n*exemple of \"app color\" for the last one*\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--page)**\n\n### Spacing\n\n![](./mg-card/doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./mg-card/doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n- `--mg-card-max-width`: define card max-width, default: `unset`\n",
+      "readme": "## Specifications\n\n### Style\n\n![](./mg-card/doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--page)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--page)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are :\n\n- info\n- success\n- warning\n- danger\n- app\n\n![](./mg-card/doc/img/mg-card-variant.png)\n\n_exemple of \"app color\" for the last one_\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--page)**\n\n### Spacing\n\n![](./mg-card/doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./mg-card/doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n- `--mg-card-max-width`: define card max-width, default: `unset`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1363,6 +1364,28 @@
           "required": false
         },
         {
+          "name": "type",
+          "type": "\"checkbox\" | \"multi\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Define checkbox type",
+          "docsTags": [],
+          "default": "checkboxTypes[0]",
+          "values": [
+            {
+              "value": "checkbox",
+              "type": "string"
+            },
+            {
+              "value": "multi",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "valid",
           "type": "boolean",
           "mutable": true,
@@ -1432,9 +1455,11 @@
       "slots": [],
       "parts": [],
       "dependents": [],
-      "dependencies": ["mg-tooltip", "mg-icon", "mg-input-title"],
+      "dependencies": ["mg-popover", "mg-button", "mg-icon", "mg-tooltip", "mg-input-title"],
       "dependencyGraph": {
-        "mg-input-checkbox": ["mg-tooltip", "mg-icon", "mg-input-title"]
+        "mg-input-checkbox": ["mg-popover", "mg-button", "mg-icon", "mg-tooltip", "mg-input-title"],
+        "mg-popover": ["mg-card", "mg-button", "mg-icon"],
+        "mg-button": ["mg-icon"]
       }
     },
     {
@@ -5348,12 +5373,13 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": ["mg-action-more", "mg-menu-item"],
+      "dependents": ["mg-action-more", "mg-input-checkbox", "mg-menu-item"],
       "dependencies": ["mg-card", "mg-button", "mg-icon"],
       "dependencyGraph": {
         "mg-popover": ["mg-card", "mg-button", "mg-icon"],
         "mg-button": ["mg-icon"],
         "mg-action-more": ["mg-popover"],
+        "mg-input-checkbox": ["mg-popover"],
         "mg-menu-item": ["mg-popover"]
       }
     },

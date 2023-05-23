@@ -65,7 +65,6 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
 | Property         | Attribute          | Description                                                                                                                                            | Type                                                                                              | Default       |
@@ -80,34 +79,35 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
 | `type`           | `type`             | Define button type                                                                                                                                     | `"button" \| "reset" \| "submit"`                                                                 | `undefined`   |
 | `variant`        | `variant`          | Define button variant                                                                                                                                  | `"danger" \| "danger-alt" \| "flat" \| "info" \| "link" \| "primary" \| "secondary" \| "success"` | `variants[0]` |
 
-
 ## Events
 
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `disabled-change` | Emmited event when disabled change | `CustomEvent<boolean>` |
 
-
 ## Dependencies
 
 ### Used by
 
- - [mg-action-more](../../molecules/mg-action-more)
- - [mg-message](../../molecules/mg-message)
- - [mg-modal](../../molecules/mg-modal)
- - [mg-pagination](../../molecules/mg-pagination)
- - [mg-panel](../../molecules/mg-panel)
- - [mg-popover](../../molecules/mg-popover)
+- [mg-action-more](../../molecules/mg-action-more)
+- [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+- [mg-message](../../molecules/mg-message)
+- [mg-modal](../../molecules/mg-modal)
+- [mg-pagination](../../molecules/mg-pagination)
+- [mg-panel](../../molecules/mg-panel)
+- [mg-popover](../../molecules/mg-popover)
 
 ### Depends on
 
 - [mg-icon](../mg-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-button --> mg-icon
   mg-action-more --> mg-button
+  mg-input-checkbox --> mg-button
   mg-message --> mg-button
   mg-modal --> mg-button
   mg-pagination --> mg-button
@@ -116,6 +116,6 @@ graph TD;
   style mg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

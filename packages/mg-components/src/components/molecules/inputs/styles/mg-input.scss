@@ -65,6 +65,15 @@
     display: inline-block;
     margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
     min-height: var(--font-size);
+
+    & + mg-popover {
+      display: inline-block;
+    }
+  }
+  &--gap-1.mg-input__input-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--mg-inputs-spacer) * 1.2);
   }
 
   mg-tooltip {

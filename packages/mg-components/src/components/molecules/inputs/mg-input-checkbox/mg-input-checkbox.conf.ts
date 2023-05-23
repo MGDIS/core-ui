@@ -18,3 +18,13 @@ export type CheckboxValue = {
   value: boolean | null;
   disabled?: boolean;
 };
+
+/**
+ * List of all availables checkbox type
+ */
+export const checkboxTypes = ['checkbox', 'multi'] as const;
+
+/**
+ * ChecboxType from checkbox types
+ */
+export type CheckboxType = (typeof checkboxTypes)[number];

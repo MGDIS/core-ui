@@ -10,7 +10,7 @@ import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -261,6 +261,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define checkbox type
+         */
+        "type": CheckboxType;
         /**
           * Define input valid state
          */
@@ -1683,6 +1687,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define checkbox type
+         */
+        "type"?: CheckboxType;
         /**
           * Define input valid state
          */
