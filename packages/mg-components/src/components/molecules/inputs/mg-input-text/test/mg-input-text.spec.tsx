@@ -117,7 +117,7 @@ describe('mg-input-text', () => {
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classList.has('is-focused')).toEqual(true);
+    expect(page.rootInstance.classCollection.has('is-focused')).toEqual(true);
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
@@ -128,7 +128,7 @@ describe('mg-input-text', () => {
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classList.has('is-focused')).toEqual(false);
+    expect(page.rootInstance.classCollection.has('is-focused')).toEqual(false);
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
@@ -318,5 +318,25 @@ describe('mg-input-text', () => {
     // If back on required the message is still not displayed
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
     expect(page.rootInstance.errorMessage).toBeUndefined();
+  });
+
+  test('Should update mg-width', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const element = page.doc.querySelector('mg-input-text');
+
+    element.mgWidth = 2;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 4;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 16;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 });

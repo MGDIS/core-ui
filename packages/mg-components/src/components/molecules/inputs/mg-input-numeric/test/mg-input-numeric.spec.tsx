@@ -398,4 +398,59 @@ describe('mg-input-numeric', () => {
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
     expect(page.rootInstance.errorMessage).toBeUndefined();
   });
+
+  it('should manage negative number', async () => {
+    const args = { label: 'label', identifier: 'identifier' };
+    const page = await getPage(args);
+
+    const element = page.doc.querySelector('mg-input-numeric');
+    const input = element.shadowRoot.querySelector('input');
+
+    input.checkValidity = jest.fn(() => true);
+
+    /**
+     * update input value
+     * @param value to update input with
+     */
+    const updateInputValue = async (value: string): Promise<void> => {
+      input.value = value;
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+    };
+
+    for await (const newValue of ['-', '-5']) {
+      await updateInputValue(newValue);
+      expect(input.value).toEqual(newValue === '-' ? '' : '-5');
+      expect(page.rootInstance.valid).toEqual(true);
+      expect(page.rootInstance.invalid).toEqual(false);
+    }
+  });
+
+  test('Should update mg-width', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const element = page.doc.querySelector('mg-input-numeric');
+
+    element.mgWidth = 2;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 4;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 16;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 'full';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
 });

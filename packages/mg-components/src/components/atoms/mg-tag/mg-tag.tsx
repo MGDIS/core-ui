@@ -34,9 +34,9 @@ export class MgTag {
       throw new Error(`<mg-tag> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
       if (oldValue !== undefined) {
-        this.classList.delete(`mg-tag--${oldValue}`);
+        this.classCollection.delete(`mg-tag--${oldValue}`);
       }
-      this.classList.add(`mg-tag--${newValue}`);
+      this.classCollection.add(`mg-tag--${newValue}`);
     }
   }
 
@@ -46,8 +46,8 @@ export class MgTag {
   @Prop() outline: boolean;
   @Watch('outline')
   validateOutline(newValue: MgTag['outline']): void {
-    if (newValue) this.classList.add(this.classOutline);
-    else this.classList.delete(this.classOutline);
+    if (newValue) this.classCollection.add(this.classOutline);
+    else this.classCollection.delete(this.classOutline);
   }
 
   /**
@@ -60,14 +60,14 @@ export class MgTag {
     if (newValue && this.outline) throw new Error('<mg-tag> prop "soft" can NOT be used with prop "outline".');
 
     // apply class
-    if (newValue) this.classList.add(this.classSoft);
-    else this.classList.delete(this.classSoft);
+    if (newValue) this.classCollection.add(this.classSoft);
+    else this.classCollection.delete(this.classSoft);
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-tag']);
+  @State() classCollection: ClassList = new ClassList(['mg-tag']);
 
   /*************
    * Methods *
@@ -101,7 +101,7 @@ export class MgTag {
    */
   render(): HTMLElement {
     return (
-      <span class={this.classList.join()}>
+      <span class={this.classCollection.join()}>
         <slot></slot>
       </span>
     );

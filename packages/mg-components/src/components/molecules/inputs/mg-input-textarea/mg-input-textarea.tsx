@@ -146,9 +146,9 @@ export class MgInputTextarea {
   @Watch('displayCharacterLeft')
   validateDisplayCharacterLeft(newValue: boolean): void {
     if (newValue) {
-      this.classList.add(this.classHasDisplayCharacterLeft);
+      this.classCollection.add(this.classHasDisplayCharacterLeft);
     } else {
-      this.classList.delete(this.classHasDisplayCharacterLeft);
+      this.classCollection.delete(this.classHasDisplayCharacterLeft);
     }
   }
 
@@ -175,7 +175,7 @@ export class MgInputTextarea {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--textarea']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--textarea']);
 
   /**
    * Error message to display
@@ -217,8 +217,8 @@ export class MgInputTextarea {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
   };
 
   /**
@@ -226,8 +226,8 @@ export class MgInputTextarea {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.displayError();
   };
@@ -310,7 +310,7 @@ export class MgInputTextarea {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}

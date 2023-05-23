@@ -226,7 +226,7 @@ export class MgInputSelect {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--select']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--select']);
 
   /**
    * Error message to display
@@ -388,7 +388,7 @@ export class MgInputSelect {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

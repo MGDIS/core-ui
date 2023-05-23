@@ -156,7 +156,7 @@ export class MgInputRadio {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--radio']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--radio']);
 
   /**
    * Error message to display
@@ -263,7 +263,7 @@ export class MgInputRadio {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

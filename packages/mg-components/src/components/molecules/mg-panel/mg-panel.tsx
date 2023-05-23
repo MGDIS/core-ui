@@ -86,7 +86,7 @@ export class MgPanel {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-panel']);
+  @State() classCollection: ClassList = new ClassList(['mg-panel']);
 
   /**
    * Title is in edition mode
@@ -269,7 +269,7 @@ export class MgPanel {
    */
   render(): HTMLElement {
     return (
-      <section class={this.classList.join()} id={this.identifier}>
+      <section class={this.classCollection.join()} id={this.identifier}>
         <mg-card>
           <header class="mg-panel__header" id={`${this.identifier}-header`}>
             <div class={`mg-panel__header-left ${this.isEditing ? 'mg-panel__header-left--full' : ''}`}>{this.headerLeft()}</div>

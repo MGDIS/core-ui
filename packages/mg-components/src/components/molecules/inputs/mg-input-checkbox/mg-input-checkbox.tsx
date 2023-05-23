@@ -150,7 +150,7 @@ export class MgInputCheckbox {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--checkbox']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--checkbox']);
 
   /**
    * Error message to display
@@ -334,7 +334,7 @@ export class MgInputCheckbox {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

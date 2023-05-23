@@ -1,5 +1,14 @@
 # @mgdis/mg-components
 
+## 5.10.1
+
+### Patch Changes
+
+- 7ade01a: [#319](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/319) - Remame `classList` state to `classCollection` inside components.
+- 88990ad: [#312](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/312) lint: resolve tsdoc linting warning
+- e80af1f: [#318](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/318) - Mg-input-text: size of mg-width not reactive
+- 38f200c: [#311](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/311): mg-input-numeric: when you want to enter a negative value in mg-input-numeric the minus is not taken
+
 ## 5.10.0
 
 ### Minor Changes

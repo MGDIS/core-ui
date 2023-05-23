@@ -1,5 +1,5 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { Width } from './MgInput.conf';
+import { widths, Width } from './MgInput.conf';
 import { ClassList } from '../../../utils/components.utils';
 
 /**
@@ -34,13 +34,18 @@ const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>
  * @param props - MgInput Interface Props
  */
 const manageClasses = (props: MgInputProps): void => {
-  props.classList.add('mg-input');
+  props.classCollection.add('mg-input');
 
-  if (props.labelOnTop) props.classList.add('mg-input--label-on-top');
+  if (props.labelOnTop) props.classCollection.add('mg-input--label-on-top');
+  else props.classCollection.delete('mg-input--label-on-top');
 
-  if (props.readonly) props.classList.add('mg-input--readonly');
+  if (props.readonly) props.classCollection.add('mg-input--readonly');
+  else props.classCollection.delete('mg-input--readonly');
 
-  if (props.mgWidth !== undefined) props.classList.add(`mg-input--width-${props.mgWidth}`);
+  widths.forEach(width => {
+    props.classCollection.delete(`mg-input--width-${width}`);
+  });
+  if (props.mgWidth !== undefined) props.classCollection.add(`mg-input--width-${props.mgWidth}`);
 };
 
 /**
@@ -56,7 +61,7 @@ const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : '
 interface MgInputProps {
   // Global
   identifier: string;
-  classList: ClassList;
+  classCollection: ClassList;
   // Label
   label: string;
   labelOnTop: boolean;
@@ -172,7 +177,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   );
 
   return (
-    <TagName class={props.classList.join()}>
+    <TagName class={props.classCollection.join()}>
       {props.labelOnTop ? (
         <div class="mg-input__title">
           {getInputTitle()}

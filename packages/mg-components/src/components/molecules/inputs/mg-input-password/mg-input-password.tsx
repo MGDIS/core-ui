@@ -129,7 +129,7 @@ export class MgInputPassword {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--password']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--password']);
 
   /**
    * Error message to display
@@ -223,7 +223,7 @@ export class MgInputPassword {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

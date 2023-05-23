@@ -53,7 +53,7 @@ export class MgInputNumeric {
       // Regex
       const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+[.,]?\d*$/;
       // Filter input
-      if (newValue === '' || (newValue.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))) {
+      if (['', '-'].includes(newValue) || (newValue.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))) {
         this.storedValue = newValue;
       } else if (this.storedValue !== undefined) {
         newValue = this.storedValue;
@@ -209,7 +209,7 @@ export class MgInputNumeric {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--numeric']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--numeric']);
 
   /**
    * Error message to display
@@ -273,6 +273,7 @@ export class MgInputNumeric {
    * Handle blur event
    */
   private handleBlur = (): void => {
+    if (this.value === '-') this.value = '';
     // Display Error
     this.displayError();
     this.hasFocus = false;
@@ -345,7 +346,7 @@ export class MgInputNumeric {
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
     if (slotAppendInput !== null) {
-      this.classList.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-input--is-input-group-append' : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-input--is-input-group-append' : 'mg-input--is-append-input-slot-content');
     }
   };
 
@@ -385,7 +386,7 @@ export class MgInputNumeric {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
