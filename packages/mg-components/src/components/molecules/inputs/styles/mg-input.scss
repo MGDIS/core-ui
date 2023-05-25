@@ -65,15 +65,6 @@
     display: inline-block;
     margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
     min-height: var(--font-size);
-
-    & + mg-popover {
-      display: inline-block;
-    }
-  }
-  &--gap-1.mg-input__input-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: calc(var(--mg-inputs-spacer) * 1.2);
   }
 
   mg-tooltip {
@@ -112,7 +103,8 @@
   /* Set custom opacity on disabled input */
   .mg-input__box:disabled,
   &-group--disabled label,
-  .mg-input.mg-input--toggle-disabled & .mg-input__button-toggle {
+  .mg-input.mg-input--toggle-disabled & .mg-input__button-toggle,
+  .mg-input.mg-input--checkbox-multi-disabled & strong {
     opacity: var(--mg-disabled-opacity);
   }
 }

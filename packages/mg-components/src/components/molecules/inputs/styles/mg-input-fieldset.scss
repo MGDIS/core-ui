@@ -24,10 +24,8 @@ fieldset.mg-input {
   }
 }
 
-.mg-input__input-container {
-  mg-tooltip {
-    margin-left: 3rem;
-  }
+.mg-input__input-container mg-tooltip {
+  margin-left: 3rem;
 }
 
 /* input group container */
@@ -42,9 +40,6 @@ fieldset.mg-input {
   margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
   &--vertical {
     flex-direction: column;
-  }
-  &--spacer-0 {
-    margin: 0;
   }
 }
 

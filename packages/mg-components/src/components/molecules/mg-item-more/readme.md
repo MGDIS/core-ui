@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property    | Attribute | Description                       | Type                                     | Default                         |
@@ -9,6 +10,7 @@
 | `icon`      | --        | Define icon                       | `{ icon: string; }`                      | `{ icon: 'ellipsis-vertical' }` |
 | `size`      | `size`    | Define component child menu size. | `"large" \| "medium" \| "regular"`       | `undefined`                     |
 | `slotlabel` | --        | Define slot label element         | `{ label?: string; display?: boolean; }` | `{ display: false }`            |
+
 
 ## Dependencies
 
@@ -19,7 +21,6 @@
 - [mg-menu](../menu/mg-menu)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-item-more --> mg-menu-item
@@ -35,6 +36,6 @@ graph TD;
   style mg-item-more fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

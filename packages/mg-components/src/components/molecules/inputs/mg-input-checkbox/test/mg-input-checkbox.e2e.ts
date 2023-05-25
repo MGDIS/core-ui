@@ -160,6 +160,7 @@ describe('mg-input-checkbox', () => {
         await page.setViewport({ width: 300, height: 200 });
         await page.keyboard.down('Tab');
         await page.keyboard.down('Enter');
+        await page.waitForChanges();
       }
 
       await page.keyboard.down('Tab');
@@ -167,6 +168,10 @@ describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
+
+      if (type === 'multi') {
+        await page.keyboard.down('Escape');
+      }
 
       await page.waitForChanges();
 

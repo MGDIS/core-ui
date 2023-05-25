@@ -1,13 +1,16 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { cloneDeep } from '../../../../../utils/unit.test.utils';
+import { cloneDeep, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
+import { MgPopover } from '../../../mg-popover/mg-popover';
+
+mockWindowFrames();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox],
+    components: [MgInputCheckbox, MgPopover],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 
@@ -16,7 +19,13 @@ const getPage = args => {
 };
 
 describe('mg-input-checkbox', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => {
+    jest.useFakeTimers();
+    setupResizeObserverMock({
+      observe: () => null,
+      disconnect: () => null,
+    });
+  });
 
   afterEach(() => jest.runOnlyPendingTimers());
 
@@ -269,5 +278,60 @@ describe('mg-input-checkbox', () => {
       expect(page.rootInstance.hasDisplayedError).toEqual(false);
       expect(page.rootInstance.errorMessage).toBeUndefined();
     });
+  });
+
+  describe('navigation', () => {
+    test('should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'checkbox', tooltip: 'Tooltip message' });
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+
+      allInputs.forEach(input => input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' })));
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      allInputs[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test.each(['next', 'prev'])('should manage keyboard "tab" navigation on "multi" type', async direction => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', tooltip: 'Tooltip message' });
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const button = element.shadowRoot.querySelector('mg-button');
+      const popover = element.shadowRoot.querySelector('mg-popover');
+
+      button.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      expect(popover.display).toEqual(true);
+
+      if (direction === 'next') {
+        for await (const input of allInputs) {
+          input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
+        }
+      } else if (direction === 'prev') {
+        allInputs[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', shiftKey: true }));
+      }
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
+
+      expect(popover.display).toEqual(false);
+    });
+  });
+
+  test.each([' ', 'batman'])('Should not render with invalid type property: %s', async type => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', type, label: 'label', value: cloneDeep(items) });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+    }
   });
 });
