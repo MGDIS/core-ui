@@ -238,7 +238,7 @@ export class MgInputCheckbox {
     // track "Tab" key event when popover display (is "multi" type selected)
     if (event.key === 'Tab' && this.popover?.display) {
       const enableInputs = this.checkboxItems.filter(input => !input.disabled).map(({ id }) => id);
-      const originInputIndex = enableInputs.findIndex(id => id === event.target.getAttribute('id'));
+      const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 
       // close popover when tab trigger focus outside its DOM
       if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey)) this.popover.display = false;
