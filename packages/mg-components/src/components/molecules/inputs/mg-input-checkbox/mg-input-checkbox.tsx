@@ -276,10 +276,9 @@ export class MgInputCheckbox {
    * @returns translated message
    */
   private renderButtonText = (selectedValuesNb: number): string => {
-    let messageKey;
+    let messageKey = 'editButton';
     if (this.disabled) messageKey = 'showButton';
     else if (selectedValuesNb < 1) messageKey = 'selectButton';
-    else messageKey = 'editButton';
 
     return this.messages.input.checkbox[messageKey];
   };
