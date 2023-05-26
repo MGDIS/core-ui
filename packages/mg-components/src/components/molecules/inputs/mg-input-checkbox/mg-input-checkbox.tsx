@@ -76,7 +76,7 @@ export class MgInputCheckbox {
     if (!checkboxTypes.includes(newValue)) {
       throw new Error('<mg-input-checkbox> prop "type" must be a CheckboxType.');
     } else {
-      const className = this.createClass('multi');
+      const className = `${this.baseClassName}-multi`;
       if (newValue === 'multi') this.classCollection.add(className);
       else this.classCollection.delete(className);
     }
@@ -130,11 +130,7 @@ export class MgInputCheckbox {
   @Watch('required')
   @Watch('readonly')
   @Watch('disabled')
-  handleValidityChange(
-    newValue: MgInputCheckbox['disabled'] | MgInputCheckbox['readonly'] | MgInputCheckbox['required'],
-    _oldValue: MgInputCheckbox['disabled'] | MgInputCheckbox['readonly'] | MgInputCheckbox['required'],
-    prop: string,
-  ): void {
+  handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
     this.inputs.forEach(input => {
       input[prop] = newValue;
     });
@@ -147,7 +143,7 @@ export class MgInputCheckbox {
 
   @Watch('disabled')
   validateDisabled(newValue: MgInputCheckbox['disabled']): void {
-    const className = this.createClass('multi-disabled');
+    const className = `${this.baseClassName}-multi-disabled`;
     if (newValue && this.type === 'multi') this.classCollection.add(className);
     else this.classCollection.delete(className);
   }
@@ -206,13 +202,6 @@ export class MgInputCheckbox {
     this.setErrorMessage();
     this.hasDisplayedError = this.invalid;
   }
-
-  /**
-   * create variant class method
-   * @param variant - variant to create
-   * @returns generated variant
-   */
-  private createClass = (variant: string): string => `${this.baseClassName}-${variant}`;
 
   /**
    * Handle input event
@@ -337,7 +326,6 @@ export class MgInputCheckbox {
         <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>
         <mg-popover
           arrowHide={true}
-          placement="bottom"
           identifier={this.getMgPopoverIdentifier()}
           ref={el => {
             if (Boolean(el)) this.popover = el;
@@ -347,7 +335,7 @@ export class MgInputCheckbox {
             <mg-icon icon="list"></mg-icon>
             {this.renderButtonText(selectedValuesNb)}
           </mg-button>
-          <div slot="content">{this.renderCheckbox()}</div>
+          <div slot="content">{this.renderCheckboxes()}</div>
         </mg-popover>
       </div>
     );
@@ -420,7 +408,7 @@ export class MgInputCheckbox {
         errorMessage={!this.readonly ? this.errorMessage : undefined}
         isFieldset={true}
       >
-        {this.type === 'checkbox' || this.readonly ? this.renderCheckbox() : this.renderCheckboxMulti()}
+        {this.type === 'checkbox' || this.readonly ? this.renderCheckboxes() : this.renderCheckboxMulti()}
       </MgInput>
     );
   }
