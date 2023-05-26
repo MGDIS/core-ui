@@ -30,7 +30,7 @@
     "test": "TZ=UTC stencil test --spec --e2e",
     "test:unit": "TZ=UTC stencil test --spec --collectCoverage",
     "test:e2e": "stencil test --e2e",
-    "test:e2e:playwright": "pnpm dlx playwright test",
+    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 6006",
@@ -42,7 +42,7 @@
     "outputName": "junit.xml"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.6",
+    "@popperjs/core": "^2.11.7",
     "@stencil/core": "^2.22.1",
     "normalize.css": "^8.0.1"
   },

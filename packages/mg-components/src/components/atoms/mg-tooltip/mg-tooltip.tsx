@@ -45,7 +45,6 @@ export class MgTooltip {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
-    this.popper.update();
   }
 
   /**
@@ -82,8 +81,6 @@ export class MgTooltip {
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
-    // Update its position
-    this.popper.update();
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
@@ -125,7 +122,10 @@ export class MgTooltip {
    * @param event - keyboard event
    */
   private pressEscape = (event: KeyboardEvent): void => {
-    if (event.code === 'Escape') this.setDisplay(false);
+    if (event.code === 'Escape') {
+      this.setDisplay(false);
+      this.resetGuard();
+    }
   };
 
   /**
@@ -291,6 +291,13 @@ export class MgTooltip {
 
     this.handleDisplay(this.display);
     this.validateMessage(this.message);
+  }
+
+  /**
+   * update popper position after props change on component did update hook to benefit from render ended
+   */
+  componentDidUpdate(): void {
+    this.popper.update();
   }
 
   /**
