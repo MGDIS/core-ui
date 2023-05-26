@@ -101,7 +101,7 @@ describe('mg-tooltip', () => {
       expect(tooltip).toHaveAttribute('data-show');
 
       if (eventOut !== 'clickDocument') linkedTooltipElement.dispatchEvent(new CustomEvent(eventOut, { bubbles: true }));
-      else document.dispatchEvent(new Event('click', { bubbles: true }));
+      else page.doc.dispatchEvent(new Event('click', { bubbles: true }));
 
       if (eventOut !== 'blur') jest.runOnlyPendingTimers();
 
@@ -129,6 +129,38 @@ describe('mg-tooltip', () => {
     });
   });
 
+  test.each([
+    <span>span</span>,
+    <button aria-describedby="blu">button</button>,
+    <mg-icon icon="check-circle"></mg-icon>,
+    <mg-button identifier="identifier-mg-button">mg-button</mg-button>,
+  ])('should manage cross mouse and keyboard navigation', async element => {
+    const args = { identifier: 'identifier', message: 'blu' };
+    const page = await getPage(args, element);
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
+    const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+
+    linkedTooltipElement.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+    expect(tooltip).toHaveAttribute('data-show');
+
+    page.doc.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+    await page.waitForChanges();
+    expect(tooltip).not.toHaveAttribute('data-show');
+
+    linkedTooltipElement.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
+    await page.waitForChanges();
+    expect(tooltip).toHaveAttribute('data-show');
+
+    linkedTooltipElement.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
+    // flush windows addEventListener timeout
+    jest.runOnlyPendingTimers();
+
+    await page.waitForChanges();
+    expect(tooltip).not.toHaveAttribute('data-show');
+  });
+
   test.each([true, false])('Should toogle tooltip from prop display, case display %s', async display => {
     const args = { identifier: 'identifier', message: 'batman', display };
     const page = await getPage(args, <span>batman</span>);
@@ -154,7 +186,7 @@ describe('mg-tooltip', () => {
   });
 
   describe('hide method', () => {
-    test.each(['Tab', 'Space', 'Enter', 'i'])('should prevent keyboardEvent, case not "Escape" code', async key => {
+    test.each(['Tab', 'Space', 'Enter', 'i'])('should prevent keyboardEvent, case not "Escape" code', async code => {
       const args = { identifier: 'identifier', message: 'batman' };
       const page = await getPage(args, <span id="batman">batman</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
@@ -166,7 +198,7 @@ describe('mg-tooltip', () => {
 
       expect(tooltip).toHaveAttribute('data-show');
 
-      document.dispatchEvent(new KeyboardEvent('keydown', { code: key }));
+      page.doc.dispatchEvent(new KeyboardEvent('keydown', { code }));
       await page.waitForChanges();
 
       expect(tooltip).toHaveAttribute('data-show');
@@ -184,7 +216,7 @@ describe('mg-tooltip', () => {
 
       expect(tooltip).toHaveAttribute('data-show');
 
-      document.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+      page.doc.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
       await page.waitForChanges();
 
       expect(tooltip).not.toHaveAttribute('data-show');

@@ -114,8 +114,6 @@ export class MgPopover {
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
-    // Update its position
-    this.popper.update();
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
@@ -152,6 +150,13 @@ export class MgPopover {
   /*************
    * Lifecycle *
    *************/
+
+  /**
+   * update popper position after props change on component did update hook to benefit from render ended
+   */
+  componentDidUpdate(): void {
+    this.popper.update();
+  }
 
   /**
    * Check if component props are well configured on init
