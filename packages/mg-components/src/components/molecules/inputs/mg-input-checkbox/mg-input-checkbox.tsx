@@ -357,7 +357,7 @@ export class MgInputCheckbox {
    * Render checkbox element
    * @returns HTML Element
    */
-  private renderCheckbox(): HTMLElement {
+  private renderCheckboxes(): HTMLElement {
     return (
       <ul
         class={{
