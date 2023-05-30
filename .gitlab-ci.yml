@@ -143,6 +143,18 @@ sonar:
   needs:
     - test:unit
 
+auto-review:
+  stage: tests
+  extends:
+    - .rules:mr
+  script:
+    # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
+    # - mg-danger
+    - npx git+ssh://gitlab@gitlab.mgdis.fr:build/gitlab/mg-danger.git#feat/add-scripts
+  allow_failure: true
+  needs:
+    - sonar
+
 ###########
 # release #
 ###########
