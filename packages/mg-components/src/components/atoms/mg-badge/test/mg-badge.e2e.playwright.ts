@@ -36,7 +36,7 @@ test.describe('mg-badge', () => {
       .join('');
 
     // Set page content
-    await setPageContent(page, html, { width: 250, height: 720 });
+    await setPageContent(page, html);
 
     // Screenshot
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

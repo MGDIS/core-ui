@@ -24,7 +24,7 @@ export const setPageContent = async (page: Page, html: string, viewportSize?: Vi
   // Set page content
   // Added the `e2e-screenshot` class to be able to do the screenshot on this specific one with
   // `await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();`
-  await page.setContent(`<style>${css}</style><div class="e2e-screenshot">${html}</div>`);
+  await page.setContent(`<style>${css} .e2e-screenshot { display: inline-block; }</style><span class="e2e-screenshot">${html}</span>`);
 
   // Set page size
   if (viewportSize !== undefined) await page.setViewportSize(viewportSize);

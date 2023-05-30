@@ -1,4 +1,4 @@
-import { setPageContent, test, expect, describe, describeEach, testEach, updateScreenshotClass, PageType } from '../../../../../utils/playwright.e2e.test.utils';
+import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType } from '../../../../../utils/playwright.e2e.test.utils';
 import { createID } from '../../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
@@ -14,11 +14,11 @@ const baseArgs = {
 };
 
 const createHTML = (args, identifier = createID()) =>
-  `<mg-input-checkbox ${renderAttributes({ ...args, identifier })}></mg-input-checkbox><script>${renderProperties(args, `[identifier="${identifier}"]`)} </script>`;
+  `<mg-input-checkbox ${renderAttributes({ ...args, identifier })}></mg-input-checkbox><script>${renderProperties(args, `[identifier="${identifier}"]`)}</script>`;
 
 describe('mg-input-checkbox', () => {
-  test('Should render with template', async ({ page }) => {
-    const html = [
+  describeEach(checkboxTypes)('type %s', type => {
+    testEach([
       { ...baseArgs, readonly: true },
       { ...baseArgs, readonly: true, labelOnTop: true },
       { ...baseArgs, disabled: true },
@@ -28,35 +28,23 @@ describe('mg-input-checkbox', () => {
       { ...baseArgs, helpText: 'HelpText Message', required: true },
       { ...baseArgs, helpText: 'HelpText Message', required: true, readonly: true },
       { ...baseArgs, helpText: 'HelpText Message', required: true, disabled: true },
-    ]
-      .map(
-        args =>
-          `<div class="mg-grid">${checkboxTypes
-            .map(
-              type =>
-                `<div class="mg-grid__col mg-grid__col-6">${createHTML({
-                  ...args,
-                  type,
-                  value: [
-                    { title: 'Batman', value: true },
-                    { title: 'Robin', value: false },
-                    { title: 'Joker', value: null },
-                    { title: 'Bane', value: true, disabled: true },
-                  ],
-                })}</div>`,
-            )
-            .join('')}</div>`,
-      )
-      .join('');
+    ])('Should render with template %s', async (page: PageType, args: object) => {
+      await setPageContent(
+        page,
+        createHTML({
+          ...args,
+          type,
+          value: [
+            { title: 'Batman', value: true },
+            { title: 'Robin', value: false },
+            { title: 'Joker', value: null },
+            { title: 'Bane', value: true, disabled: true },
+          ],
+        }),
+      );
 
-    const header = `<header class="mg-grid">${checkboxTypes.map(type => `<h2 class="mg-grid__col mg-grid__col-6">${type}</h2>`).join('')}</header>`;
-
-    await setPageContent(page, header + html);
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
-
-  describeEach(checkboxTypes)('type %s', type => {
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
     testEach([true, false])(`render with tooltip, case label-on-top %s`, async (page: PageType, labelOnTop: boolean) => {
       await setPageContent(
         page,
@@ -76,7 +64,7 @@ describe('mg-input-checkbox', () => {
 
       // when label on top tooltip is on first tab (next to label)
       if (!labelOnTop) {
-        await updateScreenshotClass(page, { height: '65px' });
+        await updateScreenshotClass(page, { height: '65px', width: '500px' });
 
         // when type is 'multi' the tooltip is on second tab
         await page.keyboard.down('Tab');
@@ -155,6 +143,8 @@ describe('mg-input-checkbox', () => {
       if (type === 'multi') {
         await page.keyboard.down('Escape');
       }
+
+      await updateScreenshotClass(page, { width: 'unset', height: 'unset' });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
