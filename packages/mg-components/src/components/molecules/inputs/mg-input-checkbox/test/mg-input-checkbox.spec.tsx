@@ -37,7 +37,7 @@ describe('mg-input-checkbox', () => {
   ];
 
   describe.each(checkboxTypes)('render by type %s', type => {
-    test.each([
+    let testValues: unknown[] = [
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, readonly: true },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, labelOnTop: true },
@@ -50,7 +50,21 @@ describe('mg-input-checkbox', () => {
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, disabled: true },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, helpText: 'Hello joker' },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, tooltip: 'Batman is a DC Comics license' },
-    ])('Should render with args %s:', async args => {
+    ];
+    if (type === 'multi') {
+      testValues = [
+        ...testValues,
+        ...[true, false].flatMap(displayValues =>
+          [
+            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', readonly: true },
+            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', disabled: true },
+            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', helpText: 'Hello joker' },
+            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', tooltip: 'Batman is a DC Comics license' },
+          ].map(args => ({ ...args, displayValues })),
+        ),
+      ];
+    }
+    test.each(testValues)('Should render with args %s:', async args => {
       const { root } = await getPage(args);
       expect(root).toMatchSnapshot();
     });
@@ -332,6 +346,15 @@ describe('mg-input-checkbox', () => {
       await getPage({ identifier: 'identifier', type, label: 'label', value: cloneDeep(items) });
     } catch (err) {
       expect(err.message).toMatch('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+    }
+  });
+
+  test.each([undefined, 'checkbox'])('Should not render with invalid displayValues and type configuration', async type => {
+    expect.assertions(1);
+    try {
+      await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), displayValues: true });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input-checkbox> prop "displayValues" must be use with prop type "multi".');
     }
   });
 });

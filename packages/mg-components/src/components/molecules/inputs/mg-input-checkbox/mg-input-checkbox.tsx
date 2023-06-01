@@ -124,6 +124,14 @@ export class MgInputCheckbox {
   @Prop() readonly = false;
 
   /**
+   * Display values in "multi" type
+   */
+  @Prop() displayValues: boolean;
+  @Watch('displayValues')
+  validateDisplayValues(newValue: MgInputCheckbox['displayValues']): void {
+    if (newValue && this.type !== 'multi') throw new Error('<mg-input-checkbox> prop "displayValues" must be use with prop type "multi".');
+  }
+  /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
@@ -307,6 +315,7 @@ export class MgInputCheckbox {
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
     this.validateType(this.type);
+    this.validateDisplayValues(this.displayValues);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -316,14 +325,37 @@ export class MgInputCheckbox {
   }
 
   /**
+   * Render checkbox multi display values
+   * @param selectedValuesNb - selected values length
+   * @returns display selected values
+   */
+  private renderCheckboxMultiDisplayValues(selectedValuesNb: number): HTMLElement {
+    if (this.displayValues) {
+      return (
+        selectedValuesNb > 0 && (
+          <ul role="list" class="mg-input__input-checkbox-multi-values-container">
+            {this.checkboxItems
+              .filter(({ value }) => value)
+              .map(({ title }) => (
+                <li class="mg-input__input-checkbox-multi-value">{title}</li>
+              ))}
+          </ul>
+        )
+      );
+    } else {
+      return <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>;
+    }
+  }
+
+  /**
    * render checkbox multi element
    * @returns html element
    */
   private renderCheckboxMulti(): HTMLElement[] {
     const selectedValuesNb = this.checkboxItems.filter(({ value }) => value).length;
     return (
-      <div class="mg-input__input-container mg-input__input-checkbox-multi">
-        <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>
+      <div class={{ 'mg-input__input-container': true, 'mg-input__input-checkbox-multi': true, 'mg-input__input-checkbox-multi--with-values': this.displayValues }}>
+        {this.renderCheckboxMultiDisplayValues(selectedValuesNb)}
         <mg-popover
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
