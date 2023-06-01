@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { setPageContent } from '../../../../utils/playwright.e2e.test.utils';
 import { BadgeVariantType, variants } from '../mg-badge.conf';
-import { darkBackground } from '../../../../utils/e2e.test.utils';
+import { darkBackground, renderAttributes } from '../../../../utils/e2e.test.utils';
 
 const addCustomTextColor = (variant: BadgeVariantType): string =>
   `${
@@ -24,10 +24,7 @@ test.describe('mg-badge', () => {
           .map(outline =>
             [1, 99, '*', '!', '99+']
               .map(value =>
-                darkBackground(
-                  variant === 'secondary',
-                  `<mg-badge value="${value}" label="${variant}" variant="${variant}" outline="${outline}"></mg-badge>${addCustomTextColor(variant)}`,
-                ),
+                darkBackground(variant === 'secondary', `<mg-badge ${renderAttributes({ value, label: variant, variant, outline })}></mg-badge>${addCustomTextColor(variant)}`),
               )
               .join(''),
           )
@@ -39,7 +36,7 @@ test.describe('mg-badge', () => {
       .join('');
 
     // Set page content
-    await setPageContent(page, html, { width: 250, height: 720 });
+    await setPageContent(page, html);
 
     // Screenshot
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

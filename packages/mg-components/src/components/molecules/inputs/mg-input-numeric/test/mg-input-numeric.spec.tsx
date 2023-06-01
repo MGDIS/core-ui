@@ -410,7 +410,7 @@ describe('mg-input-numeric', () => {
 
     /**
      * update input value
-     * @param value to update input with
+     * @param value - to update input with
      */
     const updateInputValue = async (value: string): Promise<void> => {
       input.value = value;

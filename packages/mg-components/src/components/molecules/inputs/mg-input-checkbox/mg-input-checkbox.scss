@@ -1,3 +1,23 @@
 @use '../styles/mg-input.scss';
 @use '../styles/mg-input-fieldset.scss';
 @use '../../../../styles/a11y.scss';
+
+/**
+* checkbox multi
+*/
+.mg-input.mg-input--checkbox-multi {
+  .mg-input__input-checkbox-multi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--mg-inputs-spacer) * 1.2);
+  }
+  .mg-input__input-checkbox-multi-inputs {
+    margin: 0;
+  }
+  &:not(.mg-input--label-on-top) mg-tooltip {
+    margin-left: var(--mg-inputs-spacer);
+  }
+  mg-popover {
+    --mg-popover-min-width: 7rem;
+  }
+}

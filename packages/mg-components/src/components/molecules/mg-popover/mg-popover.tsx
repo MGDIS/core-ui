@@ -227,7 +227,10 @@ export class MgPopover {
 
     // Add events to hide popover
     this.element.addEventListener('keydown', e => {
-      if (!this.disabled && e.code === 'Escape') this.display = false;
+      if (!this.disabled && e.code === 'Escape') {
+        this.display = false;
+        interactiveElement.focus();
+      }
     });
 
     this.handleDisplay(this.display);
