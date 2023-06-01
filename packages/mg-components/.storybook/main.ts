@@ -84,6 +84,7 @@ module.exports = {
         'v5.9.0': 'https://626149b307606d003ada26b4-dedncomorf.chromatic.com/',
         'v5.9.1': 'https://626149b307606d003ada26b4-jausjqzwui.chromatic.com/',
         'v5.10.0': 'https://626149b307606d003ada26b4-eidtudwvjn.chromatic.com/',
+        'v5.10.1': 'https://626149b307606d003ada26b4-rpkktdqmad.chromatic.com/',
       },
     },
   },
