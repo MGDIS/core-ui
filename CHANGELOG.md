@@ -1,5 +1,11 @@
 # Changelog
 
+## Release (2023-06-02-13-25_Splendid-Sunglow-Squirrel)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-06-01-10-09_Clumsy-Cotton-Candy-Caribou)
 
 ### Packages released
