@@ -42,6 +42,7 @@
     "outputName": "junit.xml"
   },
   "dependencies": {
+    "@mgdis/img": "workspace:*",
     "@popperjs/core": "^2.11.7",
     "@stencil/core": "^2.22.1",
     "normalize.css": "^8.0.1"
@@ -49,7 +50,6 @@
   "devDependencies": {
     "@babel/core": "^7.20.12",
     "@babel/plugin-transform-react-jsx": "^7.20.13",
-    "@mgdis/img": "link:../img",
     "@mgdis/linting-stencil": "workspace:*",
     "@playwright/test": "^1.34.3",
     "@pxtrn/storybook-addon-docs-stencil": "^6.4.1",

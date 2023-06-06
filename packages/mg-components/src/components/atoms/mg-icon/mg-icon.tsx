@@ -1,6 +1,8 @@
 import { Component, h, Prop, Watch, State } from '@stencil/core';
-import { icons, sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
+import { sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
 import { ClassList } from '../../../utils/components.utils';
+import iconList from '@mgdis/img/dist/icons/index.json';
+import sprite from '@mgdis/img/dist/icons/sprite.svg';
 
 @Component({
   tag: 'mg-icon',
@@ -14,7 +16,7 @@ export class MgIcon {
   @Prop() icon!: string;
   @Watch('icon')
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
-    if (!Object.keys(icons).includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}`);
+    if (!iconList.includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}`);
     else {
       if (oldValue !== undefined) this.classCollection.delete(`mg-icon--${oldValue}`);
       this.classCollection.add(`mg-icon--${newValue}`);
@@ -90,12 +92,6 @@ export class MgIcon {
   @State() classCollection: ClassList = new ClassList(['mg-icon']);
 
   /**
-   * getIcon
-   * @returns icon html
-   */
-  private getIcon = (): HTMLElement => icons[this.icon]();
-
-  /**
    * Method to set default varianStyle props
    * needeed has stencil doesn't know that props is mutated when updated in prop watcher
    */
@@ -121,7 +117,7 @@ export class MgIcon {
   render(): HTMLElement {
     return (
       <svg class={this.classCollection.join()} aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-        {this.getIcon()}
+        <use xlinkHref={`${sprite}#${this.icon}`}></use>
       </svg>
     );
   }
