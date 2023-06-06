@@ -337,7 +337,9 @@ export class MgInputCheckbox {
             {this.checkboxItems
               .filter(({ value }) => value)
               .map(({ title }) => (
-                <li class="mg-input__input-checkbox-multi-value">{title}</li>
+                <li class="mg-input__input-checkbox-multi-value" key={title}>
+                  {title}
+                </li>
               ))}
           </ul>
         )
