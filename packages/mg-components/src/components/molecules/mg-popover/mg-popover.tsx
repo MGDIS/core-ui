@@ -14,7 +14,7 @@ export class MgPopover {
    ************/
 
   private popper: PopperInstance;
-  private popover: HTMLElement;
+  private mgPopover: HTMLElement;
   private closeButtonId = '';
   private windows: Window[];
   private resizeObserver: ResizeObserver;
@@ -108,7 +108,7 @@ export class MgPopover {
    */
   private show = (): void => {
     // Make the popover visible
-    this.popover.dataset.show = '';
+    this.mgPopover.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -128,7 +128,7 @@ export class MgPopover {
    */
   private hide = (): void => {
     // Hide the popover
-    this.popover.removeAttribute('data-show');
+    this.mgPopover.removeAttribute('data-show');
     // Disable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -186,7 +186,7 @@ export class MgPopover {
     }
 
     // Get popover content
-    this.popover = this.element.shadowRoot.getElementById(this.identifier);
+    this.mgPopover = this.element.shadowRoot.getElementById(this.identifier);
 
     //Get interactive element (first element without slot attribute)
     const interactiveElement = this.element.querySelector(':not([slot])') as HTMLElement;
@@ -195,7 +195,7 @@ export class MgPopover {
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
 
     // Create popperjs popover
-    this.popper = createPopper(interactiveElement, this.popover, {
+    this.popper = createPopper(interactiveElement, this.mgPopover, {
       placement: this.placement,
       strategy: 'fixed',
       modifiers: [

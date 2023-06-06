@@ -11,6 +11,73 @@ The style of the active checkbox is the browser's style.
 
 ![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)
 
+## Type "multi"
+
+### Anatomy
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-anatomy-default-less-10.png)
+
+- Button :
+  - variant : secondary
+  - icon : list
+- Checkbox
+- Popover
+
+### Displayed values
+
+#### Style
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-style.png)
+
+- Radius : 3px
+- Font : OpenSans, Regular, 13px
+- Color : [@color-dark-5](./?path=/docs/style-colors--page)
+
+#### Alignment
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-alignment-displayed-values.png)
+
+Text is centered vertically and horizontally in the container
+
+#### Spacing
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-spacing-values.png)
+
+#### Sizing
+
+- Min-width : 35px
+- Min-height : 35px
+
+#### Behavior
+
+##### Lack of space
+
+1. Without values
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)
+
+If the space is too narrow the text button will do a line break.
+
+1. With values
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)
+
+If the space is too narrow the button and values will do a line break.
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)
+
+The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
+
+### Values not displayed
+
+#### Spacing
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-style.png)
+
+#### Style
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
+
 ## CSS Variables
 
 If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
@@ -23,27 +90,26 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 
 <!-- Auto Generated Below -->
 
-
 ## Properties
 
-| Property                  | Attribute             | Description                                                                                 | Type                    | Default            |
-| ------------------------- | --------------------- | ------------------------------------------------------------------------------------------- | ----------------------- | ------------------ |
-| `disabled`                | `disabled`            | Define if input is disabled                                                                 | `boolean`               | `false`            |
-| `helpText`                | `help-text`           | Add a help text under the input, usually expected data format and example                   | `string`                | `undefined`        |
-| `identifier` _(required)_ | `identifier`          | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                 | `string`                | `undefined`        |
-| `inputVerticalList`       | `input-vertical-list` | Define if inputs are display verticaly                                                      | `boolean`               | `false`            |
-| `invalid`                 | `invalid`             | Define input invalid state                                                                  | `boolean`               | `undefined`        |
-| `label` _(required)_      | `label`               | Input label                                                                                 | `string`                | `undefined`        |
-| `labelHide`               | `label-hide`          | Define if label is visible                                                                  | `boolean`               | `false`            |
-| `labelOnTop`              | `label-on-top`        | Define if label is displayed on top                                                         | `boolean`               | `undefined`        |
-| `name`                    | `name`                | Input name If not set the value equals the identifier                                       | `string`                | `this.identifier`  |
-| `readonly`                | `readonly`            | Define if input is readonly                                                                 | `boolean`               | `false`            |
-| `required`                | `required`            | Define if input is required                                                                 | `boolean`               | `false`            |
-| `tooltip`                 | `tooltip`             | Add a tooltip message next to the input                                                     | `string`                | `undefined`        |
-| `type`                    | `type`                | Define checkbox type                                                                        | `"checkbox" \| "multi"` | `checkboxTypes[0]` |
-| `valid`                   | `valid`               | Define input valid state                                                                    | `boolean`               | `undefined`        |
-| `value` _(required)_      | --                    | Component value If item.value is `null`, checkbox will be indeterminate by default Required | `CheckboxValue[]`       | `undefined`        |
-
+| Property                  | Attribute                 | Description                                                                                 | Type                    | Default            |
+| ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------- | ----------------------- | ------------------ |
+| `disabled`                | `disabled`                | Define if input is disabled                                                                 | `boolean`               | `false`            |
+| `displaySelectedValues`   | `display-selected-values` | Display selected values list in "multi" type                                                | `boolean`               | `undefined`        |
+| `helpText`                | `help-text`               | Add a help text under the input, usually expected data format and example                   | `string`                | `undefined`        |
+| `identifier` _(required)_ | `identifier`              | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                 | `string`                | `undefined`        |
+| `inputVerticalList`       | `input-vertical-list`     | Define if inputs are display verticaly                                                      | `boolean`               | `false`            |
+| `invalid`                 | `invalid`                 | Define input invalid state                                                                  | `boolean`               | `undefined`        |
+| `label` _(required)_      | `label`                   | Input label                                                                                 | `string`                | `undefined`        |
+| `labelHide`               | `label-hide`              | Define if label is visible                                                                  | `boolean`               | `false`            |
+| `labelOnTop`              | `label-on-top`            | Define if label is displayed on top                                                         | `boolean`               | `undefined`        |
+| `name`                    | `name`                    | Input name If not set the value equals the identifier                                       | `string`                | `this.identifier`  |
+| `readonly`                | `readonly`                | Define if input is readonly                                                                 | `boolean`               | `false`            |
+| `required`                | `required`                | Define if input is required                                                                 | `boolean`               | `false`            |
+| `tooltip`                 | `tooltip`                 | Add a tooltip message next to the input                                                     | `string`                | `undefined`        |
+| `type`                    | `type`                    | Define checkbox type                                                                        | `"checkbox" \| "multi"` | `checkboxTypes[0]` |
+| `valid`                   | `valid`                   | Define input valid state                                                                    | `boolean`               | `undefined`        |
+| `value` _(required)_      | --                        | Component value If item.value is `null`, checkbox will be indeterminate by default Required | `CheckboxValue[]`       | `undefined`        |
 
 ## Events
 
@@ -51,7 +117,6 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | -------------- | ----------------------------------- | ------------------------------ |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`         |
 | `value-change` | Emitted event when value change     | `CustomEvent<CheckboxValue[]>` |
-
 
 ## Methods
 
@@ -62,9 +127,6 @@ Public method to display errors
 #### Returns
 
 Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 
@@ -77,6 +139,7 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-input-checkbox --> mg-popover
@@ -91,6 +154,6 @@ graph TD;
   style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_

@@ -1,5 +1,21 @@
 # @mgdis/mg-components
 
+## 5.11.1
+
+### Patch Changes
+
+- d871fe9: [#328](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/328) mg-popover: popover not display on chrome 114
+
+## 5.11.0
+
+### Minor Changes
+
+- 1d7137d: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) add "multi" type behavior
+
+### Patch Changes
+
+- 4c3ff1a: [#322](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/322) mg-tooltip : click on the tooltip button, leave the hover zone, press ESCAPE, the tooltip is no longer displayed on hover
+
 ## 5.10.1
 
 ### Patch Changes

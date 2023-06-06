@@ -26,7 +26,7 @@ export class MgInputCheckbox {
 
   // HTML selector
   private inputs: HTMLInputElement[] = [];
-  private popover: HTMLMgPopoverElement;
+  private mgPopover: HTMLMgPopoverElement;
 
   // Locales
   private messages;
@@ -123,6 +123,14 @@ export class MgInputCheckbox {
    */
   @Prop() readonly = false;
 
+  /**
+   * Display selected values list in "multi" type
+   */
+  @Prop() displaySelectedValues: boolean;
+  @Watch('displaySelectedValues')
+  validateDisplaySelectedValues(newValue: MgInputCheckbox['displaySelectedValues']): void {
+    if (newValue !== undefined && this.type !== 'multi') throw new Error('<mg-input-checkbox> prop "displaySelectedValues" can only be used with prop type "multi".');
+  }
   /**
    * Define if input is disabled
    */
@@ -225,12 +233,12 @@ export class MgInputCheckbox {
    */
   private handleKeydown = (event: KeyboardEvent & { target: HTMLElement }): void => {
     // track "Tab" key event when popover display (is "multi" type selected)
-    if (event.key === 'Tab' && this.popover?.display) {
+    if (event.key === 'Tab' && this.mgPopover?.display) {
       const enableInputs = this.checkboxItems.filter(input => !input.disabled).map(({ id }) => id);
       const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 
       // close popover when tab trigger focus outside its DOM
-      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey)) this.popover.display = false;
+      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey)) this.mgPopover.display = false;
     }
   };
 
@@ -307,6 +315,7 @@ export class MgInputCheckbox {
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
     this.validateType(this.type);
+    this.validateDisplaySelectedValues(this.displaySelectedValues);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -316,19 +325,44 @@ export class MgInputCheckbox {
   }
 
   /**
+   * Render checkbox multi display values
+   * @param selectedValuesNb - selected values length
+   * @returns display selected values
+   */
+  private renderCheckboxMultiDisplaySelectedValues(selectedValuesNb: number): HTMLElement {
+    if (this.displaySelectedValues) {
+      return (
+        selectedValuesNb > 0 && (
+          <ul role="list" class="mg-input__input-checkbox-multi-values-container">
+            {this.checkboxItems
+              .filter(({ value }) => value)
+              .map(({ title }) => (
+                <li class="mg-input__input-checkbox-multi-value" key={title}>
+                  {title}
+                </li>
+              ))}
+          </ul>
+        )
+      );
+    } else {
+      return <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>;
+    }
+  }
+
+  /**
    * render checkbox multi element
    * @returns html element
    */
   private renderCheckboxMulti(): HTMLElement[] {
     const selectedValuesNb = this.checkboxItems.filter(({ value }) => value).length;
     return (
-      <div class="mg-input__input-container mg-input__input-checkbox-multi">
-        <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>
+      <div class={{ 'mg-input__input-container': true, 'mg-input__input-checkbox-multi': true, 'mg-input__input-checkbox-multi--with-values': this.displaySelectedValues }}>
+        {this.renderCheckboxMultiDisplaySelectedValues(selectedValuesNb)}
         <mg-popover
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
           ref={el => {
-            if (Boolean(el)) this.popover = el;
+            if (Boolean(el)) this.mgPopover = el;
           }}
         >
           <mg-button variant="secondary">
