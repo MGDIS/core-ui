@@ -197,13 +197,13 @@ describe('mg-input-checkbox', () => {
       { disable: true, value: selectedValues },
       { disable: true, value: smallValues },
     ])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, args: object) => {
-      await setPageContent(page, createHTML({ ...baseArgs, ...args, type: 'multi', displayValues: true }));
+      await setPageContent(page, createHTML({ ...baseArgs, ...args, type: 'multi', displaySelectedValues: true }));
       await page.locator('mg-input-checkbox');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-    testEach([false, true])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, displayValues) => {
-      await setPageContent(page, createHTML({ ...baseArgs, type: 'multi', value: selectedValues, displayValues }));
+    testEach([false, true])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, displaySelectedValues) => {
+      await setPageContent(page, createHTML({ ...baseArgs, type: 'multi', value: selectedValues, displaySelectedValues }));
       const element = await page.locator('mg-input-checkbox');
 
       expect(element).toHaveClass('hydrated');

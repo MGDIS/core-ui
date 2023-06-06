@@ -54,13 +54,13 @@ describe('mg-input-checkbox', () => {
     if (type === 'multi') {
       testValues = [
         ...testValues,
-        ...[true, false].flatMap(displayValues =>
+        ...[true, false].flatMap(displaySelectedValues =>
           [
             { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', readonly: true },
             { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', disabled: true },
             { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', helpText: 'Hello joker' },
             { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', tooltip: 'Batman is a DC Comics license' },
-          ].map(args => ({ ...args, displayValues })),
+          ].map(args => ({ ...args, displaySelectedValues })),
         ),
       ];
     }
@@ -349,12 +349,12 @@ describe('mg-input-checkbox', () => {
     }
   });
 
-  test.each([undefined, 'checkbox'])('Should not render with invalid displayValues and type configuration', async type => {
+  test.each([undefined, 'checkbox'])('Should not render with invalid displaySelectedValues and type configuration', async type => {
     expect.assertions(1);
     try {
-      await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), displayValues: true });
+      await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), displaySelectedValues: true });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-checkbox> prop "displayValues" must be use with prop type "multi".');
+      expect(err.message).toMatch('<mg-input-checkbox> prop "displaySelectedValues" can only be used with prop type "multi".');
     }
   });
 });
