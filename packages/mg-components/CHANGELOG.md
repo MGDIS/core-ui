@@ -1,5 +1,11 @@
 # @mgdis/mg-components
 
+## 5.11.1
+
+### Patch Changes
+
+- d871fe9: [#328](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/328) mg-popover: popover not display on chrome 114
+
 ## 5.11.0
 
 ### Minor Changes
