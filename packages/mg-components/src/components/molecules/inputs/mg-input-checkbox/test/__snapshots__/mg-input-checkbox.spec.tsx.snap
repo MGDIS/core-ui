@@ -1459,6 +1459,154 @@ exports[`mg-input-checkbox render by type multi Should render with args {
   identifier: 'identifier',
   value: [Array],
   type: 'multi',
+  disabled: true,
+  displaySelectedValues: false
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi mg-input--checkbox-multi-disabled">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <div class="mg-popover mg-popover--arrow-hide" id="identifier-input-mg-popover" style="position: fixed; left: 0; top: 0; margin: 0;">
+                  <mg-card>
+                    <div class="mg-popover__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                </div>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" variant="secondary">
+                <mg-icon icon="list"></mg-icon>
+                Show
+              </mg-button>
+              <div slot="content">
+                <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" role="list">
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                    <label htmlfor="identifier_0">
+                      batman
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_1">
+                      robin
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_2" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_2">
+                      joker
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                    <label htmlfor="identifier_3">
+                      bane
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </mg-popover>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  disabled: true,
+  displaySelectedValues: true
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi mg-input--checkbox-multi-disabled">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-checkbox-multi--with-values mg-input__input-container">
+            <ul class="mg-input__input-checkbox-multi-values-container" role="list">
+              <li class="mg-input__input-checkbox-multi-value">
+                batman
+              </li>
+            </ul>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <div class="mg-popover mg-popover--arrow-hide" id="identifier-input-mg-popover" style="position: fixed; left: 0; top: 0; margin: 0;">
+                  <mg-card>
+                    <div class="mg-popover__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                </div>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" variant="secondary">
+                <mg-icon icon="list"></mg-icon>
+                Show
+              </mg-button>
+              <div slot="content">
+                <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" role="list">
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                    <label htmlfor="identifier_0">
+                      batman
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_1">
+                      robin
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_2" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_2">
+                      joker
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                    <label htmlfor="identifier_3">
+                      bane
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </mg-popover>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
   helpText: 'Hello joker'
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
@@ -1473,6 +1621,160 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <strong>
               1 selected value
             </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <div class="mg-popover mg-popover--arrow-hide" id="identifier-input-mg-popover" style="position: fixed; left: 0; top: 0; margin: 0;">
+                  <mg-card>
+                    <div class="mg-popover__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                </div>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" variant="secondary">
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <div slot="content">
+                <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" role="list">
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                    <label htmlfor="identifier_0">
+                      batman
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_1">
+                      robin
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_2">
+                      joker
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                    <label htmlfor="identifier_3">
+                      bane
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </mg-popover>
+          </div>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          Hello joker
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  helpText: 'Hello joker',
+  displaySelectedValues: false
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <div class="mg-popover mg-popover--arrow-hide" id="identifier-input-mg-popover" style="position: fixed; left: 0; top: 0; margin: 0;">
+                  <mg-card>
+                    <div class="mg-popover__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                </div>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" variant="secondary">
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <div slot="content">
+                <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" role="list">
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                    <label htmlfor="identifier_0">
+                      batman
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_1">
+                      robin
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_2">
+                      joker
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                    <label htmlfor="identifier_3">
+                      bane
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </mg-popover>
+          </div>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          Hello joker
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  helpText: 'Hello joker',
+  displaySelectedValues: true
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-checkbox-multi--with-values mg-input__input-container">
+            <ul class="mg-input__input-checkbox-multi-values-container" role="list">
+              <li class="mg-input__input-checkbox-multi-value">
+                batman
+              </li>
+            </ul>
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -1783,6 +2085,68 @@ exports[`mg-input-checkbox render by type multi Should render with args {
   value: [Array],
   type: 'multi',
   readonly: true,
+  displaySelectedValues: false
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  readonly: true,
+  displaySelectedValues: true
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  readonly: true,
   labelOnTop: true,
   tooltip: 'Tooltip message'
 }: 1`] = `
@@ -2011,6 +2375,160 @@ exports[`mg-input-checkbox render by type multi Should render with args {
             <strong>
               1 selected value
             </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <div class="mg-popover mg-popover--arrow-hide" id="identifier-input-mg-popover" style="position: fixed; left: 0; top: 0; margin: 0;">
+                  <mg-card>
+                    <div class="mg-popover__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                </div>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" variant="secondary">
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <div slot="content">
+                <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" role="list">
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                    <label htmlfor="identifier_0">
+                      batman
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_1">
+                      robin
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_2">
+                      joker
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                    <label htmlfor="identifier_3">
+                      bane
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </mg-popover>
+          </div>
+          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  tooltip: 'Batman is a DC Comics license',
+  displaySelectedValues: false
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <div class="mg-popover mg-popover--arrow-hide" id="identifier-input-mg-popover" style="position: fixed; left: 0; top: 0; margin: 0;">
+                  <mg-card>
+                    <div class="mg-popover__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                </div>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" variant="secondary">
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <div slot="content">
+                <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" role="list">
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                    <label htmlfor="identifier_0">
+                      batman
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group mg-input__input-group--disabled">
+                    <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_1">
+                      robin
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+                    <label htmlfor="identifier_2">
+                      joker
+                    </label>
+                  </li>
+                  <li class="mg-input__input-group">
+                    <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                    <label htmlfor="identifier_3">
+                      bane
+                    </label>
+                  </li>
+                </ul>
+              </div>
+            </mg-popover>
+          </div>
+          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  tooltip: 'Batman is a DC Comics license',
+  displaySelectedValues: true
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-checkbox-multi--with-values mg-input__input-container">
+            <ul class="mg-input__input-checkbox-multi-values-container" role="list">
+              <li class="mg-input__input-checkbox-multi-value">
+                batman
+              </li>
+            </ul>
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>

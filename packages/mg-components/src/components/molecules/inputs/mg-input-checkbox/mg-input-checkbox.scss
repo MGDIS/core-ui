@@ -2,6 +2,8 @@
 @use '../styles/mg-input-fieldset.scss';
 @use '../../../../styles/a11y.scss';
 
+$checkbox-multi-spacer: 0.4rem;
+
 /**
 * checkbox multi
 */
@@ -10,6 +12,29 @@
     display: flex;
     flex-wrap: wrap;
     gap: calc(var(--mg-inputs-spacer) * 1.2);
+    &--with-values.mg-input__input-checkbox-multi {
+      gap: $checkbox-multi-spacer;
+    }
+    &-values-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: $checkbox-multi-spacer;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    &-value {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      min-height: var(--default-size);
+      min-width: var(--default-size);
+      padding: calc((var(--default-size) - 0.2rem - var(--font-size) * var(--line-height)) / 2) 1.1rem;
+      background-color: var(--mg-color-dark-5-hsl);
+      border-radius: 0.3rem;
+      font-size: var(--font-size);
+    }
   }
   .mg-input__input-checkbox-multi-inputs {
     margin: 0;
