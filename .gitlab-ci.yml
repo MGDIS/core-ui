@@ -206,8 +206,8 @@ mg-components:artifact:
     - .rules:except-tags
     - .install_dependencies
   script:
-    - cd packages/mg-components
-    - pnpm build
+    - pnpm build --filter=@mgdis/img
+    - !reference [.mg-components:build, script]
     - !reference [.artifact, script]
   needs:
     - lint
