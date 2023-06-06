@@ -31,7 +31,7 @@ The style of the active checkbox is the browser's style.
 
 - Radius : 3px
 - Font : OpenSans, Regular, 13px
-- Color : Dark-5
+- Color : [@color-dark-5](./?path=/docs/style-colors--page)
 
 #### Alignment
 
