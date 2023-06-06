@@ -189,4 +189,28 @@ describe('mg-input-checkbox', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
+
+  describe('type multi', () => {
+    const selectedValues = baseArgs.value.map(argValue => ({ ...argValue, value: true }));
+    const smallValues = baseArgs.value.map((argValue, index) => ({ ...argValue, title: index.toString(), value: true }));
+    testEach([
+      { disable: true, value: selectedValues },
+      { disable: true, value: smallValues },
+    ])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, args: object) => {
+      await setPageContent(page, createHTML({ ...baseArgs, ...args, type: 'multi', displaySelectedValues: true }));
+      await page.locator('mg-input-checkbox');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+    testEach([false, true])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, displaySelectedValues) => {
+      await setPageContent(page, createHTML({ ...baseArgs, type: 'multi', value: selectedValues, displaySelectedValues }));
+      const element = await page.locator('mg-input-checkbox');
+
+      expect(element).toHaveClass('hydrated');
+
+      await page.setViewportSize({ width: 200, height: 100 });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 });

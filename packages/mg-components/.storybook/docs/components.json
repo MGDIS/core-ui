@@ -1284,7 +1284,7 @@
       "filePath": "./src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-checkbox",
-      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
+      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n\n## Type \"multi\"\n\n### Anatomy\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-anatomy-default-less-10.png)\n\n- Button :\n  - variant : secondary\n  - icon : list\n- Checkbox\n- Popover\n\n### Displayed values\n\n#### Style\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-style.png)\n\n- Radius : 3px\n- Font : OpenSans, Regular, 13px\n- Color : [@color-dark-5](./?path=/docs/style-colors--page)\n\n#### Alignment\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-alignment-displayed-values.png)\n\nText is centered vertically and horizontally in the container\n\n#### Spacing\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-spacing-values.png)\n\n#### Sizing\n\n- Min-width : 35px\n- Min-height : 35px\n\n#### Behavior\n\n##### Lack of space\n\n1. Without values\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)\n\nIf the space is too narrow the text button will do a line break.\n\n1. With values\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)\n\nIf the space is too narrow the button and values will do a line break.\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)\n\nThe component is ajusting with the space available. If the width is not enought big the values will do a breakline.\n\n### Values not displayed\n\n#### Spacing\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-style.png)\n\n#### Style\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-spacing.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
       "docs": "True/False value notion.\nOnly 2 possible values.",
       "docsTags": [],
       "usage": {},
@@ -1298,6 +1298,22 @@
           "docs": "Define if input is disabled",
           "docsTags": [],
           "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "displaySelectedValues",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "display-selected-values",
+          "reflectToAttr": false,
+          "docs": "Display selected values list in \"multi\" type",
+          "docsTags": [],
           "values": [
             {
               "type": "boolean"

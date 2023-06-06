@@ -218,6 +218,10 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
+          * Display selected values list in "multi" type
+         */
+        "displaySelectedValues": boolean;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText": string;
@@ -1635,6 +1639,10 @@ declare namespace LocalJSX {
           * Define if input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * Display selected values list in "multi" type
+         */
+        "displaySelectedValues"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
