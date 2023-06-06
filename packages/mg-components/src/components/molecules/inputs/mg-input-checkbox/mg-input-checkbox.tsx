@@ -129,7 +129,7 @@ export class MgInputCheckbox {
   @Prop() displayValues: boolean;
   @Watch('displayValues')
   validateDisplayValues(newValue: MgInputCheckbox['displayValues']): void {
-    if (newValue && this.type !== 'multi') throw new Error('<mg-input-checkbox> prop "displayValues" must be use with prop type "multi".');
+    if (newValue !== undefined && this.type !== 'multi') throw new Error('<mg-input-checkbox> prop "displayValues" can only be used with prop type "multi".');
   }
   /**
    * Define if input is disabled
