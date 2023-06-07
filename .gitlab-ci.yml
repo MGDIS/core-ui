@@ -26,6 +26,12 @@ stages:
         - 'packages/notification-center'
         - 'apps/notification-center'
 
+# Rule to execute job only on img folder content changes
+.rules:changes:img:
+  rules:
+    - changes:
+        - 'packages/img'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -253,6 +259,23 @@ notification-center:artifact:
   script:
     - pnpm build
     - cd packages/notification-center
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+#######
+# img #
+#######
+
+img:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:img
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - cd packages/img
+    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint
