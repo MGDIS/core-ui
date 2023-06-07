@@ -13,8 +13,7 @@
     "list:icons": "export FOLDER_PATH=dist/icons && pnpm list:folder",
     "list:illustrations": "export FOLDER_PATH=dist/illustrations && pnpm list:folder",
     "sprite": "spritesh --input dist/icons --output dist/icons/sprite.svg",
-    "build": "pnpm svgo && pnpm sharp && pnpm list:all && pnpm sprite",
-    "build:clean": "rm -rf dist && pnpm build"
+    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all && pnpm sprite"
   },
   "files": [
     "dist"

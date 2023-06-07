@@ -1,11 +1,21 @@
 # img
 
-Package to manage images used in MGDIS products.
+This package is designed to manage images used in MGDIS products.
 
-Images **MUST** be a `SVG` file.
+Images **MUST** be in the SVG file format.
 
-Images have to be placed in `src`, in its corresponding folder. We have `icons` and `illustations` for now.
+Images should be placed in the `src` directory, within their respective folders. Currently, we have `icons` and `illustrations` folders.
 
-On build `SVG` files are minified and a `PNG` will also be created.
+## Build
 
-It is possible to clean the src files running the command `svgo:src`.
+During the build process, SVG files in each folder are minified, PNG alternatives are generated, and an `index.json` file containing the file names is created.
+
+There is also a command available to clean the `src` files. By running the `svgo:src` command, SVGs will be prettified (not minified).
+
+## Illustations
+
+To allow for customization, classes must be added to every SVG element (path, circle, etc.).
+
+The required format for these classes is: `svg-{filename}-color-{number}`.
+
+For example, if the file name is `no-data.svg`, the classes should be `svg-no-data-color-1`, `svg-no-data-color-2`, `svg-no-data-color-3`, and so on.
