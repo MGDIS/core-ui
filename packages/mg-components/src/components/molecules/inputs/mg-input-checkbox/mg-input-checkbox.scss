@@ -44,5 +44,10 @@ $checkbox-multi-spacer: 0.4rem;
   }
   mg-popover {
     --mg-popover-min-width: 7rem;
+    [slot='content'] {
+      display: flex;
+      flex-direction: column;
+      gap: calc(#{$checkbox-multi-spacer} * 2);
+    }
   }
 }
