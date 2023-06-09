@@ -112,7 +112,7 @@ test:e2e:
 
 test:e2e:playwright:
   stage: tests
-  image: mcr.microsoft.com/playwright:v1.33.0-focal
+  image: mcr.microsoft.com/playwright:v1.34.3-focal
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
@@ -172,6 +172,19 @@ release:
   script:
     - pnpm build
     - pnpm publish -r --no-git-checks
+
+.npmjs:
+  image: node:18 ## use official image to avoid the .npmrc present in our images
+  stage: release
+  extends:
+    - .rules:tags
+  before_script: 
+    - apt update -y && apt install jq -y
+    - !reference [.install_dependencies, before_script]
+  script:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+  needs:
+    - release
 
 bot-publish:
   stage: release
@@ -246,6 +259,14 @@ pages:
     paths:
       - public
 
+mg-components:npmjs:
+  stage: release
+  extends:
+    - .npmjs
+  script:
+    - !reference [.mg-components:build, script]
+    - pnpm publish --no-git-checks --access public
+
 #######################
 # notification-center #
 #######################
@@ -279,3 +300,12 @@ img:artifact:
     - !reference [.artifact, script]
   needs:
     - lint
+
+img:npmjs:
+  stage: release
+  extends:
+    - .npmjs
+  script:
+    - cd packages/img
+    - pnpm build
+    - pnpm publish --no-git-checks --access public
