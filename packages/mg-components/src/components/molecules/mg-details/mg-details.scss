@@ -1,21 +1,31 @@
 @import '../../../styles/a11y.scss';
 
-.mg-details summary {
-  display: flex;
-  align-items: baseline;
-  cursor: pointer;
+.mg-details {
+  container: mg-details / inline-size;
+
+  summary {
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+  }
+
+  &__toggle {
+    margin-left: 1.5rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 0.6rem;
+    min-height: calc(var(--font-size) * var(--line-height));
+  }
+
+  &__details {
+    margin-top: var(--mg-details-spacing);
+  }
 }
 
-.mg-details__toggle {
-  margin-left: 1.5rem;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 0.6rem;
-  min-height: calc(var(--font-size) * var(--line-height));
-}
-
-.mg-details__details {
-  margin-top: 1.5rem;
+@container mg-details (max-width: 60rem) {
+  .mg-details__toggle span {
+    @include sr-only();
+  }
 }
