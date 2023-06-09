@@ -11,8 +11,6 @@ const htmlContent = (args, style?) =>
 
 describe('mg-details', () => {
   testEach([{}, { 'hide-summary': '' }])('Should toggle details %s', async (page: PageType, args: object) => {
-    console.log(htmlContent({ ...baseArgs, ...args }));
-
     await setPageContent(page, htmlContent({ ...baseArgs, ...args }));
 
     expect(page.locator('mg-details.hydrated')).toBeDefined();
