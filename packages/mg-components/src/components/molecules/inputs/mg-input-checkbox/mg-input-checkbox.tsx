@@ -193,6 +193,11 @@ export class MgInputCheckbox {
   @State() errorMessage: string;
 
   /**
+   * Is checked items values expanded
+   */
+  @State() checkedItemsExpanded = true;
+
+  /**
    * Formated value for display
    */
   @State() checkboxItems: CheckboxItem[] = [];
@@ -311,12 +316,23 @@ export class MgInputCheckbox {
     this.currentSearchPage = Number(event.detail);
   };
 
+  /**
+   * popover display-change handler
+   * @param event - mg-popover display-change custom event
+   */
   private handleMgPopoverDisplayChange = (event: CustomEvent): void => {
     // reset search value
     if (!event.detail) {
       this.searchValue = '';
       this.setCurrentSearchPage();
     }
+  };
+
+  /**
+   * Toogle checked items button handler
+   */
+  private handleToggleCheckedItemsClick = (): void => {
+    this.checkedItemsExpanded = !this.checkedItemsExpanded;
   };
 
   /**
@@ -466,6 +482,51 @@ export class MgInputCheckbox {
   }
 
   /**
+   *
+   * @param checkboxes - checboxes to render
+   * @returns render sections of checboxes
+   */
+  private renderCheckboxBySection(checkboxes: CheckboxItem[]): HTMLElement[] {
+    const elements = [];
+    const [checkedValues, notCheckedValues] = checkboxes.reduce(
+      (acc, curr) => {
+        acc[curr.value ? 0 : 1].push(curr);
+        return acc;
+      },
+      [[], []],
+    );
+
+    const getText = (key: 'checkedItems' | 'checkedItem' | 'notCheckedItems' | 'notCheckedItem', count: number): HTMLElement => (
+      <em>{`${this.messages.input.checkbox[key]} (${count})`}</em>
+    );
+
+    if (checkedValues.length > 0) {
+      elements.push(
+        <mg-button
+          variant="flat"
+          class="mg-input__input-checkbox-multi-toggle-checked-items"
+          onClick={this.handleToggleCheckedItemsClick}
+          aria-controls="checked-items"
+          aria-expanded={this.checkedItemsExpanded.toString()}
+        >
+          <mg-icon icon={this.checkedItemsExpanded ? 'chevron-down' : 'chevron-up'} size="small"></mg-icon>
+          <span class="mg-input__input-checkbox-multi-text">{getText(checkedValues.length > 1 ? 'checkedItems' : 'checkedItem', checkedValues.length)}</span>
+        </mg-button>,
+      );
+      elements.push(
+        <div hidden={!this.checkedItemsExpanded} id="checked-items">
+          {this.renderCheckboxes(checkedValues)}
+        </div>,
+      );
+    }
+    if (notCheckedValues.length > 0) {
+      elements.push(<p class="mg-input__input-checkbox-multi-text">{getText(notCheckedValues.length > 1 ? 'notCheckedItems' : 'notCheckedItem', notCheckedValues.length)}</p>);
+      elements.push(this.renderPaginatedCheckboxes(notCheckedValues));
+    }
+    return elements;
+  }
+
+  /**
    * render checkbox multi element
    * @returns html element
    */
@@ -510,7 +571,7 @@ export class MgInputCheckbox {
                 {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
               </mg-message>,
             ]}
-            {this.displaySearchInput ? this.renderPaginatedCheckboxes(checkboxes) : this.renderCheckboxes(this.checkboxItems)}
+            {this.displaySearchInput ? this.renderCheckboxBySection(checkboxes) : this.renderCheckboxes(this.checkboxItems)}
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
           </div>
         </mg-popover>

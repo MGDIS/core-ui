@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-09T11:23:58",
+  "timestamp": "2023-06-12T13:43:11",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -1602,34 +1602,44 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-popover",
+        "mg-pagination",
         "mg-button",
         "mg-icon",
+        "mg-popover",
         "mg-form",
         "mg-input-text",
         "mg-message",
-        "mg-pagination",
         "mg-tooltip",
         "mg-input-title"
       ],
       "dependencyGraph": {
         "mg-input-checkbox": [
-          "mg-popover",
+          "mg-pagination",
           "mg-button",
           "mg-icon",
+          "mg-popover",
           "mg-form",
           "mg-input-text",
           "mg-message",
-          "mg-pagination",
           "mg-tooltip",
+          "mg-input-title"
+        ],
+        "mg-pagination": [
+          "mg-button",
+          "mg-icon",
+          "mg-input-select"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-input-select": [
+          "mg-tooltip",
+          "mg-icon",
           "mg-input-title"
         ],
         "mg-popover": [
           "mg-card",
           "mg-button",
-          "mg-icon"
-        ],
-        "mg-button": [
           "mg-icon"
         ],
         "mg-input-text": [
@@ -1642,16 +1652,6 @@
           "mg-card",
           "mg-icon",
           "mg-button"
-        ],
-        "mg-pagination": [
-          "mg-button",
-          "mg-icon",
-          "mg-input-select"
-        ],
-        "mg-input-select": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
         ]
       }
     },

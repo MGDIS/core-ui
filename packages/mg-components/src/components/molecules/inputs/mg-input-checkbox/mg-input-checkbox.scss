@@ -38,6 +38,14 @@ $checkbox-multi-spacer: 0.4rem;
     &-no-result {
       text-align: center;
     }
+    &-text {
+      display: inline;
+      margin: 0;
+      color: var(--mg-color-dark-40-hsl);
+    }
+    &-toggle-checked-items {
+      --default-size: 0;
+    }
   }
   .mg-input__input-checkbox-multi-inputs {
     margin: 0;
