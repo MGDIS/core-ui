@@ -461,6 +461,7 @@ export class MgInputCheckbox {
     return [
       this.renderCheckboxes(this.getArrayRange(checkboxes, checkboxItemsFromIndex, checkboxItemsToIndex)),
       <mg-pagination
+        key="search-pagination"
         totalPages={this.getPaginationTotalPages(checkboxes)}
         currentPage={this.currentSearchPage}
         onCurrent-page-change={this.handleCurrentPageChange}
@@ -540,6 +541,7 @@ export class MgInputCheckbox {
         aria-label={this.displaySearchInput ? this.messages.input.checkbox.searchResults : false}
         aria-live={this.displaySearchInput ? 'polite' : false}
         id="items-list"
+        key="checkboxes"
       >
         {checkboxes
           .filter(item => !this.readonly || item.value)

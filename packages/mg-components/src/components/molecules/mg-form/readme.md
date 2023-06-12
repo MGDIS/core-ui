@@ -80,6 +80,7 @@ The "Display errors" button use the `mg-form` `displayError()` method.
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property     | Attribute    | Description                                                                                                 | Type      | Default               |
@@ -91,12 +92,14 @@ The "Display errors" button use the `mg-form` `displayError()` method.
 | `readonly`   | `readonly`   | Define if form is readonly                                                                                  | `boolean` | `false`               |
 | `valid`      | `valid`      | Define form valid state                                                                                     | `boolean` | `undefined`           |
 
+
 ## Events
 
 | Event         | Description                                                        | Type                   |
 | ------------- | ------------------------------------------------------------------ | ---------------------- |
 | `form-submit` | Emitted event on form submit                                       | `CustomEvent<boolean>` |
 | `form-valid`  | Emitted event on form validity check Tells if form is valid or not | `CustomEvent<boolean>` |
+
 
 ## Methods
 
@@ -108,6 +111,9 @@ Public method to display errors
 
 Type: `Promise<void>`
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

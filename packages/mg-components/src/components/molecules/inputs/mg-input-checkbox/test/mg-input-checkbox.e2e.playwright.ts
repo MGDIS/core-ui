@@ -249,6 +249,10 @@ describe('mg-input-checkbox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
+      await page.getByPlaceholder(/value/).fill('2');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
       // update search with an unmatchable value
       await page.getByPlaceholder(/value/).fill('batman');
 

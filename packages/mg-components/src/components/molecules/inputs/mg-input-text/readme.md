@@ -35,6 +35,7 @@ The spacing between the field and the slot content is not managed by the compone
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute                | Description                                                                                                                                    | Type                     | Default           |
@@ -61,12 +62,14 @@ The spacing between the field and the slot content is not managed by the compone
 | `valid`                   | `valid`                  | Define input valid state                                                                                                                       | `boolean`                | `undefined`       |
 | `value`                   | `value`                  | Component value                                                                                                                                | `string`                 | `undefined`       |
 
+
 ## Events
 
 | Event          | Description                         | Type                   |
 | -------------- | ----------------------------------- | ---------------------- |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
 | `value-change` | Emited event when value change      | `CustomEvent<string>`  |
+
 
 ## Methods
 
@@ -78,6 +81,8 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
 ### `setFocus() => Promise<void>`
 
 Public method to play input focus
@@ -86,12 +91,15 @@ Public method to play input focus
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Used by
 
-- [mg-input-checkbox](../mg-input-checkbox)
-- [mg-panel](../../mg-panel)
+ - [mg-input-checkbox](../mg-input-checkbox)
+ - [mg-panel](../../mg-panel)
 
 ### Depends on
 
@@ -101,7 +109,6 @@ Type: `Promise<void>`
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-text --> mg-icon
@@ -113,6 +120,6 @@ graph TD;
   style mg-input-text fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
