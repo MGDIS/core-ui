@@ -1,6 +1,6 @@
 /**
  * type SelectOption
- * use to match select>option attributes
+ * use to match select \> option attributes
  */
 export type SelectOption = {
   title: string;
@@ -11,7 +11,7 @@ export type SelectOption = {
 
 /**
  * type OptGroup
- * use to match select>optgroup attributes
+ * use to match select \> optgroup attributes
  */
 export type OptGroup = {
   group: string;

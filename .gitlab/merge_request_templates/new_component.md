@@ -17,8 +17,4 @@ CORE-NUMBER
   - [ ] Edge
 - [ ] Create changeset
 
-## Reviewers
-
-@duhem-s @core/core-ui
-
 /label ~core-ui

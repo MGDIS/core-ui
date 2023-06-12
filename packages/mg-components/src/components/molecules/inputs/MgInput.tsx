@@ -1,14 +1,13 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { Width } from './MgInput.conf';
+import { widths, Width } from './MgInput.conf';
 import { ClassList } from '../../../utils/components.utils';
 
 /**
  * Apply in all input child node the aria-describedby attribute
- *
- * @param {VNode[]} children Represent scoped elements
- * @param {Set<string>} ariaDescribedbyIDs List of IDs
- * @param {FunctionalUtilities} utils Stencil.js utils
- * @returns {VNode[]} Children with aria-describedby attribute
+ * @param children - Represent scoped elements
+ * @param ariaDescribedbyIDs - List of IDs
+ * @param utils - Stencil.js utils
+ * @returns Children with aria-describedby attribute
  */
 const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>, utils: FunctionalUtilities): VNode[] =>
   utils.map(children, child => {
@@ -32,24 +31,27 @@ const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>
 
 /**
  * Add classes based on props
- *
- * @param {MgInputProps} props MgInput Interface Props
+ * @param props - MgInput Interface Props
  */
 const manageClasses = (props: MgInputProps): void => {
-  props.classList.add('mg-input');
+  props.classCollection.add('mg-input');
 
-  if (props.labelOnTop) props.classList.add('mg-input--label-on-top');
+  if (props.labelOnTop) props.classCollection.add('mg-input--label-on-top');
+  else props.classCollection.delete('mg-input--label-on-top');
 
-  if (props.readonly) props.classList.add('mg-input--readonly');
+  if (props.readonly) props.classCollection.add('mg-input--readonly');
+  else props.classCollection.delete('mg-input--readonly');
 
-  if (props.mgWidth !== undefined) props.classList.add(`mg-input--width-${props.mgWidth}`);
+  widths.forEach(width => {
+    props.classCollection.delete(`mg-input--width-${width}`);
+  });
+  if (props.mgWidth !== undefined) props.classCollection.add(`mg-input--width-${props.mgWidth}`);
 };
 
 /**
  * Get tagname
- *
- * @param {boolean} isFieldset is fieldset
- * @returns {string} tag name
+ * @param isFieldset - is fieldset
+ * @returns tag name
  */
 const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : 'div');
 
@@ -59,7 +61,7 @@ const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : '
 interface MgInputProps {
   // Global
   identifier: string;
-  classList: ClassList;
+  classCollection: ClassList;
   // Label
   label: string;
   labelOnTop: boolean;
@@ -84,11 +86,10 @@ interface MgInputProps {
 
 /**
  * Get input template
- *
- * @param {MgInputProps} props MgInput Interface Props
- * @param {VNode[]} children Represent scoped elements
- * @param {FunctionalUtilities} utils Stencil.js utils
- * @returns {VNode[]} input template
+ * @param props - MgInput Interface Props
+ * @param children - Represent scoped elements
+ * @param utils - Stencil.js utils
+ * @returns input template
  */
 export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, children: VNode[], utils: FunctionalUtilities): VNode[] => {
   /**
@@ -151,8 +152,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
 
   /**
    * Get tooltip node
-   *
-   * @returns {VNode[]} mg-tooltip
+   * @returns mg-tooltip
    */
   const getTooltip = (): VNode[] => (
     <mg-tooltip identifier={`${props.identifier}-tooltip`} message={props.tooltip}>
@@ -163,8 +163,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Get input title (label) node
    * Display asterisk only if not disabled and not readonly
-   *
-   * @returns {VNode[]} mg-input-title
+   * @returns mg-input-title
    */
   const getInputTitle = (): VNode[] => (
     <mg-input-title
@@ -178,7 +177,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   );
 
   return (
-    <TagName class={props.classList.join()}>
+    <TagName class={props.classCollection.join()}>
       {props.labelOnTop ? (
         <div class="mg-input__title">
           {getInputTitle()}

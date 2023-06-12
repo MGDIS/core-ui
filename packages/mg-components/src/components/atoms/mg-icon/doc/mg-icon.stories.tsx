@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../.storybook/utils';
-import { icons, sizes, variants } from '../mg-icon.conf';
+import { icons, sizes, variantStyles, variants } from '../mg-icon.conf';
 
 export default {
   component: 'mg-icon',
@@ -18,14 +18,17 @@ export default {
       options: [undefined, ...variants],
       control: { type: 'select' },
     },
+    variantStyle: {
+      options: [undefined, ...variantStyles],
+      control: { type: 'select' },
+    },
   },
 };
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => {

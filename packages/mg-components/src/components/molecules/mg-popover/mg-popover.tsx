@@ -14,9 +14,9 @@ export class MgPopover {
    ************/
 
   private popper: PopperInstance;
-  private popover: HTMLElement;
+  private mgPopover: HTMLElement;
   private closeButtonId = '';
-  private windows;
+  private windows: Window[];
   private resizeObserver: ResizeObserver;
 
   // Locales
@@ -51,8 +51,8 @@ export class MgPopover {
   @Prop() arrowHide = false;
   @Watch('arrowHide')
   validateArrowHide(newValue: MgPopover['arrowHide']): void {
-    if (newValue) this.classList.add(this.classArrowHide);
-    else this.classList.delete(this.classArrowHide);
+    if (newValue) this.classCollection.add(this.classArrowHide);
+    else this.classCollection.delete(this.classArrowHide);
   }
 
   /**
@@ -77,12 +77,12 @@ export class MgPopover {
   /**
    * Disable popover
    */
-  @Prop({ mutable: true }) disabled = false;
+  @Prop() disabled = false;
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-popover']);
+  @State() classCollection: ClassList = new ClassList(['mg-popover']);
 
   /**
    * Emited event when display value change
@@ -91,9 +91,7 @@ export class MgPopover {
 
   /**
    * Check if clicked outside of component
-   *
-   * @param {MouseEvent} event mouse event
-   * @returns {void}
+   * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
     if (
@@ -107,19 +105,15 @@ export class MgPopover {
 
   /**
    * Show popover
-   *
-   * @returns {void}
    */
   private show = (): void => {
     // Make the popover visible
-    this.popover.dataset.show = '';
+    this.mgPopover.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
-    // Update its position
-    this.popper.update();
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
@@ -131,12 +125,10 @@ export class MgPopover {
 
   /**
    * Hide popover
-   *
-   * @returns {void}
    */
   private hide = (): void => {
     // Hide the popover
-    this.popover.removeAttribute('data-show');
+    this.mgPopover.removeAttribute('data-show');
     // Disable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -150,8 +142,6 @@ export class MgPopover {
 
   /**
    * Handle action for close button
-   *
-   * @returns {void}
    */
   private handleCloseButton = (): void => {
     this.display = false;
@@ -162,9 +152,14 @@ export class MgPopover {
    *************/
 
   /**
+   * update popper position after props change on component did update hook to benefit from render ended
+   */
+  componentDidUpdate(): void {
+    this.popper.update();
+  }
+
+  /**
    * Check if component props are well configured on init
-   *
-   * @returns {void} timeout
    */
   componentWillLoad(): void {
     // Get windows to attach events
@@ -176,8 +171,6 @@ export class MgPopover {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
     const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -193,7 +186,7 @@ export class MgPopover {
     }
 
     // Get popover content
-    this.popover = this.element.shadowRoot.getElementById(this.identifier);
+    this.mgPopover = this.element.shadowRoot.getElementById(this.identifier);
 
     //Get interactive element (first element without slot attribute)
     const interactiveElement = this.element.querySelector(':not([slot])') as HTMLElement;
@@ -202,7 +195,7 @@ export class MgPopover {
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
 
     // Create popperjs popover
-    this.popper = createPopper(interactiveElement, this.popover, {
+    this.popper = createPopper(interactiveElement, this.mgPopover, {
       placement: this.placement,
       strategy: 'fixed',
       modifiers: [
@@ -234,7 +227,10 @@ export class MgPopover {
 
     // Add events to hide popover
     this.element.addEventListener('keydown', e => {
-      if (!this.disabled && e.code === 'Escape') this.display = false;
+      if (!this.disabled && e.code === 'Escape') {
+        this.display = false;
+        interactiveElement.focus();
+      }
     });
 
     this.handleDisplay(this.display);
@@ -242,14 +238,13 @@ export class MgPopover {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <Host>
         <slot></slot>
-        <div id={this.identifier} class={this.classList.join()}>
+        <div id={this.identifier} class={this.classCollection.join()}>
           <mg-card>
             {this.closeButton && (
               <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.general.close} onClick={this.handleCloseButton}>

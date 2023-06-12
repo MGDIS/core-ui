@@ -103,7 +103,8 @@
   /* Set custom opacity on disabled input */
   .mg-input__box:disabled,
   &-group--disabled label,
-  .mg-input.mg-input--toggle-disabled & .mg-input__button-toggle {
+  .mg-input.mg-input--toggle-disabled & .mg-input__button-toggle,
+  .mg-input.mg-input--checkbox-multi-disabled & strong {
     opacity: var(--mg-disabled-opacity);
   }
 }

@@ -21,7 +21,7 @@ export class MgBadge {
   /**
    * Badge value
    */
-  @Prop({ mutable: true }) value!: string | number;
+  @Prop() value!: string | number;
   @Watch('value')
   validateValue(newValue: MgBadge['value']): void {
     if (`${newValue}`.match(/^(\d+\+*|[?*!a-z])$/i) === null) {
@@ -51,9 +51,9 @@ export class MgBadge {
       throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
       if (oldValue !== undefined) {
-        this.classList.delete(`mg-badge--${oldValue}`);
+        this.classCollection.delete(`mg-badge--${oldValue}`);
       }
-      this.classList.add(`mg-badge--${newValue}`);
+      this.classCollection.add(`mg-badge--${newValue}`);
     }
   }
 
@@ -63,19 +63,17 @@ export class MgBadge {
   @Prop() outline: boolean;
   @Watch('outline')
   validateOutline(newValue: MgBadge['outline']): void {
-    if (newValue) this.classList.add(this.classOutline);
-    else this.classList.delete(this.classOutline);
+    if (newValue) this.classCollection.add(this.classOutline);
+    else this.classCollection.delete(this.classOutline);
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-badge']);
+  @State() classCollection: ClassList = new ClassList(['mg-badge']);
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateValue(this.value);
@@ -86,12 +84,11 @@ export class MgBadge {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
-      <span class={this.classList.join()}>
+      <span class={this.classCollection.join()}>
         <span class="mg-badge__value">{this.value}</span>
         <span class="sr-only">{this.label}</span>
       </span>

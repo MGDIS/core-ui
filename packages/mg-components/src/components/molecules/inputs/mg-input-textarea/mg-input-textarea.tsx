@@ -146,9 +146,9 @@ export class MgInputTextarea {
   @Watch('displayCharacterLeft')
   validateDisplayCharacterLeft(newValue: boolean): void {
     if (newValue) {
-      this.classList.add(this.classHasDisplayCharacterLeft);
+      this.classCollection.add(this.classHasDisplayCharacterLeft);
     } else {
-      this.classList.delete(this.classHasDisplayCharacterLeft);
+      this.classCollection.delete(this.classHasDisplayCharacterLeft);
     }
   }
 
@@ -175,7 +175,7 @@ export class MgInputTextarea {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--textarea']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--textarea']);
 
   /**
    * Error message to display
@@ -194,8 +194,6 @@ export class MgInputTextarea {
 
   /**
    * Public method to display errors
-   *
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -219,8 +217,8 @@ export class MgInputTextarea {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
   };
 
   /**
@@ -228,8 +226,8 @@ export class MgInputTextarea {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.displayError();
   };
@@ -237,8 +235,7 @@ export class MgInputTextarea {
   /**
    * Get pattern validity
    * Pattern is not defined on textarea field: https://developer.mozilla.org/fr/docs/Web/HTML/Element/Textarea
-   *
-   * @returns {boolean} is pattern valid
+   * @returns is pattern valid
    */
   private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.value);
 
@@ -273,7 +270,7 @@ export class MgInputTextarea {
    */
   private validatePattern = (): void => {
     if (
-      this.pattern &&
+      this.pattern !== undefined &&
       typeof this.pattern === 'string' &&
       this.pattern !== '' &&
       (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
@@ -288,8 +285,7 @@ export class MgInputTextarea {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -308,14 +304,13 @@ export class MgInputTextarea {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}

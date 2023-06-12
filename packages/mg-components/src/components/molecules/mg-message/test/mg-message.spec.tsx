@@ -91,7 +91,7 @@ describe('mg-message', () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
-    expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).toContain('mg-message--hide');
   });
 
   test('Should hide message on delay', async () => {
@@ -101,22 +101,22 @@ describe('mg-message', () => {
     jest.spyOn(page.rootInstance.componentHide, 'emit');
     jest.spyOn(page.rootInstance.componentShow, 'emit');
 
-    expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).not.toContain('mg-message--hide');
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).toContain('mg-message--hide');
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
 
     page.rootInstance.hide = false;
     await page.waitForChanges();
 
-    expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).not.toContain('mg-message--hide');
     expect(page.rootInstance.componentShow.emit).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).toContain('mg-message--hide');
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(2);
   });
 
@@ -129,7 +129,7 @@ describe('mg-message', () => {
 
     const element = page.doc.querySelector('mg-message');
 
-    expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).not.toContain('mg-message--hide');
 
     jest.advanceTimersByTime((args.delay / 2) * 1000);
 
@@ -137,13 +137,13 @@ describe('mg-message', () => {
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.classList.join()).not.toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).not.toContain('mg-message--hide');
 
     element.dispatchEvent(eventType === 'focus' ? new FocusEvent('focusout') : new MouseEvent('mouseleave'));
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.classList.join()).toContain('mg-message--hide');
+    expect(page.rootInstance.classCollection.join()).toContain('mg-message--hide');
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
   });
 });

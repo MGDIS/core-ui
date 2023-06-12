@@ -1,5 +1,58 @@
 # @mgdis/mg-components
 
+## 5.11.1
+
+### Patch Changes
+
+- d871fe9: [#328](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/328) mg-popover: popover not display on chrome 114
+
+## 5.11.0
+
+### Minor Changes
+
+- 1d7137d: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) add "multi" type behavior
+
+### Patch Changes
+
+- 4c3ff1a: [#322](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/322) mg-tooltip : click on the tooltip button, leave the hover zone, press ESCAPE, the tooltip is no longer displayed on hover
+
+## 5.10.1
+
+### Patch Changes
+
+- 7ade01a: [#319](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/319) - Remame `classList` state to `classCollection` inside components.
+- 88990ad: [#312](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/312) lint: resolve tsdoc linting warning
+- e80af1f: [#318](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/318) - Mg-input-text: size of mg-width not reactive
+- 38f200c: [#311](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/311): mg-input-numeric: when you want to enter a negative value in mg-input-numeric the minus is not taken
+
+## 5.10.0
+
+### Minor Changes
+
+- ae30a37: [#300](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/300) chore: use playwright in mg-components e2e tests
+
+### Patch Changes
+
+- 678d38f: [#301](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/301) chore(mg-components): implement monorepo linting
+
+## 5.9.1
+
+### Patch Changes
+
+- 484ada7: - [#296](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/296) mg-tooltip: when hovering over the mg-tooltip, then ECHAP, undisplay the tooltip
+- 609d520: [#308](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/308) mg-action-more - update storybook controls
+- e7d07a2: - [#302](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/302) mg-input-numeric: checkValidity is trigger even if a blank field is not required
+
+## 5.9.0
+
+### Minor Changes
+
+- 5a18625: [**`<mg-popover>`**](./?path=/docs/molecules-mg-popover--mg-popover) add max-width CSS variable.
+- 5c8001b: [**`<mg-card>`**](./?path=/docs/atoms-mg-card--mg-card) add `variant` and `variantStyle` props
+- b4b8c1b: Added variants to [**`<mg-icon>`**](./?path=/docs/atoms-mg-icon--mg-icon).
+- 9ae6765: Added icons to [**`<mg-icon>`**](./?path=/docs/atoms-mg-icon--mg-icon), [see all the availables icons](?path=/story/style-icons--icons).
+- d382117: [**`<mg-details>`**](./?path=/docs/molecules-mg-details--mg-details) [**`<mg-menu>`**](./?path=/docs/beta-menus-mg-menu--mg-menu) use small "chevron" icon
+
 ## 5.8.2
 
 ### Patch Changes
@@ -394,7 +447,7 @@
 - [**`<mg-input-toggle>`**](?/path=story/molecules-inputs-mg-input-toggle--mg-input-toggle) new component refers to [PDA9-770](https://jira.mgdis.fr/browse/PDA9-770)
 - All inputs also refers to [PDA9-723](https://jira.mgdis.fr/browse/PDA9-723).
 - [**`<mg-icon>`**](./?path=/docs/atoms-mg-icon--mg-icon) for accessibility, sometimes we need to add a background on icons, it is now possible with the attribute `variant`
-- [**`<mg-input-message>`**](./?path=/story/molecules-mg-message--mg-message&args=closeButton:true;delay:10) can now be hidden after a defined delay using the `delay` attribute
+- [**`<mg-message>`**](./?path=/story/molecules-mg-message--mg-message&args=closeButton:true;delay:10) can now be hidden after a defined delay using the `delay` attribute
 - [**`<mg-input-...>`**](./?path=/story/molecules-inputs-mg-input-date--mg-input-date&args=labelOnTop:true) Tooltip icon moved next to label when used with the attribute `label-on-top`
 
 ### Patch Changes

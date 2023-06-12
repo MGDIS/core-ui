@@ -56,4 +56,4 @@ git commit -m "chore(release): $complete_name"
 # tag release name
 git tag -a "$complete_name" -m ""
 # push commit
-git push --atomic
+git push --atomic --follow-tags

@@ -1,17 +1,23 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../../.storybook/utils';
+import { checkboxTypes } from '../mg-input-checkbox.conf';
 
 export default {
   component: 'mg-input-checkbox',
   title: 'Molecules/Inputs/mg-input-checkbox',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
+  argTypes: {
+    type: {
+      options: [undefined, ...checkboxTypes],
+      control: { type: 'select' },
+    },
+  },
 };
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-input-checkbox {...filterArgs(args)}></mg-input-checkbox>;
@@ -36,6 +42,7 @@ MgInputCheckbox.args = {
   ],
   identifier: 'identifier',
   name: 'input-name',
+  type: undefined,
   // Label
   label: 'Option',
   labelOnTop: false,
@@ -50,4 +57,5 @@ MgInputCheckbox.args = {
   tooltip: 'This is a tooltip',
   // Help Text
   helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+  displaySelectedValues: false,
 };

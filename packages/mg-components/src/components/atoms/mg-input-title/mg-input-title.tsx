@@ -42,8 +42,6 @@ export class MgInputTitle {
 
   /**
    * Init tag name
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateIdentifier(this.identifier);
@@ -52,8 +50,7 @@ export class MgInputTitle {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML element
    */
   render(): HTMLElement {
     const TagName = this.tagName;

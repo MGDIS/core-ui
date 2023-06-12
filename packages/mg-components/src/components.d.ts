@@ -9,8 +9,8 @@ import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } fr
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
-import { IconSizeType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -26,7 +26,7 @@ import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export namespace Components {
     interface MgActionMore {
         /**
-          * Define button properties Default: {variant: 'flat', isIcon: true}.
+          * Define button properties
          */
         "button": MgActionMoreButtonType;
         /**
@@ -34,7 +34,7 @@ export namespace Components {
          */
         "displayChevron": boolean;
         /**
-          * Define displaied icon Default: {icon: 'ellipsis'}
+          * Define displaied icon
          */
         "icon": MgActionMoreIconType;
         /**
@@ -100,11 +100,11 @@ export namespace Components {
     }
     interface MgCard {
         /**
-          * Define variant prop Default: undefined
+          * Define variant prop
          */
         "variant": undefined | VariantType1;
         /**
-          * Define variantStyle prop Default: undefined
+          * Define variantStyle prop
          */
         "variantStyle": undefined | VariantStyleType;
     }
@@ -153,7 +153,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -179,7 +178,7 @@ export namespace Components {
     }
     interface MgIcon {
         /**
-          * Icon to display
+          * Icon to display.
          */
         "icon": string;
         /**
@@ -191,9 +190,13 @@ export namespace Components {
          */
         "spin": boolean;
         /**
-          * Define icon variant Add a background to the icon based on variant color
+          * Define icon variant color
          */
-        "variant"?: IconVariantType;
+        "variant": IconVariantType;
+        /**
+          * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
+         */
+        "variantStyle": IconVariantStyleType;
     }
     interface MgIllustratedMessage {
         /**
@@ -212,9 +215,12 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
+        /**
+          * Display selected values list in "multi" type
+         */
+        "displaySelectedValues": boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -260,6 +266,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define checkbox type
+         */
+        "type": CheckboxType;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -275,7 +285,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -350,7 +359,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -433,7 +441,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -500,7 +507,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -567,7 +573,6 @@ export namespace Components {
         "disabled": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -650,7 +655,6 @@ export namespace Components {
         "displayCharacterLeft": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -715,7 +719,6 @@ export namespace Components {
         "required": boolean;
         /**
           * Public method to play input focus
-          * @returns
          */
         "setFocus": () => Promise<void>;
         /**
@@ -746,7 +749,6 @@ export namespace Components {
         "displayCharacterLeft": boolean;
         /**
           * Public method to display errors
-          * @returns
          */
         "displayError": () => Promise<void>;
         /**
@@ -863,7 +865,6 @@ export namespace Components {
         "isOnOff": boolean;
         /**
           * Items are the possible options to select
-          * @returns
          */
         "items": string[] | ToggleValue[];
         /**
@@ -897,7 +898,7 @@ export namespace Components {
     }
     interface MgItemMore {
         /**
-          * Define icon Default: {icon: 'ellipsis-vertical'}
+          * Define icon
          */
         "icon": IconType;
         /**
@@ -905,13 +906,13 @@ export namespace Components {
          */
         "size": SizeType;
         /**
-          * Define slot label element Default: {display: false}
+          * Define slot label element
          */
         "slotlabel": SlotLabelType;
     }
     interface MgMenu {
         /**
-          * Component display direction. Default: "horizontal"
+          * Component display direction.
          */
         "direction": Direction;
         /**
@@ -923,13 +924,13 @@ export namespace Components {
          */
         "label": string;
         /**
-          * Define mg-menu size Default: 'regular'
+          * Define mg-menu size
          */
         "size": MenuSizeType;
     }
     interface MgMenuItem {
         /**
-          * Define menu-item content expanded. Default: false.
+          * Define menu-item content expanded.
          */
         "expanded": boolean;
         /**
@@ -937,11 +938,11 @@ export namespace Components {
          */
         "href": string;
         /**
-          * Identifier is used to control mg-popover Default: createID('mg-menu-item');
+          * Identifier is used to control mg-popover
          */
         "identifier": string;
         /**
-          * Define menu-item status. Default: "visible"
+          * Define menu-item status.
          */
         "status": Status;
     }
@@ -1439,7 +1440,7 @@ declare global {
 declare namespace LocalJSX {
     interface MgActionMore {
         /**
-          * Define button properties Default: {variant: 'flat', isIcon: true}.
+          * Define button properties
          */
         "button"?: MgActionMoreButtonType;
         /**
@@ -1447,7 +1448,7 @@ declare namespace LocalJSX {
          */
         "displayChevron"?: boolean;
         /**
-          * Define displaied icon Default: {icon: 'ellipsis'}
+          * Define displaied icon
          */
         "icon"?: MgActionMoreIconType;
         /**
@@ -1517,11 +1518,11 @@ declare namespace LocalJSX {
     }
     interface MgCard {
         /**
-          * Define variant prop Default: undefined
+          * Define variant prop
          */
         "variant"?: undefined | VariantType1;
         /**
-          * Define variantStyle prop Default: undefined
+          * Define variantStyle prop
          */
         "variantStyle"?: undefined | VariantStyleType;
     }
@@ -1603,9 +1604,9 @@ declare namespace LocalJSX {
     }
     interface MgIcon {
         /**
-          * Icon to display
+          * Icon to display.
          */
-        "icon"?: string;
+        "icon": string;
         /**
           * Define icon size
          */
@@ -1615,9 +1616,13 @@ declare namespace LocalJSX {
          */
         "spin"?: boolean;
         /**
-          * Define icon variant Add a background to the icon based on variant color
+          * Define icon variant color
          */
         "variant"?: IconVariantType;
+        /**
+          * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
+         */
+        "variantStyle"?: IconVariantStyleType;
     }
     interface MgIllustratedMessage {
         /**
@@ -1634,6 +1639,10 @@ declare namespace LocalJSX {
           * Define if input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * Display selected values list in "multi" type
+         */
+        "displaySelectedValues"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -1686,6 +1695,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define checkbox type
+         */
+        "type"?: CheckboxType;
         /**
           * Define input valid state
          */
@@ -2306,7 +2319,6 @@ declare namespace LocalJSX {
         "isOnOff"?: boolean;
         /**
           * Items are the possible options to select
-          * @returns
          */
         "items": string[] | ToggleValue[];
         /**
@@ -2348,7 +2360,7 @@ declare namespace LocalJSX {
     }
     interface MgItemMore {
         /**
-          * Define icon Default: {icon: 'ellipsis-vertical'}
+          * Define icon
          */
         "icon"?: IconType;
         /**
@@ -2356,13 +2368,13 @@ declare namespace LocalJSX {
          */
         "size"?: SizeType;
         /**
-          * Define slot label element Default: {display: false}
+          * Define slot label element
          */
         "slotlabel"?: SlotLabelType;
     }
     interface MgMenu {
         /**
-          * Component display direction. Default: "horizontal"
+          * Component display direction.
          */
         "direction"?: Direction;
         /**
@@ -2374,13 +2386,13 @@ declare namespace LocalJSX {
          */
         "label": string;
         /**
-          * Define mg-menu size Default: 'regular'
+          * Define mg-menu size
          */
         "size"?: MenuSizeType;
     }
     interface MgMenuItem {
         /**
-          * Define menu-item content expanded. Default: false.
+          * Define menu-item content expanded.
          */
         "expanded"?: boolean;
         /**
@@ -2388,7 +2400,7 @@ declare namespace LocalJSX {
          */
         "href"?: string;
         /**
-          * Identifier is used to control mg-popover Default: createID('mg-menu-item');
+          * Identifier is used to control mg-popover
          */
         "identifier"?: string;
         /**
@@ -2400,7 +2412,7 @@ declare namespace LocalJSX {
          */
         "onStatus-change"?: (event: MgMenuItemCustomEvent<MgMenuItem['status']>) => void;
         /**
-          * Define menu-item status. Default: "visible"
+          * Define menu-item status.
          */
         "status"?: Status;
     }

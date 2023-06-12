@@ -32,8 +32,6 @@ export class MgIllustratedMessage {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
     const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
@@ -50,8 +48,7 @@ export class MgIllustratedMessage {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

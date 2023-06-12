@@ -74,6 +74,9 @@
   --color-dark-s: 37.3%;
   --color-dark-l: 13.1%;
   --color-dark: var(--color-dark-h), var(--color-dark-s), var(--color-dark-l);
+  
+  /* dark-5 */
+  --mg-color-dark-5-hsl: hsl(var(--color-dark-h), 9%, 96%);
 
   /* Light */
   /* white; (#ffffff) */
@@ -112,8 +115,10 @@
    */
   --mg-icon-small-size: 1.2rem;
   --mg-icon-regular-size: 1.6rem;
+  --mg-icon-medium-size: 2rem;
   --mg-icon-large-size: 2.4rem;
-  --mg-icon-extra-large-size: 3.6rem;
+  --mg-icon-extra-large-size: 3.2rem;
+  --mg-icon-border-radius: 50%;
 
   /*
     <mg-button>

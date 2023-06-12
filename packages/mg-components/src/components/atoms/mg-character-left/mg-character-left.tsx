@@ -50,8 +50,6 @@ export class MgCharacterLeft {
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateMaxlength(this.maxlength);
@@ -60,8 +58,7 @@ export class MgCharacterLeft {
 
   /**
    * Render component
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

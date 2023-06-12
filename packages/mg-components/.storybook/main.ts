@@ -4,9 +4,9 @@ type Path = string;
 
 /**
  * List folders from a given path
- * @param {Path} path path we will parse to get childs
- * @param {Path[]} folders previsous folders list
- * @returns {Path[]} updated folders list
+ * @param path - path we will parse to get childs
+ * @param folders - previsous folders list
+ * @returns updated folders list
  */
 const listFoldersFrom = (path: Path, folders: Path[] = []): Path[] => {
   // get path child
@@ -27,9 +27,9 @@ const listFoldersFrom = (path: Path, folders: Path[] = []): Path[] => {
 
 /**
  * Create a new path from given path and offset
- * @param {Path} path set the origin folder
- * @param {number} offset set the folder offset
- * @returns {Path} get the working folder
+ * @param path - set the origin folder
+ * @param offset - set the folder offset
+ * @returns get the working folder
  */
 const getPathFromOffset = (path: Path, offset: number): Path => {
   // pathElements start after ./src, then we get a array of elements from the path
@@ -79,8 +79,13 @@ module.exports = {
         'v5.4.0': 'https://626149b307606d003ada26b4-ritpfsldui.chromatic.com',
         'v5.5.0': 'https://626149b307606d003ada26b4-bidcqvzbyy.chromatic.com',
         'v5.6.0': 'https://626149b307606d003ada26b4-mfqwykjipt.chromatic.com',
-        'v5.7.0': 'https://626149b307606d003ada26b4-yejrgaetka.chromatic.com/',
-        'v5.8.0': 'https://626149b307606d003ada26b4-pcrpbesovl.chromatic.com/',
+        'v5.7.0': 'https://626149b307606d003ada26b4-yejrgaetka.chromatic.com',
+        'v5.8.0': 'https://626149b307606d003ada26b4-pcrpbesovl.chromatic.com',
+        'v5.9.0': 'https://626149b307606d003ada26b4-dedncomorf.chromatic.com',
+        'v5.9.1': 'https://626149b307606d003ada26b4-jausjqzwui.chromatic.com',
+        'v5.10.0': 'https://626149b307606d003ada26b4-eidtudwvjn.chromatic.com',
+        'v5.10.1': 'https://626149b307606d003ada26b4-rpkktdqmad.chromatic.com',
+        'v5.11': 'https://626149b307606d003ada26b4-ujajrvujgj.chromatic.com',
       },
     },
   },

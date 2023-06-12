@@ -7,9 +7,8 @@ import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
  * type Option validation function
- *
- * @param {ToggleValue} option radio option
- * @returns {boolean} toggle option type is valid
+ * @param option - radio option
+ * @returns toggle option type is valid
  */
 const isOption = (option: ToggleValue): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
 
@@ -53,8 +52,6 @@ export class MgInputToggle {
 
   /**
    * Items are the possible options to select
-   *
-   * @returns {void}
    */
   @Prop() items!: string[] | ToggleValue[];
   @Watch('items')
@@ -106,8 +103,8 @@ export class MgInputToggle {
   @Prop() isOnOff = false;
   @Watch('isOnOff')
   handleIsOnOff(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classOnOff);
-    else this.classList.delete(this.classOnOff);
+    if (newValue) this.classCollection.add(this.classOnOff);
+    else this.classCollection.delete(this.classOnOff);
   }
 
   /**
@@ -116,8 +113,8 @@ export class MgInputToggle {
   @Prop() isIcon = false;
   @Watch('isIcon')
   handleIsIcon(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classIcon);
-    else this.classList.delete(this.classIcon);
+    if (newValue) this.classCollection.add(this.classIcon);
+    else this.classCollection.delete(this.classIcon);
   }
 
   /**
@@ -126,8 +123,8 @@ export class MgInputToggle {
   @Prop() readonly = false;
   @Watch('readonly')
   handleReadonly(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classReadonly);
-    else this.classList.delete(this.classReadonly);
+    if (newValue) this.classCollection.add(this.classReadonly);
+    else this.classCollection.delete(this.classReadonly);
   }
 
   /**
@@ -136,8 +133,8 @@ export class MgInputToggle {
   @Prop() disabled = false;
   @Watch('disabled')
   handleDisabled(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classDisabled);
-    else this.classList.delete(this.classDisabled);
+    if (newValue) this.classCollection.add(this.classDisabled);
+    else this.classCollection.delete(this.classDisabled);
   }
 
   /**
@@ -153,7 +150,7 @@ export class MgInputToggle {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--toggle']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--toggle']);
 
   /**
    * Formated items for display
@@ -167,8 +164,8 @@ export class MgInputToggle {
   @Watch('checked')
   handleChecked(newValue: boolean): void {
     // style
-    if (newValue) this.classList.add(this.classIsActive);
-    else this.classList.delete(this.classIsActive);
+    if (newValue) this.classCollection.add(this.classIsActive);
+    else this.classCollection.delete(this.classIsActive);
 
     // update value
     this.value = this.options[newValue ? 1 : 0].value;
@@ -186,8 +183,6 @@ export class MgInputToggle {
 
   /**
    * Change checked value
-   *
-   * @returns {void}
    */
   private toggleChecked = (): void => {
     this.checked = !this.checked;
@@ -195,8 +190,6 @@ export class MgInputToggle {
 
   /**
    * Slots validation
-   *
-   * @returns {void}
    */
   private validateSlots = (): void => {
     const slots = Array.from(this.element.children);
@@ -211,8 +204,6 @@ export class MgInputToggle {
 
   /**
    * set checked state
-   *
-   * @returns {void}
    */
   private setChecked(): void {
     const optionTrueValueIndex = this.options.map(option => option.value).findIndex(value => value === true);
@@ -258,14 +249,13 @@ export class MgInputToggle {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

@@ -5,6 +5,11 @@ export default {
   component: 'mg-action-more',
   title: 'Molecules/mg-action-more',
   parameters: { actions: { handles: ['click'] } },
+  argTypes: {
+    button: {
+      control: { type: 'object' },
+    },
+  },
 };
 
 const mouseEventHandler = () => {
@@ -13,9 +18,8 @@ const mouseEventHandler = () => {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-action-more {...filterArgs(args)} style={{ 'margin-left': '1rem' }}></mg-action-more>;
@@ -47,6 +51,7 @@ MgActionMore.args = {
       href: '#',
     },
   ],
+  displayChevron: false,
 };
 
 export const MgActionMoreCustom = Template.bind({});

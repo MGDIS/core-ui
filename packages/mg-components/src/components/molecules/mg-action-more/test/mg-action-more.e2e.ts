@@ -1,5 +1,6 @@
 import { KeyInput } from 'puppeteer';
-import { createPage, renderAttributes, renderProperties } from '../../../../utils/e2e.test.utils';
+import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { renderAttributes, renderProperties } from '../../../../utils/e2e.test.utils';
 import { createID } from '../../../../utils/components.utils';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 

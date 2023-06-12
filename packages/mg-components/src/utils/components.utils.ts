@@ -1,9 +1,8 @@
 /**
  * Create random ID
- *
- * @param {string} prefix  add prefix to created ID
- * @param {number} length ID length
- * @returns {string} ID
+ * @param prefix - add prefix to created ID
+ * @param length - ID length
+ * @returns ID
  */
 export const createID = (prefix = '', length = 10): string => {
   let ID = '';
@@ -28,9 +27,7 @@ export class ClassList {
 
   /**
    * Add class
-   *
-   * @param {string} className class name to add
-   * @returns {void}
+   * @param className - class name to add
    */
   add = (className: string): void => {
     if (!this.has(className)) {
@@ -40,9 +37,7 @@ export class ClassList {
 
   /**
    * Delete class
-   *
-   * @param {string} className class name to delete
-   * @returns {void}
+   * @param className - class name to delete
    */
   delete = (className: string): void => {
     const index = this.classes.indexOf(className);
@@ -53,9 +48,8 @@ export class ClassList {
 
   /**
    * Check if class exist in list
-   *
-   * @param {string} className class name to check
-   * @returns {boolean} class name is in the list
+   * @param className - class name to check
+   * @returns class name is in the list
    */
   has = (className: string): boolean => {
     return this.classes.includes(className);
@@ -63,8 +57,7 @@ export class ClassList {
 
   /**
    * Join classes seperated by spaces
-   *
-   * @returns {string} joined values
+   * @returns joined values
    */
   join = (): string => {
     return this.classes.join(' ');
@@ -73,18 +66,16 @@ export class ClassList {
 
 /**
  * Check if all items are string
- *
- * @param {unknown} items items to check
- * @returns {boolean} all items are string
+ * @param items - items to check
+ * @returns all items are string
  */
 export const allItemsAreString = (items: unknown): items is string[] => Array.isArray(items) && items.every(item => typeof item === 'string');
 
 /**
  * Check if element is a heading
- *
- * @param {Element} element slotted element
- * @param {string[]} tagNames allowed tag names list
- * @returns {boolean} element is a heading
+ * @param element - slotted element
+ * @param tagNames - allowed tag names list
+ * @returns element is a heading
  */
 export const isTagName = (element: Element, tagNames: string[]): boolean => {
   return tagNames.includes(element?.tagName.toLowerCase());
@@ -96,9 +87,9 @@ export const isTagName = (element: Element, tagNames: string[]): boolean => {
 export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier]';
 
 /**
- *
- * @param {Window} localWindow the window we are lookink for other windows
- * @returns {Window[]} The list of windows found
+ * Get windows
+ * @param localWindow - the window we are lookink for other windows
+ * @returns The list of windows found
  */
 export const getWindows = (localWindow: Window): Window[] => {
   const parentWindows = getParentWindows(localWindow);
@@ -108,10 +99,9 @@ export const getWindows = (localWindow: Window): Window[] => {
 
 /**
  * Get parent windows
- *
- * @param {Window} localWindow the window we are lookink for parents
- * @param {Window[]} windows The list of allready found windows
- * @returns {Window[]} The list of windows found
+ * @param localWindow - the window we are lookink for parents
+ * @param windows - The list of allready found windows
+ * @returns The list of windows found
  */
 export const getParentWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
   // Check if is in iframe
@@ -131,10 +121,9 @@ export const getParentWindows = (localWindow: Window, windows: Window[] = []): W
 
 /**
  * Get child windows
- *
- * @param {Window} localWindow the window we are lookink for children
- * @param {Window[]} windows The list of allready found windows
- * @returns {Window[]} The list of windows found
+ * @param localWindow - the window we are lookink for children
+ * @param windows - The list of allready found windows
+ * @returns The list of windows found
  */
 const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
   if (localWindow.frames.length > 0) {

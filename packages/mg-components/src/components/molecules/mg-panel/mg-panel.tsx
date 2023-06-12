@@ -48,13 +48,13 @@ export class MgPanel {
   /**
    * Panel title pattern
    */
-  @Prop({ mutable: true }) titlePattern: string;
+  @Prop() titlePattern: string;
   @Watch('titlePattern')
   validatetitlePattern(newValue: string): void {
-    if (newValue && !this.titleEditable) {
+    if (newValue !== undefined && !this.titleEditable) {
       throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
     }
-    if (newValue && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
+    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
       throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
     }
   }
@@ -62,7 +62,7 @@ export class MgPanel {
   /**
    * Panel title pattern error message
    */
-  @Prop({ mutable: true }) titlePatternErrorMessage: string;
+  @Prop() titlePatternErrorMessage: string;
 
   /**
    * Panel is opened
@@ -76,7 +76,7 @@ export class MgPanel {
   /**
    * Disable possibility to toggle expand
    */
-  @Prop({ mutable: true }) expandToggleDisabled: boolean;
+  @Prop() expandToggleDisabled: boolean;
 
   /**
    * Panel title is editabled
@@ -86,7 +86,7 @@ export class MgPanel {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-panel']);
+  @State() classCollection: ClassList = new ClassList(['mg-panel']);
 
   /**
    * Title is in edition mode
@@ -114,8 +114,6 @@ export class MgPanel {
 
   /**
    * Toggle is editing state
-   *
-   * @returns {void}
    */
   private toggleIsEditing = (): void => {
     this.isEditing = !this.isEditing;
@@ -127,8 +125,6 @@ export class MgPanel {
 
   /**
    * Collapse button click handler
-   *
-   * @returns {void}
    */
   private handleCollapseButton = (): void => {
     if (!this.expandToggleDisabled) {
@@ -138,8 +134,6 @@ export class MgPanel {
 
   /**
    * Edit button click handler
-   *
-   * @returns {void}
    */
   private handleEditButton = (): void => {
     this.toggleIsEditing();
@@ -147,9 +141,7 @@ export class MgPanel {
 
   /**
    * Update title handler
-   *
-   * @param {CustomEvent<string>} event input value change event
-   * @returns {void}
+   * @param event - input value change event
    */
   private handleUpdateTitle = (event: CustomEvent<string>): void => {
     this.updatedPanelTitle = event.detail;
@@ -157,8 +149,6 @@ export class MgPanel {
 
   /**
    * Cancel edition button handler
-   *
-   * @returns {void}
    */
   private handleCancelEditButton = (): void => {
     this.updatedPanelTitle = undefined;
@@ -167,8 +157,6 @@ export class MgPanel {
 
   /**
    * Validate edition button handler
-   *
-   * @returns {void}
    */
   private handleValidateEditButton = (): void => {
     if (this.editInputElement.valid) {
@@ -184,8 +172,6 @@ export class MgPanel {
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get locales
@@ -197,9 +183,7 @@ export class MgPanel {
 
   /**
    * Header left conditional render
-   *
-   * @typedef {HTMLElement} HTMLMgButtonElement
-   * @returns {HTMLMgButtonElement | HTMLElement | HTMLElement[]} header left element
+   * @returns header left element
    */
   private headerLeft = (): HTMLMgButtonElement | HTMLElement | HTMLElement[] => {
     const collapseButton = (): HTMLMgButtonElement => (
@@ -271,8 +255,6 @@ export class MgPanel {
 
   /**
    * Edit DOM after render
-   *
-   * @returns {void}
    */
   componentDidRender(): void {
     // when we are editing we get focus on edition input
@@ -283,12 +265,11 @@ export class MgPanel {
 
   /**
    * Render component
-   *
-   * @returns {HTMLElement} html element
+   * @returns html element
    */
   render(): HTMLElement {
     return (
-      <section class={this.classList.join()} id={this.identifier}>
+      <section class={this.classCollection.join()} id={this.identifier}>
         <mg-card>
           <header class="mg-panel__header" id={`${this.identifier}-header`}>
             <div class={`mg-panel__header-left ${this.isEditing ? 'mg-panel__header-left--full' : ''}`}>{this.headerLeft()}</div>

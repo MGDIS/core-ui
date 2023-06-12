@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements } from '../../../utils/components.utils';
+import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
@@ -16,6 +16,7 @@ export class MgTooltip {
   private popper: PopperInstance;
   private tooltip: HTMLElement;
   private tooltipedElement: HTMLElement;
+  private windows: Window[];
 
   // tooltip actions guards
   private guard: Guard;
@@ -44,7 +45,6 @@ export class MgTooltip {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
-    this.popper.update();
   }
 
   /**
@@ -68,12 +68,10 @@ export class MgTooltip {
   /**
    * Disable tooltip
    */
-  @Prop({ mutable: true }) disabled = false;
+  @Prop() disabled = false;
 
   /**
    * Show tooltip
-   *
-   * @returns {void}
    */
   private show = (): void => {
     // Make the tooltip visible
@@ -83,14 +81,18 @@ export class MgTooltip {
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
-    // Update its position
-    this.popper.update();
+    // hide when click outside
+    // setTimeout is used to prevent event to trigger after creation
+    setTimeout(() => {
+      this.windows.forEach((localWindow: Window) => {
+        localWindow.addEventListener('click', this.clickOutside, false);
+        localWindow.addEventListener('keydown', this.pressEscape, false);
+      });
+    }, 0);
   };
 
   /**
    * Hide tooltip
-   *
-   * @returns {void}
    */
   private hide = (): void => {
     // Hide the tooltip
@@ -100,14 +102,36 @@ export class MgTooltip {
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }],
     }));
+    // Remove event listener
+    this.windows.forEach((localWindow: Window) => {
+      localWindow.removeEventListener('click', this.clickOutside, false);
+      localWindow.removeEventListener('keyboard', this.pressEscape, false);
+    });
+  };
+
+  /**
+   * Check if clicked outside of component and hidde tooltip
+   * @param event - mouse event
+   */
+  private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
+    if (event.target.closest('mg-tooltip') !== this.element) this.setDisplay(false);
+  };
+
+  /**
+   * Check if 'Escape' key is pressed of component and hidde tooltip
+   * @param event - keyboard event
+   */
+  private pressEscape = (event: KeyboardEvent): void => {
+    if (event.code === 'Escape') {
+      this.setDisplay(false);
+      this.resetGuard();
+    }
   };
 
   /**
    * Method to set display prop
-   *
-   * @param {boolean} newValue display prop new value
-   * @param {boolean} condition additionnal condition to apply display prop newValue
-   * @returns {void}
+   * @param newValue - display prop new value
+   * @param condition - additionnal condition to apply display prop newValue
    */
   private setDisplay = (newValue: boolean, condition = true): void => {
     if (!this.disabled && condition) this.display = newValue;
@@ -115,11 +139,9 @@ export class MgTooltip {
 
   /**
    * Action for tooltip element and tooltiped element mouse listener
-   *
-   * @param {Guard} elementGuard tooltip element guard
-   * @param {boolean} isMouseenter mouseenter validation
-   * @param {Guard} conditionalGuard guard condition
-   * @returns {void}
+   * @param elementGuard -  tooltip element guard
+   * @param isMouseenter - mouseenter validation
+   * @param conditionalGuard - guard condition
    */
   private tooltipMouseListenerAction = (elementGuard: Guard, isMouseenter: boolean, conditionalGuard: Guard): void => {
     // we mutate elementGuard
@@ -138,8 +160,6 @@ export class MgTooltip {
 
   /**
    * Method to reset guard value
-   *
-   * @returns {void}
    */
   private resetGuard = (): void => {
     this.guard = undefined;
@@ -147,9 +167,7 @@ export class MgTooltip {
 
   /**
    * Update slot content when it is a mg-button
-   *
-   * @param {HTMLMgButtonElement} mgButton slotted mg-button
-   * @returns {void}
+   * @param mgButton - slotted mg-button
    */
   private setMgButtonWrapper = (mgButton: HTMLMgButtonElement): void => {
     if (mgButton.disabled) {
@@ -166,9 +184,8 @@ export class MgTooltip {
 
   /**
    * Init tooltip
-   *
-   * @param {HTMLElement} slotElement slotted element
-   * @param {HTMLElement} interactiveElement interactive element
+   * @param slotElement - slotted element
+   * @param interactiveElement - interactive element
    */
   private initTooltip = (slotElement: HTMLElement, interactiveElement: HTMLElement): void => {
     // Add tabindex to slotted element if we can't find any interactive element
@@ -208,9 +225,7 @@ export class MgTooltip {
       this.setDisplay(false);
     });
 
-    document.addEventListener('keydown', (event: KeyboardEvent) => {
-      if (event.code === 'Escape') this.setDisplay(false);
-    });
+    document.addEventListener('keydown', this.pressEscape);
 
     // manage tooltipElement & tooltipedElement mouseenter/mouseleave events
     ['mouseenter', 'mouseleave'].forEach(eventType => {
@@ -231,11 +246,17 @@ export class MgTooltip {
    *************/
 
   /**
+   * set variables
+   */
+  componentWillLoad(): void {
+    // Get windows to attach events
+    this.windows = getWindows(window);
+  }
+
+  /**
    * Get slotted element
    * Check if it already contain an interactive element, if not we need to add a tabIndex attribute
    * We need to attach the focused element to the tooltip (aria-describedby)
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
     // Get tooltip element
@@ -273,9 +294,15 @@ export class MgTooltip {
   }
 
   /**
+   * update popper position after props change on component did update hook to benefit from render ended
+   */
+  componentDidUpdate(): void {
+    this.popper.update();
+  }
+
+  /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (

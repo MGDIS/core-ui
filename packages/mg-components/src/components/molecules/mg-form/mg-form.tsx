@@ -75,7 +75,7 @@ export class MgForm {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-form']);
+  @State() classCollection: ClassList = new ClassList(['mg-form']);
 
   /**
    * Required message
@@ -95,8 +95,6 @@ export class MgForm {
 
   /**
    * Public method to display errors
-   *
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -110,14 +108,11 @@ export class MgForm {
 
   /**
    * Define required message based on mg-inputs required elements
-   * Also
-   *
-   * @returns {void}
    */
   private setRequiredMessage = (): void => {
     // init required message
     this.requiredMessage = null;
-    this.classList.delete(this.classAllRequired);
+    this.classCollection.delete(this.classAllRequired);
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)
     if (!this.disabled && !this.readonly && !this.mgInputs.every(input => input.disabled || input.readonly)) {
@@ -127,7 +122,7 @@ export class MgForm {
       // mg-input-toggle can not be required
       if (requiredInputs.length > 0 && requiredInputs.length === this.mgInputs.filter(input => input.nodeName !== 'MG-INPUT-TOGGLE').length) {
         this.requiredMessage = requiredInputs.length === 1 ? this.messages.form.allRequiredSingle : this.messages.form.allRequired;
-        this.classList.add(this.classAllRequired);
+        this.classCollection.add(this.classAllRequired);
       }
       // Some fields are required
       else if (requiredInputs.length > 0) {
@@ -138,8 +133,6 @@ export class MgForm {
 
   /**
    * Check if form is valid
-   *
-   * @returns {void}
    */
   private checkValidity = (): void => {
     // Update required on input event
@@ -153,9 +146,7 @@ export class MgForm {
 
   /**
    * Handle Form Submit
-   *
-   * @param {SubmitEvent} event submit event
-   * @returns {void}
+   * @param event - submit event
    */
   private handleFormSubmit = (event: SubmitEvent): void => {
     event.preventDefault();
@@ -164,8 +155,6 @@ export class MgForm {
 
   /**
    * Set mgInputs
-   *
-   * @returns {void}
    */
   private setMgInputs = (): void => {
     // Get slotted mgInputs
@@ -185,8 +174,6 @@ export class MgForm {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get locales
@@ -220,8 +207,6 @@ export class MgForm {
 
   /**
    * Add slot listeners
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
     this.mgButtons.forEach(mgButton => {
@@ -240,12 +225,11 @@ export class MgForm {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
-      <form class={this.classList.join()} id={this.identifier} name={this.name} ref={el => (this.form = el as HTMLFormElement)} onSubmit={this.handleFormSubmit}>
+      <form class={this.classCollection.join()} id={this.identifier} name={this.name} ref={el => (this.form = el as HTMLFormElement)} onSubmit={this.handleFormSubmit}>
         {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}

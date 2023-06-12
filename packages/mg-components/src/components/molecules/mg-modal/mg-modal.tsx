@@ -58,7 +58,7 @@ export class MgModal {
   /**
    * Define if modal has a cross button
    */
-  @Prop({ mutable: true }) closeButton = false;
+  @Prop() closeButton = false;
 
   /**
    * Define if modal is hidden
@@ -68,11 +68,11 @@ export class MgModal {
   validateHide(newValue: boolean): void {
     if (newValue) {
       this.componentHide.emit();
-      this.classList.add(this.classHide);
+      this.classCollection.add(this.classHide);
       document.body.style.overflow = this.bodyOverflow;
     } else {
       this.componentShow.emit();
-      this.classList.delete(this.classHide);
+      this.classCollection.delete(this.classHide);
       document.body.style.overflow = 'hidden';
     }
   }
@@ -90,7 +90,7 @@ export class MgModal {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-modal']);
+  @State() classCollection: ClassList = new ClassList(['mg-modal']);
 
   /**
    * Emmited event when modal is diplayed
@@ -104,9 +104,7 @@ export class MgModal {
 
   /**
    * Handle 'escape' key down
-   *
-   * @param {KeyboardEvent} event keydown event
-   * @returns {void}
+   * @param event - keydown event
    */
   @Listen('keydown', {
     target: 'window',
@@ -156,8 +154,6 @@ export class MgModal {
 
   /**
    * Handle close button
-   *
-   * @returns {void}
    */
   private handleClose = (): void => {
     this.hide = true;
@@ -169,8 +165,6 @@ export class MgModal {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Store body overflow
@@ -190,8 +184,6 @@ export class MgModal {
 
   /**
    * Add observer on component to set focus when displayed
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
     new MutationObserver(mutationList => {
@@ -207,12 +199,11 @@ export class MgModal {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
-      <div role="alertdialog" id={this.identifier} class={this.classList.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
+      <div role="alertdialog" id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
         <mg-card>
           <div class="mg-modal__dialog">
             <header class="mg-modal__header">

@@ -129,7 +129,7 @@ export class MgInputPassword {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--password']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--password']);
 
   /**
    * Error message to display
@@ -148,8 +148,6 @@ export class MgInputPassword {
 
   /**
    * Public method to display errors
-   *
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -204,8 +202,7 @@ export class MgInputPassword {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -220,14 +217,13 @@ export class MgInputPassword {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}

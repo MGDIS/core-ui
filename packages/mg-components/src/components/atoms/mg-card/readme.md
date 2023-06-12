@@ -13,7 +13,8 @@
 
 You can set variant color on left bar or on background of the card
 
-Values for variant colors are : 
+Values for variant colors are :
+
 - info
 - success
 - warning
@@ -22,7 +23,7 @@ Values for variant colors are :
 
 ![](./mg-card/doc/img/mg-card-variant.png)
 
-*exemple of "app color" for the last one*
+_exemple of "app color" for the last one_
 
 Variant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**
 
@@ -52,16 +53,17 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 - `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`
 - `--mg-card-box-overflow`: define card overflow, default: `unset`
 - `--mg-card-max-width`: define card max-width, default: `unset`
+- `--mg-card-min-width`: define card min-width, default: `unset`
 
 <!-- Auto Generated Below -->
 
 
 ## Properties
 
-| Property       | Attribute       | Description                                 | Type                                                    | Default     |
-| -------------- | --------------- | ------------------------------------------- | ------------------------------------------------------- | ----------- |
-| `variant`      | `variant`       | Define variant prop Default: undefined      | `"app" \| "danger" \| "info" \| "success" \| "warning"` | `undefined` |
-| `variantStyle` | `variant-style` | Define variantStyle prop Default: undefined | `"bar-left" \| "fill"`                                  | `undefined` |
+| Property       | Attribute       | Description              | Type                                                    | Default     |
+| -------------- | --------------- | ------------------------ | ------------------------------------------------------- | ----------- |
+| `variant`      | `variant`       | Define variant prop      | `"app" \| "danger" \| "info" \| "success" \| "warning"` | `undefined` |
+| `variantStyle` | `variant-style` | Define variantStyle prop | `"bar-left" \| "fill"`                                  | `undefined` |
 
 
 ## Dependencies

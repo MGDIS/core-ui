@@ -75,11 +75,12 @@ describe('mg-popover', () => {
     );
 
     const mgPopover = page.doc.querySelector('mg-popover');
-    const interactiveElement = mgPopover.querySelector(`[aria-controls*='${args.identifier}']`);
+    const interactiveElement = mgPopover.querySelector(`[aria-controls*='${args.identifier}']`) as HTMLElement;
     const popover = mgPopover.shadowRoot.querySelector(`#${args.identifier}`);
     const popoverButton = popover.querySelector(`mg-button`);
     const dataGuard = page.doc.querySelector('[data-mg-popover-guard]');
 
+    const focusSpy = jest.spyOn(interactiveElement, 'focus');
     const displayChangeSpy = jest.spyOn(page.rootInstance.displayChange, 'emit');
 
     interactiveElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
@@ -102,6 +103,7 @@ describe('mg-popover', () => {
       }
     } else {
       mgPopover.dispatchEvent(new KeyboardEvent('keydown', { code: eventOut.code }));
+      expect(focusSpy).toHaveBeenCalled();
     }
     await page.waitForChanges();
 

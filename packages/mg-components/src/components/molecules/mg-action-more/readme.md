@@ -50,12 +50,12 @@ It is possible to display a chevron on the label right side, it make a 180 degre
 
 ## Properties
 
-| Property             | Attribute         | Description                                                        | Type                                                                                                                                             | Default                             |
-| -------------------- | ----------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
-| `button`             | --                | Define button properties Default: {variant: 'flat', isIcon: true}. | `{ isIcon: boolean; variant: "flat" \| "info" \| "success" \| "link" \| "primary" \| "secondary" \| "danger" \| "danger-alt"; label?: string; }` | `{ variant: 'flat', isIcon: true }` |
-| `displayChevron`     | `display-chevron` | Define if chevron is display                                       | `boolean`                                                                                                                                        | `undefined`                         |
-| `icon`               | --                | Define displaied icon Default: {icon: 'ellipsis'}                  | `{ icon: string; }`                                                                                                                              | `{ icon: 'ellipsis' }`              |
-| `items` _(required)_ | --                | Define the menu-items elements                                     | `MgActionMoreItemType[]`                                                                                                                         | `undefined`                         |
+| Property             | Attribute         | Description                    | Type                                                                                                                                             | Default                             |
+| -------------------- | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| `button`             | --                | Define button properties       | `{ isIcon: boolean; variant: "flat" \| "info" \| "success" \| "link" \| "primary" \| "secondary" \| "danger" \| "danger-alt"; label?: string; }` | `{ variant: 'flat', isIcon: true }` |
+| `displayChevron`     | `display-chevron` | Define if chevron is display   | `boolean`                                                                                                                                        | `undefined`                         |
+| `icon`               | --                | Define displaied icon          | `{ icon: string; }`                                                                                                                              | `{ icon: 'ellipsis' }`              |
+| `items` _(required)_ | --                | Define the menu-items elements | `MgActionMoreItemType[]`                                                                                                                         | `undefined`                         |
 
 
 ## Dependencies

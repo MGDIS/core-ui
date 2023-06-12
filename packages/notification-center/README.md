@@ -9,7 +9,7 @@ Considering notifications as :
 - a warning message
 - a success message
 
-## Why
+## Why?
 
 Because of the iframes we had to display notifications in the window and close by the origin action was. In some case the notification is not directly visible, we have to scroll to see it for example.
 
@@ -17,7 +17,7 @@ We had to add `mg-message` in almost every form.
 
 It has some concistency issues.
 
-## How
+## How?
 
 The idea is to load the library on every frontend projects, if it's loaded in the top window it will listen to messages, so even if you are running your project localy, the notification will be displayed.
 
@@ -46,21 +46,38 @@ notif.postMessage({
 
 Here is the full arguments list:
 
+- **content:** The message you want to display. HTML content will be sanitized.
 - **variant:** Set the message variant type.  
   Default `'info'`, can also be `'danger'`, `'success'`, `'warning'`.
 - **delay:** Define the number of second the message will be displayed.  
-  Default: `undefined` or `5` if variant is set to `'success'`. Minimum value is `3`.
-- **context:** Previous notification using the same context value will be removed.
+   Default values correspond to the expected behavior so these values should only be changed if it has been explicitly requested.
+
+  - For `'info'`, `'danger'` and `'warning'` variants, default value is `undefined`.
+  - For `'success'` variant default value is `5`. Can be set to `undefined` by setting its value to `0`.
+
+  Minimum value is `3`.
+
+- **context:** Previous notification using the same context value will be removed.  
+  Default: `undefined`
 
 ```TS
 // Possibilities
 notif.postMessage({
   content: 'Message notification',
   variant: 'danger',
-  delay: 5,
-  context: 'form-context-id'
+  delay: 10
+  context: 'form-context-id',
 });
 ```
+
+#### UMD
+
+Please note that some repositories may not support ES modules, which are a modern standard for organizing and sharing JavaScript code.  
+In such cases, it may be necessary to use a UMD (Universal Module Definition) build of the library instead. UMD is a format that is compatible with both modern ES modules and older module systems like CommonJS and AMD.
+
+To use a UMD build, simply include the appropriate script tag or import statement in your project.
+
+The exposed global variable name is `NotificationCenterModule`.
 
 ## Possible improvements
 

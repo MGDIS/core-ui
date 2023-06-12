@@ -4,7 +4,8 @@ default:
   interruptible: true # allows to cancel the job automatically
 
 stages:
-  - test
+  - tests
+  - artifacts
   - mg-components
   - release
 
@@ -24,6 +25,12 @@ stages:
     - changes:
         - 'packages/notification-center'
         - 'apps/notification-center'
+
+# Rule to execute job only on img folder content changes
+.rules:changes:img:
+  rules:
+    - changes:
+        - 'packages/img'
 
 # Rule to execute job only in merge request
 .rules:mr:
@@ -46,12 +53,23 @@ stages:
     - corepack enable
     - pnpm i
 
-########
-# test #
-########
+###########
+# Scripts #
+###########
+
+# artifact
+.artifact:
+  script:
+    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
+    - pnpm version --no-git-tag-version $version
+    - pnpm publish --no-git-checks
+
+#########
+# tests #
+#########
 
 lint:
-  stage: test
+  stage: tests
   extends:
     - .rules:except-tags
     - .install_dependencies
@@ -59,7 +77,7 @@ lint:
     - pnpm lint
 
 test:unit:
-  stage: test
+  stage: tests
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:except-tags
@@ -79,28 +97,46 @@ test:unit:
         path: coverage/cobertura-coverage.xml
 
 test:e2e:
-  stage: test
+  stage: tests
   extends:
-    - .rules:changes:mg-components # for now only mg-components use test:e2e
+    - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
     - .install_dependencies
   script:
     - pnpm test:e2e
   retry: 2
+  artifacts:
+    when: on_failure
+    paths:
+      - /**/__diff_output__/
 
 test:e2e:playwright:
-  stage: test
-  image: mcr.microsoft.com/playwright:v1.31.0-focal
+  stage: tests
+  image: mcr.microsoft.com/playwright:v1.33.0-focal
   extends:
-    - .rules:changes:notification-center # for now only notification-center use test:e2e:playwright
+    - .rules:changes:notification-center
+    - .rules:changes:mg-components
     - .rules:except-tags
     - .install_dependencies
   script:
-    - pnpx playwright install
+    - pnpm dlx playwright install
     - pnpm test:e2e:playwright
+  artifacts:
+    when: always
+    paths:
+      - packages/notification-center/playwright-report/
+      - packages/notification-center/test-results/
+      - packages/notification-center/results.xml
+      - packages/mg-components/playwright-report/
+      - packages/mg-components/test-results/
+      - packages/mg-components/results.xml
+    reports:
+      junit:
+        - packages/notification-center/results.xml
+        - packages/mg-components/results.xml
 
 sonar:
-  stage: test
+  stage: tests
   variables:
     GIT_DEPTH: 0
   extends:
@@ -112,6 +148,21 @@ sonar:
     - gitlabci-sonar-compare report
   needs:
     - test:unit
+
+auto-review:
+  stage: tests
+  extends:
+    - .rules:mr
+  script:
+    # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
+    - mg-danger
+  allow_failure: true
+  needs:
+    - sonar
+
+###########
+# release #
+###########
 
 release:
   stage: release
@@ -148,17 +199,18 @@ bot-publish:
     - pnpm storybook:build
     - mv storybook-static ../../public
 
-artifact:
-  stage: mg-components
+mg-components:artifact:
+  stage: artifacts
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install_dependencies
   script:
     - cd packages/mg-components
-    - version=`cat package.json | jq -r '.version'`-$CI_COMMIT_REF_SLUG-$CI_PIPELINE_ID
-    - pnpm version --no-git-tag-version $version
-    - pnpm publish --no-git-checks
+    - pnpm build
+    - !reference [.artifact, script]
+  needs:
+    - lint
 
 storybook-mr:
   stage: mg-components
@@ -182,7 +234,7 @@ chromatic-publish:
     - .install_dependencies
   script:
     - !reference [.mg-components:build, script]
-    - npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
+    - pnpm dlx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
 
 pages:
   stage: mg-components
@@ -193,3 +245,37 @@ pages:
   artifacts:
     paths:
       - public
+
+#######################
+# notification-center #
+#######################
+
+notification-center:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:notification-center
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - pnpm build
+    - cd packages/notification-center
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+#######
+# img #
+#######
+
+img:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:img
+    - .rules:except-tags
+    - .install_dependencies
+  script:
+    - cd packages/img
+    - pnpm build
+    - !reference [.artifact, script]
+  needs:
+    - lint

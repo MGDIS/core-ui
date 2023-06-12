@@ -5,11 +5,11 @@
 
 ## Properties
 
-| Property    | Attribute | Description                                         | Type                                     | Default                         |
-| ----------- | --------- | --------------------------------------------------- | ---------------------------------------- | ------------------------------- |
-| `icon`      | --        | Define icon Default: {icon: 'ellipsis-vertical'}    | `{ icon: string; }`                      | `{ icon: 'ellipsis-vertical' }` |
-| `size`      | `size`    | Define component child menu size.                   | `"large" \| "medium" \| "regular"`       | `undefined`                     |
-| `slotlabel` | --        | Define slot label element Default: {display: false} | `{ label?: string; display?: boolean; }` | `{ display: false }`            |
+| Property    | Attribute | Description                       | Type                                     | Default                         |
+| ----------- | --------- | --------------------------------- | ---------------------------------------- | ------------------------------- |
+| `icon`      | --        | Define icon                       | `{ icon: string; }`                      | `{ icon: 'ellipsis-vertical' }` |
+| `size`      | `size`    | Define component child menu size. | `"large" \| "medium" \| "regular"`       | `undefined`                     |
+| `slotlabel` | --        | Define slot label element         | `{ label?: string; display?: boolean; }` | `{ display: false }`            |
 
 
 ## Dependencies

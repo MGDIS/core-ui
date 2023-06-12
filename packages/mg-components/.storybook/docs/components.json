@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-04-13T08:28:13",
+  "timestamp": "2023-06-02T07:08:54",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -20,7 +20,7 @@
           "type": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Define button properties\nDefault: {variant: 'flat', isIcon: true}.",
+          "docs": "Define button properties",
           "docsTags": [],
           "default": "{ variant: 'flat', isIcon: true }",
           "values": [
@@ -79,7 +79,7 @@
           "type": "{ icon: string; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Define displaied icon\nDefault: {icon: 'ellipsis'}",
+          "docs": "Define displaied icon",
           "docsTags": [],
           "default": "{ icon: 'ellipsis' }",
           "values": [
@@ -189,7 +189,7 @@
         {
           "name": "value",
           "type": "number | string",
-          "mutable": true,
+          "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
           "docs": "Badge value",
@@ -317,7 +317,7 @@
         {
           "name": "form",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "form",
           "reflectToAttr": false,
           "docs": "Define form id to attach button with.\nIf this attribute is not set, the <button> is associated with its ancestor <form> element.",
@@ -333,7 +333,7 @@
         {
           "name": "fullWidth",
           "type": "boolean",
-          "mutable": true,
+          "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
           "docs": "Set button to full-width",
@@ -486,6 +486,7 @@
       "parts": [],
       "dependents": [
         "mg-action-more",
+        "mg-input-checkbox",
         "mg-message",
         "mg-modal",
         "mg-pagination",
@@ -500,6 +501,9 @@
           "mg-icon"
         ],
         "mg-action-more": [
+          "mg-button"
+        ],
+        "mg-input-checkbox": [
           "mg-button"
         ],
         "mg-message": [
@@ -523,7 +527,7 @@
       "filePath": "./src/components/atoms/mg-card/mg-card.tsx",
       "encapsulation": "shadow",
       "tag": "mg-card",
-      "readme": "## Specifications\n\n### Style\n\n![](./mg-card/doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--page)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--page)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are : \n- info\n- success\n- warning\n- danger\n- app\n\n![](./mg-card/doc/img/mg-card-variant.png)\n\n*exemple of \"app color\" for the last one*\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--page)**\n\n### Spacing\n\n![](./mg-card/doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./mg-card/doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n- `--mg-card-max-width`: define card max-width, default: `unset`\n",
+      "readme": "## Specifications\n\n### Style\n\n![](./mg-card/doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--page)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--page)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are :\n\n- info\n- success\n- warning\n- danger\n- app\n\n![](./mg-card/doc/img/mg-card-variant.png)\n\n_exemple of \"app color\" for the last one_\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--page)**\n\n### Spacing\n\n![](./mg-card/doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./mg-card/doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n- `--mg-card-max-width`: define card max-width, default: `unset`\n- `--mg-card-min-width`: define card min-width, default: `unset`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -534,7 +538,7 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Define variant prop\nDefault: undefined",
+          "docs": "Define variant prop",
           "docsTags": [],
           "values": [
             {
@@ -564,10 +568,10 @@
         {
           "name": "variantStyle",
           "type": "\"bar-left\" | \"fill\"",
-          "mutable": false,
+          "mutable": true,
           "attr": "variant-style",
           "reflectToAttr": false,
-          "docs": "Define variantStyle prop\nDefault: undefined",
+          "docs": "Define variantStyle prop",
           "docsTags": [],
           "values": [
             {
@@ -954,11 +958,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -993,7 +993,7 @@
       "filePath": "./src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
-      "readme": "## Design\n\n### Standard\n\nSizes (px) :\n\n- 12x12 small\n- 16x16 regular\n- 24x24 large\n- 36x36 extra-large\n\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))\n\n### Use alone with informative color\n\nWhen using a pictograph alone with an informative color, the color must be displayed in the background for accessibility reasons.\n\nThe colors to be used are variations of the standard colors, with the brightness increased by 20%.\n\nRule applicable for all except \"info\" blue. \"Info\" pictographs without text are usually displayed in the font color.\n\n![](./mg-icon/doc/img/mg-icon-color-bg.png)\n\n### File naming\n\n- Separator: \"-\" (dash). By default, the pictographs are the \"filled\" version, but this doesn't need to be specified in the naming\n- Variant: \"-outline\". If pictograph variant has a background that has a full circle > add \"-circle\" ex : check-circle, check-circle-outline\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n",
+      "readme": "## Specifications\n\n### Sizing\n\n![](./mg-icon/doc/img/mg-icon-sizing.png) \n\nSizes (px) :\n\n- small : 12x12\n- regular : 16x16\n- medium : 20x20\n- large : 24x24\n- extra-large : 32x32\n\n### With \"variant\" applied\n\n![](./mg-icon/doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./mg-icon/doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))\n\n### Variant style\n\n\n### Variant\n![](./mg-icon/doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./mg-icon/doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator : \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant : \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex : check-circle, check-circle-outline*\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--mg-icon-medium-size`: Define medium icon size, default: `2rem`\n- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n- `--mg-icon-border-radius`: Define icon border radiys, default: `50%`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -1004,7 +1004,7 @@
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
-          "docs": "Icon to display",
+          "docs": "Icon to display.",
           "docsTags": [],
           "values": [
             {
@@ -1012,11 +1012,11 @@
             }
           ],
           "optional": false,
-          "required": false
+          "required": true
         },
         {
           "name": "size",
-          "type": "\"extra-large\" | \"large\" | \"regular\" | \"small\"",
+          "type": "\"extra-large\" | \"large\" | \"medium\" | \"regular\" | \"small\"",
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -1030,6 +1030,10 @@
             },
             {
               "value": "large",
+              "type": "string"
+            },
+            {
+              "value": "medium",
               "type": "string"
             },
             {
@@ -1063,13 +1067,17 @@
         },
         {
           "name": "variant",
-          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+          "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Define icon variant\nAdd a background to the icon based on variant color",
+          "docs": "Define icon variant color",
           "docsTags": [],
           "values": [
+            {
+              "value": "app",
+              "type": "string"
+            },
             {
               "value": "danger",
               "type": "string"
@@ -1087,7 +1095,32 @@
               "type": "string"
             }
           ],
-          "optional": true,
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variantStyle",
+          "type": "\"background\" | \"full\" | \"icon\"",
+          "mutable": true,
+          "attr": "variant-style",
+          "reflectToAttr": false,
+          "docs": "Define icon color variant style\nAdd a color to the icon based on variant color with given style\n'full': Used to set a circular background with variant soft color and icon variant color\n'background': Used to set a circular background with variant soft color\n'icon': Used to set a color only to the icon",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "background",
+              "type": "string"
+            },
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "icon",
+              "type": "string"
+            }
+          ],
+          "optional": false,
           "required": false
         }
       ],
@@ -1251,7 +1284,7 @@
       "filePath": "./src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-checkbox",
-      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
+      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n\n## Type \"multi\"\n\n### Anatomy\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-anatomy-default-less-10.png)\n\n- Button :\n  - variant : secondary\n  - icon : list\n- Checkbox\n- Popover\n\n### Displayed values\n\n#### Style\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-style.png)\n\n- Radius : 3px\n- Font : OpenSans, Regular, 13px\n- Color : [@color-dark-5](./?path=/docs/style-colors--page)\n\n#### Alignment\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-alignment-displayed-values.png)\n\nText is centered vertically and horizontally in the container\n\n#### Spacing\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-spacing-values.png)\n\n#### Sizing\n\n- Min-width : 35px\n- Min-height : 35px\n\n#### Behavior\n\n##### Lack of space\n\n1. Without values\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)\n\nIf the space is too narrow the text button will do a line break.\n\n1. With values\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)\n\nIf the space is too narrow the button and values will do a line break.\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)\n\nThe component is ajusting with the space available. If the width is not enought big the values will do a breakline.\n\n### Values not displayed\n\n#### Spacing\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-style.png)\n\n#### Style\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-spacing.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
       "docs": "True/False value notion.\nOnly 2 possible values.",
       "docsTags": [],
       "usage": {},
@@ -1265,6 +1298,22 @@
           "docs": "Define if input is disabled",
           "docsTags": [],
           "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "displaySelectedValues",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "display-selected-values",
+          "reflectToAttr": false,
+          "docs": "Display selected values list in \"multi\" type",
+          "docsTags": [],
           "values": [
             {
               "type": "boolean"
@@ -1455,6 +1504,28 @@
           "required": false
         },
         {
+          "name": "type",
+          "type": "\"checkbox\" | \"multi\"",
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Define checkbox type",
+          "docsTags": [],
+          "default": "checkboxTypes[0]",
+          "values": [
+            {
+              "value": "checkbox",
+              "type": "string"
+            },
+            {
+              "value": "multi",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "valid",
           "type": "boolean",
           "mutable": true,
@@ -1496,11 +1567,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -1529,15 +1596,27 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
+        "mg-popover",
+        "mg-button",
         "mg-icon",
+        "mg-tooltip",
         "mg-input-title"
       ],
       "dependencyGraph": {
         "mg-input-checkbox": [
-          "mg-tooltip",
+          "mg-popover",
+          "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-input-title"
+        ],
+        "mg-popover": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
         ]
       }
     },
@@ -1806,11 +1885,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -2229,11 +2304,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -2553,11 +2624,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -2867,11 +2934,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -3242,11 +3305,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -3675,11 +3734,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         },
         {
           "name": "setFocus",
@@ -3690,11 +3745,7 @@
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
           "docs": "Public method to play input focus",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -4134,11 +4185,7 @@
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ]
+          "docsTags": []
         }
       ],
       "events": [
@@ -4386,11 +4433,7 @@
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Items are the possible options to select",
-          "docsTags": [
-            {
-              "name": "returns"
-            }
-          ],
+          "docsTags": [],
           "values": [
             {
               "type": "ToggleValue[]"
@@ -4571,7 +4614,7 @@
           "type": "{ icon: string; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Define icon\nDefault: {icon: 'ellipsis-vertical'}",
+          "docs": "Define icon",
           "docsTags": [],
           "default": "{ icon: 'ellipsis-vertical' }",
           "values": [
@@ -4612,7 +4655,7 @@
           "type": "{ label?: string; display?: boolean; }",
           "mutable": false,
           "reflectToAttr": false,
-          "docs": "Define slot label element\nDefault: {display: false}",
+          "docs": "Define slot label element",
           "docsTags": [],
           "default": "{ display: false }",
           "values": [
@@ -4672,7 +4715,7 @@
           "mutable": false,
           "attr": "direction",
           "reflectToAttr": true,
-          "docs": "Component display direction. Default: \"horizontal\"",
+          "docs": "Component display direction.",
           "docsTags": [],
           "default": "Direction.HORIZONTAL",
           "values": [
@@ -4688,7 +4731,7 @@
         },
         {
           "name": "itemmore",
-          "type": "{ size: \"regular\" | \"large\" | \"medium\"; icon: IconType; slotlabel: SlotLabelType; }",
+          "type": "{ size: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Customize \"mg-item-more\" element\nUsed with direction: 'vertical' to manage overflow",
@@ -4698,11 +4741,11 @@
               "type": "{ size: \"regular\""
             },
             {
-              "value": "large",
+              "value": "medium",
               "type": "string"
             },
             {
-              "type": "\"medium\"; icon: IconType; slotlabel: SlotLabelType; }"
+              "type": "\"large\"; icon: IconType; slotlabel: SlotLabelType; }"
             }
           ],
           "optional": false,
@@ -4730,7 +4773,7 @@
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
-          "docs": "Define mg-menu size\nDefault: 'regular'",
+          "docs": "Define mg-menu size",
           "docsTags": [],
           "default": "'regular'",
           "values": [
@@ -4786,7 +4829,7 @@
           "mutable": true,
           "attr": "expanded",
           "reflectToAttr": false,
-          "docs": "Define menu-item content expanded. Default: false.",
+          "docs": "Define menu-item content expanded.",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -4819,7 +4862,7 @@
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
-          "docs": "Identifier is used to control mg-popover\nDefault: createID('mg-menu-item');",
+          "docs": "Identifier is used to control mg-popover",
           "docsTags": [],
           "default": "createID('mg-menu-item')",
           "values": [
@@ -4836,7 +4879,7 @@
           "mutable": true,
           "attr": "status",
           "reflectToAttr": true,
-          "docs": "Define menu-item status. Default: \"visible\"",
+          "docs": "Define menu-item status.",
           "docsTags": [],
           "default": "Status.VISIBLE",
           "values": [
@@ -5074,7 +5117,7 @@
         {
           "name": "closeButton",
           "type": "boolean",
-          "mutable": true,
+          "mutable": false,
           "attr": "close-button",
           "reflectToAttr": false,
           "docs": "Define if modal has a cross button",
@@ -5331,7 +5374,7 @@
         {
           "name": "expandToggleDisabled",
           "type": "boolean",
-          "mutable": true,
+          "mutable": false,
           "attr": "expand-toggle-disabled",
           "reflectToAttr": false,
           "docs": "Disable possibility to toggle expand",
@@ -5414,7 +5457,7 @@
         {
           "name": "titlePattern",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "title-pattern",
           "reflectToAttr": false,
           "docs": "Panel title pattern",
@@ -5430,7 +5473,7 @@
         {
           "name": "titlePatternErrorMessage",
           "type": "string",
-          "mutable": true,
+          "mutable": false,
           "attr": "title-pattern-error-message",
           "reflectToAttr": false,
           "docs": "Panel title pattern error message",
@@ -5498,7 +5541,7 @@
       "filePath": "./src/components/molecules/mg-popover/mg-popover.tsx",
       "encapsulation": "shadow",
       "tag": "mg-popover",
-      "readme": "## Usage\n\nA popover is more enhanced than a tooltip but less blocking than a modal.\n\n## Behavior\n\nThe window is displayed when clicking on its trigger.\n\nThe window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.\n\nThe window closes:\n\n- when clicking on its trigger\n- clicking outside the window\n- when the ESC key is pressed\n- when clicking on the close button at the top right corner\n\nThe size of the window is determined by the content (set a maximum size to avoid problems).\n\nThe title and the close button are optional.\n\n## Specs\n\n### Fonts\n\n![](./mg-popover/doc/img/mg-popover-fonts.png)\n\n### Spacing\n\n![](./mg-popover/doc/img/mg-popover-spacing.png)\n\n### Sizing\n\n![](./mg-popover/doc/img/mg-popover-sizing.png)\n\nDefault max-width : 400px\nThe value of the max-width can be modified according to the case via the CSS variable.\n\n### Alignments\n\n![](./mg-popover/doc/img/mg-popover-align.png)\n\n### Positioning\n\n#### Item\n\n![](./mg-popover/doc/img/mg-popover-position.png)\n\n#### Screen\n\n![](./mg-popover/doc/img/mg-popover-position-screen.png)\n\n### Style\n\n![](./mg-popover/doc/img/mg-popover-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`\n- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`\n- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`\n- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`\n- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`\n- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;\n\nPlease note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.\n",
+      "readme": "## Usage\n\nA popover is more enhanced than a tooltip but less blocking than a modal.\n\n## Behavior\n\nThe window is displayed when clicking on its trigger.\n\nThe window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.\n\nThe window closes:\n\n- when clicking on its trigger\n- clicking outside the window\n- when the ESC key is pressed\n- when clicking on the close button at the top right corner\n\nThe size of the window is determined by the content (set a maximum size to avoid problems).\n\nThe title and the close button are optional.\n\n## Specs\n\n### Fonts\n\n![](./mg-popover/doc/img/mg-popover-fonts.png)\n\n### Spacing\n\n![](./mg-popover/doc/img/mg-popover-spacing.png)\n\n### Sizing\n\n![](./mg-popover/doc/img/mg-popover-sizing.png)\n\nDefault max-width : 400px\nThe value of the max-width can be modified according to the case via the CSS variable.\n\n### Alignments\n\n![](./mg-popover/doc/img/mg-popover-align.png)\n\n### Positioning\n\n#### Item\n\n![](./mg-popover/doc/img/mg-popover-position.png)\n\n#### Screen\n\n![](./mg-popover/doc/img/mg-popover-position-screen.png)\n\n### Style\n\n![](./mg-popover/doc/img/mg-popover-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`\n- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`\n- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`\n- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`\n- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`\n- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;\n- `--mg-popover-min-width`: Define the popover min-width. Default: `unset`;\n\nPlease note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.\n",
       "docs": "A popover is more enhanced than a tooltip but less blocking than a modal.",
       "docsTags": [],
       "usage": {},
@@ -5540,7 +5583,7 @@
         {
           "name": "disabled",
           "type": "boolean",
-          "mutable": true,
+          "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Disable popover",
@@ -5681,6 +5724,7 @@
       "parts": [],
       "dependents": [
         "mg-action-more",
+        "mg-input-checkbox",
         "mg-menu-item"
       ],
       "dependencies": [
@@ -5700,6 +5744,9 @@
         "mg-action-more": [
           "mg-popover"
         ],
+        "mg-input-checkbox": [
+          "mg-popover"
+        ],
         "mg-menu-item": [
           "mg-popover"
         ]
@@ -5717,7 +5764,7 @@
         {
           "name": "links",
           "type": "SkipLink[]",
-          "mutable": true,
+          "mutable": false,
           "reflectToAttr": false,
           "docs": "Skip links",
           "docsTags": [],
@@ -5979,7 +6026,7 @@
         {
           "name": "disabled",
           "type": "boolean",
-          "mutable": true,
+          "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
           "docs": "Disable tooltip",

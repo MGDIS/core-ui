@@ -1,14 +1,9 @@
 {
-	"extends": "../../configs/tsconfig/base.node18.json",
-	"include": ["./src/**/*.ts", "./src/**/*.json", "./src/**/*.d.ts"],
-	"exclude": ["./src/**/*.spec.ts", "./src/**/*.e2e.ts"],
-	"compilerOptions": {
-		"baseUrl": ".",
-		"outDir": "./dist",
-		"module": "ESNext",
-		"target": "ESNext",
-		"moduleResolution": "node",
-		"lib": ["ES2015", "DOM", "DOM.Iterable"],
-		"noImplicitAny": true
-	}
+  "extends": "tsconfig/base.node18.json",
+  "compilerOptions": {
+    "lib": ["ES2015", "dom"],
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.e2e.ts"]
 }

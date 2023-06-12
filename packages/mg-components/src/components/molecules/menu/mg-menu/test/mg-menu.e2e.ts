@@ -1,5 +1,6 @@
 import { KeyInput } from 'puppeteer';
-import { createPage, DesignSystemE2EPage, renderAttributes } from '../../../../../utils/e2e.test.utils';
+import { createPage, DesignSystemE2EPage } from '../../../../../utils/stencil.e2e.test.utils';
+import { renderAttributes } from '../../../../../utils/e2e.test.utils';
 import { Direction, MenuSizeType, sizes } from '../mg-menu.conf';
 
 enum Position {

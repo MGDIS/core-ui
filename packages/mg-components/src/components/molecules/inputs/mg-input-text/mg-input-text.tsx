@@ -77,9 +77,9 @@ export class MgInputText {
   @Watch('icon')
   validateIcon(newValue: string): void {
     if (newValue !== undefined) {
-      this.classList.add(this.classHasIcon);
+      this.classCollection.add(this.classHasIcon);
     } else {
-      this.classList.delete(this.classHasIcon);
+      this.classCollection.delete(this.classHasIcon);
     }
   }
 
@@ -175,7 +175,7 @@ export class MgInputText {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--text']);
+  @State() classCollection: ClassList = new ClassList(['mg-input--text']);
 
   /**
    * Error message to display
@@ -194,8 +194,6 @@ export class MgInputText {
 
   /**
    * Public method to play input focus
-   *
-   * @returns {Promise<void>}
    */
   @Method()
   async setFocus(): Promise<void> {
@@ -204,8 +202,6 @@ export class MgInputText {
 
   /**
    * Public method to display errors
-   *
-   * @returns {Promise<void>}
    */
   @Method()
   async displayError(): Promise<void> {
@@ -216,8 +212,6 @@ export class MgInputText {
 
   /**
    * Handle input event
-   *
-   * @returns {void}
    */
   private handleInput = (): void => {
     this.checkValidity();
@@ -229,31 +223,25 @@ export class MgInputText {
 
   /**
    * Handle focus event
-   *
-   * @returns {void}
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
   };
 
   /**
    * Handle blur event
-   *
-   * @returns {void}
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
     this.displayError();
   };
 
   /**
    * Check if input is valid
-   *
-   * @returns {void}
    */
   private checkValidity = (): void => {
     this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
@@ -264,8 +252,6 @@ export class MgInputText {
 
   /**
    * Set input error message
-   *
-   * @returns {void}
    */
   private setErrorMessage = (): void => {
     // Set error message
@@ -282,12 +268,10 @@ export class MgInputText {
 
   /**
    * Validate pattern configuration
-   *
-   * @returns {void}
    */
   private validatePattern = (): void => {
     if (
-      this.pattern &&
+      this.pattern !== undefined &&
       typeof this.pattern === 'string' &&
       this.pattern !== '' &&
       (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
@@ -298,17 +282,15 @@ export class MgInputText {
 
   /**
    * Validate append slot
-   *
-   * @returns {void}
    */
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
 
     if (slotAppendInput.length === 1) {
-      this.classList.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-input--is-append-input-slot-content');
     } else if (slotAppendInput.filter(slot => slot.nodeName === 'MG-BUTTON').length > 1) {
-      this.classList.add(this.classIsInputGroupAppend);
-      this.classList.add('mg-input--has-buttons-group-append');
+      this.classCollection.add(this.classIsInputGroupAppend);
+      this.classCollection.add('mg-input--has-buttons-group-append');
     }
   };
 
@@ -318,8 +300,7 @@ export class MgInputText {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -339,14 +320,13 @@ export class MgInputText {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}
