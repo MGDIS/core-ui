@@ -218,7 +218,7 @@ export class MgInputCheckbox {
   @State() searchValue: SearchValueType = '';
   @Watch('searchValue')
   validateSearchValue(newValue: MgInputCheckbox['searchValue']): void {
-    this.searchesults = this.checkboxItems.filter(item => item.title.toLocaleLowerCase().includes(newValue.trim().toLocaleLowerCase()));
+    this.searchResults = this.checkboxItems.filter(item => item.title.toLocaleLowerCase().includes(newValue.trim().toLocaleLowerCase()));
     // after each query we reset pagination
     this.setCurrentSearchPage();
   }
@@ -226,7 +226,7 @@ export class MgInputCheckbox {
   /**
    * Search current page
    */
-  @State() searchesults: CheckboxItem[] = [];
+  @State() searchResults: CheckboxItem[] = [];
 
   /**
    * Emitted event when value change
@@ -371,7 +371,7 @@ export class MgInputCheckbox {
    * Manage items to display depending on the search state
    * @returns items to display
    */
-  private getDisplayItems = (): CheckboxItem[] => (this.searchValue.length > 0 ? this.searchesults : this.checkboxItems);
+  private getDisplayItems = (): CheckboxItem[] => (this.searchValue.length > 0 ? this.searchResults : this.checkboxItems);
 
   /**
    * Method to get a array range
@@ -490,25 +490,24 @@ export class MgInputCheckbox {
           </mg-button>
           <div slot="content">
             {this.displaySearchInput && [
-              <mg-form>
-                <mg-input-text
-                  identifier={`${this.identifier}-input-search`}
-                  icon="magnifying-glass"
-                  type="search"
-                  placeholder={this.messages.input.checkbox.label}
-                  label={this.messages.input.checkbox.label}
-                  mgWidth="full"
-                  value={this.searchValue}
-                  labelHide={true}
-                  displayCharacterLeft={false}
-                  name="q"
-                  onValue-change={this.handleSearchChange}
-                  aria-controls="search-results items-list"
-                ></mg-input-text>
-              </mg-form>,
-              <mg-message class="sr-only" id="search-results" identifier={`${this.identifier}-search-message`}>
+              <mg-input-text
+                key="input-search"
+                identifier={`${this.identifier}-input-search`}
+                icon="magnifying-glass"
+                type="search"
+                placeholder={this.messages.input.checkbox.label}
+                label={this.messages.input.checkbox.label}
+                mgWidth="full"
+                value={this.searchValue}
+                labelHide={true}
+                displayCharacterLeft={false}
+                name="q"
+                onValue-change={this.handleSearchChange}
+                aria-controls="search-results items-list"
+              ></mg-input-text>,
+              <p key="search-results" role="status" class="sr-only" id="search-results">
                 {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
-              </mg-message>,
+              </p>,
             ]}
             {this.displaySearchInput ? this.renderPaginatedCheckboxes(checkboxes) : this.renderCheckboxes(this.checkboxItems)}
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
@@ -533,7 +532,8 @@ export class MgInputCheckbox {
         }}
         role="list"
         aria-describedby={this.displaySearchInput ? 'search-results' : false}
-        aria-label={this.displaySearchInput ? this.messages.input.checkbox.searchesults : false}
+        aria-label={this.displaySearchInput ? this.messages.input.checkbox.searchResults : false}
+        aria-live={this.displaySearchInput ? 'polite' : false}
         id="items-list"
       >
         {checkboxes
