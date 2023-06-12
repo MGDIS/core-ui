@@ -136,9 +136,7 @@ Type: `Promise<void>`
 - [mg-popover](../../mg-popover)
 - [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-form](../../mg-form)
 - [mg-input-text](../mg-input-text)
-- [mg-message](../../mg-message)
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-input-title](../../../atoms/mg-input-title)
 
@@ -150,9 +148,7 @@ graph TD;
   mg-input-checkbox --> mg-popover
   mg-input-checkbox --> mg-button
   mg-input-checkbox --> mg-icon
-  mg-input-checkbox --> mg-form
   mg-input-checkbox --> mg-input-text
-  mg-input-checkbox --> mg-message
   mg-input-checkbox --> mg-tooltip
   mg-input-checkbox --> mg-input-title
   mg-pagination --> mg-button
@@ -169,9 +165,6 @@ graph TD;
   mg-input-text --> mg-character-left
   mg-input-text --> mg-tooltip
   mg-input-text --> mg-input-title
-  mg-message --> mg-card
-  mg-message --> mg-icon
-  mg-message --> mg-button
   style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -108,20 +108,6 @@ Public method to display errors
 
 Type: `Promise<void>`
 
-## Dependencies
-
-### Used by
-
-- [mg-input-checkbox](../inputs/mg-input-checkbox)
-
-### Graph
-
-```mermaid
-graph TD;
-  mg-input-checkbox --> mg-form
-  style mg-form fill:#f9f,stroke:#333,stroke-width:4px
-```
-
 ---
 
 _Built with [StencilJS](https://stenciljs.com/)_

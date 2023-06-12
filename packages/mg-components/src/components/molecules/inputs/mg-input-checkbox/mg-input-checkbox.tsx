@@ -380,7 +380,7 @@ export class MgInputCheckbox {
    * @returns array's range
    */
   private getArrayRange<ItemType>(array: ItemType[], from: number, to: number): ItemType[] {
-    return array.slice(from, to || array.length);
+    return array.slice(from, to);
   }
 
   /**
@@ -393,6 +393,13 @@ export class MgInputCheckbox {
     const checkboxItemsToIndex = isFirstPage ? this.searchOffset : this.currentSearchPage * this.searchOffset;
     return [checkboxItemsFromIndex, checkboxItemsToIndex];
   }
+
+  /**
+   * Method to get pagination total-page
+   * @param checkboxes - checkboxes to paginate
+   * @returns total page number for pagination
+   */
+  private getPaginationTotalPages = (checkboxes: CheckboxItem[]): number => Math.ceil(checkboxes.length / this.searchOffset);
 
   /*************
    * Lifecycle *
@@ -453,15 +460,13 @@ export class MgInputCheckbox {
     const [checkboxItemsFromIndex, checkboxItemsToIndex] = this.getFromToIndexes();
     return [
       this.renderCheckboxes(this.getArrayRange(checkboxes, checkboxItemsFromIndex, checkboxItemsToIndex)),
-      this.displaySearchInput && checkboxes.length > 0 && (
-        <mg-pagination
-          totalPages={Math.ceil(checkboxes.length / this.searchOffset)}
-          currentPage={this.currentSearchPage}
-          onCurrent-page-change={this.handleCurrentPageChange}
-          hideNavigationLabels={true}
-          identifier={`${this.identifier}-pagination`}
-        ></mg-pagination>
-      ),
+      <mg-pagination
+        totalPages={this.getPaginationTotalPages(checkboxes)}
+        currentPage={this.currentSearchPage}
+        onCurrent-page-change={this.handleCurrentPageChange}
+        hideNavigationLabels={true}
+        identifier={`${this.identifier}-pagination`}
+      ></mg-pagination>,
     ];
   }
 
@@ -509,7 +514,7 @@ export class MgInputCheckbox {
                 {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
               </p>,
             ]}
-            {this.displaySearchInput ? this.renderPaginatedCheckboxes(checkboxes) : this.renderCheckboxes(this.checkboxItems)}
+            {this.displaySearchInput && this.getPaginationTotalPages(checkboxes) > 1 ? this.renderPaginatedCheckboxes(checkboxes) : this.renderCheckboxes(checkboxes)}
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
           </div>
         </mg-popover>

@@ -247,39 +247,6 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </label>
                   </li>
                 </ul>
-                <mg-pagination current-page="1">
-                  <mock:shadow-root>
-                    <nav aria-label="Pagination" class="mg-pagination" id="identifier-pagination">
-                      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-previous">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-left"></mg-icon>
-                      </mg-button>
-                      <mg-input-select identifier="identifier-pagination-select" label="Select the page to display." label-hide="" placeholder-hide="" value="1"></mg-input-select>
-                      <span class="sr-only">
-                        page 1
-                      </span>
-                      <span>
-                        / 1 page
-                      </span>
-                      <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-next">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-right"></mg-icon>
-                      </mg-button>
-                    </nav>
-                  </mock:shadow-root>
-                </mg-pagination>
               </div>
             </mg-popover>
           </div>
@@ -356,39 +323,6 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </label>
                   </li>
                 </ul>
-                <mg-pagination current-page="1">
-                  <mock:shadow-root>
-                    <nav aria-label="Pagination" class="mg-pagination" id="identifier-pagination">
-                      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-previous">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-left"></mg-icon>
-                      </mg-button>
-                      <mg-input-select identifier="identifier-pagination-select" label="Select the page to display." label-hide="" placeholder-hide="" value="1"></mg-input-select>
-                      <span class="sr-only">
-                        page 1
-                      </span>
-                      <span>
-                        / 1 page
-                      </span>
-                      <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-next">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-right"></mg-icon>
-                      </mg-button>
-                    </nav>
-                  </mock:shadow-root>
-                </mg-pagination>
               </div>
             </mg-popover>
           </div>
@@ -1316,39 +1250,6 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                     </label>
                   </li>
                 </ul>
-                <mg-pagination current-page="1">
-                  <mock:shadow-root>
-                    <nav aria-label="Pagination" class="mg-pagination" id="identifier-pagination">
-                      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-previous">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-left"></mg-icon>
-                      </mg-button>
-                      <mg-input-select identifier="identifier-pagination-select" label="Select the page to display." label-hide="" placeholder-hide="" value="1"></mg-input-select>
-                      <span class="sr-only">
-                        page 1
-                      </span>
-                      <span>
-                        / 1 page
-                      </span>
-                      <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-next">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-right"></mg-icon>
-                      </mg-button>
-                    </nav>
-                  </mock:shadow-root>
-                </mg-pagination>
               </div>
             </mg-popover>
           </div>

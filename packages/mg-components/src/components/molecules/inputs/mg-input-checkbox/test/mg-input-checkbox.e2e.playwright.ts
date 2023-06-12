@@ -222,7 +222,7 @@ describe('mg-input-checkbox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await updateScreenshotClass(page, { width: '450px', height: '480px' });
+      await updateScreenshotClass(page, { width: '450px', height: '470px' });
 
       // open popover
       await page.keyboard.down('Tab');

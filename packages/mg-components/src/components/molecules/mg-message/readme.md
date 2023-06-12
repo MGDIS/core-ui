@@ -44,10 +44,6 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 
 ## Dependencies
 
-### Used by
-
-- [mg-input-checkbox](../inputs/mg-input-checkbox)
-
 ### Depends on
 
 - [mg-card](../../atoms/mg-card)
@@ -62,7 +58,6 @@ graph TD;
   mg-message --> mg-icon
   mg-message --> mg-button
   mg-button --> mg-icon
-  mg-input-checkbox --> mg-message
   style mg-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
