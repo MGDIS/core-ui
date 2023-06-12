@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { variants, buttonTypes } from '../mg-button.conf';
-import { icons } from '../../mg-icon/mg-icon.conf';
+import iconList from '@mgdis/img/dist/icons/index.json';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
@@ -42,7 +42,7 @@ export const IsIcon = Template.bind({});
 IsIcon.args = {
   ...MgButton.args,
   isIcon: true,
-  slot: <mg-icon icon={Object.keys(icons)[0]}></mg-icon>,
+  slot: <mg-icon icon={iconList[0]}></mg-icon>,
 };
 
 export const DisableOnClick = Template.bind({});

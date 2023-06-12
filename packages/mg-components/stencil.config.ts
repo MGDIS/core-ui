@@ -73,6 +73,9 @@ export const config: Config = {
      */
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     setupFilesAfterEnv: ['./jest.setup.ts'],
+    transform: {
+      '^.+\\.svg$': 'jest-transform-stub',
+    },
     // browserHeadless: false
   },
 };
