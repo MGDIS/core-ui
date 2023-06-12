@@ -137,6 +137,7 @@ Type: `Promise<void>`
 - [mg-icon](../../../atoms/mg-icon)
 - [mg-form](../../mg-form)
 - [mg-input-text](../mg-input-text)
+- [mg-message](../../mg-message)
 - [mg-pagination](../../mg-pagination)
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-input-title](../../../atoms/mg-input-title)
@@ -150,6 +151,7 @@ graph TD;
   mg-input-checkbox --> mg-icon
   mg-input-checkbox --> mg-form
   mg-input-checkbox --> mg-input-text
+  mg-input-checkbox --> mg-message
   mg-input-checkbox --> mg-pagination
   mg-input-checkbox --> mg-tooltip
   mg-input-checkbox --> mg-input-title
@@ -161,6 +163,9 @@ graph TD;
   mg-input-text --> mg-character-left
   mg-input-text --> mg-tooltip
   mg-input-text --> mg-input-title
+  mg-message --> mg-card
+  mg-message --> mg-icon
+  mg-message --> mg-button
   mg-pagination --> mg-button
   mg-pagination --> mg-icon
   mg-pagination --> mg-input-select

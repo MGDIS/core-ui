@@ -1,4 +1,4 @@
-import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType } from '../../../../../utils/playwright.e2e.test.utils';
+import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType, test } from '../../../../../utils/playwright.e2e.test.utils';
 import { createID } from '../../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
@@ -210,6 +210,53 @@ describe('mg-input-checkbox', () => {
 
       await page.setViewportSize({ width: 200, height: 100 });
 
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+
+    test('Should render "multi" with search', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
+        title: index === 9 ? `my super long title item ${item} is very super long and finaly it could not be shorter so what can I do with it` : `${item}`,
+        value: false,
+      }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }));
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await updateScreenshotClass(page, { width: '450px', height: '480px' });
+
+      // open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // take focus in search input
+      await page.keyboard.down('Tab');
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // got to navigation after 10th input
+      for (const index of value.map((_item, index) => index)) {
+        if (index < 10) await page.keyboard.down('Tab');
+      }
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // use navigatio to go to last page
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // update search with an unmatchable value
+      await page.getByPlaceholder(/value/).fill('batman');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // close popover
+      await page.keyboard.down('Escape');
+      await updateScreenshotClass(page, { width: '290px', height: '35px' });
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });

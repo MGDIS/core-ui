@@ -63,58 +63,8 @@ MgInputCheckbox.args = {
 export const MgInputCheckboxMulti = Template.bind({});
 MgInputCheckboxMulti.args = {
   ...MgInputCheckbox.args,
-  value: [
-    {
-      title: '11',
-      value: true,
-    },
-    {
-      title: '12',
-      value: false,
-      disabled: true,
-    },
-    {
-      title: '13',
-      value: null,
-    },
-    {
-      title: '14',
-      value: true,
-    },
-    {
-      title: '15',
-      value: false,
-      disabled: true,
-    },
-    {
-      title: '16',
-      value: null,
-    },
-    {
-      title: '17',
-      value: true,
-    },
-    {
-      title: '18',
-      value: false,
-      disabled: true,
-    },
-    {
-      title: '19',
-      value: null,
-    },
-    {
-      title: '110',
-      value: true,
-    },
-    {
-      title: '111',
-      value: false,
-      disabled: true,
-    },
-    {
-      title: '112',
-      value: null,
-    },
-  ],
+  value: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+    title: `item ${item}`,
+    value: false,
+  })),
 };
