@@ -44,6 +44,12 @@ The icon is displayed in "small" size.
 
 Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--page).
 
+## CSS Variables
+
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-details-spacing`: define space between summary and details, default: `1.5rem`
+
 <!-- Auto Generated Below -->
 
 

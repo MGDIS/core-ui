@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-12T13:43:11",
+  "timestamp": "2023-06-12T23:36:30",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -698,7 +698,7 @@
       "filePath": "./src/components/molecules/mg-details/mg-details.tsx",
       "encapsulation": "shadow",
       "tag": "mg-details",
-      "readme": "## Properties\n\n![](./mg-details/doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state\n\n## Behavior\n\n### Action\n\nThe complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.\n\n![](./mg-details/doc/img/mg-details-behavior.png)\n\n### Position\n\n_Toggle_ follows the _summary_ and is always on the top right.\n\n![](./mg-details/doc/img/mg-details-position.png)\n\n### Responsive\n\nIn mobile resolution, the text of the _toggle_ is hidden\n\n![](./mg-details/doc/img/mg-details-responsive.png)\n\n## Specs\n\n### Spacing\n\n![](./mg-details/doc/img/mg-details-spacing.png)\n\n### Icons\n\nToggle's icon is chevron-down when closed.\nToggle's icon is chevron-up when opened.\n\nThe icon is displayed in \"small\" size.\n\n### Style\n\nToggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--page).\n",
+      "readme": "## Properties\n\n![](./mg-details/doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state\n\n## Behavior\n\n### Action\n\nThe complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.\n\n![](./mg-details/doc/img/mg-details-behavior.png)\n\n### Position\n\n_Toggle_ follows the _summary_ and is always on the top right.\n\n![](./mg-details/doc/img/mg-details-position.png)\n\n### Responsive\n\nIn mobile resolution, the text of the _toggle_ is hidden\n\n![](./mg-details/doc/img/mg-details-responsive.png)\n\n## Specs\n\n### Spacing\n\n![](./mg-details/doc/img/mg-details-spacing.png)\n\n### Icons\n\nToggle's icon is chevron-down when closed.\nToggle's icon is chevron-up when opened.\n\nThe icon is displayed in \"small\" size.\n\n### Style\n\nToggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--page).\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-details-spacing`: define space between summary and details, default: `1.5rem`\n",
       "docs": "![](./mg-details/doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state",
       "docsTags": [],
       "usage": {},
@@ -985,15 +985,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-input-checkbox"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-form"
-        ]
-      }
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/atoms/mg-icon/mg-icon.tsx",
@@ -1606,9 +1600,7 @@
         "mg-button",
         "mg-icon",
         "mg-popover",
-        "mg-form",
         "mg-input-text",
-        "mg-message",
         "mg-tooltip",
         "mg-input-title"
       ],
@@ -1618,9 +1610,7 @@
           "mg-button",
           "mg-icon",
           "mg-popover",
-          "mg-form",
           "mg-input-text",
-          "mg-message",
           "mg-tooltip",
           "mg-input-title"
         ],
@@ -1647,11 +1637,6 @@
           "mg-character-left",
           "mg-tooltip",
           "mg-input-title"
-        ],
-        "mg-message": [
-          "mg-card",
-          "mg-icon",
-          "mg-button"
         ]
       }
     },
@@ -5127,9 +5112,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-input-checkbox"
-      ],
+      "dependents": [],
       "dependencies": [
         "mg-card",
         "mg-icon",
@@ -5143,9 +5126,6 @@
         ],
         "mg-button": [
           "mg-icon"
-        ],
-        "mg-input-checkbox": [
-          "mg-message"
         ]
       }
     },

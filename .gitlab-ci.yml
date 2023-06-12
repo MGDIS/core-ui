@@ -26,6 +26,12 @@ stages:
         - 'packages/notification-center'
         - 'apps/notification-center'
 
+# Rule to execute job only on img folder content changes
+.rules:changes:img:
+  rules:
+    - changes:
+        - 'packages/img'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -42,7 +48,7 @@ stages:
     - if: $CI_COMMIT_TAG == null
 
 # install dependencies
-.install_dependencies:
+.install:dependencies:
   before_script:
     - corepack enable
     - pnpm i
@@ -58,6 +64,12 @@ stages:
     - pnpm version --no-git-tag-version $version
     - pnpm publish --no-git-checks
 
+# install JQ (for other images)
+.install:jq:
+  script:
+    - apt update -y
+    - apt install jq -y
+
 #########
 # tests #
 #########
@@ -66,7 +78,7 @@ lint:
   stage: tests
   extends:
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - pnpm lint
 
@@ -75,7 +87,7 @@ test:unit:
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - pnpm coverage
   artifacts:
@@ -95,7 +107,7 @@ test:e2e:
   extends:
     - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - pnpm test:e2e
   retry: 2
@@ -111,8 +123,9 @@ test:e2e:playwright:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
+    - !reference [.install:jq, script]
     - pnpm dlx playwright install
     - pnpm test:e2e:playwright
   artifacts:
@@ -135,7 +148,7 @@ sonar:
     GIT_DEPTH: 0
   extends:
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - gitlabci-quality-gate A+++
     - sonar-scanner -D sonar.login=$SONAR_KEY
@@ -162,16 +175,29 @@ release:
   stage: release
   extends:
     - .rules:tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - pnpm build
     - pnpm publish -r --no-git-checks
+
+.npmjs:
+  image: node:18 ## use official image to avoid the .npmrc present in our images
+  stage: release
+  extends:
+    - .rules:tags
+  before_script:
+    - !reference [.install:dependencies, before_script]
+    - !reference [.install:jq, script]
+  script:
+    - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
+  needs:
+    - release
 
 bot-publish:
   stage: release
   extends:
     - .rules:tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - cd tools/release-bot
     - ./bin/release.js
@@ -198,10 +224,10 @@ mg-components:artifact:
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
-    - cd packages/mg-components
-    - pnpm build
+    - pnpm build --filter=@mgdis/img
+    - !reference [.mg-components:build, script]
     - !reference [.artifact, script]
   needs:
     - lint
@@ -211,7 +237,7 @@ storybook-mr:
   extends:
     - .rules:changes:mg-components
     - .rules:mr
-    - .install_dependencies
+    - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
     paths:
@@ -225,7 +251,7 @@ chromatic-publish:
   stage: mg-components
   extends:
     - .rules:tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
     - pnpm dlx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
@@ -234,11 +260,19 @@ pages:
   stage: mg-components
   extends:
     - .rules:tags
-    - .install_dependencies
+    - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
     paths:
       - public
+
+mg-components:npmjs:
+  stage: release
+  extends:
+    - .npmjs
+  script:
+    - !reference [.mg-components:build, script]
+    - pnpm publish --no-git-checks --access public
 
 #######################
 # notification-center #
@@ -249,10 +283,36 @@ notification-center:artifact:
   extends:
     - .rules:changes:notification-center
     - .rules:except-tags
-    - .install_dependencies
+    - .install:dependencies
   script:
     - pnpm build
     - cd packages/notification-center
     - !reference [.artifact, script]
   needs:
     - lint
+
+#######
+# img #
+#######
+
+img:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:img
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - cd packages/img
+    - pnpm build
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+img:npmjs:
+  stage: release
+  extends:
+    - .npmjs
+  script:
+    - cd packages/img
+    - pnpm build
+    - pnpm publish --no-git-checks --access public

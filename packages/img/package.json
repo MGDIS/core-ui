@@ -1,0 +1,27 @@
+{
+  "name": "@mgdis/img",
+  "version": "0.0.1",
+  "description": "Image used in MGDIS products",
+  "author": "<duhem-s@mgdis.fr> Simon Duhem",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "svgo": "svgo --multipass -rf src -o dist",
+    "svgo:src": "svgo --multipass --pretty -rf src",
+    "sharp": "sharp -i 'dist/**/*.svg' -o {dir} -f png -c 0 --adaptiveFiltering false",
+    "list:all": "pnpm list:icons && pnpm list:illustrations",
+    "list:folder": "ls $FOLDER_PATH/*.svg | xargs -I{} basename {} | rev | cut -f 2- -d '.' | uniq | rev | jq -R . | jq -s . > $FOLDER_PATH/index.json",
+    "list:icons": "export FOLDER_PATH=dist/icons && pnpm list:folder",
+    "list:illustrations": "export FOLDER_PATH=dist/illustrations && pnpm list:folder",
+    "sprite": "spritesh --input dist/icons --output dist/icons/sprite.svg",
+    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all && pnpm sprite"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "sharp": "^0.32.1",
+    "sharp-cli": "^4.1.1",
+    "spritesh": "^1.2.1",
+    "svgo": "^3.0.2"
+  }
+}

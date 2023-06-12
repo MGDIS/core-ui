@@ -90,6 +90,7 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                  | Attribute                 | Description                                                                                 | Type                    | Default            |
@@ -111,12 +112,14 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | `valid`                   | `valid`                   | Define input valid state                                                                    | `boolean`               | `undefined`        |
 | `value` _(required)_      | --                        | Component value If item.value is `null`, checkbox will be indeterminate by default Required | `CheckboxValue[]`       | `undefined`        |
 
+
 ## Events
 
 | Event          | Description                         | Type                           |
 | -------------- | ----------------------------------- | ------------------------------ |
 | `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`         |
 | `value-change` | Emitted event when value change     | `CustomEvent<CheckboxValue[]>` |
+
 
 ## Methods
 
@@ -128,6 +131,9 @@ Public method to display errors
 
 Type: `Promise<void>`
 
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -136,23 +142,18 @@ Type: `Promise<void>`
 - [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)
 - [mg-popover](../../mg-popover)
-- [mg-form](../../mg-form)
 - [mg-input-text](../mg-input-text)
-- [mg-message](../../mg-message)
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-input-checkbox --> mg-pagination
   mg-input-checkbox --> mg-button
   mg-input-checkbox --> mg-icon
   mg-input-checkbox --> mg-popover
-  mg-input-checkbox --> mg-form
   mg-input-checkbox --> mg-input-text
-  mg-input-checkbox --> mg-message
   mg-input-checkbox --> mg-tooltip
   mg-input-checkbox --> mg-input-title
   mg-pagination --> mg-button
@@ -169,12 +170,9 @@ graph TD;
   mg-input-text --> mg-character-left
   mg-input-text --> mg-tooltip
   mg-input-text --> mg-input-title
-  mg-message --> mg-card
-  mg-message --> mg-icon
-  mg-message --> mg-button
   style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

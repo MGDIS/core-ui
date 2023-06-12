@@ -1,7 +1,8 @@
 import { createPage } from '../../../../utils/stencil.e2e.test.utils';
 import { renderAttributes } from '../../../../utils/e2e.test.utils';
 import { MgIcon } from '../mg-icon';
-import { icons, sizes, variantStyles, variants } from '../mg-icon.conf';
+import { sizes, variantStyles, variants } from '../mg-icon.conf';
+import icons from '@mgdis/img/dist/icons/index.json';
 
 const getIconWidth = (size: MgIcon['size']): number => {
   switch (size) {
@@ -22,9 +23,7 @@ const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
 describe('mg-icon', () => {
   test('renders icons', async () => {
-    const html = Object.keys(icons)
-      .map(icon => `<mg-icon icon="${icon}"></mg-icon>`)
-      .join('');
+    const html = icons.map(icon => `<mg-icon icon="${icon}"></mg-icon>`).join('');
     const page = await createPage(html);
 
     const screenshot = await page.screenshot();

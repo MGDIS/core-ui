@@ -222,7 +222,7 @@ describe('mg-input-checkbox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await updateScreenshotClass(page, { width: '450px', height: '480px' });
+      await updateScreenshotClass(page, { width: '450px', height: '470px' });
 
       // open popover
       await page.keyboard.down('Tab');
@@ -249,6 +249,10 @@ describe('mg-input-checkbox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
+      await page.getByPlaceholder(/value/).fill('2');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
       // update search with an unmatchable value
       await page.getByPlaceholder(/value/).fill('batman');
 
@@ -256,7 +260,7 @@ describe('mg-input-checkbox', () => {
 
       // close popover
       await page.keyboard.down('Escape');
-      await updateScreenshotClass(page, { width: '290px', height: '35px' });
+      await updateScreenshotClass(page, { width: '285px', height: '35px' });
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });

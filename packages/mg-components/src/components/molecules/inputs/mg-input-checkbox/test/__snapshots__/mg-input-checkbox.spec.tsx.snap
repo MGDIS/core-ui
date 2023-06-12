@@ -37,44 +37,28 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
@@ -216,44 +200,28 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="2">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="2">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   4 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_1" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_1">
@@ -279,39 +247,6 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </label>
                   </li>
                 </ul>
-                <mg-pagination current-page="1">
-                  <mock:shadow-root>
-                    <nav aria-label="Pagination" class="mg-pagination" id="identifier-pagination">
-                      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-previous">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-left"></mg-icon>
-                      </mg-button>
-                      <mg-input-select identifier="identifier-pagination-select" label="Select the page to display." label-hide="" placeholder-hide="" value="1"></mg-input-select>
-                      <span class="sr-only">
-                        page 1
-                      </span>
-                      <span>
-                        / 1 page
-                      </span>
-                      <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-next">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-right"></mg-icon>
-                      </mg-button>
-                    </nav>
-                  </mock:shadow-root>
-                </mg-pagination>
               </div>
             </mg-popover>
           </div>
@@ -359,44 +294,28 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="11">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="11">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="11">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="11">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   1 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_10" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_10">
@@ -404,39 +323,6 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </label>
                   </li>
                 </ul>
-                <mg-pagination current-page="1">
-                  <mock:shadow-root>
-                    <nav aria-label="Pagination" class="mg-pagination" id="identifier-pagination">
-                      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-previous">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-left"></mg-icon>
-                      </mg-button>
-                      <mg-input-select identifier="identifier-pagination-select" label="Select the page to display." label-hide="" placeholder-hide="" value="1"></mg-input-select>
-                      <span class="sr-only">
-                        page 1
-                      </span>
-                      <span>
-                        / 1 page
-                      </span>
-                      <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-next">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-right"></mg-icon>
-                      </mg-button>
-                    </nav>
-                  </mock:shadow-root>
-                </mg-pagination>
               </div>
             </mg-popover>
           </div>
@@ -484,44 +370,28 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="111">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="111">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="111">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="111">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   0 result
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list"></ul>
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list"></ul>
                 <p class="mg-input__input-checkbox-multi-no-result">
                   No result.
                 </p>
@@ -572,44 +442,28 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
@@ -751,44 +605,28 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
@@ -930,44 +768,28 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_10" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_10">
@@ -1109,44 +931,28 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_20" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_20">
@@ -1234,44 +1040,28 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
@@ -1413,44 +1203,28 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                 Edit
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="2">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="2">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="2">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   4 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" checked="" id="identifier_1" name="identifier" type="checkbox" value="true">
                     <label htmlfor="identifier_1">
@@ -1476,39 +1250,6 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                     </label>
                   </li>
                 </ul>
-                <mg-pagination current-page="1">
-                  <mock:shadow-root>
-                    <nav aria-label="Pagination" class="mg-pagination" id="identifier-pagination">
-                      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-previous">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-left"></mg-icon>
-                      </mg-button>
-                      <mg-input-select identifier="identifier-pagination-select" label="Select the page to display." label-hide="" placeholder-hide="" value="1"></mg-input-select>
-                      <span class="sr-only">
-                        page 1
-                      </span>
-                      <span>
-                        / 1 page
-                      </span>
-                      <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
-                        <mock:shadow-root>
-                          <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="identifier-pagination-button-next">
-                            <div class="mg-button__content">
-                              <slot></slot>
-                            </div>
-                          </div>
-                        </mock:shadow-root>
-                        <mg-icon icon="chevron-right"></mg-icon>
-                      </mg-button>
-                    </nav>
-                  </mock:shadow-root>
-                </mg-pagination>
               </div>
             </mg-popover>
           </div>
@@ -1556,44 +1297,28 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                 Edit
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   21 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
@@ -2737,44 +2462,28 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   11 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
@@ -5080,44 +4789,28 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                 Select values
               </mg-button>
               <div slot="content">
-                <mg-form>
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
+                <mg-input-text aria-controls="search-results items-list" value="">
+                  <mock:shadow-root>
+                    <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                      <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        Enter a value
+                      </mg-input-title>
+                      <div class="mg-input__input-container">
+                        <div class="mg-input__input">
+                          <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                            <mg-icon icon="magnifying-glass"></mg-icon>
+                            <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
                           </div>
+                          <slot name="append-input"></slot>
                         </div>
                       </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                </mg-form>
-                <mg-message class="sr-only" id="search-results">
-                  <mock:shadow-root>
-                    <div class="mg-message mg-message--info" id="identifier-search-message" role="status">
-                      <mg-card variant="info" variant-style="bar-left">
-                        <span class="mg-message__icon">
-                          <mg-icon icon="info-circle"></mg-icon>
-                        </span>
-                        <div class="mg-message__content">
-                          <span class="mg-message__content-slot">
-                            <slot></slot>
-                          </span>
-                        </div>
-                      </mg-card>
                     </div>
                   </mock:shadow-root>
+                </mg-input-text>
+                <p class="sr-only" id="search-results" role="status">
                   11 results
-                </mg-message>
-                <ul aria-describedby="search-results" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
+                </p>
+                <ul aria-describedby="search-results" aria-label="Search result(s) list." aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-list" role="list">
                   <li class="mg-input__input-group">
                     <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
                     <label htmlfor="identifier_0">
