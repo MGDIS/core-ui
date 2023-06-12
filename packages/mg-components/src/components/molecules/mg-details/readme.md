@@ -44,8 +44,13 @@ The icon is displayed in "small" size.
 
 Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--page).
 
-<!-- Auto Generated Below -->
+## CSS Variables
 
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-details-spacing`: define space between summary and details, default: `1.5rem`
+
+<!-- Auto Generated Below -->
 
 ## Properties
 
@@ -56,13 +61,11 @@ Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/styl
 | `toggleClosed` _(required)_ | `toggle-closed` | Displayed title when details are closed | `string`  | `undefined` |
 | `toggleOpened` _(required)_ | `toggle-opened` | Displayed title when details are opened | `string`  | `undefined` |
 
-
 ## Events
 
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
-
 
 ## Dependencies
 
@@ -71,12 +74,13 @@ Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/styl
 - [mg-icon](../../atoms/mg-icon)
 
 ### Graph
+
 ```mermaid
 graph TD;
   mg-details --> mg-icon
   style mg-details fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
-----------------------------------------------
+---
 
-*Built with [StencilJS](https://stenciljs.com/)*
+_Built with [StencilJS](https://stenciljs.com/)_
