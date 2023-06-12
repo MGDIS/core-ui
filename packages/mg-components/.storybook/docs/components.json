@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-08T06:45:31",
+  "timestamp": "2023-06-09T11:23:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -1512,7 +1512,7 @@
         {
           "name": "type",
           "type": "\"checkbox\" | \"multi\"",
-          "mutable": false,
+          "mutable": true,
           "attr": "type",
           "reflectToAttr": false,
           "docs": "Define checkbox type",
@@ -1607,6 +1607,7 @@
         "mg-icon",
         "mg-form",
         "mg-input-text",
+        "mg-message",
         "mg-pagination",
         "mg-tooltip",
         "mg-input-title"
@@ -1618,6 +1619,7 @@
           "mg-icon",
           "mg-form",
           "mg-input-text",
+          "mg-message",
           "mg-pagination",
           "mg-tooltip",
           "mg-input-title"
@@ -1635,6 +1637,11 @@
           "mg-character-left",
           "mg-tooltip",
           "mg-input-title"
+        ],
+        "mg-message": [
+          "mg-card",
+          "mg-icon",
+          "mg-button"
         ],
         "mg-pagination": [
           "mg-button",
@@ -5120,7 +5127,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "mg-input-checkbox"
+      ],
       "dependencies": [
         "mg-card",
         "mg-icon",
@@ -5134,6 +5143,9 @@
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-input-checkbox": [
+          "mg-message"
         ]
       }
     },
