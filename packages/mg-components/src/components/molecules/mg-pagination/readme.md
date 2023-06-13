@@ -12,6 +12,7 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property               | Attribute                | Description                                                                                                 | Type      | Default                     |
@@ -22,17 +23,15 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 | `label`                | `label`                  | Panignation label. Is a short description. Customize default value can be usefull to improve accessibility  | `string`  | `undefined`                 |
 | `totalPages`           | `total-pages`            | Component total pages                                                                                       | `number`  | `1`                         |
 
+
 ## Events
 
 | Event                 | Description                            | Type                  |
 | --------------------- | -------------------------------------- | --------------------- |
 | `current-page-change` | Emmited event when current page change | `CustomEvent<number>` |
 
+
 ## Dependencies
-
-### Used by
-
-- [mg-input-checkbox](../inputs/mg-input-checkbox)
 
 ### Depends on
 
@@ -41,7 +40,6 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 - [mg-input-select](../inputs/mg-input-select)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-pagination --> mg-button
@@ -51,10 +49,9 @@ graph TD;
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
-  mg-input-checkbox --> mg-pagination
   style mg-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*

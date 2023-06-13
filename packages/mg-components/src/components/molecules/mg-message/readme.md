@@ -25,6 +25,7 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute      | Description                                                                                                                   | Type                                           | Default                  |
@@ -35,6 +36,7 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 | `identifier`  | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.                   | `string`                                       | `createID('mg-message')` |
 | `variant`     | `variant`      | Message variant                                                                                                               | `"danger" \| "info" \| "success" \| "warning"` | `variants[0]`            |
 
+
 ## Events
 
 | Event            | Description                           | Type                  |
@@ -42,11 +44,8 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 | `component-hide` | Emited event when message is hidden   | `CustomEvent<string>` |
 | `component-show` | Emited event when message is diplayed | `CustomEvent<string>` |
 
+
 ## Dependencies
-
-### Used by
-
-- [mg-input-checkbox](../inputs/mg-input-checkbox)
 
 ### Depends on
 
@@ -55,17 +54,15 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 - [mg-button](../../atoms/mg-button)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-message --> mg-card
   mg-message --> mg-icon
   mg-message --> mg-button
   mg-button --> mg-icon
-  mg-input-checkbox --> mg-message
   style mg-message fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
