@@ -5,6 +5,6 @@ exports.config = {
   },
   changeset: true,
   autotag: [
-    { users: ['@duhem-s', '@core/core-ui'] }, // tagged for all the MRs
+    { users: ['@core/core-ui'] }, // tagged for all the MRs
   ],
 };
