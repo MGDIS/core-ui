@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgIcon } from '../mg-icon';
-import { icons, sizes, variantStyles, variants } from '../mg-icon.conf';
+import { sizes, variantStyles, variants } from '../mg-icon.conf';
+import iconList from '@mgdis/img/dist/icons/index.json';
 
 const getPage = args =>
   newSpecPage({
@@ -10,7 +11,14 @@ const getPage = args =>
   });
 
 describe('mg-icon', () => {
-  describe.each(Object.keys(icons))('Should render %s icon', icon => {
+  beforeEach(() => {
+    jest.mock('@mgdis/img/dist/icons/sprite.svg', () => '');
+  });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  describe.each(iconList)('Should render %s icon', icon => {
     test.each(sizes)('in %s size', async size => {
       const { root } = await getPage({ icon, size });
       expect(root).toMatchSnapshot();
@@ -72,7 +80,7 @@ describe('mg-icon', () => {
   });
 
   describe('errors', () => {
-    const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}` }));
+    const iconError = ['', 'blu', undefined].map(icon => ({ props: { icon }, error: `<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}` }));
     const sizeError = ['', 'blu'].map(size => ({ props: { icon: 'check-circle', size }, error: `<mg-icon> prop "size" must be one of: ${sizes.join(', ')}` }));
     const variantError = { props: { icon: 'check-circle', variant: 'blu' }, error: `<mg-icon> prop "variant" must be one of: ${variants.join(', ')}` };
     const variantStyleError = {

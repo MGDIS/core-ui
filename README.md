@@ -57,6 +57,12 @@ To check what will be released:
 pnpm release:status
 ```
 
+To check the files the release script will commit (you'll have to discard changes after):
+
+```sh
+pnpm release:preview
+```
+
 To make a release (of all concerned packages):
 
 ```sh
