@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-12T16:50:16",
+  "timestamp": "2023-06-02T07:08:54",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -985,15 +985,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-input-checkbox"
-      ],
+      "dependents": [],
       "dependencies": [],
-      "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-form"
-        ]
-      }
+      "dependencyGraph": {}
     },
     {
       "filePath": "./src/components/atoms/mg-icon/mg-icon.tsx",
@@ -1512,7 +1506,7 @@
         {
           "name": "type",
           "type": "\"checkbox\" | \"multi\"",
-          "mutable": true,
+          "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
           "docs": "Define checkbox type",
@@ -1602,39 +1596,18 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-pagination",
         "mg-popover",
         "mg-button",
         "mg-icon",
-        "mg-form",
-        "mg-input-text",
-        "mg-message",
         "mg-tooltip",
         "mg-input-title"
       ],
       "dependencyGraph": {
         "mg-input-checkbox": [
-          "mg-pagination",
           "mg-popover",
           "mg-button",
           "mg-icon",
-          "mg-form",
-          "mg-input-text",
-          "mg-message",
           "mg-tooltip",
-          "mg-input-title"
-        ],
-        "mg-pagination": [
-          "mg-button",
-          "mg-icon",
-          "mg-input-select"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-input-select": [
-          "mg-tooltip",
-          "mg-icon",
           "mg-input-title"
         ],
         "mg-popover": [
@@ -1642,16 +1615,8 @@
           "mg-button",
           "mg-icon"
         ],
-        "mg-input-text": [
-          "mg-icon",
-          "mg-character-left",
-          "mg-tooltip",
-          "mg-input-title"
-        ],
-        "mg-message": [
-          "mg-card",
-          "mg-icon",
-          "mg-button"
+        "mg-button": [
+          "mg-icon"
         ]
       }
     },
@@ -3808,7 +3773,6 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "mg-input-checkbox",
         "mg-panel"
       ],
       "dependencies": [
@@ -3823,9 +3787,6 @@
           "mg-character-left",
           "mg-tooltip",
           "mg-input-title"
-        ],
-        "mg-input-checkbox": [
-          "mg-input-text"
         ],
         "mg-panel": [
           "mg-input-text"
@@ -5127,9 +5088,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-input-checkbox"
-      ],
+      "dependents": [],
       "dependencies": [
         "mg-card",
         "mg-icon",
@@ -5143,9 +5102,6 @@
         ],
         "mg-button": [
           "mg-icon"
-        ],
-        "mg-input-checkbox": [
-          "mg-message"
         ]
       }
     },
@@ -5384,9 +5340,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [
-        "mg-input-checkbox"
-      ],
+      "dependents": [],
       "dependencies": [
         "mg-button",
         "mg-icon",
@@ -5405,9 +5359,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-input-checkbox": [
-          "mg-pagination"
         ]
       }
     },

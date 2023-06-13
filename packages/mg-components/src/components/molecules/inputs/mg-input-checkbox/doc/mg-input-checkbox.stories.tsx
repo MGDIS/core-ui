@@ -59,12 +59,3 @@ MgInputCheckbox.args = {
   helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
   displaySelectedValues: false,
 };
-
-export const MgInputCheckboxMulti = Template.bind({});
-MgInputCheckboxMulti.args = {
-  ...MgInputCheckbox.args,
-  value: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
-    title: `item ${item}`,
-    value: false,
-  })),
-};

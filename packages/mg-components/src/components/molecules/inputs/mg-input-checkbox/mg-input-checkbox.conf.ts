@@ -28,8 +28,3 @@ export const checkboxTypes = ['checkbox', 'multi'] as const;
  * ChecboxType from checkbox types
  */
 export type CheckboxType = (typeof checkboxTypes)[number];
-
-/**
- * Search value type
- */
-export type SearchValueType = string;
