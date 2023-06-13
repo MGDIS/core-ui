@@ -112,7 +112,7 @@ test:e2e:
 
 test:e2e:playwright:
   stage: tests
-  image: mcr.microsoft.com/playwright:v1.33.0-focal
+  image: mcr.microsoft.com/playwright:v1.34.3-focal
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components

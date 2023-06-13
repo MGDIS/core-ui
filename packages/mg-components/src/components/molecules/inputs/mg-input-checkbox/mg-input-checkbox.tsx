@@ -3,7 +3,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
-import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes } from './mg-input-checkbox.conf';
+import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SearchValueType } from './mg-input-checkbox.conf';
 
 /**
  * type CheckboxItem validation function
@@ -36,6 +36,10 @@ export class MgInputCheckbox {
 
   // style
   private baseClassName = 'mg-input--checkbox';
+
+  private multiStart = 5;
+  private searchStart = 10;
+  private searchOffset = 10;
 
   /**************
    * Decorators *
@@ -70,15 +74,17 @@ export class MgInputCheckbox {
   /**
    * Define checkbox type
    */
-  @Prop() type: CheckboxType = checkboxTypes[0];
+  @Prop({ mutable: true }) type: CheckboxType = checkboxTypes[0];
   @Watch('type')
   validateType(newValue: MgInputCheckbox['type']): void {
     if (!checkboxTypes.includes(newValue)) {
       throw new Error('<mg-input-checkbox> prop "type" must be a CheckboxType.');
     } else {
       const className = `${this.baseClassName}-multi`;
-      if (newValue === 'multi') this.classCollection.add(className);
-      else this.classCollection.delete(className);
+      if (newValue === 'multi') {
+        this.classCollection.add(className);
+        this.element.dataset.mgPopoverGuard = this.getMgPopoverIdentifier();
+      } else this.classCollection.delete(className);
     }
   }
 
@@ -190,6 +196,37 @@ export class MgInputCheckbox {
    * Formated value for display
    */
   @State() checkboxItems: CheckboxItem[] = [];
+  @Watch('checkboxItems')
+  validateCheckboxItems(newValue: MgInputCheckbox['checkboxItems']): void {
+    if (newValue.length > this.multiStart) this.type = 'multi';
+    if (newValue.length > this.searchStart) this.displaySearchInput = this.type === 'multi';
+  }
+
+  /**
+   * Display search input
+   */
+  @State() displaySearchInput: boolean;
+
+  /**
+   * Search current page
+   */
+  @State() currentSearchPage = 0;
+
+  /**
+   * Search value
+   */
+  @State() searchValue: SearchValueType = '';
+  @Watch('searchValue')
+  validateSearchValue(newValue: MgInputCheckbox['searchValue']): void {
+    this.searchResults = this.checkboxItems.filter(item => item.title.toLocaleLowerCase().includes(newValue.trim().toLocaleLowerCase()));
+    // after each query we reset pagination
+    this.setCurrentSearchPage();
+  }
+
+  /**
+   * Search current page
+   */
+  @State() searchResults: CheckboxItem[] = [];
 
   /**
    * Emitted event when value change
@@ -243,12 +280,43 @@ export class MgInputCheckbox {
   };
 
   /**
+   * Reset current-search-page prop
+   */
+  private setCurrentSearchPage(): void {
+    this.currentSearchPage = this.getDisplayItems().length > 0 ? 1 : 0;
+  }
+
+  /**
    * Handle blur event
    */
   private handleBlur = (): void => {
     // Check validity
     this.checkValidity();
     this.setErrorMessage();
+  };
+
+  /**
+   * Handle input search value-change event
+   * @param event - input value-change event
+   */
+  private handleSearchChange = (event: CustomEvent): void => {
+    this.searchValue = event.detail;
+  };
+
+  /**
+   * Handle mg-pagination current page change event
+   * @param event - pagination current page change event
+   */
+  private handleCurrentPageChange = (event: CustomEvent): void => {
+    this.currentSearchPage = Number(event.detail);
+  };
+
+  private handleMgPopoverDisplayChange = (event: CustomEvent): void => {
+    // reset search value
+    if (!event.detail) {
+      this.searchValue = '';
+      this.setCurrentSearchPage();
+    }
   };
 
   /**
@@ -299,6 +367,33 @@ export class MgInputCheckbox {
    */
   private getMgPopoverIdentifier = (): string => `${this.identifier}-input-mg-popover`;
 
+  /**
+   * Manage items to display depending on the search state
+   * @returns items to display
+   */
+  private getDisplayItems = (): CheckboxItem[] => (this.searchValue.length > 0 ? this.searchResults : this.checkboxItems);
+
+  /**
+   * Method to get a array range
+   * @param from - array start index
+   * @param to - array end index
+   * @returns array's range
+   */
+  private getArrayRange<ItemType>(array: ItemType[], from: number, to: number): ItemType[] {
+    return array.slice(from, to || array.length);
+  }
+
+  /**
+   * Get from and to index
+   * @returns [from,to] index
+   */
+  private getFromToIndexes(): number[] {
+    const isFirstPage = this.currentSearchPage === 1;
+    const checkboxItemsFromIndex = isFirstPage ? 0 : (this.currentSearchPage - 1) * this.searchOffset;
+    const checkboxItemsToIndex = isFirstPage ? this.searchOffset : this.currentSearchPage * this.searchOffset;
+    return [checkboxItemsFromIndex, checkboxItemsToIndex];
+  }
+
   /*************
    * Lifecycle *
    *************/
@@ -310,12 +405,12 @@ export class MgInputCheckbox {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
-    if (this.type === 'multi') this.element.dataset.mgPopoverGuard = this.getMgPopoverIdentifier();
     // Validate
+    this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
-    this.validateType(this.type);
     this.validateDisplaySelectedValues(this.displaySelectedValues);
+    this.setCurrentSearchPage();
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -350,17 +445,41 @@ export class MgInputCheckbox {
   }
 
   /**
+   * Render paginated checkboxes
+   * @param checkboxes - checkboxes to render
+   * @returns paginated checkboxes
+   */
+  private renderPaginatedCheckboxes(checkboxes: CheckboxItem[]): HTMLElement[] {
+    const [checkboxItemsFromIndex, checkboxItemsToIndex] = this.getFromToIndexes();
+    return [
+      this.renderCheckboxes(this.getArrayRange(checkboxes, checkboxItemsFromIndex, checkboxItemsToIndex)),
+      this.displaySearchInput && checkboxes.length > 0 && (
+        <mg-pagination
+          totalPages={Math.ceil(checkboxes.length / this.searchOffset)}
+          currentPage={this.currentSearchPage}
+          onCurrent-page-change={this.handleCurrentPageChange}
+          hideNavigationLabels={true}
+          identifier={`${this.identifier}-pagination`}
+        ></mg-pagination>
+      ),
+    ];
+  }
+
+  /**
    * render checkbox multi element
    * @returns html element
    */
   private renderCheckboxMulti(): HTMLElement[] {
     const selectedValuesNb = this.checkboxItems.filter(({ value }) => value).length;
+    const checkboxes = this.getDisplayItems();
+
     return (
       <div class={{ 'mg-input__input-container': true, 'mg-input__input-checkbox-multi': true, 'mg-input__input-checkbox-multi--with-values': this.displaySelectedValues }}>
         {this.renderCheckboxMultiDisplaySelectedValues(selectedValuesNb)}
         <mg-popover
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
+          onDisplay-change={this.handleMgPopoverDisplayChange}
           ref={el => {
             if (Boolean(el)) this.mgPopover = el;
           }}
@@ -369,7 +488,30 @@ export class MgInputCheckbox {
             <mg-icon icon="list"></mg-icon>
             {this.renderButtonText(selectedValuesNb)}
           </mg-button>
-          <div slot="content">{this.renderCheckboxes()}</div>
+          <div slot="content">
+            {this.displaySearchInput && [
+              <mg-input-text
+                key="input-search"
+                identifier={`${this.identifier}-input-search`}
+                icon="magnifying-glass"
+                type="search"
+                placeholder={this.messages.input.checkbox.label}
+                label={this.messages.input.checkbox.label}
+                mgWidth="full"
+                value={this.searchValue}
+                labelHide={true}
+                displayCharacterLeft={false}
+                name="q"
+                onValue-change={this.handleSearchChange}
+                aria-controls="search-results items-list"
+              ></mg-input-text>,
+              <p key="search-results" role="status" class="sr-only" id="search-results">
+                {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
+              </p>,
+            ]}
+            {this.displaySearchInput ? this.renderPaginatedCheckboxes(checkboxes) : this.renderCheckboxes(this.checkboxItems)}
+            {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
+          </div>
         </mg-popover>
       </div>
     );
@@ -377,9 +519,10 @@ export class MgInputCheckbox {
 
   /**
    * Render checkbox element
+   * @param checkboxes - checkboxes to render
    * @returns HTML Element
    */
-  private renderCheckboxes(): HTMLElement {
+  private renderCheckboxes(checkboxes: CheckboxItem[]): HTMLElement {
     return (
       <ul
         class={{
@@ -388,11 +531,13 @@ export class MgInputCheckbox {
           'mg-input__input-checkbox-multi-inputs': this.type === 'multi' && !this.readonly,
         }}
         role="list"
+        aria-describedby={this.displaySearchInput ? 'search-results' : false}
+        aria-label={this.displaySearchInput ? this.messages.input.checkbox.searchResults : false}
+        aria-live={this.displaySearchInput ? 'polite' : false}
+        id="items-list"
       >
-        {this.checkboxItems
-          .filter(item => {
-            return !this.readonly || item.value;
-          })
+        {checkboxes
+          .filter(item => !this.readonly || item.value)
           .map((input, index) => (
             <li key={input.id} class={{ 'mg-input__input-group': true, 'mg-input__input-group--disabled': this.disabled || input.disabled }}>
               <input
@@ -442,7 +587,7 @@ export class MgInputCheckbox {
         errorMessage={!this.readonly ? this.errorMessage : undefined}
         isFieldset={true}
       >
-        {this.type === 'checkbox' || this.readonly ? this.renderCheckboxes() : this.renderCheckboxMulti()}
+        {this.type === 'checkbox' || this.readonly ? this.renderCheckboxes(this.checkboxItems) : this.renderCheckboxMulti()}
       </MgInput>
     );
   }
