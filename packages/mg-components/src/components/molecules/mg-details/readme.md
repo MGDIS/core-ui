@@ -52,6 +52,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property                    | Attribute       | Description                             | Type      | Default     |
@@ -61,11 +62,13 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `toggleClosed` _(required)_ | `toggle-closed` | Displayed title when details are closed | `string`  | `undefined` |
 | `toggleOpened` _(required)_ | `toggle-opened` | Displayed title when details are opened | `string`  | `undefined` |
 
+
 ## Events
 
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
+
 
 ## Dependencies
 
@@ -74,13 +77,12 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 - [mg-icon](../../atoms/mg-icon)
 
 ### Graph
-
 ```mermaid
 graph TD;
   mg-details --> mg-icon
   style mg-details fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
----
+----------------------------------------------
 
-_Built with [StencilJS](https://stenciljs.com/)_
+*Built with [StencilJS](https://stenciljs.com/)*
