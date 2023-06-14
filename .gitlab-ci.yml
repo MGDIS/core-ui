@@ -188,7 +188,6 @@ release:
   before_script:
     - !reference [.install:dependencies, before_script]
     - !reference [.install:jq, script]
-  script:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
   needs:
     - release
