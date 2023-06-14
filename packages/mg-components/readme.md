@@ -113,6 +113,10 @@ The plugin [storybook-addon-docs-stencil
 pnpm storybook
 ```
 
+### Assets
+
+When a documentation file displays an image, the image file should be stored in the `img/` or `doc/img/` folder located in the same directory as the document. To load the image file, use a relative link in the document, for example: `./img/image-file.png` or `./doc/img/image-file.png`.
+
 ### Notes
 
 To display components in our `stories`, we use the `filterArgs` method to only show the necessary arguments in the code example. It takes in the first parameter an object containing the arguments to be used, and in the second parameter, an object containing the component default values.

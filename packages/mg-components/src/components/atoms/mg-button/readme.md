@@ -11,17 +11,17 @@ A button with undefined type in a form will natively have a [submit type](https:
 
 ## Specs
 
-![](./mg-button/doc/img/mg-button-specs.png)
+![](./doc/img/mg-button-specs.png)
 
 ## Placement
 
-![](./mg-button/doc/img/mg-button-placement.png)
+![](./doc/img/mg-button-placement.png)
 
 To manage the space between two buttons you can use the helper [.mg-group-elements](/?path=/docs/style-buttons--buttons)
 
 ## Theming
 
-![](./mg-button/doc/img/mg-button-styles.png)
+![](./doc/img/mg-button-styles.png)
 
 Focused `mg-button` style is the one from the browser (outline).
 

@@ -41,39 +41,39 @@ Ex: if I put a check in front of the term "Delete" which is the validation butto
 
 ### Shapes
 
-![](./mg-modal/doc/img/mg-modal-shapes.png)
+![](./doc/img/mg-modal-shapes.png)
 
 ### Fonts
 
-![](./mg-modal/doc/img/mg-modal-fonts.png)
+![](./doc/img/mg-modal-fonts.png)
 
 ### Spacing
 
 #### Spacing between edges and content
 
-![](./mg-modal/doc/img/mg-modal-spaces-borders.png)
+![](./doc/img/mg-modal-spaces-borders.png)
 
 #### Spacing between title, text and buttons
 
-![](./mg-modal/doc/img/mg-modal-spaces-slot.png)
-![](./mg-modal/doc/img/mg-modal-spaces-slot-title.png)
+![](./doc/img/mg-modal-spaces-slot.png)
+![](./doc/img/mg-modal-spaces-slot-title.png)
 
 #### Spacing between the title and the cross button
 
-![](./mg-modal/doc/img/mg-modal-spaces-title.png)
-![](./mg-modal/doc/img/mg-modal-spaces-title-multiline.png)
+![](./doc/img/mg-modal-spaces-title.png)
+![](./doc/img/mg-modal-spaces-title-multiline.png)
 
 ### Alignments
 
-![](./mg-modal/doc/img/mg-modal-alignments.png)
+![](./doc/img/mg-modal-alignments.png)
 
 ### Sizes
 
-![](./mg-modal/doc/img/mg-modal-sizes.png)
+![](./doc/img/mg-modal-sizes.png)
 
 ### Colors
 
-![](./mg-modal/doc/img/mg-modal-colors.png)
+![](./doc/img/mg-modal-colors.png)
 
 ### Backdrop
 
