@@ -1,5 +1,20 @@
 # @mgdis/mg-components
 
+## 5.12.0
+
+### Minor Changes
+
+- 354ea9a: [**`<mg-details>`**](./?path=/docs/molecules-mg-details--mg-details) hide summary text when width is under 600px and add variable to customize space between summary and details
+- 0fc473e: Add `<small/>` style [typography](./?path=/docs/style-typography--typography)
+- 4e5ef64: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) add search input in "multi" mode
+- a4c96b1: use @mgdis/img package
+- 2d7d7b2: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) add "display-values" props
+
+### Patch Changes
+
+- Updated dependencies [642e65d]
+  - @mgdis/img@1.0.0
+
 ## 5.11.1
 
 ### Patch Changes
