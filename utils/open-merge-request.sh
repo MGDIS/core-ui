@@ -2,7 +2,7 @@
 
 branch_name="chore%2Fchromatic-version-update"
 mr_title="Chore%3A%20Chromatic%20Version%20Update"
-mr_description="%40core%2Fcore-ui"
+mr_description="%40core%2Fcore-ui%20https%3A%2F%2Fwww.chromatic.com%2Flibrary%3FappId%3D626149b307606d003ada26b4"
 
 # Request
 perform_gitlab_request() {

@@ -181,12 +181,13 @@ release:
     - pnpm publish -r --no-git-checks
 
 chromatic:mr:
-  # stage: release
-  stage: tests
-  # extends:
-  #   - .rules:tags
+  stage: release
+  extends:
+    - .rules:tags
   script:
       - sh utils/open-merge-request.sh
+  needs:
+    - chromatic:publish
 
 .npmjs:
   image: node:18 ## use official image to avoid the .npmrc present in our images
