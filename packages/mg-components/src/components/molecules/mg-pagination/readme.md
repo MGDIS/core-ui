@@ -33,6 +33,10 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 
 ## Dependencies
 
+### Used by
+
+ - [mg-input-checkbox](../inputs/mg-input-checkbox)
+
 ### Depends on
 
 - [mg-button](../../atoms/mg-button)
@@ -49,6 +53,7 @@ graph TD;
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
+  mg-input-checkbox --> mg-pagination
   style mg-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

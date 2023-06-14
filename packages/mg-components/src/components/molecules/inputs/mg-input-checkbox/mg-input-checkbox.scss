@@ -35,6 +35,9 @@ $checkbox-multi-spacer: 0.4rem;
       border-radius: 0.3rem;
       font-size: var(--font-size);
     }
+    &-no-result {
+      text-align: center;
+    }
   }
   .mg-input__input-checkbox-multi-inputs {
     margin: 0;
@@ -44,5 +47,13 @@ $checkbox-multi-spacer: 0.4rem;
   }
   mg-popover {
     --mg-popover-min-width: 7rem;
+    [slot='content'] {
+      display: flex;
+      flex-direction: column;
+      gap: calc(#{$checkbox-multi-spacer} * 2);
+    }
+  }
+  mg-input-text {
+    --mg-inputs-margin-bottom: 0;
   }
 }
