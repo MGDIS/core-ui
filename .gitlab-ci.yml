@@ -180,6 +180,14 @@ release:
     - pnpm build
     - pnpm publish -r --no-git-checks
 
+chromatic:mr:
+  # stage: release
+  stage: tests
+  # extends:
+  #   - .rules:tags
+  script:
+      - sh utils/open-merge-request.sh
+
 .npmjs:
   image: node:18 ## use official image to avoid the .npmrc present in our images
   stage: release
@@ -246,7 +254,7 @@ storybook-mr:
     url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html'
     auto_stop_in: 1 week
 
-chromatic-publish:
+chromatic:publish:
   stage: mg-components
   extends:
     - .rules:tags
