@@ -52,7 +52,6 @@ stages:
   before_script:
     - corepack enable
     - pnpm i
-  
 
 ###########
 # Scripts #
@@ -70,7 +69,6 @@ stages:
   script:
     - apt update -y
     - apt install jq -y
-
 
 #########
 # tests #
@@ -187,7 +185,7 @@ release:
   stage: release
   extends:
     - .rules:tags
-  before_script: 
+  before_script:
     - !reference [.install:dependencies, before_script]
     - !reference [.install:jq, script]
   script:
@@ -212,6 +210,7 @@ bot-publish:
 
 .mg-components:build:
   script:
+    - pnpm build --filter=@mgdis/img
     - cd packages/mg-components
     - pnpm build
 
@@ -228,7 +227,6 @@ mg-components:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm build --filter=@mgdis/img
     - !reference [.mg-components:build, script]
     - !reference [.artifact, script]
   needs:
@@ -269,7 +267,6 @@ pages:
       - public
 
 mg-components:npmjs:
-  stage: release
   extends:
     - .npmjs
   script:
@@ -297,6 +294,11 @@ notification-center:artifact:
 # img #
 #######
 
+.img:build:
+  script:
+    - cd packages/img
+    - pnpm build
+
 img:artifact:
   stage: artifacts
   extends:
@@ -304,17 +306,14 @@ img:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - cd packages/img
-    - pnpm build
+    - !reference [.img:build, script]
     - !reference [.artifact, script]
   needs:
     - lint
 
 img:npmjs:
-  stage: release
   extends:
     - .npmjs
   script:
-    - cd packages/img
-    - pnpm build
+    - !reference [.img:build, script]
     - pnpm publish --no-git-checks --access public
