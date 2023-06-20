@@ -1,7 +1,14 @@
 @import '../../../styles/a11y.scss';
 
+:host {
+  display: contents;
+}
+
 .mg-details {
-  container: mg-details / inline-size;
+  container-name: mg-details;
+  container-type: inline-size;
+
+  width: 100%;
 
   summary {
     display: flex;
