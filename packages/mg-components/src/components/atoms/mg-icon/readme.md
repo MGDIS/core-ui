@@ -79,6 +79,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
  - [mg-button](../mg-button)
  - [mg-details](../../molecules/mg-details)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+ - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox)
  - [mg-input-date](../../molecules/inputs/mg-input-date)
  - [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
@@ -103,6 +104,7 @@ graph TD;
   mg-button --> mg-icon
   mg-details --> mg-icon
   mg-input-checkbox --> mg-icon
+  mg-input-checkbox-paginated --> mg-icon
   mg-input-date --> mg-icon
   mg-input-numeric --> mg-icon
   mg-input-password --> mg-icon

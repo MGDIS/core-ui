@@ -19,6 +19,7 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 | ---------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------- | --------- | --------------------------- |
 | `currentPage`          | `current-page`           | Component current page                                                                                      | `number`  | `1`                         |
 | `hideNavigationLabels` | `hide-navigation-labels` | Hide navigation label                                                                                       | `boolean` | `undefined`                 |
+| `hideSelectInput`      | `hide-select-input`      | Hide select input                                                                                           | `boolean` | `undefined`                 |
 | `identifier`           | `identifier`             | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`  | `createID('mg-pagination')` |
 | `label`                | `label`                  | Panignation label. Is a short description. Customize default value can be usefull to improve accessibility  | `string`  | `undefined`                 |
 | `totalPages`           | `total-pages`            | Component total pages                                                                                       | `number`  | `1`                         |
@@ -35,7 +36,7 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 
 ### Used by
 
- - [mg-input-checkbox](../inputs/mg-input-checkbox)
+ - [mg-input-checkbox-paginated](../inputs/mg-input-checkbox)
 
 ### Depends on
 
@@ -53,7 +54,7 @@ graph TD;
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
-  mg-input-checkbox --> mg-pagination
+  mg-input-checkbox-paginated --> mg-pagination
   style mg-pagination fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

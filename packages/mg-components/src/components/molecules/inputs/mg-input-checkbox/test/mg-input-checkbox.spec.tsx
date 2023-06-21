@@ -3,18 +3,19 @@ import { newSpecPage } from '@stencil/core/testing';
 import { cloneDeep, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
-import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
+import { CheckboxItem, CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { MgInputText } from '../../mg-input-text/mg-input-text';
 import { MgMessage } from '../../../mg-message/mg-message';
 import { MgPagination } from '../../../mg-pagination/mg-pagination';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
+import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated';
 
 mockWindowFrames();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgInputText, MgMessage, MgPagination, MgButton],
+    components: [MgInputCheckbox, MgPopover, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 
@@ -110,7 +111,9 @@ describe('mg-input-checkbox', () => {
     });
 
     test.each([true, false])('Should trigger events, case validity check %s', async validity => {
-      const page = await getPage({ label: 'label', type, identifier: 'identifier', helpText: 'My help text', value: cloneDeep(items) });
+      const value = items.map(item => ({ ...item, value: false }));
+      if (!validity) value[0].value = true;
+      const page = await getPage({ label: 'label', type, identifier: 'identifier', helpText: 'My help text', value, required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = element.shadowRoot.querySelectorAll('input');
       const index = validity ? 2 : 0;
@@ -136,7 +139,7 @@ describe('mg-input-checkbox', () => {
       input.checked = validity;
       input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
 
-      const emittedValue = cloneDeep(items);
+      const emittedValue = value;
       emittedValue[index].value = input.checked;
       await page.waitForChanges();
       expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(emittedValue);
@@ -149,11 +152,12 @@ describe('mg-input-checkbox', () => {
 
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
       test.each([
-        { validity: true, valueMissing: false, value: cloneDeep(items) },
-        { validity: false, valueMissing: true, value: cloneDeep(items) },
-        { validity: false, valueMissing: false, value: cloneDeep(items) },
-      ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing, value }) => {
-        const args = { label: 'label', identifier: 'identifier', type, value, helpText: 'My help text' };
+        { validity: true, valueMissing: false },
+        { validity: false, valueMissing: true },
+        { validity: false, valueMissing: false },
+      ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing }) => {
+        const value = items.map((item, index) => ({ ...item, value: !valueMissing && index === 1 }));
+        const args = { label: 'label', identifier: 'identifier', type, value, helpText: 'My help text', required: true };
         const page = await getPage(args);
         const element = page.doc.querySelector('mg-input-checkbox');
         const allInputs = element.shadowRoot.querySelectorAll('input');
@@ -448,7 +452,6 @@ describe('mg-input-checkbox', () => {
       input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
       await page.waitForChanges();
 
-      console.log(mgInputCheckbox.value);
       expect(mgInputCheckbox.value.find(item => item.value)).toHaveProperty('title', 'item 2');
       expect(page.root).toMatchSnapshot();
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-12T23:36:30",
+  "timestamp": "2023-06-16T13:18:31",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -487,6 +487,7 @@
       "dependents": [
         "mg-action-more",
         "mg-input-checkbox",
+        "mg-input-checkbox-paginated",
         "mg-message",
         "mg-modal",
         "mg-pagination",
@@ -504,6 +505,9 @@
           "mg-button"
         ],
         "mg-input-checkbox": [
+          "mg-button"
+        ],
+        "mg-input-checkbox-paginated": [
           "mg-button"
         ],
         "mg-message": [
@@ -1135,6 +1139,7 @@
         "mg-button",
         "mg-details",
         "mg-input-checkbox",
+        "mg-input-checkbox-paginated",
         "mg-input-date",
         "mg-input-numeric",
         "mg-input-password",
@@ -1164,6 +1169,9 @@
           "mg-icon"
         ],
         "mg-input-checkbox": [
+          "mg-icon"
+        ],
+        "mg-input-checkbox-paginated": [
           "mg-icon"
         ],
         "mg-input-date": [
@@ -1393,7 +1401,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Input label",
+          "docs": "Define input label",
           "docsTags": [],
           "values": [
             {
@@ -1442,7 +1450,7 @@
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
-          "docs": "Input name\nIf not set the value equals the identifier",
+          "docs": "Define input name",
           "docsTags": [],
           "default": "this.identifier",
           "values": [
@@ -1459,7 +1467,7 @@
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
-          "docs": "Define if input is readonly",
+          "docs": "Define if mg-input-checkbox is readonly",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1476,7 +1484,7 @@
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
-          "docs": "Define if input is required",
+          "docs": "Define if mg-input-checkbox is required",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1596,31 +1604,36 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-pagination",
+        "mg-input-checkbox-paginated",
+        "mg-popover",
         "mg-button",
         "mg-icon",
-        "mg-popover",
         "mg-input-text",
         "mg-tooltip",
         "mg-input-title"
       ],
       "dependencyGraph": {
         "mg-input-checkbox": [
-          "mg-pagination",
+          "mg-input-checkbox-paginated",
+          "mg-popover",
           "mg-button",
           "mg-icon",
-          "mg-popover",
           "mg-input-text",
           "mg-tooltip",
           "mg-input-title"
+        ],
+        "mg-input-checkbox-paginated": [
+          "mg-button",
+          "mg-icon",
+          "mg-pagination"
+        ],
+        "mg-button": [
+          "mg-icon"
         ],
         "mg-pagination": [
           "mg-button",
           "mg-icon",
           "mg-input-select"
-        ],
-        "mg-button": [
-          "mg-icon"
         ],
         "mg-input-select": [
           "mg-tooltip",
@@ -1637,6 +1650,162 @@
           "mg-character-left",
           "mg-tooltip",
           "mg-input-title"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated.tsx",
+      "encapsulation": "none",
+      "tag": "mg-input-checkbox-paginated",
+      "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)\n\n## Type \"multi\"\n\n### Anatomy\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-anatomy-default-less-10.png)\n\n- Button :\n  - variant : secondary\n  - icon : list\n- Checkbox\n- Popover\n\n### Displayed values\n\n#### Style\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-style.png)\n\n- Radius : 3px\n- Font : OpenSans, Regular, 13px\n- Color : [@color-dark-5](./?path=/docs/style-colors--page)\n\n#### Alignment\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-alignment-displayed-values.png)\n\nText is centered vertically and horizontally in the container\n\n#### Spacing\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-spacing-values.png)\n\n#### Sizing\n\n- Min-width : 35px\n- Min-height : 35px\n\n#### Behavior\n\n##### Lack of space\n\n1. Without values\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)\n\nIf the space is too narrow the text button will do a line break.\n\n1. With values\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)\n\nIf the space is too narrow the button and values will do a line break.\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)\n\nThe component is ajusting with the space available. If the width is not enought big the values will do a breakline.\n\n### Values not displayed\n\n#### Spacing\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-style.png)\n\n#### Style\n\n![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-spacing.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
+      "docs": "True/False value notion.\nOnly 2 possible values.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "checkboxes",
+          "type": "CheckboxItem[]",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define checkboxes to paginate",
+          "docsTags": [],
+          "default": "[]",
+          "values": [
+            {
+              "type": "CheckboxItem[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Define if mg-input-checkbox-list is disabled",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "Define mg-input-checkbox-list identifier",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "messages",
+          "type": "{ [x: string]: string; }",
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define component message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "{ [x: string]: string; }"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "Define if mg-input-checkbox-list is readonly",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "sectionKind",
+          "type": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
+          "mutable": false,
+          "attr": "section-kind",
+          "reflectToAttr": false,
+          "docs": "Define section kind",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "SectionKind.NOT_SELECTED"
+            },
+            {
+              "type": "SectionKind.SELECTED"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "mass-action",
+          "detail": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Define 'mass-action' event",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "mg-input-checkbox"
+      ],
+      "dependencies": [
+        "mg-button",
+        "mg-icon",
+        "mg-pagination"
+      ],
+      "dependencyGraph": {
+        "mg-input-checkbox-paginated": [
+          "mg-button",
+          "mg-icon",
+          "mg-pagination"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-pagination": [
+          "mg-button",
+          "mg-icon",
+          "mg-input-select"
+        ],
+        "mg-input-select": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ],
+        "mg-input-checkbox": [
+          "mg-input-checkbox-paginated"
         ]
       }
     },
@@ -5298,6 +5467,22 @@
           "required": false
         },
         {
+          "name": "hideSelectInput",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "hide-select-input",
+          "reflectToAttr": false,
+          "docs": "Hide select input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "identifier",
           "type": "string",
           "mutable": false,
@@ -5365,7 +5550,7 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "mg-input-checkbox"
+        "mg-input-checkbox-paginated"
       ],
       "dependencies": [
         "mg-button",
@@ -5386,7 +5571,7 @@
           "mg-icon",
           "mg-input-title"
         ],
-        "mg-input-checkbox": [
+        "mg-input-checkbox-paginated": [
           "mg-pagination"
         ]
       }
