@@ -8,27 +8,27 @@ The right area of the header can accommodate any component.
 
 ## Anatomy
 
-![](./mg-panel/doc/img/mg-panel-anatomy.png)
+![](./doc/img/mg-panel-anatomy.png)
 
 ## Specs
 
 ### Sizing
 
-![](./mg-panel/doc/img/mg-panel-sizing.png)
+![](./doc/img/mg-panel-sizing.png)
 
 ### Spacing
 
-![](./mg-panel/doc/img/mg-panel-spacing.png)
+![](./doc/img/mg-panel-spacing.png)
 
 Slot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.
 
 ### Alignments
 
-![](./mg-panel/doc/img/mg-panel-align.png)
+![](./doc/img/mg-panel-align.png)
 
 ### Styles
 
-![](./mg-panel/doc/img/mg-panel-style.png)
+![](./doc/img/mg-panel-style.png)
 
 ## CSS Variables
 

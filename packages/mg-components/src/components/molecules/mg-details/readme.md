@@ -1,6 +1,6 @@
 ## Properties
 
-![](./mg-details/doc/img/mg-details-components.png)
+![](./doc/img/mg-details-components.png)
 
 - **summary** and **details** are slots which allow html content
 - **toggle** is defined by mg-icon plus a custom text
@@ -13,25 +13,25 @@
 
 The complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.
 
-![](./mg-details/doc/img/mg-details-behavior.png)
+![](./doc/img/mg-details-behavior.png)
 
 ### Position
 
 _Toggle_ follows the _summary_ and is always on the top right.
 
-![](./mg-details/doc/img/mg-details-position.png)
+![](./doc/img/mg-details-position.png)
 
 ### Responsive
 
 In mobile resolution, the text of the _toggle_ is hidden
 
-![](./mg-details/doc/img/mg-details-responsive.png)
+![](./doc/img/mg-details-responsive.png)
 
 ## Specs
 
 ### Spacing
 
-![](./mg-details/doc/img/mg-details-spacing.png)
+![](./doc/img/mg-details-spacing.png)
 
 ### Icons
 
