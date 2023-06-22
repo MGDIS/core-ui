@@ -23,7 +23,7 @@ In addition of the standard popover's behavior, when an item of the menu is clic
 ![](./mg-action-more/doc/img/mg-action-more-options-variant.png)
 
 By default, button variant is "flat".
-It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/story/atoms-mg-button--mg-button)).
+It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/story/atoms-mg-button--mg-button)).
 
 ### Icon
 

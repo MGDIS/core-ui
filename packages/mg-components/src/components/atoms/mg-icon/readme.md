@@ -37,7 +37,7 @@ Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--page)
 
 ![](./mg-icon/doc/img/mg-icon-styling-variant.png) 
 
-"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/mg-components/?path=/docs/style-colors--page) or "app color" to the background of the icon with Lightness set to 90% 
+"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--page) or "app color" to the background of the icon with Lightness set to 90% 
 You can select "variant style" to apply "variant" on the icon or the background or both.
 
 # File naming

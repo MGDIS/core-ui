@@ -1,15 +1,6 @@
 @import '../../../styles/a11y.scss';
 
-:host {
-  display: contents;
-}
-
 .mg-details {
-  container-name: mg-details;
-  container-type: inline-size;
-
-  width: 100%;
-
   summary {
     display: flex;
     align-items: baseline;
@@ -31,8 +22,8 @@
   }
 }
 
-@container mg-details (max-width: 60rem) {
-  .mg-details__toggle span {
+@media (width < 70rem) {
+  .mg-details__toggle > span {
     @include sr-only();
   }
 }
