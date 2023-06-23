@@ -1,5 +1,11 @@
 # @mgdis/mg-components
 
+## 5.12.1
+
+### Patch Changes
+
+- c433c00: [**`<mg-details>`**](./?path=/docs/molecules-mg-details--mg-details) update media query
+
 ## 5.12.0
 
 ### Minor Changes
