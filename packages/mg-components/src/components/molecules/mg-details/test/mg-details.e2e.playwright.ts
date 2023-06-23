@@ -15,7 +15,7 @@ describe('mg-details', () => {
 
     expect(page.locator('mg-details.hydrated')).toBeDefined();
 
-    await page.setViewportSize({ width: 650, height: 100 });
+    await page.setViewportSize({ width: 700, height: 100 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -25,10 +25,10 @@ describe('mg-details', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('Should not render toggle text when component size is under 600px', async ({ page }) => {
+  test('Should not render toggle text when window size is under 700px', async ({ page }) => {
     await setPageContent(page, htmlContent({ ...baseArgs }));
 
-    await page.setViewportSize({ width: 500, height: 100 });
+    await page.setViewportSize({ width: 650, height: 100 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -44,7 +44,7 @@ describe('mg-details', () => {
       ),
     );
 
-    await page.setViewportSize({ width: 650, height: 100 });
+    await page.setViewportSize({ width: 700, height: 100 });
 
     page.keyboard.press('Tab');
     page.keyboard.press('Space');

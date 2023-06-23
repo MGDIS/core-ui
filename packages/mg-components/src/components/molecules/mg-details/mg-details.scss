@@ -1,8 +1,6 @@
 @import '../../../styles/a11y.scss';
 
 .mg-details {
-  container: mg-details / inline-size;
-
   summary {
     display: flex;
     align-items: baseline;
@@ -24,8 +22,9 @@
   }
 }
 
-@container mg-details (max-width: 60rem) {
-  .mg-details__toggle span {
+/* hide toggle button when < 700px */
+@media (width < 43.75rem) {
+  .mg-details__toggle > span {
     @include sr-only();
   }
 }
