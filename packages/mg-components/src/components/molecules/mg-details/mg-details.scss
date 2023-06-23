@@ -22,7 +22,8 @@
   }
 }
 
-@media (width < 70rem) {
+/* hide toggle button when < 700px */
+@media (width < 43.75rem) {
   .mg-details__toggle > span {
     @include sr-only();
   }
