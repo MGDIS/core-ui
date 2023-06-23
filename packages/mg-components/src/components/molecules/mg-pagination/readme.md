@@ -10,6 +10,10 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 
 ![](./mg-pagination/doc/img/mg-pagination-nav-label-hide.png)
 
+It's possible to hide the page selection input to show only the "chevron" icons
+
+![](./mg-pagination/doc/img/mg-pagination-nav-select-hide.png)
+
 <!-- Auto Generated Below -->
 
 

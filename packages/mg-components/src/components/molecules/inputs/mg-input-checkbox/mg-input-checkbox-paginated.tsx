@@ -2,15 +2,19 @@ import { Component, h, Prop, State, Event, EventEmitter, Watch, Host } from '@st
 import { CheckboxItem, IMgInputCheckboxBase, SectionKind, SectionTitleKind } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
 
+/**
+ * Internal component use to manage sections instances
+ */
 @Component({
   tag: 'mg-input-checkbox-paginated',
   shadow: false,
+  scoped: true,
 })
 export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /*************
    * Constantes *
    *************/
-  private readonly searchOffset = 10;
+  private readonly offset = 10;
 
   /*************
    * Decorators *
@@ -36,9 +40,12 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    */
   @Prop() checkboxes: CheckboxItem[] = [];
   @Watch('checkboxes')
-  validateChecboxes(newValue: MgInputCheckboxPaginated['checkboxes'], oldValue: MgInputCheckboxPaginated['checkboxes']): void {
+  validateCheckboxes(newValue: MgInputCheckboxPaginated['checkboxes'], oldValue: MgInputCheckboxPaginated['checkboxes']): void {
     // after each array.length update we reset pagination
-    if (newValue.length !== oldValue.length) this.currentSearchPage = 1;
+    // when items fill on page, we set current page to 1
+    if (this.getPageCount(newValue) === 1) this.currentPage = 1;
+    // when old items page numbers match the current page AND new items page number is lower than current page, we set the new last page
+    else if (this.getPageCount(oldValue) === this.currentPage && this.getPageCount(newValue) < this.currentPage) this.currentPage = this.getPageCount(newValue);
   }
 
   /**
@@ -67,9 +74,9 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @State() titleKind: SectionTitleKind;
 
   /**
-   * Search current page
+   * Current page
    */
-  @State() currentSearchPage = 1;
+  @State() currentPage = 1;
 
   /**
    * Is checked items values expanded
@@ -107,25 +114,25 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * @returns [from,to] index
    */
   private getFromToIndexes(): number[] {
-    const isFirstPage = this.currentSearchPage === 1;
-    const checkboxItemsFromIndex = isFirstPage ? 0 : (this.currentSearchPage - 1) * this.searchOffset;
-    const checkboxItemsToIndex = isFirstPage ? this.searchOffset : this.currentSearchPage * this.searchOffset;
+    const isFirstPage = this.currentPage === 1;
+    const checkboxItemsFromIndex = isFirstPage ? 0 : (this.currentPage - 1) * this.offset;
+    const checkboxItemsToIndex = isFirstPage ? this.offset : this.currentPage * this.offset;
     return [checkboxItemsFromIndex, checkboxItemsToIndex];
   }
 
   /**
-   * Method to get pagination total-page
-   * @param checkboxes - checkboxes to paginate
-   * @returns total page number for pagination
+   * Method to get page count from items
+   * @param items - items to count
+   * @returns page count from items
    */
-  private getPaginationTotalPages = (checkboxes: CheckboxItem[]): number => Math.ceil(checkboxes.length / this.searchOffset);
+  private getPageCount = (item: unknown[]): number => Math.ceil(item.length / this.offset);
 
   /**
    * Handle mg-pagination current page change event
    * @param event - pagination current page change event
    */
   private handleCurrentPageChange = (event: CustomEvent): void => {
-    this.currentSearchPage = Number(event.detail);
+    this.currentPage = Number(event.detail);
   };
 
   /*************
@@ -150,7 +157,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
     const getText = (checkboxes: CheckboxItem[]): HTMLElement => <em>{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>;
 
     return (
-      <Host>
+      <Host hidden={this.checkboxes.length < 1}>
         <div class="mg-input__input-checkbox-multi-section-header">
           {this.titleKind === SectionTitleKind.BUTTON ? (
             <mg-button
@@ -160,7 +167,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
               aria-controls={itemsContainerId}
               aria-expanded={this.itemsExpanded.toString()}
             >
-              <mg-icon icon={this.itemsExpanded ? 'chevron-down' : 'chevron-up'} size="small"></mg-icon>
+              <mg-icon icon={this.itemsExpanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
               <span class="mg-input__input-checkbox-multi-text">{getText(this.checkboxes)}</span>
             </mg-button>
           ) : (
@@ -171,11 +178,11 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
               {this.messages.action}
             </mg-button>
           )}
-          {this.getPaginationTotalPages(this.checkboxes) > 1 && (
+          {this.getPageCount(this.checkboxes) > 1 && (
             <mg-pagination
               key="search-pagination"
-              totalPages={this.getPaginationTotalPages(this.checkboxes)}
-              currentPage={this.currentSearchPage}
+              totalPages={this.getPageCount(this.checkboxes)}
+              currentPage={this.currentPage > 1 ? this.currentPage : 1}
               onCurrent-page-change={this.handleCurrentPageChange}
               hideNavigationLabels={true}
               hideSelectInput={true}

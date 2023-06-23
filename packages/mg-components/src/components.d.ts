@@ -278,6 +278,9 @@ export namespace Components {
          */
         "value": CheckboxValue[];
     }
+    /**
+     * Internal component use to manage sections instances
+     */
     interface MgInputCheckboxPaginated {
         /**
           * Define checkboxes to paginate
@@ -1310,6 +1313,9 @@ declare global {
         prototype: HTMLMgInputCheckboxElement;
         new (): HTMLMgInputCheckboxElement;
     };
+    /**
+     * Internal component use to manage sections instances
+     */
     interface HTMLMgInputCheckboxPaginatedElement extends Components.MgInputCheckboxPaginated, HTMLStencilElement {
     }
     var HTMLMgInputCheckboxPaginatedElement: {
@@ -1749,6 +1755,9 @@ declare namespace LocalJSX {
          */
         "value": CheckboxValue[];
     }
+    /**
+     * Internal component use to manage sections instances
+     */
     interface MgInputCheckboxPaginated {
         /**
           * Define checkboxes to paginate
@@ -2764,6 +2773,9 @@ declare module "@stencil/core" {
             "mg-icon": LocalJSX.MgIcon & JSXBase.HTMLAttributes<HTMLMgIconElement>;
             "mg-illustrated-message": LocalJSX.MgIllustratedMessage & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;
             "mg-input-checkbox": LocalJSX.MgInputCheckbox & JSXBase.HTMLAttributes<HTMLMgInputCheckboxElement>;
+            /**
+             * Internal component use to manage sections instances
+             */
             "mg-input-checkbox-paginated": LocalJSX.MgInputCheckboxPaginated & JSXBase.HTMLAttributes<HTMLMgInputCheckboxPaginatedElement>;
             "mg-input-date": LocalJSX.MgInputDate & JSXBase.HTMLAttributes<HTMLMgInputDateElement>;
             "mg-input-numeric": LocalJSX.MgInputNumeric & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;

@@ -263,5 +263,23 @@ describe('mg-input-checkbox', () => {
       await updateScreenshotClass(page, { width: '285px', height: '35px' });
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+
+    test('Should render "multi" with 2 sections', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
+        title: `item ${item}`,
+        value: [5, 12, 13, 17].some(item => item === index),
+      }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }));
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await updateScreenshotClass(page, { width: '450px', height: '570px' });
+
+      // open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 });

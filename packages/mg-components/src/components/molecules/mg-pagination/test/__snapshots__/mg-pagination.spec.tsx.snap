@@ -138,6 +138,125 @@ exports[`mg-pagination Should render Should hidde navigation labels 2`] = `
 </mg-pagination>
 `;
 
+exports[`mg-pagination Should render Should hidde page select 1`] = `
+<mg-pagination current-page="1">
+  <mock:shadow-root>
+    <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="id">
+      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+        <mock:shadow-root>
+          <div class="mg-button mg-button--disabled mg-button--flat" id="id-button-previous">
+            <div class="mg-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </mock:shadow-root>
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--chevron-left mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <use xlink:href="#chevron-left"></use>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+        previous
+      </mg-button>
+      <span class="sr-only">
+        page 1
+      </span>
+      <span class="sr-only">
+        / 2 pages
+      </span>
+      <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+        <mock:shadow-root>
+          <div class="mg-button mg-button--flat" id="id-button-next">
+            <div class="mg-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </mock:shadow-root>
+        next
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--chevron-right mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <use xlink:href="#chevron-right"></use>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+      </mg-button>
+    </nav>
+  </mock:shadow-root>
+</mg-pagination>
+`;
+
+exports[`mg-pagination Should render Should hidde page select 2`] = `
+<mg-pagination current-page="1">
+  <mock:shadow-root>
+    <nav aria-label="Pagination" class="mg-pagination" id="id">
+      <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+        <mock:shadow-root>
+          <div class="mg-button mg-button--disabled mg-button--flat" id="id-button-previous">
+            <div class="mg-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </mock:shadow-root>
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--chevron-left mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <use xlink:href="#chevron-left"></use>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+        previous
+      </mg-button>
+      <mg-input-select label-hide="" placeholder-hide="">
+        <mock:shadow-root>
+          <div class="mg-input mg-input--select">
+            <mg-input-title class="sr-only" identifier="id-select">
+              Select the page to display.
+            </mg-input-title>
+            <div class="mg-input__input-container">
+              <div class="mg-input__input">
+                <select aria-describedby="" class="mg-input__box" id="id-select" name="id-select" title="Select a value">
+                  <option selected="" value="1">
+                    1
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </mock:shadow-root>
+      </mg-input-select>
+      <span class="sr-only">
+        page 1
+      </span>
+      <span>
+        / 2 pages
+      </span>
+      <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+        <mock:shadow-root>
+          <div class="mg-button mg-button--flat" id="id-button-next">
+            <div class="mg-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </mock:shadow-root>
+        next
+        <mg-icon>
+          <mock:shadow-root>
+            <svg aria-hidden="true" class="mg-icon mg-icon--chevron-right mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+              <use xlink:href="#chevron-right"></use>
+            </svg>
+          </mock:shadow-root>
+        </mg-icon>
+      </mg-button>
+    </nav>
+  </mock:shadow-root>
+</mg-pagination>
+`;
+
 exports[`mg-pagination Should render Should set custom label 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>

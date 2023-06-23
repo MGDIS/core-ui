@@ -23,6 +23,20 @@ The style of the active checkbox is the browser's style.
 - Checkbox
 - Popover
 
+### type "multi" with than 10 values
+
+when we have selected and not selected items we have two sections
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-more-10-values-2-sections.png)
+
+when we only have selected OR unselected items we have one section displayed
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-more-10-values-selected-section.png)
+
+Selected items section is collapsible
+
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-more-10-values-selected-section-collapsed.png)
+
 ### Displayed values
 
 #### Style
@@ -90,6 +104,10 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 
 <!-- Auto Generated Below -->
 
+
+## Overview
+
+Internal component use to manage sections instances
 
 ## Properties
 

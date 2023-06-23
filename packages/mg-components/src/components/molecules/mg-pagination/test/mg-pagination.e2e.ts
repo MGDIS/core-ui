@@ -4,8 +4,14 @@ import { renderAttributes } from '../../../../utils/e2e.test.utils';
 describe('mg-pagination', () => {
   describe('template', () => {
     test('render', async () => {
-      const template = [1, 2, 3, 10]
-        .map(totalPages => [true, false].map(hideNavigationLabels => `<mg-pagination ${renderAttributes({ totalPages, hideNavigationLabels })}></mg-pagination>`).join(''))
+      const template = [1, 2, 3]
+        .map(totalPages =>
+          [true, false]
+            .map(hideSelectInput =>
+              [true, false].map(hideNavigationLabels => `<mg-pagination ${renderAttributes({ totalPages, hideNavigationLabels, hideSelectInput })}></mg-pagination>`).join(''),
+            )
+            .join(''),
+        )
         .join('');
       const page = await createPage(template);
 

@@ -27,6 +27,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // HTML selector
   private mgPopover: HTMLMgPopoverElement;
+  private searchInput: HTMLInputElement;
 
   // Locales
   private messages;
@@ -253,8 +254,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private handleInput = (event: InputEvent & { target: HTMLInputElement }): void => {
     this.updateCheckboxItems('value', Boolean(event.target.checked), item => item.id === event.target.id);
-
-    this.value = this.checkboxItems.map(o => ({ value: o.value, title: o.title, disabled: o.disabled }));
+    this.updateValues();
     this.checkValidity();
   };
 
@@ -265,11 +265,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private handleKeydown = (event: KeyboardEvent & { target: HTMLElement }): void => {
     // track "Tab" key event when popover display (is "multi" type selected)
     if (event.key === 'Tab' && this.mgPopover?.display) {
-      const enableInputs = this.checkboxItems.filter(input => !input.disabled).map(({ id }) => id);
+      // when search input and do a back tab we close the popover
+      if (Boolean(this.searchInput) && event.shiftKey && this.searchInput.id === event.target.id) {
+        this.mgPopover.display = false;
+        return;
+      }
+
+      const enableInputs = Array.from(this.element.shadowRoot.querySelectorAll('input'))
+        .filter(input => !Boolean(input.getAttribute('disabled')))
+        .map(({ id }) => id);
       const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 
       // close popover when tab trigger focus outside its DOM
-      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey)) this.mgPopover.display = false;
+      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && !Boolean(this.searchInput)))
+        this.mgPopover.display = false;
     }
   };
 
@@ -308,6 +317,14 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private handleMassAction = (event: CustomEvent): void => {
     this.updateCheckboxItems('value', event.detail !== 'selected');
+    this.updateValues();
+  };
+
+  /**
+   * Update values
+   */
+  private updateValues = (): void => {
+    this.value = this.checkboxItems.map(o => ({ value: o.value, title: o.title, disabled: o.disabled }));
   };
 
   /**
@@ -318,8 +335,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private updateCheckboxItems(key: string, newValue: unknown, condition?: (item: CheckboxItem) => boolean): void {
     this.checkboxItems = this.checkboxItems.map(item => {
-      if (typeof condition === 'function' && condition(item)) item[key] = newValue;
-      else if (condition === undefined) item[key] = newValue;
+      if ((typeof condition === 'function' && condition(item)) || condition === undefined) item[key] = newValue;
       return item;
     });
   }
@@ -416,6 +432,14 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
+   * add listeners
+   */
+  componentDidLoad(): void {
+    this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
+    this.searchInput?.addEventListener('keydown', this.handleKeydown);
+  }
+
+  /**
    * Render checkbox multi display values
    * @param selectedValuesNb - selected values length
    * @returns display selected values
@@ -475,9 +499,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       },
     ];
 
-    return sections
-      .filter(section => section.checkboxes.length > 0)
-      .map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction}></mg-input-checkbox-paginated>);
+    return sections.map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction}></mg-input-checkbox-paginated>);
   }
 
   /**

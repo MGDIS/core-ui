@@ -39,6 +39,11 @@ describe('mg-pagination', () => {
       expect(page.root).toMatchSnapshot();
     });
 
+    test.each([true, false])('Should hidde page select', async hideSelectInput => {
+      const page = await getPage({ totalPages: 2, identifier: 'id', hideSelectInput });
+      expect(page.root).toMatchSnapshot();
+    });
+
     test.each(['fr', 'xx'])('with locale: %s', async lang => {
       const totalPages = 2;
       const page = await getPage({ totalPages, identifier: 'id', lang });
