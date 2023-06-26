@@ -1,25 +1,45 @@
-const { readdirSync, statSync } = require('fs');
-const { join } = require('path');
+const fs = require('fs');
+
+type Path = string;
 
 /**
  * List folders from a given path
- * @param folderPath - path we will parse to get childs
- * @param folderName - folder we are looking for
- * @returns folders list ending with `folderName`
+ * @param path - path we will parse to get childs
+ * @param folders - previsous folders list
+ * @returns updated folders list
  */
-const getFilePathsEndingWith = (folderPath: string, folderName: string): string[] => {
-  const filePaths: string[] = [];
-  const pathChild = readdirSync(folderPath);
-  pathChild.forEach(file => {
-    const filePath = join(folderPath, file);
-    if (statSync(filePath).isDirectory() && !filePath.endsWith('node_modules') && !filePath.endsWith('storybook-static')) {
-      filePaths.push(...getFilePathsEndingWith(filePath, folderName));
-      if (filePath.endsWith(folderName)) {
-        filePaths.push(filePath);
-      }
-    }
-  });
-  return filePaths;
+const listFoldersFrom = (path: Path, folders: Path[] = []): Path[] => {
+  // get path child
+  const pathChild = fs.readdirSync(path);
+
+  pathChild
+    .map(dirent => `${path}/${dirent}`)
+    // exclude files from results
+    .filter(dirent => fs.statSync(dirent).isDirectory())
+    .forEach(dirent => {
+      folders.push(dirent);
+      // recursively parse folders
+      folders = listFoldersFrom(dirent, folders);
+    });
+
+  return folders;
+};
+
+/**
+ * Create a new path from given path and offset
+ * @param path - set the origin folder
+ * @param offset - set the folder offset
+ * @returns get the working folder
+ */
+const getPathFromOffset = (path: Path, offset: number): Path => {
+  // pathElements start after ./src, then we get a array of elements from the path
+  const pathElements = path.replace('./src', '').split('/');
+  if (pathElements.length >= offset) {
+    // we return a string with only the given offset
+    return pathElements.slice(pathElements.length - offset, pathElements.length).join('/');
+  } else {
+    return path;
+  }
 };
 
 module.exports = {
@@ -28,19 +48,14 @@ module.exports = {
   core: {
     disableTelemetry: true,
   },
-  staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce((acc: any[], from) => {
-    acc.push(
-      {
-        from,
-        to: '/doc/img',
-      },
-      {
-        from,
-        to: '/img',
-      },
-    );
-    return acc;
-  }, []),
+  staticDirs: () => {
+    // to keep doc images in components folders we need to dynamically set static dir path, as storybook can't get a wilcard path like **/img/** for assets
+    // as webpack do a "cp" command to dublicate 'from' folder, we need a uniq 'to' folder name
+    const imgFolders = listFoldersFrom('./src')
+      .filter(path => path.endsWith('/img'))
+      .map(path => ({ from: `.${path}`, to: `/${getPathFromOffset(path, 3)}` }));
+    return ['../www/build', ...imgFolders];
+  },
   refs: {
     'chromatic-published-Storybook': {
       'package-name': { disable: true },

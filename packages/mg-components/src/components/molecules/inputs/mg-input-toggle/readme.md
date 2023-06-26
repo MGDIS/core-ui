@@ -10,15 +10,15 @@ The values must be transcribed by texts or icons.
 
 ### Types
 
-![](./doc/img/mg-input-toggle-use.png)
+![](./mg-input-toggle/doc/img/mg-input-toggle-use.png)
 
 ### Specs
 
-![](./doc/img/mg-input-toggle-specs.png)
+![](./mg-input-toggle/doc/img/mg-input-toggle-specs.png)
 
 ### Readonly
 
-![](./doc/img/mg-input-toggle-readonly.png)
+![](./mg-input-toggle/doc/img/mg-input-toggle-readonly.png)
 
 ## CSS Variables
 

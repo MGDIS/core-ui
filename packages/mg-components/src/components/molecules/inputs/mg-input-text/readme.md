@@ -8,18 +8,18 @@
 
 #### Font
 
-![](./doc/img/mg-input-text-fonts.png)
+![](./mg-input-text/doc/img/mg-input-text-fonts.png)
 
 Open Sans, regular, 11px  
 Color: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6
 
 #### Spacing
 
-![](./doc/img/mg-input-text-spacing.png)
+![](./mg-input-text/doc/img/mg-input-text-spacing.png)
 
 #### Position
 
-![](./doc/img/mg-input-text-position.png)
+![](./mg-input-text/doc/img/mg-input-text-position.png)
 
 Position : center
 

@@ -9,13 +9,13 @@ The style of the active checkbox is the browser's style.
 
 ## Specs
 
-![](./doc/img/mg-input-checkbox-specs.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)
 
 ## Type "multi"
 
 ### Anatomy
 
-![](./doc/img/mg-input-checkbox-anatomy-default-less-10.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-anatomy-default-less-10.png)
 
 - Button :
   - variant : secondary
@@ -27,7 +27,7 @@ The style of the active checkbox is the browser's style.
 
 #### Style
 
-![](./doc/img/mg-input-checkbox-values-style.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-style.png)
 
 - Radius : 3px
 - Font : OpenSans, Regular, 13px
@@ -35,13 +35,13 @@ The style of the active checkbox is the browser's style.
 
 #### Alignment
 
-![](./doc/img/mg-input-checkbox-alignment-displayed-values.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-alignment-displayed-values.png)
 
 Text is centered vertically and horizontally in the container
 
 #### Spacing
 
-![](./doc/img/mg-input-checkbox-spacing-values.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-spacing-values.png)
 
 #### Sizing
 
@@ -54,17 +54,17 @@ Text is centered vertically and horizontally in the container
 
 1. Without values
 
-![](./doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)
 
 If the space is too narrow the text button will do a line break.
 
 1. With values
 
-![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)
 
 If the space is too narrow the button and values will do a line break.
 
-![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)
 
 The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
 
@@ -72,11 +72,11 @@ The component is ajusting with the space available. If the width is not enought 
 
 #### Spacing
 
-![](./doc/img/mg-input-checkbox-values-not-displayed-style.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-style.png)
 
 #### Style
 
-![](./doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
+![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
 
 ## CSS Variables
 

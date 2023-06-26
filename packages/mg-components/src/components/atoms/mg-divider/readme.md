@@ -1,6 +1,6 @@
 ## Sizing
 
-![](./doc/img/mg-divider-sizing.png)
+![](./mg-divider/doc/img/mg-divider-sizing.png)
 
 Two sizes are possible :
 
@@ -15,13 +15,13 @@ Rules :
 
 ## Spacing
 
-![](./doc/img/mg-divider-spacing.png)
+![](./mg-divider/doc/img/mg-divider-spacing.png)
 
 Default margin applied on top and bottom of the divider is set to 40px.
 
 ## Color
 
-![](./doc/img/mg-divider-color.png)
+![](./mg-divider/doc/img/mg-divider-color.png)
 
 ## CSS Variables
 

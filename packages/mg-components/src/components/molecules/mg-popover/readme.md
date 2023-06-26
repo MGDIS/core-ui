@@ -23,36 +23,36 @@ The title and the close button are optional.
 
 ### Fonts
 
-![](./doc/img/mg-popover-fonts.png)
+![](./mg-popover/doc/img/mg-popover-fonts.png)
 
 ### Spacing
 
-![](./doc/img/mg-popover-spacing.png)
+![](./mg-popover/doc/img/mg-popover-spacing.png)
 
 ### Sizing
 
-![](./doc/img/mg-popover-sizing.png)
+![](./mg-popover/doc/img/mg-popover-sizing.png)
 
 Default max-width : 400px
 The value of the max-width can be modified according to the case via the CSS variable.
 
 ### Alignments
 
-![](./doc/img/mg-popover-align.png)
+![](./mg-popover/doc/img/mg-popover-align.png)
 
 ### Positioning
 
 #### Item
 
-![](./doc/img/mg-popover-position.png)
+![](./mg-popover/doc/img/mg-popover-position.png)
 
 #### Screen
 
-![](./doc/img/mg-popover-position-screen.png)
+![](./mg-popover/doc/img/mg-popover-position-screen.png)
 
 ### Style
 
-![](./doc/img/mg-popover-style.png)
+![](./mg-popover/doc/img/mg-popover-style.png)
 
 ## CSS Variables
 
