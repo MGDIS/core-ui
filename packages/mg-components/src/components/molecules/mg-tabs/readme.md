@@ -1,6 +1,6 @@
 ## Anatomy
 
-![](./doc/img/mg-tabs-anatomy.png)
+![](./mg-tabs/doc/img/mg-tabs-anatomy.png)
 
 ## Specs
 
@@ -13,7 +13,7 @@
   - X = 30px;
   - Y = 15px;
 
-![](./doc/img/mg-tabs-spacing.png)
+![](./mg-tabs/doc/img/mg-tabs-spacing.png)
 
 - if only text, no extra spacing,
 - if no badge : no extra spacing on the right
@@ -21,17 +21,17 @@
 
 ### Sizing
 
-![](./doc/img/mg-tabs-sizing.png)
+![](./mg-tabs/doc/img/mg-tabs-sizing.png)
 
 ### States
 
-![](./doc/img/mg-tabs-states.png)
+![](./mg-tabs/doc/img/mg-tabs-states.png)
 
 ### Responsive
 
 #### Line breaks (current management)
 
-![](./doc/img/mg-tabs-responsive.png)
+![](./mg-tabs/doc/img/mg-tabs-responsive.png)
 
 <!-- Auto Generated Below -->
 

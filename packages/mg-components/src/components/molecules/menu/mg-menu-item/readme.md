@@ -4,7 +4,7 @@ Item menu is used with horizontal, vertical or mobile menus.
 
 ## Anatomy
 
-![](./doc/img/mg-menu-item-anatomy.png)
+![](./mg-menu-item/doc/img/mg-menu-item-anatomy.png)
 
 An item must have a label.
 An icon can be added before the text.
@@ -17,29 +17,29 @@ Item's display depends on the size of the menu (regular, medium, large) and its 
 
 ### Spacing
 
-![](./doc/img/mg-menu-item-spacing.png)
+![](./mg-menu-item/doc/img/mg-menu-item-spacing.png)
 
 ### Sizing
 
 #### Horizontal menu
 
-![](./doc/img/mg-menu-item-sizing-horizontal.png)
+![](./mg-menu-item/doc/img/mg-menu-item-sizing-horizontal.png)
 
 Width of the item depends on its content.
 
-![](./doc/img/mg-menu-item-sizing-maxwidth.png)
+![](./mg-menu-item/doc/img/mg-menu-item-sizing-maxwidth.png)
 
 If a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.
 
 #### Vertical menu
 
-![](./doc/img/mg-menu-item-sizing-vertical.png)
+![](./mg-menu-item/doc/img/mg-menu-item-sizing-vertical.png)
 
 Width of the item is 100% width of the menu.
 
 #### Mobile
 
-![](./doc/img/mg-menu-item-sizing-mobile.png)
+![](./mg-menu-item/doc/img/mg-menu-item-sizing-mobile.png)
 
 Width of the item is equal to the width of the menu divided by number of items displayed.
 
@@ -47,30 +47,30 @@ Width of the item is equal to the width of the menu divided by number of items d
 
 #### Horizontal and vertical menus
 
-![](./doc/img/mg-menu-item-alignment.png)
+![](./mg-menu-item/doc/img/mg-menu-item-alignment.png)
 
 All contents are aligned vertically.
 
 #### Vertical menu
 
-![](./doc/img/mg-menu-item-alignment-vertical.png)
+![](./mg-menu-item/doc/img/mg-menu-item-alignment-vertical.png)
 
 All items are aligned to left.
 The chevron is aligned to the right of the item.
 
 #### Mobile
 
-![](./doc/img/mg-menu-item-alignment-mobile.png)
+![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile.png)
 
 Content of the item is centered
 
-![](./doc/img/mg-menu-item-alignment-mobile-badge.png)
+![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile-badge.png)
 
 Badge is positionned to 20px right and -15px up from the center of the item.
 
 ### Styling
 
-![](./doc/img/mg-menu-item-styling.png)
+![](./mg-menu-item/doc/img/mg-menu-item-styling.png)
 
 Hover item: the background is colored
 Active item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal and mobile menus), at the left of the item for vertical menus.
@@ -129,33 +129,33 @@ The child content can be:
 
 #### In an horizontal menu
 
-![](./doc/img/mg-menu-submenu-alignment.png)
+![](./mg-menu-item/doc/img/mg-menu-submenu-alignment.png)
 
 Child content is displayed in a floating component over the content (like a popover).
 It is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.
 
 If the floating component is higher than the screen size, there is no overflow, user has to scroll the page.
 
-![](./doc/img/mg-menu-item-child-styling.png)
+![](./mg-menu-item/doc/img/mg-menu-item-child-styling.png)
 
 The floating component has a _@color-light_ background and a _@shadow_.
 
-![](./doc/img/mg-menu-item-child-menu-spacing.png)
+![](./mg-menu-item/doc/img/mg-menu-item-child-menu-spacing.png)
 
 If the floating component displays a submenu, there are top and bottom spacing of 10px.
 
-![](./doc/img/mg-menu-item-child-slot-spacing.png)
+![](./mg-menu-item/doc/img/mg-menu-item-child-slot-spacing.png)
 
 If the floating component displays a slot, there is no spacing.
 
-![](./doc/img/mg-menu-submenu-slot.png)
+![](./mg-menu-item/doc/img/mg-menu-submenu-slot.png)
 
 The minimal width of the submenu is the item's width.
 Width of the submenu is determined by the width of the largest item or the content of the slot.
 
 #### In a vertical menu
 
-![](./doc/img/mg-menu-submenu-vertical-menu.png)
+![](./mg-menu-item/doc/img/mg-menu-submenu-vertical-menu.png)
 
 Menu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**
 Idem for the slot.
@@ -170,7 +170,7 @@ Sub-items add to their left spacing the spacing between left border and content 
 
 Child content is displayed via an **mg-tray** component.
 
-![](./doc/img/mg-menu-submenu-tray.png)
+![](./mg-menu-item/doc/img/mg-menu-submenu-tray.png)
 
 ## CSS Variables
 

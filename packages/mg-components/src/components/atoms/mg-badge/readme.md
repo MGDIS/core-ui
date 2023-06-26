@@ -6,11 +6,11 @@ The badge displays a number (can be followed by the `+` character) or a punctuat
 
 ## Specs
 
-![](./doc/img/mg-badge-specs.png)
+![](./mg-badge/doc/img/mg-badge-specs.png)
 
 ## Theming
 
-![](./doc/img/mg-badge-styles.png)
+![](./mg-badge/doc/img/mg-badge-styles.png)
 
 ## CSS Variables
 

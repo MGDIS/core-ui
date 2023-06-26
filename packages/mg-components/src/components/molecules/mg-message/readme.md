@@ -13,7 +13,7 @@ When a trigger (button...) is set up, it can trigger the display of a message. B
 
 ## Specs
 
-![](./doc/img/mg-message-specs.png)
+![](./mg-message/doc/img/mg-message-specs.png)
 
 ## CSS Variables
 

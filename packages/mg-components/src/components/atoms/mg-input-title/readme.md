@@ -6,7 +6,7 @@ The label can be on more than one line.
 
 ### Styles
 
-![](./doc/img/mg-input-title.png)
+![](./mg-input-title/doc/img/mg-input-title.png)
 
 <!-- Auto Generated Below -->
 

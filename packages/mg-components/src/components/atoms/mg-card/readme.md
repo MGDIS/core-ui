@@ -2,7 +2,7 @@
 
 ### Style
 
-![](./doc/img/mg-card-style.png)
+![](./mg-card/doc/img/mg-card-style.png)
 
 1. Border radius: 5px
 2. Background: [@color-light](./?path=/docs/style-colors--page)
@@ -21,7 +21,7 @@ Values for variant colors are :
 - danger
 - app
 
-![](./doc/img/mg-card-variant.png)
+![](./mg-card/doc/img/mg-card-variant.png)
 
 _exemple of "app color" for the last one_
 
@@ -31,13 +31,13 @@ Variant applied on the background uses **[soft colors](./?path=/docs/style-color
 
 ### Spacing
 
-![](./doc/img/mg-card-spacing.png)
+![](./mg-card/doc/img/mg-card-spacing.png)
 
 A padding of 16px is applied around the content
 
 ### Size
 
-![](./doc/img/mg-card-size.png)
+![](./mg-card/doc/img/mg-card-size.png)
 
 1. Ajusting with the content
 2. Ajusting with its parent (100%)

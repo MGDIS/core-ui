@@ -13,7 +13,7 @@ Color: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6
 
 #### Spacing
 
-![](./doc/img/mg-input-textarea-spacing.png)
+![](./mg-input-textarea/doc/img/mg-input-textarea-spacing.png)
 
 ### Dimensions
 
