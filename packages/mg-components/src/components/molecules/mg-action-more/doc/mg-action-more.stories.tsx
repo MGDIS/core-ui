@@ -24,46 +24,48 @@ const mouseEventHandler = () => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-action-more {...filterArgs(args)} style={{ 'margin-left': '1rem' }}></mg-action-more>;
 
-export const MgActionMore = Template.bind({});
-
-MgActionMore.args = {
-  items: [
-    {
-      label: 'element 1',
-      mouseEventHandler,
-    },
-    {
-      label: 'element 2',
-      mouseEventHandler,
-      badge: {
-        value: 2,
-        label: 'badge',
+export const MgActionMore = {
+  render: Template,
+  args: {
+    items: [
+      {
+        label: 'element 1',
+        mouseEventHandler,
       },
-    },
-    {
-      label: 'element 3',
-      mouseEventHandler,
-      icon: 'user',
-    },
-    {
-      label: 'element 4',
-      mouseEventHandler,
-      href: '#',
-    },
-  ],
-  displayChevron: false,
+      {
+        label: 'element 2',
+        mouseEventHandler,
+        badge: {
+          value: 2,
+          label: 'badge',
+        },
+      },
+      {
+        label: 'element 3',
+        mouseEventHandler,
+        icon: 'user',
+      },
+      {
+        label: 'element 4',
+        mouseEventHandler,
+        href: '#',
+      },
+    ],
+    displayChevron: false,
+  },
 };
 
-export const MgActionMoreCustom = Template.bind({});
-
-MgActionMoreCustom.args = {
-  ...MgActionMore.args,
-  button: {
-    variant: 'flat',
-    isIcon: false,
-    label: 'mon user',
-  },
-  icon: {
-    icon: 'user',
+export const MgActionMoreCustom = {
+  render: Template,
+  args: {
+    ...MgActionMore.args,
+    button: {
+      variant: 'flat',
+      isIcon: false,
+      label: 'mon user',
+    },
+    icon: {
+      icon: 'user',
+    },
   },
 };

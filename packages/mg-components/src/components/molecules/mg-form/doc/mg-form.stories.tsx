@@ -87,5 +87,7 @@ const Template = (args: any): HTMLElement => {
   );
 };
 
-export const MgForm = Template.bind({});
-MgForm.args = { ...args };
+export const MgForm = {
+  render: Template,
+  args: { ...args },
+};

@@ -8,7 +8,7 @@ The component manages :
 
 ## Anatomy
 
-![](./mg-form/doc/img/mg-form-anatomy.png)
+![](./doc/img/mg-form-anatomy.png)
 
 1. Required field(s) message
 2. Inputs zone
@@ -18,7 +18,7 @@ The component manages :
 
 ### Required field(s) message
 
-![](./mg-form/doc/img/mg-form-style-required-message.png)
+![](./doc/img/mg-form-style-required-message.png)
 
 Text is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--page)  
 The "\*" is in [@color-danger](./?path=/docs/style-colors--page)
@@ -30,7 +30,7 @@ The "\*" is in [@color-danger](./?path=/docs/style-colors--page)
 Form adds a 15px margin to the bottom of inputs.  
 The gap between the label and the input zone is rising to 30px.
 
-![](./mg-form/doc/img/mg-form-spacing-inputs.png)
+![](./doc/img/mg-form-spacing-inputs.png)
 
 ## Behavior
 

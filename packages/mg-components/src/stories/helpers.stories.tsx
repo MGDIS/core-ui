@@ -42,7 +42,9 @@ const Template = (args: any): HTMLElement => (
   </div>
 );
 
-export const Helpers = Template.bind({});
-Helpers.args = {
-  align: 'left',
+export const Helpers = {
+  render: Template,
+  args: {
+    align: 'left',
+  },
 };

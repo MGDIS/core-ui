@@ -1,12 +1,12 @@
 ## Specs
 
-![](./mg-tag/doc/img/mg-tag-specs.png)
+![](./doc/img/mg-tag-specs.png)
 
 ### Fill / Outline tags
 
 #### Colors
 
-![](./mg-tag/doc/img/mg-tag-colors.png)
+![](./doc/img/mg-tag-colors.png)
 
 Icons take the color of the label.
 
@@ -14,13 +14,13 @@ Icons take the color of the label.
 
 #### Font
 
-![](./mg-tag/doc/img/mg-tag-font.png)
+![](./doc/img/mg-tag-font.png)
 
 They are not on SemiBold but **Regular**.
 
 #### Colors
 
-![](./mg-tag/doc/img/mg-tag-icons-colors.png)
+![](./doc/img/mg-tag-icons-colors.png)
 
 1. Icons takes the color of the tag variant.
 2. Labels are [**@color-dark**](./?path=/docs/style-colors--page) for all.
@@ -28,17 +28,17 @@ They are not on SemiBold but **Regular**.
 
 #### Rules
 
-![](./mg-tag/doc/img/mg-tag-use.png)
+![](./doc/img/mg-tag-use.png)
 
 For accessibility, soft variant tags cannot use an icon on its own.
 
 ## Theming
 
-![](./mg-tag/doc/img/mg-tag-variants.png)
+![](./doc/img/mg-tag-variants.png)
 
 ### With Icons
 
-![](./mg-tag/doc/img/mg-tag-icons.png)
+![](./doc/img/mg-tag-icons.png)
 
 ## CSS Variables
 

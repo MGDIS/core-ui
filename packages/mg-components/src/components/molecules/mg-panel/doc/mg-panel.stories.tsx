@@ -28,11 +28,12 @@ const Template = (args: any): HTMLElement => (
   </mg-panel>
 );
 
-export const MgPanel = Template.bind({});
-
-MgPanel.args = {
-  panelTitle: 'title',
-  expanded: false,
-  titleEditable: true,
-  expandToggleDisabled: false,
+export const MgPanel = {
+  render: Template,
+  args: {
+    panelTitle: 'title',
+    expanded: false,
+    titleEditable: true,
+    expandToggleDisabled: false,
+  },
 };

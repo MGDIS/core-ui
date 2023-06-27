@@ -28,15 +28,17 @@ const Template = (args: any): HTMLElement => (
   </div>
 );
 
-export const Typography = Template.bind({});
-Typography.args = {
-  h1: 'The h1 heading element',
-  h2: 'The h2 heading element',
-  h3: 'The h3 heading element',
-  h4: 'The h4 heading element',
-  h5: 'The h5 heading element',
-  h6: 'The h6 heading element',
-  p: 'The Paragraph element',
-  strong: 'The Strong Importance element',
-  small: 'The side comment element',
+export const Typography = {
+  render: Template,
+  args: {
+    h1: 'The h1 heading element',
+    h2: 'The h2 heading element',
+    h3: 'The h3 heading element',
+    h4: 'The h4 heading element',
+    h5: 'The h5 heading element',
+    h6: 'The h6 heading element',
+    p: 'The Paragraph element',
+    strong: 'The Strong Importance element',
+    small: 'The side comment element',
+  },
 };
