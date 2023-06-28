@@ -162,8 +162,7 @@ auto-review:
     - .rules:mr
   script:
     # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
-    # - mg-danger
-    npx git+ssh://gitlab@gitlab.mgdis.fr:build/gitlab/mg-danger.git#chore/changeset-if-packages-updated
+    - mg-danger
   allow_failure: true
   needs:
     - sonar
