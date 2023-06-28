@@ -89,7 +89,7 @@ export class MgPanel {
   @Prop() expandToggleDisplay: ExpandToggleDisplayType = expandToggleDisplays[0];
   @Watch('expandToggleDisplay')
   validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
-    if (!expandToggleDisplays.includes(newValue)) throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(',')}.`);
+    if (!expandToggleDisplays.includes(newValue)) throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
     if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
   }
 
