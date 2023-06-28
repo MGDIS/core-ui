@@ -167,20 +167,24 @@ const menu = (args: MenuFormatedArgs): HTMLMgMenuElement => (
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <div>{menu(args)}</div>;
 
-export const MgMenuHorizontal = Template.bind({});
+export const MgMenuHorizontal = {
+  render: Template,
+  args: getMenuArgs(Direction.HORIZONTAL, 2),
+};
 
-MgMenuHorizontal.args = getMenuArgs(Direction.HORIZONTAL, 2);
-
-export const MgMenuVertical = Template.bind({});
-
-MgMenuVertical.args = getMenuArgs(Direction.VERTICAL, 2);
+export const MgMenuVertical = {
+  render: Template,
+  args: getMenuArgs(Direction.VERTICAL, 2),
+};
 
 const TemplateSmallContainer = (args: MenuFormatedArgs): HTMLElement => {
   return <div style={{ width: '25rem', height: '20rem' }}>{menu(args)}</div>;
 };
 
-export const MgMenuVerticalSmallContainer = TemplateSmallContainer.bind({});
+export const MgMenuVerticalSmallContainer = {
+  render: TemplateSmallContainer,
 
-MgMenuVerticalSmallContainer.args = {
-  ...MgMenuVertical.args,
+  args: {
+    ...MgMenuVertical.args,
+  },
 };

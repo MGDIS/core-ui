@@ -16,65 +16,73 @@ export default {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-menu-item {...filterArgs(args)}>{args.slot}</mg-menu-item>;
 
-export const MgMenuItem = Template.bind({});
-
-MgMenuItem.args = {
-  slot: <span slot="label">My label</span>,
-};
-export const MgMenuItemAsLink = Template.bind({});
-
-MgMenuItemAsLink.args = {
-  href: './',
-  ...MgMenuItem.args,
+export const MgMenuItem = {
+  render: Template,
+  args: {
+    slot: <span slot="label">My label</span>,
+  },
 };
 
-export const MgMenuItemWhitIcon = Template.bind({});
-
-MgMenuItemWhitIcon.args = {
-  ...MgMenuItem.args,
-  slot: [<span slot="label">My label</span>, <mg-icon icon="user" slot="image"></mg-icon>],
+export const MgMenuItemAsLink = {
+  render: Template,
+  args: {
+    href: './',
+    ...MgMenuItem.args,
+  },
 };
 
-export const MgMenuItemWhitBadge = Template.bind({});
-
-MgMenuItemWhitBadge.args = {
-  ...MgMenuItem.args,
-  slot: [<span slot="label">My label</span>, <mg-badge value="2" label="hello" slot="information"></mg-badge>],
+export const MgMenuItemWhitIcon = {
+  render: Template,
+  args: {
+    ...MgMenuItem.args,
+    slot: [<span slot="label">My label</span>, <mg-icon icon="user" slot="image"></mg-icon>],
+  },
 };
 
-export const MgMenuItemWhitBadgeAndIcon = Template.bind({});
-
-MgMenuItemWhitBadgeAndIcon.args = {
-  ...MgMenuItem.args,
-  slot: [<span slot="label">My label</span>, <mg-badge value="2" label="hello" slot="information"></mg-badge>, <mg-icon icon="user" slot="image"></mg-icon>],
+export const MgMenuItemWhitBadge = {
+  render: Template,
+  args: {
+    ...MgMenuItem.args,
+    slot: [<span slot="label">My label</span>, <mg-badge value="2" label="hello" slot="information"></mg-badge>],
+  },
 };
 
-export const MgMenuItemWhitMetadata = Template.bind({});
-
-MgMenuItemWhitMetadata.args = {
-  ...MgMenuItem.args,
-  slot: [<span slot="label">My label</span>, <span slot="metadata">My metadata</span>],
+export const MgMenuItemWhitBadgeAndIcon = {
+  render: Template,
+  args: {
+    ...MgMenuItem.args,
+    slot: [<span slot="label">My label</span>, <mg-badge value="2" label="hello" slot="information"></mg-badge>, <mg-icon icon="user" slot="image"></mg-icon>],
+  },
 };
 
-export const MgMenuItemWhithSubmenu = Template.bind({});
+export const MgMenuItemWhitMetadata = {
+  render: Template,
+  args: {
+    ...MgMenuItem.args,
+    slot: [<span slot="label">My label</span>, <span slot="metadata">My metadata</span>],
+  },
+};
 
-MgMenuItemWhithSubmenu.args = {
-  ...MgMenuItem.args,
-  slot: [
-    <span slot="label">My label</span>,
-    <mg-menu direction={Direction.VERTICAL} label="submenu">
-      <mg-menu-item>
-        <span slot="label">Subitem 1</span>
-      </mg-menu-item>
-      <mg-menu-item>
-        <mg-icon icon="user" slot="image"></mg-icon>
-        <span slot="label">Subitem 2</span>
-      </mg-menu-item>
-      <mg-menu-item>
-        <span slot="label">Subitem 3</span>
-        <mg-icon icon="user" slot="image"></mg-icon>
-        <mg-badge value="2" label="hello" variant="text-color" slot="information"></mg-badge>
-      </mg-menu-item>
-    </mg-menu>,
-  ],
+export const MgMenuItemWhithSubmenu = {
+  render: Template,
+  args: {
+    ...MgMenuItem.args,
+    slot: [
+      <span slot="label">My label</span>,
+      <mg-menu direction={Direction.VERTICAL} label="submenu">
+        <mg-menu-item>
+          <span slot="label">Subitem 1</span>
+        </mg-menu-item>
+        <mg-menu-item>
+          <mg-icon icon="user" slot="image"></mg-icon>
+          <span slot="label">Subitem 2</span>
+        </mg-menu-item>
+        <mg-menu-item>
+          <span slot="label">Subitem 3</span>
+          <mg-icon icon="user" slot="image"></mg-icon>
+          <mg-badge value="2" label="hello" variant="text-color" slot="information"></mg-badge>
+        </mg-menu-item>
+      </mg-menu>,
+    ],
+  },
 };

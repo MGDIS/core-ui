@@ -23,8 +23,15 @@ const getFilePathsEndingWith = (folderPath: string, folderName: string): string[
 };
 
 module.exports = {
-  stories: ['../src/**/*.stories.@(tsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil', '@storybook/addon-a11y'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(tsx)'],
+  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil', '@storybook/addon-a11y', '@storybook/addon-mdx-gfm'],
+  framework: {
+    name: '@storybook/html-webpack5',
+    options: {},
+  },
+  docs: {
+    autodocs: true,
+  },
   core: {
     disableTelemetry: true,
   },
@@ -42,13 +49,10 @@ module.exports = {
     return acc;
   }, []),
   refs: {
-    'chromatic-published-Storybook': {
-      'package-name': { disable: true },
-      // The title of your Storybook
-      'title': 'MG Components',
-      // The url provided by Chromatic when it was published
-      'url': 'https://master--626149b307606d003ada26b4.chromatic.com',
-      'versions': {
+    'design-system': {
+      title: 'MG Components',
+      url: 'https://master--626149b307606d003ada26b4.chromatic.com',
+      versions: {
         'v3.2.0': 'https://626149b307606d003ada26b4-kvttxoumtg.chromatic.com',
         'v3.3.0': 'https://626149b307606d003ada26b4-vvlmkghgfa.chromatic.com',
         'v4.0.0': 'https://626149b307606d003ada26b4-ghzolkevxw.chromatic.com',
@@ -72,6 +76,8 @@ module.exports = {
         'v5.10.1': 'https://626149b307606d003ada26b4-rpkktdqmad.chromatic.com',
         'v5.11.0': 'https://626149b307606d003ada26b4-ujajrvujgj.chromatic.com',
         'v5.11.1': 'https://626149b307606d003ada26b4-dchaczbhrl.chromatic.com',
+        'v5.12.0': 'https://626149b307606d003ada26b4-flbkczbwjs.chromatic.com',
+        'v5.12.1': 'https://626149b307606d003ada26b4-cqhhmkwykv.chromatic.com',
       },
     },
   },
