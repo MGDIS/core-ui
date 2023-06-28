@@ -64,7 +64,8 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @Prop() messages: Record<string, string>;
 
   /**
-   * Define 'mass-action' event
+   * Emit 'mass-action' event
+   * used to informe that select-all/unselect-all button listner is triggered
    */
   @Event({ eventName: 'mass-action' }) massAction: EventEmitter<MgInputCheckboxPaginated['sectionKind']>;
 

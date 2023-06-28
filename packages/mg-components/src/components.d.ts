@@ -1776,7 +1776,7 @@ declare namespace LocalJSX {
          */
         "messages"?: Record<string, string>;
         /**
-          * Define 'mass-action' event
+          * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
          */
         "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<MgInputCheckboxPaginated['sectionKind']>) => void;
         /**

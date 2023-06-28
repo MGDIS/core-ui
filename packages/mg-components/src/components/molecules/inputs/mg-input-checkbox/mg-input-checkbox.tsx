@@ -313,7 +313,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Handle select all button
-   * @param event - mass action event
+   * @param event - mass action event trigger a global select/unselect on values
    */
   private handleMassAction = (event: CustomEvent): void => {
     this.updateCheckboxItems('value', event.detail !== 'selected');

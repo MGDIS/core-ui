@@ -23,9 +23,9 @@ Internal component use to manage sections instances
 
 ## Events
 
-| Event         | Description                | Type                                                            |
-| ------------- | -------------------------- | --------------------------------------------------------------- |
-| `mass-action` | Define 'mass-action' event | `CustomEvent<SectionKind.NOT_SELECTED \| SectionKind.SELECTED>` |
+| Event         | Description                                                                                       | Type                                                            |
+| ------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| `mass-action` | Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered | `CustomEvent<SectionKind.NOT_SELECTED \| SectionKind.SELECTED>` |
 
 
 ## Dependencies
