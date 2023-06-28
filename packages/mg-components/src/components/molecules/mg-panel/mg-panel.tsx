@@ -61,7 +61,7 @@ export class MgPanel {
   @Prop() titlePatternErrorMessage: string;
 
   /**
-   * Panel title is editabled
+   * Define if panel title is editable
    */
   @Prop({ mutable: true }) titleEditable = false;
 
