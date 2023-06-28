@@ -71,7 +71,7 @@ export class MgPanel {
   @Prop() titlePosition: TitlePositionType = titlePositions[0];
   @Watch('titlePosition')
   validateTitlePosition(newValue: MgPanel['titlePosition']) {
-    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(',')}.`);
+    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
   }
 
   /**
