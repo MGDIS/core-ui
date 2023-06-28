@@ -74,7 +74,7 @@ describe('mg-panel', () => {
         try {
           await getPage(props);
         } catch (err) {
-          expect(err.message).toMatch(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(',')}.`);
+          expect(err.message).toMatch(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
         }
       },
     );
@@ -85,7 +85,7 @@ describe('mg-panel', () => {
         try {
           await getPage(props);
         } catch (err) {
-          expect(err.message).toMatch(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(',')}.`);
+          expect(err.message).toMatch(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
         }
       },
     );

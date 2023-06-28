@@ -1,7 +1,7 @@
 @import '../../../styles/mixins/reset-mg-card-slotted-variables.scss';
 
-$header-spacing-small: 0.3rem;
-$header-spacing-large: 1rem;
+$spacer-default: 1rem;
+$spacer-small: 0.3rem;
 
 :host {
   --mg-card-border: none;
@@ -16,22 +16,22 @@ $header-spacing-large: 1rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 0 $header-spacing-large 0 $header-spacing-small;
+    padding: 0 $spacer-default 0 $spacer-small;
     align-items: flex-start;
     &.mg-panel__header--reverse {
-      padding-right: $header-spacing-small;
-      padding-left: $header-spacing-large;
+      padding-right: $spacer-small;
+      padding-left: $spacer-default;
     }
   }
 
   &__header-title,
   &__header-content {
     display: flex;
-    margin: $header-spacing-small 0;
+    margin: $spacer-small 0;
   }
 
   &__header-content {
-    padding-left: $header-spacing-small;
+    padding-left: $spacer-small;
     flex: 1 auto;
     min-height: var(--default-size);
     align-items: center;
@@ -40,11 +40,11 @@ $header-spacing-large: 1rem;
   &__header-title {
     mg-input-text {
       flex-grow: 1;
-      margin-left: $header-spacing-small;
+      margin-left: $spacer-small;
     }
 
     mg-button + mg-button:not([slot='append-input']) {
-      margin-left: $header-spacing-small;
+      margin-left: $spacer-small;
     }
 
     &.mg-panel__header-title--full {
@@ -64,7 +64,7 @@ $header-spacing-large: 1rem;
   ::slotted([slot='header-right']) {
     display: flex;
     flex-wrap: wrap;
-    gap: $header-spacing-large;
+    gap: $spacer-default;
     margin-left: auto;
   }
 

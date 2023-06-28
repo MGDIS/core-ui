@@ -1031,7 +1031,7 @@ export namespace Components {
          */
         "panelTitle": string;
         /**
-          * Panel title is editabled
+          * Define if panel title is editable
          */
         "titleEditable": boolean;
         /**
@@ -2537,7 +2537,7 @@ declare namespace LocalJSX {
          */
         "panelTitle": string;
         /**
-          * Panel title is editabled
+          * Define if panel title is editable
          */
         "titleEditable"?: boolean;
         /**
