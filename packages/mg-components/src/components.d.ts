@@ -274,7 +274,7 @@ export namespace Components {
          */
         "valid": boolean;
         /**
-          * Component value If item.value is `null`, checkbox will be indeterminate by default Required
+          * Component value If item.value is `null`, checkbox will be indeterminate by default
          */
         "value": CheckboxValue[];
     }
@@ -1704,7 +1704,7 @@ declare namespace LocalJSX {
          */
         "valid"?: boolean;
         /**
-          * Component value If item.value is `null`, checkbox will be indeterminate by default Required
+          * Component value If item.value is `null`, checkbox will be indeterminate by default
          */
         "value": CheckboxValue[];
     }

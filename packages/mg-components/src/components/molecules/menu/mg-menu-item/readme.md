@@ -172,6 +172,16 @@ Child content is displayed via an **mg-tray** component.
 
 ![](./doc/img/mg-menu-submenu-tray.png)
 
+## Slots
+
+### Image
+
+Recommanded element is an icon or an SVG.
+
+### Information
+
+Recommanded element is a mg-badge. Use it when you need to notify new events in this section.
+
 ## CSS Variables
 
 ### global
