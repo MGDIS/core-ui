@@ -9,13 +9,13 @@ The style of the active checkbox is the browser's style.
 
 ## Specs
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-specs.png)
+![](./doc/img/mg-input-checkbox-specs.png)
 
 ## Type "multi"
 
 ### Anatomy
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-anatomy-default-less-10.png)
+![](./doc/img/mg-input-checkbox-anatomy-default-less-10.png)
 
 - Button :
   - variant : secondary
@@ -41,7 +41,7 @@ Selected items section is collapsible
 
 #### Style
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-style.png)
+![](./doc/img/mg-input-checkbox-values-style.png)
 
 - Radius : 3px
 - Font : OpenSans, Regular, 13px
@@ -49,13 +49,13 @@ Selected items section is collapsible
 
 #### Alignment
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-alignment-displayed-values.png)
+![](./doc/img/mg-input-checkbox-alignment-displayed-values.png)
 
 Text is centered vertically and horizontally in the container
 
 #### Spacing
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-spacing-values.png)
+![](./doc/img/mg-input-checkbox-spacing-values.png)
 
 #### Sizing
 
@@ -68,17 +68,17 @@ Text is centered vertically and horizontally in the container
 
 1. Without values
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)
+![](./doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)
 
 If the space is too narrow the text button will do a line break.
 
 1. With values
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)
+![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)
 
 If the space is too narrow the button and values will do a line break.
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)
+![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)
 
 The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
 
@@ -86,11 +86,11 @@ The component is ajusting with the space available. If the width is not enought 
 
 #### Spacing
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-style.png)
+![](./doc/img/mg-input-checkbox-values-not-displayed-style.png)
 
 #### Style
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
+![](./doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
 
 ## CSS Variables
 

@@ -32,9 +32,10 @@ const Template = (args: any): HTMLElement => (
   </mg-illustrated-message>
 );
 
-export const MgIllustratedMessage = Template.bind({});
-
-MgIllustratedMessage.args = {
-  size: 'regular',
-  direction: 'vertical',
+export const MgIllustratedMessage = {
+  render: Template,
+  args: {
+    size: 'regular',
+    direction: 'vertical',
+  },
 };

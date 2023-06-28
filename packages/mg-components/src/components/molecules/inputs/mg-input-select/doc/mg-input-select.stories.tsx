@@ -30,63 +30,61 @@ export default {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-input-select {...filterArgs(args, { placeholder: messages.input.select.placeholder })}></mg-input-select>;
 
-export const MgInputSelect = Template.bind({});
-MgInputSelect.args = {
-  // Global
-  value: '',
-  identifier: 'identifier',
-  name: 'input-name',
-  // Label
-  label: 'Label',
-  labelOnTop: false,
-  labelHide: false,
-  // Input
-  required: true,
-  readonly: false,
-  disabled: false,
-  items: ['blu', 'bli', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'],
-  mgWidth: undefined,
-  // Tooltip
-  tooltip: 'This is a tooltip',
-  // Help Text
-  helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
-  // Placeholder
-  placeholder: undefined,
-  placeholderHide: false,
-  placeholderDisabled: false,
+export const MgInputSelect = {
+  render: Template,
+  args: {
+    // Global
+    value: '',
+    identifier: 'identifier',
+    name: 'input-name',
+    // Label
+    label: 'Label',
+    labelOnTop: false,
+    labelHide: false,
+    // Input
+    required: true,
+    readonly: false,
+    disabled: false,
+    items: ['blu', 'bli', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'],
+    mgWidth: undefined,
+    // Tooltip
+    tooltip: 'This is a tooltip',
+    // Help Text
+    helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+    // Placeholder
+    placeholder: undefined,
+    placeholderHide: false,
+    placeholderDisabled: false,
+  },
 };
 
-/**
- * Using object
- */
-
-export const WithObjectItems = Template.bind({});
-WithObjectItems.args = {
-  ...MgInputSelect.args,
-  // remove feature to focus on pattern
-  tooltip: '',
-  helpText: '',
-  required: false,
-  //
-  items: [
-    { title: 'blu', value: 'blublu' },
-    { title: 'bli', value: 'blibli' },
-    { title: 'blo', value: 'bloblo' },
-    { title: 'bla', value: 'blabla', disabled: true },
-  ],
+export const WithObjectItems = {
+  render: Template,
+  args: {
+    ...MgInputSelect.args,
+    // remove feature to focus on pattern
+    tooltip: '',
+    helpText: '',
+    required: false,
+    //
+    items: [
+      { title: 'blu', value: 'blublu' },
+      { title: 'bli', value: 'blibli' },
+      { title: 'blo', value: 'bloblo' },
+      { title: 'bla', value: 'blabla', disabled: true },
+    ],
+  },
 };
 
-/**
- * Using group object
- */
-
-export const WithGroups = Template.bind({});
-WithGroups.args = {
-  ...WithObjectItems.args,
-  items: [
-    { title: 'blu', value: 'blublu', group: '1st group' },
-    { title: 'bli', value: 'blibli', group: '2nd group' },
-    { title: 'blo', value: 'bloblo', group: '1st group' },
-    { title: 'bla', value: 'blabla' },
-  ],
+export const WithGroups = {
+  render: Template,
+  args: {
+    ...WithObjectItems.args,
+    items: [
+      { title: 'blu', value: 'blublu', group: '1st group' },
+      { title: 'bli', value: 'blibli', group: '2nd group' },
+      { title: 'blo', value: 'bloblo', group: '1st group' },
+      { title: 'bla', value: 'blabla' },
+    ],
+  },
 };

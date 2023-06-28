@@ -11,7 +11,7 @@ The style of the active radio button is that of the browser.
 
 ## Specs
 
-![](./mg-input-radio/doc/img/mg-input-radio-specs.png)
+![](./doc/img/mg-input-radio-specs.png)
 
 ## CSS Variables
 

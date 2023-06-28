@@ -1,14 +1,14 @@
 ## Anatomy
 
-![](./mg-pagination/doc/img/mg-pagination-nav-anatomy.png)
+![](./doc/img/mg-pagination-nav-anatomy.png)
 
 ## Specs
 
-![](./mg-pagination/doc/img/mg-pagination-nav-specs.png)
+![](./doc/img/mg-pagination-nav-specs.png)
 
 It's possible to hide the labels "prev" and "next" to show only the "chevron" icons
 
-![](./mg-pagination/doc/img/mg-pagination-nav-label-hide.png)
+![](./doc/img/mg-pagination-nav-label-hide.png)
 
 It's possible to hide the page count to show only the "chevron" icons
 

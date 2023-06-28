@@ -17,20 +17,20 @@ stages:
 .rules:changes:mg-components:
   rules:
     - changes:
-        - 'packages/mg-components'
+        - 'packages/mg-components/**/*'
 
 # Rule to execute job only on notification-center folder content changes
 .rules:changes:notification-center:
   rules:
     - changes:
-        - 'packages/notification-center'
-        - 'apps/notification-center'
+        - 'packages/notification-center/**/*'
+        - 'apps/notification-center/**/*'
 
 # Rule to execute job only on img folder content changes
 .rules:changes:img:
   rules:
     - changes:
-        - 'packages/img'
+        - 'packages/img/**/*'
 
 # Rule to execute job only in merge request
 .rules:mr:
@@ -180,6 +180,15 @@ release:
     - pnpm build
     - pnpm publish -r --no-git-checks
 
+chromatic:mr:
+  stage: release
+  extends:
+    - .rules:tags
+  script:
+    - sh utils/open-merge-request.sh
+  needs:
+    - chromatic:publish
+
 .npmjs:
   image: node:18 ## use official image to avoid the .npmrc present in our images
   stage: release
@@ -188,7 +197,6 @@ release:
   before_script:
     - !reference [.install:dependencies, before_script]
     - !reference [.install:jq, script]
-  script:
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
   needs:
     - release
@@ -210,6 +218,7 @@ bot-publish:
 
 .mg-components:build:
   script:
+    - pnpm build --filter=@mgdis/img
     - cd packages/mg-components
     - pnpm build
 
@@ -226,7 +235,6 @@ mg-components:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm build --filter=@mgdis/img
     - !reference [.mg-components:build, script]
     - !reference [.artifact, script]
   needs:
@@ -246,8 +254,10 @@ storybook-mr:
     name: review/$CI_COMMIT_REF_SLUG
     url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html'
     auto_stop_in: 1 week
+  needs:
+    - lint
 
-chromatic-publish:
+chromatic:publish:
   stage: mg-components
   extends:
     - .rules:tags
@@ -267,8 +277,8 @@ pages:
       - public
 
 mg-components:npmjs:
-  stage: release
   extends:
+    - .rules:changes:mg-components
     - .npmjs
   script:
     - !reference [.mg-components:build, script]
@@ -295,6 +305,11 @@ notification-center:artifact:
 # img #
 #######
 
+.img:build:
+  script:
+    - cd packages/img
+    - pnpm build
+
 img:artifact:
   stage: artifacts
   extends:
@@ -302,17 +317,15 @@ img:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - cd packages/img
-    - pnpm build
+    - !reference [.img:build, script]
     - !reference [.artifact, script]
   needs:
     - lint
 
 img:npmjs:
-  stage: release
   extends:
+    - .rules:changes:img
     - .npmjs
   script:
-    - cd packages/img
-    - pnpm build
+    - !reference [.img:build, script]
     - pnpm publish --no-git-checks --access public

@@ -20,32 +20,34 @@ const getFormatedNumber = (number: number) => {
   return `${number > 9 ? number : '0' + number}`;
 };
 
-export const MgInputDate = Template.bind({});
-
-MgInputDate.args = {
-  // Global
-  value: `${date.getFullYear()}-${getFormatedNumber(date.getMonth())}-${getFormatedNumber(date.getDate())}`,
-  identifier: 'identifier',
-  name: 'input-name',
-  // Label
-  label: 'Label',
-  labelOnTop: false,
-  labelHide: false,
-  // Input
-  required: true,
-  readonly: false,
-  disabled: false,
-  // Tooltip
-  tooltip: 'This is a tooltip',
-  // Help Text
-  helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+export const MgInputDate = {
+  render: Template,
+  args: {
+    // Global
+    value: `${date.getFullYear()}-${getFormatedNumber(date.getMonth())}-${getFormatedNumber(date.getDate())}`,
+    identifier: 'identifier',
+    name: 'input-name',
+    // Label
+    label: 'Label',
+    labelOnTop: false,
+    labelHide: false,
+    // Input
+    required: true,
+    readonly: false,
+    disabled: false,
+    // Tooltip
+    tooltip: 'This is a tooltip',
+    // Help Text
+    helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+  },
 };
 
-export const MgInputDateMinMax = Template.bind({});
-
-MgInputDateMinMax.args = {
-  ...MgInputDate.args,
-  // date range
-  min: `${date.getFullYear()}-01-01`,
-  max: `${date.getFullYear() + 1}-12-31`,
+export const MgInputDateMinMax = {
+  render: Template,
+  args: {
+    ...MgInputDate.args,
+    // date range
+    min: `${date.getFullYear()}-01-01`,
+    max: `${date.getFullYear() + 1}-12-31`,
+  },
 };
