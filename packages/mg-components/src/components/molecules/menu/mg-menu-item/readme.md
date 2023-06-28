@@ -176,7 +176,7 @@ Child content is displayed via an **mg-tray** component.
 
 ### Image
 
-Recommanded element is an icon or an SVG.
+Recommanded element is an icon or a SVG.
 
 ### Information
 
