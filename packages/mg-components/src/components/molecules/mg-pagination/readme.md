@@ -10,7 +10,7 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 
 ![](./mg-pagination/doc/img/mg-pagination-nav-label-hide.png)
 
-It's possible to hide the page selection input to show only the "chevron" icons
+It's possible to hide the page count to show only the "chevron" icons
 
 ![](./mg-pagination/doc/img/mg-pagination-nav-select-hide.png)
 
@@ -23,7 +23,7 @@ It's possible to hide the page selection input to show only the "chevron" icons
 | ---------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------- | --------- | --------------------------- |
 | `currentPage`          | `current-page`           | Component current page                                                                                      | `number`  | `1`                         |
 | `hideNavigationLabels` | `hide-navigation-labels` | Hide navigation label                                                                                       | `boolean` | `undefined`                 |
-| `hideSelectInput`      | `hide-select-input`      | Hide select input                                                                                           | `boolean` | `undefined`                 |
+| `hidePageCount`        | `hide-page-count`        | Hide select input                                                                                           | `boolean` | `undefined`                 |
 | `identifier`           | `identifier`             | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`  | `createID('mg-pagination')` |
 | `label`                | `label`                  | Panignation label. Is a short description. Customize default value can be usefull to improve accessibility  | `string`  | `undefined`                 |
 | `totalPages`           | `total-pages`            | Component total pages                                                                                       | `number`  | `1`                         |
@@ -40,7 +40,7 @@ It's possible to hide the page selection input to show only the "chevron" icons
 
 ### Used by
 
- - [mg-input-checkbox-paginated](../inputs/mg-input-checkbox)
+ - [mg-input-checkbox-paginated](../inputs/mg-input-checkbox/mg-input-checkbox-paginated)
 
 ### Depends on
 

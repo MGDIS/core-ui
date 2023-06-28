@@ -39,8 +39,8 @@ describe('mg-pagination', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([true, false])('Should hidde page select', async hideSelectInput => {
-      const page = await getPage({ totalPages: 2, identifier: 'id', hideSelectInput });
+    test.each([true, false])('Should hidde page select', async hidePageCount => {
+      const page = await getPage({ totalPages: 2, identifier: 'id', hidePageCount });
       expect(page.root).toMatchSnapshot();
     });
 

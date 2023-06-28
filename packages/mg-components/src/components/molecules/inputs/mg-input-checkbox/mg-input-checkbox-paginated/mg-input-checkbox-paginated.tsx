@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Event, EventEmitter, Watch, Host } from '@stencil/core';
-import { CheckboxItem, IMgInputCheckboxBase, SectionKind, SectionTitleKind } from './mg-input-checkbox.conf';
-import { MgInputCheckboxList } from './MgInputCheckboxList';
+import { CheckboxItem, IMgInputCheckboxBase, SectionKind, SectionTitleKind } from '../mg-input-checkbox.conf';
+import { MgInputCheckboxList } from '../MgInputCheckboxList';
 
 /**
  * Internal component use to manage sections instances
@@ -160,13 +160,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
       <Host hidden={this.checkboxes.length < 1}>
         <div class="mg-input__input-checkbox-multi-section-header">
           {this.titleKind === SectionTitleKind.BUTTON ? (
-            <mg-button
-              variant="flat"
-              class="mg-input__input-checkbox-multi-section-button"
-              onClick={this.handleToggleClick}
-              aria-controls={itemsContainerId}
-              aria-expanded={this.itemsExpanded.toString()}
-            >
+            <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.itemsExpanded.toString()}>
               <mg-icon icon={this.itemsExpanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
               <span class="mg-input__input-checkbox-multi-text">{getText(this.checkboxes)}</span>
             </mg-button>
@@ -174,7 +168,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             <p class="mg-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.itemsExpanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
-            <mg-button variant="link" class="mg-input__input-checkbox-multi-section-button" onClick={this.massActionHandler}>
+            <mg-button variant="link" class="mg-input__input-checkbox-multi-select-button" onClick={this.massActionHandler}>
               {this.messages.action}
             </mg-button>
           )}
@@ -185,7 +179,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
               currentPage={this.currentPage > 1 ? this.currentPage : 1}
               onCurrent-page-change={this.handleCurrentPageChange}
               hideNavigationLabels={true}
-              hideSelectInput={true}
+              hidePageCount={true}
               identifier={`input-checkbox-pagination-${this.sectionKind}`}
             ></mg-pagination>
           )}

@@ -94,7 +94,7 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
 
  - [mg-action-more](../../molecules/mg-action-more)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
- - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox)
+ - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)

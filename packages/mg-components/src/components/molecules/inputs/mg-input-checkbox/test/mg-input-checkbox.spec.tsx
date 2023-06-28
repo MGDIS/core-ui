@@ -9,7 +9,7 @@ import { MgInputText } from '../../mg-input-text/mg-input-text';
 import { MgMessage } from '../../../mg-message/mg-message';
 import { MgPagination } from '../../../mg-pagination/mg-pagination';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
-import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated';
+import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 
 mockWindowFrames();
 

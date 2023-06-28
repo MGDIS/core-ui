@@ -105,44 +105,71 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 <!-- Auto Generated Below -->
 
 
-## Overview
-
-Internal component use to manage sections instances
-
 ## Properties
 
-| Property      | Attribute      | Description                                  | Type                                               | Default     |
-| ------------- | -------------- | -------------------------------------------- | -------------------------------------------------- | ----------- |
-| `checkboxes`  | --             | Define checkboxes to paginate                | `CheckboxItem[]`                                   | `[]`        |
-| `disabled`    | `disabled`     | Define if mg-input-checkbox-list is disabled | `boolean`                                          | `undefined` |
-| `identifier`  | `identifier`   | Define mg-input-checkbox-list identifier     | `string`                                           | `undefined` |
-| `messages`    | --             | Define component message                     | `{ [x: string]: string; }`                         | `undefined` |
-| `readonly`    | `readonly`     | Define if mg-input-checkbox-list is readonly | `boolean`                                          | `undefined` |
-| `sectionKind` | `section-kind` | Define section kind                          | `SectionKind.NOT_SELECTED \| SectionKind.SELECTED` | `undefined` |
+| Property                  | Attribute                 | Description                                                                                 | Type                    | Default            |
+| ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------- | ----------------------- | ------------------ |
+| `disabled`                | `disabled`                | Define if input is disabled                                                                 | `boolean`               | `false`            |
+| `displaySelectedValues`   | `display-selected-values` | Display selected values list in "multi" type                                                | `boolean`               | `undefined`        |
+| `helpText`                | `help-text`               | Add a help text under the input, usually expected data format and example                   | `string`                | `undefined`        |
+| `identifier` _(required)_ | `identifier`              | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                 | `string`                | `undefined`        |
+| `inputVerticalList`       | `input-vertical-list`     | Define if inputs are display verticaly                                                      | `boolean`               | `false`            |
+| `invalid`                 | `invalid`                 | Define input invalid state                                                                  | `boolean`               | `undefined`        |
+| `label` _(required)_      | `label`                   | Define input label                                                                          | `string`                | `undefined`        |
+| `labelHide`               | `label-hide`              | Define if label is visible                                                                  | `boolean`               | `false`            |
+| `labelOnTop`              | `label-on-top`            | Define if label is displayed on top                                                         | `boolean`               | `undefined`        |
+| `name`                    | `name`                    | Define input name                                                                           | `string`                | `this.identifier`  |
+| `readonly`                | `readonly`                | Define if mg-input-checkbox is readonly                                                     | `boolean`               | `false`            |
+| `required`                | `required`                | Define if mg-input-checkbox is required                                                     | `boolean`               | `false`            |
+| `tooltip`                 | `tooltip`                 | Add a tooltip message next to the input                                                     | `string`                | `undefined`        |
+| `type`                    | `type`                    | Define checkbox type                                                                        | `"checkbox" \| "multi"` | `checkboxTypes[0]` |
+| `valid`                   | `valid`                   | Define input valid state                                                                    | `boolean`               | `undefined`        |
+| `value` _(required)_      | --                        | Component value If item.value is `null`, checkbox will be indeterminate by default Required | `CheckboxValue[]`       | `undefined`        |
 
 
 ## Events
 
-| Event         | Description                | Type                                                            |
-| ------------- | -------------------------- | --------------------------------------------------------------- |
-| `mass-action` | Define 'mass-action' event | `CustomEvent<SectionKind.NOT_SELECTED \| SectionKind.SELECTED>` |
+| Event          | Description                         | Type                           |
+| -------------- | ----------------------------------- | ------------------------------ |
+| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`         |
+| `value-change` | Emitted event when value change     | `CustomEvent<CheckboxValue[]>` |
+
+
+## Methods
+
+### `displayError() => Promise<void>`
+
+Public method to display errors
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Dependencies
 
-### Used by
-
- - [mg-input-checkbox](.)
-
 ### Depends on
 
+- [mg-input-checkbox-paginated](mg-input-checkbox-paginated)
+- [mg-popover](../../mg-popover)
 - [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-pagination](../../mg-pagination)
+- [mg-input-text](../mg-input-text)
+- [mg-tooltip](../../../atoms/mg-tooltip)
+- [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
 ```mermaid
 graph TD;
+  mg-input-checkbox --> mg-input-checkbox-paginated
+  mg-input-checkbox --> mg-popover
+  mg-input-checkbox --> mg-button
+  mg-input-checkbox --> mg-icon
+  mg-input-checkbox --> mg-input-text
+  mg-input-checkbox --> mg-tooltip
+  mg-input-checkbox --> mg-input-title
   mg-input-checkbox-paginated --> mg-button
   mg-input-checkbox-paginated --> mg-icon
   mg-input-checkbox-paginated --> mg-pagination
@@ -153,8 +180,14 @@ graph TD;
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
-  mg-input-checkbox --> mg-input-checkbox-paginated
-  style mg-input-checkbox-paginated fill:#f9f,stroke:#333,stroke-width:4px
+  mg-popover --> mg-card
+  mg-popover --> mg-button
+  mg-popover --> mg-icon
+  mg-input-text --> mg-icon
+  mg-input-text --> mg-character-left
+  mg-input-text --> mg-tooltip
+  mg-input-text --> mg-input-title
+  style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

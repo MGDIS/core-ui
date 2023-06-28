@@ -4,6 +4,7 @@ $min-height: 3rem;
 $border-size: 0.3rem;
 
 .mg-pagination {
+  $component: &;
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -21,7 +22,7 @@ $border-size: 0.3rem;
       margin-left: 1rem;
     }
   }
-  &--hide-select-input.mg-pagination mg-button {
+  &#{$component}--hide-page-count mg-button {
     margin: 0;
   }
 }

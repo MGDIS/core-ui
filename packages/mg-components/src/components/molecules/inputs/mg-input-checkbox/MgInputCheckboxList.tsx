@@ -15,9 +15,9 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
       'mg-input__input-checkbox-multi-inputs': props.type === 'multi' && !props.readonly,
     }}
     role="list"
-    aria-describedby={props.displaySearchInput ? 'search-results' : false}
-    aria-label={props.displaySearchInput ? props.messages.searchResults : false}
-    aria-live={props.displaySearchInput ? 'polite' : false}
+    aria-describedby={props.displaySearchInput ? 'search-results' : undefined}
+    aria-label={props.displaySearchInput ? props.messages.searchResults : undefined}
+    aria-live={props.displaySearchInput ? 'polite' : undefined}
     id={props.id}
   >
     {props.checkboxes

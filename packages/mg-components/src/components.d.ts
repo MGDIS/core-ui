@@ -1027,7 +1027,7 @@ export namespace Components {
         /**
           * Hide select input
          */
-        "hideSelectInput": boolean;
+        "hidePageCount": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -2564,7 +2564,7 @@ declare namespace LocalJSX {
         /**
           * Hide select input
          */
-        "hideSelectInput"?: boolean;
+        "hidePageCount"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */

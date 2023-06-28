@@ -7,8 +7,8 @@ describe('mg-pagination', () => {
       const template = [1, 2, 3]
         .map(totalPages =>
           [true, false]
-            .map(hideSelectInput =>
-              [true, false].map(hideNavigationLabels => `<mg-pagination ${renderAttributes({ totalPages, hideNavigationLabels, hideSelectInput })}></mg-pagination>`).join(''),
+            .map(hidePageCount =>
+              [true, false].map(hideNavigationLabels => `<mg-pagination ${renderAttributes({ totalPages, hideNavigationLabels, hidePageCount })}></mg-pagination>`).join(''),
             )
             .join(''),
         )

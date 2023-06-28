@@ -68,7 +68,7 @@ export class MgPagination {
   /**
    * Hide select input
    */
-  @Prop() hideSelectInput: boolean;
+  @Prop() hidePageCount: boolean;
 
   /**
    * Component total pages
@@ -172,9 +172,9 @@ export class MgPagination {
     );
 
     return (
-      <nav aria-label={this.label} id={this.identifier} class={{ 'mg-pagination': true, 'mg-pagination--hide-select-input': this.hideSelectInput }}>
+      <nav aria-label={this.label} id={this.identifier} class={{ 'mg-pagination': true, 'mg-pagination--hide-page-count': this.hidePageCount }}>
         {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
-        {!this.hideSelectInput && (
+        {!this.hidePageCount && (
           <mg-input-select
             identifier={`${this.identifier}-select`}
             items={range(1, this.totalPages).map(page => page.toString())}
@@ -188,7 +188,7 @@ export class MgPagination {
         <span class="sr-only">
           {this.messages.pagination.page} {this.currentPage}
         </span>
-        <span class={{ 'sr-only': this.hideSelectInput }}>
+        <span class={{ 'sr-only': this.hidePageCount }}>
           / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
         </span>
         {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}
