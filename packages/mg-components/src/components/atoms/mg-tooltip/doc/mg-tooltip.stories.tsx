@@ -26,14 +26,15 @@ const Template = (args: any): HTMLElement => (
   </mg-tooltip>
 );
 
-export const MgTooltip = Template.bind({});
-
-MgTooltip.args = {
-  identifier: 'identifier',
-  message: 'This is a tooltip message',
-  placement: undefined,
-  display: false,
-  disabled: false,
+export const MgTooltip = {
+  render: Template,
+  args: {
+    identifier: 'identifier',
+    message: 'This is a tooltip message',
+    placement: undefined,
+    display: false,
+    disabled: false,
+  },
 };
 
 /**
@@ -48,10 +49,12 @@ const TemplateButton = (args: any): HTMLElement => (
   </mg-tooltip>
 );
 
-export const MgTooltipOnButton = TemplateButton.bind({});
+export const MgTooltipOnButton = {
+  render: TemplateButton,
 
-MgTooltipOnButton.args = {
-  ...MgTooltip.args,
+  args: {
+    ...MgTooltip.args,
+  },
 };
 
 /**
@@ -66,8 +69,10 @@ const TemplateSpan = (args: any): HTMLElement => (
   </mg-tooltip>
 );
 
-export const MgTooltipOnSpan = TemplateSpan.bind({});
+export const MgTooltipOnSpan = {
+  render: TemplateSpan,
 
-MgTooltipOnSpan.args = {
-  ...MgTooltip.args,
+  args: {
+    ...MgTooltip.args,
+  },
 };

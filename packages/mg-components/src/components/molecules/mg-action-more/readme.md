@@ -1,10 +1,10 @@
 ## Anatomy
 
-![](./mg-action-more/doc/img/mg-action-more-anatomy.png)
+![](./doc/img/mg-action-more-anatomy.png)
 
 ## Specifications
 
-![](./mg-action-more/doc/img/mg-action-more-popover-spacing.png)
+![](./doc/img/mg-action-more-popover-spacing.png)
 
 ### Spacing
 
@@ -20,28 +20,28 @@ In addition of the standard popover's behavior, when an item of the menu is clic
 
 ### Button's variant
 
-![](./mg-action-more/doc/img/mg-action-more-options-variant.png)
+![](./doc/img/mg-action-more-options-variant.png)
 
 By default, button variant is "flat".
 It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/story/atoms-mg-button--mg-button)).
 
 ### Icon
 
-![](./mg-action-more/doc/img/mg-action-more-options-icon.png)
+![](./doc/img/mg-action-more-options-icon.png)
 
 By default, icon is _ellipsis_. 
 It is possible to set another icon
 
 ### Label
 
-![](./mg-action-more/doc/img/mg-action-more-options-label.png)
+![](./doc/img/mg-action-more-options-label.png)
 
 By default, label is _Actions_ and hidden. 
 It is possible to set another label.
 
 ### Chevron
 
-![](./mg-action-more/doc/img/mg-action-more-options-chevron.png)
+![](./doc/img/mg-action-more-options-chevron.png)
 
 It is possible to display a chevron on the label right side, it make a 180 degree rotation on click.
 

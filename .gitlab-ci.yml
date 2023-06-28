@@ -254,6 +254,8 @@ storybook-mr:
     name: review/$CI_COMMIT_REF_SLUG
     url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html'
     auto_stop_in: 1 week
+  needs:
+    - lint
 
 chromatic:publish:
   stage: mg-components

@@ -14,7 +14,9 @@ export default {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-divider {...filterArgs(args, { size: 'regular' })}></mg-divider>;
 
-export const MgDivider = Template.bind({});
-MgDivider.args = {
-  size: 'regular',
+export const MgDivider = {
+  render: Template,
+  args: {
+    size: 'regular',
+  },
 };

@@ -30,41 +30,43 @@ const Template = (args: any): HTMLElement => (
   </mg-tabs>
 );
 
-export const MgTabs = Template.bind({});
-
-MgTabs.args = {
-  items: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
-  label: 'Short tabs description. Needed for accessibility',
-  activeTab: 2,
-  size: sizes[0], // regular
+export const MgTabs = {
+  render: Template,
+  args: {
+    items: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
+    label: 'Short tabs description. Needed for accessibility',
+    activeTab: 2,
+    size: sizes[0], // regular
+  },
 };
 
-export const MgTabsItems = Template.bind({});
-
-MgTabsItems.args = {
-  ...MgTabs.args,
-  activeTab: undefined,
-  items: [
-    {
-      label: 'Tab 1',
-      icon: 'check',
-      badge: { value: 1, label: 'message' },
-    },
-    {
-      label: 'Tab 2',
-      badge: { value: 5, label: 'messages', role: 'information' },
-      status: Status.DISABLED,
-    },
-    {
-      label: 'Tab 3',
-      icon: 'cross',
-      badge: { value: '9+', label: 'messages', role: 'notification' },
-      status: Status.ACTIVE,
-    },
-    {
-      label: 'Tab 4',
-      icon: 'trash',
-      status: Status.HIDDEN,
-    },
-  ],
+export const MgTabsItems = {
+  render: Template,
+  args: {
+    ...MgTabs.args,
+    activeTab: undefined,
+    items: [
+      {
+        label: 'Tab 1',
+        icon: 'check',
+        badge: { value: 1, label: 'message' },
+      },
+      {
+        label: 'Tab 2',
+        badge: { value: 5, label: 'messages', role: 'information' },
+        status: Status.DISABLED,
+      },
+      {
+        label: 'Tab 3',
+        icon: 'cross',
+        badge: { value: '9+', label: 'messages', role: 'notification' },
+        status: Status.ACTIVE,
+      },
+      {
+        label: 'Tab 4',
+        icon: 'trash',
+        status: Status.HIDDEN,
+      },
+    ],
+  },
 };

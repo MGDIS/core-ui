@@ -39,30 +39,33 @@ const Template = (args: any): HTMLElement => (
   </div>
 );
 
-export const MgModal = Template.bind({});
-
-MgModal.args = {
-  slotContent: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
-  slotActions: ``,
-  modalTitle: 'Modal title',
-  identifier: 'identifier',
-  closeButton: false,
-  hide: true,
+export const MgModal = {
+  render: Template,
+  args: {
+    slotContent: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
+    slotActions: ``,
+    modalTitle: 'Modal title',
+    identifier: 'identifier',
+    closeButton: false,
+    hide: true,
+  },
 };
 
-export const WithCloseButton = Template.bind({});
-
-WithCloseButton.args = {
-  ...MgModal.args,
-  identifier: 'identifier-close-button',
-  closeButton: true,
+export const WithCloseButton = {
+  render: Template,
+  args: {
+    ...MgModal.args,
+    identifier: 'identifier-close-button',
+    closeButton: true,
+  },
 };
 
-export const WithActions = Template.bind({});
-
-WithActions.args = {
-  ...MgModal.args,
-  closeButton: true,
-  identifier: 'identifier-with-action',
-  slotActions: `<div class="mg-group-elements mg-group-elements--align-right"><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>`,
+export const WithActions = {
+  render: Template,
+  args: {
+    ...MgModal.args,
+    closeButton: true,
+    identifier: 'identifier-with-action',
+    slotActions: `<div class="mg-group-elements mg-group-elements--align-right"><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>`,
+  },
 };

@@ -2,7 +2,7 @@
 
 ### Sizing
 
-![](./mg-icon/doc/img/mg-icon-sizing.png) 
+![](./doc/img/mg-icon-sizing.png) 
 
 Sizes (px) :
 
@@ -14,7 +14,7 @@ Sizes (px) :
 
 ### With "variant" applied
 
-![](./mg-icon/doc/img/mg-icon-sizing-variant.png)
+![](./doc/img/mg-icon-sizing-variant.png)
 
 When *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.
 The icon is centered in it.
@@ -23,7 +23,7 @@ The icon is centered in it.
 
 ### Default
 
-![](./mg-icon/doc/img/mg-icon-styling-default.png)
+![](./doc/img/mg-icon-styling-default.png)
 
 Default color for the icon is the color used for the text.
 Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))
@@ -32,10 +32,10 @@ Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--page)
 
 
 ### Variant
-![](./mg-icon/doc/img/mg-icon-styling-iconVariant.png) 
+![](./doc/img/mg-icon-styling-iconVariant.png) 
 
 
-![](./mg-icon/doc/img/mg-icon-styling-variant.png) 
+![](./doc/img/mg-icon-styling-variant.png) 
 
 "variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--page) or "app color" to the background of the icon with Lightness set to 90% 
 You can select "variant style" to apply "variant" on the icon or the background or both.

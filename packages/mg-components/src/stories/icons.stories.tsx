@@ -32,8 +32,10 @@ const Template = (args: any): HTMLElement => (
   </ul>
 );
 
-export const Icons = Template.bind({});
-Icons.args = {
-  color: '',
-  size: sizes[0], // regular
+export const Icons = {
+  render: Template,
+  args: {
+    color: '',
+    size: sizes[0], // regular
+  },
 };

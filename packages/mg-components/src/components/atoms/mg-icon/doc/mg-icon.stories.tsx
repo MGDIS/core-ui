@@ -43,10 +43,12 @@ const Template = (args: any): HTMLElement => {
   );
 };
 
-export const MgIcon = Template.bind({});
-MgIcon.args = {
-  color: '',
-  icon: iconList[0],
-  size: undefined,
-  spin: false,
+export const MgIcon = {
+  render: Template,
+  args: {
+    color: '',
+    icon: iconList[0],
+    size: undefined,
+    spin: false,
+  },
 };
