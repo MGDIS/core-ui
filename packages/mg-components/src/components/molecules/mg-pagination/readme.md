@@ -12,7 +12,7 @@ It's possible to hide the labels "prev" and "next" to show only the "chevron" ic
 
 It's possible to hide the page count to show only the "chevron" icons
 
-![](./mg-pagination/doc/img/mg-pagination-nav-select-hide.png)
+![](./doc/img/mg-pagination-nav-select-hide.png)
 
 <!-- Auto Generated Below -->
 

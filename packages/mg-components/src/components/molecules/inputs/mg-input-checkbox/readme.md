@@ -27,15 +27,15 @@ The style of the active checkbox is the browser's style.
 
 when we have selected and not selected items we have two sections
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-more-10-values-2-sections.png)
+![](./doc/img/mg-input-checkbox-more-10-values-2-sections.png)
 
 when we only have selected OR unselected items we have one section displayed
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-more-10-values-selected-section.png)
+![](./doc/img/mg-input-checkbox-more-10-values-selected-section.png)
 
 Selected items section is collapsible
 
-![](./mg-input-checkbox/doc/img/mg-input-checkbox-more-10-values-selected-section-collapsed.png)
+![](./doc/img/mg-input-checkbox-more-10-values-selected-section-collapsed.png)
 
 ### Displayed values
 
