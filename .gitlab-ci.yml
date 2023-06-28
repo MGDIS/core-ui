@@ -17,20 +17,20 @@ stages:
 .rules:changes:mg-components:
   rules:
     - changes:
-        - 'packages/mg-components'
+        - 'packages/mg-components/**/*'
 
 # Rule to execute job only on notification-center folder content changes
 .rules:changes:notification-center:
   rules:
     - changes:
-        - 'packages/notification-center'
-        - 'apps/notification-center'
+        - 'packages/notification-center/**/*'
+        - 'apps/notification-center/**/*'
 
 # Rule to execute job only on img folder content changes
 .rules:changes:img:
   rules:
     - changes:
-        - 'packages/img'
+        - 'packages/img/**/*'
 
 # Rule to execute job only in merge request
 .rules:mr:
@@ -185,7 +185,7 @@ chromatic:mr:
   extends:
     - .rules:tags
   script:
-      - sh utils/open-merge-request.sh
+    - sh utils/open-merge-request.sh
   needs:
     - chromatic:publish
 
@@ -276,6 +276,7 @@ pages:
 
 mg-components:npmjs:
   extends:
+    - .rules:changes:mg-components
     - .npmjs
   script:
     - !reference [.mg-components:build, script]
@@ -321,6 +322,7 @@ img:artifact:
 
 img:npmjs:
   extends:
+    - .rules:changes:img
     - .npmjs
   script:
     - !reference [.img:build, script]
