@@ -22,7 +22,7 @@ The values must be transcribed by texts or icons.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`
 

@@ -26,7 +26,7 @@ The icon is centered in it.
 ![](./doc/img/mg-icon-styling-default.png)
 
 Default color for the icon is the color used for the text.
-Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--page))
+Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))
 
 ### Variant style
 
@@ -37,7 +37,7 @@ Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--page)
 
 ![](./doc/img/mg-icon-styling-variant.png) 
 
-"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--page) or "app color" to the background of the icon with Lightness set to 90% 
+"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--docs) or "app color" to the background of the icon with Lightness set to 90% 
 You can select "variant style" to apply "variant" on the icon or the background or both.
 
 # File naming
@@ -48,7 +48,7 @@ Variant : "-outline". If pictogram variant has a background that has a full circ
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-icon-small-size`: Define small icon size, default: `1.2rem`
 - `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`

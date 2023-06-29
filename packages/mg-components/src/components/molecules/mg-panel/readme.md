@@ -32,7 +32,7 @@ Slot content padding can be customized using the --mg-panel-content-padding CSS 
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`
 - `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`
