@@ -1,48 +1,92 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 
 <Meta title="Style/Colors" />
 
 # Colors
 
-![](./stories/img/colors/colors.png)
-
 ## Information colors
 
 (!) Accessibility: This color must be combined with black if it is not used for decorative purposes because the ratio with white is not sufficient.
 
-### Neutral / Draft (@color-neutral)
-
-Color: #FEFEFE | rgb(254, 254, 254) | hsl(0, 0%, 99.6%)
-
-### Warning (@color-warning)
-
-Color: #FFC33E | rgb(255, 195, 62) | hsl(41, 100%, 62.2%)
-
-### Success (@color-success)
-
-Color: #32D59C | rgb(50, 213, 156) | hsl(159, 66%, 51.6%)
-
-### Info / Brand (@color-info)
-
-Color: #005E9C | rgb(0, 94, 156) | hsl(204, 100%, 30.6%)
-
-### Danger (@color-danger)
-
-Color : #DB1F29 | rgb(219, 31, 41) | hsl(357, 75%, 49%)
+<ColorPalette>
+  <ColorItem
+    title="Neutral / Draft"
+    subtitle="@color-neutral"
+    colors={{
+      Hexa: '#FEFEFE',
+      RGB: 'rgb(254, 254, 254)',
+      HSL: 'hsl(0, 0%, 99.6%)',
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="@color-warning"
+    colors={{
+      Hexa: '#FFC33E',
+      RGB: 'rgb(255, 195, 62)',
+      HSL: 'hsl(41, 100%, 62.2%)',
+    }}
+  />
+  <ColorItem
+    title="Success"
+    subtitle="@color-success"
+    colors={{
+      Hexa: '#32D59C',
+      RGB: 'rgb(50, 213, 156)',
+      HSL: 'hsl(159, 66%, 51.6%)',
+    }}
+  />
+  <ColorItem
+    title="Info / Brand"
+    subtitle="@color-info"
+    colors={{
+      Hexa: '#005E9C',
+      RGB: 'rgb(0, 94, 156)',
+      HSL: 'hsl(204, 100%, 30.6%)',
+    }}
+  />
+  <ColorItem
+    title="Danger"
+    subtitle="@color-danger"
+    colors={{
+      Hexa: '#DB1F29',
+      RGB: 'rgb(219, 31, 41)',
+      HSL: 'hsl(357, 75%, 49%)',
+    }}
+  />
+</ColorPalette>
 
 ## Font colors
 
-### Light (@color-light)
-
-Color: #FFFFFF | rgb(255, 255, 255) | hsl(194, 37.3%, 13.1%)
-
-### Dark (@color-dark) | hsl(194,37,13)
-
-Color: #DB1F29
-
-### Dark-5 (@color-dark-5) | hsl(210,9,96)
-
-Color: #F3F4F5
+<ColorPalette>
+  <ColorItem
+    title="Light"
+    subtitle="@color-light"
+    colors={{
+      Hexa: '#FFFFFF',
+      RGB: 'rgb(255, 255, 255)',
+      HSL: 'hsl(0, 0%, 100%)',
+    }}
+  />
+  <ColorItem
+    title="Dark"
+    subtitle="@color-dark"
+    colors={{
+      Hexa: '#15282E',
+      RGB: 'rgb(21, 40, 45)',
+      HSL: 'hsl(194, 37%, 13%)',
+    }}
+  />
+  <ColorItem
+    title="Dark-5"
+    subtitle="@color-dark-5"
+    colors={{
+      Hexa: '#F3F4F5',
+      RGB: 'rgb(243, 244, 245)',
+      HSL: 'hsl(210, 9%, 96%)',
+    }}
+  />
+</ColorPalette>
 
 ## Variables
 
