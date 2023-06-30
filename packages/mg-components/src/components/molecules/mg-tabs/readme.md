@@ -23,6 +23,10 @@
 
 ![](./doc/img/mg-tabs-sizing.png)
 
+The header bottom border is 100% wide, 1px sizing and its color is @color-dark-soft. You can override it with [CSS variable](./?path=/docs/molecules-mg-tabs--docs#css-variables).
+
+![](./doc/img/mg-tabs-header-border.png)
+
 ### States
 
 ![](./doc/img/mg-tabs-states.png)
@@ -32,6 +36,12 @@
 #### Line breaks (current management)
 
 ![](./doc/img/mg-tabs-responsive.png)
+
+## CSS variables
+
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.
 
 <!-- Auto Generated Below -->
 
