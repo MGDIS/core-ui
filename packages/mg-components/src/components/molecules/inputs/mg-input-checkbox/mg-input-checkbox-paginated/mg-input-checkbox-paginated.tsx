@@ -169,7 +169,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             <p class="mg-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.itemsExpanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
-            <mg-button variant="link" class="mg-input__input-checkbox-multi-select-button" onClick={this.massActionHandler}>
+            <mg-button variant="link" onClick={this.massActionHandler}>
               {this.messages.action}
             </mg-button>
           )}

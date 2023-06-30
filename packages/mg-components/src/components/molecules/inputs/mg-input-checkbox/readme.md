@@ -26,6 +26,7 @@ The style of the active checkbox is the browser's style.
 4. Checkbox
 5. Details
 6. Search
+7. Pagination
 
 ### Type "multi" with sections
 

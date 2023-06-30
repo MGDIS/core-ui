@@ -64,11 +64,7 @@ $checkbox-multi-spacer: 0.4rem;
     &-section-header {
       @include flex-container(2);
       align-items: center;
-      justify-content: space-between;
       min-height: var(--default-size);
-    }
-    &-select-button {
-      margin-right: auto;
     }
     &-inputs {
       margin: 0;
