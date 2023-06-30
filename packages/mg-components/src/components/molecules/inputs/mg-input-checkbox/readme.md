@@ -31,7 +31,7 @@ The style of the active checkbox is the browser's style.
 
 ![](./doc/img/mg-input-checkbox-multi-section-button-spacing.png)
 
-"Select all" / "Unselect all" button is align on left. 
+"Select all" and "Unselect all" buttons are aligned on left. 
 
 ![](./doc/img/mg-input-checkbox-multi-section-internal-spacing.png)
 
