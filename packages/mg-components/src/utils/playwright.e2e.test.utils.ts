@@ -82,7 +82,7 @@ export const describeEach = (array: unknown[] | any, option?: 'skip' | 'only') =
  * @param option - test runner option
  * @returns test iteration
  */
-export const testEach = (array: unknown[] | any, option?: 'skip' | 'only') => (title: string, cb: (page: PageType, param: unknown) => void) => {
+export const testEach = (array: unknown[] | any, option?: 'skip' | 'only') => (title: string, cb: (page: PageType, param: unknown) => Promise<void>) => {
   array.forEach(value => {
     const displayTitle = title.replace('%s', valueToString(value));
     const fn = async ({ page }) => cb(page, value);
