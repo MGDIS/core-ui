@@ -17,8 +17,6 @@ A button with undefined type in a form will natively have a [submit type](https:
 
 ![](./doc/img/mg-button-placement.png)
 
-To manage the space between two buttons you can use the helper [.mg-group-elements](/?path=/docs/style-buttons--buttons)
-
 ## Theming
 
 ![](./doc/img/mg-button-styles.png)
@@ -35,7 +33,7 @@ To reset the loader after the process has completed, you need to set the `disabl
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 ### Global
 
@@ -47,7 +45,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ### Variant
 
-Variants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--page).
+Variants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).
 
 #### Primary
 

@@ -5,9 +5,9 @@
 ![](./doc/img/mg-card-style.png)
 
 1. Border radius: 5px
-2. Background: [@color-light](./?path=/docs/style-colors--page)
-3. Border: 1px, [@color-dark](./?path=/docs/style-colors--page) with alpha at 5%
-4. Shadow: [@shadow](./?path=/docs/style-colors--page)
+2. Background: [@color-light](./?path=/docs/style-colors--docs)
+3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%
+4. Shadow: [@shadow](./?path=/docs/style-colors--docs)
 
 ### Variant on bar / on background
 
@@ -25,9 +25,9 @@ Values for variant colors are :
 
 _exemple of "app color" for the last one_
 
-Variant applied on the left bar uses **[full colors](./?path=/docs/style-colors--page)**
+Variant applied on the left bar uses **[full colors](./?path=/docs/style-colors--docs)**
 
-Variant applied on the background uses **[soft colors](./?path=/docs/style-colors--page)**
+Variant applied on the background uses **[soft colors](./?path=/docs/style-colors--docs)**
 
 ### Spacing
 
@@ -44,7 +44,7 @@ A padding of 16px is applied around the content
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-card-padding`: define car padding, default: `1.6rem`
 - `--mg-card-border-radius`: define card border radius, default: `0.5rem`

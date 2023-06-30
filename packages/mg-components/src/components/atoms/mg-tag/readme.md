@@ -23,8 +23,8 @@ They are not on SemiBold but **Regular**.
 ![](./doc/img/mg-tag-icons-colors.png)
 
 1. Icons takes the color of the tag variant.
-2. Labels are [**@color-dark**](./?path=/docs/style-colors--page) for all.
-3. Color background is **[**soft color**](./?path=/docs/style-colors--page)** of the tag variant.
+2. Labels are [**@color-dark**](./?path=/docs/style-colors--docs) for all.
+3. Color background is **[**soft color**](./?path=/docs/style-colors--docs)** of the tag variant.
 
 #### Rules
 
@@ -42,7 +42,7 @@ For accessibility, soft variant tags cannot use an icon on its own.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 ### Global
 
@@ -52,7 +52,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ### Variant
 
-Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--page).
+Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).
 
 <!-- Auto Generated Below -->
 
