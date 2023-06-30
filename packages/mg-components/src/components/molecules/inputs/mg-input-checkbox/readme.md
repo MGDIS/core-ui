@@ -33,7 +33,7 @@ When we only have selected or unselected items we have one section displayed.
 
 ![](./doc/img/mg-input-checkbox-more-10-values-selected-section.png)
 
-Selected items section is collapsible
+Selected items section is collapsible.
 
 ![](./doc/img/mg-input-checkbox-more-10-values-selected-section-collapsed.png)
 
