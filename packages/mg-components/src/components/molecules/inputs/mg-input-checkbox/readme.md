@@ -25,7 +25,7 @@ The style of the active checkbox is the browser's style.
 
 ### type "multi" with than 10 values
 
-when we have selected and not selected items we have two sections
+When we have selected and not selected items we have two sections.
 
 ![](./doc/img/mg-input-checkbox-more-10-values-2-sections.png)
 
