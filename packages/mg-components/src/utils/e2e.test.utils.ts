@@ -1,5 +1,3 @@
-import { createID } from './components.utils';
-
 /**
  * Add a darker background
  * usefull for light rendered element
@@ -31,17 +29,22 @@ export const renderAttributes = (args: unknown): string =>
  * @returns stringified properties script
  */
 export const renderProperties = (args: unknown, selector: string): string => {
-  if (typeof args !== 'object') return '';
-  const name = `element${createID()}`;
-  return `const ${name} = document.querySelector('${selector}');
-    ${
-      Object.keys(args)
-        .filter(key => typeof args[key] === 'object')
-        .map(key => `${name}.${key} = ${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
-        .join(';\n') // create string
-        .split('"<fn>') // remove fn start decorator
-        .join('')
-        .split('</fn>"')
-        .join('') // remove fn end decorator
-    };`;
+  // has generated id selector starting with "#" create charcters (ex: '#0j3xzw4w7m') make test crashed sometime with "querySelector"
+  // we use "getElementById" document query
+  const query: 'querySelector' | 'getElementById' = selector.startsWith('#') ? 'getElementById' : 'querySelector';
+  if (query === 'getElementById') selector = selector.replace('#', '');
+
+  return typeof args === 'object'
+    ? `
+  ${
+    Object.keys(args)
+      .filter(key => typeof args[key] === 'object')
+      .map(key => `document.${query}('${selector}').${key}=${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
+      .join(';\n') // create string
+      .split('"<fn>') // remove fn start decorator
+      .join('')
+      .split('</fn>"')
+      .join('') // remove fn end decorator
+  }`
+    : '';
 };
