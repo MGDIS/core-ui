@@ -29,7 +29,7 @@ When we have selected and not selected items we have two sections.
 
 ![](./doc/img/mg-input-checkbox-more-10-values-2-sections.png)
 
-when we only have selected OR unselected items we have one section displayed
+When we only have selected or unselected items we have one section displayed.
 
 ![](./doc/img/mg-input-checkbox-more-10-values-selected-section.png)
 
