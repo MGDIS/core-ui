@@ -265,7 +265,7 @@ storybook-mr:
 chromatic:publish:
   stage: mg-components
   extends:
-    - rules:master
+    - .rules:master
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
