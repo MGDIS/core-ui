@@ -56,7 +56,7 @@ The value of the max-width can be modified according to the case via the CSS var
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`
 - `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`

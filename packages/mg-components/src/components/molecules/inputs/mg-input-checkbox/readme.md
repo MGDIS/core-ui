@@ -31,7 +31,7 @@ The style of the active checkbox is the browser's style.
 
 - Radius : 3px
 - Font : OpenSans, Regular, 13px
-- Color : [@color-dark-5](./?path=/docs/style-colors--page)
+- Color : [@color-dark-5](./?path=/docs/style-colors--docs)
 
 #### Alignment
 
@@ -80,7 +80,7 @@ The component is ajusting with the space available. If the width is not enought 
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-input-check-size`: Define checkbox size, default: `1.3rem`
 

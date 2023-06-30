@@ -25,7 +25,7 @@ Default margin applied on top and bottom of the divider is set to 40px.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-divider-background-color`: define the divider background color, default: `hsla(var(--color-danger), 15%)`
 - `--mg-divider-thickness`: define the divider thickness, default: `0.1rem`

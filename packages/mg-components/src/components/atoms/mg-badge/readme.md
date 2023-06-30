@@ -14,7 +14,7 @@ The badge displays a number (can be followed by the `+` character) or a punctuat
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-badge-size`: define badge height and min-width, default: `1.6rem`
 - `--mg-badge-font-size`: define badge font size, default: `1.1rem`
