@@ -68,5 +68,7 @@ const Template = () => (
   </main>
 );
 
-export const Grid = Template.bind({});
-Grid.args = {};
+export const Grid = {
+  render: Template,
+  args: {},
+};

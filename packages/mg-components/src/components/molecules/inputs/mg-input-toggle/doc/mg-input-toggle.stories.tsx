@@ -45,8 +45,10 @@ const Template = (args: any): HTMLElement => (
   </mg-input-toggle>
 );
 
-export const MgInputToggle = Template.bind({});
-MgInputToggle.args = { ...args };
+export const MgInputToggle = {
+  render: Template,
+  args: { ...args },
+};
 
 /**
  * Template
@@ -65,9 +67,12 @@ const TemplateIcon = (args: any): HTMLElement => (
   </mg-input-toggle>
 );
 
-export const MgInputToggleWithIcon = TemplateIcon.bind({});
-MgInputToggleWithIcon.args = {
-  ...args,
-  isIcon: true,
-  isOnOff: true,
+export const MgInputToggleWithIcon = {
+  render: TemplateIcon,
+
+  args: {
+    ...args,
+    isIcon: true,
+    isOnOff: true,
+  },
 };

@@ -23,31 +23,34 @@ export default {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })}>{args.slot}</mg-button>;
 
-export const MgButton = Template.bind({});
-
-MgButton.args = {
-  slot: 'Text button',
-  variant: variants[0],
-  label: 'Explicit aria label',
-  identifier: undefined,
-  disabled: false,
-  disableOnClick: false,
-  isIcon: false,
-  type: undefined,
-  fullWidth: undefined,
+export const MgButton = {
+  render: Template,
+  args: {
+    slot: 'Text button',
+    variant: variants[0],
+    label: 'Explicit aria label',
+    identifier: undefined,
+    disabled: false,
+    disableOnClick: false,
+    isIcon: false,
+    type: undefined,
+    fullWidth: undefined,
+  },
 };
 
-export const IsIcon = Template.bind({});
-
-IsIcon.args = {
-  ...MgButton.args,
-  isIcon: true,
-  slot: <mg-icon icon={iconList[0]}></mg-icon>,
+export const IsIcon = {
+  render: Template,
+  args: {
+    ...MgButton.args,
+    isIcon: true,
+    slot: <mg-icon icon={iconList[0]}></mg-icon>,
+  },
 };
 
-export const DisableOnClick = Template.bind({});
-
-DisableOnClick.args = {
-  ...MgButton.args,
-  disableOnClick: true,
+export const DisableOnClick = {
+  render: Template,
+  args: {
+    ...MgButton.args,
+    disableOnClick: true,
+  },
 };
