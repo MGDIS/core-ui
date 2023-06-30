@@ -260,11 +260,14 @@ storybook-mr:
 chromatic:publish:
   stage: mg-components
   extends:
-    - .rules:tags
+    # - .rules:tags
+    - .rules:mr # testing Chromatic visual tests
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
-    - pnpm dlx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --auto-accept-changes --branch-name master --build-script-name storybook:build
+    - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name $CI_COMMIT_REF_SLUG --build-script-name storybook:build
+  needs:
+    - lint
 
 pages:
   stage: mg-components

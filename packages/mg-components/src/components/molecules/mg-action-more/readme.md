@@ -16,27 +16,24 @@ Popover padding should be 10px up/down, 0px left/right.
 
 In addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.
 
-## Options
+## Items
 
 ### Button's variant
 
 ![](./doc/img/mg-action-more-options-variant.png)
 
-By default, button variant is "flat".
 It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/story/atoms-mg-button--mg-button)).
 
 ### Icon
 
 ![](./doc/img/mg-action-more-options-icon.png)
 
-By default, icon is _ellipsis_. 
 It is possible to set another icon
 
 ### Label
 
 ![](./doc/img/mg-action-more-options-label.png)
 
-By default, label is _Actions_ and hidden. 
 It is possible to set another label.
 
 ### Chevron
