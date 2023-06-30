@@ -5417,6 +5417,28 @@
           "required": false
         },
         {
+          "name": "expandToggleDisplay",
+          "type": "\"icon\" | \"text\"",
+          "mutable": false,
+          "attr": "expand-toggle-display",
+          "reflectToAttr": false,
+          "docs": "Define expand toggle button display",
+          "docsTags": [],
+          "default": "expandToggleDisplays[0]",
+          "values": [
+            {
+              "value": "icon",
+              "type": "string"
+            },
+            {
+              "value": "text",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "expanded",
           "type": "boolean",
           "mutable": true,
@@ -5469,10 +5491,10 @@
         {
           "name": "titleEditable",
           "type": "boolean",
-          "mutable": false,
+          "mutable": true,
           "attr": "title-editable",
           "reflectToAttr": false,
-          "docs": "Panel title is editabled",
+          "docs": "Define if panel title is editable",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -5509,6 +5531,28 @@
           "docsTags": [],
           "values": [
             {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "titlePosition",
+          "type": "\"left\" | \"right\"",
+          "mutable": false,
+          "attr": "title-position",
+          "reflectToAttr": false,
+          "docs": "Define title position",
+          "docsTags": [],
+          "default": "titlePositions[0]",
+          "values": [
+            {
+              "value": "left",
+              "type": "string"
+            },
+            {
+              "value": "right",
               "type": "string"
             }
           ],

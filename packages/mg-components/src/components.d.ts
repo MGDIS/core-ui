@@ -19,6 +19,7 @@ import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-ite
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
@@ -1014,6 +1015,10 @@ export namespace Components {
          */
         "expandToggleDisabled": boolean;
         /**
+          * Define expand toggle button display
+         */
+        "expandToggleDisplay": ExpandToggleDisplayType;
+        /**
           * Panel is opened
          */
         "expanded": boolean;
@@ -1026,7 +1031,7 @@ export namespace Components {
          */
         "panelTitle": string;
         /**
-          * Panel title is editabled
+          * Define if panel title is editable
          */
         "titleEditable": boolean;
         /**
@@ -1037,6 +1042,10 @@ export namespace Components {
           * Panel title pattern error message
          */
         "titlePatternErrorMessage": string;
+        /**
+          * Define title position
+         */
+        "titlePosition": TitlePositionType;
     }
     interface MgPopover {
         /**
@@ -2504,6 +2513,10 @@ declare namespace LocalJSX {
          */
         "expandToggleDisabled"?: boolean;
         /**
+          * Define expand toggle button display
+         */
+        "expandToggleDisplay"?: ExpandToggleDisplayType;
+        /**
           * Panel is opened
          */
         "expanded"?: boolean;
@@ -2524,7 +2537,7 @@ declare namespace LocalJSX {
          */
         "panelTitle": string;
         /**
-          * Panel title is editabled
+          * Define if panel title is editable
          */
         "titleEditable"?: boolean;
         /**
@@ -2535,6 +2548,10 @@ declare namespace LocalJSX {
           * Panel title pattern error message
          */
         "titlePatternErrorMessage"?: string;
+        /**
+          * Define title position
+         */
+        "titlePosition"?: TitlePositionType;
     }
     interface MgPopover {
         /**

@@ -1,6 +1,7 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
 import { createID, ClassList } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
+import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
 @Component({
   tag: 'mg-panel',
@@ -39,9 +40,7 @@ export class MgPanel {
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
   validatePanelTitle(newValue: string): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
-      throw new Error('<mg-panel> prop "panelTitle" is required.');
-    }
+    if (typeof newValue !== 'string' || newValue.trim() === '') throw new Error('<mg-panel> prop "panelTitle" is required.');
     this.titleChange.emit(newValue);
   }
 
@@ -51,18 +50,29 @@ export class MgPanel {
   @Prop() titlePattern: string;
   @Watch('titlePattern')
   validatetitlePattern(newValue: string): void {
-    if (newValue !== undefined && !this.titleEditable) {
-      throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
-    }
-    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === '')) {
+    if (newValue !== undefined && !this.titleEditable) throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
+    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === ''))
       throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
-    }
   }
 
   /**
    * Panel title pattern error message
    */
   @Prop() titlePatternErrorMessage: string;
+
+  /**
+   * Define if panel title is editable
+   */
+  @Prop({ mutable: true }) titleEditable = false;
+
+  /**
+   * Define title position
+   */
+  @Prop() titlePosition: TitlePositionType = titlePositions[0];
+  @Watch('titlePosition')
+  validateTitlePosition(newValue: MgPanel['titlePosition']) {
+    if (!titlePositions.includes(newValue)) throw new Error(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
+  }
 
   /**
    * Panel is opened
@@ -74,14 +84,19 @@ export class MgPanel {
   }
 
   /**
+   * Define expand toggle button display
+   */
+  @Prop() expandToggleDisplay: ExpandToggleDisplayType = expandToggleDisplays[0];
+  @Watch('expandToggleDisplay')
+  validateExpandToggleDisplay(newValue: MgPanel['expandToggleDisplay']) {
+    if (!expandToggleDisplays.includes(newValue)) throw new Error(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
+    if (newValue === 'icon' && this.titleEditable) this.titleEditable = false;
+  }
+
+  /**
    * Disable possibility to toggle expand
    */
   @Prop() expandToggleDisabled: boolean;
-
-  /**
-   * Panel title is editabled
-   */
-  @Prop() titleEditable = false;
 
   /**
    * Component classes
@@ -127,9 +142,7 @@ export class MgPanel {
    * Collapse button click handler
    */
   private handleCollapseButton = (): void => {
-    if (!this.expandToggleDisabled) {
-      this.expanded = !this.expanded;
-    }
+    if (!this.expandToggleDisabled) this.expanded = !this.expanded;
   };
 
   /**
@@ -159,11 +172,9 @@ export class MgPanel {
    * Validate edition button handler
    */
   private handleValidateEditButton = (): void => {
-    if (this.editInputElement.valid) {
-      if (this.updatedPanelTitle !== undefined) this.panelTitle = this.updatedPanelTitle;
-
-      this.toggleIsEditing();
-    }
+    if (!this.editInputElement.valid) return;
+    if (this.updatedPanelTitle !== undefined) this.panelTitle = this.updatedPanelTitle;
+    this.toggleIsEditing();
   };
 
   /*************
@@ -179,105 +190,140 @@ export class MgPanel {
     // Validate
     this.validatetitlePattern(this.titlePattern);
     this.validatePanelTitle(this.panelTitle);
+    this.validateExpandToggleDisplay(this.expandToggleDisplay);
+    this.validateTitlePosition(this.titlePosition);
   }
-
-  /**
-   * Header left conditional render
-   * @returns header left element
-   */
-  private headerLeft = (): HTMLMgButtonElement | HTMLElement | HTMLElement[] => {
-    const collapseButton = (): HTMLMgButtonElement => (
-      <mg-button
-        onClick={this.handleCollapseButton}
-        variant="flat"
-        identifier={`${this.identifier}-collapse-button`}
-        aria-expanded={this.expanded !== undefined && this.expanded.toString()}
-        aria-controls={`${this.identifier}-content`}
-        disabled={this.expandToggleDisabled}
-      >
-        <span class="mg-panel__collapse-button-content">
-          <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
-          {!this.isEditing && this.panelTitle}
-        </span>
-      </mg-button>
-    );
-
-    if (this.titleEditable && !this.isEditing) {
-      return [
-        collapseButton(),
-        <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton} identifier={`${this.identifier}-edit-button`}>
-          <mg-icon icon="pen"></mg-icon>
-        </mg-button>,
-      ];
-    }
-
-    if (this.titleEditable && this.isEditing) {
-      return [
-        collapseButton(),
-        <mg-input-text
-          key="edition-input"
-          label={this.messages.panel.editLabel}
-          label-hide
-          value={this.panelTitle}
-          onValue-change={this.handleUpdateTitle}
-          displayCharacterLeft={false}
-          pattern={this.titlePattern}
-          pattern-error-message={this.titlePatternErrorMessage}
-          identifier={`${this.identifier}-edition-input`}
-          ref={el => (this.editInputElement = el as HTMLMgInputTextElement)}
-        >
-          <mg-button
-            slot="append-input"
-            label={this.messages.general.cancel}
-            is-icon
-            variant="secondary"
-            onClick={this.handleCancelEditButton}
-            identifier={`${this.identifier}-edition-button-cancel`}
-          >
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-          <mg-button
-            slot="append-input"
-            label={this.messages.general.confirm}
-            is-icon
-            variant="secondary"
-            onClick={this.handleValidateEditButton}
-            identifier={`${this.identifier}-edition-button-validate`}
-          >
-            <mg-icon icon="check"></mg-icon>
-          </mg-button>
-        </mg-input-text>,
-      ];
-    }
-
-    return collapseButton();
-  };
 
   /**
    * Edit DOM after render
    */
   componentDidRender(): void {
     // when we are editing we get focus on edition input
-    if (this.isEditing) {
-      this.editInputElement.setFocus();
-    }
+    if (this.isEditing) this.editInputElement.setFocus();
   }
+
+  /*************
+   * Render *
+   *************/
+
+  /**
+   * Render collapse button
+   * @returns collpase button
+   */
+  private renderCollapseButton = (): HTMLMgButtonElement => (
+    <mg-button
+      onClick={this.handleCollapseButton}
+      variant="flat"
+      identifier={`${this.identifier}-collapse-button`}
+      aria-expanded={this.expanded !== undefined && this.expanded.toString()}
+      aria-controls={`${this.identifier}-content`}
+      disabled={this.expandToggleDisabled}
+      isIcon={this.expandToggleDisplay === 'icon'}
+      label={this.panelTitle}
+    >
+      <span class="mg-panel__collapse-button-content">
+        <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
+        {!this.isEditing && this.expandToggleDisplay !== 'icon' && this.panelTitle}
+      </span>
+    </mg-button>
+  );
+
+  /**
+   * Render edit button
+   * @returns edit Button
+   */
+  private renderEditButton = (): HTMLMgButtonElement => (
+    <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton} identifier={`${this.identifier}-edit-button`}>
+      <mg-icon icon="pen"></mg-icon>
+    </mg-button>
+  );
+
+  /**
+   * Render input button
+   * @returns edit title input
+   */
+  private renderEditInput = (): HTMLMgInputTextElement => (
+    <mg-input-text
+      key="edition-input"
+      label={this.messages.panel.editLabel}
+      label-hide
+      value={this.panelTitle}
+      onValue-change={this.handleUpdateTitle}
+      displayCharacterLeft={false}
+      pattern={this.titlePattern}
+      pattern-error-message={this.titlePatternErrorMessage}
+      identifier={`${this.identifier}-edition-input`}
+      ref={el => (this.editInputElement = el as HTMLMgInputTextElement)}
+    >
+      <mg-button
+        slot="append-input"
+        label={this.messages.general.cancel}
+        is-icon
+        variant="secondary"
+        onClick={this.handleCancelEditButton}
+        identifier={`${this.identifier}-edition-button-cancel`}
+      >
+        <mg-icon icon="cross"></mg-icon>
+      </mg-button>
+      <mg-button
+        slot="append-input"
+        label={this.messages.general.confirm}
+        is-icon
+        variant="secondary"
+        onClick={this.handleValidateEditButton}
+        identifier={`${this.identifier}-edition-button-validate`}
+      >
+        <mg-icon icon="check"></mg-icon>
+      </mg-button>
+    </mg-input-text>
+  );
+
+  /**
+   * Render title
+   * @returns title element
+   */
+  private renderTitle = (): HTMLElement[] => {
+    const elementsToRender: HTMLElement[] = [this.renderCollapseButton()];
+    if (this.titleEditable) {
+      if (!this.isEditing) elementsToRender.push(this.renderEditButton());
+      else elementsToRender.push(this.renderEditInput());
+    }
+
+    return this.titlePosition === 'right' ? elementsToRender.reverse() : elementsToRender;
+  };
+
+  /**
+   * Render header children
+   * @returns header child
+   */
+  private renderHeaderChildren = (): HTMLElement[] => {
+    const children = [
+      <div
+        class={{ 'mg-panel__header-title': true, 'mg-panel__header-title--full': this.isEditing, 'mg-panel__header-title--reverse': this.titlePosition === 'right' }}
+        key={this.panelTitle}
+      >
+        {this.renderTitle()}
+      </div>,
+      <div class="mg-panel__header-content" key="slot-header">
+        <slot name="header-right"></slot>
+      </div>,
+    ];
+    return this.titlePosition === 'right' ? children.reverse() : children;
+  };
 
   /**
    * Render component
-   * @returns html element
+   * @returns rendered component
    */
   render(): HTMLElement {
+    const headerId = `${this.identifier}-header`;
     return (
       <section class={this.classCollection.join()} id={this.identifier}>
         <mg-card>
-          <header class="mg-panel__header" id={`${this.identifier}-header`}>
-            <div class={`mg-panel__header-left ${this.isEditing ? 'mg-panel__header-left--full' : ''}`}>{this.headerLeft()}</div>
-            <div class="mg-panel__header-right">
-              <slot name="header-right"></slot>
-            </div>
+          <header class={{ 'mg-panel__header': true, 'mg-panel__header--reverse': this.titlePosition === 'right' }} id={headerId}>
+            {this.renderHeaderChildren()}
           </header>
-          <article class="mg-panel__content" id={`${this.identifier}-content`} aria-labelledby={`${this.identifier}-header`} hidden={!this.expanded}>
+          <article class="mg-panel__content" id={`${this.identifier}-content`} aria-labelledby={headerId} hidden={!this.expanded}>
             <slot></slot>
           </article>
         </mg-card>
