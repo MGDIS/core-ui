@@ -6,7 +6,6 @@ import React from 'react';
  * Template
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (): HTMLElement => (
    React.createElement(IconGallery, null,
       iconList.map((icon) => (

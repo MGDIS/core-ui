@@ -31,7 +31,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `identifier` _(required)_ | `identifier`          | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                    | `undefined`       |
 | `inputVerticalList`       | `input-vertical-list` | Define if inputs are display verticaly                                      | `boolean`                   | `false`           |
 | `invalid`                 | `invalid`             | Define input invalid state                                                  | `boolean`                   | `undefined`       |
-| `items` _(required)_      | --                    | Items are the possible options to select Required                           | `RadioOption[] \| string[]` | `undefined`       |
+| `items` _(required)_      | --                    | Items are the possible options to select                                    | `RadioOption[] \| string[]` | `undefined`       |
 | `label` _(required)_      | `label`               | Input label                                                                 | `string`                    | `undefined`       |
 | `labelHide`               | `label-hide`          | Define if label is visible                                                  | `boolean`                   | `false`           |
 | `labelOnTop`              | `label-on-top`        | Define if label is displayed on top                                         | `boolean`                   | `false`           |

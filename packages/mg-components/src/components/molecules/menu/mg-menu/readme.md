@@ -12,27 +12,6 @@ Horizontal menu is used with large ("desktop") resolutions, it is placed in the 
 
 ![](./doc/img/mg-menu-horizontal-item-anatomy.png)
 
-### Options
-
-#### Meta
-
-Meta text is optional.
-
-#### Icon
-
-Icon is optional.
-Use it on all or none of the menu items.
-
-#### Illustration
-
-Illustration is optional.
-An SVG can be specified instead of an icon.
-
-#### Badge
-
-Badge is optional.
-Use it when you need to notify new events in this section.
-
 ### Behavior
 
 #### Sizing
@@ -79,20 +58,6 @@ The horizontal menu is used with large resolutions ("desktop"), it is mainly pla
 ![](./doc/img/mg-menu-vertical-anatomy.png)
 
 ![](./doc/img/mg-menu-vertical-item-anatomy.png)
-
-### Options
-
-#### Icon
-
-Icon is optional.
-
-Use it on all levels or none of the menu items.
-
-#### Badge
-
-Badge is optional.
-
-Use it when you need to notify new events in this section.
 
 ### Behavior
 

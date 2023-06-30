@@ -99,7 +99,7 @@ Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-m
 | `closeButton`             | `close-button` | Define if modal has a cross button                                                                          | `boolean` | `false`                |
 | `hide`                    | `hide`         | Define if modal is hidden                                                                                   | `boolean` | `false`                |
 | `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`  | `createID('mg-modal')` |
-| `modalTitle` _(required)_ | `modal-title`  | Displayed modal title required                                                                              | `string`  | `undefined`            |
+| `modalTitle` _(required)_ | `modal-title`  | Displayed modal title                                                                                       | `string`  | `undefined`            |
 
 
 ## Events

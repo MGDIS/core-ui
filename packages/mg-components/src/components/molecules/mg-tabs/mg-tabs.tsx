@@ -68,7 +68,6 @@ export class MgTabs {
 
   /**
    * Tabs items
-   * Required
    */
   @Prop() items!: string[] | TabItem[];
   @Watch('items')
