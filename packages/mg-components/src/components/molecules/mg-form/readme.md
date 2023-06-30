@@ -20,8 +20,8 @@ The component manages :
 
 ![](./doc/img/mg-form-style-required-message.png)
 
-Text is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--page)  
-The "\*" is in [@color-danger](./?path=/docs/style-colors--page)
+Text is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--docs)  
+The "\*" is in [@color-danger](./?path=/docs/style-colors--docs)
 
 ## Spacing
 
@@ -67,7 +67,7 @@ For this, use "valid/invalid" options.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-form-inputs-title-width`: Define slotted input label width, default: `15rem`
 

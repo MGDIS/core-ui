@@ -67,7 +67,7 @@ When there is not enough space the component take is default appearance.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-illustrated-message-padding-vertical`: define component vertical padding, default: `4rem`
 

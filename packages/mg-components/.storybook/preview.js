@@ -36,7 +36,7 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Intro'],
+      order: ['Intro', 'Atoms', 'Molecules', 'Style'],
     },
   },
 };

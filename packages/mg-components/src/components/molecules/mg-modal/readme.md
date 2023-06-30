@@ -77,11 +77,11 @@ Ex: if I put a check in front of the term "Delete" which is the validation butto
 
 ### Backdrop
 
-Color: [@color-light](./?path=/docs/style-colors--page) with an opacity set to 85%.
+Color: [@color-light](./?path=/docs/style-colors--docs) with an opacity set to 85%.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-modal-border-radius`: Define border radius modal, default: `0.5rem`
 - `--mg-modal-title-font-size`: Define modal title font size, default: `1.8rem`

@@ -16,12 +16,12 @@ Items have an internal margin of 12px and are spaced 6px apart.
 
 ### Styling
 
-- The links are in [@color-dark](./?path=/docs/style-colors--page).
-- The background of the banner is in [@color-light](./?path=/docs/style-colors--page).
+- The links are in [@color-dark](./?path=/docs/style-colors--docs).
+- The background of the banner is in [@color-light](./?path=/docs/style-colors--docs).
 
 #### On hover
 
-The background of the item takes the color [@color-dark](./?path=/docs/style-colors--page) at 10% opacity.
+The background of the item takes the color [@color-dark](./?path=/docs/style-colors--docs) at 10% opacity.
 
 #### Focus taking
 

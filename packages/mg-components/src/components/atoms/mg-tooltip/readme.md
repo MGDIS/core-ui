@@ -65,7 +65,7 @@ Component's max-width is 400px.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`
 - `--mg-tooltip-background-color`: Define tooltip background color, default: `--color-dark`
