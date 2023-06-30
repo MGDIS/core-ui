@@ -59,9 +59,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -76,7 +76,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -91,14 +91,14 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -110,7 +110,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -144,61 +144,61 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -276,9 +276,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   4 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -293,7 +293,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -308,14 +308,14 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (4)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -329,25 +329,25 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_11" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_11" type="checkbox" value="false">
                           <label htmlfor="identifier_11">
                             item 12
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_19" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_19" type="checkbox" value="false">
                           <label htmlfor="identifier_19">
                             item 20
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_20" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_20" type="checkbox" value="false">
                           <label htmlfor="identifier_20">
                             item 21
                           </label>
@@ -425,9 +425,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   1 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -442,7 +442,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -457,14 +457,14 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (1)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -478,7 +478,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_10" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_10" type="checkbox" value="false">
                           <label htmlfor="identifier_10">
                             item 11
                           </label>
@@ -556,9 +556,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   0 result
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -573,7 +573,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -588,14 +588,14 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (0)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -683,9 +683,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -700,7 +700,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -715,14 +715,14 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -734,7 +734,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -768,61 +768,61 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -900,9 +900,9 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -917,7 +917,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -932,14 +932,14 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -951,7 +951,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                       </mg-button>
                       <mg-pagination current-page="3">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -985,7 +985,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_20" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_20" type="checkbox" value="false">
                           <label htmlfor="identifier_20">
                             item 21
                           </label>
@@ -1063,9 +1063,9 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -1080,7 +1080,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1094,7 +1094,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_20" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_20" type="checkbox" value="true">
                           <label htmlfor="identifier_20">
                             item 21
                           </label>
@@ -1102,14 +1102,14 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                       </ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (20)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1121,7 +1121,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                       </mg-button>
                       <mg-pagination current-page="2">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -1155,61 +1155,61 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_10" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_10" type="checkbox" value="false">
                           <label htmlfor="identifier_10">
                             item 11
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_11" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_11" type="checkbox" value="false">
                           <label htmlfor="identifier_11">
                             item 12
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_12" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_12" type="checkbox" value="false">
                           <label htmlfor="identifier_12">
                             item 13
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_13" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_13" type="checkbox" value="false">
                           <label htmlfor="identifier_13">
                             item 14
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_14" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_14" type="checkbox" value="false">
                           <label htmlfor="identifier_14">
                             item 15
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_15" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_15" type="checkbox" value="false">
                           <label htmlfor="identifier_15">
                             item 16
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_16" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_16" type="checkbox" value="false">
                           <label htmlfor="identifier_16">
                             item 17
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_17" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_17" type="checkbox" value="false">
                           <label htmlfor="identifier_17">
                             item 18
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_18" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_18" type="checkbox" value="false">
                           <label htmlfor="identifier_18">
                             item 19
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_19" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_19" type="checkbox" value="false">
                           <label htmlfor="identifier_19">
                             item 20
                           </label>
@@ -1287,9 +1287,9 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -1304,7 +1304,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1319,14 +1319,14 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1338,7 +1338,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -1372,61 +1372,61 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -1504,9 +1504,9 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -1521,7 +1521,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1536,14 +1536,14 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1555,7 +1555,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       </mg-button>
                       <mg-pagination current-page="2">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -1589,61 +1589,61 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_10" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_10" type="checkbox" value="false">
                           <label htmlfor="identifier_10">
                             item 11
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_11" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_11" type="checkbox" value="false">
                           <label htmlfor="identifier_11">
                             item 12
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_12" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_12" type="checkbox" value="false">
                           <label htmlfor="identifier_12">
                             item 13
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_13" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_13" type="checkbox" value="false">
                           <label htmlfor="identifier_13">
                             item 14
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_14" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_14" type="checkbox" value="false">
                           <label htmlfor="identifier_14">
                             item 15
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_15" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_15" type="checkbox" value="false">
                           <label htmlfor="identifier_15">
                             item 16
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_16" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_16" type="checkbox" value="false">
                           <label htmlfor="identifier_16">
                             item 17
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_17" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_17" type="checkbox" value="false">
                           <label htmlfor="identifier_17">
                             item 18
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_18" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_18" type="checkbox" value="false">
                           <label htmlfor="identifier_18">
                             item 19
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_19" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_19" type="checkbox" value="false">
                           <label htmlfor="identifier_19">
                             item 20
                           </label>
@@ -1721,9 +1721,9 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -1738,7 +1738,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1753,14 +1753,14 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1772,7 +1772,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       </mg-button>
                       <mg-pagination current-page="3">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -1806,7 +1806,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_20" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_20" type="checkbox" value="false">
                           <label htmlfor="identifier_20">
                             item 21
                           </label>
@@ -1884,9 +1884,9 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -1901,7 +1901,7 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1916,14 +1916,14 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -1935,7 +1935,7 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -1969,61 +1969,61 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -2101,9 +2101,9 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                   4 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -2118,7 +2118,7 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2132,7 +2132,7 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_1" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_1" type="checkbox" value="true">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
@@ -2140,14 +2140,14 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                       </ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (3)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2161,19 +2161,19 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_11" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_11" type="checkbox" value="false">
                           <label htmlfor="identifier_11">
                             item 12
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_19" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_19" type="checkbox" value="false">
                           <label htmlfor="identifier_19">
                             item 20
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_20" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_20" type="checkbox" value="false">
                           <label htmlfor="identifier_20">
                             item 21
                           </label>
@@ -2251,9 +2251,9 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -2268,7 +2268,7 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2282,7 +2282,7 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_1" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_1" type="checkbox" value="true">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
@@ -2290,14 +2290,14 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                       </ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (20)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2309,7 +2309,7 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -2343,61 +2343,61 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_10" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_10" type="checkbox" value="false">
                           <label htmlfor="identifier_10">
                             item 11
                           </label>
@@ -2475,9 +2475,9 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="false" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="false" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -2496,25 +2496,25 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                     <div class="mg-input__input-checkbox-multi-section-content" hidden="" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_5" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_5" type="checkbox" value="true">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_12" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_12" type="checkbox" value="true">
                           <label htmlfor="identifier_12">
                             item 13
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_13" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_13" type="checkbox" value="true">
                           <label htmlfor="identifier_13">
                             item 14
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_17" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_17" type="checkbox" value="true">
                           <label htmlfor="identifier_17">
                             item 18
                           </label>
@@ -2522,14 +2522,14 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                       </ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (17)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2541,7 +2541,7 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -2575,61 +2575,61 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_10" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_10" type="checkbox" value="false">
                           <label htmlfor="identifier_10">
                             item 11
                           </label>
@@ -2707,9 +2707,9 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="false" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="false" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -2726,7 +2726,7 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-selected-button-previous">
@@ -2760,61 +2760,61 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                     <div class="mg-input__input-checkbox-multi-section-content" hidden="" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_0" type="checkbox" value="true">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_1" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_1" type="checkbox" value="true">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_2" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_2" type="checkbox" value="true">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_3" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_3" type="checkbox" value="true">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_4" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_4" type="checkbox" value="true">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_5" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_5" type="checkbox" value="true">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_6" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_6" type="checkbox" value="true">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_7" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_7" type="checkbox" value="true">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_8" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_8" type="checkbox" value="true">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_9" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_9" type="checkbox" value="true">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -2822,14 +2822,14 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                       </ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (0)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2914,9 +2914,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -2931,7 +2931,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2946,14 +2946,14 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -2965,7 +2965,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -2999,61 +2999,61 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -3131,9 +3131,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -3148,7 +3148,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -3163,14 +3163,14 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -3182,7 +3182,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -3216,61 +3216,61 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -3348,9 +3348,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -3365,7 +3365,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -3377,7 +3377,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-selected-button-previous">
@@ -3411,61 +3411,61 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_0" type="checkbox" value="true">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_1" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_1" type="checkbox" value="true">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_2" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_2" type="checkbox" value="true">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_3" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_3" type="checkbox" value="true">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_4" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_4" type="checkbox" value="true">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_5" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_5" type="checkbox" value="true">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_6" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_6" type="checkbox" value="true">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_7" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_7" type="checkbox" value="true">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_8" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_8" type="checkbox" value="true">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input checked="" id="identifier_9" name="identifier" type="checkbox" value="true">
+                          <input checked="" id="identifier_9" type="checkbox" value="true">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -3473,14 +3473,14 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (0)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -3565,9 +3565,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   21 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -3582,7 +3582,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -3597,14 +3597,14 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (21)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -3616,7 +3616,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -3650,61 +3650,61 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -4784,9 +4784,9 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                   11 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -4801,7 +4801,7 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -4816,14 +4816,14 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (11)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -4835,7 +4835,7 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -4869,61 +4869,61 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>
@@ -7158,9 +7158,9 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                   11 results
                 </p>
                 <div class="mg-input__input-checkbox-multi-sections-container">
-                  <mg-input-checkbox-paginated hidden="">
+                  <mg-input-checkbox-paginated hidden="" identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
-                      <mg-button aria-controls="items-selected-container" aria-expanded="true" class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--flat">
                             <div class="mg-button__content">
@@ -7175,7 +7175,7 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                           </em>
                         </span>
                       </mg-button>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -7190,14 +7190,14 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
                     </div>
                   </mg-input-checkbox-paginated>
-                  <mg-input-checkbox-paginated>
+                  <mg-input-checkbox-paginated identifier="identifier">
                     <div class="mg-input__input-checkbox-multi-section-header">
                       <p class="mg-input__input-checkbox-multi-title">
                         <em>
                           Not selected (11)
                         </em>
                       </p>
-                      <mg-button class="mg-input__input-checkbox-multi-section-button" role="button" tabindex="0">
+                      <mg-button class="mg-input__input-checkbox-multi-select-button" role="button" tabindex="0">
                         <mock:shadow-root>
                           <div class="mg-button mg-button--link">
                             <div class="mg-button__content">
@@ -7209,7 +7209,7 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                       </mg-button>
                       <mg-pagination current-page="1">
                         <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-select-input" id="input-checkbox-pagination-not-selected">
+                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
                             <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
                               <mock:shadow-root>
                                 <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
@@ -7243,61 +7243,61 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                     <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
                         <li class="mg-input__input-group">
-                          <input id="identifier_0" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_0" type="checkbox" value="false">
                           <label htmlfor="identifier_0">
                             item 1
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_1" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_1" type="checkbox" value="false">
                           <label htmlfor="identifier_1">
                             item 2
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_2" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_2" type="checkbox" value="false">
                           <label htmlfor="identifier_2">
                             item 3
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_3" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_3" type="checkbox" value="false">
                           <label htmlfor="identifier_3">
                             item 4
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_4" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_4" type="checkbox" value="false">
                           <label htmlfor="identifier_4">
                             item 5
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_5" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_5" type="checkbox" value="false">
                           <label htmlfor="identifier_5">
                             item 6
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_6" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_6" type="checkbox" value="false">
                           <label htmlfor="identifier_6">
                             item 7
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_7" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_7" type="checkbox" value="false">
                           <label htmlfor="identifier_7">
                             item 8
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_8" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_8" type="checkbox" value="false">
                           <label htmlfor="identifier_8">
                             item 9
                           </label>
                         </li>
                         <li class="mg-input__input-group">
-                          <input id="identifier_9" name="identifier" type="checkbox" value="false">
+                          <input id="identifier_9" type="checkbox" value="false">
                           <label htmlfor="identifier_9">
                             item 10
                           </label>

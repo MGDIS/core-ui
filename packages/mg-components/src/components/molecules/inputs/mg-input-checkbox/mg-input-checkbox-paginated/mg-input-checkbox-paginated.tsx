@@ -31,9 +31,9 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @Prop() disabled: boolean;
 
   /**
-   * Define mg-input-checkbox-list identifier
+   * Define mg-input-checkbox input name
    */
-  @Prop() identifier: string;
+  @Prop() name: string;
 
   /**
    * Define checkboxes to paginate
@@ -195,7 +195,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             id={`items-${this.sectionKind}`}
             readonly={this.readonly}
             disabled={this.disabled}
-            identifier={this.identifier}
+            name={this.name}
           ></MgInputCheckboxList>
         </div>
       </Host>

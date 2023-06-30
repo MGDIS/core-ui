@@ -554,7 +554,7 @@ describe('mg-input-checkbox', () => {
       expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(0);
       expect(page.root).toMatchSnapshot();
 
-      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type .mg-input__input-checkbox-multi-section-button');
+      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type .mg-input__input-checkbox-multi-select-button');
       selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -563,7 +563,7 @@ describe('mg-input-checkbox', () => {
       expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(21);
       expect(page.root).toMatchSnapshot();
 
-      const unselectAllButton = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-input__input-checkbox-multi-section-button')).find(
+      const unselectAllButton = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-input__input-checkbox-multi-select-button')).find(
         button => button.textContent === 'Unselect all',
       );
       unselectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));

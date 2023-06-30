@@ -27,7 +27,7 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
           <input
             type="checkbox"
             id={input.id}
-            name={props.identifier}
+            name={props.name}
             value={input.value && input.value.toString()}
             checked={Boolean(input.value)}
             required={input.required}

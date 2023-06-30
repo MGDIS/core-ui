@@ -57,7 +57,7 @@ export enum SectionTitleKind {
 export interface IMgInputCheckboxBase {
   readonly: boolean;
   disabled: boolean;
-  identifier: string;
+  name: string;
 }
 
 /**

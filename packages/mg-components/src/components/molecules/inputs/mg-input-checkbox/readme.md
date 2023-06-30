@@ -15,7 +15,7 @@ The style of the active checkbox is the browser's style.
 
 ### Anatomy
 
-![](./doc/img/mg-input-checkbox-anatomy-default-less-10.png)
+![](./doc/img/mg-input-checkbox-multi-anatomy.png)
 
 - Button :
   - variant : secondary
@@ -23,19 +23,20 @@ The style of the active checkbox is the browser's style.
 - Checkbox
 - Popover
 
-### type "multi" with than 10 values
+### Type "multi" with sections
 
-When we have selected and not selected items we have two sections.
+![](./doc/img/mg-input-checkbox-multi-section.png)
 
-![](./doc/img/mg-input-checkbox-more-10-values-2-sections.png)
+#### Spacings
 
-When we only have selected or unselected items we have one section displayed.
+![](./doc/img/mg-input-checkbox-multi-section-button-spacing.png)
 
-![](./doc/img/mg-input-checkbox-more-10-values-selected-section.png)
+"Select all" / "Unselect all" button is align on left. 
 
-Selected items section is collapsible.
+![](./doc/img/mg-input-checkbox-multi-section-internal-spacing.png)
 
-![](./doc/img/mg-input-checkbox-more-10-values-selected-section-collapsed.png)
+![](./doc/img/mg-input-checkbox-multi-section-spacing.png)
+
 
 ### Displayed values
 
@@ -118,7 +119,7 @@ Please be aware that this component has a known issue ([#139](https://gitlab.mgd
 | `label` _(required)_      | `label`                   | Define input label                                                                          | `string`                | `undefined`        |
 | `labelHide`               | `label-hide`              | Define if label is visible                                                                  | `boolean`               | `false`            |
 | `labelOnTop`              | `label-on-top`            | Define if label is displayed on top                                                         | `boolean`               | `undefined`        |
-| `name`                    | `name`                    | Define input name                                                                           | `string`                | `this.identifier`  |
+| `name`                    | `name`                    | Define input name If not set the value equals the identifier                                | `string`                | `this.identifier`  |
 | `readonly`                | `readonly`                | Define if mg-input-checkbox is readonly                                                     | `boolean`               | `false`            |
 | `required`                | `required`                | Define if mg-input-checkbox is required                                                     | `boolean`               | `false`            |
 | `tooltip`                 | `tooltip`                 | Add a tooltip message next to the input                                                     | `string`                | `undefined`        |

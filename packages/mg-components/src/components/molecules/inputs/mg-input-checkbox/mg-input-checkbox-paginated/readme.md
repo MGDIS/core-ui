@@ -15,8 +15,8 @@ Internal component use to manage sections instances
 | ------------- | -------------- | -------------------------------------------- | -------------------------------------------------- | ----------- |
 | `checkboxes`  | --             | Define checkboxes to paginate                | `CheckboxItem[]`                                   | `[]`        |
 | `disabled`    | `disabled`     | Define if mg-input-checkbox-list is disabled | `boolean`                                          | `undefined` |
-| `identifier`  | `identifier`   | Define mg-input-checkbox-list identifier     | `string`                                           | `undefined` |
 | `messages`    | --             | Define component message                     | `{ [x: string]: string; }`                         | `undefined` |
+| `name`        | `name`         | Define mg-input-checkbox input name          | `string`                                           | `undefined` |
 | `readonly`    | `readonly`     | Define if mg-input-checkbox-list is readonly | `boolean`                                          | `undefined` |
 | `sectionKind` | `section-kind` | Define section kind                          | `SectionKind.NOT_SELECTED \| SectionKind.SELECTED` | `undefined` |
 

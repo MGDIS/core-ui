@@ -100,6 +100,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Define input name
+   * If not set the value equals the identifier
    */
   @Prop() name = this.identifier;
 
@@ -195,7 +196,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @State() errorMessage: string;
 
   /**
-   * Formated value ti display in list
+   * Formated value to display in list
    */
   @State() checkboxItems: CheckboxItem[] = [];
   @Watch('checkboxItems')
@@ -558,7 +559,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 messages={this.messages.input.checkbox}
                 id="checkboxes-list"
                 disabled={this.disabled}
-                identifier={this.identifier}
+                name={this.name}
               ></MgInputCheckboxList>
             )}
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
@@ -602,7 +603,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             messages={this.messages.input.checkbox}
             id="checkboxes-list"
             disabled={this.disabled}
-            identifier={this.identifier}
+            name={this.name}
           ></MgInputCheckboxList>
         ) : (
           this.renderCheckboxMulti()

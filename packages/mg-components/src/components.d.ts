@@ -250,7 +250,7 @@ export namespace Components {
          */
         "labelOnTop": boolean;
         /**
-          * Define input name
+          * Define input name If not set the value equals the identifier
          */
         "name": string;
         /**
@@ -291,13 +291,13 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Define mg-input-checkbox-list identifier
-         */
-        "identifier": string;
-        /**
           * Define component message
          */
         "messages": Record<string, string>;
+        /**
+          * Define mg-input-checkbox input name
+         */
+        "name": string;
         /**
           * Define if mg-input-checkbox-list is readonly
          */
@@ -1719,7 +1719,7 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Define input name
+          * Define input name If not set the value equals the identifier
          */
         "name"?: string;
         /**
@@ -1768,13 +1768,13 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Define mg-input-checkbox-list identifier
-         */
-        "identifier"?: string;
-        /**
           * Define component message
          */
         "messages"?: Record<string, string>;
+        /**
+          * Define mg-input-checkbox input name
+         */
+        "name"?: string;
         /**
           * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
          */
