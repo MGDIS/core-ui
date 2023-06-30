@@ -77,6 +77,8 @@
 
   /* dark-5 */
   --mg-color-dark-5-hsl: hsl(var(--color-dark-h), 9%, 96%);
+  /* dark-soft */
+  --mg-color-dark-soft-hsl: var(--color-dark-h), var(--color-dark-s), 90%;
 
   /* Light */
   /* white; (#ffffff) */
@@ -262,6 +264,7 @@
   --mg-tabs-focused-background-color-hsl: var(--mg-color-app-hsl);
   --mg-tabs-border-color-active-hsl: var(--mg-color-app-hsl);
   --mg-tabs-color-active-hsl: var(--mg-color-app-hsl);
+  --mg-tabs-border-bottom: solid 0.1rem hsl(var(--mg-color-dark-soft-hsl));
 
   /*
     <mg-details>

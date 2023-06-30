@@ -18,6 +18,7 @@ $navigation-button-sizes: (
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    border-bottom: var(--mg-tabs-border-bottom);
   }
   &__content-container:focus-visible {
     outline: none;

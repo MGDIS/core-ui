@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-30T09:25:35",
+  "timestamp": "2023-06-30T11:03:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -5874,7 +5874,7 @@
       "filePath": "./src/components/molecules/mg-tabs/mg-tabs.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tabs",
-      "readme": "## Anatomy\n\n![](./doc/img/mg-tabs-anatomy.png)\n\n## Specs\n\n### Spacing\n\n- Regular\n  - X = 20px;\n  - Y = 10px;\n- Large\n  - X = 30px;\n  - Y = 15px;\n\n![](./doc/img/mg-tabs-spacing.png)\n\n- if only text, no extra spacing,\n- if no badge : no extra spacing on the right\n- if only icon : no extra spacing on the right\n\n### Sizing\n\n![](./doc/img/mg-tabs-sizing.png)\n\n### States\n\n![](./doc/img/mg-tabs-states.png)\n\n### Responsive\n\n#### Line breaks (current management)\n\n![](./doc/img/mg-tabs-responsive.png)\n",
+      "readme": "## Anatomy\n\n![](./doc/img/mg-tabs-anatomy.png)\n\n## Specs\n\n### Spacing\n\n- Regular\n  - X = 20px;\n  - Y = 10px;\n- Large\n  - X = 30px;\n  - Y = 15px;\n\n![](./doc/img/mg-tabs-spacing.png)\n\n- if only text, no extra spacing,\n- if no badge : no extra spacing on the right\n- if only icon : no extra spacing on the right\n\n### Sizing\n\n![](./doc/img/mg-tabs-sizing.png)\n\nThe header bottom border is 100% wide, 1px sizing and its color is @color-dark-soft. You can override it with [CSS variable](./?path=/docs/molecules-mg-tabs--docs#css-variables).\n\n![](./doc/img/mg-tabs-header-border.png)\n\n### States\n\n![](./doc/img/mg-tabs-states.png)\n\n### Responsive\n\n#### Line breaks (current management)\n\n![](./doc/img/mg-tabs-responsive.png)\n\n## CSS variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.\n",
       "docs": "![](./doc/img/mg-tabs-anatomy.png)",
       "docsTags": [],
       "usage": {},
