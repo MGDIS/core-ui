@@ -53,7 +53,6 @@ export class MgInputCheckbox {
   /**
    * Component value
    * If item.value is `null`, checkbox will be indeterminate by default
-   * Required
    */
   @Prop({ mutable: true }) value!: CheckboxValue[];
   @Watch('value')

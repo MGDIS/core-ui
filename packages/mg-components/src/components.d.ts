@@ -274,7 +274,7 @@ export namespace Components {
          */
         "valid": boolean;
         /**
-          * Component value If item.value is `null`, checkbox will be indeterminate by default Required
+          * Component value If item.value is `null`, checkbox will be indeterminate by default
          */
         "value": CheckboxValue[];
     }
@@ -526,7 +526,7 @@ export namespace Components {
          */
         "invalid": boolean;
         /**
-          * Items are the possible options to select Required
+          * Items are the possible options to select
          */
         "items": string[] | RadioOption[];
         /**
@@ -982,7 +982,7 @@ export namespace Components {
          */
         "identifier": string;
         /**
-          * Displayed modal title required
+          * Displayed modal title
          */
         "modalTitle": string;
     }
@@ -1080,7 +1080,7 @@ export namespace Components {
          */
         "identifier": string;
         /**
-          * Tabs items Required
+          * Tabs items
          */
         "items": string[] | TabItem[];
         /**
@@ -1704,7 +1704,7 @@ declare namespace LocalJSX {
          */
         "valid"?: boolean;
         /**
-          * Component value If item.value is `null`, checkbox will be indeterminate by default Required
+          * Component value If item.value is `null`, checkbox will be indeterminate by default
          */
         "value": CheckboxValue[];
     }
@@ -1964,7 +1964,7 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
-          * Items are the possible options to select Required
+          * Items are the possible options to select
          */
         "items": string[] | RadioOption[];
         /**
@@ -2460,7 +2460,7 @@ declare namespace LocalJSX {
          */
         "identifier"?: string;
         /**
-          * Displayed modal title required
+          * Displayed modal title
          */
         "modalTitle": string;
         /**
@@ -2586,7 +2586,7 @@ declare namespace LocalJSX {
          */
         "identifier"?: string;
         /**
-          * Tabs items Required
+          * Tabs items
          */
         "items": string[] | TabItem[];
         /**
