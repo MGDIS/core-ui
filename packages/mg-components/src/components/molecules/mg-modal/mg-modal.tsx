@@ -45,7 +45,6 @@ export class MgModal {
 
   /**
    * Displayed modal title
-   * required
    */
   @Prop() modalTitle!: string;
   @Watch('modalTitle')

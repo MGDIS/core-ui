@@ -53,7 +53,6 @@ export class MgInputRadio {
 
   /**
    * Items are the possible options to select
-   * Required
    */
   @Prop() items!: string[] | RadioOption[];
   @Watch('items')
