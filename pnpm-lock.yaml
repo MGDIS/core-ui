@@ -198,16 +198,6 @@ importers:
         version: 3.0.2
 
   packages/linting-stencil:
-    dependencies:
-      eslint-config-custom:
-        specifier: workspace:*
-        version: link:../../configs/eslint-config-custom
-      eslint-config-stencil:
-        specifier: workspace:*
-        version: link:../../configs/eslint-config-stencil
-      prettier-config:
-        specifier: workspace:*
-        version: link:../../configs/prettier-config
     devDependencies:
       '@rollup/plugin-commonjs':
         specifier: ^25.0.2
@@ -218,6 +208,15 @@ importers:
       '@rollup/plugin-typescript':
         specifier: ^11.1.2
         version: 11.1.2(rollup@3.26.0)(typescript@4.9.5)
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../../configs/eslint-config-custom
+      eslint-config-stencil:
+        specifier: workspace:*
+        version: link:../../configs/eslint-config-stencil
+      prettier-config:
+        specifier: workspace:*
+        version: link:../../configs/prettier-config
       rollup:
         specifier: ^3.26.0
         version: 3.26.0

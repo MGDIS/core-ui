@@ -25,15 +25,13 @@
     "lint:prettier": "prettier --check **/*.{js,ts,json,md} --ignore-path ../../.gitignore",
     "lint:prettier:fix": "prettier --write **/*.{js,ts,json,md} --ignore-path ../../.gitignore"
   },
-  "dependencies": {
-    "eslint-config-custom": "workspace:*",
-    "eslint-config-stencil": "workspace:*",
-    "prettier-config": "workspace:*"
-  },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
+    "eslint-config-custom": "workspace:*",
+    "eslint-config-stencil": "workspace:*",
+    "prettier-config": "workspace:*",
     "rollup": "^3.26.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.5"
