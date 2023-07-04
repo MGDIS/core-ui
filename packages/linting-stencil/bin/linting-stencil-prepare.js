@@ -11,11 +11,13 @@ const scriptName = 'linting-stencil-prepare';
 
 const files = {
   '.eslintrc.js': `
+    const { eslintrc } =  require("${name}");
+
     module.exports = {
+      ...eslintrc,
       parserOptions: {
         project: "./tsconfig.json"
       },
-      extends: ['stencil'],
     }
   `,
   '.prettierrc.js': `const { prettierrc } = require("${name}");
@@ -26,7 +28,7 @@ const files = {
 (async () => {
   console.log(`[${scriptName}] adding linting files...`);
 
-  for await (const file of Object.keys(files)) {
+  for (const file of Object.keys(files)) {
     await writeFile(`${file}`, files[file]);
     console.log(`[${scriptName}] '${file}' added to your project.`);
   }

@@ -26,6 +26,12 @@ stages:
         - 'packages/notification-center/**/*'
         - 'apps/notification-center/**/*'
 
+# Rule to execute job only on linting-stencil folder content changes
+.rules:changes:linting-stencil:
+  rules:
+    - changes:
+        - 'packages/linting-stencil/**/*'
+
 # Rule to execute job only on img folder content changes
 .rules:changes:img:
   rules:
@@ -304,6 +310,23 @@ notification-center:artifact:
   script:
     - pnpm build
     - cd packages/notification-center
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+###################
+# linting-stencil #
+###################
+
+linting-stencil:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:linting-stencil
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - cd packages/linting-stencil
+    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint
