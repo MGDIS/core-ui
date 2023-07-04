@@ -1,5 +1,23 @@
 # @mgdis/mg-components
 
+## 5.13.0
+
+### Minor Changes
+
+- 2ebd1c0: [**`<mg-panel>`**](./?path=/docs/molecules-mg-panel--mg-panel) display collapse-button on right and only with icon
+- 588abac: [**`<mg-tabs>`**](./?path=/docs/molecules-mg-tabs--mg-tabs) add default header border-bottom CSS variable
+- f5a5573: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) update story
+- 817b604: Update components documentation
+- 1e0ee14: Move to Storybook v7
+- ad2a2d5: [**`<mg-pagination>`**](./?path=/docs/molecules-mg-pagination--docs) fix pagination test snapshot
+- 54c7417: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) add "search" sections
+- 03b77fa: Storybook blocks improvements.
+- c31ce30: fix renderProperties with id ("#") in selector
+
+### Patch Changes
+
+- dd2f1a1: [#334](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/334) mg-menu: role can't be menu/menubar/menuitem
+
 ## 5.12.1
 
 ### Patch Changes
