@@ -70,5 +70,6 @@ export const MgInputCheckboxMulti = {
       title: `item ${item}`,
       value: false,
     })),
+    type: checkboxTypes[1],
   },
 };
