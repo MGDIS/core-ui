@@ -321,8 +321,8 @@ linting-stencil:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm build
     - cd packages/linting-stencil
+    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint
