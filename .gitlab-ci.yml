@@ -329,8 +329,6 @@ linting-stencil:artifact:
     - cd packages/linting-stencil
     - pnpm build
     - !reference [.artifact, script]
-  needs:
-    - lint
 
 #######
 # img #
