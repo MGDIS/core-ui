@@ -277,8 +277,6 @@ chromatic:publish:
   script:
     - !reference [.mg-components:build, script]
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
-  needs:
-    - lint
 
 pages:
   stage: mg-components
@@ -329,6 +327,8 @@ linting-stencil:artifact:
     - cd packages/linting-stencil
     - pnpm build
     - !reference [.artifact, script]
+  needs:
+    - lint
 
 #######
 # img #
