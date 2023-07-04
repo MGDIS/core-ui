@@ -208,7 +208,7 @@ export class MgMenu {
    */
   render(): HTMLElement {
     return (
-      <Host role={this.isChildMenu ? 'menu' : 'menubar'} aria-label={this.label}>
+      <Host role="list" aria-label={this.label}>
         <slot></slot>
       </Host>
     );

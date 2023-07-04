@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', direction: 'horizontal' } 1`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -39,11 +39,11 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -64,11 +64,11 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -89,7 +89,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -108,7 +108,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -129,7 +129,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -172,7 +172,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -196,11 +196,11 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
 `;
 
 exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', direction: 'horizontal' } 2`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -234,11 +234,11 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -259,11 +259,11 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -284,7 +284,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -303,7 +303,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -324,7 +324,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -367,7 +367,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -391,11 +391,11 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
 `;
 
 exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', direction: 'vertical' } 1`] = `
-<mg-menu aria-label="batman menu" direction="vertical" role="menubar">
+<mg-menu aria-label="batman menu" direction="vertical" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -416,11 +416,11 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -441,11 +441,11 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="3" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="3" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -466,7 +466,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -485,7 +485,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -506,7 +506,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -536,7 +536,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -559,11 +559,11 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
 `;
 
 exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', direction: 'vertical' } 2`] = `
-<mg-menu aria-label="batman menu" direction="vertical" role="menubar">
+<mg-menu aria-label="batman menu" direction="vertical" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -584,11 +584,11 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -609,11 +609,11 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="3" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="3" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -634,7 +634,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -653,7 +653,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -674,7 +674,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -704,7 +704,7 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -727,11 +727,11 @@ exports[`mg-menu MutationObserver vertical with args { label: 'batman menu', dir
 `;
 
 exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -750,7 +750,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
       batman
     </span>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-overflow-base-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -793,7 +793,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -814,7 +814,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
   </mg-menu-item>
   <mg-item-more aria-haspopup="true" role="menuitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -836,11 +836,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
         <span class="sr-only" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="menubar">
+        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -859,7 +859,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
               batman
             </span>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="true" data-overflow-proxy-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -889,7 +889,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
               </p>
             </div>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -916,11 +916,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
 `;
 
 exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -939,7 +939,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
       batman
     </span>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-overflow-base-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -982,7 +982,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -1003,7 +1003,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
   </mg-menu-item>
   <mg-item-more aria-haspopup="true" role="menuitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="true" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1025,11 +1025,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
         <span class="sr-only" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="menubar">
+        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1048,7 +1048,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
               batman
             </span>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="true" data-overflow-proxy-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1078,7 +1078,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
               </p>
             </div>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1105,11 +1105,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
 `;
 
 exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -1128,7 +1128,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
       batman
     </span>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-overflow-base-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -1171,7 +1171,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -1192,7 +1192,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
   </mg-menu-item>
   <mg-item-more aria-haspopup="true" role="menuitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1214,11 +1214,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
         <span class="sr-only" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="menubar">
+        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1237,7 +1237,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
               batman
             </span>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="true" data-overflow-proxy-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1267,7 +1267,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
               </p>
             </div>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1294,11 +1294,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
 `;
 
 exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -1317,7 +1317,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
       batman
     </span>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-overflow-base-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -1360,7 +1360,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-overflow-base-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -1381,7 +1381,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
   </mg-menu-item>
   <mg-item-more aria-haspopup="true" role="menuitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1403,11 +1403,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
         <span class="sr-only" slot="label" title="Additional menu">
           Additional menu
         </span>
-        <mg-menu aria-label="Additional menu" direction="vertical" role="menubar">
+        <mg-menu aria-label="Additional menu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="0" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1426,7 +1426,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
               batman
             </span>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="true" data-overflow-proxy-index="1" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1456,7 +1456,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
               </p>
             </div>
           </mg-menu-item>
-          <mg-menu-item aria-haspopup="false" data-overflow-proxy-index="2" data-style-direction-horizontal role="menuitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1483,11 +1483,11 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
 `;
 
 exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -1521,11 +1521,11 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1546,11 +1546,11 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1571,7 +1571,7 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1590,7 +1590,7 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1611,7 +1611,7 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -1654,7 +1654,7 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -1678,11 +1678,11 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
 `;
 
 exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal' } 1`] = `
-<mg-menu aria-label="batman menu" direction="horizontal" role="menubar">
+<mg-menu aria-label="batman menu" direction="horizontal" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -1716,11 +1716,11 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1741,11 +1741,11 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1766,7 +1766,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1785,7 +1785,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1806,7 +1806,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <mg-popover>
         <mock:shadow-root>
@@ -1849,7 +1849,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-horizontal role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>
@@ -1873,11 +1873,11 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
 `;
 
 exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' } 1`] = `
-<mg-menu aria-label="batman menu" direction="vertical" role="menubar">
+<mg-menu aria-label="batman menu" direction="vertical" role="list">
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -1898,11 +1898,11 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' 
     <span slot="label" title="batman">
       batman
     </span>
-    <mg-menu aria-label="batman - submenu" direction="vertical" role="menu">
+    <mg-menu aria-label="batman - submenu" direction="vertical" role="list">
       <mock:shadow-root>
         <slot></slot>
       </mock:shadow-root>
-      <mg-menu-item aria-haspopup="true" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1923,11 +1923,11 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' 
         <span slot="label" title="batman begins">
           batman begins
         </span>
-        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="menu">
+        <mg-menu aria-label="batman begins - submenu" direction="vertical" role="list">
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item aria-haspopup="false" data-level="3" data-style-direction-vertical role="menuitem" status="visible">
+          <mg-menu-item data-level="3" data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
                 <slot name="image"></slot>
@@ -1948,7 +1948,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' 
           </mg-menu-item>
         </mg-menu>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1967,7 +1967,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' 
           joker: the dark knight
         </span>
       </mg-menu-item>
-      <mg-menu-item aria-haspopup="false" data-level="2" data-style-direction-vertical role="menuitem" status="visible">
+      <mg-menu-item data-level="2" data-style-direction-vertical role="listitem" status="visible">
         <mock:shadow-root>
           <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1988,7 +1988,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' 
       </mg-menu-item>
     </mg-menu>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="true" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" tabindex="0">
         <slot name="image"></slot>
@@ -2018,7 +2018,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'vertical' 
       </p>
     </div>
   </mg-menu-item>
-  <mg-menu-item aria-haspopup="false" data-style-direction-vertical role="menuitem" status="visible">
+  <mg-menu-item data-style-direction-vertical role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible" href="#bane" tabindex="0">
         <slot name="image"></slot>

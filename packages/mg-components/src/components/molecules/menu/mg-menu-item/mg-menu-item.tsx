@@ -424,7 +424,7 @@ export class MgMenuItem {
     });
 
     return (
-      <Host role={!this.isItemMore && 'menuitem'} aria-haspopup={!this.isItemMore && this.hasChildren.toString()}>
+      <Host role="listitem">
         {this.displayPopover() ? (
           <mg-popover display={this.expanded} placement="bottom-start" arrowHide={true} onDisplay-change={this.handlePopoverDisplay} identifier={this.getPopoverIdentifier()}>
             {this.renderInteractiveElement()}
