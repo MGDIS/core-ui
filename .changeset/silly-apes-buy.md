@@ -2,4 +2,4 @@
 '@mgdis/mg-components': minor
 ---
 
-Storybook blocks improvments.
+Storybook blocks improvements.
