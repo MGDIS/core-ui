@@ -185,7 +185,7 @@ chromatic:mr:
   extends:
     - .rules:tags
   script:
-    - sh utils/open-merge-request.sh
+    - sh scripts/open-merge-request.sh
   needs:
     - chromatic:publish
 

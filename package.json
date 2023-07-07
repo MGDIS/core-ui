@@ -33,9 +33,9 @@
     "build:config": "turbo build:config",
     "change": "changeset",
     "change:empty": "changeset --empty",
-    "release": "./utils/release.sh",
+    "release": "./scripts/release.sh",
     "release:status": "changeset status",
-    "release:preview": "./utils/release-preview.sh",
+    "release:preview": "./scripts/release-preview.sh",
     "apps:notification-center": "cd apps/notification-center && pnpm dev --port 3210"
   },
   "manypkg": {
