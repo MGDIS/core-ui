@@ -9,12 +9,11 @@
     "svgo:src": "svgo --multipass --pretty -rf src",
     "sharp": "sharp -i 'dist/**/*.svg' -o {dir} -f png -c 0 --adaptiveFiltering false",
     "list:all": "pnpm list:icons && pnpm list:illustrations",
-    "list:folder": "ls $FOLDER_PATH/*.svg | xargs -I{} basename {} | rev | cut -f 2- -d '.' | uniq | rev | jq -R . | jq -s . > $FOLDER_PATH/index.json",
+    "list:folder": "ls $FOLDER_PATH/*.svg | xargs -I{} basename {} | rev | cut -f 2- -d '.' | uniq | rev | sort | jq -R . | jq -s . > $FOLDER_PATH/index.json",
     "list:icons": "export FOLDER_PATH=dist/icons && pnpm list:folder",
     "list:illustrations": "export FOLDER_PATH=dist/illustrations && pnpm list:folder",
     "svg-to-js": "node ./bin/svg-to-js",
-    "sprite": "spritesh --input dist/icons --output dist/icons/sprite.svg",
-    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all && pnpm sprite && pnpm svg-to-js"
+    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all && pnpm svg-to-js"
   },
   "files": [
     "dist"
@@ -22,7 +21,6 @@
   "devDependencies": {
     "sharp": "^0.32.1",
     "sharp-cli": "^4.1.1",
-    "spritesh": "^1.2.1",
     "svgo": "^3.0.2"
   }
 }

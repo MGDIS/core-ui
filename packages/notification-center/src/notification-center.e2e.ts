@@ -49,7 +49,6 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
 
   // Expect to have 7 notifications
   await expectedNotifications(page, 8);
-  await page.waitForSelector('.mg-icon');
 
   // Expect to match screenshot
   await expect(page).toHaveScreenshot(`${[file, 'notification', frameTitle].filter(value => !!value).join('-')}.png`);

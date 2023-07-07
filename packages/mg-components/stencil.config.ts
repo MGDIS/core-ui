@@ -74,7 +74,6 @@ export const config: Config = {
     browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     setupFilesAfterEnv: ['./jest.setup.ts'],
     transform: {
-      '^.+\\.svg$': 'jest-transform-stub',
       '^.+\\.(ts|tsx|jsx|js)$': '<rootDir>/node_modules/@stencil/core/testing/jest-preprocessor.js',
     },
     // browserHeadless: false

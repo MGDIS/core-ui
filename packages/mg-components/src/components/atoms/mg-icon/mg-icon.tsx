@@ -1,4 +1,4 @@
-import { Component, h, Prop, Watch, State, Host, Element } from '@stencil/core';
+import { Component, Prop, Watch, State, Element } from '@stencil/core';
 import { sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
 import { ClassList } from '../../../utils/components.utils';
 import iconList from '@mgdis/img/dist/icons/index.json';
@@ -27,6 +27,7 @@ export class MgIcon {
     else {
       if (oldValue !== undefined) this.classCollection.delete(`mg-icon--${oldValue}`);
       this.classCollection.add(`mg-icon--${newValue}`);
+      this.renderIcon(newValue);
     }
   }
 
@@ -107,6 +108,19 @@ export class MgIcon {
   };
 
   /**
+   * Render icon in shadowroot
+   * @param icon - icon to render
+   */
+  private renderIcon = icon => {
+    this.element.shadowRoot.innerHTML = icons[icon];
+    this.svg = this.element.shadowRoot.querySelector('svg');
+    // update svg attributes
+    this.svg.setAttribute('aria-hidden', 'true');
+    this.svg.setAttribute('focusable', 'false');
+    this.svg.setAttribute('class', this.classCollection.join());
+  };
+
+  /**
    * Check if props are well configured on init
    */
   componentWillLoad(): void {
@@ -115,13 +129,8 @@ export class MgIcon {
     this.validateVariant(this.variant);
     this.validateVariantStyle(this.variantStyle);
     this.handleSpin(this.spin);
-    // set svg
-    this.element.shadowRoot.innerHTML = icons[this.icon];
-    this.svg = this.element.shadowRoot.querySelector('svg');
-    // update svg attributes
-    this.svg.setAttribute('aria-hidden', 'true');
-    this.svg.setAttribute('focusable', 'false');
-    this.svg.setAttribute('class', this.classCollection.join());
+    // render icon
+    this.renderIcon(this.icon);
   }
 
   /**
@@ -129,13 +138,5 @@ export class MgIcon {
    */
   componentWillUpdate() {
     this.svg.setAttribute('class', this.classCollection.join());
-  }
-
-  /**
-   * Render component
-   * @returns HTML Element
-   */
-  render(): HTMLElement {
-    return <Host></Host>;
   }
 }

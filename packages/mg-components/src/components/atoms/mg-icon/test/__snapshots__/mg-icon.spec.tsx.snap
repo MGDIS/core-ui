@@ -37309,3 +37309,33 @@ exports[`mg-icon Should render wallet icon using warning variant 1`] = `
   </mock:shadow-root>
 </mg-icon>
 `;
+
+exports[`mg-icon Should replace classes on icon changes 1`] = `
+<mg-icon>
+  <mock:shadow-root>
+    <svg aria-hidden="true" class="mg-icon mg-icon--chevron-down mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <path d="M7.43 12.21.9 5.69a.81.81 0 0 1 0-1.14l.76-.77a.81.81 0 0 1 1.14 0L8 9l5.2-5.18a.81.81 0 0 1 1.14 0l.76.77a.8.8 0 0 1 0 1.13l-6.53 6.49a.79.79 0 0 1-1.13 0Z" fill="currentColor"></path>
+    </svg>
+  </mock:shadow-root>
+</mg-icon>
+`;
+
+exports[`mg-icon Should replace classes on icon changes 2`] = `
+<mg-icon>
+  <mock:shadow-root>
+    <svg aria-hidden="true" class="mg-icon mg-icon--chevron-up mg-icon--size-large" focusable="false" viewBox="0 0 16 16">
+      <path d="m8.57 3.79 6.53 6.52a.81.81 0 0 1 0 1.14l-.76.77a.81.81 0 0 1-1.14 0L8 7l-5.2 5.22a.81.81 0 0 1-1.14 0l-.76-.77a.8.8 0 0 1 0-1.13l6.53-6.53a.79.79 0 0 1 1.13 0Z" fill="currentColor"></path>
+    </svg>
+  </mock:shadow-root>
+</mg-icon>
+`;
+
+exports[`mg-icon Should replace classes on icon changes 3`] = `
+<mg-icon>
+  <mock:shadow-root>
+    <svg aria-hidden="true" class="mg-icon mg-icon--chevron-up mg-icon--size-regular mg-icon--variant-danger mg-icon--variant-style-background" focusable="false" viewBox="0 0 16 16">
+      <path d="m8.57 3.79 6.53 6.52a.81.81 0 0 1 0 1.14l-.76.77a.81.81 0 0 1-1.14 0L8 7l-5.2 5.22a.81.81 0 0 1-1.14 0l-.76-.77a.8.8 0 0 1 0-1.13l6.53-6.53a.79.79 0 0 1 1.13 0Z" fill="currentColor"></path>
+    </svg>
+  </mock:shadow-root>
+</mg-icon>
+`;
