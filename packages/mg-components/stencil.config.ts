@@ -75,6 +75,7 @@ export const config: Config = {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     transform: {
       '^.+\\.svg$': 'jest-transform-stub',
+      '^.+\\.(ts|tsx|jsx|js)$': '<rootDir>/node_modules/@stencil/core/testing/jest-preprocessor.js',
     },
     // browserHeadless: false
   },

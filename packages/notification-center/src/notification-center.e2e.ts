@@ -6,6 +6,7 @@ const expectedNotifications = (page: Page | FrameLocator, expected: number): Pro
 
 const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLocator, frameTitle?: string): Promise<void> => {
   await page.goto(`http://localhost:3210/${file}`);
+  await page.waitForSelector('html.hydrated');
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(title);
@@ -48,6 +49,7 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
 
   // Expect to have 7 notifications
   await expectedNotifications(page, 8);
+  await page.waitForSelector('.mg-icon');
 
   // Expect to match screenshot
   await expect(page).toHaveScreenshot(`${[file, 'notification', frameTitle].filter(value => !!value).join('-')}.png`);

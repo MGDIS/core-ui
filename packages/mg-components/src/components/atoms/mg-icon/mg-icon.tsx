@@ -1,8 +1,8 @@
-import { Component, h, Prop, Watch, State } from '@stencil/core';
+import { Component, h, Prop, Watch, State, Host, Element } from '@stencil/core';
 import { sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
 import { ClassList } from '../../../utils/components.utils';
 import iconList from '@mgdis/img/dist/icons/index.json';
-import sprite from '@mgdis/img/dist/icons/sprite.svg';
+import { icons } from '@mgdis/img/dist/icons';
 
 @Component({
   tag: 'mg-icon',
@@ -10,6 +10,13 @@ import sprite from '@mgdis/img/dist/icons/sprite.svg';
   shadow: true,
 })
 export class MgIcon {
+  private svg: SVGSVGElement;
+
+  /**
+   * Icon HTML Element
+   */
+  @Element() element: HTMLMgIconElement;
+
   /**
    * Icon to display.
    */
@@ -108,6 +115,20 @@ export class MgIcon {
     this.validateVariant(this.variant);
     this.validateVariantStyle(this.variantStyle);
     this.handleSpin(this.spin);
+    // set svg
+    this.element.shadowRoot.innerHTML = icons[this.icon];
+    this.svg = this.element.shadowRoot.querySelector('svg');
+    // update svg attributes
+    this.svg.setAttribute('aria-hidden', 'true');
+    this.svg.setAttribute('focusable', 'false');
+    this.svg.setAttribute('class', this.classCollection.join());
+  }
+
+  /**
+   * update html when component trigger changes
+   */
+  componentWillUpdate() {
+    this.svg.setAttribute('class', this.classCollection.join());
   }
 
   /**
@@ -115,10 +136,6 @@ export class MgIcon {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    return (
-      <svg class={this.classCollection.join()} aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-        <use xlinkHref={`${sprite}#${this.icon}`}></use>
-      </svg>
-    );
+    return <Host></Host>;
   }
 }

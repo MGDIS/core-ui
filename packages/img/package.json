@@ -12,8 +12,9 @@
     "list:folder": "ls $FOLDER_PATH/*.svg | xargs -I{} basename {} | rev | cut -f 2- -d '.' | uniq | rev | jq -R . | jq -s . > $FOLDER_PATH/index.json",
     "list:icons": "export FOLDER_PATH=dist/icons && pnpm list:folder",
     "list:illustrations": "export FOLDER_PATH=dist/illustrations && pnpm list:folder",
+    "svg-to-js": "node ./bin/svg-to-js",
     "sprite": "spritesh --input dist/icons --output dist/icons/sprite.svg",
-    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all && pnpm sprite"
+    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all && pnpm sprite && pnpm svg-to-js"
   },
   "files": [
     "dist"
