@@ -11,9 +11,6 @@ const getPage = args =>
   });
 
 describe('mg-icon', () => {
-  beforeEach(() => {
-    jest.mock('@mgdis/img/dist/icons/sprite.svg', () => '');
-  });
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -77,6 +74,7 @@ describe('mg-icon', () => {
     nextClass.forEach(className => {
       expect(element.shadowRoot.querySelector(className)).not.toBeNull();
     });
+    expect(page.root).toMatchSnapshot();
   });
 
   describe('errors', () => {
