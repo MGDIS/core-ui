@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-06-30T12:35:56",
+  "timestamp": "2023-07-11T14:30:12",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -3307,13 +3307,18 @@
         },
         {
           "name": "mgWidth",
-          "type": "\"full\" | 16 | 2 | 4",
+          "type": "\"default\" | \"full\" | 16 | 2 | 4",
           "mutable": false,
           "attr": "mg-width",
           "reflectToAttr": false,
           "docs": "Define input width",
           "docsTags": [],
+          "default": "'default'",
           "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
             {
               "value": "full",
               "type": "string"
