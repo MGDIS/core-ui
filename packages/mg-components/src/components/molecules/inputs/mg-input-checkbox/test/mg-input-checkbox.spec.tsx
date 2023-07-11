@@ -219,7 +219,7 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each(['fr', 'xx'])('Should render component with locale: %s', async lang => {
+    test.each(['fr', 'xx'])('Should render component error with locale: %s', async lang => {
       const value = cloneDeep(items);
       value[0].value = false;
       const page = await getPage({ label: 'label', identifier: 'identifier', type, value, helpText: 'My help text', required: true, lang });
@@ -241,6 +241,15 @@ describe('mg-input-checkbox', () => {
 
       expect(page.root).toMatchSnapshot();
     });
+
+    test.each([[[true, false].flatMap(value => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(item => ({ title: item.toString(), value })))]])(
+      'Should render component with locale "fr"',
+      async value => {
+        const page = await getPage({ label: 'label', identifier: 'identifier', value, lang: 'fr' });
+
+        expect(page.root).toMatchSnapshot();
+      },
+    );
 
     test('Should remove error on input when required change dynamically', async () => {
       const page = await getPage({
