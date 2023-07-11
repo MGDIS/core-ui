@@ -13,13 +13,13 @@ export class MgModal {
    ************/
 
   // Modal focusable elements
-  private modalFocusableElements: HTMLElement[];
+  private modalFocusableElements: HTMLElement[] = [];
+  private closeButtonElement: HTMLMgButtonElement;
 
   // Classes
   private readonly classHide = 'mg-modal--hide';
 
   // IDs
-  private closeButtonId = '';
   private titleId = '';
 
   // Locales
@@ -69,10 +69,14 @@ export class MgModal {
       this.componentHide.emit();
       this.classCollection.add(this.classHide);
       document.body.style.overflow = this.bodyOverflow;
+      // reset focus handlers
+      this.getLastFocusableElement()?.removeEventListener('keydown', this.handleLastFocusableElement);
+      if (this.modalFocusableElements.length > 0) this.modalFocusableElements[0].removeEventListener('keydown', this.handleFirstFocusableElement);
     } else {
       this.componentShow.emit();
       this.classCollection.delete(this.classHide);
       document.body.style.overflow = 'hidden';
+      this.setFocus();
     }
   }
 
@@ -115,35 +119,54 @@ export class MgModal {
     }
   }
 
+  /**
+   * Handle last focusable element
+   * @param event - keyboard event
+   */
+  private handleLastFocusableElement = (event): void => {
+    if (event.key === 'Tab' && !event.shiftKey) {
+      event.preventDefault();
+      this.modalFocusableElements[0].focus();
+    }
+  };
+
+  /**
+   * Handle first focusable element
+   * @param event - keyboard event
+   */
+  private handleFirstFocusableElement = (event): void => {
+    if (event.key === 'Tab' && event.shiftKey) {
+      event.preventDefault();
+      this.getLastFocusableElement().focus();
+    }
+  };
+
+  /**
+   * Get last focusablmeElement
+   * @returns last modal focusable element
+   */
+  private getLastFocusableElement = (): HTMLElement | null => (this.modalFocusableElements.length > 0 ? this.modalFocusableElements[this.modalFocusableElements.length - 1] : null);
+
+  /**
+   * Method to set focus loop
+   */
   private setFocus = (): void => {
     // Get all focusable elements
-    this.modalFocusableElements = Array.from(this.element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
-      acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
-      return acc;
-    }, []);
-    // When close button is enabled it's the first focusable element.
-    if (this.closeButton) {
-      this.modalFocusableElements.unshift(this.element.shadowRoot.querySelector(`.mg-modal__close-button mg-button`));
-    }
+    const allFocusableElements = Array.from(this.element.querySelectorAll(focusableElements));
     // It at least one
-    if (this.modalFocusableElements.length >= 1) {
-      // Set focus on first element
-      this.modalFocusableElements[0].focus();
+    if (allFocusableElements.length > 0) {
+      this.modalFocusableElements = allFocusableElements.reduce((acc, focusableElement) => {
+        acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
+        return acc;
+      }, []);
+      // When close button is enabled it's the first focusable element.
+      if (this.closeButton && this.closeButtonElement !== undefined) {
+        this.modalFocusableElements.unshift(this.closeButtonElement);
+      }
       // Add event listener on last element
-      const lastFocusableElement = this.modalFocusableElements[this.modalFocusableElements.length - 1];
-      lastFocusableElement.addEventListener('keydown', event => {
-        if (event.key === 'Tab' && !event.shiftKey) {
-          event.preventDefault();
-          this.modalFocusableElements[0].focus();
-        }
-      });
+      this.getLastFocusableElement().addEventListener('keydown', this.handleLastFocusableElement);
       // Add event listener on first element (case shift + tab)
-      this.modalFocusableElements[0].addEventListener('keydown', event => {
-        if (event.key === 'Tab' && event.shiftKey) {
-          event.preventDefault();
-          lastFocusableElement.focus();
-        }
-      });
+      this.modalFocusableElements[0].addEventListener('keydown', this.handleFirstFocusableElement);
     }
   };
 
@@ -173,9 +196,6 @@ export class MgModal {
     // Validate
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
     this.hasContent = this.element.querySelector('[slot="content"]') !== null;
-    if (this.closeButton) {
-      this.closeButtonId = `${this.identifier}-close-button`;
-    }
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
     this.validateHide(this.hide);
@@ -187,13 +207,10 @@ export class MgModal {
   componentDidLoad(): void {
     new MutationObserver(mutationList => {
       if (mutationList.some(mutation => mutation.attributeName === 'aria-hidden' && (mutation.target as HTMLElement).ariaHidden === null)) {
-        this.setFocus();
+        // Set focus on first element
+        this.modalFocusableElements[0].focus();
       }
     }).observe(this.element.shadowRoot.getElementById(this.identifier), { attributes: true });
-    // Set focus if display on load
-    if (!this.hide) {
-      this.setFocus();
-    }
   }
 
   /**
@@ -208,7 +225,21 @@ export class MgModal {
             <header class="mg-modal__header">
               {this.closeButton && (
                 <span class="mg-modal__close-button">
-                  <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.modal.closeButton} onClick={this.handleClose}>
+                  <mg-button
+                    identifier={`${this.identifier}-close-button`}
+                    is-icon
+                    variant="flat"
+                    label={this.messages.modal.closeButton}
+                    onClick={this.handleClose}
+                    ref={el => {
+                      if (el !== null) {
+                        // store closeButton Element
+                        this.closeButtonElement = el;
+                        // add close button element to modalFocusableElements when it is render
+                        this.modalFocusableElements.unshift(this.closeButtonElement);
+                      }
+                    }}
+                  >
                     <mg-icon icon="cross"></mg-icon>
                   </mg-button>
                 </span>

@@ -97,7 +97,7 @@ describe('mg-modal', () => {
       }
     });
 
-    test.each([true, false])('should keep focus inside modale', async closeButton => {
+    test.each([true, false])('should keep focus inside modale, closeButton %s', async closeButton => {
       const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hide: true }, { content: true, actions: true });
       const element = page.doc.querySelector('mg-modal');
       // Get all focusable elements
@@ -115,6 +115,8 @@ describe('mg-modal', () => {
 
       // Display modal
       element.hide = false;
+      await page.waitForChanges();
+      expect(spyFirst).toHaveBeenCalledTimes(0);
       fireMo([{ attributeName: 'aria-hidden', target: { ariaHidden: null } }]);
       await page.waitForChanges();
       expect(spyFirst).toHaveBeenCalledTimes(1);
