@@ -23,6 +23,7 @@ const args = {
 const Template = (args: any): HTMLElement => {
   let form;
   let submit;
+  let canSubmit = false;
   return (
     <mg-form
       {...filterArgs(args)}
@@ -30,6 +31,7 @@ const Template = (args: any): HTMLElement => {
         form = el;
         form.addEventListener('form-valid', e => {
           submit.disabled = !e.detail;
+          canSubmit = submit.disabled;
         });
         form.addEventListener('form-submit', () => {
           window.alert('Your form has been submitted');
@@ -65,7 +67,7 @@ const Template = (args: any): HTMLElement => {
       <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
         <mg-button
           id="can-submit"
-          disabled
+          disabled={canSubmit}
           ref={e => {
             submit = e;
           }}
