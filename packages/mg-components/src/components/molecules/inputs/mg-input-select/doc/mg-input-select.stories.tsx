@@ -1,4 +1,5 @@
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../../.storybook/utils';
 import messages from '../../../../../locales/en/messages.json';
 
@@ -20,6 +21,7 @@ export default {
     },
   },
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
+  decorators: [withActions],
 };
 
 /**

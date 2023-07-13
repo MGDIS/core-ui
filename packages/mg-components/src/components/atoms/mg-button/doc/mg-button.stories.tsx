@@ -1,4 +1,5 @@
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { variants, buttonTypes } from '../mg-button.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
 import { filterArgs } from '../../../../../.storybook/utils';
@@ -13,6 +14,7 @@ export default {
     },
   },
   parameters: { actions: { handles: ['disabled-change'] } },
+  decorators: [withActions],
 };
 
 /**

@@ -1,4 +1,5 @@
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
@@ -14,6 +15,7 @@ export default {
       control: { type: 'select' },
     },
   },
+  decorators: [withActions],
 };
 
 /**

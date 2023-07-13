@@ -1,10 +1,12 @@
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../../.storybook/utils';
 
 export default {
   component: 'mg-input-toggle',
   title: 'Molecules/Inputs/mg-input-toggle',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
+  decorators: [withActions],
 };
 
 const args = {

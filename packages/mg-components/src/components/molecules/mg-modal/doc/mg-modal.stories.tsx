@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-no-bind */
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
   component: 'mg-modal',
   title: 'Molecules/mg-modal',
   parameters: { actions: { handles: ['component-show', 'component-hide'] } },
+  decorators: [withActions],
 };
 
 /**

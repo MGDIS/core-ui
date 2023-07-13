@@ -1,4 +1,5 @@
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 import { variants } from '../mg-message.conf';
 
@@ -15,6 +16,7 @@ export default {
     },
   },
   parameters: { actions: { handles: ['component-show', 'component-hide'] } },
+  decorators: [withActions],
 };
 
 /**

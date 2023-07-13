@@ -1,4 +1,5 @@
 import { h } from '@stencil/core';
+import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 import { sizes, Status } from '../mg-tabs.conf';
@@ -13,6 +14,7 @@ export default {
     },
   },
   parameters: { actions: { handles: ['active-tab-change'] } },
+  decorators: [withActions],
 };
 
 /**
