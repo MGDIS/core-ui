@@ -1,12 +1,10 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../../.storybook/utils';
 
 export default {
   component: 'mg-input-date',
   title: 'Molecules/Inputs/mg-input-date',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  decorators: [withActions],
 };
 
 /**

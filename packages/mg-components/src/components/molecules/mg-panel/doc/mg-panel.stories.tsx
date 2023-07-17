@@ -1,5 +1,4 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
 
@@ -17,7 +16,6 @@ export default {
       control: { type: 'select' },
     },
   },
-  decorators: [withActions],
 };
 
 /**

@@ -1,12 +1,10 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
   component: 'mg-skip-links',
   title: 'Molecules/mg-skip-links',
   parameters: { actions: { handles: ['go-to-anchor'] } },
-  decorators: [withActions],
 };
 
 /**

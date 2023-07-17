@@ -1,5 +1,4 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../../.storybook/utils';
 import { Direction } from '../../mg-menu/mg-menu.conf';
 
@@ -7,7 +6,6 @@ export default {
   component: 'mg-menu-item',
   title: 'Beta/Menus/mg-menu-item',
   parameters: { actions: { handles: ['item-loaded'] } },
-  decorators: [withActions],
 };
 
 /**

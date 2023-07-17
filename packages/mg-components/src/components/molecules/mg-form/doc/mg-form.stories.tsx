@@ -1,12 +1,10 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
   component: 'mg-form',
   title: 'Molecules/mg-form',
   parameters: { actions: { handles: ['form-valid', 'form-submit'] } },
-  decorators: [withActions],
 };
 
 const args = {

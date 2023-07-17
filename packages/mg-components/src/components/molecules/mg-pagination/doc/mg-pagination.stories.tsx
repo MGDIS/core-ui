@@ -1,12 +1,10 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
   component: 'mg-pagination',
   title: 'Molecules/mg-pagination',
   parameters: { actions: { handles: ['current-page-change'] } },
-  decorators: [withActions],
 };
 
 /**

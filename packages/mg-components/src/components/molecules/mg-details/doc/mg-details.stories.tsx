@@ -1,12 +1,10 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
   component: 'mg-details',
   title: 'Molecules/mg-details',
   parameters: { actions: { handles: ['expanded-change'] } },
-  decorators: [withActions],
 };
 
 /**

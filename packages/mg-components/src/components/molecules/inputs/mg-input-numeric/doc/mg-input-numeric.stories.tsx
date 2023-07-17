@@ -1,5 +1,4 @@
 import { h } from '@stencil/core';
-import { withActions } from '@storybook/addon-actions/decorator';
 import { filterArgs } from '../../../../../../.storybook/utils';
 import { types } from '../mg-input-numeric.conf';
 
@@ -17,7 +16,6 @@ export default {
     },
   },
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  decorators: [withActions],
 };
 
 /**
