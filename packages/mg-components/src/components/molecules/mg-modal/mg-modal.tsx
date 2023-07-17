@@ -116,7 +116,7 @@ export class MgModal {
   }
 
   /**
-   * Methode to manage focus over modale focusable elements
+   * Method to manage focus on modal focusable elements
    */
   private setFocus = (): void => {
     // Get all focusable elements
