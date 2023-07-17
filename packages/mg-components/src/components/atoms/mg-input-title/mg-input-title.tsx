@@ -26,15 +26,15 @@ export class MgInputTitle {
    * Switch from label to fieldset sementic
    */
   @Prop() isLegend = false;
+  @Watch('isLegend')
+  validateIsLegend(newValue: MgInputTitle['isLegend']) {
+    this.tagName = newValue ? 'legend' : 'label';
+  }
 
   /**
    * Component parent tagname
    */
   @State() tagName = 'label';
-
-  private getTagName = (): void => {
-    this.tagName = this.isLegend ? 'legend' : 'label';
-  };
 
   /*************
    * Lifecycle *
@@ -45,7 +45,7 @@ export class MgInputTitle {
    */
   componentWillLoad(): void {
     this.validateIdentifier(this.identifier);
-    this.getTagName();
+    this.validateIsLegend(this.isLegend);
   }
 
   /**
