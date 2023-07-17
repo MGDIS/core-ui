@@ -19,6 +19,9 @@ export const createID = (prefix = '', length = 10): string => {
  * Set() are not working when imported in project
  */
 export class ClassList {
+  /**
+   * available classes
+   */
   classes: string[];
 
   constructor(classlist: string[] = []) {
