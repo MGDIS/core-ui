@@ -20,7 +20,7 @@ export const createID = (prefix = '', length = 10): string => {
  */
 export class ClassList {
   /**
-   * available classes
+   * Available classes
    */
   classes: string[];
 
