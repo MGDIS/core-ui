@@ -153,7 +153,7 @@ export class MgModal {
   private setFocus = (): void => {
     // Get all focusable elements
     const allFocusableElements = Array.from(this.element.querySelectorAll(focusableElements));
-    // It at least one
+    // If at least one
     if (allFocusableElements.length > 0) {
       this.modalFocusableElements = allFocusableElements.reduce((acc, focusableElement) => {
         acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
