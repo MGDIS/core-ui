@@ -115,6 +115,9 @@ export class MgModal {
     }
   }
 
+  /**
+   * Method to manage focus on modal focusable elements
+   */
   private setFocus = (): void => {
     // Get all focusable elements
     this.modalFocusableElements = Array.from(this.element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
