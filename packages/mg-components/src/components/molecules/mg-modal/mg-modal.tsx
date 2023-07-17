@@ -148,7 +148,7 @@ export class MgModal {
   private getLastFocusableElement = (): HTMLElement | null => (this.modalFocusableElements.length > 0 ? this.modalFocusableElements[this.modalFocusableElements.length - 1] : null);
 
   /**
-   * Method to set focus loop
+   * Method to manage focus on modal focusable elements
    */
   private setFocus = (): void => {
     // Get all focusable elements

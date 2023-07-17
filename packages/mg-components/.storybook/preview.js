@@ -1,5 +1,6 @@
 import { extractArgTypes, extractComponentDescription, setStencilDocJson } from '@pxtrn/storybook-addon-docs-stencil';
 import { defineCustomElements } from '../dist/esm/loader';
+import { withActions } from '@storybook/addon-actions/decorator';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 import docJson from './docs/components.json';
@@ -40,3 +41,6 @@ export const parameters = {
     },
   },
 };
+
+
+export const decorators = [withActions];
