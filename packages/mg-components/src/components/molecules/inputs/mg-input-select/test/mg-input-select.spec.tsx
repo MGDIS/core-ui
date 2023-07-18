@@ -378,7 +378,7 @@ describe('mg-input-select', () => {
   });
 
   test('Should update mg-width', async () => {
-    const page = await getPage({ label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'] });
+    const page = await getPage({ label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], mgWidth: undefined });
     const element = page.doc.querySelector('mg-input-select');
 
     element.mgWidth = 2;

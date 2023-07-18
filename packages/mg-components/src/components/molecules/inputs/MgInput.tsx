@@ -1,7 +1,6 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
 import { widths, Width } from './MgInput.conf';
 import { ClassList } from '../../../utils/components.utils';
-import { MgInputSelect } from './mg-input-select/mg-input-select';
 
 /**
  * Apply in all input child node the aria-describedby attribute
@@ -73,7 +72,7 @@ interface MgInputProps {
   readonlyValue: string;
   required: boolean;
   readonly: boolean;
-  mgWidth: Width | MgInputSelect['mgWidth'];
+  mgWidth: Width;
   disabled: boolean;
   // Tooltip
   tooltip: string;

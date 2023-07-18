@@ -49,7 +49,7 @@ describe('mg-input-select', () => {
       expect(screenshotSelected).toMatchImageSnapshot();
     });
 
-    test.each(['default', ...widths])('render with width %s', async mgWidth => {
+    test.each([undefined, ...widths])('render with width %s', async mgWidth => {
       const page = await createPage(`
       <mg-input-select ${renderAttributes({ identifier: 'identifier', label: 'label', mgWidth, labelOnTop })}></mg-input-select>
       <script>

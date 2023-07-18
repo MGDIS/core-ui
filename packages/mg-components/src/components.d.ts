@@ -636,7 +636,7 @@ export namespace Components {
         /**
           * Define input width
          */
-        "mgWidth": Width | 'default';
+        "mgWidth": Width;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -2137,7 +2137,7 @@ declare namespace LocalJSX {
         /**
           * Define input width
          */
-        "mgWidth"?: Width | 'default';
+        "mgWidth"?: Width;
         /**
           * Input name If not set the value equals the identifier
          */
