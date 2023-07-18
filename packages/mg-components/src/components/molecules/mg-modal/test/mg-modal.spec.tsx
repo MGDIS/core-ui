@@ -97,37 +97,43 @@ describe('mg-modal', () => {
       }
     });
 
-    test.each([true, false])('should keep focus inside modale, closeButton %s', async closeButton => {
-      const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hide: true }, { content: true, actions: true });
-      const element = page.doc.querySelector('mg-modal');
-      // Get all focusable elements
-      const modalFocusableElements = Array.from(element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
-        acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
-        return acc;
-      }, []);
-      // When close button is enabled it's the first focusable element.
-      if (closeButton) {
-        modalFocusableElements.unshift(element.shadowRoot.querySelector(`.mg-modal__close-button mg-button`));
-      }
-      const lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
-      const spyFirst = jest.spyOn(modalFocusableElements[0], 'focus');
-      const spyLast = jest.spyOn(lastFocusableElement, 'focus');
+    describe.each([
+      { attributeName: 'aria-hidden', target: { ariaHidden: null } },
+      { attributeName: 'aria-hidden', target: { ariaHidden: '' } },
+      { attributeName: 'aria-hidden', target: { ariaHidden: undefined } },
+    ])('mutationObserver', mutation => {
+      test.each([true, false])('should keep focus inside modal, closeButton %s', async closeButton => {
+        const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hide: true }, { content: true, actions: true });
+        const element = page.doc.querySelector('mg-modal');
+        // Get all focusable elements
+        const modalFocusableElements = Array.from(element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
+          acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
+          return acc;
+        }, []);
+        // When close button is enabled it's the first focusable element.
+        if (closeButton) {
+          modalFocusableElements.unshift(element.shadowRoot.querySelector(`.mg-modal__close-button mg-button`));
+        }
+        const lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
+        const spyFirst = jest.spyOn(modalFocusableElements[0], 'focus');
+        const spyLast = jest.spyOn(lastFocusableElement, 'focus');
 
-      // Display modal
-      element.hide = false;
-      await page.waitForChanges();
-      expect(spyFirst).toHaveBeenCalledTimes(0);
-      fireMo([{ attributeName: 'aria-hidden', target: { ariaHidden: null } }]);
-      await page.waitForChanges();
-      expect(spyFirst).toHaveBeenCalledTimes(1);
-      // Tab from last focusable element
-      lastFocusableElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: false }));
-      await page.waitForChanges();
-      expect(spyFirst).toHaveBeenCalledTimes(2);
-      // Tab first focusable element with shift key
-      modalFocusableElements[0].dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: true }));
-      await page.waitForChanges();
-      expect(spyLast).toHaveBeenCalledTimes(1);
+        // Display modal
+        element.hide = false;
+        await page.waitForChanges();
+        expect(spyFirst).toHaveBeenCalledTimes(0);
+        fireMo([mutation]);
+        await page.waitForChanges();
+        expect(spyFirst).toHaveBeenCalledTimes(1);
+        // Tab from last focusable element
+        lastFocusableElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: false }));
+        await page.waitForChanges();
+        expect(spyFirst).toHaveBeenCalledTimes(2);
+        // Tab first focusable element with shift key
+        modalFocusableElements[0].dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: true }));
+        await page.waitForChanges();
+        expect(spyLast).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

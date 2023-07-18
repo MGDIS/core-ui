@@ -206,7 +206,8 @@ export class MgModal {
    */
   componentDidLoad(): void {
     new MutationObserver(mutationList => {
-      if (mutationList.some(mutation => mutation.attributeName === 'aria-hidden' && (mutation.target as HTMLElement).ariaHidden === null)) {
+      // as mutation.target is null on chrome and '' or undefined on firefox we test both with the 'aria-hidden' attribute mutation
+      if (mutationList.some(mutation => mutation.attributeName === 'aria-hidden' && ['', null, undefined].includes((mutation.target as HTMLElement).ariaHidden))) {
         // Set focus on first element
         this.modalFocusableElements[0].focus();
       }
