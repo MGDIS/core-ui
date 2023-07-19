@@ -1,5 +1,14 @@
 # @mgdis/mg-components
 
+## 5.13.1
+
+### Patch Changes
+
+- ca7aa7c: [#313](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/313) lint: create rule to set tsdoc mandatory
+- 1b13754: [#344](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/344) mg-icon - SVG are not displayed on safari
+- a6a9fab: [#346](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/346) [storybook] - actions not catch in stories dedicated section
+- 682a446: [#345](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/345) mg-input-checkbox: i18n not rendering for navigator configured in french
+
 ## 5.13.0
 
 ### Minor Changes
