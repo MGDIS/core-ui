@@ -1,5 +1,17 @@
 # notification-center
 
+## 1.0.11
+
+### Patch Changes
+
+- 1b13754: [#344](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/344) mg-icon - SVG are not displayed on safari
+- Updated dependencies [ca7aa7c]
+- Updated dependencies [1b13754]
+- Updated dependencies [a6a9fab]
+- Updated dependencies [682a446]
+  - @mgdis/mg-components@5.13.1
+  - @mgdis/notification-center@1.1.1
+
 ## 1.0.10
 
 ### Patch Changes

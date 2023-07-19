@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2023-07-19-13-36_Exuberant-Eggplant-Emu)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
 ## Release (2023-07-04-13-21_Panicky-Peach-Peafowl)
 
 ### Packages released
