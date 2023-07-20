@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { type Page, ViewportSize, test as playwrightTest, expect as playwrightExpect } from '@playwright/test';
+import { type Page, ViewportSize, test as playwrightTest, expect as playwrightExpect, devices as playwrightDevices } from '@playwright/test';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
@@ -48,6 +48,11 @@ export const describe = playwrightTest.describe;
  * playwright 'test' function definition
  */
 export const test = playwrightTest;
+
+/**
+ * playwright 'devices' definition
+ */
+export const devices = playwrightDevices;
 
 /**
  * Value to get in string
