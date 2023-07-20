@@ -15,6 +15,9 @@
     align-self: flex-start;
     gap: 0.6rem;
     min-height: calc(var(--font-size) * var(--line-height));
+    &-icon.mg-details__toggle-icon--reverse {
+      transform: rotate(180deg);
+    }
   }
 
   &__details {
