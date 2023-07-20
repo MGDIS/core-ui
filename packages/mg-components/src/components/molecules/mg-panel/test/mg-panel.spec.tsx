@@ -3,13 +3,12 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgPanel } from '../mg-panel';
 
 import { MgButton } from '../../../atoms/mg-button/mg-button';
-import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
 
 const getPage = (args, slot?) => {
   const page = newSpecPage({
-    components: [MgPanel, MgButton, MgIcon, MgInputText],
+    components: [MgPanel, MgButton, MgInputText],
     template: () => <mg-panel {...args}>{slot}</mg-panel>,
   });
   jest.runAllTimers();

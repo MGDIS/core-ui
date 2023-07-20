@@ -222,7 +222,7 @@ export class MgPanel {
       label={this.panelTitle}
     >
       <span class="mg-panel__collapse-button-content">
-        <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'}></mg-icon>
+        <mg-icon icon="chevron-up" class={{ 'mg-panel__collapse-button-icon': true, 'mg-panel__collapse-button-icon--reverse': !this.expanded }}></mg-icon>
         {!this.isEditing && this.expandToggleDisplay !== 'icon' && this.panelTitle}
       </span>
     </mg-button>
