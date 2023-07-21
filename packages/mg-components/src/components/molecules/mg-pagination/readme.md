@@ -14,6 +14,12 @@ It's possible to hide the page count to show only the "chevron" icons
 
 ![](./doc/img/mg-pagination-nav-select-hide.png)
 
+## When to use it ?
+
+A pagination component should be displayed only when it is usefull, ex:
+- number of pages > 1
+- elements are displaied
+
 <!-- Auto Generated Below -->
 
 
