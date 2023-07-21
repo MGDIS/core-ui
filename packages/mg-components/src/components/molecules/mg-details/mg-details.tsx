@@ -82,7 +82,7 @@ export class MgDetails {
         <summary>
           <slot name="summary"></slot>
           <span class="mg-details__toggle">
-            <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
+            <mg-icon icon="chevron-up" size="small" class={{ 'mg-details__toggle-icon': true, 'mg-details__toggle-icon--reverse': !this.expanded }}></mg-icon>
             <span class={{ 'sr-only': this.hideSummary }}>{this.expanded ? this.toggleOpened : this.toggleClosed}</span>
           </span>
         </summary>

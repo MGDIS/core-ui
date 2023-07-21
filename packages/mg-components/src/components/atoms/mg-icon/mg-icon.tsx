@@ -1,8 +1,8 @@
-import { Component, h, Prop, Watch, State } from '@stencil/core';
+import { Component, Prop, Watch, State, Element } from '@stencil/core';
 import { sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
 import { ClassList } from '../../../utils/components.utils';
 import iconList from '@mgdis/img/dist/icons/index.json';
-import sprite from '@mgdis/img/dist/icons/sprite.svg';
+import { icons } from '../../../../assets/icons';
 
 @Component({
   tag: 'mg-icon',
@@ -10,6 +10,13 @@ import sprite from '@mgdis/img/dist/icons/sprite.svg';
   shadow: true,
 })
 export class MgIcon {
+  private svg: SVGSVGElement;
+
+  /**
+   * Icon HTML Element
+   */
+  @Element() element: HTMLMgIconElement;
+
   /**
    * Icon to display.
    */
@@ -20,6 +27,7 @@ export class MgIcon {
     else {
       if (oldValue !== undefined) this.classCollection.delete(`mg-icon--${oldValue}`);
       this.classCollection.add(`mg-icon--${newValue}`);
+      this.renderIcon(newValue);
     }
   }
 
@@ -100,6 +108,19 @@ export class MgIcon {
   };
 
   /**
+   * Render icon in shadowroot
+   * @param icon - icon to render
+   */
+  private renderIcon = icon => {
+    this.element.shadowRoot.innerHTML = icons[icon];
+    this.svg = this.element.shadowRoot.querySelector('svg');
+    // update svg attributes
+    this.svg.setAttribute('aria-hidden', 'true');
+    this.svg.setAttribute('focusable', 'false');
+    this.svg.setAttribute('class', this.classCollection.join());
+  };
+
+  /**
    * Check if props are well configured on init
    */
   componentWillLoad(): void {
@@ -108,17 +129,14 @@ export class MgIcon {
     this.validateVariant(this.variant);
     this.validateVariantStyle(this.variantStyle);
     this.handleSpin(this.spin);
+    // render icon
+    this.renderIcon(this.icon);
   }
 
   /**
-   * Render component
-   * @returns HTML Element
+   * update html when component trigger changes
    */
-  render(): HTMLElement {
-    return (
-      <svg class={this.classCollection.join()} aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-        <use xlinkHref={`${sprite}#${this.icon}`}></use>
-      </svg>
-    );
+  componentWillUpdate() {
+    this.svg.setAttribute('class', this.classCollection.join());
   }
 }

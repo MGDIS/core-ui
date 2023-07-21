@@ -1,5 +1,19 @@
 # Changelog
 
+## Release (2023-07-19-13-36_Exuberant-Eggplant-Emu)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
+## Release (2023-07-04-13-21_Panicky-Peach-Peafowl)
+
+### Packages released
+
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-06-23-15-38_Poised-Purple-Mountains’-Majesty-Penguin)
 
 ### Packages released

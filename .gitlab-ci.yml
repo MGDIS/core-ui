@@ -26,6 +26,12 @@ stages:
         - 'packages/notification-center/**/*'
         - 'apps/notification-center/**/*'
 
+# Rule to execute job only on linting-stencil folder content changes
+.rules:changes:linting-stencil:
+  rules:
+    - changes:
+        - 'packages/linting-stencil/**/*'
+
 # Rule to execute job only on img folder content changes
 .rules:changes:img:
   rules:
@@ -46,6 +52,11 @@ stages:
 .rules:except-tags:
   rules:
     - if: $CI_COMMIT_TAG == null
+
+# Rule to execute job only if push master
+.rules:master:
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master"
 
 # install dependencies
 .install:dependencies:
@@ -273,14 +284,12 @@ storybook-mr:
 chromatic:publish:
   stage: mg-components
   extends:
-    # - .rules:tags
-    - .rules:mr # testing Chromatic visual tests
     - .install:dependencies
+  rules:
+    - if: $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG
   script:
     - !reference [.mg-components:build, script]
-    - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name $CI_COMMIT_REF_SLUG --build-script-name storybook:build
-  needs:
-    - lint
+    - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
 
 pages:
   stage: mg-components
@@ -313,6 +322,23 @@ notification-center:artifact:
   script:
     - pnpm build
     - cd packages/notification-center
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+###################
+# linting-stencil #
+###################
+
+linting-stencil:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:linting-stencil
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - cd packages/linting-stencil
+    - pnpm build
     - !reference [.artifact, script]
   needs:
     - lint

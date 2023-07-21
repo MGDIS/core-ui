@@ -23,7 +23,11 @@ const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
 describe('mg-icon', () => {
   test('renders icons', async () => {
-    const html = icons.map(icon => `<mg-icon icon="${icon}"></mg-icon>`).join('');
+    const textWithoutDash = text => text.split('-').join('');
+    const html = icons
+      .sort((a, b) => textWithoutDash(a).localeCompare(textWithoutDash(b)))
+      .map(icon => `<mg-icon icon="${icon}"></mg-icon>`)
+      .join('');
     const page = await createPage(html);
 
     const screenshot = await page.screenshot();

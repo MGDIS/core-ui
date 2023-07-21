@@ -1,9 +1,12 @@
+import { renderAttributes } from '../../../../../utils/e2e.test.utils';
 import { createPage } from '../../../../../utils/stencil.e2e.test.utils';
+import { widths } from '../../MgInput.conf';
 
 describe('mg-input-select', () => {
-  describe.each([`<mg-input-select identifier="identifier" label="label"></mg-input-select>`])('without tooltip', html => {
+  describe.each([true, false])('without tooltip, case label on top %s', labelOnTop => {
     test('render', async () => {
-      const page = await createPage(`${html}
+      const page = await createPage(`
+      <mg-input-select ${renderAttributes({ identifier: 'identifier', label: 'label', labelOnTop })}></mg-input-select>
       <script>
       const mgInputSelect = document.querySelector('mg-input-select');
       mgInputSelect.items = ['blu', 'bli', 'bla', 'blo'];
@@ -41,6 +44,18 @@ describe('mg-input-select', () => {
       await page.keyboard.down('Enter');
 
       await page.waitForChanges();
+
+      const screenshotSelected = await page.screenshot();
+      expect(screenshotSelected).toMatchImageSnapshot();
+    });
+
+    test.each([undefined, ...widths])('render with width %s', async mgWidth => {
+      const page = await createPage(`
+      <mg-input-select ${renderAttributes({ identifier: 'identifier', label: 'label', mgWidth, labelOnTop })}></mg-input-select>
+      <script>
+      const mgInputSelect = document.querySelector('mg-input-select');
+      mgInputSelect.items = ['blu', 'bli', 'bla', 'blo'];
+      </script>`);
 
       const screenshotSelected = await page.screenshot();
       expect(screenshotSelected).toMatchImageSnapshot();

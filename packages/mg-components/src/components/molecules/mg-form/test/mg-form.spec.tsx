@@ -55,6 +55,26 @@ const getSlottedContent = () => [
   </mg-input-toggle>,
 ];
 
+const setCheckValitidy = (input: HTMLMgInputsElement): void => {
+  const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
+  shadowInputs.forEach(input => {
+    input.checkValidity = jest.fn(() => false);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: true,
+      })),
+    });
+  });
+};
+
+const setMgInputChecboxeInvalid = (input: HTMLMgInputCheckboxElement): void => {
+  input.required = true;
+  input.value = [
+    { title: 'oui', value: false },
+    { title: 'non', value: false },
+  ];
+};
+
 describe('mg-form', () => {
   let fireMo;
 
@@ -123,16 +143,11 @@ describe('mg-form', () => {
         (node: Node) => node.nodeName.startsWith('MG-INPUT-') && node.nodeName !== 'MG-INPUT-TOGGLE',
       ) as HTMLMgInputsElement[];
       mgInputs.forEach(input => {
-        const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
-        shadowInputs.forEach(input => {
-          input.checkValidity = jest.fn(() => false);
-          Object.defineProperty(input, 'validity', {
-            get: jest.fn(() => ({
-              valueMissing: true,
-            })),
-          });
-        });
+        if (input.nodeName.includes('CHECKBOX')) setMgInputChecboxeInvalid(input as HTMLMgInputCheckboxElement);
+        setCheckValitidy(input);
       });
+      await page.waitForChanges();
+
       await mgForm.displayError();
     }
 
@@ -158,16 +173,10 @@ describe('mg-form', () => {
       (node: Node) => node.nodeName.startsWith('MG-INPUT-') && node.nodeName !== 'MG-INPUT-TOGGLE',
     ) as HTMLMgInputsElement[];
     mgInputs.forEach(input => {
-      const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
-      shadowInputs.forEach(input => {
-        input.checkValidity = jest.fn(() => false);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: true,
-          })),
-        });
-      });
+      if (input.nodeName.includes('CHECKBOX')) setMgInputChecboxeInvalid(input as HTMLMgInputCheckboxElement);
+      setCheckValitidy(input);
     });
+    await page.waitForChanges();
 
     await mgForm.displayError();
 

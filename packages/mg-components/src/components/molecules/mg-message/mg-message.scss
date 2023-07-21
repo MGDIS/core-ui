@@ -16,6 +16,10 @@
   --mg-card-overflow: hidden;
 }
 
+:host([hide]) {
+  display: none;
+}
+
 .mg-message {
   // Display
   display: inline-block;

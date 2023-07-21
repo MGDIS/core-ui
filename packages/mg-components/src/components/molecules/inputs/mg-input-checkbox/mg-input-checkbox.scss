@@ -4,6 +4,13 @@
 
 $checkbox-multi-spacer: 0.4rem;
 
+@mixin flex-container($spacer-ratio: 1, $direction: row, $wrap: wrap) {
+  display: flex;
+  flex-wrap: $wrap;
+  gap: calc(#{$checkbox-multi-spacer} * #{$spacer-ratio});
+  flex-direction: $direction;
+}
+
 /**
 * checkbox multi
 */
@@ -16,9 +23,7 @@ $checkbox-multi-spacer: 0.4rem;
       gap: $checkbox-multi-spacer;
     }
     &-values-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: $checkbox-multi-spacer;
+      @include flex-container();
       margin: 0;
       padding: 0;
       list-style: none;
@@ -31,26 +36,53 @@ $checkbox-multi-spacer: 0.4rem;
       min-height: var(--default-size);
       min-width: var(--default-size);
       padding: calc((var(--default-size) - 0.2rem - var(--font-size) * var(--line-height)) / 2) 1.1rem;
-      background-color: var(--mg-color-dark-5-hsl);
+      background-color: hsl(var(--mg-color-dark-5-hsl));
       border-radius: 0.3rem;
       font-size: var(--font-size);
     }
     &-no-result {
       text-align: center;
     }
+    &-text,
+    &-title {
+      display: inline;
+      margin: 0;
+      color: hsl(var(--mg-color-dark-40-hsl));
+    }
+    &-title {
+      margin: 0 1.1rem;
+    }
+    &-sections {
+      @include flex-container(1, column);
+      &-container {
+        @include flex-container(0, column, nowrap);
+        max-height: 80vh;
+        padding-right: 1rem;
+        overflow-y: auto;
+      }
+    }
+    &-section-header {
+      @include flex-container(2);
+      align-items: center;
+      min-height: var(--default-size);
+    }
+    &-inputs {
+      margin: 0;
+      padding: $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} * 2) $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} / 2);
+    }
   }
-  .mg-input__input-checkbox-multi-inputs {
-    margin: 0;
-  }
+
   &:not(.mg-input--label-on-top) mg-tooltip {
     margin-left: var(--mg-inputs-spacer);
   }
   mg-popover {
     --mg-popover-min-width: 7rem;
+    --mg-card-padding: calc(#{$checkbox-multi-spacer} * 2);
     [slot='content'] {
-      display: flex;
-      flex-direction: column;
-      gap: calc(#{$checkbox-multi-spacer} * 2);
+      @include flex-container(2, column);
+      .mg-input__input-group {
+        margin-left: calc(#{$checkbox-multi-spacer} * 2);
+      }
     }
   }
   mg-input-text {

@@ -893,7 +893,7 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
 `;
 
 exports[`mg-input-select Should update mg-width 1`] = `
-<mg-input-select>
+<mg-input-select mg-width="2">
   <mock:shadow-root>
     <div class="mg-input mg-input--select mg-input--width-2">
       <mg-input-title identifier="identifier">
@@ -926,7 +926,7 @@ exports[`mg-input-select Should update mg-width 1`] = `
 `;
 
 exports[`mg-input-select Should update mg-width 2`] = `
-<mg-input-select>
+<mg-input-select mg-width="4">
   <mock:shadow-root>
     <div class="mg-input mg-input--select mg-input--width-4">
       <mg-input-title identifier="identifier">
@@ -959,7 +959,7 @@ exports[`mg-input-select Should update mg-width 2`] = `
 `;
 
 exports[`mg-input-select Should update mg-width 3`] = `
-<mg-input-select>
+<mg-input-select mg-width="16">
   <mock:shadow-root>
     <div class="mg-input mg-input--select mg-input--width-16">
       <mg-input-title identifier="identifier">
@@ -992,7 +992,7 @@ exports[`mg-input-select Should update mg-width 3`] = `
 `;
 
 exports[`mg-input-select Should update mg-width 4`] = `
-<mg-input-select>
+<mg-input-select mg-width="full">
   <mock:shadow-root>
     <div class="mg-input mg-input--select mg-input--width-full">
       <mg-input-title identifier="identifier">

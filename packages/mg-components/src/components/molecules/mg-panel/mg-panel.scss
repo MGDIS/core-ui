@@ -52,9 +52,14 @@ $spacer-small: 0.3rem;
     }
   }
 
-  &__collapse-button-content {
-    --font-size: 1.4rem;
-    --mg-button-font-weight: 600;
+  &__collapse-button {
+    &-content {
+      --font-size: 1.4rem;
+      --mg-button-font-weight: 600;
+    }
+    &-icon.mg-panel__collapse-button-icon--reverse {
+      transform: rotate(180deg);
+    }
   }
 
   &__content {

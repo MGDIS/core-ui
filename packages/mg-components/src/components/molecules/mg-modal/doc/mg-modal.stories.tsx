@@ -21,13 +21,7 @@ const Template = (args: any): HTMLElement => (
       aria-haspopup="dialog"
       onClick={() => {
         const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal[identifier="${args.identifier}"]`);
-        const isHide = mgModal.hide === true;
-        if (isHide) {
-          mgModal.removeAttribute('hide'); // storybook first render is an attribute then we use property
-          mgModal.hide = false;
-        } else {
-          mgModal.hide = true;
-        }
+        mgModal.hide = !mgModal.hide;
       }}
     >
       Open modal

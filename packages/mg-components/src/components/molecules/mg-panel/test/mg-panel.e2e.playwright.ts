@@ -3,7 +3,7 @@ import { createID } from '../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../utils/e2e.test.utils';
 import { type MgPanel } from '../mg-panel';
 
-type ArgsType = Partial<MgPanel> & { slot: SlotType };
+type ArgsType = Partial<MgPanel> & { slot?: SlotType };
 const slots = ['default', 'flex'] as const;
 type SlotType = (typeof slots)[number] | string;
 
@@ -11,7 +11,7 @@ const baseArgs = {
   panelTitle: 'panel title',
 };
 
-const createHTML = (args: Partial<MgPanel> & { slot: SlotType }): string => {
+const createHTML = (args: ArgsType): string => {
   const identifier = createID();
   const slot: SlotType = Boolean(args.slot) ? args.slot : slots[0];
   delete args.slot;
@@ -86,18 +86,12 @@ describe('mg-panel', () => {
       }),
     );
 
-    const updateSize = expanded => {
-      if (expanded) return updateScreenshotClass(page, { width: '500px', height: '100%' });
-      else return updateScreenshotClass(page, { width: '500px', height: '100%' });
-    };
+    await updateScreenshotClass(page, { width: '500px', height: '100%' });
 
-    await updateSize(args.expanded);
     await expect(page.locator('mg-panel')).toHaveScreenshot();
 
-    await page.keyboard.down('Tab');
-    await page.keyboard.down('Enter');
-
-    await updateSize(!args.expanded);
+    await page.keyboard.press('Tab');
+    await page.keyboard.press('Enter');
     await expect(page.locator('mg-panel')).toHaveScreenshot();
   });
 
@@ -144,15 +138,14 @@ describe('mg-panel', () => {
     });
 
     test('Should NOT update panel title, case input new value does NOT match pattern', async ({ page }) => {
-      await setPageContent(
-        page,
-        createHTML({
-          ...baseArgs,
-          titleEditable: true,
-          titlePattern: /^(?!(joker)$)[a-z A-Z0-9s]+$/ as unknown,
-          titlePatternErrorMessage: "You can't enter a bad guy !",
-        } as ArgsType),
-      );
+      const args = {
+        ...baseArgs,
+        titleEditable: true,
+        titlePattern: /^(?!(joker)$)[a-z A-Z0-9s]+$/ as unknown as string,
+        titlePatternErrorMessage: "You can't enter a bad guy !",
+      };
+
+      await setPageContent(page, createHTML(args));
 
       await page.locator('.mg-panel__header-title mg-button:last-of-type').click();
 

@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-jsdoc */
 import { MockCustomEvent } from '@stencil/core/mock-doc';
 
 /**
@@ -50,6 +51,8 @@ export const setupMutationObserverMock = ({ disconnect, observe, takeRecords }: 
   return MockMutationObserver;
 };
 
+type setupResizeObserverMockParams = { disconnect: ResizeObserver['disconnect']; observe: ResizeObserver['observe'] };
+
 /**
  * Utility function that mocks the `ResizeObserver` API. Recommended to execute inside `beforeEach`.
  * @param resizeObserverMock - Parameter that is sent to the `Object.defineProperty`
@@ -76,7 +79,6 @@ export const setupMutationObserverMock = ({ disconnect, observe, takeRecords }: 
  * }]);;
  * ```
  */
-type setupResizeObserverMockParams = { disconnect: ResizeObserver['disconnect']; observe: ResizeObserver['observe'] };
 export const setupResizeObserverMock = ({ disconnect, observe }: setupResizeObserverMockParams): typeof ResizeObserver => {
   class MockResizeObserver implements ResizeObserver {
     disconnect: () => void = disconnect;

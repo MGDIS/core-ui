@@ -10,7 +10,7 @@ import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { CheckboxType, CheckboxValue } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -239,7 +239,7 @@ export namespace Components {
          */
         "invalid": boolean;
         /**
-          * Input label
+          * Define input label
          */
         "label": string;
         /**
@@ -251,15 +251,15 @@ export namespace Components {
          */
         "labelOnTop": boolean;
         /**
-          * Input name If not set the value equals the identifier
+          * Define input name If not set the value equals the identifier
          */
         "name": string;
         /**
-          * Define if input is readonly
+          * Define if mg-input-checkbox is readonly
          */
         "readonly": boolean;
         /**
-          * Define if input is required
+          * Define if mg-input-checkbox is required
          */
         "required": boolean;
         /**
@@ -278,6 +278,35 @@ export namespace Components {
           * Component value If item.value is `null`, checkbox will be indeterminate by default
          */
         "value": CheckboxValue[];
+    }
+    /**
+     * Internal component use to manage sections instances
+     */
+    interface MgInputCheckboxPaginated {
+        /**
+          * Define checkboxes to paginate
+         */
+        "checkboxes": CheckboxItem[];
+        /**
+          * Define if mg-input-checkbox-list is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Define component message
+         */
+        "messages": Record<string, string>;
+        /**
+          * Define mg-input-checkbox input name
+         */
+        "name": string;
+        /**
+          * Define if mg-input-checkbox-list is readonly
+         */
+        "readonly": boolean;
+        /**
+          * Define section kind
+         */
+        "sectionKind": SectionKind;
     }
     interface MgInputDate {
         /**
@@ -997,6 +1026,10 @@ export namespace Components {
          */
         "hideNavigationLabels": boolean;
         /**
+          * Hide select input
+         */
+        "hidePageCount": boolean;
+        /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier": string;
@@ -1154,6 +1187,10 @@ export interface MgInputCheckboxCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputCheckboxElement;
 }
+export interface MgInputCheckboxPaginatedCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgInputCheckboxPaginatedElement;
+}
 export interface MgInputDateCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgInputDateElement;
@@ -1284,6 +1321,15 @@ declare global {
     var HTMLMgInputCheckboxElement: {
         prototype: HTMLMgInputCheckboxElement;
         new (): HTMLMgInputCheckboxElement;
+    };
+    /**
+     * Internal component use to manage sections instances
+     */
+    interface HTMLMgInputCheckboxPaginatedElement extends Components.MgInputCheckboxPaginated, HTMLStencilElement {
+    }
+    var HTMLMgInputCheckboxPaginatedElement: {
+        prototype: HTMLMgInputCheckboxPaginatedElement;
+        new (): HTMLMgInputCheckboxPaginatedElement;
     };
     interface HTMLMgInputDateElement extends Components.MgInputDate, HTMLStencilElement {
     }
@@ -1423,6 +1469,7 @@ declare global {
         "mg-icon": HTMLMgIconElement;
         "mg-illustrated-message": HTMLMgIllustratedMessageElement;
         "mg-input-checkbox": HTMLMgInputCheckboxElement;
+        "mg-input-checkbox-paginated": HTMLMgInputCheckboxPaginatedElement;
         "mg-input-date": HTMLMgInputDateElement;
         "mg-input-numeric": HTMLMgInputNumericElement;
         "mg-input-password": HTMLMgInputPasswordElement;
@@ -1669,7 +1716,7 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
-          * Input label
+          * Define input label
          */
         "label": string;
         /**
@@ -1681,7 +1728,7 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Input name If not set the value equals the identifier
+          * Define input name If not set the value equals the identifier
          */
         "name"?: string;
         /**
@@ -1693,11 +1740,11 @@ declare namespace LocalJSX {
          */
         "onValue-change"?: (event: MgInputCheckboxCustomEvent<MgInputCheckbox['value']>) => void;
         /**
-          * Define if input is readonly
+          * Define if mg-input-checkbox is readonly
          */
         "readonly"?: boolean;
         /**
-          * Define if input is required
+          * Define if mg-input-checkbox is required
          */
         "required"?: boolean;
         /**
@@ -1716,6 +1763,39 @@ declare namespace LocalJSX {
           * Component value If item.value is `null`, checkbox will be indeterminate by default
          */
         "value": CheckboxValue[];
+    }
+    /**
+     * Internal component use to manage sections instances
+     */
+    interface MgInputCheckboxPaginated {
+        /**
+          * Define checkboxes to paginate
+         */
+        "checkboxes"?: CheckboxItem[];
+        /**
+          * Define if mg-input-checkbox-list is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Define component message
+         */
+        "messages"?: Record<string, string>;
+        /**
+          * Define mg-input-checkbox input name
+         */
+        "name"?: string;
+        /**
+          * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
+         */
+        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<MgInputCheckboxPaginated['sectionKind']>) => void;
+        /**
+          * Define if mg-input-checkbox-list is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * Define section kind
+         */
+        "sectionKind"?: SectionKind;
     }
     interface MgInputDate {
         /**
@@ -2491,6 +2571,10 @@ declare namespace LocalJSX {
          */
         "hideNavigationLabels"?: boolean;
         /**
+          * Hide select input
+         */
+        "hidePageCount"?: boolean;
+        /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier"?: string;
@@ -2667,6 +2751,7 @@ declare namespace LocalJSX {
         "mg-icon": MgIcon;
         "mg-illustrated-message": MgIllustratedMessage;
         "mg-input-checkbox": MgInputCheckbox;
+        "mg-input-checkbox-paginated": MgInputCheckboxPaginated;
         "mg-input-date": MgInputDate;
         "mg-input-numeric": MgInputNumeric;
         "mg-input-password": MgInputPassword;
@@ -2705,6 +2790,10 @@ declare module "@stencil/core" {
             "mg-icon": LocalJSX.MgIcon & JSXBase.HTMLAttributes<HTMLMgIconElement>;
             "mg-illustrated-message": LocalJSX.MgIllustratedMessage & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;
             "mg-input-checkbox": LocalJSX.MgInputCheckbox & JSXBase.HTMLAttributes<HTMLMgInputCheckboxElement>;
+            /**
+             * Internal component use to manage sections instances
+             */
+            "mg-input-checkbox-paginated": LocalJSX.MgInputCheckboxPaginated & JSXBase.HTMLAttributes<HTMLMgInputCheckboxPaginatedElement>;
             "mg-input-date": LocalJSX.MgInputDate & JSXBase.HTMLAttributes<HTMLMgInputDateElement>;
             "mg-input-numeric": LocalJSX.MgInputNumeric & JSXBase.HTMLAttributes<HTMLMgInputNumericElement>;
             "mg-input-password": LocalJSX.MgInputPassword & JSXBase.HTMLAttributes<HTMLMgInputPasswordElement>;

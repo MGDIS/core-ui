@@ -28,11 +28,11 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -51,7 +51,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -70,7 +70,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -90,7 +90,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -146,11 +146,11 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -169,7 +169,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -188,7 +188,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -208,7 +208,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -264,11 +264,11 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -287,7 +287,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -306,7 +306,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -326,7 +326,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -382,11 +382,11 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -405,7 +405,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -424,7 +424,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -444,7 +444,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -501,11 +501,11 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
           dc-comics
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -524,7 +524,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -543,7 +543,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -563,7 +563,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -623,11 +623,11 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
           </span>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -646,7 +646,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -665,7 +665,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -685,7 +685,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -741,11 +741,11 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -764,7 +764,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -783,7 +783,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -803,7 +803,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -859,11 +859,11 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
           <mg-icon icon="ellipsis"></mg-icon>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -882,7 +882,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -901,7 +901,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -921,7 +921,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -978,11 +978,11 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
           dc-comics
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1001,7 +1001,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -1020,7 +1020,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1040,7 +1040,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -1097,11 +1097,11 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
           dc-comics
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1120,7 +1120,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -1139,7 +1139,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1159,7 +1159,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -1219,11 +1219,11 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
           </span>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1242,7 +1242,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -1261,7 +1261,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1281,7 +1281,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
@@ -1341,11 +1341,11 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
           </span>
         </mg-button>
         <div slot="content">
-          <mg-menu aria-label="Actions" direction="vertical" role="menubar">
+          <mg-menu aria-label="Actions" direction="vertical" role="list">
             <mock:shadow-root>
               <slot></slot>
             </mock:shadow-root>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1364,7 +1364,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                 batman
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="hidden">
+            <mg-menu-item role="listitem" status="hidden">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--hidden mg-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
                   <slot name="image"></slot>
@@ -1383,7 +1383,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                 robin
               </span>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
                   <slot name="image"></slot>
@@ -1403,7 +1403,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
               </span>
               <mg-badge label="badge" slot="information" value="2" variant="text-color"></mg-badge>
             </mg-menu-item>
-            <mg-menu-item aria-haspopup="false" role="menuitem" status="visible">
+            <mg-menu-item role="listitem" status="visible">
               <mock:shadow-root>
                 <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#" tabindex="0">
                   <slot name="image"></slot>
