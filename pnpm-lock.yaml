@@ -55,6 +55,9 @@ importers:
       '@docusaurus/core':
         specifier: 3.0.0-alpha.0
         version: 3.0.0-alpha.0(@docusaurus/types@3.0.0-alpha.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+      '@docusaurus/plugin-client-redirects':
+        specifier: 3.0.0-alpha.0
+        version: 3.0.0-alpha.0(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
       '@docusaurus/preset-classic':
         specifier: 3.0.0-alpha.0
         version: 3.0.0-alpha.0(@algolia/client-search@4.18.0)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.6.0)(typescript@4.9.5)
@@ -2815,6 +2818,43 @@ packages:
       - uglify-js
       - webpack-cli
 
+  /@docusaurus/plugin-client-redirects@3.0.0-alpha.0(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
+    resolution: { integrity: sha512-9nsXyS9JX6mnJllPmRssFs4Q+WKMCFgyqTR4K8dq6OScNcUleokMinEAPnFIM9euiqSZM1hsYDrx/uN/m3IPsg== }
+    engines: { node: '>=16.14' }
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    dependencies:
+      '@docusaurus/core': 3.0.0-alpha.0(@docusaurus/types@3.0.0-alpha.0)(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5)
+      '@docusaurus/logger': 3.0.0-alpha.0
+      '@docusaurus/utils': 3.0.0-alpha.0(@docusaurus/types@3.0.0-alpha.0)
+      '@docusaurus/utils-common': 3.0.0-alpha.0(@docusaurus/types@3.0.0-alpha.0)
+      '@docusaurus/utils-validation': 3.0.0-alpha.0(@docusaurus/types@3.0.0-alpha.0)
+      eta: 2.2.0
+      fs-extra: 11.1.1
+      lodash: 4.17.21
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.5.0
+    transitivePeerDependencies:
+      - '@docusaurus/types'
+      - '@parcel/css'
+      - '@swc/core'
+      - '@swc/css'
+      - bufferutil
+      - csso
+      - debug
+      - esbuild
+      - eslint
+      - lightningcss
+      - supports-color
+      - typescript
+      - uglify-js
+      - utf-8-validate
+      - vue-template-compiler
+      - webpack-cli
+    dev: false
+
   /@docusaurus/plugin-content-blog@3.0.0-alpha.0(react-dom@18.2.0)(react@18.2.0)(typescript@4.9.5):
     resolution: { integrity: sha512-ZKYq0Q888AeIPrTUhw6igq/e2Ee5WLENaOSy2uzVtPLieXu0BAw4gQqV2qyhZr0vwvMYhJ4Ke7KTMFSAgBXdyg== }
     engines: { node: '>=16.14' }
@@ -3415,7 +3455,6 @@ packages:
     cpu: [arm64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/android-arm@0.17.18:
@@ -3424,7 +3463,6 @@ packages:
     cpu: [arm]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/android-x64@0.17.18:
@@ -3433,7 +3471,6 @@ packages:
     cpu: [x64]
     os: [android]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/darwin-arm64@0.17.18:
@@ -3442,7 +3479,6 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/darwin-x64@0.17.18:
@@ -3451,7 +3487,6 @@ packages:
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/freebsd-arm64@0.17.18:
@@ -3460,7 +3495,6 @@ packages:
     cpu: [arm64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/freebsd-x64@0.17.18:
@@ -3469,7 +3503,6 @@ packages:
     cpu: [x64]
     os: [freebsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-arm64@0.17.18:
@@ -3478,7 +3511,6 @@ packages:
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-arm@0.17.18:
@@ -3487,7 +3519,6 @@ packages:
     cpu: [arm]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-ia32@0.17.18:
@@ -3496,7 +3527,6 @@ packages:
     cpu: [ia32]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-loong64@0.17.18:
@@ -3505,7 +3535,6 @@ packages:
     cpu: [loong64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-mips64el@0.17.18:
@@ -3514,7 +3543,6 @@ packages:
     cpu: [mips64el]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-ppc64@0.17.18:
@@ -3523,7 +3551,6 @@ packages:
     cpu: [ppc64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-riscv64@0.17.18:
@@ -3532,7 +3559,6 @@ packages:
     cpu: [riscv64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-s390x@0.17.18:
@@ -3541,7 +3567,6 @@ packages:
     cpu: [s390x]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/linux-x64@0.17.18:
@@ -3550,7 +3575,6 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/netbsd-x64@0.17.18:
@@ -3559,7 +3583,6 @@ packages:
     cpu: [x64]
     os: [netbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/openbsd-x64@0.17.18:
@@ -3568,7 +3591,6 @@ packages:
     cpu: [x64]
     os: [openbsd]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/sunos-x64@0.17.18:
@@ -3577,7 +3599,6 @@ packages:
     cpu: [x64]
     os: [sunos]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-arm64@0.17.18:
@@ -3586,7 +3607,6 @@ packages:
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-ia32@0.17.18:
@@ -3595,7 +3615,6 @@ packages:
     cpu: [ia32]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@esbuild/win32-x64@0.17.18:
@@ -3604,7 +3623,6 @@ packages:
     cpu: [x64]
     os: [win32]
     requiresBuild: true
-    dev: true
     optional: true
 
   /@eslint-community/eslint-utils@4.4.0(eslint@8.39.0):
@@ -9532,7 +9550,6 @@ packages:
       '@esbuild/win32-arm64': 0.17.18
       '@esbuild/win32-ia32': 0.17.18
       '@esbuild/win32-x64': 0.17.18
-    dev: true
 
   /escalade@3.1.1:
     resolution: { integrity: sha512-k0er2gUkLf8O0zKJiAhmkTnJlTvINGv7ygDNPbeIsX/TJjGJZHuh9B2UxbsaEkmlEo9MfhrSzmhIlhRlI2GXnw== }
@@ -18330,7 +18347,6 @@ packages:
       serialize-javascript: 6.0.1
       terser: 5.16.8
       webpack: 5.76.3(esbuild@0.17.18)
-    dev: true
 
   /terser-webpack-plugin@5.3.7(webpack@5.76.3):
     resolution: { integrity: sha512-AfKwIktyP7Cu50xNjXF/6Qb5lBNzYaWpU6YfoX3uZicTx0zTy0stDDCsvjDapKsSDvOeWo5MEq4TmdBy2cNoHw== }
@@ -19415,7 +19431,7 @@ packages:
       mime-types: 2.1.35
       range-parser: 1.2.1
       schema-utils: 4.2.0
-      webpack: 5.76.3
+      webpack: 5.76.3(esbuild@0.17.18)
 
   /webpack-dev-server@4.15.1(webpack@5.76.3):
     resolution: { integrity: sha512-5hbAst3h3C3L8w6W4P96L5vaV0PxSmJhxZvWKYIdgxOQm8pNZ5dEOmmSLBVpP85ReeyRt6AS1QJNyo/oFFPeVA== }
@@ -19568,7 +19584,6 @@ packages:
       - '@swc/core'
       - esbuild
       - uglify-js
-    dev: true
 
   /webpackbar@5.0.2(webpack@5.76.3):
     resolution: { integrity: sha512-BmFJo7veBDgQzfWXl/wwYXr/VFus0614qZ8i9znqcl9fnEdiVkdbi0TedLQ6xAK92HZHDJ0QmyQ0fmuZPAgCYQ== }

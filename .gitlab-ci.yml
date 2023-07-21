@@ -212,6 +212,19 @@ bot-publish:
   needs:
     - release
 
+docusaurus:
+  stage: release
+  extends:
+    - .rules:tags
+    - .install:dependencies
+  script:
+    - sh scripts/import-docs.sh
+    - cd apps/docusaurus
+    - pnpm build
+    - mv build ../../public
+  needs:
+    - release
+
 #################
 # mg-components #
 #################
@@ -226,7 +239,7 @@ bot-publish:
   script:
     - !reference [.mg-components:build, script]
     - pnpm storybook:build
-    - mv storybook-static ../../public
+    - mv storybook-static ../../public/storybook
 
 mg-components:artifact:
   stage: artifacts
@@ -252,7 +265,7 @@ storybook-mr:
       - public
   environment:
     name: review/$CI_COMMIT_REF_SLUG
-    url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html'
+    url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/storybook/index.html'
     auto_stop_in: 1 week
   needs:
     - lint
