@@ -1174,7 +1174,7 @@
           ];
           mgInputToggleOnOffReadonlyFalse.value = true;
         </script> -->
-        <section>
+        <section id="mg-form">
           <h2>mg-form</h2>
           <mg-form>
             <p>un paragraphe pour vérifier qu'il n'est pas impacté par la CSS.</p>
@@ -1292,6 +1292,9 @@
             const mgForm = document.querySelector('mg-form');
             mgForm.addEventListener('form-valid', e => {
               console.log('form-valid', e.detail);
+            });
+            mgForm.addEventListener('form-submit', e => {
+              console.log('form-submit', e.detail);
             });
             const mgFormButton = document.querySelector('#can-submit');
             mgForm.addEventListener('form-valid', function (e) {
