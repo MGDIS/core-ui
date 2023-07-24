@@ -11,7 +11,8 @@ describe('mg-pagination', () => {
     )('render %s', async (page: PageType, args: Partial<MgPagination>) => {
       await setPageContent(page, createHTML(args));
 
-      await expect(page.locator(args.totalPages > 1 ? '.e2e-screenshot' : 'body')).toHaveScreenshot();
+      if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      else await expect(page.locator('mg-pagination').isVisible).not.toBe(true);
     });
   });
 

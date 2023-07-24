@@ -16,9 +16,10 @@ It's possible to hide the page count to show only the "chevron" icons
 
 ## When to use it ?
 
-A pagination component should be displayed only when it is usefull, ex:
-- number of pages > 1
-- elements are displaied
+A pagination component should be displayed only when it is useful, for example:
+
+When the number of pages is greater than 1.
+When there are elements to be displayed.
 
 <!-- Auto Generated Below -->
 
