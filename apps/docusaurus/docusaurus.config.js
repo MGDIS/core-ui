@@ -45,7 +45,6 @@ const config = {
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
-
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   presets: [
@@ -75,8 +74,8 @@ const config = {
       navbar: {
         title: 'Core UI',
         logo: {
-          alt: '',
           src: 'img/mgdis.svg',
+          href: '/docs'
         },
         items: [
           {
