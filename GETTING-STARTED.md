@@ -8,7 +8,7 @@ git clone gitlab@gitlab.mgdis.fr:core/core-ui/core-ui.git
 
 ## pnpm
 
-To get started, make sure you have [pnpm](pnpm.io/) installed and activated using [corepack](https://nodejs.org/api/corepack.html):
+To get started, make sure you have [pnpm](https://pnpm.io/) installed and activated using [corepack](https://nodejs.org/api/corepack.html):
 
 ```sh
 corepack enable
@@ -23,7 +23,7 @@ pnpm i
 
 ## Project Structure
 
-All packages should be organized within the [packages/](./packages/) folder and written in [Typescript](https://www.typescriptlang.org/). Embracing TypeScript enhances the maintainability and stability of the codebase.
+All packages should be organized within the `packages/` folder and written in [Typescript](https://www.typescriptlang.org/). Embracing TypeScript enhances the maintainability and stability of the codebase.
 
 Packages must be initialized with version `0.0.0` and follow the `changeset` workflow. This helps to ensure proper versioning and smooth release management.
 
