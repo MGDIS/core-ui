@@ -248,9 +248,10 @@ docusaurus:
 
 .mg-components:build:storybook:
   script:
+    - mkdir -p public/storybook
     - !reference [.mg-components:build, script]
     - pnpm storybook:build
-    - mv storybook-static ../../public/storybook
+    - mv storybook-static/* ../../public/storybook
 
 mg-components:artifact:
   stage: artifacts
