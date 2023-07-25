@@ -1,0 +1,21 @@
+version: '3'
+
+# Setup a dedicated network using bridge driver
+networks:
+  integration-test-network:
+    driver: bridge
+
+services:
+  core-ui:
+    container_name: core-ui
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - integration-test-network
+  e2e-playwright-test:
+    image: 'mcr.microsoft.com/playwright:v1.36.0-jammy'
+    networks:
+      - integration-test-network
+    depends_on:
+      - core-ui
