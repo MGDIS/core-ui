@@ -137,6 +137,7 @@ test:e2e:playwright:
     - .install:dependencies
   script:
     - !reference [.install:jq, script]
+    - pnpm build
     - pnpm dlx playwright install
     - pnpm test:e2e:playwright
   artifacts:
