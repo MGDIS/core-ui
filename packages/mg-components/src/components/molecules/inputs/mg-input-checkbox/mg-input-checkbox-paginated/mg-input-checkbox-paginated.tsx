@@ -82,7 +82,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /**
    * Is checked items values expanded
    */
-  @State() itemsExpanded = true;
+  @State() expanded = true;
 
   /***********
    * Methods *
@@ -99,7 +99,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * Toogle items button handler
    */
   private handleToggleClick = (): void => {
-    this.itemsExpanded = !this.itemsExpanded;
+    this.expanded = !this.expanded;
   };
 
   /**
@@ -161,19 +161,19 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
       <Host hidden={this.checkboxes.length < 1}>
         <div class="mg-input__input-checkbox-multi-section-header">
           {this.titleKind === SectionTitleKind.BUTTON ? (
-            <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.itemsExpanded.toString()}>
-              <mg-icon icon={this.itemsExpanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
+            <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.expanded.toString()}>
+              <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
               <span class="mg-input__input-checkbox-multi-text">{getText(this.checkboxes)}</span>
             </mg-button>
           ) : (
             <p class="mg-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
           )}
-          {((this.sectionKind === SectionKind.SELECTED && this.itemsExpanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
+          {((this.sectionKind === SectionKind.SELECTED && this.expanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
             <mg-button variant="link" onClick={this.massActionHandler}>
               {this.messages.action}
             </mg-button>
           )}
-          {this.getPageCount(this.checkboxes) > 1 && (
+          {this.expanded && this.getPageCount(this.checkboxes) > 1 && (
             <mg-pagination
               key="search-pagination"
               totalPages={this.getPageCount(this.checkboxes)}
@@ -185,7 +185,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             ></mg-pagination>
           )}
         </div>
-        <div hidden={!this.itemsExpanded} id={itemsContainerId} class="mg-input__input-checkbox-multi-section-content">
+        <div hidden={!this.expanded} id={itemsContainerId} class="mg-input__input-checkbox-multi-section-content">
           <MgInputCheckboxList
             checkboxes={this.getArrayRange(this.checkboxes, checkboxItemsFromIndex, checkboxItemsToIndex)}
             inputVerticalList={true}
