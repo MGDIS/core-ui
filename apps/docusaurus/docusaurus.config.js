@@ -49,8 +49,6 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          showLastUpdateTime: true,
-          showLastUpdateAuthor: true,
           sidebarPath: require.resolve('./sidebars.js'),
           async sidebarItemsGenerator({ defaultSidebarItemsGenerator, ...args }) {
             return updateItems(await defaultSidebarItemsGenerator(args));
@@ -68,9 +66,14 @@ const config = {
         title: 'Core UI',
         logo: {
           src: 'img/mgdis.svg',
-          href: '/docs/'
+          href: '/docs/',
         },
         items: [
+          {
+            href: 'http://core.pages.mgdis.fr/core-ui/core-ui/storybook/',
+            label: 'MG-Components Storybook',
+            position: 'right',
+          },
           {
             href: 'https://gitlab.mgdis.fr/core/core-ui/core-ui/',
             label: 'GitLab',
