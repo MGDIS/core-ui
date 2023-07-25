@@ -12,7 +12,7 @@ describe('mg-pagination', () => {
       await setPageContent(page, createHTML(args));
 
       if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      else await expect(page.locator('mg-pagination').isVisible).not.toBe(true);
+      else expect(await page.locator('mg-pagination').isVisible()).toBe(false);
     });
   });
 
