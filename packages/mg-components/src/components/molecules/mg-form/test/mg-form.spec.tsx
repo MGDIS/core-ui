@@ -210,6 +210,7 @@ describe('mg-form', () => {
       expect(formSpy).toHaveBeenCalledWith(
         expect.objectContaining({
           type: 'submit',
+          cancelable: true,
         }),
       );
       expect(mgFormSpy).toHaveBeenCalled();

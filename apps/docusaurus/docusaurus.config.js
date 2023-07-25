@@ -37,14 +37,10 @@ const updateItems = items => {
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Core UI',
-  tagline: 'Core UI packages',
+  tagline: 'Core UI packages documentation',
   favicon: 'img/favicon.ico',
-
-  // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  url: 'http://core.pages.mgdis.fr',
+  baseUrl: '/core-ui/core-ui/',
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   presets: [
@@ -61,9 +57,6 @@ const config = {
           },
         },
         blog: false,
-        theme: {
-          customCss: require.resolve('./src/css/custom.css'),
-        },
       }),
     ],
   ],
@@ -75,7 +68,7 @@ const config = {
         title: 'Core UI',
         logo: {
           src: 'img/mgdis.svg',
-          href: '/docs'
+          href: '/docs/'
         },
         items: [
           {

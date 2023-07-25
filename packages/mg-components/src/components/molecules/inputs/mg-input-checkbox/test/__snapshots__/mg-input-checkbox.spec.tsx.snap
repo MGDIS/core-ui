@@ -2724,38 +2724,6 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                           </em>
                         </span>
                       </mg-button>
-                      <mg-pagination current-page="1">
-                        <mock:shadow-root>
-                          <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-selected">
-                            <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                              <mock:shadow-root>
-                                <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-selected-button-previous">
-                                  <div class="mg-button__content">
-                                    <slot></slot>
-                                  </div>
-                                </div>
-                              </mock:shadow-root>
-                              <mg-icon icon="chevron-left"></mg-icon>
-                            </mg-button>
-                            <span class="sr-only">
-                              page 1
-                            </span>
-                            <span class="sr-only">
-                              / 3 pages
-                            </span>
-                            <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
-                              <mock:shadow-root>
-                                <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-selected-button-next">
-                                  <div class="mg-button__content">
-                                    <slot></slot>
-                                  </div>
-                                </div>
-                              </mock:shadow-root>
-                              <mg-icon icon="chevron-right"></mg-icon>
-                            </mg-button>
-                          </nav>
-                        </mock:shadow-root>
-                      </mg-pagination>
                     </div>
                     <div class="mg-input__input-checkbox-multi-section-content" hidden="" id="items-selected-container">
                       <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
