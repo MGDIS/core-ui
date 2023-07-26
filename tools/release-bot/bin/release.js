@@ -41,7 +41,7 @@ const converter = new showdown.Converter();
   }
 
   // TODO: Storybook is for now dedicated to mg-components but it is planned to make it the core-ui website.
-  changelog.push(`\nView the complete changelog file here : [CHANGELOG](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/changelog--docs)`);
+  changelog.push(`\nView the complete changelog file here: [CHANGELOG](http://core.pages.mgdis.fr/core-ui/core-ui/docs/CHANGELOG)`);
 
   const message = {
     title: 'Core UI release',

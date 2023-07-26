@@ -1,5 +1,6 @@
 import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '../../../../utils/e2e.test.utils';
+import { MgPagination } from '../mg-pagination';
 
 const createHTML = args => `<mg-pagination ${renderAttributes(args)}></mg-pagination>`;
 
@@ -7,15 +8,16 @@ describe('mg-pagination', () => {
   describe('template', () => {
     testEach(
       [1, 2, 3].flatMap(totalPages => [true, false].flatMap(hidePageCount => [true, false].map(hideNavigationLabels => ({ totalPages, hideNavigationLabels, hidePageCount })))),
-    )('render %s', async (page: PageType, args) => {
+    )('render %s', async (page: PageType, args: Partial<MgPagination>) => {
       await setPageContent(page, createHTML(args));
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      else expect(await page.locator('mg-pagination').isVisible()).toBe(false);
     });
   });
 
   describe('navigation', () => {
-    testEach([1, 2, 3, 10])('should success mouse navigation %s', async (page: PageType, totalPages: number) => {
+    testEach([2, 3, 10])('should success mouse navigation %s', async (page: PageType, totalPages: number) => {
       await setPageContent(page, createHTML({ totalPages }));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

@@ -223,16 +223,17 @@ bot-publish:
   needs:
     - release
 
-docusaurus:
+pages:
   stage: release
   extends:
     - .rules:tags
     - .install:dependencies
   script:
-    - sh scripts/import-docs.sh
-    - cd apps/docusaurus
-    - pnpm build
-    - mv build ../../public
+    - !reference [.docusaurus, script]
+    - !reference [.mg-components:build:storybook, script]
+  artifacts:
+    paths:
+      - public
   needs:
     - release
 
@@ -245,6 +246,12 @@ docusaurus:
     - pnpm build --filter=@mgdis/img
     - cd packages/mg-components
     - pnpm build
+
+.docusaurus:
+  script:
+    - pnpm build --filter=docusaurus
+    - mkdir -p public
+    - mv apps/docusaurus/build/* public
 
 .mg-components:build:storybook:
   script:
@@ -291,16 +298,6 @@ chromatic:publish:
   script:
     - !reference [.mg-components:build, script]
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
-
-pages:
-  stage: mg-components
-  extends:
-    - .rules:tags
-    - .install:dependencies
-    - .mg-components:build:storybook
-  artifacts:
-    paths:
-      - public
 
 mg-components:npmjs:
   extends:

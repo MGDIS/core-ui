@@ -1,5 +1,20 @@
 # @mgdis/mg-components
 
+## 5.14.0
+
+### Minor Changes
+
+- 150e0ac: [**`<mg-pagination>`**](./?path=/docs/molecules-mg-pagination--docs) display pagination only when total page is higher than 1
+- 0ccdc22: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) hide pagination when section is not expanded
+
+### Patch Changes
+
+- f7d792f: [#347](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/347) mg-panel / mg-detail - stabilize e2e test
+- 79211b5: [#93](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/93) mg-form - Reload the page on form submission
+- 75e94a0: [#348](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/348) mg-component - e2e test can't resolve icons assets path
+- 272925a: [#343](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/343) mg-input-select: mg-width 2 and 4 not working
+- 928bb0e: [#342](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/342) [Firefox] mg-modal: keep focus on modal
+
 ## 5.13.1
 
 ### Patch Changes

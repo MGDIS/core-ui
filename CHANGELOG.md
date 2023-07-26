@@ -1,5 +1,11 @@
 # Changelog
 
+## Release (2023-07-25-16-29_Thankful-Turquoise-Blue-Tiger)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-07-19-13-36_Exuberant-Eggplant-Emu)
 
 ### Packages released
