@@ -7,8 +7,8 @@ function clean() {
 }
 
 # prepare image content
-corepack enable
 pnpm build
+
 docker build --platform linux/amd64 -t coreui-e2e:latest .
 
 echo "Press CTRL + C once tests are finished"

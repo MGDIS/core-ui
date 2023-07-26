@@ -19,6 +19,9 @@
     "test:e2e:playwright": {
       "dependsOn": []
     },
+    "test:e2e:playwright:docker": {
+      "dependsOn": []
+    },
     "test:watch": {},
     "coverage": {
       "dependsOn": ["build", "^build"],

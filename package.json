@@ -22,9 +22,10 @@
     "test:unit": "turbo test:unit",
     "test:e2e": "turbo test:e2e",
     "test:e2e:playwright": "turbo test:e2e:playwright --concurrency=1",
+    "test:e2e:playwright:docker": "./utils/run-e2e.sh",
+    "test:e2e:playwright:mg-components:report": "python3 -m http.server -d packages/mg-components/playwright-report",
+    "test:e2e:playwright:notification-center:report": "python3 -m http.server -d packages/notification-center/playwright-report",
     "test:watch": "turbo test:watch",
-    "test:e2e:playwright:docker:build": "docker build --no-cache -t core-ui .",
-    "test:e2e:playwright:docker:run": "docker run -it core-ui:latest pnpm test:e2e:playwright",
     "coverage": "run-s -l turbo:coverage report:merge junit:merge",
     "turbo:coverage": "turbo coverage --concurrency=1 --force",
     "junit:merge": "jrm ./coverage/junit.xml ./packages/**/junit.xml",
@@ -46,7 +47,7 @@
     ]
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --fix",
+    "*.{js,ts,tsx}": "eslint --fix --ignore-path .gitignore",
     "*.{json,yaml,yml,md,mdx}": "prettier --write"
   },
   "dependencies": {

@@ -3,18 +3,6 @@ import { type Page, ViewportSize, test as playwrightTest, expect as playwrightEx
 import { readFile } from 'fs/promises';
 import { join } from 'path';
 
-const getCss = (attempt = 1): Promise<string> => {
-  const path = '../../www/build/mg-components.css';
-  if (attempt > 5) throw new Error(`Canno't get file at path "${path}"`);
-  try {
-    return readFile(join(__dirname, path), { encoding: 'utf8' });
-  } catch (err) {
-    return new Promise(resolve => {
-      setTimeout(() => resolve(getCss(attempt++)), 1000);
-    });
-  }
-};
-
 /**
  * Add mg-components to browser page
  *
@@ -27,7 +15,7 @@ export const setPageContent = async (page: Page, html: string, viewportSize?: Vi
   // await page.addStyleTag({ url: 'http://localhost:3333/build/mg-components.css' });
 
   // CSS
-  const css = await getCss();
+  const css = await readFile(join(__dirname, '../../www/build/mg-components.css'), { encoding: 'utf8' });
   await page.addStyleTag({ content: css });
 
   // JS
