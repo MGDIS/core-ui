@@ -115,18 +115,25 @@ export class MgForm {
     this.classCollection.delete(this.classAllRequired);
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)
-    if (!this.disabled && !this.readonly && !this.mgInputs.every(input => input.disabled || input.readonly)) {
-      // Get required fields
-      const requiredInputs = this.mgInputs.filter(input => input.required && !input.disabled && !input.readonly);
-      // All fields are required
+    const isEditable = input => !(input.disabled || input.readonly);
+    const isMgInputToggle = input => input.nodeName === 'MG-INPUT-TOGGLE';
+    if (!this.disabled && !this.readonly && this.mgInputs.some(input => isEditable(input) && !isMgInputToggle(input))) {
+      // Get editable inputs
+      const editableInputs = this.mgInputs.filter(isEditable);
+      // Get required inputs
       // mg-input-toggle can not be required
-      if (requiredInputs.length > 0 && requiredInputs.length === this.mgInputs.filter(input => input.nodeName !== 'MG-INPUT-TOGGLE').length) {
-        this.requiredMessage = requiredInputs.length === 1 ? this.messages.form.allRequiredSingle : this.messages.form.allRequired;
+      const requiredInputs = editableInputs.filter(input => !isMgInputToggle(input) && input.required);
+      // All inputs are required
+      if (
+        [requiredInputs.length, editableInputs.length].every(length => length === 1) ||
+        (requiredInputs.length > 1 && requiredInputs.length === editableInputs.filter(input => !isMgInputToggle(input)).length)
+      ) {
+        this.requiredMessage = this.messages.form[requiredInputs.length === 1 ? 'allRequiredSingle' : 'allRequired'];
         this.classCollection.add(this.classAllRequired);
       }
       // Some fields are required
       else if (requiredInputs.length > 0) {
-        this.requiredMessage = requiredInputs.length === 1 ? this.messages.form.requiredSingle : this.messages.form.required;
+        this.requiredMessage = this.messages.form[requiredInputs.length === 1 ? 'requiredSingle' : 'required'];
       }
     }
   };
