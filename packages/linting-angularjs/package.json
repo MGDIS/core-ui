@@ -1,0 +1,28 @@
+{
+  "name": "@mgdis/linting-angularjs",
+  "version": "3.11.3",
+  "description": "AngularJS Linting MGDIS rules",
+  "main": "index.js",
+  "bin": {
+    "linting-angularjs-prepare": "./bin/linting-angularjs-prepare.js"
+  },
+  "maintainers": [
+    "Simon Duhem <duhem-s@mgdis.fr>",
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>"
+  ],
+  "dependencies": {
+    "@babel/eslint-parser": "^7.x",
+    "@html-eslint/eslint-plugin": "^0.x",
+    "@html-eslint/parser": "^0.13.1",
+    "@mgdis/eslint-plugin-html": "workspace:*",
+    "eslint": "^8.x",
+    "eslint-plugin-angular": "^4.x",
+    "eslint-plugin-jsdoc": "^39.x",
+    "eslint-plugin-prettier": "^4.x",
+    "prettier": "^2.8.4"
+  },
+  "devDependencies": {
+    "jest-config": "workspace:*",
+    "tsconfig": "workspace:*"
+  }
+}

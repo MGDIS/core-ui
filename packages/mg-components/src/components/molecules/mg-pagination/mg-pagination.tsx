@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, Watch, Event, EventEmitter } from '@stencil/core';
+import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
 import { createID } from '../../../utils/components.utils';
 import { NavigationAction } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
@@ -172,27 +172,29 @@ export class MgPagination {
     );
 
     return (
-      <nav aria-label={this.label} id={this.identifier} class={{ 'mg-pagination': true, 'mg-pagination--hide-page-count': this.hidePageCount }}>
-        {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
-        {!this.hidePageCount && (
-          <mg-input-select
-            identifier={`${this.identifier}-select`}
-            items={range(1, this.totalPages).map(page => page.toString())}
-            label={this.messages.pagination.selectPage}
-            label-hide={true}
-            on-value-change={this.handleSelect}
-            value={this.currentPage.toString()}
-            placeholder-hide
-          ></mg-input-select>
-        )}
-        <span class="sr-only">
-          {this.messages.pagination.page} {this.currentPage}
-        </span>
-        <span class={{ 'sr-only': this.hidePageCount }}>
-          / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
-        </span>
-        {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}
-      </nav>
+      <Host hidden={this.totalPages < 2}>
+        <nav aria-label={this.label} id={this.identifier} class={{ 'mg-pagination': true, 'mg-pagination--hide-page-count': this.hidePageCount }}>
+          {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
+          {!this.hidePageCount && (
+            <mg-input-select
+              identifier={`${this.identifier}-select`}
+              items={range(1, this.totalPages).map(page => page.toString())}
+              label={this.messages.pagination.selectPage}
+              label-hide={true}
+              on-value-change={this.handleSelect}
+              value={this.currentPage.toString()}
+              placeholder-hide
+            ></mg-input-select>
+          )}
+          <span class="sr-only">
+            {this.messages.pagination.page} {this.currentPage}
+          </span>
+          <span class={{ 'sr-only': this.hidePageCount }}>
+            / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
+          </span>
+          {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}
+        </nav>
+      </Host>
     );
   }
 }

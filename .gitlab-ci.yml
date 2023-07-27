@@ -197,7 +197,7 @@ chromatic:mr:
   extends:
     - .rules:tags
   script:
-    - sh utils/open-merge-request.sh
+    - sh scripts/open-merge-request.sh
   needs:
     - chromatic:publish
 
@@ -224,6 +224,20 @@ bot-publish:
   needs:
     - release
 
+pages:
+  stage: release
+  extends:
+    - .rules:tags
+    - .install:dependencies
+  script:
+    - !reference [.docusaurus, script]
+    - !reference [.mg-components:build:storybook, script]
+  artifacts:
+    paths:
+      - public
+  needs:
+    - release
+
 #################
 # mg-components #
 #################
@@ -234,11 +248,18 @@ bot-publish:
     - cd packages/mg-components
     - pnpm build
 
+.docusaurus:
+  script:
+    - pnpm build --filter=docusaurus
+    - mkdir -p public
+    - mv apps/docusaurus/build/* public
+
 .mg-components:build:storybook:
   script:
+    - mkdir -p public/storybook
     - !reference [.mg-components:build, script]
     - pnpm storybook:build
-    - mv storybook-static ../../public
+    - mv storybook-static/* ../../public/storybook
 
 mg-components:artifact:
   stage: artifacts
@@ -264,7 +285,7 @@ storybook-mr:
       - public
   environment:
     name: review/$CI_COMMIT_REF_SLUG
-    url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/index.html'
+    url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/storybook/index.html'
     auto_stop_in: 1 week
   needs:
     - lint
@@ -278,16 +299,6 @@ chromatic:publish:
   script:
     - !reference [.mg-components:build, script]
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
-
-pages:
-  stage: mg-components
-  extends:
-    - .rules:tags
-    - .install:dependencies
-    - .mg-components:build:storybook
-  artifacts:
-    paths:
-      - public
 
 mg-components:npmjs:
   extends:
