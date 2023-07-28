@@ -4,7 +4,7 @@ services:
   e2e-playwright-test:
     image: 'coreui-e2e:latest'
     ports:
-      - 9323:9323
+      - 3333:3333
     volumes:
       - ./packages/mg-components:/app/packages/mg-components
       - ./packages/notification-center:/app/packages/notification-center

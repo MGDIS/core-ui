@@ -1,0 +1,24 @@
+{
+  "name": "@mgdis/mg-components",
+  "version": "5.14.0",
+  "description": "MG Components",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/mg-components/mg-components.esm.js",
+  "files": ["dist/", "loader/"],
+  "maintainers": ["Simon Duhem <duhem-s@mgdis.fr>", "Nicolas Jouanno <jouanno-n@mgdis.fr>"],
+  "scripts": {
+    "start": "stencil build --dev --watch --serve",
+    "e2e:playwright": "pnpx playwright test",
+    "e2e:server": "cd www && python3 -m http.server"
+  },
+  "dependencies": {
+    "@stencil/core": "^2.22.1",
+    "@stencil/sass": "^1.5.2"
+  }
+}
