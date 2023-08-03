@@ -1,5 +1,17 @@
 # @mgdis/mg-components
 
+## 5.15.0
+
+### Minor Changes
+
+- c4cc4ef: Add icons
+
+### Patch Changes
+
+- e603900: [#350](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/350) mg-form: Required fields should include the readonly inputs in its display condition
+- Updated dependencies [c4cc4ef]
+  - @mgdis/img@1.1.0
+
 ## 5.14.0
 
 ### Minor Changes

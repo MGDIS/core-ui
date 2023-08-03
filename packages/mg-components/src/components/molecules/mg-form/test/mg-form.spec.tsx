@@ -253,4 +253,111 @@ describe('mg-form', () => {
     expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
     expect(page.rootInstance.setRequiredMessage).toHaveBeenCalled();
   });
+
+  test.each([
+    {
+      slot: () => [<mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
+      message: null,
+    },
+    {
+      slot: () => [
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: null,
+    },
+    {
+      slot: () => [<mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
+      message: 'The field is required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'Field with a <strong class="is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'Fields with a <strong class="is-asterisk">*</strong> are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="is-asterisk">*</strong> is required',
+    },
+  ])('Should display needeed required message', async ({ slot, message }) => {
+    const page = await getPage({ identifier: 'identifier' }, slot());
+
+    expect(page.rootInstance.requiredMessage).toBe(message);
+  });
 });
