@@ -1,0 +1,10 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-idiomatic-order"],
+  "rules": {
+    "declaration-property-value-no-unknown": true,
+    "declaration-no-important": true,
+    "unit-disallowed-list": "px",
+    "custom-property-pattern": "mg-[a-z0-9_-]+",
+    "selector-class-pattern": "mg-(c|l|u)-[a-z0-9_-]+"
+  }
+}

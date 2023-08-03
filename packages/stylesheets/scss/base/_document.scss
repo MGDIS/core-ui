@@ -1,0 +1,16 @@
+/**
+ We set html font size to 62.5% to get 10px in most of the case.
+ This is a common use for an easiest calculation : 1rem = 10px
+ Default font size will be defined in body element.
+*/
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: var(--mg-body-font-family);
+  font-size: var(--mg-body-font-size);
+  -webkit-font-smoothing: antialiased;
+  line-height: var(--mg-body-line-height);
+}
