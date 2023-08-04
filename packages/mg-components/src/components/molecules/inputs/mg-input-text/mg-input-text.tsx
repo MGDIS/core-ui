@@ -367,8 +367,8 @@ export class MgInputText {
             onInput={this.handleInput}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            ref={el => {
-              if (el !== null) this.input = el as HTMLInputElement;
+            ref={(el: HTMLInputElement) => {
+              if (el !== null) this.input = el;
             }}
           />
           {this.displayCharacterLeft && this.maxlength > 0 && (

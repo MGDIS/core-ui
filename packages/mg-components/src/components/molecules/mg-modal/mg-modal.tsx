@@ -232,7 +232,7 @@ export class MgModal {
                     variant="flat"
                     label={this.messages.modal.closeButton}
                     onClick={this.handleClose}
-                    ref={el => {
+                    ref={(el: HTMLMgButtonElement) => {
                       if (el !== null) {
                         // store closeButton Element
                         this.closeButtonElement = el;

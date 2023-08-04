@@ -18,7 +18,7 @@ perform_gitlab_request() {
 created_branch=$(perform_gitlab_request "repository/branches?branch=$branch_name&ref=master")
 
 # Create MR
-created_merge_request=$(perform_gitlab_request "merge_requests?source_branch=$branch_name&target_branch=master&title=$mr_title&description=$mr_description")
+created_merge_request=$(perform_gitlab_request "merge_requests?source_branch=$branch_name&target_branch=master&title=$mr_title&description=$mr_description&remove_source_branch=true")
 
 merge_request_url=$(echo $created_merge_request | tr '\r\n' ' ' | jq '.web_url' | tr -d '"')
 

@@ -312,8 +312,8 @@ export class MgInputDate {
           required={this.required}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLInputElement;
+          ref={(el: HTMLInputElement) => {
+            if (el !== null) this.input = el;
           }}
         />
       </MgInput>
