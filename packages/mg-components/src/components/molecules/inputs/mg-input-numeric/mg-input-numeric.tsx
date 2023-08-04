@@ -51,24 +51,50 @@ export class MgInputNumeric {
       // Split number and decimal
       const [integer, decimal = ''] = newValue.replace('-', '').split(/[\.,]/);
       // Regex
-      const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+[.,]?\d*$/;
+      const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+(?:[.,]\d*)?$/;
       // Filter input
-      if (['', '-'].includes(newValue) || (newValue.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))) {
+      if (this.isValidValue(newValue, regex, integer, decimal)) {
         this.storedValue = newValue;
-      } else if (this.storedValue !== undefined) {
-        newValue = this.storedValue;
       } else {
-        newValue = null;
+        newValue = this.handleInvalidValue();
       }
       // Set value and input value
-      this.value = newValue;
-      if (this.input !== undefined) this.input.value = this.value;
-      // emit numeric value
-      this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
-      this.valueChange.emit(this.numericValue);
-      // Set readonlyValue
-      this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
+      this.updateValues(newValue);
     }
+  }
+
+  /**
+   * Checks if the given value is valid according to the defined rules.
+   * @param value - The input value to validate.
+   * @param regex - The regular expression for validation.
+   * @param integer - The integer part of the value.
+   * @param decimal - The decimal part of the value.
+   * @returns Returns true if the value is valid, otherwise false.
+   */
+  private isValidValue(value: string, regex: RegExp, integer: string, decimal: string): boolean {
+    return ['', '-'].includes(value) || (value.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength));
+  }
+
+  /**
+   * Handles invalid input values and returns a corrected value.
+   * @returns The corrected value.
+   */
+  private handleInvalidValue(): string | null {
+    return this.storedValue !== undefined ? this.storedValue : null;
+  }
+
+  /**
+   * Updates the component values based on the validated input value.
+   * @param newValue - The validated input value.
+   */
+  private updateValues(newValue: string | null): void {
+    this.value = newValue;
+    if (this.input !== undefined) this.input.value = this.value;
+
+    this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
+    this.valueChange.emit(this.numericValue);
+
+    this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
   }
 
   /**
@@ -415,8 +441,8 @@ export class MgInputNumeric {
           onInput={this.handleInput}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLInputElement;
+          ref={(el: HTMLInputElement) => {
+            if (el !== null) this.input = el;
           }}
         />
         <slot name="append-input"></slot>

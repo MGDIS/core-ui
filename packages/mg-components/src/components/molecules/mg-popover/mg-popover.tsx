@@ -94,11 +94,8 @@ export class MgPopover {
    * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
-    if (
-      !this.disabled &&
-      event.target.closest('mg-popover') !== this.element &&
-      !((event.target.closest(`[data-mg-popover-guard]`) as HTMLElement)?.dataset.mgPopoverGuard === this.identifier)
-    ) {
+    const closestElement: HTMLElement = event.target.closest(`[data-mg-popover-guard]`);
+    if (!this.disabled && event.target.closest('mg-popover') !== this.element && closestElement?.dataset.mgPopoverGuard !== this.identifier) {
       this.display = false;
     }
   };
@@ -189,7 +186,7 @@ export class MgPopover {
     this.mgPopover = this.element.shadowRoot.getElementById(this.identifier);
 
     //Get interactive element (first element without slot attribute)
-    const interactiveElement = this.element.querySelector(':not([slot])') as HTMLElement;
+    const interactiveElement: HTMLElement = this.element.querySelector(':not([slot])');
     // Add aria attributes
     interactiveElement.setAttribute('aria-controls', this.identifier);
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);

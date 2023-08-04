@@ -119,24 +119,34 @@ export class MgForm {
     const isMgInputToggle = input => input.nodeName === 'MG-INPUT-TOGGLE';
     if (!this.disabled && !this.readonly && this.mgInputs.some(input => isEditable(input) && !isMgInputToggle(input))) {
       // Get editable inputs
-      const editableInputs = this.mgInputs.filter(isEditable);
+      const editableInputs: HTMLMgInputsElement[] = this.mgInputs.filter(isEditable);
       // Get required inputs
       // mg-input-toggle can not be required
-      const requiredInputs = editableInputs.filter(input => !isMgInputToggle(input) && input.required);
+      const requiredInputs: HTMLMgInputsElement[] = editableInputs.filter(input => !isMgInputToggle(input) && input.required);
       // All inputs are required
       if (
         [requiredInputs.length, editableInputs.length].every(length => length === 1) ||
         (requiredInputs.length > 1 && requiredInputs.length === editableInputs.filter(input => !isMgInputToggle(input)).length)
       ) {
-        this.requiredMessage = this.messages.form[requiredInputs.length === 1 ? 'allRequiredSingle' : 'allRequired'];
+        this.requiredMessage = this.getRequiredMessageBasedOnCount(requiredInputs, 'allRequiredSingle', 'allRequired');
         this.classCollection.add(this.classAllRequired);
       }
       // Some fields are required
       else if (requiredInputs.length > 0) {
-        this.requiredMessage = this.messages.form[requiredInputs.length === 1 ? 'requiredSingle' : 'required'];
+        this.requiredMessage = this.getRequiredMessageBasedOnCount(requiredInputs, 'requiredSingle', 'required');
       }
     }
   };
+
+  /**
+   * Returns a required message based on the count of required inputs.
+   * @param requiredInputs - An array of required input elements.
+   * @param keySingle - The key for the singular message format.
+   * @param keyPlural - The key for the plural message format.
+   * @returns The appropriate required message based on the count of required inputs.
+   */
+  private getRequiredMessageBasedOnCount = (requiredInputs: HTMLMgInputsElement[], keySingle: string, keyPlural: string) =>
+    this.messages.form[requiredInputs.length === 1 ? keySingle : keyPlural];
 
   /**
    * Check if form is valid
@@ -236,7 +246,7 @@ export class MgForm {
    */
   render(): HTMLElement {
     return (
-      <form class={this.classCollection.join()} id={this.identifier} name={this.name} ref={el => (this.form = el as HTMLFormElement)} onSubmit={this.handleFormSubmit}>
+      <form class={this.classCollection.join()} id={this.identifier} name={this.name} ref={(el: HTMLFormElement) => (this.form = el)} onSubmit={this.handleFormSubmit}>
         {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}

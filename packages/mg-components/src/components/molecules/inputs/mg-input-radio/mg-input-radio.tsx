@@ -291,8 +291,8 @@ export class MgInputRadio {
                 required={this.required}
                 onBlur={this.handleBlur}
                 onInput={this.handleInput}
-                ref={el => {
-                  if (el !== null) this.inputs[index] = el as HTMLInputElement;
+                ref={(el: HTMLInputElement) => {
+                  if (el !== null) this.inputs[index] = el;
                 }}
               />
               <label htmlFor={this.identifier + '_' + index}>{input.title}</label>

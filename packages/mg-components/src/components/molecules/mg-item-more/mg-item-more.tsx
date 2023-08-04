@@ -33,7 +33,7 @@ export class MgItemMore {
   @Prop() icon: IconType = { icon: 'ellipsis-vertical' };
   @Watch('icon')
   validateIcon(newValue: MgItemMore['icon']): void {
-    if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof (newValue as MgItemMore['icon']).icon !== 'string'))
+    if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.icon !== 'string'))
       throw new Error(`<${this.name}> prop "icon" must match MgItemMore['icon'] type.`);
   }
 
@@ -83,7 +83,8 @@ export class MgItemMore {
       // manage click on proxy to mirror it on initial element
       proxy.addEventListener('click', () => {
         // be carefull to use element.click() method instead of dispatchEvent to ensure bubbles outside shadowDom
-        (allMenuItem[index].shadowRoot.querySelector('a, button') as HTMLButtonElement | HTMLAnchorElement).click();
+        const navElement = allMenuItem[index].shadowRoot.querySelector('a, button');
+        if (navElement instanceof HTMLButtonElement || navElement instanceof HTMLAnchorElement) navElement.click();
       });
 
       // add id suffix to prevent duplicate key. default html id is: '';
