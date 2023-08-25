@@ -1,3 +1,4 @@
+import { dirname, join } from 'path';
 const { readdirSync, statSync } = require('fs');
 const { join } = require('path');
 
@@ -22,11 +23,24 @@ const getFilePathsEndingWith = (folderPath: string, folderName: string): string[
   return filePaths;
 };
 
+/**
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ * @param value - module to resolve
+ * @returns module with absolute path
+ */
+const getAbsolutePath = (value: string): any => dirname(require.resolve(join(value, 'package.json')));
+
 module.exports = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(tsx)'],
-  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil', '@storybook/addon-a11y', '@storybook/addon-mdx-gfm'],
+  addons: [
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@pxtrn/storybook-addon-docs-stencil'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
+  ],
   framework: {
-    name: '@storybook/html-webpack5',
+    name: getAbsolutePath('@storybook/html-webpack5'),
     options: {},
   },
   docs: {
@@ -78,8 +92,10 @@ module.exports = {
         'v5.11.1': 'https://626149b307606d003ada26b4-dchaczbhrl.chromatic.com',
         'v5.12.0': 'https://626149b307606d003ada26b4-flbkczbwjs.chromatic.com',
         'v5.12.1': 'https://626149b307606d003ada26b4-cqhhmkwykv.chromatic.com',
-        '5.13.0': 'https://626149b307606d003ada26b4-irorwpapfk.chromatic.com/',
-        '5.13.1': 'https://626149b307606d003ada26b4-atpwyeuops.chromatic.com/',
+        'v5.13.0': 'https://626149b307606d003ada26b4-irorwpapfk.chromatic.com',
+        'v5.13.1': 'https://626149b307606d003ada26b4-atpwyeuops.chromatic.com',
+        'v5.14.0': 'https://626149b307606d003ada26b4-wdzpusywea.chromatic.com',
+        'v5.15.0': 'https://626149b307606d003ada26b4-visofofaay.chromatic.com',
       },
     },
   },

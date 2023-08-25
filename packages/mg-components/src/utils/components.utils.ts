@@ -5,11 +5,16 @@
  * @returns ID
  */
 export const createID = (prefix = '', length = 10): string => {
-  let ID = '';
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
   const charsLength = chars.length;
-  for (let i = 0; i < length; i++) {
-    ID += chars.charAt(Math.floor(Math.random() * charsLength));
+
+  let ID = '';
+  let now = Date.now();
+  while (length > 0) {
+    now += Math.pow(10, 6); // Add 1 millisecond to the timestamp
+    const index = now % charsLength;
+    ID += chars.charAt(index);
+    length--;
   }
   return (prefix !== '' ? `${prefix}-` : '') + ID;
 };
@@ -130,10 +135,7 @@ export const getParentWindows = (localWindow: Window, windows: Window[] = []): W
  */
 const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] => {
   if (localWindow.frames.length > 0) {
-    // Window.frames is an array-like object, needs a classic for loop
-    // https://developer.mozilla.org/en-US/docs/Web/API/Window/frames
-    for (let i = 0; i < localWindow.frames.length; i++) {
-      const childWindow: Window = localWindow.frames[i];
+    for (const childWindow of Array.from(localWindow.frames)) {
       windows.push(childWindow);
       getChildWindows(childWindow, windows);
     }

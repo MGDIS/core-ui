@@ -517,7 +517,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
           onDisplay-change={this.handleMgPopoverDisplayChange}
-          ref={el => {
+          ref={(el: HTMLMgPopoverElement) => {
             if (Boolean(el)) this.mgPopover = el;
           }}
         >

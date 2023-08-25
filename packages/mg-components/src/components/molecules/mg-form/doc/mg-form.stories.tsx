@@ -27,7 +27,7 @@ const Template = (args: any): HTMLElement => {
   return (
     <mg-form
       {...filterArgs(args)}
-      ref={el => {
+      ref={(el: HTMLMgFormElement) => {
         form = el;
         form.addEventListener('form-valid', e => {
           submit.disabled = !e.detail;

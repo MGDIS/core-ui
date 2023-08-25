@@ -346,8 +346,8 @@ export class MgInputTextarea {
             onInput={this.handleInput}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            ref={el => {
-              if (el !== null) this.input = el as HTMLTextAreaElement;
+            ref={(el: HTMLTextAreaElement) => {
+              if (el !== null) this.input = el;
             }}
           ></textarea>
           {this.displayCharacterLeft && this.maxlength > 0 && (
