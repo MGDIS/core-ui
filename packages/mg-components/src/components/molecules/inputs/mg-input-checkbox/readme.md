@@ -92,11 +92,11 @@ The component is ajusting with the space available. If the width is not enought 
 
 #### Spacing
 
-![](./doc/img/mg-input-checkbox-values-not-displayed-style.png)
+![](./doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
 
 #### Style
 
-![](./doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
+![](./doc/img/mg-input-checkbox-values-not-displayed-style.png)
 
 ## CSS Variables
 
