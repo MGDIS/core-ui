@@ -635,7 +635,7 @@ importers:
         version: link:../mg-components
       '@vue/test-utils':
         specifier: ^1.3.0
-        version: 1.3.0(vue-template-compiler@2.7.14)
+        version: 1.3.0(vue-template-compiler@2.7.14)(vue@2.7.14)
       angular:
         specifier: ^1.8.3
         version: 1.8.3
@@ -657,9 +657,12 @@ importers:
       tsconfig:
         specifier: workspace:*
         version: link:../../configs/tsconfig
+      vue:
+        specifier: ^2.7.14
+        version: 2.7.14
       vue-jest:
         specifier: ^3.0.7
-        version: 3.0.7(vue-template-compiler@2.7.14)
+        version: 3.0.7(vue-template-compiler@2.7.14)(vue@2.7.14)
       vue-template-compiler:
         specifier: ^2.7.14
         version: 2.7.14
@@ -10330,6 +10333,14 @@ packages:
       - encoding
     dev: false
 
+  /@vue/compiler-sfc@2.7.14:
+    resolution: { integrity: sha512-aNmNHyLPsw+sVvlQFQ2/8sjNuLtK54TC6cuKnVzAY93ks4ZBrvwQSnkkIh7bsbNhum5hJBS00wSDipQ937f5DA== }
+    dependencies:
+      '@babel/parser': 7.22.11
+      postcss: 8.4.23
+      source-map: 0.6.1
+    dev: true
+
   /@vue/eslint-config-prettier@7.0.0(eslint@8.0.0)(prettier@2.8.7):
     resolution: { integrity: sha512-/CTc6ML3Wta1tCe1gUeO0EYnVXfo3nJXsIhZ8WJr3sov+cGASr6yuiibJTL6lmIBm7GobopToOuB3B6AWyV0Iw== }
     peerDependencies:
@@ -10362,7 +10373,7 @@ packages:
       - supports-color
     dev: false
 
-  /@vue/test-utils@1.3.0(vue-template-compiler@2.7.14):
+  /@vue/test-utils@1.3.0(vue-template-compiler@2.7.14)(vue@2.7.14):
     resolution: { integrity: sha512-Xk2Xiyj2k5dFb8eYUKkcN9PzqZSppTlx7LaQWBbdA8tqh3jHr/KHX2/YLhNFc/xwDrgeLybqd+4ZCPJSGPIqeA== }
     peerDependencies:
       vue: 2.x
@@ -10371,6 +10382,7 @@ packages:
       dom-event-types: 1.1.0
       lodash: 4.17.21
       pretty: 2.0.0
+      vue: 2.7.14
       vue-template-compiler: 2.7.14
     dev: true
 
@@ -15219,7 +15231,7 @@ packages:
     engines: { node: ^12.20.0 || ^14.13.1 || >=16.0.0 }
     dependencies:
       dir-glob: 3.0.1
-      fast-glob: 3.2.12
+      fast-glob: 3.3.0
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 4.0.0
@@ -23973,7 +23985,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /vue-jest@3.0.7(vue-template-compiler@2.7.14):
+  /vue-jest@3.0.7(vue-template-compiler@2.7.14)(vue@2.7.14):
     resolution: { integrity: sha512-PIOxFM+wsBMry26ZpfBvUQ/DGH2hvp5khDQ1n51g3bN0TwFwTy4J85XVfxTRMukqHji/GnAoGUnlZ5Ao73K62w== }
     peerDependencies:
       babel-core: ^6.25.0 || ^7.0.0-0
@@ -23990,6 +24002,7 @@ packages:
       object-assign: 4.1.1
       source-map: 0.5.7
       tsconfig: 7.0.0
+      vue: 2.7.14
       vue-template-compiler: 2.7.14
       vue-template-es2015-compiler: 1.9.1
     transitivePeerDependencies:
@@ -24005,6 +24018,13 @@ packages:
 
   /vue-template-es2015-compiler@1.9.1:
     resolution: { integrity: sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw== }
+    dev: true
+
+  /vue@2.7.14:
+    resolution: { integrity: sha512-b2qkFyOM0kwqWFuQmgd4o+uHGU7T+2z3T+WQp8UBjADfEv2n4FEMffzBmCKNP0IGzOEEfYjvtcC62xaSKeQDrQ== }
+    dependencies:
+      '@vue/compiler-sfc': 2.7.14
+      csstype: 3.1.1
     dev: true
 
   /w3c-hr-time@1.0.2:
