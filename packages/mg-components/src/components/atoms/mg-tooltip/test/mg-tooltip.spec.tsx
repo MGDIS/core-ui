@@ -45,38 +45,32 @@ describe('mg-tooltip', () => {
 
   afterEach(() => jest.runOnlyPendingTimers());
 
-  test.each([
-    <span>span</span>,
-    <button aria-describedby="blu">button</button>,
-    <mg-icon icon="check-circle"></mg-icon>,
-    <mg-button identifier="identifier">mg-button</mg-button>,
-    <mg-button identifier="identifier" disabled>
-      mg-button.disabled
-    </mg-button>,
-  ])('Should render with element', async element => {
-    const args = { identifier: 'identifier', message: 'My tooltip message' };
-    const page = await getPage(args, element);
-    expect(page.root).toMatchSnapshot();
+  describe.each([
+    () => <span>span</span>,
+    () => <button aria-describedby="blu">button</button>,
+    () => <mg-icon icon="check-circle"></mg-icon>,
+    () => <mg-button identifier="identifier">mg-button</mg-button>,
+    () => (
+      <mg-button identifier="identifier" disabled>
+        mg-button.disabled
+      </mg-button>
+    ),
+  ])('render', element => {
+    test.each([true, false])('Should render with tooltip', async disabled => {
+      const page = await getPage({ identifier: 'identifier', message: 'My tooltip message', disabled }, element());
+      expect(page.root).toMatchSnapshot();
 
-    const mgTooltip = page.doc.querySelector('mg-tooltip');
-    mgTooltip.disabled = true;
-    await page.waitForChanges();
+      const mgTooltip = page.doc.querySelector('mg-tooltip');
+      mgTooltip.disabled = !disabled;
+      await page.waitForChanges();
 
-    expect(page.root).toMatchSnapshot();
-  });
+      expect(page.root).toMatchSnapshot();
 
-  test.each([
-    <span>span</span>,
-    <button aria-describedby="blu">button</button>,
-    <mg-icon icon="check-circle"></mg-icon>,
-    <mg-button identifier="identifier">mg-button</mg-button>,
-    <mg-button identifier="identifier" disabled>
-      mg-button.disabled
-    </mg-button>,
-  ])('Should render with disabled tooltip', async element => {
-    const args = { identifier: 'identifier', message: 'My tooltip message', disabled: true };
-    const page = await getPage(args, element);
-    expect(page.root).toMatchSnapshot();
+      mgTooltip.disabled = disabled;
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   test('Should render with element with given placement', async () => {

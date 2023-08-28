@@ -72,7 +72,10 @@ export class MgTooltip {
   @Prop() disabled = false;
   @Watch('disabled')
   validateDisabled(newValue: MgTooltip['disabled']): void {
-    if (newValue && this.hasCustomTabIndex) this.tooltipedElement.removeAttribute('tabindex');
+    if (this.hasCustomTabIndex) {
+      if (newValue) this.tooltipedElement.removeAttribute('tabindex');
+      else if (!newValue && this.tooltipedElement.getAttribute('tabindex') === null) this.tooltipedElement.setAttribute('tabindex', '0');
+    }
   }
 
   /**
