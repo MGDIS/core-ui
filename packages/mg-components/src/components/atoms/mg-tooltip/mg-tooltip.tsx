@@ -46,6 +46,7 @@ export class MgTooltip {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
+    this.tooltip.querySelector('.mg-tooltip__message').innerHTML = newValue;
   }
 
   /**
@@ -200,6 +201,8 @@ export class MgTooltip {
     if (!this.disabled && !Boolean(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
+      // add role to work with "aria-describedby" with screereader on non-interaéctiv element
+      slotElement.setAttribute('role', 'button');
     }
     // Set aria-describedby
     const ariaDescribedby = slotElement.getAttribute('aria-describedby');
@@ -252,6 +255,40 @@ export class MgTooltip {
     });
   };
 
+  /**
+   * Render tooltip element
+   * @returns renderer tooltip element
+   * @example
+   * rendered template
+   * ```
+   * <div role="tooltip" id={this.identifier} class="mg-tooltip">
+   *   <span innerHTML={this.message} class="mg-tooltip__message"></span>
+   *   <div class="mg-tooltip__arrow" data-popper-arrow></div>
+   * </div>
+   * ```
+   */
+  private renderTooltip(): HTMLElement {
+    const baseElement = document.createElement('div');
+    baseElement.setAttribute('id', this.identifier);
+    baseElement.setAttribute('role', 'tooltip');
+    baseElement.classList.add('mg-tooltip');
+
+    const messageElement = document.createElement('span');
+    messageElement.innerHTML = this.message;
+    messageElement.classList.add('mg-tooltip__message');
+    baseElement.appendChild(messageElement);
+
+    const arrowElement = document.createElement('div');
+    arrowElement.classList.add('mg-tooltip__arrow');
+    arrowElement.dataset.popperArrow = 'true';
+    baseElement.appendChild(arrowElement);
+
+    // append tooltip element to component
+    this.element.appendChild(baseElement);
+
+    return baseElement;
+  }
+
   /*************
    * Lifecycle *
    *************/
@@ -273,10 +310,10 @@ export class MgTooltip {
    */
   componentDidLoad(): void {
     // Get tooltip element
-    this.tooltip = this.element.shadowRoot.querySelector(`#${this.identifier}`);
+    this.tooltip = this.renderTooltip();
 
     // get slotted element
-    const slotElement = this.element.firstElementChild as HTMLElement;
+    const slotElement = Array.from(this.element.children).find(el => el.id !== this.identifier) as HTMLElement;
 
     // Get interactive element
     const interactiveElement: HTMLElement = slotElement.matches(focusableElements) ? slotElement : slotElement.shadowRoot?.querySelector(focusableElements);
@@ -321,10 +358,6 @@ export class MgTooltip {
     return (
       <Host>
         <slot></slot>
-        <div role="tooltip" id={this.identifier} class="mg-tooltip">
-          <span innerHTML={this.message}></span>
-          <div class="mg-tooltip__arrow" data-popper-arrow></div>
-        </div>
       </Host>
     );
   }
