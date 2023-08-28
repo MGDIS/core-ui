@@ -74,7 +74,7 @@ export class MgTooltip {
   validateDisabled(newValue: MgTooltip['disabled']): void {
     if (this.hasCustomTabIndex) {
       if (newValue) this.tooltipedElement.removeAttribute('tabindex');
-      else if (!newValue && this.tooltipedElement.getAttribute('tabindex') === null) this.tooltipedElement.setAttribute('tabindex', '0');
+      else if (this.tooltipedElement.getAttribute('tabindex') === null) this.tooltipedElement.setAttribute('tabindex', '0');
     }
   }
 
