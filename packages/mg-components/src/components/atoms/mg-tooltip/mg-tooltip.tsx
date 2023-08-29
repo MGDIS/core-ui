@@ -201,7 +201,7 @@ export class MgTooltip {
     if (!this.disabled && !Boolean(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
-      // add role to work with "aria-describedby" with screereader on non-interaéctiv element
+      // Add role on non-interactive element to work with "aria-describedby" for screen readers 
       slotElement.setAttribute('role', 'button');
     }
     // Set aria-describedby
