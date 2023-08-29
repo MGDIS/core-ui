@@ -14,7 +14,7 @@ export class MgTooltip {
    ************/
 
   private popper: PopperInstance;
-  private tooltip: HTMLElement;
+  private mgTooltip: HTMLElement;
   private tooltipedElement: HTMLElement;
   private windows: Window[];
   private hasCustomTabIndex: boolean;
@@ -46,7 +46,7 @@ export class MgTooltip {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
-    this.tooltip.querySelector('.mg-tooltip__message').innerHTML = newValue;
+    this.mgTooltip.querySelector('.mg-tooltip__message').innerHTML = newValue;
   }
 
   /**
@@ -84,7 +84,7 @@ export class MgTooltip {
    */
   private show = (): void => {
     // Make the tooltip visible
-    this.tooltip.dataset.show = '';
+    this.mgTooltip.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -105,7 +105,7 @@ export class MgTooltip {
    */
   private hide = (): void => {
     // Hide the tooltip
-    this.tooltip.removeAttribute('data-show');
+    this.mgTooltip.removeAttribute('data-show');
     // Disable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -201,7 +201,7 @@ export class MgTooltip {
     if (!this.disabled && !Boolean(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
-      // Add role on non-interactive element to work with "aria-describedby" for screen readers 
+      // Add role on non-interactive element to work with "aria-describedby" for screen readers
       slotElement.setAttribute('role', 'button');
     }
     // Set aria-describedby
@@ -215,7 +215,7 @@ export class MgTooltip {
     }
 
     // Create popperjs tooltip
-    this.popper = createPopper(this.tooltipedElement, this.tooltip, {
+    this.popper = createPopper(this.tooltipedElement, this.mgTooltip, {
       placement: this.placement,
       strategy: 'fixed',
       modifiers: [
@@ -245,7 +245,7 @@ export class MgTooltip {
     ['mouseenter', 'mouseleave'].forEach(eventType => {
       const isMouseenter = eventType === 'mouseenter';
       [
-        { element: this.tooltip, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIP_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIPED_ELEMENT) },
+        { element: this.mgTooltip, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIP_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIPED_ELEMENT) },
         { element: this.tooltipedElement, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIPED_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIP_ELEMENT) },
       ].forEach(({ element, action }) => {
         element.addEventListener(eventType, () => {
@@ -257,7 +257,6 @@ export class MgTooltip {
 
   /**
    * Render tooltip element
-   * @returns renderer tooltip element
    * @example
    * rendered template
    * ```
@@ -267,7 +266,7 @@ export class MgTooltip {
    * </div>
    * ```
    */
-  private renderTooltip(): HTMLElement {
+  private renderTooltip(): void {
     const baseElement = document.createElement('div');
     baseElement.setAttribute('id', this.identifier);
     baseElement.setAttribute('role', 'tooltip');
@@ -285,8 +284,6 @@ export class MgTooltip {
 
     // append tooltip element to component
     this.element.appendChild(baseElement);
-
-    return baseElement;
   }
 
   /*************
@@ -309,8 +306,10 @@ export class MgTooltip {
    * We need to attach the focused element to the tooltip (aria-describedby)
    */
   componentDidLoad(): void {
+    this.renderTooltip();
+
     // Get tooltip element
-    this.tooltip = this.renderTooltip();
+    this.mgTooltip = this.element.querySelector(`#${this.identifier}`);
 
     // get slotted element
     const slotElement = Array.from(this.element.children).find(el => el.id !== this.identifier) as HTMLElement;
