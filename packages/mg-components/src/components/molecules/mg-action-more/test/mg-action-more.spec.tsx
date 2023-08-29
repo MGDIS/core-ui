@@ -157,5 +157,25 @@ describe('mg-action-more', () => {
       expect(mouseEventHandler).toHaveBeenCalled();
       expect(page.root).toMatchSnapshot();
     });
+
+    test(`Should update expanded when popover display change`, async () => {
+      const page = await getPage({ items, displayChevron: true, button: { variant: 'flat', isIcon: false } });
+      expect(page.root).toMatchSnapshot();
+
+      const mgMoreAction = page.doc.querySelector('mg-action-more');
+      const mgButton = mgMoreAction.shadowRoot.querySelector('mg-button');
+      mgButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      const mgPopover = mgMoreAction.shadowRoot.querySelector('mg-popover');
+
+      mgPopover.dispatchEvent(new CustomEvent('display-change', { detail: false }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
   });
 });
