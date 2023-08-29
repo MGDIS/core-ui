@@ -10,10 +10,12 @@ RUN corepack enable
 # copy project files in images
 COPY . .
 
-# create package.json for project and packages wich use playwright for requirements: depencencies, commandes, ...
-COPY package.test.json package.json
-COPY packages/mg-components/package.test.json packages/mg-components/package.json
-COPY apps/notification-center/package.test.json apps/notification-center/package.json
+# create needeed packages and files to run playwright: depencencies, commandes, ...
+COPY temp/test-package.json package.json
+COPY temp/test-packages-mg-components-package.json packages/mg-components/package.json
+COPY temp/test-packages-notification-center-package.json packages/notification-center/package.json
+COPY temp/test-apps-notification-center-package.json apps/notification-center/package.json
+COPY temp/turbo.json turbo.json
 
 # optimize image with cache
 RUN --mount=type=cache,target=/cache

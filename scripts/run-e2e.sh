@@ -9,6 +9,8 @@ function clean() {
 # prepare image content
 pnpm build
 
+node ./scripts/create-test-files.js
+
 docker build --platform linux/amd64 -t coreui-e2e:latest .
 
 echo "Press CTRL + C once tests are finished"
