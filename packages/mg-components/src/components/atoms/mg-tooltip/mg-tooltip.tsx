@@ -1,4 +1,4 @@
-import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
+import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
@@ -361,10 +361,6 @@ export class MgTooltip {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    return (
-      <Host>
-        <slot></slot>
-      </Host>
-    );
+    return <slot></slot>;
   }
 }
