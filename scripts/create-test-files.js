@@ -10,7 +10,7 @@ const packages = [
   {
     path: 'package.json',
     scripts: {
-      'apps:notification-center': 'pnpm --filter notification-center e2e:server',
+      'apps:notification-center': 'pnpm --filter notification-center dev',
       'test:e2e:playwright': 'turbo test:e2e:playwright',
     },
     dependencies: {
@@ -19,8 +19,11 @@ const packages = [
   },
   {
     path: 'packages/mg-components/package.json',
+    module: 'dist/index.js',
+    types: 'dist/types/index.d.ts',
+    files: ['dist/', 'loader/'],
     scripts: {
-      'start': 'stencil build --dev --watch --serve',
+      start: 'stencil build --dev --watch --serve',
       'test:e2e:playwright': 'pnpx @playwright/test test',
     },
     dependencies: {
@@ -32,6 +35,15 @@ const packages = [
   },
   {
     path: 'packages/notification-center/package.json',
+    files: ['dist'],
+    module: './dist/notification-center.es.js',
+    exports: {
+      '.': {
+        import: './dist/notification-center.es.js',
+        require: './dist/notification-center.umd.js',
+      },
+    },
+    types: 'dist/index.d.ts',
     scripts: {
       'test:e2e:playwright': 'pnpx @playwright/test test',
     },
@@ -39,7 +51,15 @@ const packages = [
   {
     path: 'apps/notification-center/package.json',
     scripts: {
-      'e2e:server': 'cd dist && python3 -m http.server 3210',
+      dev: 'vite --port 3210',
+    },
+    dependencies: {
+      '@mgdis/mg-components': null,
+      '@mgdis/notification-center': null,
+    },
+    devDependencies: {
+      typescript: null,
+      vite: null,
     },
   },
 ];

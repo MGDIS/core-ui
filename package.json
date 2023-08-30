@@ -37,7 +37,7 @@
     "release": "./scripts/release.sh",
     "release:status": "changeset status",
     "release:preview": "./scripts/release-preview.sh",
-    "apps:notification-center": "pnpm --filter notification-center e2e:server"
+    "apps:notification-center": "pnpm --filter notification-center dev"
   },
   "manypkg": {
     "ignoredRules": [
