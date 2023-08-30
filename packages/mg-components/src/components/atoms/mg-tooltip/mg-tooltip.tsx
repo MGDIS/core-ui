@@ -3,6 +3,13 @@ import { createID, focusableElements, getWindows } from '../../../utils/componen
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
+/**
+ * HTMLMgButtonElement type guard
+ * @param element - element to check
+ * @returns return true if type is HTMLMgButtonElement
+ */
+const isButton = (element: unknown): element is HTMLMgButtonElement => typeof element === 'object' && ['MG-BUTTON', 'BUTTON'].includes((element as Element).tagName);
+
 @Component({
   tag: 'mg-tooltip',
   styleUrl: 'mg-tooltip.scss',
@@ -311,8 +318,8 @@ export class MgTooltip {
     // Get tooltip element
     this.mgTooltip = this.element.querySelector(`#${this.identifier}`);
 
-    // get slotted element
-    const slotElement = Array.from(this.element.children).find(el => el.id !== this.identifier) as HTMLElement;
+    // get slotted element wich is not the tooltip
+    const slotElement: HTMLElement = this.element.querySelector(`*:not(#${this.identifier})`);
 
     // Get interactive element
     const interactiveElement: HTMLElement = slotElement.matches(focusableElements) ? slotElement : slotElement.shadowRoot?.querySelector(focusableElements);
@@ -322,17 +329,17 @@ export class MgTooltip {
 
     // Check if slotted element is a disabled mg-button
     // In this case we wrap the mg-button into a div to enable the tooltip
-    if (['MG-BUTTON', 'BUTTON'].includes(slotElement.tagName)) {
+    if (isButton(slotElement)) {
       new MutationObserver(mutationList => {
         if (mutationList.some(mutation => ['aria-disabled', 'disabled'].includes(mutation.attributeName))) {
-          this.setMgButtonWrapper(slotElement as HTMLMgButtonElement);
+          this.setMgButtonWrapper(slotElement);
           // Since Firefox doesn't trigger a "blur" event when the "disabled" attribute is added or removed from a button
           // we have to manually unlock the guard because the "blur" handler of the tooltipedElement won't do it.
           this.resetGuard();
           this.initTooltip(slotElement, interactiveElement);
         }
       }).observe(slotElement, { attributes: true });
-      this.setMgButtonWrapper(slotElement as HTMLMgButtonElement);
+      this.setMgButtonWrapper(slotElement);
     }
 
     // Init Tooltip
