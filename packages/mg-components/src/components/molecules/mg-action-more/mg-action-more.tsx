@@ -106,7 +106,7 @@ export class MgActionMore {
   @State() expanded = false;
 
   /************
-   * Merthods *
+   * Methods *
    ***********/
 
   /**
@@ -114,6 +114,14 @@ export class MgActionMore {
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
+  };
+
+  /**
+   * Handle popover display change value
+   * @param event - display change updated value
+   */
+  private handleDisplayChange = (event: CustomEvent): void => {
+    this.expanded = event.detail;
   };
 
   /**
@@ -173,7 +181,7 @@ export class MgActionMore {
     return (
       <Host data-mg-popover-guard={this.mgPopoverIdentifier}>
         <span class="mg-action-more">
-          <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded}>
+          <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
             <mg-button variant={this.button.variant} isIcon={this.button.isIcon} type="button" label={buttonLabel} onClick={this.handleButton}>
               <mg-icon {...this.icon}></mg-icon>
               {!this.button.isIcon && buttonContent}

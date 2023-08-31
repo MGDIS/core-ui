@@ -253,7 +253,7 @@ export class MgPanel {
       pattern={this.titlePattern}
       pattern-error-message={this.titlePatternErrorMessage}
       identifier={`${this.identifier}-edition-input`}
-      ref={el => (this.editInputElement = el as HTMLMgInputTextElement)}
+      ref={(el: HTMLMgInputTextElement) => (this.editInputElement = el)}
     >
       <mg-button
         slot="append-input"

@@ -62,7 +62,7 @@ export class MgModal {
   /**
    * Define if modal is hidden
    */
-  @Prop({ mutable: true }) hide = false;
+  @Prop({ mutable: true }) hide: boolean;
   @Watch('hide')
   validateHide(newValue: boolean): void {
     if (newValue) {
@@ -72,7 +72,7 @@ export class MgModal {
       // reset focus handlers
       this.getLastFocusableElement()?.removeEventListener('keydown', this.handleLastFocusableElement);
       if (this.modalFocusableElements.length > 0) this.modalFocusableElements[0].removeEventListener('keydown', this.handleFirstFocusableElement);
-    } else {
+    } else if (newValue === false) {
       this.componentShow.emit();
       this.classCollection.delete(this.classHide);
       document.body.style.overflow = 'hidden';
@@ -232,7 +232,7 @@ export class MgModal {
                     variant="flat"
                     label={this.messages.modal.closeButton}
                     onClick={this.handleClose}
-                    ref={el => {
+                    ref={(el: HTMLMgButtonElement) => {
                       if (el !== null) {
                         // store closeButton Element
                         this.closeButtonElement = el;

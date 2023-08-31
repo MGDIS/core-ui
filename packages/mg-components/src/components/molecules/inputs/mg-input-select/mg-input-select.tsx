@@ -413,8 +413,8 @@ export class MgInputSelect {
           required={this.required}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLSelectElement;
+          ref={(el: HTMLSelectElement) => {
+            if (el !== null) this.input = el;
           }}
         >
           {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder

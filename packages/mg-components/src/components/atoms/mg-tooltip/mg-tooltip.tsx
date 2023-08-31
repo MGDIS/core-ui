@@ -17,6 +17,7 @@ export class MgTooltip {
   private tooltip: HTMLElement;
   private tooltipedElement: HTMLElement;
   private windows: Window[];
+  private hasCustomTabIndex: boolean;
 
   // tooltip actions guards
   private guard: Guard;
@@ -69,6 +70,13 @@ export class MgTooltip {
    * Disable tooltip
    */
   @Prop() disabled = false;
+  @Watch('disabled')
+  validateDisabled(newValue: MgTooltip['disabled']): void {
+    if (this.hasCustomTabIndex) {
+      if (newValue) this.tooltipedElement.removeAttribute('tabindex');
+      else if (this.tooltipedElement.getAttribute('tabindex') === null) this.tooltipedElement.setAttribute('tabindex', '0');
+    }
+  }
 
   /**
    * Show tooltip
@@ -189,7 +197,10 @@ export class MgTooltip {
    */
   private initTooltip = (slotElement: HTMLElement, interactiveElement: HTMLElement): void => {
     // Add tabindex to slotted element if we can't find any interactive element
-    if (interactiveElement === null || interactiveElement === undefined) slotElement.tabIndex = 0;
+    if (!this.disabled && !Boolean(interactiveElement)) {
+      this.hasCustomTabIndex = true;
+      slotElement.tabIndex = 0;
+    }
     // Set aria-describedby
     const ariaDescribedby = slotElement.getAttribute('aria-describedby');
 
@@ -251,6 +262,8 @@ export class MgTooltip {
   componentWillLoad(): void {
     // Get windows to attach events
     this.windows = getWindows(window);
+    //validate properties
+    this.validateDisabled(this.disabled);
   }
 
   /**
