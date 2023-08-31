@@ -103,7 +103,7 @@ describe('mg-tooltip', () => {
       const page = await getPage(args, element);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
       const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-      const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
       linkedTooltipElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
 
@@ -129,7 +129,7 @@ describe('mg-tooltip', () => {
       const page = await getPage(args, <span>span</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
       const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-      const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
       [eventIn, eventOut].forEach(async event => {
         linkedTooltipElement.dispatchEvent(new CustomEvent(event, { bubbles: true }));
@@ -153,7 +153,7 @@ describe('mg-tooltip', () => {
     const page = await getPage(args, element);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
     const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-    const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
     linkedTooltipElement.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
@@ -179,7 +179,7 @@ describe('mg-tooltip', () => {
     const args = { identifier: 'identifier', message: 'batman', display };
     const page = await getPage(args, <span>batman</span>);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
-    const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
     expect(page.root).toMatchSnapshot();
     if (display) {
@@ -204,7 +204,7 @@ describe('mg-tooltip', () => {
       const args = { identifier: 'identifier', message: 'batman' };
       const page = await getPage(args, <span id="batman">batman</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
-      const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
       const element = page.doc.getElementById('batman');
 
       element.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
@@ -222,7 +222,7 @@ describe('mg-tooltip', () => {
       const args = { identifier: 'identifier', message: 'batman' };
       const page = await getPage(args, <span id="batman">batman</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
-      const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
       const element = page.doc.getElementById('batman');
 
       element.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
@@ -245,7 +245,7 @@ describe('mg-tooltip', () => {
     const page = await getPage(args, element);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
     const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-    const tooltip = mgTooltip.shadowRoot.getElementById(args.identifier);
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
     // 1. hover tooltipedElement and display tooltip
     linkedTooltipElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));

@@ -1,7 +1,14 @@
-import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
+import { Component, Element, h, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
+
+/**
+ * HTMLMgButtonElement type guard
+ * @param element - element to check
+ * @returns return true if type is HTMLMgButtonElement
+ */
+const isButton = (element: unknown): element is HTMLMgButtonElement => typeof element === 'object' && ['MG-BUTTON', 'BUTTON'].includes((element as Element).tagName);
 
 @Component({
   tag: 'mg-tooltip',
@@ -14,7 +21,7 @@ export class MgTooltip {
    ************/
 
   private popper: PopperInstance;
-  private tooltip: HTMLElement;
+  private mgTooltip: HTMLElement;
   private tooltipedElement: HTMLElement;
   private windows: Window[];
   private hasCustomTabIndex: boolean;
@@ -46,6 +53,7 @@ export class MgTooltip {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
+    this.mgTooltip.querySelector('.mg-tooltip__message').innerHTML = newValue;
   }
 
   /**
@@ -83,7 +91,7 @@ export class MgTooltip {
    */
   private show = (): void => {
     // Make the tooltip visible
-    this.tooltip.dataset.show = '';
+    this.mgTooltip.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -104,7 +112,7 @@ export class MgTooltip {
    */
   private hide = (): void => {
     // Hide the tooltip
-    this.tooltip.removeAttribute('data-show');
+    this.mgTooltip.removeAttribute('data-show');
     // Disable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -200,6 +208,8 @@ export class MgTooltip {
     if (!this.disabled && !Boolean(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
+      // Add role on non-interactive element to work with "aria-describedby" for screen readers
+      slotElement.setAttribute('role', 'button');
     }
     // Set aria-describedby
     const ariaDescribedby = slotElement.getAttribute('aria-describedby');
@@ -212,7 +222,7 @@ export class MgTooltip {
     }
 
     // Create popperjs tooltip
-    this.popper = createPopper(this.tooltipedElement, this.tooltip, {
+    this.popper = createPopper(this.tooltipedElement, this.mgTooltip, {
       placement: this.placement,
       strategy: 'fixed',
       modifiers: [
@@ -242,7 +252,7 @@ export class MgTooltip {
     ['mouseenter', 'mouseleave'].forEach(eventType => {
       const isMouseenter = eventType === 'mouseenter';
       [
-        { element: this.tooltip, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIP_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIPED_ELEMENT) },
+        { element: this.mgTooltip, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIP_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIPED_ELEMENT) },
         { element: this.tooltipedElement, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIPED_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIP_ELEMENT) },
       ].forEach(({ element, action }) => {
         element.addEventListener(eventType, () => {
@@ -251,6 +261,37 @@ export class MgTooltip {
       });
     });
   };
+
+  /**
+   * Render tooltip element
+   * @example
+   * rendered template
+   * ```
+   * <div role="tooltip" id={this.identifier} class="mg-tooltip">
+   *   <span innerHTML={this.message} class="mg-tooltip__message"></span>
+   *   <div class="mg-tooltip__arrow" data-popper-arrow></div>
+   * </div>
+   * ```
+   */
+  private renderTooltip(): void {
+    const baseElement = document.createElement('div');
+    baseElement.setAttribute('id', this.identifier);
+    baseElement.setAttribute('role', 'tooltip');
+    baseElement.classList.add('mg-tooltip');
+
+    const messageElement = document.createElement('span');
+    messageElement.innerHTML = this.message;
+    messageElement.classList.add('mg-tooltip__message');
+    baseElement.appendChild(messageElement);
+
+    const arrowElement = document.createElement('div');
+    arrowElement.classList.add('mg-tooltip__arrow');
+    arrowElement.dataset.popperArrow = 'true';
+    baseElement.appendChild(arrowElement);
+
+    // append tooltip element to component
+    this.element.appendChild(baseElement);
+  }
 
   /*************
    * Lifecycle *
@@ -272,11 +313,13 @@ export class MgTooltip {
    * We need to attach the focused element to the tooltip (aria-describedby)
    */
   componentDidLoad(): void {
-    // Get tooltip element
-    this.tooltip = this.element.shadowRoot.querySelector(`#${this.identifier}`);
+    this.renderTooltip();
 
-    // get slotted element
-    const slotElement = this.element.firstElementChild as HTMLElement;
+    // Get tooltip element
+    this.mgTooltip = this.element.querySelector(`#${this.identifier}`);
+
+    // get slotted element wich is not the tooltip
+    const slotElement: HTMLElement = this.element.querySelector(`*:not(#${this.identifier})`);
 
     // Get interactive element
     const interactiveElement: HTMLElement = slotElement.matches(focusableElements) ? slotElement : slotElement.shadowRoot?.querySelector(focusableElements);
@@ -286,17 +329,17 @@ export class MgTooltip {
 
     // Check if slotted element is a disabled mg-button
     // In this case we wrap the mg-button into a div to enable the tooltip
-    if (['MG-BUTTON', 'BUTTON'].includes(slotElement.tagName)) {
+    if (isButton(slotElement)) {
       new MutationObserver(mutationList => {
         if (mutationList.some(mutation => ['aria-disabled', 'disabled'].includes(mutation.attributeName))) {
-          this.setMgButtonWrapper(slotElement as HTMLMgButtonElement);
+          this.setMgButtonWrapper(slotElement);
           // Since Firefox doesn't trigger a "blur" event when the "disabled" attribute is added or removed from a button
           // we have to manually unlock the guard because the "blur" handler of the tooltipedElement won't do it.
           this.resetGuard();
           this.initTooltip(slotElement, interactiveElement);
         }
       }).observe(slotElement, { attributes: true });
-      this.setMgButtonWrapper(slotElement as HTMLMgButtonElement);
+      this.setMgButtonWrapper(slotElement);
     }
 
     // Init Tooltip
@@ -318,14 +361,6 @@ export class MgTooltip {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    return (
-      <Host>
-        <slot></slot>
-        <div role="tooltip" id={this.identifier} class="mg-tooltip">
-          <span innerHTML={this.message}></span>
-          <div class="mg-tooltip__arrow" data-popper-arrow></div>
-        </div>
-      </Host>
-    );
+    return <slot></slot>;
   }
 }
