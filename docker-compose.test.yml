@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  e2e-playwright-test:
+    image: 'coreui-e2e:latest'
+    ports:
+      - 3333:3333
+    volumes:
+      - ./packages/mg-components/src:/app/packages/mg-components/src
+      - ./packages/mg-components/playwright-report:/app/packages/mg-components/playwright-report
+      - ./packages/notification-center/src:/app/packages/notification-center/src
+      - ./packages/notification-center/playwright-report:/app/packages/notification-center/playwright-report
