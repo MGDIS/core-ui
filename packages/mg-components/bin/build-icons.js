@@ -10,7 +10,7 @@ const iconsList = require('@mgdis/img/dist/icons/index.json');
 
 const scriptName = 'build-icons';
 const distfileName = 'index.js';
-const assetsDir = 'assets';
+const assetsDir = 'src/assets';
 const iconsDir = `${assetsDir}/icons`;
 
 (async () => {
