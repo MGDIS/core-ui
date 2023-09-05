@@ -38,7 +38,7 @@ describe('mg-popover', () => {
 
       const mgPopover = await page.find('mg-popover');
       const mgButton = await page.find('mg-button');
-      const popover = await page.find('mg-popover >>> .mg-popover');
+      const popover = await page.find('mg-popover mg-popover-content');
 
       expect(mgPopover).toHaveClass('hydrated');
 
@@ -126,7 +126,7 @@ describe('mg-popover', () => {
       let screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
 
-      await page.$eval('[slot]', el => {
+      await page.$eval('mg-popover-content [slot]', el => {
         el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
       });
 

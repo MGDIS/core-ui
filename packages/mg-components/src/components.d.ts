@@ -1106,6 +1106,16 @@ export namespace Components {
          */
         "placement": Placement;
     }
+    interface MgPopoverContent {
+        /**
+          * Hide popover arrow
+         */
+        "arrowHide": boolean;
+        /**
+          * Define if popover has a cross button
+         */
+        "closeButton": boolean;
+    }
     interface MgSkipLinks {
         /**
           * Skip links
@@ -1246,6 +1256,10 @@ export interface MgPanelCustomEvent<T> extends CustomEvent<T> {
 export interface MgPopoverCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgPopoverElement;
+}
+export interface MgPopoverContentCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgPopoverContentElement;
 }
 export interface MgSkipLinksCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1433,6 +1447,12 @@ declare global {
         prototype: HTMLMgPopoverElement;
         new (): HTMLMgPopoverElement;
     };
+    interface HTMLMgPopoverContentElement extends Components.MgPopoverContent, HTMLStencilElement {
+    }
+    var HTMLMgPopoverContentElement: {
+        prototype: HTMLMgPopoverContentElement;
+        new (): HTMLMgPopoverContentElement;
+    };
     interface HTMLMgSkipLinksElement extends Components.MgSkipLinks, HTMLStencilElement {
     }
     var HTMLMgSkipLinksElement: {
@@ -1487,6 +1507,7 @@ declare global {
         "mg-pagination": HTMLMgPaginationElement;
         "mg-panel": HTMLMgPanelElement;
         "mg-popover": HTMLMgPopoverElement;
+        "mg-popover-content": HTMLMgPopoverContentElement;
         "mg-skip-links": HTMLMgSkipLinksElement;
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
@@ -2667,6 +2688,20 @@ declare namespace LocalJSX {
          */
         "placement"?: Placement;
     }
+    interface MgPopoverContent {
+        /**
+          * Hide popover arrow
+         */
+        "arrowHide"?: boolean;
+        /**
+          * Define if popover has a cross button
+         */
+        "closeButton"?: boolean;
+        /**
+          * Emited event when close button is clicked
+         */
+        "onHide-content"?: (event: MgPopoverContentCustomEvent<string>) => void;
+    }
     interface MgSkipLinks {
         /**
           * Skip links
@@ -2769,6 +2804,7 @@ declare namespace LocalJSX {
         "mg-pagination": MgPagination;
         "mg-panel": MgPanel;
         "mg-popover": MgPopover;
+        "mg-popover-content": MgPopoverContent;
         "mg-skip-links": MgSkipLinks;
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
@@ -2811,6 +2847,7 @@ declare module "@stencil/core" {
             "mg-pagination": LocalJSX.MgPagination & JSXBase.HTMLAttributes<HTMLMgPaginationElement>;
             "mg-panel": LocalJSX.MgPanel & JSXBase.HTMLAttributes<HTMLMgPanelElement>;
             "mg-popover": LocalJSX.MgPopover & JSXBase.HTMLAttributes<HTMLMgPopoverElement>;
+            "mg-popover-content": LocalJSX.MgPopoverContent & JSXBase.HTMLAttributes<HTMLMgPopoverContentElement>;
             "mg-skip-links": LocalJSX.MgSkipLinks & JSXBase.HTMLAttributes<HTMLMgSkipLinksElement>;
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;

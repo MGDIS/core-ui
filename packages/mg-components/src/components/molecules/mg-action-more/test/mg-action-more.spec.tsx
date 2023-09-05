@@ -7,12 +7,13 @@ import { MgPopover } from '../../mg-popover/mg-popover';
 import { MgActionMore } from '../mg-action-more';
 import { MgMenu } from '../../menu/mg-menu/mg-menu';
 import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
+import { MgPopoverContent } from '../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockConsoleError();
 
 const getPage = async args => {
   const page = await newSpecPage({
-    components: [MgActionMore, MgPopover, MgButton, MgMenu, MgMenuItem],
+    components: [MgActionMore, MgPopover, MgPopoverContent, MgButton, MgMenu, MgMenuItem],
     template: () => <mg-action-more {...args}></mg-action-more>,
   });
 
