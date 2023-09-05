@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-08-28T09:36:19",
+  "timestamp": "2023-09-05T11:16:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -1640,6 +1640,9 @@
           "mg-icon",
           "mg-input-title"
         ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-popover": [
           "mg-card",
           "mg-button",
@@ -1803,6 +1806,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
           "mg-input-checkbox-paginated"
@@ -2112,6 +2118,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -2531,6 +2540,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -2851,6 +2863,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -3161,6 +3176,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -3534,6 +3552,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-input-select"
@@ -3978,6 +3999,9 @@
           "mg-tooltip",
           "mg-input-title"
         ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-input-checkbox": [
           "mg-input-text"
         ],
@@ -4418,6 +4442,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -4790,6 +4817,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -5570,6 +5600,9 @@
           "mg-icon",
           "mg-input-title"
         ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-input-checkbox-paginated": [
           "mg-pagination"
         ]
@@ -5791,6 +5824,9 @@
           "mg-character-left",
           "mg-tooltip",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -6439,8 +6475,13 @@
         "mg-input-textarea",
         "mg-input-toggle"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "mg-tooltip-content"
+      ],
       "dependencyGraph": {
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-input-checkbox": [
           "mg-tooltip"
         ],
@@ -6467,6 +6508,48 @@
         ],
         "mg-input-toggle": [
           "mg-tooltip"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/atoms/mg-tooltip/mg-tooltip-content/mg-tooltip-content.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-tooltip-content",
+      "readme": "# mg-tooltip-content\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "message",
+          "type": "string",
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "Displayed message in the tooltip",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "mg-tooltip"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     }

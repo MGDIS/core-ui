@@ -65,6 +65,7 @@ graph TD;
   mg-input-date --> mg-tooltip
   mg-input-date --> mg-icon
   mg-input-date --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-date fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

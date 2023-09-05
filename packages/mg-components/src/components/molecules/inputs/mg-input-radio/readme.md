@@ -78,6 +78,7 @@ graph TD;
   mg-input-radio --> mg-tooltip
   mg-input-radio --> mg-icon
   mg-input-radio --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

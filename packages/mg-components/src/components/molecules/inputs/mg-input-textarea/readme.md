@@ -87,6 +87,7 @@ graph TD;
   mg-input-textarea --> mg-tooltip
   mg-input-textarea --> mg-icon
   mg-input-textarea --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
