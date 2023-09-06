@@ -115,6 +115,7 @@ graph TD;
   mg-input-text --> mg-character-left
   mg-input-text --> mg-tooltip
   mg-input-text --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-input-text
   mg-panel --> mg-input-text
   style mg-input-text fill:#f9f,stroke:#333,stroke-width:4px

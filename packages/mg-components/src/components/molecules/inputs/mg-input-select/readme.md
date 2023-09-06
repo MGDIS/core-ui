@@ -75,6 +75,7 @@ graph TD;
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   mg-pagination --> mg-input-select
   style mg-input-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

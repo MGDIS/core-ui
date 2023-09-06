@@ -61,6 +61,7 @@ graph TD;
   mg-input-password --> mg-tooltip
   mg-input-password --> mg-icon
   mg-input-password --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-password fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
