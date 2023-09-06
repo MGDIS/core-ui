@@ -99,9 +99,14 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
  - [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
 
+### Depends on
+
+- [mg-tooltip-content](mg-tooltip-content)
+
 ### Graph
 ```mermaid
 graph TD;
+  mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-tooltip
   mg-input-date --> mg-tooltip
   mg-input-numeric --> mg-tooltip

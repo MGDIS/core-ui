@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-06T09:15:49",
+  "timestamp": "2023-09-06T10:04:17",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -1643,6 +1643,9 @@
           "mg-icon",
           "mg-input-title"
         ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-popover": [
           "mg-popover-content"
         ],
@@ -1809,6 +1812,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
           "mg-input-checkbox-paginated"
@@ -2118,6 +2124,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -2537,6 +2546,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -2857,6 +2869,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -3167,6 +3182,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -3540,6 +3558,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-input-select"
@@ -3984,6 +4005,9 @@
           "mg-tooltip",
           "mg-input-title"
         ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-input-checkbox": [
           "mg-input-text"
         ],
@@ -4424,6 +4448,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -4796,6 +4823,9 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -5582,6 +5612,9 @@
           "mg-icon",
           "mg-input-title"
         ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-input-checkbox-paginated": [
           "mg-pagination"
         ]
@@ -5803,6 +5836,9 @@
           "mg-character-left",
           "mg-tooltip",
           "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     },
@@ -6534,8 +6570,13 @@
         "mg-input-textarea",
         "mg-input-toggle"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "mg-tooltip-content"
+      ],
       "dependencyGraph": {
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
         "mg-input-checkbox": [
           "mg-tooltip"
         ],
@@ -6562,6 +6603,48 @@
         ],
         "mg-input-toggle": [
           "mg-tooltip"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/atoms/mg-tooltip/mg-tooltip-content/mg-tooltip-content.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-tooltip-content",
+      "readme": "# mg-tooltip-content\n\nIn order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.\n",
+      "docs": "In order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "message",
+          "type": "string",
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "Displayed message in the tooltip",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "mg-tooltip"
+      ],
+      "dependencies": [],
+      "dependencyGraph": {
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ]
       }
     }

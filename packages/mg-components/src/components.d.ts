@@ -1180,6 +1180,12 @@ export namespace Components {
          */
         "placement": Placement;
     }
+    interface MgTooltipContent {
+        /**
+          * Displayed message in the tooltip
+         */
+        "message": string;
+    }
 }
 export interface MgButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -1477,6 +1483,12 @@ declare global {
         prototype: HTMLMgTooltipElement;
         new (): HTMLMgTooltipElement;
     };
+    interface HTMLMgTooltipContentElement extends Components.MgTooltipContent, HTMLStencilElement {
+    }
+    var HTMLMgTooltipContentElement: {
+        prototype: HTMLMgTooltipContentElement;
+        new (): HTMLMgTooltipContentElement;
+    };
     interface HTMLElementTagNameMap {
         "mg-action-more": HTMLMgActionMoreElement;
         "mg-badge": HTMLMgBadgeElement;
@@ -1512,6 +1524,7 @@ declare global {
         "mg-tabs": HTMLMgTabsElement;
         "mg-tag": HTMLMgTagElement;
         "mg-tooltip": HTMLMgTooltipElement;
+        "mg-tooltip-content": HTMLMgTooltipContentElement;
     }
 }
 declare namespace LocalJSX {
@@ -2774,6 +2787,12 @@ declare namespace LocalJSX {
          */
         "placement"?: Placement;
     }
+    interface MgTooltipContent {
+        /**
+          * Displayed message in the tooltip
+         */
+        "message": string;
+    }
     interface IntrinsicElements {
         "mg-action-more": MgActionMore;
         "mg-badge": MgBadge;
@@ -2809,6 +2828,7 @@ declare namespace LocalJSX {
         "mg-tabs": MgTabs;
         "mg-tag": MgTag;
         "mg-tooltip": MgTooltip;
+        "mg-tooltip-content": MgTooltipContent;
     }
 }
 export { LocalJSX as JSX };
@@ -2852,6 +2872,7 @@ declare module "@stencil/core" {
             "mg-tabs": LocalJSX.MgTabs & JSXBase.HTMLAttributes<HTMLMgTabsElement>;
             "mg-tag": LocalJSX.MgTag & JSXBase.HTMLAttributes<HTMLMgTagElement>;
             "mg-tooltip": LocalJSX.MgTooltip & JSXBase.HTMLAttributes<HTMLMgTooltipElement>;
+            "mg-tooltip-content": LocalJSX.MgTooltipContent & JSXBase.HTMLAttributes<HTMLMgTooltipContentElement>;
         }
     }
 }
