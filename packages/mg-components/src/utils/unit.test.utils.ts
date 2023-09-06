@@ -149,9 +149,10 @@ export const forcePopoverId = (component: Element, id: string, interactiveElemen
  * so we only override the console.error side effect for this error
  */
 export const mockConsoleError = (): void => {
-  jest.spyOn(console, 'error').mockImplementation(error => {
-    const compareWith = 'Popper: "arrow" element must be an HTMLElement (not an SVGElement). To use an SVG arrow, wrap it in an HTMLElement that will be used as the arrow.';
-    if (error !== compareWith) console.log(error);
+  const errorFunction = console.error;
+  const mock = jest.spyOn(console, 'error');
+  mock.mockImplementation(error => {
+    if (!error.includes('Popper')) errorFunction(error);
   });
 };
 

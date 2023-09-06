@@ -97,6 +97,7 @@ graph TD;
   mg-input-numeric --> mg-tooltip
   mg-input-numeric --> mg-icon
   mg-input-numeric --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-numeric fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

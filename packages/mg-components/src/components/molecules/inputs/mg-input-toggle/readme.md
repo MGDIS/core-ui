@@ -70,6 +70,7 @@ graph TD;
   mg-input-toggle --> mg-tooltip
   mg-input-toggle --> mg-icon
   mg-input-toggle --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
