@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-05T09:14:44",
+  "timestamp": "2023-09-06T09:15:49",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -6026,8 +6026,8 @@
       "filePath": "./src/components/molecules/mg-popover/mg-popover-content/mg-popover-content.tsx",
       "encapsulation": "shadow",
       "tag": "mg-popover-content",
-      "readme": "# mg-popover-content\n\n\n",
-      "docs": "",
+      "readme": "# mg-popover-content\n\nIn order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.\n",
+      "docs": "In order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.",
       "docsTags": [],
       "usage": {},
       "props": [
