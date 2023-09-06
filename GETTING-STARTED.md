@@ -41,6 +41,20 @@ To generate test coverage reports, use:
 pnpm coverage
 ```
 
+### Generating Screenshots Across Different Environments
+
+Since we are working on different machines (Windows, WSL, Mac, Linux, etc.), to ensure consistency with Gitlab CI, we recommend using the following Docker script to generate screenshots:
+
+```sh
+pnpm test:e2e:playwright:docker
+```
+
+If you want to generate screenshots for a specific package, you can use the following command with a filter:
+
+```sh
+pnpm test:e2e:playwright:docker --filter=@mgdis/stylesheets
+```
+
 ## Changesets and Releases
 
 We follow a structured approach for managing changes and releases using changesets. For every new feature added, a corresponding [changeset](https://github.com/changesets/changesets) must be written.

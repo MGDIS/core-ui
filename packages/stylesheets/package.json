@@ -1,5 +1,5 @@
 {
-  "name": "stylesheets",
+  "name": "@mgdis/stylesheets",
   "version": "0.0.0",
   "description": "MGDIS Stylesheets",
   "keywords": [
@@ -14,13 +14,13 @@
     "build:min": "sass scss:dist -s compressed",
     "lint": "stylelint 'scss/**/*.{css,scss}'",
     "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
-    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test"
+    "test:e2e:playwright": "pnpm dlx @playwright/test test"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
-    "@playwright/test": "^1.x",
+    "@playwright/test": "^1.37.1",
     "playwright-config": "workspace:*",
     "sass": "^1.58.0",
     "stylelint": "^15.10.2",

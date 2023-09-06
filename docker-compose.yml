@@ -8,5 +8,10 @@ services:
     volumes:
       - ./packages/mg-components/src:/app/packages/mg-components/src
       - ./packages/mg-components/playwright-report:/app/packages/mg-components/playwright-report
+      - ./packages/mg-components/test-results:/app/packages/mg-components/test-results
       - ./packages/notification-center/src:/app/packages/notification-center/src
       - ./packages/notification-center/playwright-report:/app/packages/notification-center/playwright-report
+      - ./packages/notification-center/test-results:/app/packages/notification-center/test-results
+      - ./packages/stylesheets/test:/app/packages/stylesheets/test
+      - ./packages/stylesheets/playwright-report:/app/packages/stylesheets/playwright-report
+      - ./packages/stylesheets/test-results:/app/packages/stylesheets/test-results
