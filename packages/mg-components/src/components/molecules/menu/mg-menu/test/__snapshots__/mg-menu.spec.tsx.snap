@@ -32,8 +32,9 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -160,8 +161,9 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -235,8 +237,9 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -363,8 +366,9 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -793,8 +797,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -986,8 +991,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1179,8 +1185,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1372,8 +1379,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1546,8 +1554,9 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1674,8 +1683,9 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1749,8 +1759,9 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1877,8 +1888,9 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>

@@ -11,7 +11,6 @@ The `mg-popover-content` component is appended to the `mg-popover` component as 
 
 | Property      | Attribute      | Description                          | Type      | Default |
 | ------------- | -------------- | ------------------------------------ | --------- | ------- |
-| `arrowHide`   | `arrow-hide`   | Hide popover arrow                   | `boolean` | `false` |
 | `closeButton` | `close-button` | Define if popover has a cross button | `boolean` | `false` |
 
 

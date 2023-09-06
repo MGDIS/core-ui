@@ -1108,10 +1108,6 @@ export namespace Components {
     }
     interface MgPopoverContent {
         /**
-          * Hide popover arrow
-         */
-        "arrowHide": boolean;
-        /**
           * Define if popover has a cross button
          */
         "closeButton": boolean;
@@ -2702,10 +2698,6 @@ declare namespace LocalJSX {
         "placement"?: Placement;
     }
     interface MgPopoverContent {
-        /**
-          * Hide popover arrow
-         */
-        "arrowHide"?: boolean;
         /**
           * Define if popover has a cross button
          */

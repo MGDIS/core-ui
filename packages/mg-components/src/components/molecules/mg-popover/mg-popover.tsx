@@ -16,7 +16,6 @@ export class MgPopover {
   private mgPopover: HTMLElement;
   private mgPopoverContent: HTMLMgPopoverContentElement;
   private windows: Window[];
-  private resizeObserver: ResizeObserver;
 
   /**************
    * Decorators *
@@ -44,7 +43,8 @@ export class MgPopover {
   @Prop() arrowHide = false;
   @Watch('arrowHide')
   validateArrowHide(newValue: MgPopover['arrowHide']): void {
-    this.mgPopoverContent.arrowHide = newValue;
+    if (newValue) this.mgPopoverContent.dataset.arrowHide = '';
+    else delete this.mgPopoverContent.dataset.arrowHide;
   }
 
   /**
@@ -144,6 +144,11 @@ export class MgPopover {
     this.mgPopoverContent.setAttribute('id', this.identifier);
     this.mgPopoverContent.addEventListener('hide-content', this.handleHideContent);
 
+    const arrow = document.createElement('div');
+    arrow.setAttribute('slot', 'arrow');
+    arrow.dataset.popperArrow = '';
+    this.mgPopoverContent.appendChild(arrow);
+
     // insert elements in DOM
     ['[slot="title"]', '[slot="content"]:not(mg-popover-content)'].forEach(slotType => {
       Array.from(this.element.querySelectorAll(slotType)).forEach(slot => {
@@ -172,8 +177,8 @@ export class MgPopover {
     this.windows = getWindows(window);
     // render mg-popover-content slot
     this.renderPopoverContent();
-    this.validateArrowHide(this.arrowHide);
     this.validateCloseButton(this.closeButton);
+    this.validateArrowHide(this.arrowHide);
   }
 
   /**
@@ -200,26 +205,13 @@ export class MgPopover {
             offset: [0, 0],
           },
         },
-        {
-          name: 'arrow',
-          options: {
-            element: this.mgPopoverContent.shadowRoot.querySelector('.mg-popover-content__arrow'),
-          },
-        },
       ],
     });
 
-    if (this.resizeObserver === undefined) {
-      // add resize observer
-      this.resizeObserver = new ResizeObserver(entries => {
-        if (entries.some(entrie => entrie.target.getAttribute('slot') !== null)) {
-          this.popper.update();
-        }
-      });
-      Array.from(this.element.querySelectorAll('[slot]')).forEach(element => {
-        this.resizeObserver.observe(element);
-      });
-    }
+    // add resize observer
+    new ResizeObserver(() => {
+      this.popper.update();
+    }).observe(this.element.querySelector('mg-popover-content'));
 
     // Add events to toggle display
     interactiveElement.addEventListener('click', () => {

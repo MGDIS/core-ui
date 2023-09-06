@@ -17,11 +17,12 @@ const getPage = (args, slot, parent?: boolean) => {
 };
 
 describe('mg-popover', () => {
+  let fireRo;
   beforeEach(() => {
     jest.useFakeTimers();
     setupResizeObserverMock({
       observe: function () {
-        return null;
+        fireRo = this.cb;
       },
       disconnect: function () {
         return null;
@@ -135,7 +136,7 @@ describe('mg-popover', () => {
     }
   });
 
-  test.each(['content', 'title', null])('should update popper instance when slot %s update', async slot => {
+  test('should update popper instance when slot %s update', async () => {
     const page = await getPage({ identifier: 'identifier', display: true }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">
@@ -149,13 +150,9 @@ describe('mg-popover', () => {
 
     const spy = jest.spyOn(page.rootInstance.popper, 'update');
 
-    const target = page.doc.querySelector(slot === null ? 'mg-button' : `[slot="${slot}"]`);
+    fireRo([]);
 
-    page.rootInstance.resizeObserver.cb([{ target }]);
-
-    if (slot === null) expect(spy).not.toHaveBeenCalled();
-    else expect(spy).toHaveBeenCalled();
-
+    expect(spy).toHaveBeenCalled();
     expect(page.root).toMatchSnapshot();
   });
 });

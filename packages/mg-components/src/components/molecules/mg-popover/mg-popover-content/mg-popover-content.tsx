@@ -1,4 +1,4 @@
-import { Component, Element, Host, h, Prop, EventEmitter, Event, State, Watch } from '@stencil/core';
+import { Component, Element, Host, h, Prop, EventEmitter, Event, State } from '@stencil/core';
 import { isTagName, ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
@@ -30,16 +30,6 @@ export class MgPopoverContent {
   @Prop() closeButton = false;
 
   /**
-   * Hide popover arrow
-   */
-  @Prop() arrowHide = false;
-  @Watch('arrowHide')
-  validateArrowHide(newValue: MgPopoverContent['arrowHide']): void {
-    if (newValue) this.element.dataset.arrowHide = '';
-    else delete this.element.dataset.arrowHide;
-  }
-
-  /**
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList(['mg-popover-content']);
@@ -66,9 +56,6 @@ export class MgPopoverContent {
   componentWillLoad(): void {
     // Get locales
     this.messages = initLocales(this.element).messages;
-
-    // validate props
-    this.validateArrowHide(this.arrowHide);
   }
 
   /**
@@ -101,7 +88,7 @@ export class MgPopoverContent {
           </div>
           <slot name="content"></slot>
         </mg-card>
-        <div class="mg-popover-content__arrow" hidden={this.arrowHide}></div>
+        <slot name="arrow"></slot>
       </Host>
     );
   }

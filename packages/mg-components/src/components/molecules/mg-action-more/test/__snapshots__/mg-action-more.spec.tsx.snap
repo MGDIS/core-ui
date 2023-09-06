@@ -27,8 +27,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -148,8 +149,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -269,8 +271,9 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -394,8 +397,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -519,8 +523,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -644,8 +649,9 @@ exports[`mg-action-more navigation Should update expanded when popover display c
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -765,8 +771,9 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -887,8 +894,9 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1012,8 +1020,9 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1133,8 +1142,9 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1254,8 +1264,9 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1376,8 +1387,9 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1498,8 +1510,9 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1623,8 +1636,9 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>
@@ -1748,8 +1762,9 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow"></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div slot="content">
             <mg-menu aria-label="Actions" direction="vertical" role="list">
               <mock:shadow-root>

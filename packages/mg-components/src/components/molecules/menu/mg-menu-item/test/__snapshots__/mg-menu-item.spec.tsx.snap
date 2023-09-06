@@ -47,8 +47,9 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
             </div>
             <slot name="content"></slot>
           </mg-card>
-          <div class="mg-popover-content__arrow" hidden=""></div>
+          <slot name="arrow"></slot>
         </mock:shadow-root>
+        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
         <div class="mg-menu-item__collapse-container" slot="content">
           <slot></slot>
         </div>
@@ -131,8 +132,9 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
             </div>
             <slot name="content"></slot>
           </mg-card>
-          <div class="mg-popover-content__arrow" hidden=""></div>
+          <slot name="arrow"></slot>
         </mock:shadow-root>
+        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
         <div class="mg-menu-item__collapse-container" slot="content">
           <slot></slot>
         </div>
@@ -262,8 +264,9 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
             </div>
             <slot name="content"></slot>
           </mg-card>
-          <div class="mg-popover-content__arrow" hidden=""></div>
+          <slot name="arrow"></slot>
         </mock:shadow-root>
+        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
         <div class="mg-menu-item__collapse-container" slot="content">
           <slot></slot>
         </div>
@@ -334,8 +337,9 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
             </div>
             <slot name="content"></slot>
           </mg-card>
-          <div class="mg-popover-content__arrow" hidden=""></div>
+          <slot name="arrow"></slot>
         </mock:shadow-root>
+        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
         <div class="mg-menu-item__collapse-container" slot="content">
           <slot></slot>
         </div>
@@ -406,8 +410,9 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
             </div>
             <slot name="content"></slot>
           </mg-card>
-          <div class="mg-popover-content__arrow" hidden=""></div>
+          <slot name="arrow"></slot>
         </mock:shadow-root>
+        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
         <div class="mg-menu-item__collapse-container" slot="content">
           <slot></slot>
         </div>
@@ -491,8 +496,9 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
             </div>
             <slot name="content"></slot>
           </mg-card>
-          <div class="mg-popover-content__arrow" hidden=""></div>
+          <slot name="arrow"></slot>
         </mock:shadow-root>
+        <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
         <div class="mg-menu-item__collapse-container" slot="content">
           <slot></slot>
         </div>
@@ -579,8 +585,9 @@ exports[`mg-menu-item events popover should prevent "expanded" to be update to "
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -694,8 +701,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -772,8 +780,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -850,8 +859,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -895,8 +905,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -978,8 +989,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1023,8 +1035,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -1106,8 +1119,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1151,8 +1165,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -1234,8 +1249,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1279,8 +1295,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -1362,8 +1379,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1424,8 +1442,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1542,8 +1561,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1620,8 +1640,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1698,8 +1719,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1743,8 +1765,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -1826,8 +1849,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1871,8 +1895,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -1954,8 +1979,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -1999,8 +2025,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -2082,8 +2109,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2127,8 +2155,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -2210,8 +2239,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2272,8 +2302,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2390,8 +2421,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2468,8 +2500,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2546,8 +2579,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2591,8 +2625,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -2674,8 +2709,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2719,8 +2755,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -2802,8 +2839,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2847,8 +2885,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -2930,8 +2969,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -2975,8 +3015,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
                   </div>
                   <slot name="content"></slot>
                 </mg-card>
-                <div class="mg-popover-content__arrow" hidden=""></div>
+                <slot name="arrow"></slot>
               </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
               <div class="mg-menu-item__collapse-container" slot="content">
                 <slot></slot>
               </div>
@@ -3058,8 +3099,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3120,8 +3162,9 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3420,8 +3463,9 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3498,8 +3542,9 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3576,8 +3621,9 @@ exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3654,8 +3700,9 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3732,8 +3779,9 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -3810,8 +3858,9 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -4531,8 +4580,9 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>
@@ -4642,8 +4692,9 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
               </div>
               <slot name="content"></slot>
             </mg-card>
-            <div class="mg-popover-content__arrow" hidden=""></div>
+            <slot name="arrow"></slot>
           </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
           <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
             <slot></slot>
           </div>

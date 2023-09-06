@@ -14,8 +14,9 @@ exports[`mg-tooltip Should keep displayed tooltip when hover it 1`] = `
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -34,8 +35,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -54,8 +56,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -78,8 +81,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -105,8 +109,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -125,8 +130,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -145,8 +151,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -169,8 +176,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -196,8 +204,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -216,8 +225,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -236,8 +246,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -260,8 +271,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -287,8 +299,9 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
       <span class="mg-tooltip-content__message">
         blu
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -307,8 +320,9 @@ exports[`mg-tooltip Should render with element with given placement 1`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -327,8 +341,9 @@ exports[`mg-tooltip Should toogle tooltip from prop display, case display false 
       <span class="mg-tooltip-content__message">
         batman
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -347,8 +362,9 @@ exports[`mg-tooltip Should toogle tooltip from prop display, case display false 
       <span class="mg-tooltip-content__message">
         batman
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -367,8 +383,9 @@ exports[`mg-tooltip Should toogle tooltip from prop display, case display true 1
       <span class="mg-tooltip-content__message">
         batman
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -387,8 +404,9 @@ exports[`mg-tooltip Should toogle tooltip from prop display, case display true 2
       <span class="mg-tooltip-content__message">
         batman
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -407,8 +425,9 @@ exports[`mg-tooltip Should update button wrapper dynamically 1`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -427,8 +446,9 @@ exports[`mg-tooltip Should update button wrapper dynamically 2`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -456,8 +476,9 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -495,8 +516,9 @@ exports[`mg-tooltip render Should render with tooltip 1`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -515,8 +537,9 @@ exports[`mg-tooltip render Should render with tooltip 2`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -535,8 +558,9 @@ exports[`mg-tooltip render Should render with tooltip 3`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -555,8 +579,9 @@ exports[`mg-tooltip render Should render with tooltip 4`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -575,8 +600,9 @@ exports[`mg-tooltip render Should render with tooltip 5`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -595,8 +621,9 @@ exports[`mg-tooltip render Should render with tooltip 6`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -615,8 +642,9 @@ exports[`mg-tooltip render Should render with tooltip 7`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -635,8 +663,9 @@ exports[`mg-tooltip render Should render with tooltip 8`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -655,8 +684,9 @@ exports[`mg-tooltip render Should render with tooltip 9`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -675,8 +705,9 @@ exports[`mg-tooltip render Should render with tooltip 10`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -695,8 +726,9 @@ exports[`mg-tooltip render Should render with tooltip 11`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -715,8 +747,9 @@ exports[`mg-tooltip render Should render with tooltip 12`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -739,8 +772,9 @@ exports[`mg-tooltip render Should render with tooltip 13`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -763,8 +797,9 @@ exports[`mg-tooltip render Should render with tooltip 14`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -787,8 +822,9 @@ exports[`mg-tooltip render Should render with tooltip 15`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -811,8 +847,9 @@ exports[`mg-tooltip render Should render with tooltip 16`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -835,8 +872,9 @@ exports[`mg-tooltip render Should render with tooltip 17`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -859,8 +897,9 @@ exports[`mg-tooltip render Should render with tooltip 18`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -886,8 +925,9 @@ exports[`mg-tooltip render Should render with tooltip 19`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -913,8 +953,9 @@ exports[`mg-tooltip render Should render with tooltip 20`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -940,8 +981,9 @@ exports[`mg-tooltip render Should render with tooltip 21`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -967,8 +1009,9 @@ exports[`mg-tooltip render Should render with tooltip 22`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -994,8 +1037,9 @@ exports[`mg-tooltip render Should render with tooltip 23`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1021,8 +1065,9 @@ exports[`mg-tooltip render Should render with tooltip 24`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1050,8 +1095,9 @@ exports[`mg-tooltip render Should render with tooltip 25`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1079,8 +1125,9 @@ exports[`mg-tooltip render Should render with tooltip 26`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1108,8 +1155,9 @@ exports[`mg-tooltip render Should render with tooltip 27`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1137,8 +1185,9 @@ exports[`mg-tooltip render Should render with tooltip 28`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1166,8 +1215,9 @@ exports[`mg-tooltip render Should render with tooltip 29`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
@@ -1195,8 +1245,9 @@ exports[`mg-tooltip render Should render with tooltip 30`] = `
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
-      <div class="mg-tooltip-content__arrow"></div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;

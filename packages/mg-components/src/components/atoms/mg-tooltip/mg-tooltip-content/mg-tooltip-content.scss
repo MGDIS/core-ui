@@ -17,7 +17,7 @@
   display: block;
 }
 
-.mg-tooltip-content__arrow {
+::slotted([slot='arrow']) {
   visibility: hidden;
 
   &::before {
@@ -34,7 +34,7 @@
     height: 0.8rem;
     z-index: 9999;
     // Decoration
-    background: inherit;
+    background-color: hsl(var(--mg-tooltip-background-color));
   }
 
   :host([data-popper-placement^='top']) > & {

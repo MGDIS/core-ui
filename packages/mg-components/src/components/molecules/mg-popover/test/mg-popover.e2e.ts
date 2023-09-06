@@ -126,7 +126,7 @@ describe('mg-popover', () => {
       let screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
 
-      await page.$eval('mg-popover-content [slot]', el => {
+      await page.$eval(`mg-popover-content [slot="${slot}"]`, el => {
         el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
       });
 

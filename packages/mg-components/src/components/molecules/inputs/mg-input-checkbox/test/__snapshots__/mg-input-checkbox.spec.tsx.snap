@@ -37,8 +37,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -258,8 +259,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
@@ -411,8 +413,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="11">
                     <mock:shadow-root>
@@ -546,8 +549,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="111">
                     <mock:shadow-root>
@@ -677,8 +681,9 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -898,8 +903,9 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -1065,8 +1071,9 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -1293,8 +1300,9 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -1514,8 +1522,9 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -1735,8 +1744,9 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -1902,8 +1912,9 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -2123,8 +2134,9 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
@@ -2277,8 +2289,9 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -2505,8 +2518,9 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -2741,8 +2755,9 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -2920,8 +2935,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -3141,8 +3157,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -3362,8 +3379,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -3583,8 +3601,9 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -3990,8 +4009,9 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -5120,8 +5140,9 @@ exports[`mg-input-checkbox render by type checkbox should enable "displaySearchI
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -5499,8 +5520,9 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -5582,8 +5604,9 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -5665,8 +5688,9 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -5984,8 +6008,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6067,8 +6092,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group mg-input__input-group--disabled">
@@ -6151,8 +6177,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group mg-input__input-group--disabled">
@@ -6237,8 +6264,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group mg-input__input-group--disabled">
@@ -6320,8 +6348,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6407,8 +6436,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6496,8 +6526,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6582,8 +6613,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6665,8 +6697,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6750,8 +6783,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -6959,8 +6993,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7044,8 +7079,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group mg-input__input-group--disabled">
@@ -7162,8 +7198,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7249,8 +7286,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7338,8 +7376,9 @@ exports[`mg-input-checkbox render by type multi Should render with args {
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7418,8 +7457,9 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7498,8 +7538,9 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7581,8 +7622,9 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7661,8 +7703,9 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7741,8 +7784,9 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7821,8 +7865,9 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -7904,8 +7949,9 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
@@ -8125,8 +8171,9 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">
@@ -8208,8 +8255,9 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group mg-input__input-group--disabled">
@@ -8288,8 +8336,9 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
                     </div>
                     <slot name="content"></slot>
                   </mg-card>
-                  <div class="mg-popover-content__arrow" hidden=""></div>
+                  <slot name="arrow"></slot>
                 </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
                 <div slot="content">
                   <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
                     <li class="mg-input__input-group">

@@ -69,7 +69,7 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 /**
 * Arrow style
 */
-.mg-popover-content__arrow {
+::slotted([slot='arrow']) {
   position: absolute;
   visibility: hidden;
   // Need to set the max size to ensure it will be well centered
@@ -80,6 +80,10 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
     visibility: visible;
     content: '';
     position: absolute;
+  }
+
+  :host([data-arrow-hide]) & {
+    display: none;
   }
 
   /**
