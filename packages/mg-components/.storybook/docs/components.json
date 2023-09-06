@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-05T11:16:55",
+  "timestamp": "2023-09-06T08:10:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -6515,8 +6515,8 @@
       "filePath": "./src/components/atoms/mg-tooltip/mg-tooltip-content/mg-tooltip-content.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tooltip-content",
-      "readme": "# mg-tooltip-content\n\n\n",
-      "docs": "",
+      "readme": "# mg-tooltip-content\n\nIn order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.\n",
+      "docs": "In order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.",
       "docsTags": [],
       "usage": {},
       "props": [
