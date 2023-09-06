@@ -78,7 +78,7 @@ $checkbox-multi-spacer: 0.4rem;
   mg-popover {
     --mg-popover-min-width: 7rem;
     --mg-card-padding: calc(#{$checkbox-multi-spacer} * 2);
-    [slot='content'] {
+    &-content [slot='content'] {
       @include flex-container(2, column);
       .mg-input__input-group {
         margin-left: calc(#{$checkbox-multi-spacer} * 2);
