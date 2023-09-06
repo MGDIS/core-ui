@@ -44,7 +44,7 @@ prepare_package "packages/mg-components/package.json" '{
   "scripts": { 
     prebuild: .scripts.prebuild,
     start: .scripts.start,
-    "test:e2e:playwright": .scripts."test:e2e:playwright"
+    "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
   }, 
   "dependencies": { "@stencil/core": .dependencies."@stencil/core" }, 
   "devDependencies": { "@stencil/sass": .devDependencies."@stencil/sass" }
@@ -58,14 +58,14 @@ prepare_package "packages/notification-center/package.json" '{
   "files": .files, 
   "exports": .exports, 
   "scripts": { 
-    "test:e2e:playwright": .scripts."test:e2e:playwright"
+    "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
   }
 }'
 
 # Prepare packages/stylesheets/package.json
 prepare_package "packages/stylesheets/package.json" '{
   name, 
-  "scripts": { "test:e2e:playwright": .scripts."test:e2e:playwright" }
+  "scripts": { "test:e2e:playwright": .scripts."test:e2e:playwright:docker" }
 }'
 
 # Prepare apps/notification-center/package.json

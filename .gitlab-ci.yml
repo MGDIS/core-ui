@@ -129,17 +129,14 @@ test:e2e:
 
 test:e2e:playwright:
   stage: tests
-  image: mcr.microsoft.com/playwright:v1.34.3-focal
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install:dependencies
   script:
-    - !reference [.install:jq, script]
-    - pnpm build
-    - pnpm dlx playwright install
-    - pnpm test:e2e:playwright
+    - pnpm dlx playwright test
   artifacts:
     when: always
     paths:
@@ -149,10 +146,14 @@ test:e2e:playwright:
       - packages/mg-components/playwright-report/
       - packages/mg-components/test-results/
       - packages/mg-components/results.xml
+      - packages/stylesheets/playwright-report/
+      - packages/stylesheets/test-results/
+      - packages/stylesheets/results.xml
     reports:
       junit:
         - packages/notification-center/results.xml
         - packages/mg-components/results.xml
+        - packages/stylesheets/results.xml
 
 sonar:
   stage: tests

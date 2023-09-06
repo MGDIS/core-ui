@@ -8,7 +8,8 @@
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "test:unit": "jest --coverage",
-    "test:e2e:playwright": "pnpm dlx @playwright/test test",
+    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
+    "test:e2e:playwright:docker": "pnpm dlx @playwright/test test",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "lint": "run-s lint:es lint:prettier",

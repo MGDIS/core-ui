@@ -15,3 +15,8 @@ services:
       - ./packages/stylesheets/test:/app/packages/stylesheets/test
       - ./packages/stylesheets/playwright-report:/app/packages/stylesheets/playwright-report
       - ./packages/stylesheets/test-results:/app/packages/stylesheets/test-results
+    # Following is based on Playwright recommendation: https://playwright.dev/docs/ci#docker
+    init: true
+    cap_add:
+      - SYS_ADMIN
+    ipc: host

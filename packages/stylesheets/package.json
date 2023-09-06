@@ -14,7 +14,8 @@
     "build:min": "sass scss:dist -s compressed",
     "lint": "stylelint 'scss/**/*.{css,scss}'",
     "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
-    "test:e2e:playwright": "pnpm dlx @playwright/test test"
+    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
+    "test:e2e:playwright:docker": "pnpm dlx @playwright/test test"
   },
   "files": [
     "dist"
