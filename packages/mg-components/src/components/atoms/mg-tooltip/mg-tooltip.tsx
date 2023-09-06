@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, Watch } from '@stencil/core';
+import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
@@ -21,7 +21,7 @@ export class MgTooltip {
    ************/
 
   private popper: PopperInstance;
-  private mgTooltip: HTMLElement;
+  private mgTooltipContent: HTMLMgTooltipContentElement;
   private tooltipedElement: HTMLElement;
   private windows: Window[];
   private hasCustomTabIndex: boolean;
@@ -53,7 +53,7 @@ export class MgTooltip {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
-    this.mgTooltip.querySelector('.mg-tooltip__message').innerHTML = newValue;
+    this.mgTooltipContent.message = newValue;
   }
 
   /**
@@ -91,7 +91,7 @@ export class MgTooltip {
    */
   private show = (): void => {
     // Make the tooltip visible
-    this.mgTooltip.dataset.show = '';
+    this.mgTooltipContent.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -112,7 +112,7 @@ export class MgTooltip {
    */
   private hide = (): void => {
     // Hide the tooltip
-    this.mgTooltip.removeAttribute('data-show');
+    this.mgTooltipContent.removeAttribute('data-show');
     // Disable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -222,7 +222,7 @@ export class MgTooltip {
     }
 
     // Create popperjs tooltip
-    this.popper = createPopper(this.tooltipedElement, this.mgTooltip, {
+    this.popper = createPopper(this.tooltipedElement, this.mgTooltipContent, {
       placement: this.placement,
       strategy: 'fixed',
       modifiers: [
@@ -230,6 +230,12 @@ export class MgTooltip {
           name: 'offset',
           options: {
             offset: [0, 8],
+          },
+        },
+        {
+          name: 'arrow',
+          options: {
+            element: this.mgTooltipContent.shadowRoot.querySelector('.mg-tooltip-content__arrow'),
           },
         },
       ],
@@ -252,7 +258,7 @@ export class MgTooltip {
     ['mouseenter', 'mouseleave'].forEach(eventType => {
       const isMouseenter = eventType === 'mouseenter';
       [
-        { element: this.mgTooltip, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIP_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIPED_ELEMENT) },
+        { element: this.mgTooltipContent, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIP_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIPED_ELEMENT) },
         { element: this.tooltipedElement, action: () => this.tooltipMouseListenerAction(Guard.HOVER_TOOLTIPED_ELEMENT, isMouseenter, Guard.HOVER_TOOLTIP_ELEMENT) },
       ].forEach(({ element, action }) => {
         element.addEventListener(eventType, () => {
@@ -263,34 +269,15 @@ export class MgTooltip {
   };
 
   /**
-   * Render tooltip element
-   * @example
-   * rendered template
-   * ```
-   * <div role="tooltip" id={this.identifier} class="mg-tooltip">
-   *   <span innerHTML={this.message} class="mg-tooltip__message"></span>
-   *   <div class="mg-tooltip__arrow" data-popper-arrow></div>
-   * </div>
-   * ```
+   * Render tooltip content element
    */
   private renderTooltip(): void {
-    const baseElement = document.createElement('div');
-    baseElement.setAttribute('id', this.identifier);
-    baseElement.setAttribute('role', 'tooltip');
-    baseElement.classList.add('mg-tooltip');
-
-    const messageElement = document.createElement('span');
-    messageElement.innerHTML = this.message;
-    messageElement.classList.add('mg-tooltip__message');
-    baseElement.appendChild(messageElement);
-
-    const arrowElement = document.createElement('div');
-    arrowElement.classList.add('mg-tooltip__arrow');
-    arrowElement.dataset.popperArrow = 'true';
-    baseElement.appendChild(arrowElement);
+    const mgTooltipContent = document.createElement('mg-tooltip-content');
+    mgTooltipContent.setAttribute('slot', 'content');
+    mgTooltipContent.setAttribute('id', this.identifier);
 
     // append tooltip element to component
-    this.element.appendChild(baseElement);
+    this.element.appendChild(mgTooltipContent);
   }
 
   /*************
@@ -303,8 +290,14 @@ export class MgTooltip {
   componentWillLoad(): void {
     // Get windows to attach events
     this.windows = getWindows(window);
+
+    // Get tooltip element
+    this.renderTooltip();
+    this.mgTooltipContent = this.element.querySelector(`#${this.identifier}`);
+
     //validate properties
     this.validateDisabled(this.disabled);
+    this.validateMessage(this.message);
   }
 
   /**
@@ -313,11 +306,6 @@ export class MgTooltip {
    * We need to attach the focused element to the tooltip (aria-describedby)
    */
   componentDidLoad(): void {
-    this.renderTooltip();
-
-    // Get tooltip element
-    this.mgTooltip = this.element.querySelector(`#${this.identifier}`);
-
     // get slotted element wich is not the tooltip
     const slotElement: HTMLElement = this.element.querySelector(`*:not(#${this.identifier})`);
 
@@ -346,7 +334,6 @@ export class MgTooltip {
     this.initTooltip(slotElement, interactiveElement);
 
     this.handleDisplay(this.display);
-    this.validateMessage(this.message);
   }
 
   /**
@@ -361,6 +348,11 @@ export class MgTooltip {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    return <slot></slot>;
+    return (
+      <Host>
+        <slot></slot>
+        <slot name="content"></slot>
+      </Host>
+    );
   }
 }
