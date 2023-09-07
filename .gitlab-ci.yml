@@ -115,6 +115,7 @@ test:unit:
 
 test:e2e:
   stage: tests
+  coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
@@ -126,6 +127,10 @@ test:e2e:
     when: on_failure
     paths:
       - /**/__diff_output__/
+      - packages/mg-components/coverage/junit.xml
+    reports:
+      junit:
+        - packages/mg-components/coverage/junit.xml
 
 test:e2e:playwright:
   stage: tests
