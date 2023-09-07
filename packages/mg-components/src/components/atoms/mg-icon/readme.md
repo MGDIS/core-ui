@@ -94,7 +94,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover](../../molecules/mg-popover)
+ - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
  - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph
@@ -119,7 +119,7 @@ graph TD;
   mg-modal --> mg-icon
   mg-pagination --> mg-icon
   mg-panel --> mg-icon
-  mg-popover --> mg-icon
+  mg-popover-content --> mg-icon
   mg-tabs --> mg-icon
   style mg-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```

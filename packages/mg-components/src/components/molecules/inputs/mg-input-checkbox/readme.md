@@ -187,9 +187,10 @@ graph TD;
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
   mg-tooltip --> mg-tooltip-content
-  mg-popover --> mg-card
-  mg-popover --> mg-button
-  mg-popover --> mg-icon
+  mg-popover --> mg-popover-content
+  mg-popover-content --> mg-card
+  mg-popover-content --> mg-button
+  mg-popover-content --> mg-icon
   mg-input-text --> mg-icon
   mg-input-text --> mg-character-left
   mg-input-text --> mg-tooltip

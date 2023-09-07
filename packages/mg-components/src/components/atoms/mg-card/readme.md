@@ -73,7 +73,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover](../../molecules/mg-popover)
+ - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
 
 ### Graph
 ```mermaid
@@ -81,7 +81,7 @@ graph TD;
   mg-message --> mg-card
   mg-modal --> mg-card
   mg-panel --> mg-card
-  mg-popover --> mg-card
+  mg-popover-content --> mg-card
   style mg-card fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -236,9 +236,10 @@ graph TD;
   mg-menu-item --> mg-badge
   mg-menu-item --> mg-icon
   mg-menu-item --> mg-popover
-  mg-popover --> mg-card
-  mg-popover --> mg-button
-  mg-popover --> mg-icon
+  mg-popover --> mg-popover-content
+  mg-popover-content --> mg-card
+  mg-popover-content --> mg-button
+  mg-popover-content --> mg-icon
   mg-button --> mg-icon
   mg-action-more --> mg-menu-item
   mg-item-more --> mg-menu-item

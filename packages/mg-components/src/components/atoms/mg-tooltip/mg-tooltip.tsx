@@ -232,12 +232,6 @@ export class MgTooltip {
             offset: [0, 8],
           },
         },
-        {
-          name: 'arrow',
-          options: {
-            element: this.mgTooltipContent.shadowRoot.querySelector('.mg-tooltip-content__arrow'),
-          },
-        },
       ],
     });
 
@@ -275,6 +269,11 @@ export class MgTooltip {
     const mgTooltipContent = document.createElement('mg-tooltip-content');
     mgTooltipContent.setAttribute('slot', 'content');
     mgTooltipContent.setAttribute('id', this.identifier);
+
+    const arrow = document.createElement('div');
+    arrow.setAttribute('slot', 'arrow');
+    arrow.dataset.popperArrow = '';
+    mgTooltipContent.appendChild(arrow);
 
     // append tooltip element to component
     this.element.appendChild(mgTooltipContent);
