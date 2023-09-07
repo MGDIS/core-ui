@@ -80,7 +80,7 @@ describe('mg-action-more', () => {
         await mgButton.click();
         await expect(page.locator('body')).toHaveScreenshot();
 
-        const mgMenuItem = await page.locator('mg-action-more mg-menu-item');
+        const mgMenuItem = await page.locator('mg-menu-item:first-of-type');
         await mgMenuItem.click();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       } else {
@@ -102,6 +102,7 @@ describe('mg-action-more', () => {
             variant: 'secondary',
           },
         }),
+        { width: 130, height: 200 },
       );
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -111,7 +112,7 @@ describe('mg-action-more', () => {
 
       await page.waitForTimeout(300); // wait chevron animation ended
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
     });
   });
 });
