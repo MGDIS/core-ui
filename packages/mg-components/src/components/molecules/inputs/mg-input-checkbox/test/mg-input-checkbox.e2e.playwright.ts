@@ -87,6 +87,8 @@ describe('mg-input-checkbox', () => {
         await page.keyboard.down(key);
       }
 
+      await page.locator('mg-tooltip-content').waitFor({ timeout: TIMEOUT });
+
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
@@ -104,6 +106,8 @@ describe('mg-input-checkbox', () => {
 
       // when multi open checkbox in popover
       if (type === 'multi') {
+        // wait few seconds to insure to have the interactive element rendered
+        await waitForInteractiveElement(page, type);
         await updateScreenshotClass(page, { width: '300px', height: '200px' });
         await page.keyboard.down('Tab');
         await page.keyboard.down('Enter');
