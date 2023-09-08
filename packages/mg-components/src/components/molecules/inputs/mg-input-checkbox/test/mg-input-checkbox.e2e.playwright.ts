@@ -3,6 +3,8 @@ import { createID } from '../../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
 import { CheckboxType, checkboxTypes } from '../mg-input-checkbox.conf';
 
+const TIMEOUT = 1000;
+
 const baseArgs = {
   label: 'legend',
   value: [
@@ -105,7 +107,7 @@ describe('mg-input-checkbox', () => {
         await updateScreenshotClass(page, { width: '300px', height: '200px' });
         await page.keyboard.down('Tab');
         await page.keyboard.down('Enter');
-        await page.locator('mg-popover-content').waitFor({ timeout: 1000 });
+        await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
       }
 
       await page.keyboard.down('Tab');
@@ -141,7 +143,7 @@ describe('mg-input-checkbox', () => {
         await updateScreenshotClass(page, { width: '300px', height: '200px' });
         await page.keyboard.down('Tab');
         await page.keyboard.down('Enter');
-        await page.locator('mg-popover-content').waitFor({ timeout: 1000 });
+        await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
       }
 
       await page.keyboard.down('Tab');
@@ -245,7 +247,7 @@ describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
 
-      await page.locator('mg-popover-content').waitFor({ timeout: 1000 });
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -300,7 +302,7 @@ describe('mg-input-checkbox', () => {
       // open popover
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
-      await page.locator('mg-popover-content').waitFor({ timeout: 1000 });
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -322,7 +324,7 @@ describe('mg-input-checkbox', () => {
       // open popover
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
-      await page.locator('mg-popover-content').waitFor({ timeout: 1000 });
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
       // close section
       await page.keyboard.down('Tab');
