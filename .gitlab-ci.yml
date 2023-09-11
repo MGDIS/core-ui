@@ -126,6 +126,10 @@ test:e2e:
     when: on_failure
     paths:
       - /**/__diff_output__/
+      - packages/mg-components/coverage/junit.xml
+    reports:
+      junit:
+        - packages/mg-components/coverage/junit.xml
 
 test:e2e:playwright:
   stage: tests
