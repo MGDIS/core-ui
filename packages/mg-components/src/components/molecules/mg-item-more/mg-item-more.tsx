@@ -138,7 +138,7 @@ export class MgItemMore {
    */
   render(): HTMLElement {
     return (
-      <Host role="menuitem" aria-haspopup="true">
+      <Host role="listitem">
         <mg-menu-item data-overflow-more data-size={this.parentMenu.size}>
           <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
           <span class={{ 'sr-only': !this.slotlabel.display }} slot="label">
