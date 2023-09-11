@@ -140,7 +140,7 @@ test:e2e:playwright:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm dlx playwright test
+    - pnpm test:e2e:playwright
   artifacts:
     when: always
     paths:
