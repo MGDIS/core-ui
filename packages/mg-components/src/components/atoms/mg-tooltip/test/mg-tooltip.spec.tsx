@@ -269,19 +269,31 @@ describe('mg-tooltip', () => {
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 
-  test('Should NOT have a focus event triggered with a mouse click event', async () => {
+  test('Should prevent focus guard whith click event', async () => {
     const args = { identifier: 'identifier', message: 'batman' };
     const page = await getPage(args, <mg-button>batman</mg-button>);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
     const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
     const element = page.doc.querySelector('mg-button');
 
-    const event = new MouseEvent('mousedown', { bubbles: true });
-    const spy = jest.spyOn(event, 'preventDefault');
-    element.dispatchEvent(event);
+    element.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
     await page.waitForChanges();
 
-    expect(spy).toHaveBeenCalled();
+    expect(tooltip).toHaveAttribute('data-show');
+
+    // recompose a click event as click event is not properly mock by jest `mousedown` + `focus` + `mouseup`
+    for (const event of ['mousedown', 'focus', 'mouseup']) {
+      const Constructor = event === 'focus' ? FocusEvent : MouseEvent;
+      element.dispatchEvent(new Constructor(event, { bubbles: true }));
+      await page.waitForChanges();
+    }
+
+    expect(tooltip).toHaveAttribute('data-show');
+
+    element.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+    await page.waitForChanges();
+    jest.runOnlyPendingTimers();
+
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 

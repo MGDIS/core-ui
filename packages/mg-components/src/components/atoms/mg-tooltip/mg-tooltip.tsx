@@ -242,10 +242,10 @@ export class MgTooltip {
     });
 
     // as `click` event is the composition of `mousedown` and `mouseup` event,
-    // and `click` event trigger `focus` event after a success `mousedown`
-    // we prevent the default action of a `mousedown` event to not emit `focus`
-    this.tooltipedElement.addEventListener('mousedown', (event: MouseEvent) => {
-      event.preventDefault();
+    // and `click` event trigger `focus` event after a success `mousedown` wich set the `guard` to `Guard.FOCUS`
+    // we reset the guard on `mouseup` event to unlock tooltip
+    this.tooltipedElement.addEventListener('mouseup', () => {
+      this.resetGuard();
     });
 
     this.tooltipedElement.addEventListener('blur', () => {
