@@ -23,7 +23,7 @@ export class MgTooltipContent {
     return (
       <Host role="tooltip">
         <span innerHTML={this.message} class="mg-tooltip-content__message"></span>
-        <div class="mg-tooltip-content__arrow"></div>
+        <slot name="arrow"></slot>
       </Host>
     );
   }

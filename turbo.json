@@ -1,10 +1,10 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalEnv": ["GITLAB_CI"],
+  "globalEnv": ["GITLAB_CI", "CI"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "build/**", "assets/**"]
+      "outputs": ["dist/**", "build/**", "src/assets/**"]
     },
     "build:config": {
       "dependsOn": ["^build:config"],

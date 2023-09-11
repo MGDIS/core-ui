@@ -69,14 +69,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           <mg-popover>
             <mock:shadow-root>
               <slot></slot>
-              <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_more-item" style="position: fixed; left: 0; top: 0; margin: 0;">
-                <mg-card>
-                  <div class="mg-popover__title">
-                    <slot name="title"></slot>
-                  </div>
-                  <slot name="content"></slot>
-                </mg-card>
-              </div>
+              <slot name="content"></slot>
             </mock:shadow-root>
             <button aria-controls="mg-popover-test_more-item" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
               <slot name="image"></slot>
@@ -90,9 +83,21 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 <mg-icon icon="chevron-down" size="small"></mg-icon>
               </span>
             </button>
-            <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-              <slot></slot>
-            </div>
+            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+              <mock:shadow-root>
+                <mg-card class="mg-popover-content">
+                  <div class="mg-popover-content__title">
+                    <slot name="title"></slot>
+                  </div>
+                  <slot name="content"></slot>
+                </mg-card>
+                <slot name="arrow"></slot>
+              </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+                <slot></slot>
+              </div>
+            </mg-popover-content>
           </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
@@ -236,14 +241,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           <mg-popover>
             <mock:shadow-root>
               <slot></slot>
-              <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_more-item" style="position: fixed; left: 0; top: 0; margin: 0;">
-                <mg-card>
-                  <div class="mg-popover__title">
-                    <slot name="title"></slot>
-                  </div>
-                  <slot name="content"></slot>
-                </mg-card>
-              </div>
+              <slot name="content"></slot>
             </mock:shadow-root>
             <button aria-controls="mg-popover-test_more-item" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
               <slot name="image"></slot>
@@ -257,9 +255,21 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 <mg-icon icon="chevron-down" size="small"></mg-icon>
               </span>
             </button>
-            <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-              <slot></slot>
-            </div>
+            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+              <mock:shadow-root>
+                <mg-card class="mg-popover-content">
+                  <div class="mg-popover-content__title">
+                    <slot name="title"></slot>
+                  </div>
+                  <slot name="content"></slot>
+                </mg-card>
+                <slot name="arrow"></slot>
+              </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+                <slot></slot>
+              </div>
+            </mg-popover-content>
           </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
@@ -557,14 +567,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           <mg-popover>
             <mock:shadow-root>
               <slot></slot>
-              <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_more-item" style="position: fixed; left: 0; top: 0; margin: 0;">
-                <mg-card>
-                  <div class="mg-popover__title">
-                    <slot name="title"></slot>
-                  </div>
-                  <slot name="content"></slot>
-                </mg-card>
-              </div>
+              <slot name="content"></slot>
             </mock:shadow-root>
             <button aria-controls="mg-popover-test_more-item" aria-current="page" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--active mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular" tabindex="0">
               <slot name="image"></slot>
@@ -578,9 +581,21 @@ exports[`mg-item-more events should update proxy status when base item status-ch
                 <mg-icon icon="chevron-down" size="small"></mg-icon>
               </span>
             </button>
-            <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-              <slot></slot>
-            </div>
+            <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+              <mock:shadow-root>
+                <mg-card class="mg-popover-content">
+                  <div class="mg-popover-content__title">
+                    <slot name="title"></slot>
+                  </div>
+                  <slot name="content"></slot>
+                </mg-card>
+                <slot name="arrow"></slot>
+              </mock:shadow-root>
+              <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+              <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+                <slot></slot>
+              </div>
+            </mg-popover-content>
           </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>

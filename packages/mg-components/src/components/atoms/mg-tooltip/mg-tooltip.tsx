@@ -232,12 +232,6 @@ export class MgTooltip {
             offset: [0, 8],
           },
         },
-        {
-          name: 'arrow',
-          options: {
-            element: this.mgTooltipContent.shadowRoot.querySelector('.mg-tooltip-content__arrow'),
-          },
-        },
       ],
     });
 
@@ -245,6 +239,13 @@ export class MgTooltip {
     this.tooltipedElement.addEventListener('focus', () => {
       this.guard = Guard.FOCUS;
       this.setDisplay(true);
+    });
+
+    // as `click` event is the composition of `mousedown` and `mouseup` event,
+    // and `click` event trigger `focus` event after a success `mousedown` wich set the `guard` to `Guard.FOCUS`
+    // we reset the guard on `mouseup` event to unlock tooltip
+    this.tooltipedElement.addEventListener('mouseup', () => {
+      this.resetGuard();
     });
 
     this.tooltipedElement.addEventListener('blur', () => {
@@ -275,6 +276,11 @@ export class MgTooltip {
     const mgTooltipContent = document.createElement('mg-tooltip-content');
     mgTooltipContent.setAttribute('slot', 'content');
     mgTooltipContent.setAttribute('id', this.identifier);
+
+    const arrow = document.createElement('div');
+    arrow.setAttribute('slot', 'arrow');
+    arrow.dataset.popperArrow = '';
+    mgTooltipContent.appendChild(arrow);
 
     // append tooltip element to component
     this.element.appendChild(mgTooltipContent);

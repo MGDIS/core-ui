@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { cloneDeep, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
+import { cloneDeep, mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
@@ -10,12 +10,14 @@ import { MgMessage } from '../../../mg-message/mg-message';
 import { MgPagination } from '../../../mg-pagination/mg-pagination';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
+import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockWindowFrames();
+mockConsoleError();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated],
+    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 

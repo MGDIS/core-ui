@@ -10,14 +10,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_0" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -31,9 +24,21 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="batman">
@@ -134,14 +139,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_5" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_5" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -155,9 +153,21 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_5" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -205,14 +215,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_0" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -226,9 +229,21 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="batman">
@@ -329,14 +344,7 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_5" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_5" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -350,9 +358,21 @@ exports[`mg-menu MutationObserver horizontal with args { label: 'batman menu', d
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_5" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -755,14 +775,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_1" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -776,9 +789,21 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_1" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -944,14 +969,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_1" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -965,9 +983,21 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_1" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -1133,14 +1163,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_1" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -1154,9 +1177,21 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_1" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -1322,14 +1357,7 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_1" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -1343,9 +1371,21 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_1" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -1492,14 +1532,7 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_0" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -1513,9 +1546,21 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="batman">
@@ -1616,14 +1661,7 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_5" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_5" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -1637,9 +1675,21 @@ exports[`mg-menu render with args { label: 'batman menu' } 1`] = `
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_5" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">
@@ -1687,14 +1737,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_0" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -1708,9 +1751,21 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_0" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="batman">
@@ -1811,14 +1866,7 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
       <mg-popover>
         <mock:shadow-root>
           <slot></slot>
-          <div class="mg-popover mg-popover--arrow-hide" id="mg-popover-test_5" style="position: fixed; left: 0; top: 0; margin: 0;">
-            <mg-card>
-              <div class="mg-popover__title">
-                <slot name="title"></slot>
-              </div>
-              <slot name="content"></slot>
-            </mg-card>
-          </div>
+          <slot name="content"></slot>
         </mock:shadow-root>
         <button aria-controls="mg-popover-test_5" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
           <slot name="image"></slot>
@@ -1832,9 +1880,21 @@ exports[`mg-menu render with args { label: 'batman menu', direction: 'horizontal
             <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         </button>
-        <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
-          <slot></slot>
-        </div>
+        <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_5" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+          <mock:shadow-root>
+            <mg-card class="mg-popover-content">
+              <div class="mg-popover-content__title">
+                <slot name="title"></slot>
+              </div>
+              <slot name="content"></slot>
+            </mg-card>
+            <slot name="arrow"></slot>
+          </mock:shadow-root>
+          <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+          <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+            <slot></slot>
+          </div>
+        </mg-popover-content>
       </mg-popover>
     </mock:shadow-root>
     <span slot="label" title="joker">

@@ -100,16 +100,15 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 
 ### Depends on
 
-- [mg-card](../../atoms/mg-card)
-- [mg-button](../../atoms/mg-button)
-- [mg-icon](../../atoms/mg-icon)
+- [mg-popover-content](mg-popover-content)
 
 ### Graph
 ```mermaid
 graph TD;
-  mg-popover --> mg-card
-  mg-popover --> mg-button
-  mg-popover --> mg-icon
+  mg-popover --> mg-popover-content
+  mg-popover-content --> mg-card
+  mg-popover-content --> mg-button
+  mg-popover-content --> mg-icon
   mg-button --> mg-icon
   mg-action-more --> mg-popover
   mg-input-checkbox --> mg-popover

@@ -136,7 +136,7 @@ export const setupSubmitEventMock = (): typeof MockCustomEvent => {
 export const forcePopoverId = (component: Element, id: string, interactiveElement = 'button'): void => {
   const popover = component.shadowRoot.querySelector('mg-popover');
   if (popover !== null) {
-    popover.shadowRoot.querySelector('.mg-popover').setAttribute('id', id);
+    popover.querySelector('mg-popover-content').setAttribute('id', id);
     component.shadowRoot.querySelector(interactiveElement).setAttribute('aria-controls', id);
   }
 };
