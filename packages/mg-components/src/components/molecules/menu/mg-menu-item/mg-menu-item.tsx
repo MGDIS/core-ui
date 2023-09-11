@@ -372,7 +372,7 @@ export class MgMenuItem {
       <TagName
         href={this.href}
         class={this.navigationButtonClassList.join()}
-        tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : 0}
+        tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
         aria-expanded={this.hasChildren && this.expanded.toString()}
