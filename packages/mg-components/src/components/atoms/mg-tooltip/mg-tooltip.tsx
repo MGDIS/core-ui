@@ -241,6 +241,13 @@ export class MgTooltip {
       this.setDisplay(true);
     });
 
+    // as `click` event is the composition of `mousedown` and `mouseup` event,
+    // and `click` event trigger `focus` event after a success `mousedown`
+    // we prevent the default action of a `mousedown` event to not emit `focus`
+    this.tooltipedElement.addEventListener('mousedown', (event: MouseEvent) => {
+      event.preventDefault();
+    });
+
     this.tooltipedElement.addEventListener('blur', () => {
       this.resetGuard();
       this.setDisplay(false);

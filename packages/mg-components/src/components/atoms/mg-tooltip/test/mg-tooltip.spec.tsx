@@ -269,6 +269,22 @@ describe('mg-tooltip', () => {
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 
+  test('Should NOT have a focus event triggered with a mouse click event', async () => {
+    const args = { identifier: 'identifier', message: 'batman' };
+    const page = await getPage(args, <mg-button>batman</mg-button>);
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+    const element = page.doc.querySelector('mg-button');
+
+    const event = new MouseEvent('mousedown', { bubbles: true });
+    const spy = jest.spyOn(event, 'preventDefault');
+    element.dispatchEvent(event);
+    await page.waitForChanges();
+
+    expect(spy).toHaveBeenCalled();
+    expect(tooltip).not.toHaveAttribute('data-show');
+  });
+
   test.each(['button', 'mg-button'])('Should update %s wrapper dynamically', async TagName => {
     const page = await getPage(
       { identifier: 'identifier', message: 'My tooltip message' },
