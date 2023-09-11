@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-06T08:10:44",
+  "timestamp": "2023-09-06T12:36:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -131,6 +131,9 @@
           "mg-badge"
         ],
         "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
           "mg-card",
           "mg-button",
           "mg-icon"
@@ -492,7 +495,7 @@
         "mg-modal",
         "mg-pagination",
         "mg-panel",
-        "mg-popover"
+        "mg-popover-content"
       ],
       "dependencies": [
         "mg-icon"
@@ -522,7 +525,7 @@
         "mg-panel": [
           "mg-button"
         ],
-        "mg-popover": [
+        "mg-popover-content": [
           "mg-button"
         ]
       }
@@ -601,7 +604,7 @@
         "mg-message",
         "mg-modal",
         "mg-panel",
-        "mg-popover"
+        "mg-popover-content"
       ],
       "dependencies": [],
       "dependencyGraph": {
@@ -614,7 +617,7 @@
         "mg-panel": [
           "mg-card"
         ],
-        "mg-popover": [
+        "mg-popover-content": [
           "mg-card"
         ]
       }
@@ -1154,7 +1157,7 @@
         "mg-modal",
         "mg-pagination",
         "mg-panel",
-        "mg-popover",
+        "mg-popover-content",
         "mg-tabs"
       ],
       "dependencies": [],
@@ -1216,7 +1219,7 @@
         "mg-panel": [
           "mg-icon"
         ],
-        "mg-popover": [
+        "mg-popover-content": [
           "mg-icon"
         ],
         "mg-tabs": [
@@ -1644,6 +1647,9 @@
           "mg-tooltip-content"
         ],
         "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
           "mg-card",
           "mg-button",
           "mg-icon"
@@ -4914,6 +4920,9 @@
           "mg-popover"
         ],
         "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
           "mg-card",
           "mg-button",
           "mg-icon"
@@ -5164,6 +5173,9 @@
           "mg-popover"
         ],
         "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
           "mg-card",
           "mg-button",
           "mg-icon"
@@ -6021,12 +6033,13 @@
         "mg-menu-item"
       ],
       "dependencies": [
-        "mg-card",
-        "mg-button",
-        "mg-icon"
+        "mg-popover-content"
       ],
       "dependencyGraph": {
         "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
           "mg-card",
           "mg-button",
           "mg-icon"
@@ -6042,6 +6055,71 @@
         ],
         "mg-menu-item": [
           "mg-popover"
+        ]
+      }
+    },
+    {
+      "filePath": "./src/components/molecules/mg-popover/mg-popover-content/mg-popover-content.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-popover-content",
+      "readme": "# mg-popover-content\n\nIn order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.\n",
+      "docs": "In order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "closeButton",
+          "type": "boolean",
+          "mutable": false,
+          "attr": "close-button",
+          "reflectToAttr": false,
+          "docs": "Define if popover has a cross button",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "hide-content",
+          "detail": "string",
+          "bubbles": true,
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when close button is clicked",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "mg-popover"
+      ],
+      "dependencies": [
+        "mg-card",
+        "mg-button",
+        "mg-icon"
+      ],
+      "dependencyGraph": {
+        "mg-popover-content": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-popover": [
+          "mg-popover-content"
         ]
       }
     },

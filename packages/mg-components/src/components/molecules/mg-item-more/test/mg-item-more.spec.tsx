@@ -6,6 +6,7 @@ import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../../menu/mg-menu/mg-menu';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { MgPopover } from '../../mg-popover/mg-popover';
+import { MgPopoverContent } from '../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockConsoleError();
 mockWindowFrames();
@@ -25,7 +26,7 @@ const setId = (hasId: boolean): string => (hasId ? `my-id-${id++}` : undefined);
 
 const getPage = async args => {
   const page = await newSpecPage({
-    components: [MgMenu, MgMenuItem, MgItemMore, MgPopover],
+    components: [MgMenu, MgMenuItem, MgItemMore, MgPopover, MgPopoverContent],
     template: () => (
       <mg-menu {...args}>
         <mg-menu-item href={args.isHref ? '#' : undefined} id={setId(args.hasId)}>

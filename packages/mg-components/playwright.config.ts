@@ -21,9 +21,9 @@ const config: PlaywrightTestConfig = {
   ],
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'pnpm start -p 3333',
+    command: 'pnpm prebuild && pnpm stencil build --serve --watch -p 3333',
     url: 'http://localhost:3333',
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: !(process.env.CI as boolean),
   },
   use: {
     baseURL: 'http://localhost:3333',

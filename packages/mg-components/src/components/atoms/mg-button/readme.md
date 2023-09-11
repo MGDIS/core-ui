@@ -97,7 +97,7 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover](../../molecules/mg-popover)
+ - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
 
 ### Depends on
 
@@ -114,7 +114,7 @@ graph TD;
   mg-modal --> mg-button
   mg-pagination --> mg-button
   mg-panel --> mg-button
-  mg-popover --> mg-button
+  mg-popover-content --> mg-button
   style mg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
