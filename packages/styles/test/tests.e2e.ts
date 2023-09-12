@@ -10,7 +10,7 @@ test('Layout', async ({ page }) => {
   await expect(page).toHaveScreenshot({ fullPage: true });
 });
 
-// test('Utils', async ({ page }) => {
-//   page.goto(`file://${__dirname}/utils.html`);
-//   await expect(page).toHaveScreenshot({ fullPage: true });
-// });
+test('Utils', async ({ page }) => {
+  page.goto(`file://${__dirname}/utils.html`);
+  await expect(page).toHaveScreenshot({ fullPage: true });
+});
