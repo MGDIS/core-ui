@@ -134,6 +134,7 @@ test:e2e:
 test:e2e:playwright:
   stage: tests
   image: mcr.microsoft.com/playwright:v1.34.3-focal
+  parallel: 10
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
