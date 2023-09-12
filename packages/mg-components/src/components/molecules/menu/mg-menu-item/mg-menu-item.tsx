@@ -424,7 +424,7 @@ export class MgMenuItem {
     });
 
     return (
-      <Host role="listitem">
+      <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
         {this.displayPopover() ? (
           <mg-popover display={this.expanded} placement="bottom-start" arrowHide={true} onDisplay-change={this.handlePopoverDisplay} identifier={this.getPopoverIdentifier()}>
             {this.renderInteractiveElement()}

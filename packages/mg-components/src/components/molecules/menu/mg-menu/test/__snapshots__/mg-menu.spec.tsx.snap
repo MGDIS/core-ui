@@ -837,9 +837,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 1`] = `
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more aria-haspopup="true" role="menuitem">
+  <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1031,9 +1031,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event click 2`] = `
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more aria-haspopup="true" role="menuitem">
+  <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="true" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1225,9 +1225,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 1`] = `
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more aria-haspopup="true" role="menuitem">
+  <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
@@ -1419,9 +1419,9 @@ exports[`mg-menu mg-item-more should manage "mg-item-more" event focus 2`] = `
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more aria-haspopup="true" role="menuitem">
+  <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="listitem" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" tabindex="0">
             <slot name="image"></slot>
