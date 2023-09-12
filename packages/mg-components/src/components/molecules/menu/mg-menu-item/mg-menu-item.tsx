@@ -372,7 +372,7 @@ export class MgMenuItem {
       <TagName
         href={this.href}
         class={this.navigationButtonClassList.join()}
-        tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : 0}
+        tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
         aria-expanded={this.hasChildren && this.expanded.toString()}
@@ -424,7 +424,7 @@ export class MgMenuItem {
     });
 
     return (
-      <Host role="listitem">
+      <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
         {this.displayPopover() ? (
           <mg-popover display={this.expanded} placement="bottom-start" arrowHide={true} onDisplay-change={this.handlePopoverDisplay} identifier={this.getPopoverIdentifier()}>
             {this.renderInteractiveElement()}
