@@ -150,14 +150,14 @@ test:e2e:playwright:
       - packages/mg-components/playwright-report/
       - packages/mg-components/test-results/
       - packages/mg-components/results.xml
-      - packages/stylesheets/playwright-report/
-      - packages/stylesheets/test-results/
-      - packages/stylesheets/results.xml
+      - packages/styles/playwright-report/
+      - packages/styles/test-results/
+      - packages/styles/results.xml
     reports:
       junit:
         - packages/notification-center/results.xml
         - packages/mg-components/results.xml
-        - packages/stylesheets/results.xml
+        - packages/styles/results.xml
 
 sonar:
   stage: tests

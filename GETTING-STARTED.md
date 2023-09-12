@@ -52,7 +52,7 @@ pnpm test:e2e:playwright:docker
 If you want to generate screenshots for a specific package, you can use the following command with a filter:
 
 ```sh
-pnpm test:e2e:playwright:docker --filter=@mgdis/stylesheets
+pnpm test:e2e:playwright:docker --filter=@mgdis/styles
 ```
 
 ## Changesets and Releases

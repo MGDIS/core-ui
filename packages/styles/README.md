@@ -2,7 +2,7 @@
 
 **This package is, for now, reserved to mg-components.**
 
-👋 Hello @mgdis/element! Meet our newest addition: 'stylesheets' We're gearing up for a smoother, more modern styling experience, and 'stylesheets' will be leading the way. While we appreciate your service, we're gradually transitioning to the new package to harness its power and simplicity. Don't worry; we'll ensure a seamless migration for your styles. Exciting times ahead! 🌟
+👋 Hello @mgdis/element! Meet our newest addition: 'styles' We're gearing up for a smoother, more modern styling experience, and 'styles' will be leading the way. While we appreciate your service, we're gradually transitioning to the new package to harness its power and simplicity. Don't worry; we'll ensure a seamless migration for your styles. Exciting times ahead! 🌟
 
 ## SCSS
 

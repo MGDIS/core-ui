@@ -62,8 +62,8 @@ prepare_package "packages/notification-center/package.json" '{
   }
 }'
 
-# Prepare packages/stylesheets/package.json
-prepare_package "packages/stylesheets/package.json" '{
+# Prepare packages/styles/package.json
+prepare_package "packages/styles/package.json" '{
   name, 
   "scripts": { "test:e2e:playwright": .scripts."test:e2e:playwright:docker" }
 }'
