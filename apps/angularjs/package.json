@@ -1,5 +1,5 @@
 {
-  "name": "angular",
+  "name": "angularjs",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +15,8 @@
     "lint:prettier:fix": "prettier --write **/*.{scss,html,md,json}"
   },
   "dependencies": {
+    "@mgdis/mg-components": "workspace:*",
+    "@mgdis/notification-center": "workspace:*",
     "angular": "^1.8.3"
   },
   "devDependencies": {

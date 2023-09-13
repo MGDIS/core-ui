@@ -46,8 +46,14 @@ importers:
         specifier: latest
         version: 1.10.13
 
-  apps/angular:
+  apps/angularjs:
     dependencies:
+      '@mgdis/mg-components':
+        specifier: workspace:*
+        version: link:../../packages/mg-components
+      '@mgdis/notification-center':
+        specifier: workspace:*
+        version: link:../../packages/notification-center
       angular:
         specifier: ^1.8.3
         version: 1.8.3
@@ -125,6 +131,13 @@ importers:
         version: 4.4.9
 
   apps/vanilla:
+    dependencies:
+      '@mgdis/mg-components':
+        specifier: workspace:*
+        version: link:../../packages/mg-components
+      '@mgdis/notification-center':
+        specifier: workspace:*
+        version: link:../../packages/notification-center
     devDependencies:
       sass:
         specifier: ^1.58.0
@@ -135,6 +148,12 @@ importers:
 
   apps/vue-2:
     dependencies:
+      '@mgdis/mg-components':
+        specifier: workspace:*
+        version: link:../../packages/mg-components
+      '@mgdis/notification-center':
+        specifier: workspace:*
+        version: link:../../packages/notification-center
       vue:
         specifier: npm:vue@2.7.14
         version: 2.7.14
@@ -157,6 +176,12 @@ importers:
 
   apps/vue-3:
     dependencies:
+      '@mgdis/mg-components':
+        specifier: workspace:*
+        version: link:../../packages/mg-components
+      '@mgdis/notification-center':
+        specifier: workspace:*
+        version: link:../../packages/notification-center
       vue:
         specifier: ^3.3.4
         version: 3.3.4

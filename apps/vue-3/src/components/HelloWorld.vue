@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import '@mgdis/mg-components/dist/components/mg-button';
 
 defineProps<{ msg: string }>()
 
@@ -10,7 +11,7 @@ const count = ref(0)
   <h1>{{ msg }}</h1>
 
   <div class="card">
-    <button type="button" @click="count++">count is {{ count }}</button>
+    <mg-button type="button" @click="count++" variant="secondary">count is {{ count }}</mg-button>
     <p>
       Edit
       <code>components/HelloWorld.vue</code> to test HMR
