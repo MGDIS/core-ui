@@ -19,6 +19,7 @@ import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-ite
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
@@ -1003,6 +1004,10 @@ export namespace Components {
           * Define if modal has a cross button
          */
         "closeButton": boolean;
+        /**
+          * Modal dialog role.
+         */
+        "dialogRole": DialogRoleType;
         /**
           * Define if modal is hidden
          */
@@ -2570,6 +2575,10 @@ declare namespace LocalJSX {
           * Define if modal has a cross button
          */
         "closeButton"?: boolean;
+        /**
+          * Modal dialog role.
+         */
+        "dialogRole"?: DialogRoleType;
         /**
           * Define if modal is hidden
          */
