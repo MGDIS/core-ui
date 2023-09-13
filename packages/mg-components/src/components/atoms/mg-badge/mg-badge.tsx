@@ -3,7 +3,7 @@ import { variants, BadgeVariantType } from './mg-badge.conf';
 import { ClassList } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-badge',
-  styleUrl: 'mg-badge.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-badge.css',
   shadow: true,
 })
 export class MgBadge {
@@ -90,7 +90,7 @@ export class MgBadge {
     return (
       <span class={this.classCollection.join()}>
         <span class="mg-badge__value">{this.value}</span>
-        <span class="sr-only">{this.label}</span>
+        <span class="mg-u-visually-hidden">{this.label}</span>
       </span>
     );
   }

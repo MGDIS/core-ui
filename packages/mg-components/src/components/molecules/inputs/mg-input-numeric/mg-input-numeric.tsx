@@ -8,7 +8,7 @@ import { localeCurrency, localeNumber } from '../../../../utils/locale.utils';
 
 @Component({
   tag: 'mg-input-numeric',
-  styleUrl: 'mg-input-numeric.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-numeric.css',
   shadow: true,
 })
 export class MgInputNumeric {

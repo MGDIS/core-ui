@@ -12,7 +12,7 @@ const isButton = (element: unknown): element is HTMLMgButtonElement => typeof el
 
 @Component({
   tag: 'mg-tooltip',
-  styleUrl: 'mg-tooltip.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tooltip.css',
   shadow: true,
 })
 export class MgTooltip {

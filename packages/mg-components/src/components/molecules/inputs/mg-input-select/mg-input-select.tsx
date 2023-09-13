@@ -55,7 +55,7 @@ const groupOptions = (acc: (SelectOption | OptGroup)[], { group, title, value, d
 
 @Component({
   tag: 'mg-input-select',
-  styleUrl: 'mg-input-select.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-select.css',
   shadow: true,
 })
 export class MgInputSelect {

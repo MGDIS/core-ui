@@ -6,7 +6,7 @@ import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-input-text',
-  styleUrl: 'mg-input-text.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-text.css',
   shadow: true,
 })
 export class MgInputText {

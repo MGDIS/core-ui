@@ -6,7 +6,7 @@ import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
 @Component({
   tag: 'mg-message',
-  styleUrl: 'mg-message.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-message.css',
   shadow: true,
 })
 export class MgMessage {

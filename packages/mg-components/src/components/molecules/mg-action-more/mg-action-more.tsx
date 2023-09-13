@@ -37,7 +37,7 @@ const isMgActionMoreIcon = (prop: unknown): prop is MgActionMoreIconType => {
 
 @Component({
   tag: 'mg-action-more',
-  styleUrl: 'mg-action-more.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-action-more.css',
   shadow: true,
 })
 export class MgActionMore {

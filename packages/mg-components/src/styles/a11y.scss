@@ -4,7 +4,7 @@
 
 // Make content available only for screen reader
 // https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
-@mixin sr-only {
+@mixin mg-u-visually-hidden {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   -webkit-clip-path: inset(50%) !important;
@@ -18,8 +18,8 @@
   white-space: nowrap !important;
 }
 
-.sr-only {
-  @include sr-only();
+.mg-u-visually-hidden {
+  @include mg-u-visually-hidden();
 }
 
 // Remove outline for non-keyboard :focus

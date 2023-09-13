@@ -1,4 +1,4 @@
-@import '../../../styles/mixins/reset-mg-card-slotted-variables.scss';
+@import 'mixins/reset-mg-card-slotted-variables';
 
 @mixin message-variants($variants...) {
   @each $variant in $variants {

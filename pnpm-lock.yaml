@@ -467,6 +467,9 @@ importers:
       '@mgdis/img':
         specifier: workspace:*
         version: link:../img
+      '@mgdis/styles':
+        specifier: workspace:*
+        version: link:../styles
       '@popperjs/core':
         specifier: ^2.11.7
         version: 2.11.7
@@ -504,9 +507,6 @@ importers:
       '@pxtrn/storybook-addon-docs-stencil':
         specifier: ^6.4.1
         version: 6.4.1(react-dom@18.2.0)(react@18.2.0)
-      '@stencil/sass':
-        specifier: ^1.5.2
-        version: 1.5.2(@stencil/core@2.22.1)
       '@storybook/addon-a11y':
         specifier: ^7.2.0
         version: 7.2.0(react-dom@18.2.0)(react@18.2.0)
@@ -6443,14 +6443,7 @@ packages:
     resolution: { integrity: sha512-L4EsWLXYkg24BfrR3aS1df3BSkH0RFyza+Tu84MaYoF2csiKTJxDTZuFHSnJeF8UdgzV7CBfnsIEV6r3s0+h3g== }
     engines: { node: '>=12.10.0', npm: '>=6.0.0' }
     hasBin: true
-
-  /@stencil/sass@1.5.2(@stencil/core@2.22.1):
-    resolution: { integrity: sha512-nJ93pUSylsGsMX0eLmhxh1oEljcUjj5mYjhB9ziCdoaydAdjukrUoqDCC7tdVbOcBo2hKptQyWqCtETnBGYsXQ== }
-    peerDependencies:
-      '@stencil/core': '>=1.0.2'
-    dependencies:
-      '@stencil/core': 2.22.1
-    dev: true
+    dev: false
 
   /@storybook/addon-a11y@7.2.0(react-dom@18.2.0)(react@18.2.0):
     resolution: { integrity: sha512-22I1oEO05SdymS4T6tVDINiXGeR3cpyqnM0fK73o5oLV4XPeYfhGPw4yqjaUkud1WsZpf04Aq4bGg0fS4xCUBw== }

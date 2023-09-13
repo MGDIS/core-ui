@@ -17,7 +17,7 @@ const isCheckboxItems = (items: unknown): items is CheckboxItem[] =>
 
 @Component({
   tag: 'mg-input-checkbox',
-  styleUrl: 'mg-input-checkbox.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-checkbox.css',
   shadow: true,
 })
 export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'checkboxes' | 'messages'> {
@@ -542,7 +542,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 onValue-change={this.handleSearchChange}
                 aria-controls="search-results items-list"
               ></mg-input-text>,
-              <p key="search-results" role="status" class="sr-only" id="search-results">
+              <p key="search-results" role="status" class="mg-u-visually-hidden" id="search-results">
                 {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
               </p>,
             ]}

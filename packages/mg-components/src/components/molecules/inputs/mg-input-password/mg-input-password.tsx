@@ -6,7 +6,7 @@ import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-input-password',
-  styleUrl: 'mg-input-password.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-password.css',
   shadow: true,
 })
 export class MgInputPassword {

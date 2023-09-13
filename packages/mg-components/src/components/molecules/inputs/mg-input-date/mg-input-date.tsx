@@ -7,7 +7,7 @@ import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-input-date',
-  styleUrl: './mg-input-date.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-date.css',
   shadow: true,
 })
 export class MgInputDate {

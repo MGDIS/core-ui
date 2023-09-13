@@ -6,7 +6,7 @@ import type { IconType, MessageType, SizeType, SlotLabelType } from './mg-item-m
 
 @Component({
   tag: 'mg-item-more',
-  styleUrl: 'mg-item-more.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-item-more.css',
   shadow: true,
 })
 export class MgItemMore {
@@ -141,7 +141,7 @@ export class MgItemMore {
       <Host role="listitem">
         <mg-menu-item data-overflow-more data-size={this.parentMenu.size}>
           <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
-          <span class={{ 'sr-only': !this.slotlabel.display }} slot="label">
+          <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
             {this.slotlabel.label}
           </span>
           <mg-menu direction={Direction.VERTICAL} label={this.messages.moreLabel} size={this.size}></mg-menu>

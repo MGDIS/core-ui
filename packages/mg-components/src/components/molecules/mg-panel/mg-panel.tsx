@@ -5,7 +5,7 @@ import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDispl
 
 @Component({
   tag: 'mg-panel',
-  styleUrl: 'mg-panel.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-panel.css',
   shadow: true,
 })
 export class MgPanel {

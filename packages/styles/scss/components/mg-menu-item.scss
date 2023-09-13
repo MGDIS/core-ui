@@ -1,8 +1,8 @@
 @use 'sass:map';
 
-@import '../../../../styles/a11y.scss';
-@import '../../../../styles/mixins/navigation-button.scss';
-@import '../../../../styles/mixins/mg-icon-animation.scss';
+@import '../utils/a11y';
+@import 'mixins/navigation-button';
+@import 'mixins/mg-icon-animation';
 
 $navigation-vertical-spacing: 1rem;
 $navigation-button-sizes: (

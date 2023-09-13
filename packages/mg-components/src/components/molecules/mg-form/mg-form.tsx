@@ -5,7 +5,7 @@ import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 
 @Component({
   tag: 'mg-form',
-  styleUrl: 'mg-form.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-form.css',
   shadow: true,
 })
 export class MgForm {
