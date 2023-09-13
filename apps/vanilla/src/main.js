@@ -3,6 +3,8 @@ import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 
+import '@mgdis/mg-components/dist/components/mg-button';
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
@@ -13,7 +15,7 @@ document.querySelector('#app').innerHTML = `
     </a>
     <h1>Hello Vite!</h1>
     <div class="card">
-      <button id="counter" type="button"></button>
+      <mg-button id="counter" type="button" variant="secondary"></mg-button>
     </div>
     <p class="read-the-docs">
       Click on the Vite logo to learn more
