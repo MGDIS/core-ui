@@ -96,7 +96,7 @@ describe('Notification center', () => {
       const messageData = { content: 'Default example' };
       const spyPostMessage = jest.spyOn(window, 'postMessage');
       notifsCenter.postMessage(messageData);
-      expect(spyPostMessage).toHaveBeenCalledWith({ ...messageData, appId: 'mg-notification-center' }, '*');
+      expect(spyPostMessage).toHaveBeenCalledWith({ ...messageData, appId: 'mg-notification-center' }, 'http://localhost');
     });
 
     it('Should remove previous message with same context', () => {
