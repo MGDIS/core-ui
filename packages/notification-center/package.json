@@ -25,6 +25,7 @@
   "module": "./dist/notification-center.es.js",
   "exports": {
     ".": {
+      "types": "./dist/notification-center.d.ts",
       "import": "./dist/notification-center.es.js",
       "require": "./dist/notification-center.umd.js"
     }

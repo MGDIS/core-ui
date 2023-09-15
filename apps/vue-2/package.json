@@ -6,7 +6,13 @@
   "scripts": {
     "app": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "run-s lint:es lint:prettier",
+    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint:es": "eslint src/**/*.{vue,js,jsx}",
+    "lint:es:fix": "eslint src/**/*.{vue,js,jsx} --fix",
+    "lint:prettier": "prettier --check **/*.{scss,vue,js,jsx,md,json}",
+    "lint:prettier:fix": "prettier --write **/*.{scss,vue,js,jsx,md,json}"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
