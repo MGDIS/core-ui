@@ -1,6 +1,7 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
 import { createID, ClassList, focusableElements } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
+import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
 @Component({
   tag: 'mg-modal',
@@ -44,11 +45,20 @@ export class MgModal {
   @Prop() identifier: string = createID('mg-modal');
 
   /**
+   * Modal dialog role.
+   */
+  @Prop() dialogRole: DialogRoleType = dialogRoles[0];
+  @Watch('dialogRole')
+  validateDialogRole(newValue: MgModal['dialogRole']): void {
+    if (!dialogRoles.includes(newValue)) throw new Error(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}.`);
+  }
+
+  /**
    * Displayed modal title
    */
   @Prop() modalTitle!: string;
   @Watch('modalTitle')
-  validateModalTitle(newValue: string): void {
+  validateModalTitle(newValue: MgModal['modalTitle']): void {
     if (typeof newValue !== 'string' || newValue.trim() === '') {
       throw new Error('<mg-modal> prop "modalTitle" is required.');
     }
@@ -64,7 +74,7 @@ export class MgModal {
    */
   @Prop({ mutable: true }) hide: boolean;
   @Watch('hide')
-  validateHide(newValue: boolean): void {
+  validateHide(newValue: MgModal['hide']): void {
     if (newValue) {
       this.componentHide.emit();
       this.classCollection.add(this.classHide);
@@ -199,6 +209,7 @@ export class MgModal {
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
     this.validateHide(this.hide);
+    this.validateDialogRole(this.dialogRole);
   }
 
   /**
@@ -220,7 +231,7 @@ export class MgModal {
    */
   render(): HTMLElement {
     return (
-      <div role="alertdialog" id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
+      <div role={this.dialogRole} id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
         <mg-card>
           <div class="mg-modal__dialog">
             <header class="mg-modal__header">

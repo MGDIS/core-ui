@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2023-09-14-11-09_Shrill-Shamrock-Sheep)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-08-03-19-06_Unusual-Unmellow-Yellow-2)
 
 ### Packages released

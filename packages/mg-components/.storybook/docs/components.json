@@ -5367,6 +5367,28 @@
           "required": false
         },
         {
+          "name": "dialogRole",
+          "type": "\"alertdialog\" | \"dialog\"",
+          "mutable": false,
+          "attr": "dialog-role",
+          "reflectToAttr": false,
+          "docs": "Modal dialog role.",
+          "docsTags": [],
+          "default": "dialogRoles[0]",
+          "values": [
+            {
+              "value": "alertdialog",
+              "type": "string"
+            },
+            {
+              "value": "dialog",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "hide",
           "type": "boolean",
           "mutable": true,
