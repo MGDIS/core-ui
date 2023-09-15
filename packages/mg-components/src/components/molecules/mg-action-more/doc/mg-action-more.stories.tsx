@@ -24,7 +24,7 @@ const mouseEventHandler = () => {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-action-more {...filterArgs(args)} style={{ 'margin-left': '1rem' }}></mg-action-more>;
 
-export const MgActionMore = {
+export const MgActionMoreIcon = {
   render: Template,
   args: {
     items: [
@@ -55,10 +55,10 @@ export const MgActionMore = {
   },
 };
 
-export const MgActionMoreCustom = {
+export const MgActionMoreIconCustomAndLabel = {
   render: Template,
   args: {
-    ...MgActionMore.args,
+    ...MgActionMoreIcon.args,
     button: {
       variant: 'flat',
       isIcon: false,
@@ -67,5 +67,34 @@ export const MgActionMoreCustom = {
     icon: {
       icon: 'user',
     },
+  },
+};
+
+export const MgActionMoreIconCustomAndLabelAndChevron = {
+  render: Template,
+  args: {
+    ...MgActionMoreIcon.args,
+    button: {
+      variant: 'flat',
+      isIcon: false,
+      label: 'mon user',
+    },
+    icon: {
+      icon: 'user',
+    },
+    displayChevron: true,
+  },
+};
+
+export const MgActionMoreLabelAndChevron = {
+  render: Template,
+  args: {
+    ...MgActionMoreIcon.args,
+    button: {
+      variant: 'flat',
+      isIcon: false,
+      label: 'mon user',
+    },
+    displayChevron: true,
   },
 };
