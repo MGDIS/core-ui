@@ -4,6 +4,12 @@ export function setupCounter(element) {
     counter = count
     element.innerHTML = `count is ${counter}`
   }
-  element.addEventListener('click', () => setCounter(counter + 1))
+  element.addEventListener('click', () => {
+    setCounter(counter + 1)
+    window.NotificationCenter.postMessage({
+      content: "Counter value change",
+      variant: "info",
+    });
+  })
   setCounter(0)
 }

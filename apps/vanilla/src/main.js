@@ -3,7 +3,12 @@ import javascriptLogo from './javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './counter.js'
 
-import '@mgdis/mg-components/dist/components/mg-button';
+import { NotificationCenter } from '@mgdis/notification-center';
+import { defineCustomElements } from '@mgdis/mg-components/loader';
+
+defineCustomElements().then(() => {
+    Object.defineProperty(window, 'NotificationCenter', { value: new NotificationCenter() });
+});
 
 document.querySelector('#app').innerHTML = `
   <div>
