@@ -60,11 +60,13 @@ export class MgActionMore {
   /**
    * Define displaied icon
    */
-  @Prop() icon: MgActionMoreIconType = { icon: 'ellipsis' };
+  @Prop({ mutable: true }) icon: MgActionMoreIconType;
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
       throw new Error(`<${this.name}> prop icon must match MgActionMoreIconType.`);
+    } else if (!Boolean(newValue?.icon) && Boolean(this.button.isIcon)) {
+      this.icon = { icon: 'ellipsis' };
     }
   }
 
@@ -183,7 +185,7 @@ export class MgActionMore {
         <span class="mg-action-more">
           <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
             <mg-button variant={this.button.variant} isIcon={this.button.isIcon} type="button" label={buttonLabel} onClick={this.handleButton}>
-              <mg-icon {...this.icon}></mg-icon>
+              {this.icon && <mg-icon {...this.icon}></mg-icon>}
               {!this.button.isIcon && buttonContent}
             </mg-button>
             <div slot="content">
