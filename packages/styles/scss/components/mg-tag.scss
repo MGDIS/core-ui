@@ -5,24 +5,23 @@ $mg-tag-padding-horizontal: 0.7rem;
 /* Mixins */
 @mixin tag-variant($name, $backgroundColor, $color) {
   &.mg-tag--#{$name} {
-    // Decoration
-    background-color: hsl(var(--color-#{$backgroundColor}));
     border-color: hsl(var(--color-#{$backgroundColor}));
-    // Font
+    background-color: hsl(var(--color-#{$backgroundColor}));
     color: hsl(var(--color-#{$color}));
 
     &.mg-tag--outline {
-      // Decoration
       background-color: transparent;
-      // Font
       color: hsl(var(--color-#{$backgroundColor}));
     }
+
     &.mg-tag--soft {
-      $fill-color: hsl(var(--color-#{$backgroundColor}-h), var(--color-#{$backgroundColor}-s), var(--mg-color-soft-l));
-      font-weight: 400;
-      background-color: $fill-color;
+      $fill-color: hsl(var(--color-#{$backgroundColor}-h) var(--color-#{$backgroundColor}-s) var(--mg-color-soft-l));
+
       border-color: $fill-color;
+      background-color: $fill-color;
       color: hsl(var(--color-dark));
+      font-weight: 400;
+
       ::slotted(mg-icon) {
         @if $name == 'secondary' {
           color: hsl(var(--color-dark));
@@ -36,14 +35,15 @@ $mg-tag-padding-horizontal: 0.7rem;
 
 /* Styles */
 .mg-tag {
-  // Display
-  padding: calc((var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2) $mg-tag-padding-horizontal - $mg-tag-border-width;
+  $padding-value: calc(
+    (var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2 - $mg-tag-padding-horizontal - $mg-tag-border-width
+  );
+
   min-height: var(--mg-tag-height);
   box-sizing: border-box;
-  // Decoration
-  border-radius: var(--mg-tag-border-radius);
+  padding: $padding-value;
   border: $mg-tag-border-width solid;
-  // Font
+  border-radius: var(--mg-tag-border-radius);
   font-size: var(--mg-tag-font-size);
   font-weight: 600;
   text-align: center;

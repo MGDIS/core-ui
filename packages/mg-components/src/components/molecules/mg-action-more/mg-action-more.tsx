@@ -110,7 +110,7 @@ export class MgActionMore {
    ***********/
 
   /**
-   * Toogle expanded props
+   * Toggle expanded props
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;

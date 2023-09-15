@@ -7,11 +7,11 @@ $border-arrow-head: $arrow-height solid hsl(var(--mg-popover-background-color));
 $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
 :host {
+  position: relative;
+  z-index: 2000;
   display: none;
   padding: $popover-space;
-  z-index: 2000;
   color: hsl(var(--mg-popover-font-color));
-  position: relative;
 }
 
 :host([data-show]) {
@@ -22,7 +22,9 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 :host([data-popper-placement^='left-end']),
 :host([data-popper-placement^='right-start']),
 :host([data-popper-placement^='right-end']) {
-  padding: 0 $popover-space;
+  $padding-value: 0 $popover-space;
+
+  padding: $padding-value;
 }
 
 .mg-popover-content {
@@ -30,19 +32,19 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
   --mg-card-min-width: var(--mg-popover-min-width);
 
   mg-button {
-    float: right;
-    margin-right: calc(0rem - (var(--default-size) - var(--mg-icon-regular-size)) / 2); // Without unit (rem) the value can not be negative
     margin-top: calc(0rem - (var(--default-size) - var(--mg-popover-title-font-size) * var(--line-height)) / 2);
+    margin-right: calc(0rem - (var(--default-size) - var(--mg-icon-regular-size)) / 2); // Without unit (rem) the value can not be negative
     margin-left: 3rem;
+    float: right;
   }
 
   &__title ::slotted([slot='title']) {
-    margin: 0 0 1rem !important;
-    font-size: var(--mg-popover-title-font-size) !important;
+    margin: 0 0 1rem !important; /* stylelint-disable-line declaration-no-important */
+    font-size: var(--mg-popover-title-font-size) !important; /* stylelint-disable-line declaration-no-important */
     font-weight: 600;
   }
 
-  @include reset-slot-card-variables();
+  @include reset-slot-card-variables;
 }
 
 /**
@@ -70,16 +72,20 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 * Arrow style
 */
 ::slotted([slot='arrow']) {
-  position: absolute;
-  visibility: hidden;
-  // Need to set the max size to ensure it will be well centered
-  width: calc($arrow-width + 2 * var(--mg-card-border-radius) + 2 * $popover-space);
-  height: calc($arrow-width + 2 * var(--mg-card-border-radius) + 2 * $popover-space);
+  $width-value: calc($arrow-width + 2 * var(--mg-card-border-radius) + 2 * $popover-space);
+  $popover-position: calc(var(--mg-card-border-radius) + $popover-space);
 
-  &:before {
-    visibility: visible;
-    content: '';
+  position: absolute;
+
+  // Need to set the max size to ensure it will be well centered
+  width: $width-value;
+  height: $width-value;
+  visibility: hidden;
+
+  &::before {
     position: absolute;
+    content: '';
+    visibility: visible;
   }
 
   :host([data-arrow-hide]) & {
@@ -93,8 +99,8 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
   :host([data-popper-placement^='bottom']) & {
     height: $arrow-height;
 
-    &:before {
-      left: calc(var(--mg-card-border-radius) + $popover-space);
+    &::before {
+      left: $popover-position;
       border-right: $border-arrow-side;
       border-left: $border-arrow-side;
     }
@@ -102,18 +108,18 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
   :host([data-popper-placement^='top']) & {
     bottom: 0.1rem;
-    filter: drop-shadow(0 0.5rem 0.25rem hsl(var(--color-dark), 0.15));
+    filter: drop-shadow(0 0.5rem 0.25rem hsl(var(--color-dark) 0.15));
 
-    &:before {
+    &::before {
       border-top: $border-arrow-head;
     }
   }
 
   :host([data-popper-placement^='bottom']) & {
     top: 0.1rem;
-    filter: drop-shadow(0 -0.5rem 0.25rem hsl(var(--color-dark), 0.15));
+    filter: drop-shadow(0 -0.5rem 0.25rem hsl(var(--color-dark) 0.15));
 
-    &:before {
+    &::before {
       border-bottom: $border-arrow-head;
     }
   }
@@ -122,8 +128,8 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
   :host([data-popper-placement^='right']) & {
     width: $arrow-height;
 
-    &:before {
-      top: calc(var(--mg-card-border-radius) + $popover-space);
+    &::before {
+      top: $popover-position;
       border-top: $border-arrow-side;
       border-bottom: $border-arrow-side;
     }
@@ -131,18 +137,18 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
   :host([data-popper-placement^='left']) & {
     right: 0.1rem;
-    filter: drop-shadow(0.5rem 0 0.25rem hsl(var(--color-dark), 0.15));
+    filter: drop-shadow(0.5rem 0 0.25rem hsl(var(--color-dark) 0.15));
 
-    &:before {
+    &::before {
       border-left: $border-arrow-head;
     }
   }
 
   :host([data-popper-placement^='right']) & {
     left: 0.1rem;
-    filter: drop-shadow(-0.5rem 0 0.25rem hsl(var(--color-dark), 0.15));
+    filter: drop-shadow(-0.5rem 0 0.25rem hsl(var(--color-dark) 0.15));
 
-    &:before {
+    &::before {
       border-right: $border-arrow-head;
     }
   }
@@ -151,9 +157,11 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
   :host([data-popper-placement^='left-end']) &,
   :host([data-popper-placement^='right-start']) &,
   :host([data-popper-placement^='right-end']) & {
-    height: calc($arrow-width + 2 * var(--mg-card-border-radius));
+    $height-value: calc($arrow-width + 2 * var(--mg-card-border-radius));
 
-    &:before {
+    height: $height-value;
+
+    &::before {
       top: var(--mg-card-border-radius);
     }
   }

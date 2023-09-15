@@ -1,43 +1,52 @@
 @import 'mixins/reset-mg-card-slotted-variables';
 
-@function getColorPrefix($color) {
+@function get-color-prefix($color) {
   @if $color == 'app' {
     @return 'mg-color';
   }
+
   @return 'color';
 }
 
 @mixin card-variants($variants...) {
   @each $variant in $variants {
     &.mg-card--#{$variant} {
+      $custom-property-color-h: '--#{get-color-prefix($variant)}-#{$variant}-h';
+      $custom-property-color-s: '--#{get-color-prefix($variant)}-#{$variant}-s';
+
       overflow: hidden;
+
       &.mg-card--bar-left .mg-card__bar {
-        background-color: hsl(var(--#{getColorPrefix($variant)}-#{$variant}-h), var(--#{getColorPrefix($variant)}-#{$variant}-s), var(--#{getColorPrefix($variant)}-#{$variant}-l));
+        $custom-property-color-l: '--#{get-color-prefix($variant)}-#{$variant}-l';
+        $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var($custom-property-color-l));
+
+        background-color: $background-color-value;
       }
+
       &.mg-card--fill {
-        background-color: hsl(var(--#{getColorPrefix($variant)}-#{$variant}-h), var(--#{getColorPrefix($variant)}-#{$variant}-s), var(--mg-color-soft-l));
+        $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var(--mg-color-soft-l));
+
+        background-color: $background-color-value;
       }
     }
   }
 }
 
 .mg-card {
-  // Display
   position: relative;
-  width: 100%;
-  max-width: var(--mg-card-max-width);
-  min-width: var(--mg-card-min-width);
-  padding: var(--mg-card-padding, var(--mg-card-padding-default));
-  overflow: var(--mg-card-overflow, var(--mg-card-overflow-default));
-  box-sizing: border-box;
   z-index: inherit;
-  // Decoration
-  background: var(--mg-card-background, var(--mg-card-background-default));
+  overflow: var(--mg-card-overflow, var(--mg-card-overflow-default));
+  width: 100%;
+  min-width: var(--mg-card-min-width);
+  max-width: var(--mg-card-max-width);
+  box-sizing: border-box;
+  padding: var(--mg-card-padding, var(--mg-card-padding-default));
   border: var(--mg-card-border, var(--mg-card-border-default));
   border-radius: var(--mg-card-border-radius, var(--mg-card-border-radius-default));
+  background: var(--mg-card-background, var(--mg-card-background-default));
   box-shadow: var(--mg-card-box-shadow, var(--mg-card-box-shadow-default));
 
-  @include reset-slot-card-variables();
+  @include reset-slot-card-variables;
   @include card-variants('info', 'warning', 'success', 'danger', 'app');
 
   &__bar {

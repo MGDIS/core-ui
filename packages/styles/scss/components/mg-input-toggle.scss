@@ -2,7 +2,7 @@
 @import '../utils/a11y';
 
 /**
-* Toogle
+* Toggle
 */
 
 // variables
@@ -11,136 +11,145 @@ $color-light-dark: hsl(var(--color-dark-h) calc(var(--color-dark-s) - 30%) calc(
 $button-toggle-padding: 0.2rem;
 $toggle-item-container-padding-vertical: 0.5rem;
 
-.mg-input.mg-input.mg-input--toggle .mg-input__input-container {
-  flex: auto;
-  min-width: 0;
-}
+.mg-input {
+  &__toggle-item-container {
+    $border-radius-value: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)) / var(--mg-input-toggle-border-radius-ratio));
 
-.mg-input__button-toggle {
-  // Display
-  display: flex;
-  padding: $button-toggle-padding;
-  min-width: 0;
-  // Decoration
-  background-color: hsl(var(--color-light));
-  border-width: var(--mg-inputs-border-width);
-  border-style: solid;
-  border-color: var(--mg-inputs-color);
-  border-radius: calc(
-    ((var(--font-size) * var(--line-height)) + (2 * ($button-toggle-padding + $toggle-item-container-padding-vertical + var(--mg-inputs-border-width)))) /
-      var(--mg-input-toggle-border-radius-ratio)
-  );
-  // Font
-  font-family: var(--font-family);
-  font-size: inherit;
-  line-height: inherit;
-
-  cursor: pointer;
-  &:disabled {
-    cursor: default;
-  }
-}
-
-.mg-input__toggle-item-container {
-  padding: $toggle-item-container-padding-vertical 0.9rem;
-  border: 0;
-  box-sizing: border-box;
-  border-radius: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)) / var(--mg-input-toggle-border-radius-ratio));
-
-  background-color: unset;
-  font-weight: unset;
-  color: hsl(var(--color-dark));
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-  &:first-of-type {
-    font-weight: 600;
-    color: hsl(var(--color-info));
-    background-color: $color-light-blue;
-  }
-}
-
-// toggle default active variation
-.mg-input.mg-input--toggle-is-active {
-  .mg-input__toggle-item-container {
-    &:first-of-type {
-      background-color: unset;
-      font-weight: unset;
-      color: hsl(var(--color-dark));
-    }
-    &:last-of-type {
-      font-weight: 600;
-      color: hsl(var(--color-info));
-      background-color: $color-light-blue;
-    }
-  }
-}
-
-// icon
-.mg-input.mg-input--toggle-icon .mg-input__toggle-item-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)));
-  height: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)));
-  padding: 0;
-  visibility: hidden;
-
-  &:first-of-type {
-    visibility: visible;
-  }
-
-  ::slotted(mg-icon) {
-    display: flex;
-  }
-}
-
-.mg-input.mg-input--toggle-icon.mg-input--toggle-is-active .mg-input__toggle-item-container {
-  &:first-of-type {
-    visibility: hidden;
-  }
-
-  &:last-of-type {
-    visibility: visible;
-  }
-}
-
-// on/off
-.mg-input.mg-input--toggle-on-off {
-  .mg-input__toggle-item-container:first-of-type {
-    font-weight: 600;
-    color: hsl(var(--color-dark));
-    background-color: $color-light-dark;
-  }
-
-  &.mg-input--toggle-is-active .mg-input__toggle-item-container:first-of-type {
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: $toggle-item-container-padding-vertical 0.9rem;
+    border: 0;
+    border-radius: $border-radius-value;
     background-color: unset;
-    font-weight: unset;
     color: hsl(var(--color-dark));
-  }
-}
+    font-weight: unset;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
-// readonly
-.mg-input.mg-input--toggle-readonly {
-  .mg-input__button-toggle {
-    border-color: transparent;
-    background-color: transparent;
-    cursor: initial;
-  }
-
-  .mg-input__toggle-item-container:last-of-type {
-    display: none;
-  }
-
-  &.mg-input--toggle-is-active .mg-input__toggle-item-container {
     &:first-of-type {
+      background-color: $color-light-blue;
+      color: hsl(var(--color-info));
+      font-weight: 600;
+    }
+  }
+
+  &__button-toggle {
+    $mg-input-button-toggle-border-radius: $button-toggle-padding + $toggle-item-container-padding-vertical;
+    $border-radius-value: calc(
+      ((var(--font-size) * var(--line-height)) + (2 * ($mg-input-button-toggle-border-radius + var(--mg-inputs-border-width)))) / var(--mg-input-toggle-border-radius-ratio)
+    );
+
+    display: flex;
+    min-width: 0;
+    padding: $button-toggle-padding;
+    border-width: var(--mg-inputs-border-width);
+    border-style: solid;
+    border-color: var(--mg-inputs-color);
+    border-radius: $border-radius-value;
+    background-color: hsl(var(--color-light));
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: inherit;
+    line-height: inherit;
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  &.mg-input--toggle .mg-input__input-container {
+    min-width: 0;
+    flex: auto;
+  }
+
+  // toggle default active variation
+  &.mg-input--toggle-is-active {
+    .mg-input__toggle-item-container {
+      &:first-of-type {
+        background-color: unset;
+        color: hsl(var(--color-dark));
+        font-weight: unset;
+      }
+
+      &:last-of-type {
+        background-color: $color-light-blue;
+        color: hsl(var(--color-info));
+        font-weight: 600;
+      }
+    }
+  }
+
+  // icon
+  &.mg-input--toggle-icon {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .mg-input__toggle-item-container {
+      $size: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)));
+
+      display: flex;
+      width: $size;
+      height: $size;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      visibility: hidden;
+
+      &:first-of-type {
+        visibility: visible;
+      }
+
+      ::slotted(mg-icon) {
+        display: flex;
+      }
+    }
+
+    &.mg-input--toggle-is-active .mg-input__toggle-item-container {
+      &:first-of-type {
+        visibility: hidden;
+      }
+
+      &:last-of-type {
+        visibility: visible;
+      }
+    }
+  }
+
+  // readonly
+  &.mg-input--toggle-readonly {
+    .mg-input__button-toggle {
+      border-color: transparent;
+      background-color: transparent;
+      cursor: initial;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .mg-input__toggle-item-container:last-of-type {
       display: none;
     }
+    /* stylelint-disable-next-line no-descending-specificity */
+    &.mg-input--toggle-is-active .mg-input__toggle-item-container {
+      &:first-of-type {
+        display: none;
+      }
 
-    &:last-of-type {
-      display: flex;
+      &:last-of-type {
+        display: flex;
+      }
+    }
+  }
+
+  // on/off
+  &.mg-input--toggle-on-off {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .mg-input__toggle-item-container:first-of-type {
+      background-color: $color-light-dark;
+      color: hsl(var(--color-dark));
+      font-weight: 600;
+    }
+
+    &.mg-input--toggle-is-active .mg-input__toggle-item-container:first-of-type {
+      background-color: unset;
+      color: hsl(var(--color-dark));
+      font-weight: unset;
     }
   }
 }

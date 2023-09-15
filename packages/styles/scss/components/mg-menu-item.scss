@@ -1,5 +1,4 @@
 @use 'sass:map';
-
 @import '../utils/a11y';
 @import 'mixins/navigation-button';
 @import 'mixins/mg-icon-animation';
@@ -44,9 +43,43 @@ $navigation-button-sizes: (
 @include navigation-button('mg-menu-item', $navigation-button-sizes);
 @include level($navigation-button-sizes);
 
+.mg-menu-item {
+  max-width: var(--mg-menu-item-navigation-button-max-width);
+
+  &__collapse-container {
+    z-index: 10;
+    width: max-content;
+  }
+
+  &__navigation-button {
+    &-center {
+      min-width: 0;
+    }
+
+    &-text-content {
+      display: flex;
+      width: 100%;
+      align-items: center;
+
+      &-notification,
+      ::slotted([slot='information']) {
+        margin-left: 1rem;
+        font-size: var(--font-size);
+      }
+    }
+
+    &-chevron {
+      margin-left: auto;
+
+      @include rotate('.mg-menu-item__navigation-button-chevron', 200ms);
+    }
+  }
+}
+
 :host {
   position: relative;
   display: flex;
+
   --mg-popover-padding-vertical: 0;
   --mg-popover-padding-horizontal: 0;
   --mg-popover-max-width: unset;
@@ -55,19 +88,41 @@ $navigation-button-sizes: (
 // vertical item style
 :host([data-style-direction-vertical]) {
   flex-direction: column;
+
   .mg-menu-item {
     &__navigation-button {
       width: 100%;
     }
+
     &__collapse-container {
-      left: unset;
-      top: unset;
       position: unset;
+      top: unset;
+      left: unset;
       width: unset;
     }
+
     &-chevron {
       margin-left: auto;
     }
+  }
+}
+
+// more menu-item element
+:host([data-overflow-more]) {
+  --mg-menu-item-navigation-button-column-gap: 0;
+
+  .mg-menu-item__navigation-button {
+    &-chevron {
+      display: none;
+    }
+
+    &-text-content ::slotted([slot='information']) {
+      margin-left: 0;
+    }
+  }
+
+  ::slotted(mg-menu) {
+    --mg-menu-item-navigation-button-column-gap: #{$navigation-button-column-gap};
   }
 }
 
@@ -76,51 +131,9 @@ $navigation-button-sizes: (
 :host([data-overflow-more]) {
   .mg-menu-item__collapse-container.mg-menu-item__collapse-container--first-level {
     background-color: hsl(var(--color-light));
+
     ::slotted(mg-menu) {
       padding: 1rem 0;
-    }
-  }
-}
-
-// more menu-item element
-:host([data-overflow-more]) {
-  --mg-menu-item-navigation-button-column-gap: 0;
-  .mg-menu-item__navigation-button {
-    &-chevron {
-      display: none;
-    }
-    &-text-content ::slotted([slot='information']) {
-      margin-left: 0;
-    }
-  }
-  ::slotted(mg-menu) {
-    --mg-menu-item-navigation-button-column-gap: #{$navigation-button-column-gap};
-  }
-}
-
-.mg-menu-item {
-  max-width: var(--mg-menu-item-navigation-button-max-width);
-  &__collapse-container {
-    width: max-content;
-    z-index: 10;
-  }
-  &__navigation-button {
-    &-center {
-      min-width: 0;
-    }
-    &-text-content {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      &-notification,
-      ::slotted([slot='information']) {
-        margin-left: 1rem;
-        font-size: var(--font-size);
-      }
-    }
-    &-chevron {
-      margin-left: auto;
-      @include rotate('.mg-menu-item__navigation-button-chevron', 200ms);
     }
   }
 }
@@ -128,10 +141,10 @@ $navigation-button-sizes: (
 ::slotted([slot='label']),
 ::slotted([slot='metadata']) {
   display: block;
-  text-align: left;
-  white-space: nowrap;
   overflow: hidden;
+  text-align: left;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 ::slotted(*) {

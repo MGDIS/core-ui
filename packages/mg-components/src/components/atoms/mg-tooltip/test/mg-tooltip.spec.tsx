@@ -163,7 +163,7 @@ describe('mg-tooltip', () => {
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 
-  test.each([true, false])('Should toogle tooltip from prop display, case display %s', async display => {
+  test.each([true, false])('Should toggle tooltip from prop display, case display %s', async display => {
     const args = { identifier: 'identifier', message: 'batman', display };
     const page = await getPage(args, <span>batman</span>);
     const mgTooltip = page.doc.querySelector('mg-tooltip');

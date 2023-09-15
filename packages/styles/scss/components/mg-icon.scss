@@ -7,12 +7,13 @@
 
 $sizes: ('small', 'regular', 'medium', 'large', 'extra-large');
 $colors: ('success', 'warning', 'danger', 'info', 'app');
-$variantStyles: ('icon', 'background', 'full');
+$variant-styles: ('icon', 'background', 'full');
 
-@function getColorPrefix($color) {
+@function get-color-prefix($color) {
   @if $color == 'app' {
     @return 'mg-color';
   }
+
   @return 'color';
 }
 
@@ -21,6 +22,7 @@ $variantStyles: ('icon', 'background', 'full');
   &.mg-icon--size-#{$size} {
     width: var(--mg-icon-#{$size}-size);
     height: var(--mg-icon-#{$size}-size);
+
     &[class*='mg-icon--variant-']:not(.mg-icon--variant-style-icon) {
       padding: calc(var(--mg-icon-#{$size}-size) / 2);
     }
@@ -30,23 +32,33 @@ $variantStyles: ('icon', 'background', 'full');
 @mixin variant-style($style) {
   @each $color in $colors {
     &.mg-icon--variant-#{$color}.mg-icon--variant-style-#{$style} {
-      @if ($style == 'icon' or $style == 'full') {
-        color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) var(--#{getColorPrefix($color)}-#{$color}-l));
+      $custom-property-color-h: '--#{get-color-prefix($color)}-#{$color}-h';
+      $custom-property-color-s: '--#{get-color-prefix($color)}-#{$color}-s';
+
+      @if $style == 'icon' or $style == 'full' {
+        $custom-property-color-l: '--#{get-color-prefix($color)}-#{$color}-l';
+        $color-value: hsl(var($custom-property-color-h) var($custom-property-color-s) var($custom-property-color-l));
+
+        color: $color-value;
       }
-      @if ($style == 'background' or $style == 'full') {
-        background-color: hsl(var(--#{getColorPrefix($color)}-#{$color}-h) var(--#{getColorPrefix($color)}-#{$color}-s) var(--mg-color-soft-l));
+
+      @if $style == 'background' or $style == 'full' {
+        $background-color-value: hsl(var($custom-property-color-h) var($custom-property-color-s) var(--mg-color-soft-l));
+
+        background-color: $background-color-value;
       }
     }
   }
 }
 
 .mg-icon {
-  color: currentColor;
+  color: currentcolor;
+
   @each $size in $sizes {
     @include variant-size($size);
   }
 
-  @each $style in $variantStyles {
+  @each $style in $variant-styles {
     @include variant-style($style);
   }
 
@@ -60,9 +72,9 @@ $variantStyles: ('icon', 'background', 'full');
 **/
 
 .mg-icon--spin {
-  animation-name: rotate;
   animation-duration: 0.75s;
   animation-iteration-count: infinite;
+  animation-name: rotate;
 }
 
 @keyframes rotate {

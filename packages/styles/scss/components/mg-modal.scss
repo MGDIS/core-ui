@@ -8,19 +8,16 @@
 }
 
 .mg-modal {
-  // Layout
-  display: flex;
-  justify-content: center;
-  align-items: center;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 2rem 0;
+
   // Appearance
-  background-color: hsl(var(--color-light), 0.85);
+  background-color: hsl(var(--color-light) 0.85);
+  inset: 0;
 
   mg-card {
     display: flex;
@@ -30,14 +27,13 @@
   }
 
   &__dialog {
-    // Layout
-    display: flex;
     position: relative;
+    display: flex;
+    height: fit-content;
+    max-height: 100%;
     flex-direction: column;
     align-self: center;
     row-gap: 3rem;
-    height: fit-content;
-    max-height: 100%;
   }
 
   &__header {
@@ -45,23 +41,22 @@
   }
 
   &__title {
-    // Layout
     margin: 0;
-    // Text
     font-family: var(--font-family-heading);
     font-size: var(--mg-modal-title-font-size);
     font-weight: 600;
   }
 
   &__close-button {
-    float: right;
     height: var(--mg-modal-title-font-size);
-    margin-top: calc((var(--default-size) - (var(--mg-modal-title-font-size) * var(--line-height))) / 2 * -1); //-6px;
-    margin-right: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2 * -1); //-10px;
+    margin-top: calc((var(--default-size) - (var(--mg-modal-title-font-size) * var(--line-height))) / 2 * -1); // -6px;
+    margin-right: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2 * -1); // -10px;
+    float: right;
   }
 
   &__content {
     overflow-y: auto;
+
     &::slotted(*) {
       font-size: var(--mg-modal-content-font-size);
     }
@@ -71,5 +66,5 @@
     display: none;
   }
 
-  @include reset-slot-card-variables();
+  @include reset-slot-card-variables;
 }

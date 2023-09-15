@@ -7,29 +7,24 @@ $mg-badge-border-width: 0.1rem;
 @mixin badge-variant($name, $backgroundColor, $color) {
   &.mg-badge--#{$name} {
     @if $name == 'text-color' {
-      // Decoration
-      background-color: currentColor;
-      border-color: currentColor;
+      border-color: currentcolor;
+      background-color: currentcolor;
+
       .mg-badge__value {
-        // Font
         color: hsl(var(--mg-badge-text-color, var(--color-light)));
       }
     } @else {
-      // Decoration
-      background-color: hsl(var(--color-#{$backgroundColor}));
       border-color: hsl(var(--color-#{$backgroundColor}));
-      // Font
+      background-color: hsl(var(--color-#{$backgroundColor}));
       color: hsl(var(--color-#{$color}));
     }
 
     &.mg-badge--outline {
-      // Decoration
       background-color: transparent;
-      // Font
+
       @if $name == 'text-color' {
-        // Font
         .mg-badge__value {
-          color: currentColor;
+          color: currentcolor;
         }
       } @else {
         color: hsl(var(--color-#{$backgroundColor}));
@@ -40,19 +35,16 @@ $mg-badge-border-width: 0.1rem;
 
 /* Styles */
 .mg-badge {
-  // Display
-  padding: 0 0.4rem;
-  height: var(--mg-badge-size);
   min-width: var(--mg-badge-size);
+  height: var(--mg-badge-size);
   box-sizing: border-box;
-  // Decoration
+  padding: 0 0.4rem;
   border: $mg-badge-border-width solid;
   border-radius: calc(var(--mg-badge-size) / 2);
-  // Font
   font-size: var(--mg-badge-font-size);
   font-weight: 600;
-  text-align: center;
   line-height: var(--mg-badge-size);
+  text-align: center;
 
   // Variant
   @include badge-variant('primary', 'dark', 'light');

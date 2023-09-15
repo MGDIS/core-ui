@@ -21,7 +21,6 @@
 }
 
 .mg-message {
-  // Display
   display: inline-block;
   min-height: var(--default-size);
 
@@ -36,25 +35,24 @@
   }
 
   ::slotted(*) {
+    padding: 0;
+
     // Removing default marging to slotted element
     margin: 0;
-    padding: 0;
   }
 
   &__icon {
-    // Display
     position: absolute;
     top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
     left: 1.3rem;
-    // Font
     line-height: 1;
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
     align-content: stretch;
+    justify-content: flex-end;
     padding: 0 1rem 0 3.8rem;
   }
 
@@ -80,7 +78,7 @@
     right: 0;
   }
 
-  @include reset-slot-card-variables();
+  @include reset-slot-card-variables;
 }
 
 .mg-message,

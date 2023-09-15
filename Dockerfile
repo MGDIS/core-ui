@@ -1,5 +1,5 @@
 # use builded image from https://gitlab.mgdis.fr/core/core-ui/playwright-baseimage repo
-FROM registre.mgcloud.fr/mgdis/playwright-baseimage:master
+FROM registre.mgcloud.fr/mgdis/playwright-baseimage:chore-update-docker-image
 
 # Get Args
 ARG args

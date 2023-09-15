@@ -4,64 +4,54 @@ $mg-button-padding-horizontal: 1.1rem;
 $button-column-gap: 0.6rem;
 
 /* Mixins */
-@mixin style-gradient($name, $backgroundColor, $fontColor, $hasVariable: false) {
-  @if $hasVariable {
-    $backgroundColor: --mg-button-#{$name}-color;
-    $fontColor: --mg-button-#{$name}-font-color;
+@mixin style-gradient($name, $background-color, $font-color, $has-variable: false) {
+  @if $has-variable {
+    $background-color: --mg-button-#{$name}-color;
+    $font-color: --mg-button-#{$name}-font-color;
   } @else {
-    $backgroundColor: --color-#{$backgroundColor};
-    $fontColor: --color-#{$fontColor};
+    $background-color: --color-#{$background-color};
+    $font-color: --color-#{$font-color};
   }
   .mg-button.mg-button--#{$name} {
-    // Decoration
     border-color: hsl(
       var(
         #{--mg-button-#{$name}-border-color},
-        (var(#{$backgroundColor}-h), var(#{$backgroundColor}-s), calc(var(#{$backgroundColor}-l) - var(--mg-button-border-variation) * 10%))
+        (var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-button-border-variation) * 10%))
       )
     );
-    // Font
-    color: hsl(var(#{$fontColor}));
+
     // Background
     background: linear-gradient(
       to bottom,
-      hsl(var(#{$backgroundColor}-h), var(#{$backgroundColor}-s), var(#{$backgroundColor}-l)),
-      hsl(var(#{$backgroundColor}-h), var(#{$backgroundColor}-s), calc(var(#{$backgroundColor}-l) - var(--mg-button-gradient) * 10%))
+      hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l)),
+      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-button-gradient) * 10%))
     );
+    color: hsl(var(#{$font-color}));
   }
+
   // Only apply if not disabled
   :host(:hover) .mg-button--#{$name}:not(.mg-button--disabled) {
-    background: hsl(var(#{$backgroundColor}-h), var(#{$backgroundColor}-s), var(#{$backgroundColor}-l));
+    background: hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l));
   }
 }
 
 @mixin font-style() {
-  text-decoration: none;
   font-family: inherit;
+  font-size: var(--font-size);
   font-weight: var(--mg-button-font-weight, normal);
   text-align: left;
-  font-size: var(--font-size);
+  text-decoration: none;
 }
 
 :host {
   display: inline-block;
-  vertical-align: middle;
   max-width: 100%;
-}
-
-:host(:focus-visible) {
-  outline: 0;
-  // same style as chrome
-  .mg-button {
-    outline-color: -webkit-focus-ring-color;
-    outline-style: auto;
-    outline-width: 0.2rem;
-  }
+  vertical-align: middle;
 }
 
 // Only apply if not disabled
 :host(:hover) .mg-button--flat:not(.mg-button--disabled) {
-  background: hsl(var(--color-dark), 0.1);
+  background: hsl(var(--color-dark) 0.1);
 }
 
 :host([full-width]) {
@@ -84,67 +74,67 @@ $button-column-gap: 0.6rem;
 
 /* Styles */
 .mg-button {
-  // Display
+  $padding-value: calc((var(--default-size) - (2 * $mg-button-border-width) - (var(--font-size) * var(--line-height))) / 2) $mg-button-padding-horizontal;
+
   position: relative;
   display: inline-flex;
-  align-items: center;
-  column-gap: $button-column-gap;
-  padding: calc((var(--default-size) - (2 * $mg-button-border-width) - (var(--font-size) * var(--line-height))) / 2) $mg-button-padding-horizontal;
   min-height: var(--default-size);
   box-sizing: border-box;
-  // Decoration
-  border-top-right-radius: var(--mg-button-border-radius-top-right, var(--mg-button-border-radius));
-  border-top-left-radius: var(--mg-button-border-radius-top-left, var(--mg-button-border-radius));
-  border-bottom-right-radius: var(--mg-button-border-radius-bottom-right, var(--mg-button-border-radius));
-  border-bottom-left-radius: var(--mg-button-border-radius-bottom-left, var(--mg-button-border-radius));
-  cursor: pointer;
-  background-image: none;
-  border-top-width: var(--mg-button-border-top-width, $mg-button-border-width);
-  border-right-width: var(--mg-button-border-right-width, $mg-button-border-width);
-  border-bottom-width: var(--mg-button-border-bottom-width, $mg-button-border-width);
-  border-left-width: var(--mg-button-border-left-width, $mg-button-border-width);
+  align-items: center;
+  padding: $padding-value;
+  border-width: var(--mg-button-border-top-width, $mg-button-border-width) var(--mg-button-border-right-width, $mg-button-border-width)
+    var(--mg-button-border-bottom-width, $mg-button-border-width) var(--mg-button-border-left-width, $mg-button-border-width);
   border-style: solid;
-  // Font (necessary for stylesheet only)
-  @include font-style();
-  // Other
+  border-radius: var(--mg-button-border-radius-top-left, var(--mg-button-border-radius)) var(--mg-button-border-radius-top-right, var(--mg-button-border-radius))
+    var(--mg-button-border-radius-bottom-right, var(--mg-button-border-radius)) var(--mg-button-border-radius-bottom-left, var(--mg-button-border-radius));
+  background-image: none;
+  column-gap: $button-column-gap;
+  cursor: pointer;
   touch-action: manipulation;
+
+  // Font (necessary for stylesheet only)
+  @include font-style;
 
   // Disabled style
   &.mg-button--disabled {
-    opacity: var(--mg-button-disabled-opacity);
     cursor: default;
+    opacity: var(--mg-button-disabled-opacity);
   }
 
   // Icon only button
   &.mg-button--icon {
-    // Display
-    padding: 0;
-    justify-content: center;
     width: var(--default-size);
     height: var(--default-size);
-    // Decoration
-    border-top-right-radius: var(--mg-button-border-radius-top-right, var(--mg-button-icon-border-radius));
-    border-top-left-radius: var(--mg-button-border-radius-top-left, var(--mg-button-icon-border-radius));
-    border-bottom-right-radius: var(--mg-button-border-radius-bottom-right, var(--mg-button-icon-border-radius));
-    border-bottom-left-radius: var(--mg-button-border-radius-bottom-left, var(--mg-button-icon-border-radius));
-    // font
+    justify-content: center;
+    padding: 0;
+    border-radius: var(--mg-button-border-radius-top-left, var(--mg-button-icon-border-radius)) var(--mg-button-border-radius-top-right, var(--mg-button-icon-border-radius))
+      var(--mg-button-border-radius-bottom-right, var(--mg-button-icon-border-radius)) var(--mg-button-border-radius-bottom-left, var(--mg-button-icon-border-radius));
     font-size: var(--font-size);
     line-height: var(--font-size);
   }
 
   // Flat variant
   &.mg-button--flat {
-    background: none;
     border: none;
+    background: none;
+  }
+
+  slot,
+  ::slotted(*:not(mg-icon)) {
+    @include font-style;
+
+    display: flex;
+    align-items: center;
+    column-gap: $button-column-gap;
   }
 
   // Link variant
   &.mg-button--link {
-    padding: unset;
     min-height: unset;
-    background: unset;
+    padding: unset;
     border: unset;
     border-radius: unset;
+    background: unset;
     text-decoration: underline;
 
     slot {
@@ -162,34 +152,34 @@ $button-column-gap: 0.6rem;
     justify-content: center;
   }
 
-  // loading style
-  &.mg-button--loading {
-    > mg-icon:first-of-type {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-    .mg-button__content {
-      opacity: 0;
-    }
-  }
-
   mg-icon:only-child,
   ::slotted(mg-icon) {
     display: inline-flex;
     flex-shrink: 0;
-    line-height: 1;
     margin: auto 0;
+    line-height: 1;
   }
 
-  slot,
-  ::slotted(*:not(mg-icon)) {
-    // Font
-    @include font-style();
-    // Display
-    display: flex;
-    align-items: center;
-    column-gap: $button-column-gap;
+  // loading style
+  &.mg-button--loading {
+    > mg-icon:first-of-type {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .mg-button__content {
+      opacity: 0;
+    }
+  }
+}
+
+:host(:focus-visible) {
+  outline: 0;
+
+  // same style as chrome
+  .mg-button {
+    outline: -webkit-focus-ring-color auto 0.2rem;
   }
 }

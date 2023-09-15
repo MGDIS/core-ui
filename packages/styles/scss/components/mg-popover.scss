@@ -5,9 +5,10 @@ $mg-popover-padding-vertical: var(--mg-popover-padding-vertical, 1.5rem);
   --mg-card-border: none;
   --mg-card-border-radius: 0.5rem;
   --mg-card-background: hsl(var(--mg-popover-background-color));
-  position: relative;
 
+  position: relative;
   display: contents;
+
   &::slotted(*) {
     display: inline-block;
   }

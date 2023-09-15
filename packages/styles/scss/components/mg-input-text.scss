@@ -5,26 +5,6 @@
 @import '../utils/a11y';
 
 /**
-* Icon in input
-*/
-.mg-input.mg-input--has-icon .mg-input__with-character-left {
-  & > mg-icon {
-    // layout
-    position: absolute;
-    top: 50%;
-    left: var(--mg-inputs-spacer);
-    // text
-    color: var(--mg-inputs-color);
-    // other
-    transform: translateY(-50%);
-  }
-
-  .mg-input__box {
-    padding-left: calc(var(--mg-icon-regular-size) + var(--mg-inputs-spacer) * 2);
-  }
-}
-
-/**
 * Character left
 */
 .mg-input__with-character-left {
@@ -41,15 +21,32 @@
 
   mg-character-left {
     position: absolute;
-    display: none;
     top: 50%;
     right: 1rem;
+    display: none;
+    font-size: 1.1rem;
     opacity: 0.6;
     transform: translateY(-50%);
-    font-size: 1.1rem;
 
     .mg-input.is-focused & {
       display: block;
     }
+  }
+}
+
+/**
+* Icon in input
+*/
+.mg-input.mg-input--has-icon .mg-input__with-character-left {
+  & > mg-icon {
+    position: absolute;
+    top: 50%;
+    left: var(--mg-inputs-spacer);
+    color: var(--mg-inputs-color);
+    transform: translateY(-50%);
+  }
+
+  .mg-input__box {
+    padding-left: calc(var(--mg-icon-regular-size) + var(--mg-inputs-spacer) * 2);
   }
 }

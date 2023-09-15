@@ -16,13 +16,14 @@ $navigation-button-sizes: (
 .mg-tabs {
   &__header {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     border-bottom: var(--mg-tabs-border-bottom);
   }
+
   &__content-container:focus-visible {
     outline: none;
   }
+
   &__navigation-button-text {
     flex: 0 0 content;
   }
