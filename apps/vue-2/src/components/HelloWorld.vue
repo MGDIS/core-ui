@@ -10,15 +10,25 @@ export default {
   data() {
     return {
       count: 0,
+      modal: {
+        modalTitle: 'Modal title',
+        identifier: 'identifier',
+        closeButton: true,
+        hide: true,
+      },
     };
   },
   methods: {
     handleClick() {
       this.count++;
+      this.modal.hide = !this.modal.hide;
       window.NotificationCenter.postMessage({
         content: 'Counter value change',
         variant: 'info',
       });
+    },
+    handleComponentHide(newValue) {
+      this.modal.hide = newValue;
     },
   },
 };
@@ -29,9 +39,24 @@ export default {
     <h1>{{ msg }}</h1>
 
     <div class="card">
-      <mg-button id="button-counter" type="button" variant="secondary" @click="handleClick"
-        >count is {{ count }}</mg-button
+      <mg-button type="button" variant="secondary" @click="handleClick"> count is {{ count }} </mg-button>
+      <mg-modal
+        :modal-title="modal.modalTitle"
+        :hide.prop="modal.hide"
+        close-button
+        @component-hide="handleComponentHide(true)"
+        @component-show="handleComponentHide(false)"
       >
+        <div slot="content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+            ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </div>
+      </mg-modal>
       <p>
         Edit
         <code>components/HelloWorld.vue</code> to test HMR

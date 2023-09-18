@@ -13,11 +13,18 @@ export default defineComponent({
   data(): HelloWorldData {
     return {
       count: 0,
+      modal: {
+        modalTitle: 'Modal title',
+        identifier: 'identifier',
+        closeButton: true,
+        hide: true,
+      },
     };
   },
   methods: {
     handleClick() {
       this.count++;
+      this.modal.hide = !this.modal.hide;
       (window as unknown as NotificationCenterWindowType).NotificationCenter.postMessage({
         content: 'Counter value change',
         variant: 'info',
@@ -32,6 +39,22 @@ export default defineComponent({
           <mg-button type="button" onClick={this.handleClick} variant="secondary">
             count is {this.count}
           </mg-button>
+          <mg-modal
+            modal-title={this.modal.modalTitle}
+            hide={this.modal.hide}
+            close-button
+            onComponentHide={(event: CustomEvent) => {
+              this.modal.hide = true;
+            }}
+          >
+            <div slot="content">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </p>
+            </div>
+          </mg-modal>
           <p>
             Edit
             <code>components/HelloWorld.vue</code> to test HMR

@@ -11,14 +11,26 @@ export default {
 
     $onInit() {
       this.counter = 0;
+      this.modal = {
+        modalTitle: 'Modal title',
+        identifier: 'identifier',
+        closeButton: true,
+        hide: true,
+      };
     }
     handleClick() {
       this.counter++;
+
+      this.modal.hide = !this.modal.hide;
 
       this.$window.NotificationCenter.postMessage({
         content: 'Counter value change',
         variant: 'info',
       });
     }
+
+    handleModalHide = (newValue) => {
+      this.modal.hide = newValue;
+    };
   },
 };

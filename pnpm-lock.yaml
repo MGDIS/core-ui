@@ -605,8 +605,13 @@ importers:
         specifier: ^2.11.7
         version: 2.11.7
       '@stencil/core':
+<<<<<<< HEAD
         specifier: ^4.3.0
         version: 4.3.0
+=======
+        specifier: ^2.22.1
+        version: 2.22.3
+>>>>>>> 6595259 (chore(apps): add mg-modal with button interaction)
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
@@ -638,6 +643,12 @@ importers:
       '@pxtrn/storybook-addon-docs-stencil':
         specifier: ^6.4.1
         version: 6.4.1(react-dom@18.2.0)(react@18.2.0)
+<<<<<<< HEAD
+=======
+      '@stencil/sass':
+        specifier: ^1.5.2
+        version: 1.5.2(@stencil/core@2.22.3)
+>>>>>>> 6595259 (chore(apps): add mg-modal with button interaction)
       '@storybook/addon-a11y':
         specifier: ^7.2.0
         version: 7.2.0(react-dom@18.2.0)(react@18.2.0)
@@ -6614,14 +6625,33 @@ packages:
       typescript: 4.9.5
     dev: false
 
+<<<<<<< HEAD
   /@stencil/core@4.3.0:
     resolution: {integrity: sha512-WYjftKg5fuqO7mf3nTl1aCRurkeMmfEF38WcBG4VLF6UPQ+MA76/koedGR2LGhATGByx+pbxR4iRxAr2Bspc9A==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
+=======
+  /@stencil/core@2.22.3:
+    resolution: { integrity: sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng== }
+    engines: { node: '>=12.10.0', npm: '>=6.0.0' }
+>>>>>>> 6595259 (chore(apps): add mg-modal with button interaction)
     hasBin: true
     dev: false
 
+<<<<<<< HEAD
   /@storybook/addon-a11y@7.2.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-22I1oEO05SdymS4T6tVDINiXGeR3cpyqnM0fK73o5oLV4XPeYfhGPw4yqjaUkud1WsZpf04Aq4bGg0fS4xCUBw==}
+=======
+  /@stencil/sass@1.5.2(@stencil/core@2.22.3):
+    resolution: { integrity: sha512-nJ93pUSylsGsMX0eLmhxh1oEljcUjj5mYjhB9ziCdoaydAdjukrUoqDCC7tdVbOcBo2hKptQyWqCtETnBGYsXQ== }
+    peerDependencies:
+      '@stencil/core': '>=1.0.2'
+    dependencies:
+      '@stencil/core': 2.22.3
+    dev: true
+
+  /@storybook/addon-a11y@7.3.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: { integrity: sha512-tEWOHoeGNDAlw1yztEmjJ/MrNelHT5OneMuqoXSyJsozPbYg/jXm6j3k/lZ/Pg3IMAZq1XxP23LQifql9O/YZA== }
+>>>>>>> 6595259 (chore(apps): add mg-modal with button interaction)
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0

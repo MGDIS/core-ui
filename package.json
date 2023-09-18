@@ -24,7 +24,6 @@
     "test:e2e:playwright": "turbo test:e2e:playwright",
     "test:e2e:playwright:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
-    "app": "turbo app",
     "coverage": "run-s -l turbo:coverage report:merge junit:merge",
     "turbo:coverage": "turbo coverage --force",
     "junit:merge": "jrm ./coverage/junit.xml ./packages/**/junit.xml",
