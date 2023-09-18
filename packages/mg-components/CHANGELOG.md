@@ -1,5 +1,27 @@
 # @mgdis/mg-components
 
+## 5.16.0
+
+### Minor Changes
+
+- 6a55650: Add and update icons
+
+### Patch Changes
+
+- 32ab855: [#352](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/352) mg-tooltip: tabindex should be set to -1 or removed when tooltip is disabled
+- b36bfc4: [#334](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/334) mg-item-more: role can't be menuitem
+- 4707858: [#355](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/355) doc - mg-input-checkbox update documentation
+- 59afdac: [#359](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/359) [dist] Could not resolve '../../../../assets/icons'
+- 24037d8: [#364](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/364) mg-modal: add role type
+- 541c6e0: [#361](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/361) [e2e] mg-action-more & mg-item-more move e2e to playwright to improve test stability
+- 1afda44: [#354](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/354) mg-modal: No scrollbar while using ng-if on mg-modal
+- 5a7840f: [#329](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/329) mg-popover & mg-tooltip: mistake in aria-controls pattern
+- fbd5d74: [#357](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/357) mg-menu: problems with tabulation
+- bf80f2c: [#360](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/360) mg-button inside a mg-tooltip: tooltip is not hidden after click
+- 6a8b594: [#356](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/356) mg-action-more: chevron does not go back to its initial position if we click outside if opened
+- Updated dependencies [6a55650]
+  - @mgdis/img@1.2.0
+
 ## 5.15.0
 
 ### Minor Changes

@@ -6,6 +6,7 @@ import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgModal } from '../mg-modal';
 import { focusableElements } from '../../../../utils/components.utils';
 import { setupMutationObserverMock } from '../../../../utils/unit.test.utils';
+import { dialogRoles } from '../mg-modal.conf';
 
 const getPage = (args, slots?) =>
   newSpecPage({
@@ -45,6 +46,7 @@ describe('mg-modal', () => {
   describe.each([undefined, { content: true }, { actions: true }, { content: true, actions: true }])('Should render a modal', slots => {
     test.each([
       { modalTitle: 'Modal Title', identifier: 'identifier' },
+      { modalTitle: 'Modal Title', identifier: 'identifier', dialogRole: 'alertdialog' },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, hide: true },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, lang: 'fr' },
@@ -61,6 +63,15 @@ describe('mg-modal', () => {
       await getPage({ modalTitle });
     } catch (err) {
       expect(err.message).toMatch('<mg-modal> prop "modalTitle" is required.');
+    }
+  });
+
+  test.each([' ', 'batman'])('Should throw error with invalid dialogRole property: %s', async dialogRole => {
+    expect.assertions(1);
+    try {
+      await getPage({ modalTitle: 'Modal title', dialogRole });
+    } catch (err) {
+      expect(err.message).toMatch(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}.`);
     }
   });
 

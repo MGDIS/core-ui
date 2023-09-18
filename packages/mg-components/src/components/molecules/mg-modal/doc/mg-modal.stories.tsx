@@ -1,10 +1,17 @@
 /* eslint-disable react/jsx-no-bind */
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../.storybook/utils';
+import { dialogRoles } from '../mg-modal.conf';
 
 export default {
   component: 'mg-modal',
   title: 'Molecules/mg-modal',
+  argTypes: {
+    dialogRole: {
+      options: [undefined, ...dialogRoles],
+      control: { type: 'select' },
+    },
+  },
   parameters: { actions: { handles: ['component-show', 'component-hide'] } },
 };
 
@@ -42,6 +49,7 @@ export const MgModal = {
     identifier: 'identifier',
     closeButton: false,
     hide: true,
+    dialogRole: dialogRoles[0],
   },
 };
 
