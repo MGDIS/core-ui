@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-06T12:36:37",
+  "timestamp": "2023-09-12T13:11:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "2.22.1",
@@ -5361,6 +5361,28 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "dialogRole",
+          "type": "\"alertdialog\" | \"dialog\"",
+          "mutable": false,
+          "attr": "dialog-role",
+          "reflectToAttr": false,
+          "docs": "Modal dialog role.",
+          "docsTags": [],
+          "default": "dialogRoles[0]",
+          "values": [
+            {
+              "value": "alertdialog",
+              "type": "string"
+            },
+            {
+              "value": "dialog",
+              "type": "string"
             }
           ],
           "optional": false,
