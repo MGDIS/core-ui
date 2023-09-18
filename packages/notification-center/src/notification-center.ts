@@ -102,7 +102,7 @@ class NotificationCenter {
    * @param message - message data
    */
   postMessage = (message: MessageData): void => {
-    this.#rootWindow.postMessage({ ...message, appId: this.#appId }, '*');
+    this.#rootWindow.postMessage({ ...message, appId: this.#appId }, document.location.origin);
   };
 
   /**
