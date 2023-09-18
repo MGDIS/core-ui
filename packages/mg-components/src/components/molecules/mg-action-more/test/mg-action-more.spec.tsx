@@ -85,6 +85,36 @@ describe('mg-action-more', () => {
         isIcon: false,
       },
     },
+    {
+      items,
+      displayChevron: true,
+      icon: {
+        icon: 'ellipsis',
+      },
+      button: {
+        variant: 'flat',
+        isIcon: false,
+      },
+    },
+    {
+      items,
+      displayChevron: false,
+      icon: {
+        icon: 'ellipsis',
+      },
+      button: {
+        variant: 'flat',
+        isIcon: false,
+      },
+    },
+    {
+      items,
+      displayChevron: false,
+      button: {
+        variant: 'flat',
+        isIcon: false,
+      },
+    },
   ])('render', args => {
     test(`Should render with args ${args}`, async () => {
       const { root } = await getPage(args);
