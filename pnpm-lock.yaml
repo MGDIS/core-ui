@@ -598,7 +598,7 @@ importers:
         version: 2.11.7
       '@stencil/core':
         specifier: ^2.22.1
-        version: 2.22.1
+        version: 2.22.3
       normalize.css:
         specifier: ^8.0.1
         version: 8.0.1
@@ -632,7 +632,7 @@ importers:
         version: 6.4.1(react-dom@18.2.0)(react@18.2.0)
       '@stencil/sass':
         specifier: ^1.5.2
-        version: 1.5.2(@stencil/core@2.22.1)
+        version: 1.5.2(@stencil/core@2.22.3)
       '@storybook/addon-a11y':
         specifier: ^7.2.0
         version: 7.3.2(react-dom@18.2.0)(react@18.2.0)
@@ -8141,17 +8141,17 @@ packages:
       typescript: 4.9.5
     dev: false
 
-  /@stencil/core@2.22.1:
-    resolution: { integrity: sha512-L4EsWLXYkg24BfrR3aS1df3BSkH0RFyza+Tu84MaYoF2csiKTJxDTZuFHSnJeF8UdgzV7CBfnsIEV6r3s0+h3g== }
+  /@stencil/core@2.22.3:
+    resolution: { integrity: sha512-kmVA0M/HojwsfkeHsifvHVIYe4l5tin7J5+DLgtl8h6WWfiMClND5K3ifCXXI2ETDNKiEk21p6jql3Fx9o2rng== }
     engines: { node: '>=12.10.0', npm: '>=6.0.0' }
     hasBin: true
 
-  /@stencil/sass@1.5.2(@stencil/core@2.22.1):
+  /@stencil/sass@1.5.2(@stencil/core@2.22.3):
     resolution: { integrity: sha512-nJ93pUSylsGsMX0eLmhxh1oEljcUjj5mYjhB9ziCdoaydAdjukrUoqDCC7tdVbOcBo2hKptQyWqCtETnBGYsXQ== }
     peerDependencies:
       '@stencil/core': '>=1.0.2'
     dependencies:
-      '@stencil/core': 2.22.1
+      '@stencil/core': 2.22.3
     dev: true
 
   /@storybook/addon-a11y@7.3.2(react-dom@18.2.0)(react@18.2.0):
@@ -18516,7 +18516,7 @@ packages:
       http-proxy-agent: 4.0.1
       https-proxy-agent: 5.0.1
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.2
+      nwsapi: 2.2.7
       parse5: 6.0.1
       saxes: 5.0.1
       symbol-tree: 3.2.4

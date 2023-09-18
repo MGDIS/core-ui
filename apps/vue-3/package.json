@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "app": "vite",
+    "dev": "vite",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build-only": "vite build",
     "build": "run-p type-check build-only",

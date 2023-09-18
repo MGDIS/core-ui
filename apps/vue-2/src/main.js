@@ -7,8 +7,7 @@ import App from './App.vue';
 
 defineCustomElements().then(() => {
   Object.defineProperty(window, 'NotificationCenter', { value: new NotificationCenter() });
+  new Vue({
+    render: (h) => h(App),
+  }).$mount('#app');
 });
-
-new Vue({
-  render: (h) => h(App),
-}).$mount('#app');
