@@ -43,7 +43,7 @@ export default defineComponent({
             modal-title={this.modal.modalTitle}
             hide={this.modal.hide}
             close-button
-            onComponentHide={(event: CustomEvent) => {
+            onComponentHide={() => {
               this.modal.hide = true;
             }}
           >
