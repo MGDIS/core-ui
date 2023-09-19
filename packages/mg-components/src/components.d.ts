@@ -25,6 +25,26 @@ import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
+export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
+export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
+export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
+export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { Width } from "./components/molecules/inputs/MgInput.conf";
+export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
+export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
+export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
+export { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+export { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
+export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
+export { Placement } from "@popperjs/core";
+export { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
+export { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
+export { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export namespace Components {
     interface MgActionMore {
         /**

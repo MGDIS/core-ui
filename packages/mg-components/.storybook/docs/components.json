@@ -1,13 +1,13 @@
 {
-  "timestamp": "2023-09-15T13:55:12",
+  "timestamp": "2023-09-19T11:59:30",
   "compiler": {
     "name": "@stencil/core",
-    "version": "2.22.1",
-    "typescriptVersion": "4.9.4"
+    "version": "4.3.0",
+    "typescriptVersion": "5.1.6"
   },
   "components": [
     {
-      "filePath": "./src/components/molecules/mg-action-more/mg-action-more.tsx",
+      "filePath": "src/components/molecules/mg-action-more/mg-action-more.tsx",
       "encapsulation": "shadow",
       "tag": "mg-action-more",
       "readme": "## Anatomy\n\n![](./doc/img/mg-action-more-anatomy.png)\n\n## Specifications\n\n![](./doc/img/mg-action-more-popover-spacing.png)\n\n### Spacing\n\nPopover padding should be 10px up/down, 0px left/right.\n\n## Behavior\n\n### Action\n\nIn addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.\n\n## Items\n\n### Button's variant\n\n![](./doc/img/mg-action-more-options-variant.png)\n\nIt is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs)).\n\n### Icon\n\n![](./doc/img/mg-action-more-options-icon.png)\n\nIt is possible to set another icon\n\n### Label\n\n![](./doc/img/mg-action-more-options-label.png)\n\nIt is possible to set another label.\n\n### Chevron\n\n![](./doc/img/mg-action-more-options-chevron.png)\n\nIt is possible to display a chevron on the label right side, it make a 180 degree rotation on click.\n",
@@ -18,6 +18,17 @@
         {
           "name": "button",
           "type": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; }",
+          "complexType": {
+            "original": "MgActionMoreButtonType",
+            "resolved": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; }",
+            "references": {
+              "MgActionMoreButtonType": {
+                "location": "import",
+                "path": "./mg-action-more.conf",
+                "id": "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreButtonType"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Define button properties",
@@ -61,6 +72,11 @@
         {
           "name": "displayChevron",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "display-chevron",
           "reflectToAttr": false,
@@ -77,6 +93,17 @@
         {
           "name": "icon",
           "type": "{ icon: string; }",
+          "complexType": {
+            "original": "MgActionMoreIconType",
+            "resolved": "{ icon: string; }",
+            "references": {
+              "MgActionMoreIconType": {
+                "location": "import",
+                "path": "./mg-action-more.conf",
+                "id": "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreIconType"
+              }
+            }
+          },
           "mutable": true,
           "reflectToAttr": false,
           "docs": "Define displaied icon",
@@ -92,6 +119,17 @@
         {
           "name": "items",
           "type": "MgActionMoreItemType[]",
+          "complexType": {
+            "original": "MgActionMoreItemType[]",
+            "resolved": "MgActionMoreItemType[]",
+            "references": {
+              "MgActionMoreItemType": {
+                "location": "import",
+                "path": "./mg-action-more.conf",
+                "id": "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Define the menu-items elements",
@@ -148,7 +186,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-badge/mg-badge.tsx",
+      "filePath": "src/components/atoms/mg-badge/mg-badge.tsx",
       "encapsulation": "shadow",
       "tag": "mg-badge",
       "readme": "## Design\n\nThe badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.\n\n## Specs\n\n![](./doc/img/mg-badge-specs.png)\n\n## Theming\n\n![](./doc/img/mg-badge-styles.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-badge-size`: define badge height and min-width, default: `1.6rem`\n- `--mg-badge-font-size`: define badge font size, default: `1.1rem`\n- `--mg-badge-text-color`: define badge color for text-color variant, default: `--color-light`\n",
@@ -159,6 +197,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -175,6 +218,11 @@
         {
           "name": "outline",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "outline",
           "reflectToAttr": false,
@@ -191,6 +239,11 @@
         {
           "name": "value",
           "type": "number | string",
+          "complexType": {
+            "original": "string | number",
+            "resolved": "number | string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "value",
           "reflectToAttr": false,
@@ -210,6 +263,17 @@
         {
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"text-color\" | \"warning\"",
+          "complexType": {
+            "original": "BadgeVariantType",
+            "resolved": "\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"text-color\" | \"warning\"",
+            "references": {
+              "BadgeVariantType": {
+                "location": "import",
+                "path": "./mg-badge.conf",
+                "id": "src/components/atoms/mg-badge/mg-badge.conf.ts::BadgeVariantType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -275,7 +339,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-button/mg-button.tsx",
+      "filePath": "src/components/atoms/mg-button/mg-button.tsx",
       "encapsulation": "shadow",
       "tag": "mg-button",
       "readme": "## Usage\n\nA primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".\n\n## Specs\n\n![](./doc/img/mg-button-specs.png)\n\n## Placement\n\n![](./doc/img/mg-button-placement.png)\n\n## Theming\n\n![](./doc/img/mg-button-styles.png)\n\nFocused `mg-button` style is the one from the browser (outline).\n\n## Attributes combination: `disable-on-click` and `disabled`\n\nWhen a click is triggered, the component sets the `disabled` prop to true.\n\nTo benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.\n\nTo reset the loader after the process has completed, you need to set the `disabled` prop asynchronously.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n### Global\n\n- `--mg-button-border-radius`: define button border radius, default: `0.3rem`\n- `--mg-button-icon-border-radius`: define button border radius in icon mode, default: `--default-size`\n- `--mg-button-disabled-opacity`: define button opacity when disabled, default: `--mg-disabled-opacity`\n- `--mg-button-gradient`: define if button use gradient, possible values 0 (no gradient) or 1 (with gradient), default: `1`\n- `--mg-button-border-variation`: define if button has a border based on background color, possible values 0 (no border) or 1 (with border), default: `1`\n\n### Variant\n\nVariants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).\n\n#### Primary\n\n- `--mg-button-primary-color-h`: define hue color value for primary button, default: `--color-dark-h`\n- `--mg-button-primary-color-s`: define saturation color value for primary button, default: `--color-dark-s`\n- `--mg-button-primary-color-l`: define lightness color value for primary button, default: `--color-dark-l`\n- `--mg-button-primary-font-color`: define font color for primary button, default: `--color-neutral`\n\n#### Secondary\n\n- `--mg-button-secondary-color-h`: define hue color value for secondary button, default: `--color-neutral-h`\n- `--mg-button-secondary-color-s`: define saturation color value for secondary button, default: `--color-neutral-s`\n- `--mg-button-secondary-color-l`: define lightness color value for secondary button, default: `--color-neutral-l`\n- `--mg-button-secondary-font-color`: define font color for secondary button, default: `--color-dark`\n",
@@ -286,6 +350,11 @@
         {
           "name": "disableOnClick",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disable-on-click",
           "reflectToAttr": false,
@@ -303,6 +372,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -319,6 +393,11 @@
         {
           "name": "form",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "form",
           "reflectToAttr": false,
@@ -335,6 +414,11 @@
         {
           "name": "fullWidth",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "full-width",
           "reflectToAttr": false,
@@ -352,6 +436,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -368,6 +457,11 @@
         {
           "name": "isIcon",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "is-icon",
           "reflectToAttr": false,
@@ -385,6 +479,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -401,6 +500,17 @@
         {
           "name": "type",
           "type": "\"button\" | \"reset\" | \"submit\"",
+          "complexType": {
+            "original": "ButtonType",
+            "resolved": "\"button\" | \"reset\" | \"submit\"",
+            "references": {
+              "ButtonType": {
+                "location": "import",
+                "path": "./mg-button.conf",
+                "id": "src/components/atoms/mg-button/mg-button.conf.ts::ButtonType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -426,6 +536,17 @@
         {
           "name": "variant",
           "type": "\"danger\" | \"danger-alt\" | \"flat\" | \"info\" | \"link\" | \"primary\" | \"secondary\" | \"success\"",
+          "complexType": {
+            "original": "VariantType",
+            "resolved": "\"danger\" | \"danger-alt\" | \"flat\" | \"info\" | \"link\" | \"primary\" | \"secondary\" | \"success\"",
+            "references": {
+              "VariantType": {
+                "location": "import",
+                "path": "./mg-button.conf",
+                "id": "src/components/atoms/mg-button/mg-button.conf.ts::VariantType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -476,6 +597,16 @@
           "event": "disabled-change",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "MgButton['disabled']",
+            "resolved": "boolean",
+            "references": {
+              "MgButton": {
+                "location": "global",
+                "id": "global::MgButton"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when disabled change",
@@ -530,7 +661,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-card/mg-card.tsx",
+      "filePath": "src/components/atoms/mg-card/mg-card.tsx",
       "encapsulation": "shadow",
       "tag": "mg-card",
       "readme": "## Specifications\n\n### Style\n\n![](./doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--docs)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--docs)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are :\n\n- info\n- success\n- warning\n- danger\n- app\n\n![](./doc/img/mg-card-variant.png)\n\n_exemple of \"app color\" for the last one_\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--docs)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--docs)**\n\n### Spacing\n\n![](./doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n- `--mg-card-max-width`: define card max-width, default: `unset`\n- `--mg-card-min-width`: define card min-width, default: `unset`\n",
@@ -541,6 +672,17 @@
         {
           "name": "variant",
           "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "undefined | VariantType",
+            "resolved": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+            "references": {
+              "VariantType": {
+                "location": "import",
+                "path": "./mg-card.conf",
+                "id": "src/components/atoms/mg-card/mg-card.conf.ts::VariantType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -574,6 +716,17 @@
         {
           "name": "variantStyle",
           "type": "\"bar-left\" | \"fill\"",
+          "complexType": {
+            "original": "undefined | VariantStyleType",
+            "resolved": "\"bar-left\" | \"fill\"",
+            "references": {
+              "VariantStyleType": {
+                "location": "import",
+                "path": "./mg-card.conf",
+                "id": "src/components/atoms/mg-card/mg-card.conf.ts::VariantStyleType"
+              }
+            }
+          },
           "mutable": true,
           "attr": "variant-style",
           "reflectToAttr": false,
@@ -622,7 +775,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-character-left/mg-character-left.tsx",
+      "filePath": "src/components/atoms/mg-character-left/mg-character-left.tsx",
       "encapsulation": "scoped",
       "tag": "mg-character-left",
       "readme": "## Design\n\nThis component display the number of characters left beside the max value length: `{{number of characters left}}/{{max value length}}`\n",
@@ -633,6 +786,11 @@
         {
           "name": "characters",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "characters",
           "reflectToAttr": false,
@@ -650,6 +808,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -666,6 +829,11 @@
         {
           "name": "maxlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
@@ -701,7 +869,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-details/mg-details.tsx",
+      "filePath": "src/components/molecules/mg-details/mg-details.tsx",
       "encapsulation": "shadow",
       "tag": "mg-details",
       "readme": "## Properties\n\n![](./doc/img/mg-details-components.png)\n\n- **summary** and **details** are slots which allow html content\n- **toggle** is defined by mg-icon plus a custom text\n  - mg-icon _chevron-down_ is used for the close state\n  - mg-icon _chevron-up_ is used for the open state\n\n## Behavior\n\n### Action\n\nThe complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.\n\n![](./doc/img/mg-details-behavior.png)\n\n### Position\n\n_Toggle_ follows the _summary_ and is always on the top right.\n\n![](./doc/img/mg-details-position.png)\n\n### Responsive\n\nIn mobile resolution, the text of the _toggle_ is hidden\n\n![](./doc/img/mg-details-responsive.png)\n\n## Specs\n\n### Spacing\n\n![](./doc/img/mg-details-spacing.png)\n\n### Icons\n\nToggle's icon is chevron-down when closed.\nToggle's icon is chevron-up when opened.\n\nThe icon is displayed in \"small\" size.\n\n### Style\n\nToggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--docs).\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-details-spacing`: define space between summary and details, default: `1.5rem`\n",
@@ -712,6 +880,11 @@
         {
           "name": "expanded",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "expanded",
           "reflectToAttr": false,
@@ -729,6 +902,11 @@
         {
           "name": "hideSummary",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hide-summary",
           "reflectToAttr": false,
@@ -746,6 +924,11 @@
         {
           "name": "toggleClosed",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "toggle-closed",
           "reflectToAttr": false,
@@ -762,6 +945,11 @@
         {
           "name": "toggleOpened",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "toggle-opened",
           "reflectToAttr": false,
@@ -782,6 +970,11 @@
           "event": "expanded-change",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when expanded change",
@@ -803,7 +996,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-divider/mg-divider.tsx",
+      "filePath": "src/components/atoms/mg-divider/mg-divider.tsx",
       "encapsulation": "shadow",
       "tag": "mg-divider",
       "readme": "## Sizing\n\n![](./doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible :\n\n- Regular : 120px\n- Full : 100%\n\nRules :\n\n- Regular is the default mode.\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.\n\n## Spacing\n\n![](./doc/img/mg-divider-spacing.png)\n\nDefault margin applied on top and bottom of the divider is set to 40px.\n\n## Color\n\n![](./doc/img/mg-divider-color.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-divider-background-color`: define the divider background color, default: `hsla(var(--color-danger), 15%)`\n- `--mg-divider-thickness`: define the divider thickness, default: `0.1rem`\n- `--mg-divider-vertical-spacing`: define the divider vertical spacing, default: `4rem`\n",
@@ -814,6 +1007,11 @@
         {
           "name": "size",
           "type": "\"full\" | \"regular\"",
+          "complexType": {
+            "original": "'regular' | 'full'",
+            "resolved": "\"full\" | \"regular\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -845,7 +1043,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/molecules/mg-form/mg-form.tsx",
+      "filePath": "src/components/molecules/mg-form/mg-form.tsx",
       "encapsulation": "shadow",
       "tag": "mg-form",
       "readme": "## Use\n\nUse mg-form to build clean forms.  \nThe component manages :\n\n- the spacing between inputs\n- the required fileds message\n\n## Anatomy\n\n![](./doc/img/mg-form-anatomy.png)\n\n1. Required field(s) message\n2. Inputs zone\n3. Actions zone\n\n## Style\n\n### Required field(s) message\n\n![](./doc/img/mg-form-style-required-message.png)\n\nText is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--docs)  \nThe \"\\*\" is in [@color-danger](./?path=/docs/style-colors--docs)\n\n## Spacing\n\n### Inputs\n\nForm adds a 15px margin to the bottom of inputs.  \nThe gap between the label and the input zone is rising to 30px.\n\n![](./doc/img/mg-form-spacing-inputs.png)\n\n## Behavior\n\n### Required field(s) message\n\nThis message is automatically generated by the component.\n\n- If there is only 1 input required (among other inputs)\n\n  > Field with a \\* is required\n\n- If there are many required inputs (among other inputs)\n\n  > Fields with a \\* are required\n\n- If there is only 1 input and it is required\n\n  > The field is required\n\n  In this case, the \"\\*\" is hidden on inputs labels.\n\n- If all inputs are required\n\n  > All fields are required\n\n  In this case, the \"\\*\" is hidden on inputs labels.\n\n## 👍 Good practices\n\n### Enabling _submit_ button\n\nYou can disable _submit button_ until all required fields are empty.\nFor this, use \"valid/invalid\" options.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-form-inputs-title-width`: Define slotted input label width, default: `15rem`\n\n## Example\n\n**Code example does not reflect all the code.**\n\nHere we have a `form-valid` event listener on the `mg-form` to define if the \"submit\" button should be enable or not.  \nThe \"Display errors\" button use the `mg-form` `displayError()` method.\n",
@@ -856,6 +1054,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -873,6 +1076,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -890,6 +1098,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -906,6 +1119,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -923,6 +1141,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -940,6 +1163,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -961,6 +1189,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -972,6 +1211,11 @@
           "event": "form-submit",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted event on form submit",
@@ -981,6 +1225,11 @@
           "event": "form-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted event on form validity check\nTells if form is valid or not",
@@ -996,7 +1245,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/atoms/mg-icon/mg-icon.tsx",
+      "filePath": "src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
       "readme": "## Specifications\n\n### Sizing\n\n![](./doc/img/mg-icon-sizing.png) \n\nSizes (px) :\n\n- small : 12x12\n- regular : 16x16\n- medium : 20x20\n- large : 24x24\n- extra-large : 32x32\n\n### With \"variant\" applied\n\n![](./doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))\n\n### Variant style\n\n\n### Variant\n![](./doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--docs) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator : \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant : \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex : check-circle, check-circle-outline*\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--mg-icon-medium-size`: Define medium icon size, default: `2rem`\n- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n- `--mg-icon-border-radius`: Define icon border radiys, default: `50%`\n",
@@ -1007,6 +1256,11 @@
         {
           "name": "icon",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
@@ -1023,6 +1277,17 @@
         {
           "name": "size",
           "type": "\"extra-large\" | \"large\" | \"medium\" | \"regular\" | \"small\"",
+          "complexType": {
+            "original": "IconSizeType",
+            "resolved": "\"extra-large\" | \"large\" | \"medium\" | \"regular\" | \"small\"",
+            "references": {
+              "IconSizeType": {
+                "location": "import",
+                "path": "./mg-icon.conf",
+                "id": "src/components/atoms/mg-icon/mg-icon.conf.ts::IconSizeType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -1057,6 +1322,11 @@
         {
           "name": "spin",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "spin",
           "reflectToAttr": false,
@@ -1074,6 +1344,17 @@
         {
           "name": "variant",
           "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "IconVariantType",
+            "resolved": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
+            "references": {
+              "IconVariantType": {
+                "location": "import",
+                "path": "./mg-icon.conf",
+                "id": "src/components/atoms/mg-icon/mg-icon.conf.ts::IconVariantType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -1107,6 +1388,17 @@
         {
           "name": "variantStyle",
           "type": "\"background\" | \"full\" | \"icon\"",
+          "complexType": {
+            "original": "IconVariantStyleType",
+            "resolved": "\"background\" | \"full\" | \"icon\"",
+            "references": {
+              "IconVariantStyleType": {
+                "location": "import",
+                "path": "./mg-icon.conf",
+                "id": "src/components/atoms/mg-icon/mg-icon.conf.ts::IconVariantStyleType"
+              }
+            }
+          },
           "mutable": true,
           "attr": "variant-style",
           "reflectToAttr": false,
@@ -1227,7 +1519,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-illustrated-message/mg-illustrated-message.tsx",
+      "filePath": "src/components/molecules/mg-illustrated-message/mg-illustrated-message.tsx",
       "encapsulation": "shadow",
       "tag": "mg-illustrated-message",
       "readme": "## Specs\n\n### Vertical\n\n#### Anatomy\n\n![](./doc/img/mg-illustrated-message-vertical-anatomy.png)\n\nComponent is built with :\n\n- an illustration\n- a title\n\nOptionnally :\n\n- one or more _details_ slot which accept HTML content (text, button...)\n\n#### Style\n\n- _title_ : Open Sans, 20px, Regular\n- All contents are centered.\n\n#### Spacing\n\n![](./doc/img/mg-illustrated-message-vertical-spacing.png).\n\n30px between the bottom of the _illustration_ and top of the _title_.\n\n20px for the top of the _details_ zone.\n\n15px between left/right border of the screen and the component\n\n#### Sizing\n\nThe maximum width of the component is 475px.\n\nThe maximum height of the illustration is 184px. Illustration must keep its proportionnality.\nIllustration can be displayed in \"small\" size so its maximum height is set to 60px.\n\n![](./doc/img/mg-illustrated-message-vertical-sizing-small.png)\n\n### Horizontal\n\n#### Anatomy\n\n![](./doc/img/mg-illustrated-message-horizontal-anatomy.png)\n\n#### Spacing\n\n![](./doc/img/mg-illustrated-message-horizontal-spacing.png)\n\nBy default the margin is set to 40px on top and bottom. It's possible to modify this props.\n\n![](./doc/img/mg-illustrated-message-horizontal-spacing-2.png)\n\nBetween the image and the group title/action.\n\n#### Alignment\n\n![](./doc/img/mg-illustrated-message-horizontal-alignment.png)\n\nThe image/illustration and the group tittle/details/action are vertically centred between them in the background.\n\n#### Responsive\n\nWhen there is not enough space the component take is default appearance.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-illustrated-message-padding-vertical`: define component vertical padding, default: `4rem`\n",
@@ -1238,6 +1530,11 @@
         {
           "name": "direction",
           "type": "\"horizontal\" | \"vertical\"",
+          "complexType": {
+            "original": "'vertical' | 'horizontal'",
+            "resolved": "\"horizontal\" | \"vertical\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "direction",
           "reflectToAttr": false,
@@ -1260,6 +1557,11 @@
         {
           "name": "size",
           "type": "\"regular\" | \"small\"",
+          "complexType": {
+            "original": "'regular' | 'small'",
+            "resolved": "\"regular\" | \"small\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -1291,7 +1593,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-checkbox",
       "readme": "## Usage\n\nTrue/False value notion.\nOnly 2 possible values.\n\n### Theming\n\nThe style of the active checkbox is the browser's style.\n\n## Specs\n\n![](./doc/img/mg-input-checkbox-specs.png)\n\n## Type \"multi\"\n\n### Anatomy\n\n![](./doc/img/mg-input-checkbox-multi-anatomy.png)\n\n1. Button\n  - variant : secondary\n  - icon : list\n2. Button\n  - variant : link\n3. Popover\n4. Checkbox\n5. Details\n6. Search\n7. Pagination\n\n### Type \"multi\" with sections\n\n![](./doc/img/mg-input-checkbox-multi-section.png)\n\n#### Spacings\n\n![](./doc/img/mg-input-checkbox-multi-section-button-spacing.png)\n\n\"Select all\" and \"Unselect all\" buttons are aligned on left. \n\n![](./doc/img/mg-input-checkbox-multi-section-internal-spacing.png)\n\n![](./doc/img/mg-input-checkbox-multi-section-spacing.png)\n\n\n### Displayed values\n\n#### Style\n\n![](./doc/img/mg-input-checkbox-values-style.png)\n\n- Radius : 3px\n- Font : OpenSans, Regular, 13px\n- Color : [@color-dark-5](./?path=/docs/style-colors--docs)\n\n#### Alignment\n\n![](./doc/img/mg-input-checkbox-alignment-displayed-values.png)\n\nText is centered vertically and horizontally in the container\n\n#### Spacing\n\n![](./doc/img/mg-input-checkbox-spacing-values.png)\n\n#### Sizing\n\n- Min-width : 35px\n- Min-height : 35px\n\n#### Behavior\n\n##### Lack of space\n\n1. Without values\n\n![](./doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)\n\nIf the space is too narrow the text button will do a line break.\n\n1. With values\n\n![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)\n\nIf the space is too narrow the button and values will do a line break.\n\n![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)\n\nThe component is ajusting with the space available. If the width is not enought big the values will do a breakline.\n\n### Values not displayed\n\n#### Spacing\n\n![](./doc/img/mg-input-checkbox-values-not-displayed-spacing.png)\n\n#### Style\n\n![](./doc/img/mg-input-checkbox-values-not-displayed-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`\n\n## Warning\n\nPlease be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.\n",
@@ -1302,6 +1604,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -1319,6 +1626,11 @@
         {
           "name": "displaySelectedValues",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "display-selected-values",
           "reflectToAttr": false,
@@ -1335,6 +1647,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -1351,6 +1668,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -1367,6 +1689,11 @@
         {
           "name": "inputVerticalList",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "input-vertical-list",
           "reflectToAttr": false,
@@ -1384,6 +1711,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -1400,6 +1732,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -1416,6 +1753,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -1433,6 +1775,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -1449,6 +1796,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -1466,6 +1818,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -1483,6 +1840,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -1500,6 +1862,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -1516,6 +1883,17 @@
         {
           "name": "type",
           "type": "\"checkbox\" | \"multi\"",
+          "complexType": {
+            "original": "CheckboxType",
+            "resolved": "\"checkbox\" | \"multi\"",
+            "references": {
+              "CheckboxType": {
+                "location": "import",
+                "path": "./mg-input-checkbox.conf",
+                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxType"
+              }
+            }
+          },
           "mutable": true,
           "attr": "type",
           "reflectToAttr": false,
@@ -1538,6 +1916,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -1554,6 +1937,17 @@
         {
           "name": "value",
           "type": "CheckboxValue[]",
+          "complexType": {
+            "original": "CheckboxValue[]",
+            "resolved": "CheckboxValue[]",
+            "references": {
+              "CheckboxValue": {
+                "location": "import",
+                "path": "./mg-input-checkbox.conf",
+                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxValue"
+              }
+            }
+          },
           "mutable": true,
           "reflectToAttr": false,
           "docs": "Component value\nIf item.value is `null`, checkbox will be indeterminate by default",
@@ -1574,6 +1968,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -1585,6 +1990,16 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "MgInputCheckbox['valid']",
+            "resolved": "boolean",
+            "references": {
+              "MgInputCheckbox": {
+                "location": "global",
+                "id": "global::MgInputCheckbox"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -1594,6 +2009,16 @@
           "event": "value-change",
           "detail": "CheckboxValue[]",
           "bubbles": true,
+          "complexType": {
+            "original": "MgInputCheckbox['value']",
+            "resolved": "CheckboxValue[]",
+            "references": {
+              "MgInputCheckbox": {
+                "location": "global",
+                "id": "global::MgInputCheckbox"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted event when value change",
@@ -1662,7 +2087,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated/mg-input-checkbox-paginated.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated/mg-input-checkbox-paginated.tsx",
       "encapsulation": "scoped",
       "tag": "mg-input-checkbox-paginated",
       "readme": "# mg-input-checkbox-paginated\n\n\n",
@@ -1673,6 +2098,17 @@
         {
           "name": "checkboxes",
           "type": "CheckboxItem[]",
+          "complexType": {
+            "original": "CheckboxItem[]",
+            "resolved": "CheckboxItem[]",
+            "references": {
+              "CheckboxItem": {
+                "location": "import",
+                "path": "../mg-input-checkbox.conf",
+                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Define checkboxes to paginate",
@@ -1689,6 +2125,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -1705,6 +2146,16 @@
         {
           "name": "messages",
           "type": "{ [x: string]: string; }",
+          "complexType": {
+            "original": "Record<string, string>",
+            "resolved": "{ [x: string]: string; }",
+            "references": {
+              "Record": {
+                "location": "global",
+                "id": "global::Record"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Define component message",
@@ -1720,6 +2171,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -1736,6 +2192,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -1752,6 +2213,17 @@
         {
           "name": "sectionKind",
           "type": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
+          "complexType": {
+            "original": "SectionKind",
+            "resolved": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
+            "references": {
+              "SectionKind": {
+                "location": "import",
+                "path": "../mg-input-checkbox.conf",
+                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::SectionKind"
+              }
+            }
+          },
           "mutable": false,
           "attr": "section-kind",
           "reflectToAttr": false,
@@ -1775,6 +2247,16 @@
           "event": "mass-action",
           "detail": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
           "bubbles": true,
+          "complexType": {
+            "original": "MgInputCheckboxPaginated['sectionKind']",
+            "resolved": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
+            "references": {
+              "MgInputCheckboxPaginated": {
+                "location": "global",
+                "id": "global::MgInputCheckboxPaginated"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emit 'mass-action' event\nused to informe that select-all/unselect-all button listner is triggered",
@@ -1821,7 +2303,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-date/mg-input-date.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-date/mg-input-date.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-date",
       "readme": "## Behavior\n\nThe behavior is the native behavior of the browser.\n\n### Theming\n\nCalendar and trigger: The style is the browser's native style.\n",
@@ -1832,6 +2314,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -1849,6 +2336,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -1865,6 +2357,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -1881,6 +2378,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -1897,6 +2399,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -1913,6 +2420,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -1930,6 +2442,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -1946,6 +2463,11 @@
         {
           "name": "max",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
@@ -1962,6 +2484,11 @@
         {
           "name": "min",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
@@ -1978,6 +2505,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -1995,6 +2527,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -2012,6 +2549,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -2029,6 +2571,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -2045,6 +2592,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -2061,6 +2613,11 @@
         {
           "name": "value",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
@@ -2082,6 +2639,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -2093,6 +2661,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -2102,6 +2675,11 @@
           "event": "value-change",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -2130,7 +2708,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-numeric",
       "readme": "## Usage\n\nAn amount field is a numeric field.  \nBy default it is limited to 16 characters (including comma).\n\nIt is not possible to enter characters other than numbers, \",\" or \".\".\n\nRounding is to two digits after the decimal point.  \nIt is not possible to enter more than two digits after the decimal point.\n\nIt is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.\n\n## Specs\n\n### Positioning\n\nBy default, the value is right aligned.\n\n![](./doc/img/mg-input-numeric-positioning-default.png)\n\nYou can change the CSS variable `--mg-inputs-text-align` to left align.\n\n![](./doc/img/mg-input-numeric-positioning-custom.png)\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n### Unit positioning\n\n![](./doc/img/mg-input-numeric-unit.png)\n\nUnit term must be placed into the field slot using a \"space\" character before the unit term.\n",
@@ -2141,6 +2719,11 @@
         {
           "name": "currency",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "currency",
           "reflectToAttr": false,
@@ -2158,6 +2741,11 @@
         {
           "name": "decimalLength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "decimal-length",
           "reflectToAttr": false,
@@ -2175,6 +2763,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -2192,6 +2785,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -2208,6 +2806,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -2224,6 +2827,11 @@
         {
           "name": "integerLength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "integer-length",
           "reflectToAttr": false,
@@ -2241,6 +2849,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -2257,6 +2870,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -2273,6 +2891,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -2290,6 +2913,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -2306,6 +2934,11 @@
         {
           "name": "max",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "max",
           "reflectToAttr": false,
@@ -2322,6 +2955,17 @@
         {
           "name": "mgWidth",
           "type": "\"full\" | 16 | 2 | 4",
+          "complexType": {
+            "original": "Width",
+            "resolved": "\"full\" | 16 | 2 | 4",
+            "references": {
+              "Width": {
+                "location": "import",
+                "path": "../MgInput.conf",
+                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mg-width",
           "reflectToAttr": false,
@@ -2351,6 +2995,11 @@
         {
           "name": "min",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "min",
           "reflectToAttr": false,
@@ -2367,6 +3016,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -2384,6 +3038,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -2400,6 +3059,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -2417,6 +3081,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -2434,6 +3103,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -2450,6 +3124,11 @@
         {
           "name": "type",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -2467,6 +3146,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -2483,6 +3167,11 @@
         {
           "name": "value",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
@@ -2504,6 +3193,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -2515,6 +3215,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -2524,6 +3229,11 @@
           "event": "value-change",
           "detail": "number",
           "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -2552,7 +3262,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-password/mg-input-password.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-password/mg-input-password.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-password",
       "readme": "## Design\n\nThe standard display of \"bullets\" instead of characters is the standard one (depending on the rendering of the used browser).\n",
@@ -2563,6 +3273,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -2580,6 +3295,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -2596,6 +3316,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -2612,6 +3337,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -2628,6 +3358,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -2644,6 +3379,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -2661,6 +3401,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -2677,6 +3422,17 @@
         {
           "name": "mgWidth",
           "type": "\"full\" | 16 | 2 | 4",
+          "complexType": {
+            "original": "Width",
+            "resolved": "\"full\" | 16 | 2 | 4",
+            "references": {
+              "Width": {
+                "location": "import",
+                "path": "../MgInput.conf",
+                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mg-width",
           "reflectToAttr": false,
@@ -2707,6 +3463,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -2724,6 +3485,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -2740,6 +3506,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -2757,6 +3528,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -2774,6 +3550,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -2790,6 +3571,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -2806,6 +3592,11 @@
         {
           "name": "value",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
@@ -2827,6 +3618,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -2838,6 +3640,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -2847,6 +3654,11 @@
           "event": "value-change",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -2875,7 +3687,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-radio/mg-input-radio.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-radio/mg-input-radio.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-radio",
       "readme": "## Usage\n\n- Always used in a group with minimum 2 options\n- Only one selected option is possible from all the options in the group\n- The label option is clickable and selects the option\n- The group can be initialized without any default value\n\n### Theming\n\nThe style of the active radio button is that of the browser.\n\n## Specs\n\n![](./doc/img/mg-input-radio-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-input-check-size`: Define radio input size, default: `1.3rem`\n",
@@ -2886,6 +3698,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -2903,6 +3720,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -2919,6 +3741,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -2935,6 +3762,11 @@
         {
           "name": "inputVerticalList",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "input-vertical-list",
           "reflectToAttr": false,
@@ -2952,6 +3784,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -2968,6 +3805,17 @@
         {
           "name": "items",
           "type": "RadioOption[] | string[]",
+          "complexType": {
+            "original": "string[] | RadioOption[]",
+            "resolved": "RadioOption[] | string[]",
+            "references": {
+              "RadioOption": {
+                "location": "import",
+                "path": "./mg-input-radio.conf",
+                "id": "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts::RadioOption"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Items are the possible options to select",
@@ -2986,6 +3834,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -3002,6 +3855,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -3019,6 +3877,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -3036,6 +3899,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -3053,6 +3921,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -3070,6 +3943,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -3087,6 +3965,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -3103,6 +3986,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -3119,6 +4007,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -3140,6 +4033,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -3151,6 +4055,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -3160,6 +4069,11 @@
           "event": "value-change",
           "detail": "any",
           "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emitted event when value change",
@@ -3188,7 +4102,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-select/mg-input-select.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-select/mg-input-select.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-select",
       "readme": "## Design\n\nThe placeholder of the list is \"Select a value\".\n\nThe behavior, style and position of the chevron on the right of the field are those of the native browser.  \nThe spacing between the text and the chevron is at least 10px.\n\n### Sizing\n\nThe width of the component is defined by the largest option of the options.\n",
@@ -3199,6 +4113,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -3216,6 +4135,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -3232,6 +4156,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -3248,6 +4177,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -3264,6 +4198,17 @@
         {
           "name": "items",
           "type": "(string | SelectOption)[]",
+          "complexType": {
+            "original": "(string | SelectOption)[]",
+            "resolved": "(string | SelectOption)[]",
+            "references": {
+              "SelectOption": {
+                "location": "import",
+                "path": "./mg-input-select.conf",
+                "id": "src/components/molecules/inputs/mg-input-select/mg-input-select.conf.ts::SelectOption"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Items are the possible options to select",
@@ -3282,6 +4227,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -3298,6 +4248,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -3315,6 +4270,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -3331,6 +4291,17 @@
         {
           "name": "mgWidth",
           "type": "\"full\" | 16 | 2 | 4",
+          "complexType": {
+            "original": "Width",
+            "resolved": "\"full\" | 16 | 2 | 4",
+            "references": {
+              "Width": {
+                "location": "import",
+                "path": "../MgInput.conf",
+                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mg-width",
           "reflectToAttr": true,
@@ -3360,6 +4331,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -3377,6 +4353,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -3393,6 +4374,11 @@
         {
           "name": "placeholderDisabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder-disabled",
           "reflectToAttr": false,
@@ -3410,6 +4396,11 @@
         {
           "name": "placeholderHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder-hide",
           "reflectToAttr": false,
@@ -3427,6 +4418,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -3444,6 +4440,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -3461,6 +4462,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -3477,6 +4483,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -3493,6 +4504,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -3514,6 +4530,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -3525,6 +4552,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -3534,6 +4566,16 @@
           "event": "value-change",
           "detail": "any",
           "bubbles": true,
+          "complexType": {
+            "original": "MgInputSelect['value']",
+            "resolved": "any",
+            "references": {
+              "MgInputSelect": {
+                "location": "global",
+                "id": "global::MgInputSelect"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -3567,7 +4609,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-text/mg-input-text.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-text/mg-input-text.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-text",
       "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--docs), opacity : 0.6\n\n#### Spacing\n\n![](./doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as search input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n",
@@ -3578,6 +4620,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -3595,6 +4642,11 @@
         {
           "name": "displayCharacterLeft",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "display-character-left",
           "reflectToAttr": false,
@@ -3612,6 +4664,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -3628,6 +4685,11 @@
         {
           "name": "icon",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "icon",
           "reflectToAttr": false,
@@ -3644,6 +4706,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -3660,6 +4727,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -3676,6 +4748,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -3692,6 +4769,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -3709,6 +4791,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -3725,6 +4812,11 @@
         {
           "name": "maxlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
@@ -3742,6 +4834,17 @@
         {
           "name": "mgWidth",
           "type": "\"full\" | 16 | 2 | 4",
+          "complexType": {
+            "original": "Width",
+            "resolved": "\"full\" | 16 | 2 | 4",
+            "references": {
+              "Width": {
+                "location": "import",
+                "path": "../MgInput.conf",
+                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mg-width",
           "reflectToAttr": false,
@@ -3772,6 +4875,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -3789,6 +4897,11 @@
         {
           "name": "pattern",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "pattern",
           "reflectToAttr": false,
@@ -3805,6 +4918,11 @@
         {
           "name": "patternErrorMessage",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "pattern-error-message",
           "reflectToAttr": false,
@@ -3821,6 +4939,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -3837,6 +4960,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -3854,6 +4982,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -3871,6 +5004,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -3887,6 +5025,11 @@
         {
           "name": "type",
           "type": "\"search\" | \"text\"",
+          "complexType": {
+            "original": "'text' | 'search'",
+            "resolved": "\"search\" | \"text\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
@@ -3909,6 +5052,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -3925,6 +5073,11 @@
         {
           "name": "value",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
@@ -3946,6 +5099,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -3956,6 +5120,17 @@
           "returns": {
             "type": "Promise<void>",
             "docs": ""
+          },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
           },
           "signature": "setFocus() => Promise<void>",
           "parameters": [],
@@ -3968,6 +5143,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -3977,6 +5157,11 @@
           "event": "value-change",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -4016,7 +5201,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-textarea/mg-input-textarea.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-textarea/mg-input-textarea.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-textarea",
       "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 4000 alpha numeric characters\n\n#### Font\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--docs), opacity : 0.6\n\n#### Spacing\n\n![](./doc/img/mg-input-textarea-spacing.png)\n\n### Dimensions\n\n- the height of the component is by default 3 lines of text (this value is configurable)\n- by default, the input field cannot be resized\n",
@@ -4027,6 +5212,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -4044,6 +5234,11 @@
         {
           "name": "displayCharacterLeft",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "display-character-left",
           "reflectToAttr": false,
@@ -4061,6 +5256,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -4077,6 +5277,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -4093,6 +5298,11 @@
         {
           "name": "invalid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "invalid",
           "reflectToAttr": false,
@@ -4109,6 +5319,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -4125,6 +5340,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -4142,6 +5362,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -4158,6 +5383,11 @@
         {
           "name": "maxlength",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "maxlength",
           "reflectToAttr": false,
@@ -4175,6 +5405,17 @@
         {
           "name": "mgWidth",
           "type": "\"full\" | 16 | 2 | 4",
+          "complexType": {
+            "original": "Width",
+            "resolved": "\"full\" | 16 | 2 | 4",
+            "references": {
+              "Width": {
+                "location": "import",
+                "path": "../MgInput.conf",
+                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+              }
+            }
+          },
           "mutable": false,
           "attr": "mg-width",
           "reflectToAttr": false,
@@ -4205,6 +5446,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -4222,6 +5468,11 @@
         {
           "name": "pattern",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "pattern",
           "reflectToAttr": false,
@@ -4238,6 +5489,11 @@
         {
           "name": "patternErrorMessage",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "pattern-error-message",
           "reflectToAttr": false,
@@ -4254,6 +5510,11 @@
         {
           "name": "placeholder",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "placeholder",
           "reflectToAttr": false,
@@ -4270,6 +5531,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -4287,6 +5553,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -4304,6 +5575,11 @@
         {
           "name": "resizable",
           "type": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
+          "complexType": {
+            "original": "'none' | 'both' | 'horizontal' | 'vertical'",
+            "resolved": "\"both\" | \"horizontal\" | \"none\" | \"vertical\"",
+            "references": {}
+          },
           "mutable": false,
           "attr": "resizable",
           "reflectToAttr": false,
@@ -4334,6 +5610,11 @@
         {
           "name": "rows",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "rows",
           "reflectToAttr": false,
@@ -4351,6 +5632,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -4367,6 +5653,11 @@
         {
           "name": "valid",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "valid",
           "reflectToAttr": false,
@@ -4383,6 +5674,11 @@
         {
           "name": "value",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": true,
@@ -4404,6 +5700,17 @@
             "type": "Promise<void>",
             "docs": ""
           },
+          "complexType": {
+            "signature": "() => Promise<void>",
+            "parameters": [],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
           "docs": "Public method to display errors",
@@ -4415,6 +5722,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -4424,6 +5736,11 @@
           "event": "value-change",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -4454,7 +5771,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-input-title/mg-input-title.tsx",
+      "filePath": "src/components/atoms/mg-input-title/mg-input-title.tsx",
       "encapsulation": "scoped",
       "tag": "mg-input-title",
       "readme": "## Design\n\n### Label\n\nThe label can be on more than one line.\n\n### Styles\n\n![](./doc/img/mg-input-title.png)\n",
@@ -4465,6 +5782,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -4481,6 +5803,11 @@
         {
           "name": "isLegend",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "is-legend",
           "reflectToAttr": false,
@@ -4498,6 +5825,11 @@
         {
           "name": "required",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "required",
           "reflectToAttr": false,
@@ -4561,7 +5893,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.tsx",
+      "filePath": "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-toggle",
       "readme": "## Usage\n\nClicking anywhere on the entire component area toggles the selected value.\n\nThe first value is always selected by default.\n\nWhen the \"on/off\" property is used, the first value is always the disabled value and the style is adjusted.\n\nThe values must be transcribed by texts or icons.\n\n### Types\n\n![](./doc/img/mg-input-toggle-use.png)\n\n### Specs\n\n![](./doc/img/mg-input-toggle-specs.png)\n\n### Readonly\n\n![](./doc/img/mg-input-toggle-readonly.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`\n",
@@ -4572,6 +5904,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -4589,6 +5926,11 @@
         {
           "name": "helpText",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
@@ -4605,6 +5947,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -4621,6 +5968,11 @@
         {
           "name": "isIcon",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "is-icon",
           "reflectToAttr": false,
@@ -4638,6 +5990,11 @@
         {
           "name": "isOnOff",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "is-on-off",
           "reflectToAttr": false,
@@ -4655,6 +6012,17 @@
         {
           "name": "items",
           "type": "ToggleValue[] | string[]",
+          "complexType": {
+            "original": "string[] | ToggleValue[]",
+            "resolved": "ToggleValue[] | string[]",
+            "references": {
+              "ToggleValue": {
+                "location": "import",
+                "path": "./mg-input-toggle.conf",
+                "id": "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts::ToggleValue"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Items are the possible options to select",
@@ -4673,6 +6041,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -4689,6 +6062,11 @@
         {
           "name": "labelHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-hide",
           "reflectToAttr": false,
@@ -4706,6 +6084,11 @@
         {
           "name": "labelOnTop",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label-on-top",
           "reflectToAttr": false,
@@ -4722,6 +6105,11 @@
         {
           "name": "name",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "name",
           "reflectToAttr": false,
@@ -4739,6 +6127,11 @@
         {
           "name": "readonly",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "readonly",
           "reflectToAttr": false,
@@ -4756,6 +6149,11 @@
         {
           "name": "tooltip",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "tooltip",
           "reflectToAttr": false,
@@ -4772,6 +6170,11 @@
         {
           "name": "value",
           "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "mutable": true,
           "attr": "value",
           "reflectToAttr": false,
@@ -4792,6 +6195,11 @@
           "event": "input-valid",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when checking validity",
@@ -4801,6 +6209,11 @@
           "event": "value-change",
           "detail": "any",
           "bubbles": true,
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when value change",
@@ -4829,7 +6242,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-item-more/mg-item-more.tsx",
+      "filePath": "src/components/molecules/mg-item-more/mg-item-more.tsx",
       "encapsulation": "shadow",
       "tag": "mg-item-more",
       "readme": "# mg-item-more\n",
@@ -4840,6 +6253,17 @@
         {
           "name": "icon",
           "type": "{ icon: string; }",
+          "complexType": {
+            "original": "IconType",
+            "resolved": "{ icon: string; }",
+            "references": {
+              "IconType": {
+                "location": "import",
+                "path": "./mg-item-more.conf",
+                "id": "src/components/molecules/mg-item-more/mg-item-more.conf.ts::IconType"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Define icon",
@@ -4856,6 +6280,17 @@
         {
           "name": "size",
           "type": "\"large\" | \"medium\" | \"regular\"",
+          "complexType": {
+            "original": "SizeType",
+            "resolved": "\"large\" | \"medium\" | \"regular\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "./mg-item-more.conf",
+                "id": "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SizeType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -4881,6 +6316,17 @@
         {
           "name": "slotlabel",
           "type": "{ label?: string; display?: boolean; }",
+          "complexType": {
+            "original": "SlotLabelType",
+            "resolved": "{ label?: string; display?: boolean; }",
+            "references": {
+              "SlotLabelType": {
+                "location": "import",
+                "path": "./mg-item-more.conf",
+                "id": "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SlotLabelType"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Define slot label element",
@@ -4932,7 +6378,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/menu/mg-menu/mg-menu.tsx",
+      "filePath": "src/components/molecules/menu/mg-menu/mg-menu.tsx",
       "encapsulation": "shadow",
       "tag": "mg-menu",
       "readme": "## Horizontal\n\n### Use\n\n![](./doc/img/mg-menu-horizontal-exemple.png)\n\nHorizontal menu is used with large (\"desktop\") resolutions, it is placed in the upper area of the screen.\n\n### Anatomy\n\n![](./doc/img/mg-menu-horizontal-anatomy.png)\n\n![](./doc/img/mg-menu-horizontal-item-anatomy.png)\n\n### Behavior\n\n#### Sizing\n\n![](./doc/img/mg-menu-horizontal-sizing.png)\n\nA horizontal menu can display different item sizes: regular, medium, large.\n\n![](./doc/img/mg-menu-horizontal-sizing-itemmaxwidth.png)\n\nThe content of the element determines its width, but to handle the case where the content is too large (long label), it is possible to specify a maximum width for the element._Label_ and _Meta_ are then truncated.\n\n#### Sub-content\n\n![](./doc/img/mg-menu-horizontal-subcontent-submenu.png)\n\n![](./doc/img/mg-menu-horizontal-subcontent-slot.png)\n\nA \"submenu\" or a \"free content\" can be set to the item.\nAn icon \"chevron-down\" at the right of the item informs the user.\n\n##### Badge\n\n![](./doc/img/mg-menu-horizontal-subcontent-badge.png)\n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./doc/img/mg-menu-horizontal-plus.png)\n\nWhen not all items can be displayed due to the width of the menu container, the items are grouped into a \"plus item\".\n\n## Vertical\n\n### Use\n\n![](./doc/img/mg-menu-vertical-use.png)\n\nThe horizontal menu is used with large resolutions (\"desktop\"), it is mainly placed in the left area of the screen.\n\n### Anatomy\n\n![](./doc/img/mg-menu-vertical-anatomy.png)\n\n![](./doc/img/mg-menu-vertical-item-anatomy.png)\n\n### Behavior\n\n#### Sub content\n\nAn item can display a sub content which can be another vertical menu.\nThis item displays a chevron to its right.\nThe submenu is displayed by clicking on the item.\n\n##### Badge\n\n![](./doc/img/mg-menu-vertical-subcontent-badge.png)\n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./doc/img/mg-menu-vertical-scroll.png)\n\nWhen not all items can be displayed due to the height of the menu container, a scroll bar helps to see hidden items.\n\n**🔺child mg-menu-item slots image / information**\n\nWith a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attributes** instead, because the behavior uses the [cloneNode](https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode) method which breaks properties.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-background-color-hsl`: define mg-menu background color. Default: `--color-light`.\n",
@@ -4943,6 +6389,17 @@
         {
           "name": "direction",
           "type": "Direction.HORIZONTAL | Direction.VERTICAL",
+          "complexType": {
+            "original": "Direction",
+            "resolved": "Direction.HORIZONTAL | Direction.VERTICAL",
+            "references": {
+              "Direction": {
+                "location": "import",
+                "path": "./mg-menu.conf",
+                "id": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::Direction"
+              }
+            }
+          },
           "mutable": false,
           "attr": "direction",
           "reflectToAttr": true,
@@ -4963,6 +6420,17 @@
         {
           "name": "itemmore",
           "type": "{ size: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
+          "complexType": {
+            "original": "ItemMoreType",
+            "resolved": "{ size: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
+            "references": {
+              "ItemMoreType": {
+                "location": "import",
+                "path": "./mg-menu.conf",
+                "id": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::ItemMoreType"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Customize \"mg-item-more\" element\nUsed with direction: 'vertical' to manage overflow",
@@ -4985,6 +6453,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -5001,6 +6474,17 @@
         {
           "name": "size",
           "type": "\"large\" | \"medium\" | \"regular\"",
+          "complexType": {
+            "original": "MenuSizeType",
+            "resolved": "\"large\" | \"medium\" | \"regular\"",
+            "references": {
+              "MenuSizeType": {
+                "location": "import",
+                "path": "./mg-menu.conf",
+                "id": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::MenuSizeType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -5046,7 +6530,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/menu/mg-menu-item/mg-menu-item.tsx",
+      "filePath": "src/components/molecules/menu/mg-menu-item/mg-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "mg-menu-item",
       "readme": "## Use\n\nItem menu is used with horizontal, vertical or mobile menus.\n\n## Anatomy\n\n![](./doc/img/mg-menu-item-anatomy.png)\n\nAn item must have a label.\nAn icon can be added before the text.\nA badge can be added after the text.\nWhen a submenu is available, a chevron is displayed (in horizontal and vertical menus) to indicate its presence.\n\n## Specs\n\nItem's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical, mobile).\n\n### Spacing\n\n![](./doc/img/mg-menu-item-spacing.png)\n\n### Sizing\n\n#### Horizontal menu\n\n![](./doc/img/mg-menu-item-sizing-horizontal.png)\n\nWidth of the item depends on its content.\n\n![](./doc/img/mg-menu-item-sizing-maxwidth.png)\n\nIf a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-sizing-vertical.png)\n\nWidth of the item is 100% width of the menu.\n\n#### Mobile\n\n![](./doc/img/mg-menu-item-sizing-mobile.png)\n\nWidth of the item is equal to the width of the menu divided by number of items displayed.\n\n### Alignment\n\n#### Horizontal and vertical menus\n\n![](./doc/img/mg-menu-item-alignment.png)\n\nAll contents are aligned vertically.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-alignment-vertical.png)\n\nAll items are aligned to left.\nThe chevron is aligned to the right of the item.\n\n#### Mobile\n\n![](./doc/img/mg-menu-item-alignment-mobile.png)\n\nContent of the item is centered\n\n![](./doc/img/mg-menu-item-alignment-mobile-badge.png)\n\nBadge is positionned to 20px right and -15px up from the center of the item.\n\n### Styling\n\n![](./doc/img/mg-menu-item-styling.png)\n\nHover item: the background is colored\nActive item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal and mobile menus), at the left of the item for vertical menus.\n\n#### Colors\n\nStandard color is @color-dark.\nActive color is the color of the app.\nHover color is the color of the app with an opacity set to 10%.\nDisabled item's opacity is set to 40%.\n\n#### Fonts\n\nFamily: Open Sans\nRegular size: 13px\nMedium/Large size: 15px\nMobile: 12px\n\n#### Icons\n\nRegular/Medium/Large menus: regular size\nMobile menu: large size\n\n## Behavior\n\n### Click\n\nClick on an item of the menu can:\n\n- redirect to a url\n- display child content (see below)\n\nIf child content is available, an icon \"chevron-down\" is displayed at the right of the item.\nWhen opening the child content, the chevron makes a 180° rotation.\nWhen closing the child content, the chevron returns to position 0°.\n\n## Child content\n\n### Horizontal and vertical menus\n\nChild content is displayed\n\n- by clicking on the item\n- by pressing the space or enter key\n\nIt is closed\n\n- by clicking on the item\n- by pressing the space or enter key\n- by clicking outside of the child content if the menu is horizontal\n\nThe child content can be:\n\n- another horizontal or vertical menu with sub items\n- a slot for HTML content\n\n#### In an horizontal menu\n\n![](./doc/img/mg-menu-submenu-alignment.png)\n\nChild content is displayed in a floating component over the content (like a popover).\nIt is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.\n\nIf the floating component is higher than the screen size, there is no overflow, user has to scroll the page.\n\n![](./doc/img/mg-menu-item-child-styling.png)\n\nThe floating component has a _@color-light_ background and a _@shadow_.\n\n![](./doc/img/mg-menu-item-child-menu-spacing.png)\n\nIf the floating component displays a submenu, there are top and bottom spacing of 10px.\n\n![](./doc/img/mg-menu-item-child-slot-spacing.png)\n\nIf the floating component displays a slot, there is no spacing.\n\n![](./doc/img/mg-menu-submenu-slot.png)\n\nThe minimal width of the submenu is the item's width.\nWidth of the submenu is determined by the width of the largest item or the content of the slot.\n\n#### In a vertical menu\n\n![](./doc/img/mg-menu-submenu-vertical-menu.png)\n\nMenu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**\nIdem for the slot.\nThere is no space to display child content.\nItems below are pushed to bottom.\n\n##### Spacing\n\nSub-items add to their left spacing the spacing between left border and content of their parent's item.\n\n### Mobile menu\n\nChild content is displayed via an **mg-tray** component.\n\n![](./doc/img/mg-menu-submenu-tray.png)\n\n## Slots\n\n### Image\n\nRecommanded element is an icon or a SVG.\n\n### Information\n\nRecommanded element is a mg-badge. Use it when you need to notify new events in this section.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-item-focused-background-color-hsl`: define mg-menu-item focused background color. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-border-color-active-hsl`: define mg-menu-item border color. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-color-hsl`: define mg-menu-item font color. default: `--mg-color-dark`.\n- `--mg-menu-item-color-active-hsl`: define mg-menu-item font color active. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-navigation-button-column-gap`: define mg-menu-item button column gap. default: `unset`.\n\n### navigation-button\n\n- `--mg-menu-item-navigation-button-max-width`: define mg-menu-item button max-width. Useful to apply `text-overflow: ellipsis;` on `mg-menu-item__navigation-button-text` element. default: `unset`.\n",
@@ -5057,6 +6541,11 @@
         {
           "name": "expanded",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "expanded",
           "reflectToAttr": false,
@@ -5074,6 +6563,11 @@
         {
           "name": "href",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "href",
           "reflectToAttr": false,
@@ -5090,6 +6584,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -5107,6 +6606,17 @@
         {
           "name": "status",
           "type": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+          "complexType": {
+            "original": "Status",
+            "resolved": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+            "references": {
+              "Status": {
+                "location": "import",
+                "path": "./mg-menu-item.conf",
+                "id": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status"
+              }
+            }
+          },
           "mutable": true,
           "attr": "status",
           "reflectToAttr": true,
@@ -5137,6 +6647,11 @@
           "event": "item-loaded",
           "detail": "void",
           "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when item is loaded",
@@ -5146,6 +6661,16 @@
           "event": "status-change",
           "detail": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
           "bubbles": true,
+          "complexType": {
+            "original": "MgMenuItem['status']",
+            "resolved": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+            "references": {
+              "MgMenuItem": {
+                "location": "global",
+                "id": "global::MgMenuItem"
+              }
+            }
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when status change",
@@ -5191,7 +6716,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-message/mg-message.tsx",
+      "filePath": "src/components/molecules/mg-message/mg-message.tsx",
       "encapsulation": "shadow",
       "tag": "mg-message",
       "readme": "## Usage\n\n### Types\n\nThe element can be of four different types depending on the message to be indicated:\n\n- validation (green)\n- information (blue)\n- warning (orange)\n- error (red)\n\nWhen a trigger (button...) is set up, it can trigger the display of a message. By default, the execution of the trigger erases the previous messages in the screen of the same type.\n\n## Specs\n\n![](./doc/img/mg-message-specs.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-message-border-radius`: Define message border radius, default: `0.3rem`\n\nPlease note that the mg-message component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-message. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-message to your design.\n",
@@ -5202,6 +6727,11 @@
         {
           "name": "closeButton",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "close-button",
           "reflectToAttr": false,
@@ -5219,6 +6749,11 @@
         {
           "name": "delay",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
@@ -5235,6 +6770,11 @@
         {
           "name": "hide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "hide",
           "reflectToAttr": false,
@@ -5252,6 +6792,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -5269,6 +6814,17 @@
         {
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "VariantType",
+            "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+            "references": {
+              "VariantType": {
+                "location": "import",
+                "path": "./mg-message.conf",
+                "id": "src/components/molecules/mg-message/mg-message.conf.ts::VariantType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -5303,6 +6859,11 @@
           "event": "component-hide",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when message is hidden",
@@ -5312,6 +6873,11 @@
           "event": "component-show",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when message is diplayed",
@@ -5340,7 +6906,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-modal/mg-modal.tsx",
+      "filePath": "src/components/molecules/mg-modal/mg-modal.tsx",
       "encapsulation": "shadow",
       "tag": "mg-modal",
       "readme": "## Anatomy\n\nA modal has :\n\n- a closing cross at the top right corner\n- a title\n- a body composed of fields or a message\n- a validation button\n- a cancel button\n\n## Behavior\n\nWhen clicking on the cross, the cancel button or the `<Escape>` key is pressed the modal closes and no processing is done.\n\nWhen the validation button is clicked, processing is performed and the modal closes.\n\nAs long as the user does not press one of these three buttons, the modal does not close.\n\nThe modal allows focusing the attention on what it is asking: a confirmation or a cancellation.  \nIn this sense the rest of the screen should not be accessible:\n\n- it is hidden by a backdrop\n- clicking on the backdrop does not close the modal\n\nThe title of the modal has a written name.\nEx : Add value\n\nThe wording of the validation button is the infinitive verb of the current action.  \nAvoid the verb \"Validate\" if a more explicit one is possible.  \nEx : \"Add\" for adding a value, \"Delete\" to delete a value, \"Modify\" to modify a value.\n\n### Icon or not icon on the action buttons ?\n\nIn the case of a targeted action, the icon can help to understand or even reassure > check icon that validates the action.\n\nIn the case of a confirmation/cancellation choice: not necessary or even superfluous > the term \"Save/Cancel\" is enough.\n\nEx: if I put a check in front of the term \"Delete\" which is the validation button of a deletion, the check refers to positive while the action of deletion is negative, and the Cancel button also, so not to add to the confusion, do not put an icon...\n\n## Specs\n\n### Shapes\n\n![](./doc/img/mg-modal-shapes.png)\n\n### Fonts\n\n![](./doc/img/mg-modal-fonts.png)\n\n### Spacing\n\n#### Spacing between edges and content\n\n![](./doc/img/mg-modal-spaces-borders.png)\n\n#### Spacing between title, text and buttons\n\n![](./doc/img/mg-modal-spaces-slot.png)\n![](./doc/img/mg-modal-spaces-slot-title.png)\n\n#### Spacing between the title and the cross button\n\n![](./doc/img/mg-modal-spaces-title.png)\n![](./doc/img/mg-modal-spaces-title-multiline.png)\n\n### Alignments\n\n![](./doc/img/mg-modal-alignments.png)\n\n### Sizes\n\n![](./doc/img/mg-modal-sizes.png)\n\n### Colors\n\n![](./doc/img/mg-modal-colors.png)\n\n### Backdrop\n\nColor: [@color-light](./?path=/docs/style-colors--docs) with an opacity set to 85%.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-modal-border-radius`: Define border radius modal, default: `0.5rem`\n- `--mg-modal-title-font-size`: Define modal title font size, default: `1.8rem`\n- `--mg-modal-content-font-size`: Define modall content font size, default: `1.2rem`\n\nPlease note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.\n",
@@ -5351,6 +6917,11 @@
         {
           "name": "closeButton",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "close-button",
           "reflectToAttr": false,
@@ -5368,6 +6939,17 @@
         {
           "name": "dialogRole",
           "type": "\"alertdialog\" | \"dialog\"",
+          "complexType": {
+            "original": "DialogRoleType",
+            "resolved": "\"alertdialog\" | \"dialog\"",
+            "references": {
+              "DialogRoleType": {
+                "location": "import",
+                "path": "./mg-modal.conf",
+                "id": "src/components/molecules/mg-modal/mg-modal.conf.ts::DialogRoleType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "dialog-role",
           "reflectToAttr": false,
@@ -5390,6 +6972,11 @@
         {
           "name": "hide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "hide",
           "reflectToAttr": false,
@@ -5406,6 +6993,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -5423,6 +7015,11 @@
         {
           "name": "modalTitle",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "modal-title",
           "reflectToAttr": false,
@@ -5443,6 +7040,11 @@
           "event": "component-hide",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when modal is hidden",
@@ -5452,6 +7054,11 @@
           "event": "component-show",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when modal is diplayed",
@@ -5487,7 +7094,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-pagination/mg-pagination.tsx",
+      "filePath": "src/components/molecules/mg-pagination/mg-pagination.tsx",
       "encapsulation": "shadow",
       "tag": "mg-pagination",
       "readme": "## Anatomy\n\n![](./doc/img/mg-pagination-nav-anatomy.png)\n\n## Specs\n\n![](./doc/img/mg-pagination-nav-specs.png)\n\nIt's possible to hide the labels \"prev\" and \"next\" to show only the \"chevron\" icons\n\n![](./doc/img/mg-pagination-nav-label-hide.png)\n\nIt's possible to hide the page count to show only the \"chevron\" icons\n\n![](./doc/img/mg-pagination-nav-select-hide.png)\n\n## When to use it ?\n\nA pagination component should be displayed only when it is useful, for example:\n\nWhen the number of pages is greater than 1.\nWhen there are elements to be displayed.\n",
@@ -5498,6 +7105,11 @@
         {
           "name": "currentPage",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "current-page",
           "reflectToAttr": true,
@@ -5515,6 +7127,11 @@
         {
           "name": "hideNavigationLabels",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hide-navigation-labels",
           "reflectToAttr": false,
@@ -5531,6 +7148,11 @@
         {
           "name": "hidePageCount",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "hide-page-count",
           "reflectToAttr": false,
@@ -5547,6 +7169,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -5564,6 +7191,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "label",
           "reflectToAttr": false,
@@ -5580,6 +7212,11 @@
         {
           "name": "totalPages",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": false,
           "attr": "total-pages",
           "reflectToAttr": false,
@@ -5601,6 +7238,11 @@
           "event": "current-page-change",
           "detail": "number",
           "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when current page change",
@@ -5642,7 +7284,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-panel/mg-panel.tsx",
+      "filePath": "src/components/molecules/mg-panel/mg-panel.tsx",
       "encapsulation": "shadow",
       "tag": "mg-panel",
       "readme": "## Behavior\n\nThe left zone of the header displays the item label, this zone is clickable and allows the user to unfold/fold the panel.\nIf no content is available, the panel cannot be unfolded.\nWhen the panel is unfolded, the icon is vertically inverted.\n\nThe right area of the header can accommodate any component.\n\n## Anatomy\n\n![](./doc/img/mg-panel-anatomy.png)\n\n## Specs\n\n### Sizing\n\n![](./doc/img/mg-panel-sizing.png)\n\n### Spacing\n\n![](./doc/img/mg-panel-spacing.png)\n\nSlot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.\n\n### Alignments\n\n![](./doc/img/mg-panel-align.png)\n\n### Styles\n\n![](./doc/img/mg-panel-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`\n- `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`\n- `--mg-panel-box-shadow`: Define panel box shadow, default: `var(--box-shadow)`\n- `--mg-panel-content-padding`: Define panel content padding, default: `1.5rem`\n\nPlease note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.\n",
@@ -5653,6 +7295,11 @@
         {
           "name": "expandToggleDisabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "expand-toggle-disabled",
           "reflectToAttr": false,
@@ -5669,6 +7316,17 @@
         {
           "name": "expandToggleDisplay",
           "type": "\"icon\" | \"text\"",
+          "complexType": {
+            "original": "ExpandToggleDisplayType",
+            "resolved": "\"icon\" | \"text\"",
+            "references": {
+              "ExpandToggleDisplayType": {
+                "location": "import",
+                "path": "./mg-panel.conf",
+                "id": "src/components/molecules/mg-panel/mg-panel.conf.ts::ExpandToggleDisplayType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "expand-toggle-display",
           "reflectToAttr": false,
@@ -5691,6 +7349,11 @@
         {
           "name": "expanded",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "expanded",
           "reflectToAttr": false,
@@ -5708,6 +7371,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -5725,6 +7393,11 @@
         {
           "name": "panelTitle",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": true,
           "attr": "panel-title",
           "reflectToAttr": false,
@@ -5741,6 +7414,11 @@
         {
           "name": "titleEditable",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "title-editable",
           "reflectToAttr": false,
@@ -5758,6 +7436,11 @@
         {
           "name": "titlePattern",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "title-pattern",
           "reflectToAttr": false,
@@ -5774,6 +7457,11 @@
         {
           "name": "titlePatternErrorMessage",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "title-pattern-error-message",
           "reflectToAttr": false,
@@ -5790,6 +7478,17 @@
         {
           "name": "titlePosition",
           "type": "\"left\" | \"right\"",
+          "complexType": {
+            "original": "TitlePositionType",
+            "resolved": "\"left\" | \"right\"",
+            "references": {
+              "TitlePositionType": {
+                "location": "import",
+                "path": "./mg-panel.conf",
+                "id": "src/components/molecules/mg-panel/mg-panel.conf.ts::TitlePositionType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "title-position",
           "reflectToAttr": false,
@@ -5816,6 +7515,11 @@
           "event": "expanded-change",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when expanded change",
@@ -5825,6 +7529,11 @@
           "event": "title-change",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emmited event when title change",
@@ -5864,7 +7573,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-popover/mg-popover.tsx",
+      "filePath": "src/components/molecules/mg-popover/mg-popover.tsx",
       "encapsulation": "shadow",
       "tag": "mg-popover",
       "readme": "## Usage\n\nA popover is more enhanced than a tooltip but less blocking than a modal.\n\n## Behavior\n\nThe window is displayed when clicking on its trigger.\n\nThe window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.\n\nThe window closes:\n\n- when clicking on its trigger\n- clicking outside the window\n- when the ESC key is pressed\n- when clicking on the close button at the top right corner\n\nThe size of the window is determined by the content (set a maximum size to avoid problems).\n\nThe title and the close button are optional.\n\n## Specs\n\n### Fonts\n\n![](./doc/img/mg-popover-fonts.png)\n\n### Spacing\n\n![](./doc/img/mg-popover-spacing.png)\n\n### Sizing\n\n![](./doc/img/mg-popover-sizing.png)\n\nDefault max-width : 400px\nThe value of the max-width can be modified according to the case via the CSS variable.\n\n### Alignments\n\n![](./doc/img/mg-popover-align.png)\n\n### Positioning\n\n#### Item\n\n![](./doc/img/mg-popover-position.png)\n\n#### Screen\n\n![](./doc/img/mg-popover-position-screen.png)\n\n### Style\n\n![](./doc/img/mg-popover-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`\n- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`\n- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`\n- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`\n- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`\n- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;\n- `--mg-popover-min-width`: Define the popover min-width. Default: `unset`;\n\nPlease note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.\n",
@@ -5875,6 +7584,11 @@
         {
           "name": "arrowHide",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "arrow-hide",
           "reflectToAttr": false,
@@ -5892,6 +7606,11 @@
         {
           "name": "closeButton",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "close-button",
           "reflectToAttr": false,
@@ -5909,6 +7628,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -5926,6 +7650,11 @@
         {
           "name": "display",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "display",
           "reflectToAttr": false,
@@ -5943,6 +7672,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -5960,6 +7694,17 @@
         {
           "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "complexType": {
+            "original": "Placement",
+            "resolved": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+            "references": {
+              "Placement": {
+                "location": "import",
+                "path": "@popperjs/core",
+                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement"
+              }
+            }
+          },
           "mutable": false,
           "attr": "placement",
           "reflectToAttr": false,
@@ -6038,6 +7783,11 @@
           "event": "display-change",
           "detail": "boolean",
           "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when display value change",
@@ -6080,7 +7830,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-popover/mg-popover-content/mg-popover-content.tsx",
+      "filePath": "src/components/molecules/mg-popover/mg-popover-content/mg-popover-content.tsx",
       "encapsulation": "shadow",
       "tag": "mg-popover-content",
       "readme": "# mg-popover-content\n\nIn order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.\n",
@@ -6091,6 +7841,11 @@
         {
           "name": "closeButton",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "close-button",
           "reflectToAttr": false,
@@ -6112,6 +7867,11 @@
           "event": "hide-content",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when close button is clicked",
@@ -6145,7 +7905,7 @@
       }
     },
     {
-      "filePath": "./src/components/molecules/mg-skip-links/mg-skip-links.tsx",
+      "filePath": "src/components/molecules/mg-skip-links/mg-skip-links.tsx",
       "encapsulation": "shadow",
       "tag": "mg-skip-links",
       "readme": "## Behavior\n\nOn the first tab, a banner with the link(s) is displayed by pushing the content down.\n\nThe number of links will be added according to the content of the page.\n\n## Specs\n\n### Sizing\n\nThe minimum height of the banner is 55px.\n\n### Spacing\n\nItems have an internal margin of 12px and are spaced 6px apart.\n\n### Styling\n\n- The links are in [@color-dark](./?path=/docs/style-colors--docs).\n- The background of the banner is in [@color-light](./?path=/docs/style-colors--docs).\n\n#### On hover\n\nThe background of the item takes the color [@color-dark](./?path=/docs/style-colors--docs) at 10% opacity.\n\n#### Focus taking\n\nNative browser behavior is retained.\n\n## Code example\n\nYou need to press <kbd>Tab</kbd> in the code example to see the component.\n\n## Integration\n\nThe `mg-skip-links` must be integrated at the very top of your page to be the first focusable element.\n\n## Implementation with a \"#\" based router\n\n`mg-skip-links` uses native anchor behavior, but if your site/app uses a \"#\" link-based router, like AngularJS does, you'll need to use the \"go-to-anchor\" component event. This event returns its detail property to the target anchor, then you can apply the scrollTo anchor behavior:\n\n- if the anchor is in the same window, with native javascript:\n\n```js\nconst goToAnchor = (anchor) => {\n    const top = document.querySelector(anchor).offsetTop;\n    window.scrollTo(0, top);\n\n    // set focus on next element to put keyboard navigation at the right place\n    anchor.focus();\n}\n\n// optionaly you can use a timeout to wait document ready\nsetTimeout(()=> {\n    // you must add listener on skip links element to prevent redirection\n    Array.from(document.querySelector('mg-skip-links').shadowRoot.querySelectorAll('a')).forEach(anchor => {\n        anchor.addEventListener('click', event => {\n            event.preventDefault();\n        })\n    })​\n})\n```\n\n- in case the anchor is in another window, with the [iframeRisizer's moveToAnchor method](https://github.com/davidjbradshaw/iframe-resizer/blob/master/docs/parent_page/methods.md#movetoanchoranchor)\n",
@@ -6156,6 +7916,17 @@
         {
           "name": "links",
           "type": "SkipLink[]",
+          "complexType": {
+            "original": "SkipLink[]",
+            "resolved": "SkipLink[]",
+            "references": {
+              "SkipLink": {
+                "location": "import",
+                "path": "./mg-skip-links.conf",
+                "id": "src/components/molecules/mg-skip-links/mg-skip-links.conf.tsx::SkipLink"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Skip links",
@@ -6175,6 +7946,11 @@
           "event": "go-to-anchor",
           "detail": "string",
           "bubbles": true,
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when link is clicked",
@@ -6190,7 +7966,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/molecules/mg-tabs/mg-tabs.tsx",
+      "filePath": "src/components/molecules/mg-tabs/mg-tabs.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tabs",
       "readme": "## Anatomy\n\n![](./doc/img/mg-tabs-anatomy.png)\n\n## Specs\n\n### Spacing\n\n- Regular\n  - X = 20px;\n  - Y = 10px;\n- Large\n  - X = 30px;\n  - Y = 15px;\n\n![](./doc/img/mg-tabs-spacing.png)\n\n- if only text, no extra spacing,\n- if no badge : no extra spacing on the right\n- if only icon : no extra spacing on the right\n\n### Sizing\n\n![](./doc/img/mg-tabs-sizing.png)\n\nThe header bottom border is 100% wide, 1px sizing and its color is @color-dark-soft. You can override it with [CSS variable](./?path=/docs/molecules-mg-tabs--docs#css-variables).\n\n![](./doc/img/mg-tabs-header-border.png)\n\n### States\n\n![](./doc/img/mg-tabs-states.png)\n\n### Responsive\n\n#### Line breaks (current management)\n\n![](./doc/img/mg-tabs-responsive.png)\n\n## CSS variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.\n",
@@ -6201,6 +7977,11 @@
         {
           "name": "activeTab",
           "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "mutable": true,
           "attr": "active-tab",
           "reflectToAttr": true,
@@ -6217,6 +7998,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -6234,6 +8020,17 @@
         {
           "name": "items",
           "type": "TabItem[] | string[]",
+          "complexType": {
+            "original": "string[] | TabItem[]",
+            "resolved": "TabItem[] | string[]",
+            "references": {
+              "TabItem": {
+                "location": "import",
+                "path": "./mg-tabs.conf",
+                "id": "src/components/molecules/mg-tabs/mg-tabs.conf.ts::TabItem"
+              }
+            }
+          },
           "mutable": false,
           "reflectToAttr": false,
           "docs": "Tabs items",
@@ -6252,6 +8049,11 @@
         {
           "name": "label",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
@@ -6268,6 +8070,17 @@
         {
           "name": "size",
           "type": "\"large\" | \"regular\"",
+          "complexType": {
+            "original": "SizeType",
+            "resolved": "\"large\" | \"regular\"",
+            "references": {
+              "SizeType": {
+                "location": "import",
+                "path": "./mg-tabs.conf",
+                "id": "src/components/molecules/mg-tabs/mg-tabs.conf.ts::SizeType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
@@ -6294,6 +8107,11 @@
           "event": "active-tab-change",
           "detail": "number",
           "bubbles": true,
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when active tab change",
@@ -6317,7 +8135,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-tag/mg-tag.tsx",
+      "filePath": "src/components/atoms/mg-tag/mg-tag.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tag",
       "readme": "## Specs\n\n![](./doc/img/mg-tag-specs.png)\n\n### Fill / Outline tags\n\n#### Colors\n\n![](./doc/img/mg-tag-colors.png)\n\nIcons take the color of the label.\n\n### Soft tags\n\n#### Font\n\n![](./doc/img/mg-tag-font.png)\n\nThey are not on SemiBold but **Regular**.\n\n#### Colors\n\n![](./doc/img/mg-tag-icons-colors.png)\n\n1. Icons takes the color of the tag variant.\n2. Labels are [**@color-dark**](./?path=/docs/style-colors--docs) for all.\n3. Color background is **[**soft color**](./?path=/docs/style-colors--docs)** of the tag variant.\n\n#### Rules\n\n![](./doc/img/mg-tag-use.png)\n\nFor accessibility, soft variant tags cannot use an icon on its own.\n\n## Theming\n\n![](./doc/img/mg-tag-variants.png)\n\n### With Icons\n\n![](./doc/img/mg-tag-icons.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n### Global\n\n- `--mg-tag-height`: Define tag min height, default: `2.3rem`\n- `--mg-tag-border-radius`: Define tag border radius, default: `0.5rem`\n- `--mg-tag-font-size`: Define tag font size, default: `1.2rem`\n\n### Variant\n\nVariants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).\n",
@@ -6328,6 +8146,11 @@
         {
           "name": "outline",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "outline",
           "reflectToAttr": false,
@@ -6344,6 +8167,11 @@
         {
           "name": "soft",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "soft",
           "reflectToAttr": false,
@@ -6360,6 +8188,17 @@
         {
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "TagVariantType",
+            "resolved": "\"danger\" | \"info\" | \"primary\" | \"secondary\" | \"success\" | \"warning\"",
+            "references": {
+              "TagVariantType": {
+                "location": "import",
+                "path": "./mg-tag.conf",
+                "id": "src/components/atoms/mg-tag/mg-tag.conf.ts::TagVariantType"
+              }
+            }
+          },
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
@@ -6407,7 +8246,7 @@
       "dependencyGraph": {}
     },
     {
-      "filePath": "./src/components/atoms/mg-tooltip/mg-tooltip.tsx",
+      "filePath": "src/components/atoms/mg-tooltip/mg-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tooltip",
       "readme": "## Usage\n\nTooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.\n\n## Behavior\n\nThe tooltip must be displayed when the element that allows its display :\n\n- Is hovered over by the mouse.\n- Takes the keyboard focus.\n\nThe tooltip must be hidden when the element that allows its display :\n\n- Is no longer hovered over by the mouse.\n- Loses the keyboard focus.\n- Pressing the Escape key must hide the tooltip.\n\nThe tooltip must remain displayed when its content is hovered over by the mouse.\n\nThe tooltip can be placed above, to the right, below or to the left of the element it describes.\n\nBy default, the message is displayed at the bottom of the element.\n\nIf the element is located at the edge of the screen, the tooltip is shifted to be always visible.\n\n## Specs\n\n### Shapes\n\n![](./doc/img/mg-tooltip-shape.png)\n\n### Fonts\n\n![](./doc/img/mg-tooltip-font.png)\n\n### Spacing\n\n![](./doc/img/mg-tooltip-spaces.png)\n\n### Alignments\n\n![](./doc/img/mg-tooltip-alignments-text.png)\n\n### Positioning\n\nTriangle is always centered on the call component\n\n![](./doc/img/mg-tooltip-positioning.png)\n![](./doc/img/mg-tooltip-positioning2.png)\n\n### Colors\n\n![](./doc/img/mg-tooltip-colors.png)\n\n### Sizes\n\n![](./doc/img/mg-tooltip-sizing.png)\n\nComponent's max-width is 400px.\n\n![](./doc/img/mg-tooltip-max-width.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`\n- `--mg-tooltip-background-color`: Define tooltip background color, default: `--color-dark`\n- `--mg-tooltip-font-color`: Define tooltip font color, default: `--color-font-light`\n",
@@ -6418,6 +8257,11 @@
         {
           "name": "disabled",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": false,
           "attr": "disabled",
           "reflectToAttr": false,
@@ -6435,6 +8279,11 @@
         {
           "name": "display",
           "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
           "mutable": true,
           "attr": "display",
           "reflectToAttr": false,
@@ -6452,6 +8301,11 @@
         {
           "name": "identifier",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "identifier",
           "reflectToAttr": false,
@@ -6469,6 +8323,11 @@
         {
           "name": "message",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "message",
           "reflectToAttr": false,
@@ -6485,6 +8344,17 @@
         {
           "name": "placement",
           "type": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+          "complexType": {
+            "original": "Placement",
+            "resolved": "\"auto\" | \"auto-end\" | \"auto-start\" | \"bottom\" | \"bottom-end\" | \"bottom-start\" | \"left\" | \"left-end\" | \"left-start\" | \"right\" | \"right-end\" | \"right-start\" | \"top\" | \"top-end\" | \"top-start\"",
+            "references": {
+              "Placement": {
+                "location": "import",
+                "path": "@popperjs/core",
+                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement"
+              }
+            }
+          },
           "mutable": false,
           "attr": "placement",
           "reflectToAttr": false,
@@ -6611,7 +8481,7 @@
       }
     },
     {
-      "filePath": "./src/components/atoms/mg-tooltip/mg-tooltip-content/mg-tooltip-content.tsx",
+      "filePath": "src/components/atoms/mg-tooltip/mg-tooltip-content/mg-tooltip-content.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tooltip-content",
       "readme": "# mg-tooltip-content\n\nIn order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.\n",
@@ -6622,6 +8492,11 @@
         {
           "name": "message",
           "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
           "mutable": false,
           "attr": "message",
           "reflectToAttr": false,
@@ -6652,5 +8527,182 @@
         ]
       }
     }
-  ]
+  ],
+  "typeLibrary": {
+    "src/components/atoms/mg-badge/mg-badge.conf.ts::BadgeVariantType": {
+      "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\" | \"text-color\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-badge/mg-badge.conf.ts"
+    },
+    "src/components/atoms/mg-button/mg-button.conf.ts::VariantType": {
+      "declaration": "\"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-button/mg-button.conf.ts"
+    },
+    "src/components/atoms/mg-button/mg-button.conf.ts::ButtonType": {
+      "declaration": "\"button\" | \"submit\" | \"reset\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-button/mg-button.conf.ts"
+    },
+    "src/components/atoms/mg-icon/mg-icon.conf.ts::IconSizeType": {
+      "declaration": "\"small\" | \"regular\" | \"medium\" | \"large\" | \"extra-large\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
+    },
+    "src/components/atoms/mg-icon/mg-icon.conf.ts::IconVariantType": {
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\" | \"app\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
+    },
+    "src/components/atoms/mg-icon/mg-icon.conf.ts::IconVariantStyleType": {
+      "declaration": "\"icon\" | \"background\" | \"full\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
+    },
+    "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::Direction": {
+      "declaration": "export enum Direction {\n  VERTICAL = 'vertical',\n  HORIZONTAL = 'horizontal',\n}",
+      "docstring": "Menu direction type",
+      "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
+    },
+    "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::ItemMoreType": {
+      "declaration": "{\n    [P in K]: T[P];\n}",
+      "docstring": "",
+      "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
+    },
+    "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::MenuSizeType": {
+      "declaration": "\"regular\" | \"medium\" | \"large\"",
+      "docstring": "",
+      "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
+    },
+    "src/components/molecules/mg-item-more/mg-item-more.conf.ts::IconType": {
+      "declaration": "{\n  icon: MgIcon['icon'];\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
+    },
+    "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SlotLabelType": {
+      "declaration": "{\n  label?: string;\n  display?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
+    },
+    "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SizeType": {
+      "declaration": "\"regular\" | \"medium\" | \"large\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
+    },
+    "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts"
+    },
+    "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status": {
+      "declaration": "export enum Status {\n  VISIBLE = 'visible',\n  HIDDEN = 'hidden',\n  DISABLED = 'disabled',\n  ACTIVE = 'active',\n}",
+      "docstring": "Available menu item status",
+      "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
+    },
+    "src/components/atoms/mg-card/mg-card.conf.ts::VariantType": {
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\" | \"app\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-card/mg-card.conf.ts"
+    },
+    "src/components/atoms/mg-card/mg-card.conf.ts::VariantStyleType": {
+      "declaration": "\"fill\" | \"bar-left\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-card/mg-card.conf.ts"
+    },
+    "src/components/atoms/mg-tag/mg-tag.conf.ts::TagVariantType": {
+      "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\"",
+      "docstring": "",
+      "path": "src/components/atoms/mg-tag/mg-tag.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxValue": {
+      "declaration": "export interface CheckboxValue {\n  title: string;\n  value: boolean | null;\n  disabled?: boolean;\n  required?: boolean;\n}",
+      "docstring": "interface CheckboxValue\nuse to match returned value",
+      "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxType": {
+      "declaration": "\"checkbox\" | \"multi\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem": {
+      "declaration": "export interface CheckboxItem extends CheckboxValue {\n  id: string;\n  handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;\n  handleBlur: () => void;\n  handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;\n}",
+      "docstring": "interface CheckboxItem\nuse to match checkbox attributes",
+      "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::SectionKind": {
+      "declaration": "export enum SectionKind {\n  SELECTED = 'selected',\n  NOT_SELECTED = 'not-selected',\n}",
+      "docstring": "mg-input-checkbox-paginated section kind",
+      "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/MgInput.conf.ts::Width": {
+      "declaration": "2 | 4 | 16 | \"full\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/MgInput.conf.ts"
+    },
+    "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-message/mg-message.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts::RadioOption": {
+      "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-select/mg-input-select.conf.ts::SelectOption": {
+      "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n  group?: string;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-select/mg-input-select.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts::ToggleValue": {
+      "declaration": "{\n  title: string;\n  value: unknown;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts"
+    },
+    "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreIconType": {
+      "declaration": "{\n  icon: MgIcon['icon'];\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreButtonType": {
+      "declaration": "{\n  isIcon: MgButton['isIcon'];\n  variant: MgButton['variant'];\n  label?: MgButton['label'];\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
+      "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-modal/mg-modal.conf.ts::DialogRoleType": {
+      "declaration": "\"dialog\" | \"alertdialog\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-modal/mg-modal.conf.ts"
+    },
+    "src/components/molecules/mg-panel/mg-panel.conf.ts::TitlePositionType": {
+      "declaration": "\"right\" | \"left\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-panel/mg-panel.conf.ts"
+    },
+    "src/components/molecules/mg-panel/mg-panel.conf.ts::ExpandToggleDisplayType": {
+      "declaration": "\"text\" | \"icon\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-panel/mg-panel.conf.ts"
+    },
+    "src/components/molecules/mg-skip-links/mg-skip-links.conf.tsx::SkipLink": {
+      "declaration": "{\n  href: string;\n  label: string;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-skip-links/mg-skip-links.conf.tsx"
+    },
+    "src/components/molecules/mg-tabs/mg-tabs.conf.ts::SizeType": {
+      "declaration": "\"regular\" | \"large\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-tabs/mg-tabs.conf.ts"
+    },
+    "src/components/molecules/mg-tabs/mg-tabs.conf.ts::TabItem": {
+      "declaration": "{\n  label: string;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'variant' | 'label'> & { role: 'notification' | 'information' };\n  status: Status;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/mg-tabs/mg-tabs.conf.ts"
+    }
+  }
 }
