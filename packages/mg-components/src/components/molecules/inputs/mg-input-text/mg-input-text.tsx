@@ -293,9 +293,13 @@ export class MgInputText {
    */
   private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
-    this.errorMessage = this.valid ? undefined : errorMessage;
+    this.errorMessage = undefined;
+    // Does have a custom error message
+    if (!this.invalid && errorMessage !== undefined) {
+      this.errorMessage = errorMessage;
+    }
     // Does not match pattern
-    if (!this.valid && this.input.validity.patternMismatch) {
+    else if (!this.valid && this.input.validity.patternMismatch) {
       this.errorMessage = this.patternErrorMessage;
     }
     // required

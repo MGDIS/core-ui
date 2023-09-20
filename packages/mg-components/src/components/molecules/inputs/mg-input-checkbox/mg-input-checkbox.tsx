@@ -249,6 +249,35 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
+   * Public method to set error and display custom error message
+   * @param valid - valid value
+   * @param errorMessage - error message to display
+   */
+  @Method()
+  async setError(valid: MgInputCheckbox['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean');
+    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+      throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(undefined, errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputCheckbox['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
+  }
+
+  /**
    * Handle input event
    * @param event - input event
    */
@@ -366,10 +395,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.getInvalidElement() === undefined && this.validateRequired());
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.getInvalidElement() === undefined && this.validateRequired()));
   };
 
   /**
@@ -388,11 +414,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Set input error message
    * @param displayError - dispay error condition
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (displayError = true): void => {
+  private setErrorMessage = (displayError = true, errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
-    if (displayError && !this.valid && !this.validateRequired()) this.errorMessage = this.messages.errors.required;
+    if (displayError && !this.valid && errorMessage !== undefined) this.errorMessage = errorMessage;
+    else if (displayError && !this.valid && !this.validateRequired()) this.errorMessage = this.messages.errors.required;
   };
 
   /**
