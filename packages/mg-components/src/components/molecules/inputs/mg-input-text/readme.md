@@ -33,6 +33,12 @@ The "search" role can only be used when the input field is the main website sear
 
 The spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.
 
+## Errors
+
+Component have 2 public methodes:
+- `displayError()`: this methode can be used to force errors to be rendered.
+- `setError(validity, errorMessage)`: this methode can be use to set component error state from its context by passing a boolean value to the validity param. It required to be paired with an error message to display for the given context. **When its used to set validity to `false` you need use this methode again to reset the validity to `true`.**
+
 <!-- Auto Generated Below -->
 
 
@@ -76,6 +82,16 @@ The spacing between the field and the slot content is not managed by the compone
 ### `displayError() => Promise<void>`
 
 Public method to display errors
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setError(valid: MgInputText['valid'], errorMessage: string) => Promise<void>`
+
+Public method to set error and display custom error message
 
 #### Returns
 

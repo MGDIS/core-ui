@@ -141,6 +141,17 @@ export class MgInputText {
    * Define input pattern to validate
    */
   @Prop() pattern: string;
+  @Watch('pattern')
+  validatePattern(newValue): void {
+    if (
+      newValue !== undefined &&
+      typeof newValue === 'string' &&
+      newValue.trim() !== '' &&
+      (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
+    ) {
+      throw new Error('<mg-input-text> prop "pattern" must be paired with the prop "patternErrorMessage"');
+    }
+  }
 
   /**
    * Define input pattern error message
@@ -211,6 +222,35 @@ export class MgInputText {
   }
 
   /**
+   * Public method to set error and display custom error message
+   * @param valid - valid value
+   * @param errorMessage - error message to display
+   */
+  @Method()
+  async setError(valid: MgInputText['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-text> method "setError()" param "valid" must be a boolean');
+    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+      throw new Error('<mg-input-text> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputText['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
+  }
+
+  /**
    * Handle input event
    */
   private handleInput = (): void => {
@@ -244,18 +284,16 @@ export class MgInputText {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
-    this.errorMessage = undefined;
+    this.errorMessage = this.valid ? undefined : errorMessage;
     // Does not match pattern
     if (!this.valid && this.input.validity.patternMismatch) {
       this.errorMessage = this.patternErrorMessage;
@@ -263,20 +301,6 @@ export class MgInputText {
     // required
     else if (!this.valid && this.input.validity.valueMissing) {
       this.errorMessage = this.messages.errors.required;
-    }
-  };
-
-  /**
-   * Validate pattern configuration
-   */
-  private validatePattern = (): void => {
-    if (
-      this.pattern !== undefined &&
-      typeof this.pattern === 'string' &&
-      this.pattern !== '' &&
-      (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
-    ) {
-      throw new Error('<mg-input-text> prop "pattern" must be paired with the prop "patternErrorMessage"');
     }
   };
 
@@ -308,7 +332,7 @@ export class MgInputText {
     this.characterLeftId = `${this.identifier}-character-left`;
     // Validate
     this.validateIcon(this.icon);
-    this.validatePattern();
+    this.validatePattern(this.pattern);
     this.validateAppendSlot();
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
