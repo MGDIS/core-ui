@@ -169,12 +169,12 @@ const RuleTemplate = (args: any): HTMLElement => {
   };
   // return element
   return (
-    <form role="search">
+    <div>
       <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'} ref={setMgInputTextRef}></mg-input-text>
-      <mg-button label="search" onClick={handleClick}>
+      <mg-button label="error" onClick={handleClick}>
         {validity ? 'Display custom error' : 'Hide custom error'}
       </mg-button>
-    </form>
+    </div>
   );
 };
 

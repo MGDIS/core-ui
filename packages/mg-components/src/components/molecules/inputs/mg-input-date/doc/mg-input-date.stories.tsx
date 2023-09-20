@@ -46,3 +46,39 @@ export const MgInputDateMinMax = {
     max: `2023-12-31`,
   },
 };
+
+/**
+ * Template
+ * @param args - component arguments
+ * @returns HTMLElement
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const RuleTemplate = (args: any): HTMLElement => {
+  let mgInputText;
+  let validity = true;
+  const errorMessage = 'custom error';
+  const setMgInputTextRef = el => {
+    mgInputText = el;
+  };
+  const handleClick = () => {
+    validity = !validity;
+    mgInputText.setError(validity, validity ? undefined : errorMessage);
+  };
+  // return element
+  return (
+    <div>
+      <mg-input-date {...filterArgs(args)} ref={setMgInputTextRef}></mg-input-date>
+      <mg-button label="error" onClick={handleClick}>
+        {validity ? 'Display custom error' : 'Hide custom error'}
+      </mg-button>
+    </div>
+  );
+};
+
+export const RuleError = {
+  render: RuleTemplate,
+
+  args: {
+    ...MgInputDate.args,
+  },
+};
