@@ -63,6 +63,16 @@ Type: `Promise<void>`
 
 
 
+### `setError(valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>`
+
+Public method to set error and display custom error message
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 
 ## Dependencies
 

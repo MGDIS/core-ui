@@ -188,6 +188,35 @@ export class MgInputRadio {
   }
 
   /**
+   * Public method to set error and display custom error message
+   * @param valid - valid value
+   * @param errorMessage - error message to display
+   */
+  @Method()
+  async setError(valid: MgInputRadio['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-radio> method "setError()" param "valid" must be a boolean');
+    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+      throw new Error('<mg-input-radio> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputRadio['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
+  }
+
+  /**
    * Handle input event
    * @param event - input event
    */
@@ -208,22 +237,24 @@ export class MgInputRadio {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || this.getInvalidElement() === undefined;
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || this.getInvalidElement() === undefined);
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     const invalidElement = this.getInvalidElement();
 
     // Set error message
     this.errorMessage = undefined;
-    if (!this.valid && invalidElement.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (invalidElement.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 

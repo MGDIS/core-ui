@@ -629,6 +629,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Public method to set error and display custom error message
+          * @param valid - valid value
+          * @param errorMessage - error message to display
+         */
+        "setError": (valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
