@@ -6,9 +6,8 @@ import { setupCounter } from './counter.js'
 import { NotificationCenter } from '@mgdis/notification-center';
 import { defineCustomElements } from '@mgdis/mg-components/loader';
 
-defineCustomElements().then(() => {
-    Object.defineProperty(window, 'NotificationCenter', { value: new NotificationCenter() });
-});
+defineCustomElements();
+Object.defineProperty(window, 'NotificationCenter', { value: new NotificationCenter() });
 
 document.querySelector('#app').innerHTML = `
   <div>
