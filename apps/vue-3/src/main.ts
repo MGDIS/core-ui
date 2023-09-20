@@ -5,8 +5,7 @@ import { createApp } from 'vue';
 import './style.scss';
 import App from './App.vue';
 
-defineCustomElements().then(() => {
-  Object.defineProperty(window, 'NotificationCenter', { value: new NotificationCenter() });
-});
+defineCustomElements();
+Object.defineProperty(window, 'NotificationCenter', { value: new NotificationCenter() });
 
 createApp(App).mount('#app');
