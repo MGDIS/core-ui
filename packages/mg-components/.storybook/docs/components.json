@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-20T13:01:18",
+  "timestamp": "2023-09-20T13:50:09",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -3316,6 +3316,60 @@
           "parameters": [],
           "docs": "Public method to display errors",
           "docsTags": []
+        },
+        {
+          "name": "setError",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "valid - valid value"
+                  }
+                ],
+                "text": "- valid value"
+              },
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "errorMessage - error message to display"
+                  }
+                ],
+                "text": "- error message to display"
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "MgInputNumeric": {
+                "location": "global",
+                "id": "global::MgInputNumeric"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setError(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>",
+          "parameters": [],
+          "docs": "Public method to set error and display custom error message",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "valid - valid value"
+            },
+            {
+              "name": "param",
+              "text": "errorMessage - error message to display"
+            }
+          ]
         }
       ],
       "events": [

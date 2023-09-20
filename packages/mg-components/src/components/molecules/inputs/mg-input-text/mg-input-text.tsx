@@ -234,7 +234,7 @@ export class MgInputText {
       throw new Error('<mg-input-text> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);
-      this.setErrorMessage(errorMessage);
+      this.setErrorMessage(valid ? undefined : errorMessage);
       this.hasDisplayedError = this.invalid;
     }
   }
@@ -295,7 +295,7 @@ export class MgInputText {
     // Set error message
     this.errorMessage = undefined;
     // Does have a custom error message
-    if (!this.invalid && errorMessage !== undefined) {
+    if (!this.valid && errorMessage !== undefined) {
       this.errorMessage = errorMessage;
     }
     // Does not match pattern

@@ -261,7 +261,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);
-      this.setErrorMessage(undefined, errorMessage);
+      this.setErrorMessage(undefined, valid ? undefined : errorMessage);
       this.hasDisplayedError = this.invalid;
     }
   }
@@ -419,8 +419,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private setErrorMessage = (displayError = true, errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
-    if (displayError && !this.valid && errorMessage !== undefined) this.errorMessage = errorMessage;
-    else if (displayError && !this.valid && !this.validateRequired()) this.errorMessage = this.messages.errors.required;
+    if (displayError && !this.valid) {
+      if (errorMessage !== undefined) this.errorMessage = errorMessage;
+      else if (!this.validateRequired()) this.errorMessage = this.messages.errors.required;
+    }
   };
 
   /**

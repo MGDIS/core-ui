@@ -64,40 +64,6 @@ export class MgInputNumeric {
   }
 
   /**
-   * Checks if the given value is valid according to the defined rules.
-   * @param value - The input value to validate.
-   * @param regex - The regular expression for validation.
-   * @param integer - The integer part of the value.
-   * @param decimal - The decimal part of the value.
-   * @returns Returns true if the value is valid, otherwise false.
-   */
-  private isValidValue(value: string, regex: RegExp, integer: string, decimal: string): boolean {
-    return ['', '-'].includes(value) || (value.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength));
-  }
-
-  /**
-   * Handles invalid input values and returns a corrected value.
-   * @returns The corrected value.
-   */
-  private handleInvalidValue(): string | null {
-    return this.storedValue !== undefined ? this.storedValue : null;
-  }
-
-  /**
-   * Updates the component values based on the validated input value.
-   * @param newValue - The validated input value.
-   */
-  private updateValues(newValue: string | null): void {
-    this.value = newValue;
-    if (this.input !== undefined) this.input.value = this.value;
-
-    this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
-    this.valueChange.emit(this.numericValue);
-
-    this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
-  }
-
-  /**
    * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
    */
   @Prop() identifier!: string;
@@ -268,6 +234,69 @@ export class MgInputNumeric {
   }
 
   /**
+   * Public method to set error and display custom error message
+   * @param valid - valid value
+   * @param errorMessage - error message to display
+   */
+  @Method()
+  async setError(valid: MgInputNumeric['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean');
+    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+      throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputNumeric['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
+  }
+
+  /**
+   * Checks if the given value is valid according to the defined rules.
+   * @param value - The input value to validate.
+   * @param regex - The regular expression for validation.
+   * @param integer - The integer part of the value.
+   * @param decimal - The decimal part of the value.
+   * @returns Returns true if the value is valid, otherwise false.
+   */
+  private isValidValue(value: string, regex: RegExp, integer: string, decimal: string): boolean {
+    return ['', '-'].includes(value) || (value.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength));
+  }
+
+  /**
+   * Handles invalid input values and returns a corrected value.
+   * @returns The corrected value.
+   */
+  private handleInvalidValue(): string | null {
+    return this.storedValue !== undefined ? this.storedValue : null;
+  }
+
+  /**
+   * Updates the component values based on the validated input value.
+   * @param newValue - The validated input value.
+   */
+  private updateValues(newValue: string | null): void {
+    this.value = newValue;
+    if (this.input !== undefined) this.input.value = this.value;
+
+    this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
+    this.valueChange.emit(this.numericValue);
+
+    this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
+  }
+
+  /**
    * Displayed value in input
    * Change on focus/blur
    * @returns display value
@@ -309,21 +338,21 @@ export class MgInputNumeric {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || this.getInputError() === null;
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || this.getInputError() === null);
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
       const inputError = this.getInputError();
-      if (inputError === InputError.REQUIRED) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (inputError === InputError.REQUIRED) {
         this.errorMessage = this.messages.errors[inputError];
       } else {
         this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', `${this.formatValue(this.min)}`).replace('{max}', `${this.formatValue(this.max)}`);

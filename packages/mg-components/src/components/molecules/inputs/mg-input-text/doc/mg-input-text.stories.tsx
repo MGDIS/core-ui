@@ -157,20 +157,20 @@ export const Search = {
 const RuleTemplate = (args: any): HTMLElement => {
   const displayCharacterLeft = args.displayCharacterLeft;
   delete args.displayCharacterLeft;
-  let mgInputText;
+  let mgInput;
   let validity = true;
   const errorMessage = 'custom error';
-  const setMgInputTextRef = el => {
-    mgInputText = el;
+  const setRef = el => {
+    mgInput = el;
   };
   const handleClick = () => {
     validity = !validity;
-    mgInputText.setError(validity, validity ? undefined : errorMessage);
+    mgInput.setError(validity, errorMessage);
   };
   // return element
   return (
     <div>
-      <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'} ref={setMgInputTextRef}></mg-input-text>
+      <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'} ref={setRef}></mg-input-text>
       <mg-button label="error" onClick={handleClick}>
         {validity ? 'Display custom error' : 'Hide custom error'}
       </mg-button>

@@ -75,3 +75,39 @@ export const AppendSlot = {
     ...MgInputNumeric.args,
   },
 };
+
+/**
+ * Template
+ * @param args - component arguments
+ * @returns HTMLElement
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const RuleTemplate = (args: any): HTMLElement => {
+  let mgInput;
+  let validity = true;
+  const errorMessage = 'custom error';
+  const setRef = el => {
+    mgInput = el;
+  };
+  const handleClick = () => {
+    validity = !validity;
+    mgInput.setError(validity, errorMessage);
+  };
+  // return element
+  return (
+    <div>
+      <mg-input-numeric {...filterArgs(args)} ref={setRef}></mg-input-numeric>
+      <mg-button label="error" onClick={handleClick}>
+        {validity ? 'Display custom error' : 'Hide custom error'}
+      </mg-button>
+    </div>
+  );
+};
+
+export const RuleError = {
+  render: RuleTemplate,
+
+  args: {
+    ...MgInputNumeric.args,
+  },
+};

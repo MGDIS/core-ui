@@ -54,20 +54,20 @@ export const MgInputDateMinMax = {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const RuleTemplate = (args: any): HTMLElement => {
-  let mgInputText;
+  let mgInput;
   let validity = true;
   const errorMessage = 'custom error';
-  const setMgInputTextRef = el => {
-    mgInputText = el;
+  const setRef = el => {
+    mgInput = el;
   };
   const handleClick = () => {
     validity = !validity;
-    mgInputText.setError(validity, validity ? undefined : errorMessage);
+    mgInput.setError(validity, errorMessage);
   };
   // return element
   return (
     <div>
-      <mg-input-date {...filterArgs(args)} ref={setMgInputTextRef}></mg-input-date>
+      <mg-input-date {...filterArgs(args)} ref={setRef}></mg-input-date>
       <mg-button label="error" onClick={handleClick}>
         {validity ? 'Display custom error' : 'Hide custom error'}
       </mg-button>

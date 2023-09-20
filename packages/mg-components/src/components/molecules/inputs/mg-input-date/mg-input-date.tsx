@@ -39,7 +39,7 @@ export class MgInputDate {
    */
   @Prop({ mutable: true, reflect: true }) value: string;
   @Watch('value')
-  validateValue(newValue: string): void {
+  validateValue(newValue: MgInputDate['value']): void {
     // When the input is not fully completed or has been cleared, the value becomes an empty string.
     if (newValue === '') newValue = null;
     if (newValue !== undefined && newValue !== null && (typeof newValue !== 'string' || !dateRegExp.test(newValue))) {
@@ -185,7 +185,7 @@ export class MgInputDate {
       throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);
-      this.setErrorMessage(errorMessage);
+      this.setErrorMessage(valid ? undefined : errorMessage);
       this.hasDisplayedError = this.invalid;
     }
   }
