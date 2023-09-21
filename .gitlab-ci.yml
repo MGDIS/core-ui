@@ -133,7 +133,7 @@ test:e2e:
 
 test:e2e:playwright:
   stage: tests
-  image: registre.mgcloud.fr/mgdis/playwright-baseimage:chore-update-docker-image
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components

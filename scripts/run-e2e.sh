@@ -46,8 +46,7 @@ prepare_package "packages/mg-components/package.json" '{
     start: .scripts.start,
     "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
   }, 
-  "dependencies": { "@stencil/core": .dependencies."@stencil/core" }, 
-  "devDependencies": { "@stencil/sass": .devDependencies."@stencil/sass" }
+  "dependencies": { "@stencil/core": .dependencies."@stencil/core" }
 }'
 
 # Prepare packages/notification-center/package.json
