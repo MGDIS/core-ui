@@ -1,13 +1,13 @@
 // Helper to manage space between elements
 .mg-group-elements {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
   gap: 1rem;
 
   // remove default margin
   & > * {
-    margin: 0 !important; // I would say important is allowed in utility classes ?
+    margin: 0 !important; /* stylelint-disable-line declaration-no-important */
   }
 
   // Align button on right side
