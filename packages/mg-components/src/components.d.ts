@@ -909,6 +909,12 @@ export namespace Components {
          */
         "rows": number;
         /**
+          * Public method to set error and display custom error message
+          * @param valid - valid value
+          * @param errorMessage - error message to display
+         */
+        "setError": (valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;

@@ -203,6 +203,34 @@ export class MgInputTextarea {
   }
 
   /**
+   * Public method to set error and display custom error message
+   * @param valid - valid value
+   * @param errorMessage - error message to display
+   */
+  @Method()
+  async setError(valid: MgInputTextarea['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean');
+    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+      throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputTextarea['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
+  }
+  /**
    * Handle input event
    */
   private handleInput = (): void => {
@@ -243,25 +271,27 @@ export class MgInputTextarea {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined && this.input.checkValidity() && this.getPatternValidity());
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined && this.input.checkValidity() && this.getPatternValidity()));
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
     // Does not match pattern
-    if (!this.valid && !this.getPatternValidity()) {
-      this.errorMessage = this.patternErrorMessage;
-    }
-    // required
-    else if (!this.valid && this.input.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (!this.getPatternValidity()) {
+        this.errorMessage = this.patternErrorMessage;
+      }
+      // required
+      else if (this.input.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 
