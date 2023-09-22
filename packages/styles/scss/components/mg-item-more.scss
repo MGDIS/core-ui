@@ -1,5 +1,5 @@
 @import '../utils/a11y';
 
-:host {
+:host:not([hidden]) {
   display: flex;
 }

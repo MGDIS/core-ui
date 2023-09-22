@@ -35,9 +35,7 @@ $mg-tag-padding-horizontal: 0.7rem;
 
 /* Styles */
 .mg-tag {
-  $padding-value: calc(
-    (var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2 - $mg-tag-padding-horizontal - $mg-tag-border-width
-  );
+  $padding-value: calc((var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2) ($mg-tag-padding-horizontal - $mg-tag-border-width);
 
   min-height: var(--mg-tag-height);
   box-sizing: border-box;

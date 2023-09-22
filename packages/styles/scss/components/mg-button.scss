@@ -51,7 +51,7 @@ $button-column-gap: 0.6rem;
 
 // Only apply if not disabled
 :host(:hover) .mg-button--flat:not(.mg-button--disabled) {
-  background: hsl(var(--color-dark) 0.1);
+  background: hsl(var(--color-dark) / 10%);
 }
 
 :host([full-width]) {
@@ -180,6 +180,10 @@ $button-column-gap: 0.6rem;
 
   // same style as chrome
   .mg-button {
-    outline: -webkit-focus-ring-color auto 0.2rem;
+    /* stylelint-disable declaration-block-no-redundant-longhand-properties */
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+    outline-width: 0.2rem;
+    /* stylelint-enable declaration-block-no-redundant-longhand-properties */
   }
 }

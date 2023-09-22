@@ -43,7 +43,7 @@
     margin: 0;
     font-family: var(--font-family) !important; /* stylelint-disable-line declaration-no-important */
     font-size: 2rem !important; /* stylelint-disable-line declaration-no-important */
-    font-weight: 400;
+    font-weight: 400 !important; /* stylelint-disable-line declaration-no-important */
   }
 
   &__details ::slotted([slot='details']) {

@@ -27,7 +27,7 @@
   --mg-color-app-h: var(--color-info-h);
   --mg-color-app-s: var(--color-info-s);
   --mg-color-app-l: var(--color-info-l);
-  --mg-color-app-hsl: var(--mg-color-app-h), var(--mg-color-app-s), var(--mg-color-app-l);
+  --mg-color-app-hsl: var(--mg-color-app-h) var(--mg-color-app-s) var(--mg-color-app-l);
 
   /* Neutral */
 
@@ -37,7 +37,7 @@
   --color-neutral-h: 0;
   --color-neutral-s: 0%;
   --color-neutral-l: 99.6%;
-  --color-neutral: var(--color-neutral-h), var(--color-neutral-s), var(--color-neutral-l);
+  --color-neutral: var(--color-neutral-h) var(--color-neutral-s) var(--color-neutral-l);
 
   /* Warning */
 
@@ -47,7 +47,7 @@
   --color-warning-h: 41;
   --color-warning-s: 100%;
   --color-warning-l: 62.2%;
-  --color-warning: var(--color-warning-h), var(--color-warning-s), var(--color-warning-l);
+  --color-warning: var(--color-warning-h) var(--color-warning-s) var(--color-warning-l);
 
   /* Success */
 
@@ -57,7 +57,7 @@
   --color-success-h: 159;
   --color-success-s: 66%;
   --color-success-l: 51.6%;
-  --color-success: var(--color-success-h), var(--color-success-s), var(--color-success-l);
+  --color-success: var(--color-success-h) var(--color-success-s) var(--color-success-l);
 
   /* Info */
 
@@ -67,7 +67,7 @@
   --color-info-h: 204;
   --color-info-s: 100%;
   --color-info-l: 30.6%;
-  --color-info: var(--color-info-h), var(--color-info-s), var(--color-info-l);
+  --color-info: var(--color-info-h) var(--color-info-s) var(--color-info-l);
 
   /* Danger */
 
@@ -77,7 +77,7 @@
   --color-danger-h: 357;
   --color-danger-s: 75%;
   --color-danger-l: 49%;
-  --color-danger: var(--color-danger-h), var(--color-danger-s), var(--color-danger-l);
+  --color-danger: var(--color-danger-h) var(--color-danger-s) var(--color-danger-l);
 
   /* Dark */
 
@@ -87,16 +87,16 @@
   --color-dark-h: 194;
   --color-dark-s: 37.3%;
   --color-dark-l: 13.1%;
-  --color-dark: var(--color-dark-h), var(--color-dark-s), var(--color-dark-l);
-  
+  --color-dark: var(--color-dark-h) var(--color-dark-s) var(--color-dark-l);
+
   /* dark-40 */
-  --mg-color-dark-40-hsl: var(--color-dark-h), 7%, 43%;
+  --mg-color-dark-40-hsl: var(--color-dark-h) 7% 43%;
 
   /* dark-5 */
-  --mg-color-dark-5-hsl: var(--color-dark-h), 9%, 96%;
+  --mg-color-dark-5-hsl: var(--color-dark-h) 9% 96%;
 
   /* dark-soft */
-  --mg-color-dark-soft-hsl: var(--color-dark-h), var(--color-dark-s), 90%;
+  --mg-color-dark-soft-hsl: var(--color-dark-h) var(--color-dark-s) 90%;
 
   /* Light */
 
@@ -106,7 +106,7 @@
   --color-light-h: 0;
   --color-light-s: 0%;
   --color-light-l: 100%;
-  --color-light: var(--color-light-h), var(--color-light-s), var(--color-light-l);
+  --color-light: var(--color-light-h) var(--color-light-s) var(--color-light-l);
 
   /* Primary */
   --color-primary-h: var(--color-dark-h);
@@ -121,7 +121,7 @@
   --color-secondary: hsl(var(--color-neutral));
 
   /* Shadow */
-  --box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--color-dark) 0.15);
+  --box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--color-dark) / 15%);
 
   /* Soft style */
   --mg-color-soft-l: 90%;
@@ -224,13 +224,13 @@
   --mg-card-padding-default: 1.6rem;
   --mg-card-border-radius-default: 0.5rem;
   --mg-card-background-default: hsl(var(--color-light));
-  --mg-card-border-default: 0.1rem solid hsl(var(--color-dark) 0.05);
+  --mg-card-border-default: 0.1rem solid hsl(var(--color-dark) / 5%);
   --mg-card-box-shadow-default: var(--box-shadow);
 
   /*
     <mg-divider>
   */
-  --mg-divider-background-color: hsl(var(--color-dark) 0.15);
+  --mg-divider-background-color: hsl(var(--color-dark) / 15%);
   --mg-divider-thickness: 0.1rem;
   --mg-divider-vertical-spacing: 4rem;
 
@@ -252,7 +252,7 @@
   --mg-inputs-spacer: 1rem;
 
   /* Error message background */
-  --mg-inputs-error-bg-color: var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%);
+  --mg-inputs-error-bg-color: var(--color-danger-h) calc(var(--color-danger-s) + 5%) calc(var(--color-danger-l) + 49%);
 
   /* Input focus shadow */
 
@@ -261,7 +261,7 @@
   /* rgb(0, 221, 255); */
 
   /* hsl(188, 100%, 50%); */
-  --mg-inputs-color-shadow-focus-hsl: 188, 100%, 50%;
+  --mg-inputs-color-shadow-focus-hsl: 188 100% 50%;
 
   /*
     <mg-input-toggle>

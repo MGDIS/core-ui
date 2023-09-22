@@ -4,8 +4,7 @@ import { withActions } from '@storybook/addon-actions/decorator';
 import prettier from 'prettier/standalone';
 import prettierBabel from 'prettier/parser-babel';
 import docJson from './docs/components.json';
-import '!style-loader!css-loader!sass-loader!../src/styles/global.scss';
-import '!style-loader!css-loader!sass-loader!./demo.scss';
+import '!style-loader!css-loader!../dist/mg-components/mg-components.css';
 
 defineCustomElements();
 setStencilDocJson(docJson);
@@ -41,6 +40,5 @@ export const parameters = {
     },
   },
 };
-
 
 export const decorators = [withActions];

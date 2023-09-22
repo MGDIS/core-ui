@@ -2,84 +2,83 @@
  * Paragraph
  */
 
- p {
-    margin: 0;
+p {
+  margin: 0;
 
-    & + p {
-      margin-top: 1rem;
-    }
+  & + p {
+    margin-top: 1rem;
   }
-  
-  /**
+}
+
+/**
    * Headings
    *
    * Classes can also be used on element to match attending, for exemples :
    * <h4 class="mg-u-h3">blu</h4>
    * <div role="heading" aria-level="4" class="mg-u-h4">blu</div>
    */
-  
-  @for $i from 1 through 6 {
-    h#{$i},
-    .mg-u-h#{$i} {
-      font-family: var(--mg-heading-font-family);
-      font-weight: bold;
-    }
+
+@for $i from 1 through 6 {
+  h#{$i},
+  .mg-u-h#{$i} {
+    font-family: var(--font-family-heading);
+    font-weight: bold;
   }
-  
-  // h1
-  h1,
-  .mg-u-h1 {
-    font-size: calc(var(--mg-body-font-size) * 1.85);
-  }
-  
-  // h2
-  h2,
-  .mg-u-h2 {
-    font-size: calc(var(--mg-body-font-size) * 1.65);
-  }
-  
-  // h3
-  h3,
-  .mg-u-h3 {
-    font-size: calc(var(--mg-body-font-size) * 1.35);
-  }
-  
-  // h4
-  h4,
-  .mg-u-h4 {
-    font-size: calc(var(--mg-body-font-size) * 1.2);
-  }
-  
-  // h5
-  h5,
-  .mg-u-h5 {
-    font-size: calc(var(--mg-body-font-size) * 1.1);
-  }
-  
-  // h6
-  h6,
-  .mg-u-h6 {
-    font-size: calc(var(--mg-body-font-size) * 0.8);
-  }
-  
-  /**
+}
+
+// h1
+h1,
+.mg-u-h1 {
+  font-size: calc(var(--font-size) * 1.85);
+}
+
+// h2
+h2,
+.mg-u-h2 {
+  font-size: calc(var(--font-size) * 1.65);
+}
+
+// h3
+h3,
+.mg-u-h3 {
+  font-size: calc(var(--font-size) * 1.35);
+}
+
+// h4
+h4,
+.mg-u-h4 {
+  font-size: calc(var(--font-size) * 1.2);
+}
+
+// h5
+h5,
+.mg-u-h5 {
+  font-size: calc(var(--font-size) * 1.1);
+}
+
+// h6
+h6,
+.mg-u-h6 {
+  font-size: calc(var(--font-size) * 0.8);
+}
+
+/**
    * Links
    */
-  a {
-    color: hsl(var(--mg-color-primary-hsl));
-    text-decoration: underline;
-  
-    &:hover,
-    &:focus,
-    &:active {
-      text-decoration: none;
-    }
+a {
+  color: hsl(var(--color-primary));
+  text-decoration: underline;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
   }
-  
-  /**
+}
+
+/**
   * Small
   */
-  small {
-    font-size: 0.9em;
-  }
-  
+small {
+  font-size: 0.9em;
+}

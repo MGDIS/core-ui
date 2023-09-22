@@ -26,8 +26,8 @@
     "lint:fix": "run-s lint:es:fix lint:prettier:fix",
     "lint:es": "eslint src/**/*.{ts,tsx}",
     "lint:es:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint:prettier": "prettier --check **/*.{ts,tsx,scss,html,mdx,json}",
-    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,scss,html,mdx,json}",
+    "lint:prettier": "prettier --check **/*.{ts,tsx,html,mdx,json}",
+    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,html,mdx,json}",
     "test": "TZ=UTC stencil test --spec --e2e",
     "test:unit": "TZ=UTC stencil test --spec --collectCoverage",
     "test:e2e": "pnpm prebuild && stencil test --e2e --collectCoverage --collectCoverageFrom=\"src/**/*.e2e.ts\" --reporters=\"default\" --reporters=\"jest-junit\"",
@@ -47,8 +47,7 @@
     "@mgdis/img": "workspace:*",
     "@mgdis/styles": "workspace:*",
     "@popperjs/core": "^2.11.7",
-    "@stencil/core": "^4.3.0",
-    "normalize.css": "^8.0.1"
+    "@stencil/core": "^4.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",

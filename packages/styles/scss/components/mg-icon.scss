@@ -32,11 +32,11 @@ $variant-styles: ('icon', 'background', 'full');
 @mixin variant-style($style) {
   @each $color in $colors {
     &.mg-icon--variant-#{$color}.mg-icon--variant-style-#{$style} {
-      $custom-property-color-h: '--#{get-color-prefix($color)}-#{$color}-h';
-      $custom-property-color-s: '--#{get-color-prefix($color)}-#{$color}-s';
+      $custom-property-color-h: --#{get-color-prefix($color)}-#{$color}-h;
+      $custom-property-color-s: --#{get-color-prefix($color)}-#{$color}-s;
 
       @if $style == 'icon' or $style == 'full' {
-        $custom-property-color-l: '--#{get-color-prefix($color)}-#{$color}-l';
+        $custom-property-color-l: --#{get-color-prefix($color)}-#{$color}-l;
         $color-value: hsl(var($custom-property-color-h) var($custom-property-color-s) var($custom-property-color-l));
 
         color: $color-value;

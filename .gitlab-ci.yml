@@ -249,9 +249,7 @@ pages:
 
 .mg-components:build:
   script:
-    - pnpm build --filter=@mgdis/img
-    - cd packages/mg-components
-    - pnpm build
+    - pnpm build --filter=@mgdis/mg-components
 
 .docusaurus:
   script:
@@ -263,6 +261,7 @@ pages:
   script:
     - mkdir -p public/storybook
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - pnpm storybook:build
     - mv storybook-static/* ../../public/storybook
 
@@ -274,6 +273,7 @@ mg-components:artifact:
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - !reference [.artifact, script]
   needs:
     - lint

@@ -11,13 +11,13 @@
 @mixin card-variants($variants...) {
   @each $variant in $variants {
     &.mg-card--#{$variant} {
-      $custom-property-color-h: '--#{get-color-prefix($variant)}-#{$variant}-h';
-      $custom-property-color-s: '--#{get-color-prefix($variant)}-#{$variant}-s';
+      $custom-property-color-h: --#{get-color-prefix($variant)}-#{$variant}-h;
+      $custom-property-color-s: --#{get-color-prefix($variant)}-#{$variant}-s;
 
       overflow: hidden;
 
       &.mg-card--bar-left .mg-card__bar {
-        $custom-property-color-l: '--#{get-color-prefix($variant)}-#{$variant}-l';
+        $custom-property-color-l: --#{get-color-prefix($variant)}-#{$variant}-l;
         $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var($custom-property-color-l));
 
         background-color: $background-color-value;
