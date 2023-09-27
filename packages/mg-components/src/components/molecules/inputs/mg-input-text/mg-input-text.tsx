@@ -3,6 +3,9 @@ import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
+import { DatalistOption, TextType, textTypes } from './mg-input-text.conf';
+
+const isDatalistOption = (options: unknown[]): options is DatalistOption[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
 @Component({
   tag: 'mg-input-text',
@@ -21,6 +24,7 @@ export class MgInputText {
 
   // IDs
   private characterLeftId;
+  private datalistId;
 
   // HTML selector
   private input: HTMLInputElement;
@@ -68,7 +72,7 @@ export class MgInputText {
   /**
    * Input type
    */
-  @Prop() type: 'text' | 'search' = 'text';
+  @Prop() type: TextType = textTypes[0];
 
   /**
    * Input icon
@@ -98,6 +102,17 @@ export class MgInputText {
    * It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
    */
   @Prop() placeholder: string;
+
+  /**
+   * Define datalist options
+   */
+  @Prop() datalistoptions: DatalistOption[];
+  @Watch('datalistoptions')
+  validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
+    if (Boolean(newValue) && !isDatalistOption(newValue)) {
+      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, DatalistOption.');
+    }
+  }
 
   /**
    * Input max length
@@ -294,6 +309,12 @@ export class MgInputText {
     }
   };
 
+  /**
+   * Methode to control datalist display condition
+   * @returns true if display condition success
+   */
+  private hasDatalist = (): boolean => isDatalistOption(this.datalistoptions) && this.datalistoptions.length > 0;
+
   /*************
    * Lifecycle *
    *************/
@@ -306,8 +327,10 @@ export class MgInputText {
     // Get locales
     this.messages = initLocales(this.element).messages;
     this.characterLeftId = `${this.identifier}-character-left`;
+    this.datalistId = `${this.identifier}-datalist`;
     // Validate
     this.validateIcon(this.icon);
+    this.validateDatalistoptions(this.datalistoptions);
     this.validatePattern();
     this.validateAppendSlot();
     // Check validity when component is ready
@@ -357,6 +380,8 @@ export class MgInputText {
             class="mg-input__box"
             value={this.value}
             id={this.identifier}
+            list={this.hasDatalist() ? this.datalistId : undefined}
+            autocomplete={this.hasDatalist() ? 'off' : undefined}
             name={this.name}
             placeholder={this.placeholder}
             title={this.placeholder}
@@ -371,6 +396,13 @@ export class MgInputText {
               if (el !== null) this.input = el;
             }}
           />
+          {this.hasDatalist() && (
+            <datalist id={this.datalistId}>
+              {this.datalistoptions.map(option => (
+                <option value={option} key={option}></option>
+              ))}
+            </datalist>
+          )}
           {this.displayCharacterLeft && this.maxlength > 0 && (
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}

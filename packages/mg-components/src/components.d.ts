@@ -14,6 +14,7 @@ import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./compon
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
+import { DatalistOption, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
@@ -34,6 +35,7 @@ export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./compon
 export { Width } from "./components/molecules/inputs/MgInput.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
+export { DatalistOption, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
@@ -697,6 +699,10 @@ export namespace Components {
     }
     interface MgInputText {
         /**
+          * Define datalist options
+         */
+        "datalistoptions": DatalistOption[];
+        /**
           * Define if input is disabled
          */
         "disabled": boolean;
@@ -779,7 +785,7 @@ export namespace Components {
         /**
           * Input type
          */
-        "type": 'text' | 'search';
+        "type": TextType;
         /**
           * Define input valid state
          */
@@ -2240,6 +2246,10 @@ declare namespace LocalJSX {
     }
     interface MgInputText {
         /**
+          * Define datalist options
+         */
+        "datalistoptions"?: DatalistOption[];
+        /**
           * Define if input is disabled
          */
         "disabled"?: boolean;
@@ -2322,7 +2332,7 @@ declare namespace LocalJSX {
         /**
           * Input type
          */
-        "type"?: 'text' | 'search';
+        "type"?: TextType;
         /**
           * Define input valid state
          */
