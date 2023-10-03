@@ -349,7 +349,7 @@ describe('mg-tooltip', () => {
     expect(page.root).toMatchSnapshot();
 
     const mgTooltip = page.doc.querySelector('mg-tooltip');
-    mgTooltip.identifier = 'new identifier';
+    mgTooltip.identifier = 'new-identifier';
 
     await page.waitForChanges();
 
