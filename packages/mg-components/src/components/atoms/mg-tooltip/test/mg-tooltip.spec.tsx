@@ -338,7 +338,7 @@ describe('mg-tooltip', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  test('should update mg-popover-content id when "identifier" is update', async () => {
+  test('should update mg-popover-content id when "identifier" is updated', async () => {
     const page = await getPage(
       { identifier: 'identifier', message: 'My tooltip message' },
       <mg-button identifier="identifier" disabled>
