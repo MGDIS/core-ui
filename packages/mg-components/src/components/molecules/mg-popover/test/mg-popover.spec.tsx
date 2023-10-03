@@ -169,7 +169,7 @@ describe('mg-popover', () => {
     expect(page.root).toMatchSnapshot();
 
     fireRo([]);
-    page.doc.querySelector('mg-popover').identifier = 'new id';
+    page.doc.querySelector('mg-popover').identifier = 'new-identifier';
 
     await page.waitForChanges();
 
