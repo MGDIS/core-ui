@@ -337,4 +337,22 @@ describe('mg-tooltip', () => {
 
     expect(spy).toHaveBeenCalled();
   });
+
+  test('should update mg-popover-content id when "identifier" is update', async () => {
+    const page = await getPage(
+      { identifier: 'identifier', message: 'My tooltip message' },
+      <mg-button identifier="identifier" disabled>
+        mg-button.disabled
+      </mg-button>,
+    );
+
+    expect(page.root).toMatchSnapshot();
+
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    mgTooltip.identifier = 'new identifier';
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
 });
