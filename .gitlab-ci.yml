@@ -141,6 +141,7 @@ test:e2e:playwright:
     - .install:dependencies
   script:
     - pnpm test:e2e:playwright
+  retry: 2
   artifacts:
     when: always
     paths:
