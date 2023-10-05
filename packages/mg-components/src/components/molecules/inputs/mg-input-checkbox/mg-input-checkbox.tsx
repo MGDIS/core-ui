@@ -239,8 +239,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<MgInputCheckbox['valid']>;
 
   /**
-   * Public method to display errors.
-   * Use to force errors to be rendered.
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
