@@ -94,7 +94,8 @@ export class MgForm {
   @Event({ eventName: 'form-submit' }) formSubmit: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
+   * Public method to display errors.
+   * Use to force errors to be rendered.
    */
   @Method()
   async displayError(): Promise<void> {

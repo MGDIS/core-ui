@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-09-20T14:22:25",
+  "timestamp": "2023-10-05T08:33:59",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -1202,7 +1202,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         }
       ],
@@ -1981,7 +1981,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -2026,7 +2026,7 @@
           },
           "signature": "setError(valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -2706,7 +2706,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -2751,7 +2751,7 @@
           },
           "signature": "setError(valid: MgInputDate['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -3314,7 +3314,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -3359,7 +3359,7 @@
           },
           "signature": "setError(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -3793,7 +3793,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -3838,7 +3838,7 @@
           },
           "signature": "setError(valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -4262,7 +4262,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -4307,7 +4307,7 @@
           },
           "signature": "setError(valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -4813,7 +4813,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -4858,7 +4858,7 @@
           },
           "signature": "setError(valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -5436,7 +5436,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -5481,7 +5481,7 @@
           },
           "signature": "setError(valid: MgInputText['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",
@@ -6091,7 +6091,7 @@
           },
           "signature": "displayError() => Promise<void>",
           "parameters": [],
-          "docs": "Public method to display errors",
+          "docs": "Public method to display errors.\nUse to force errors to be rendered.",
           "docsTags": []
         },
         {
@@ -6136,7 +6136,7 @@
           },
           "signature": "setError(valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>",
           "parameters": [],
-          "docs": "Public method to set error and display custom error message",
+          "docs": "Public method to set error and display custom error message\nThis method can be use to set component error state from it's context by passing a boolean value to the validity param.\nIt required to be paired with an error message to display for the given context.\nWhen its used to set validity to `false` you need use this method again to reset the validity to `true`.",
           "docsTags": [
             {
               "name": "param",

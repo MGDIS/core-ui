@@ -193,7 +193,8 @@ export class MgInputTextarea {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
+   * Public method to display errors.
+   * Use to force errors to be rendered.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -204,6 +205,9 @@ export class MgInputTextarea {
 
   /**
    * Public method to set error and display custom error message
+   * This method can be use to set component error state from it's context by passing a boolean value to the validity param.
+   * It required to be paired with an error message to display for the given context.
+   * When its used to set validity to `false` you need use this method again to reset the validity to `true`.
    * @param valid - valid value
    * @param errorMessage - error message to display
    */
@@ -300,9 +304,8 @@ export class MgInputTextarea {
    */
   private validatePattern = (): void => {
     if (
-      this.pattern !== undefined &&
       typeof this.pattern === 'string' &&
-      this.pattern !== '' &&
+      this.pattern.trim() !== '' &&
       (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
     ) {
       throw new Error('<mg-input-textarea> prop "pattern" must be paired with the prop "patternErrorMessage"');

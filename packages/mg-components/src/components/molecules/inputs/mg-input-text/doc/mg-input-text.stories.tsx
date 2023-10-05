@@ -22,9 +22,6 @@ export default {
 const Template = (args: any): HTMLElement => {
   const displayCharacterLeft = args.displayCharacterLeft;
   delete args.displayCharacterLeft;
-  // const validationRule = args.validationRule;
-  // delete args.validationRule;
-  // return element
   return <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}></mg-input-text>;
 };
 
@@ -145,43 +142,5 @@ export const Search = {
     ...MgInputText.args,
     type: 'search',
     icon: 'magnifying-glass',
-  },
-};
-
-/**
- * Template
- * @param args - component arguments
- * @returns HTMLElement
- */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const RuleTemplate = (args: any): HTMLElement => {
-  const displayCharacterLeft = args.displayCharacterLeft;
-  delete args.displayCharacterLeft;
-  let mgInput;
-  let validity = true;
-  const errorMessage = 'custom error';
-  const setRef = el => {
-    mgInput = el;
-  };
-  const handleClick = () => {
-    validity = !validity;
-    mgInput.setError(validity, errorMessage);
-  };
-  // return element
-  return (
-    <div>
-      <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'} ref={setRef}></mg-input-text>
-      <mg-button label="error" onClick={handleClick}>
-        {validity ? 'Display custom error' : 'Hide custom error'}
-      </mg-button>
-    </div>
-  );
-};
-
-export const RuleError = {
-  render: RuleTemplate,
-
-  args: {
-    ...MgInputText.args,
   },
 };
