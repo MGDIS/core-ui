@@ -376,3 +376,32 @@ img:npmjs:
   script:
     - !reference [.img:build, script]
     - pnpm publish --no-git-checks --access public
+
+##########
+# styles #
+##########
+
+.styles:build:
+  script:
+    - cd packages/styles
+    - pnpm build
+
+styles:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:styles
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - !reference [.styles:build, script]
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+styles:npmjs:
+  extends:
+    - .rules:changes:styles
+    - .npmjs
+  script:
+    - !reference [.styles:build, script]
+    - pnpm publish --no-git-checks --access public
