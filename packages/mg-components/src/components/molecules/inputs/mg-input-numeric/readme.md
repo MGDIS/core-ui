@@ -74,8 +74,7 @@ Unit term must be placed into the field slot using a "space" character before th
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors.
-Use to force errors to be rendered.
+Display input error if it exists.
 
 #### Returns
 
@@ -85,10 +84,10 @@ Type: `Promise<void>`
 
 ### `setError(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>`
 
-Public method to set error and display custom error message
-This method can be use to set component error state from it's context by passing a boolean value to the validity param.
-It required to be paired with an error message to display for the given context.
-When its used to set validity to `false` you need use this method again to reset the validity to `true`.
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
 #### Returns
 
