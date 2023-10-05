@@ -3,7 +3,7 @@ import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { ClassList } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
-import { DatalistOption, TextType, textTypes } from './mg-input-text.conf';
+import { DatalistOption, TextType } from './mg-input-text.conf';
 
 const isDatalistOption = (options: unknown[]): options is DatalistOption[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
@@ -72,7 +72,7 @@ export class MgInputText {
   /**
    * Input type
    */
-  @Prop() type: TextType = textTypes[0];
+  @Prop() type: TextType = 'text';
 
   /**
    * Input icon
