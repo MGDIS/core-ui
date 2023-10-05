@@ -38,6 +38,12 @@ stages:
     - changes:
         - 'packages/img/**/*'
 
+# Rule to execute job only on styles folder content changes
+.rules:changes:styles:
+  rules:
+    - changes:
+        - 'packages/styles/**/*'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
