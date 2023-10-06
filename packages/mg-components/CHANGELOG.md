@@ -1,5 +1,18 @@
 # @mgdis/mg-components
 
+## 5.17.0
+
+### Minor Changes
+
+- 9336e2b: Add and update icons
+
+### Patch Changes
+
+- b078027: [#28](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/28) chore: upgrade Stenciljs to v4
+- 7035494: [#371](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/371) mg-action-more : follow documentation for a hidden icon when label is visible
+- Updated dependencies [9336e2b]
+  - @mgdis/img@1.3.0
+
 ## 5.16.0
 
 ### Minor Changes

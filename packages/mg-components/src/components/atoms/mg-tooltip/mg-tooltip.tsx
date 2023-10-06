@@ -43,6 +43,11 @@ export class MgTooltip {
    * Needed by the input for accessibility `aria-decribedby`.
    */
   @Prop() identifier: string = createID('mg-tooltip');
+  @Watch('identifier')
+  validateIdentifier(): void {
+    // use renderTooltipContent to update tooltip-content id
+    this.renderTooltipContent();
+  }
 
   /**
    * Displayed message in the tooltip
@@ -272,18 +277,23 @@ export class MgTooltip {
   /**
    * Render tooltip content element
    */
-  private renderTooltip(): void {
-    const mgTooltipContent = document.createElement('mg-tooltip-content');
-    mgTooltipContent.setAttribute('slot', 'content');
-    mgTooltipContent.setAttribute('id', this.identifier);
+  private renderTooltipContent(): void {
+    const mgTooltipContent = this.element.querySelector('mg-tooltip-content');
+    if (mgTooltipContent === null) {
+      const mgTooltipContent = document.createElement('mg-tooltip-content');
+      mgTooltipContent.setAttribute('slot', 'content');
+      mgTooltipContent.setAttribute('id', this.identifier);
 
-    const arrow = document.createElement('div');
-    arrow.setAttribute('slot', 'arrow');
-    arrow.dataset.popperArrow = '';
-    mgTooltipContent.appendChild(arrow);
+      const arrow = document.createElement('div');
+      arrow.setAttribute('slot', 'arrow');
+      arrow.dataset.popperArrow = '';
+      mgTooltipContent.appendChild(arrow);
 
-    // append tooltip element to component
-    this.element.appendChild(mgTooltipContent);
+      // append tooltip element to component
+      this.element.appendChild(mgTooltipContent);
+    } else {
+      mgTooltipContent.setAttribute('id', this.identifier);
+    }
   }
 
   /*************
@@ -298,12 +308,13 @@ export class MgTooltip {
     this.windows = getWindows(window);
 
     // Get tooltip element
-    this.renderTooltip();
+    this.renderTooltipContent();
     this.mgTooltipContent = this.element.querySelector(`#${this.identifier}`);
 
     //validate properties
     this.validateDisabled(this.disabled);
     this.validateMessage(this.message);
+    this.validateIdentifier();
   }
 
   /**

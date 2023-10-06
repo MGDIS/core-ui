@@ -1,5 +1,14 @@
 # Changelog
 
+## Release (2023-10-03-09-07_Tame-Tropical-Rain-Forest-Turtle)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
 ## Release (2023-09-14-11-09_Shrill-Shamrock-Sheep)
 
 ### Packages released
