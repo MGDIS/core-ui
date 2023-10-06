@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.3.0
+
+### Minor Changes
+
+- 9336e2b: Add and update icons
+
 ## 1.2.0
 
 ### Minor Changes
