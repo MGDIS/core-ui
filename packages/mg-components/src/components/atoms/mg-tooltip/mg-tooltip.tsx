@@ -237,6 +237,12 @@ export class MgTooltip {
             offset: [0, 8],
           },
         },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['auto'],
+          },
+        },
       ],
     });
 

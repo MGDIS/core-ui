@@ -137,6 +137,22 @@ describe('mg-popover', () => {
     });
   });
 
+  test(`should position popover where it have enough place`, async () => {
+    const page = await createPage(
+      `<style>mg-button{position:fixed;left:0;bottom:0}</style>
+      <mg-popover ${renderAttributes({ display: true })}>
+      <mg-button>Button</mg-button>
+      <p slot="content">
+        Lorem ipsum
+      </p>
+      </mg-popover>`,
+      { width: 400, height: 100 },
+    );
+
+    const screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
+  });
+
   describe('style', () => {
     test('Should render with child mg-card', async () => {
       const page = await createPage(
