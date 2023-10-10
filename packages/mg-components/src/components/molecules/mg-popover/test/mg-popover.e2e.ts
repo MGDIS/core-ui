@@ -49,7 +49,7 @@ describe('mg-popover', () => {
 
       expect(popover).toHaveAttribute('data-show');
 
-      await page.setViewport({ width: 800, height: 800 });
+      await page.setViewport({ width: 1200, height: 1200 });
 
       const screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
@@ -120,7 +120,7 @@ describe('mg-popover', () => {
           Lorem ipsum
         </${tagName}>
         </mg-popover>`,
-        { width: 400, height: 100 },
+        { width: 400, height: 130 },
       );
 
       let screenshot = await page.screenshot();
