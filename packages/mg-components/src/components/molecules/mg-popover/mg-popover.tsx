@@ -216,6 +216,12 @@ export class MgPopover {
             offset: [0, 0],
           },
         },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['auto'],
+          },
+        },
       ],
     });
 
