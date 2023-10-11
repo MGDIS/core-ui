@@ -35,6 +35,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
 
+  private mode: 'custom' | 'auto' = 'custom';
+
   // style
   private readonly baseClassName = 'mg-input--checkbox';
 
@@ -77,12 +79,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Define checkbox type
+   * When it's undefined the type is dynamic:
+   * - With 0-5 items type is 'checkbox'
+   * - With 5-10 items type is 'multi'
+   * When it set the type is locked to the defined value.
+   * When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
    */
-  @Prop({ mutable: true }) type: CheckboxType = checkboxTypes[0];
+  @Prop({ mutable: true }) type: CheckboxType;
   @Watch('type')
   validateType(newValue: MgInputCheckbox['type']): void {
-    if (!checkboxTypes.includes(newValue)) {
+    if (newValue !== undefined && !checkboxTypes.includes(newValue)) {
       throw new Error('<mg-input-checkbox> prop "type" must be a CheckboxType.');
+    } else if (newValue === undefined) {
+      this.mode = 'auto';
+      this.type = checkboxTypes[0];
     } else {
       const className = `${this.baseClassName}-multi`;
       if (newValue === 'multi') {
@@ -200,8 +210,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @State() checkboxItems: CheckboxItem[] = [];
   @Watch('checkboxItems')
   validateCheckboxItems(newValue: MgInputCheckbox['checkboxItems']): void {
-    if (newValue.length > this.multiStart) this.type = 'multi';
-    if (newValue.length > this.searchStart) {
+    if (this.mode === 'auto' && newValue.length > this.multiStart) this.type = 'multi';
+    if (this.mode === 'auto' || (this.type === 'multi' && newValue.length > this.searchStart)) {
       this.displaySearchInput = this.type === 'multi';
       // refresh search values
       this.updateSearchResults();

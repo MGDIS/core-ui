@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-05T14:13:42",
+  "timestamp": "2023-10-11T09:19:48",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -1897,9 +1897,8 @@
           "mutable": true,
           "attr": "type",
           "reflectToAttr": false,
-          "docs": "Define checkbox type",
+          "docs": "Define checkbox type\nWhen it's undefined the type is dynamic:\n- With 0-5 items type is 'checkbox'\n- With 5-10 items type is 'multi'\nWhen it set the type is locked to the defined value.\nWhen type is dynamic OR with 'multi' type AND Over 10 items \"search\" feature is enabled",
           "docsTags": [],
-          "default": "checkboxTypes[0]",
           "values": [
             {
               "value": "checkbox",

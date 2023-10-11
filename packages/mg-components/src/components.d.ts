@@ -294,7 +294,7 @@ export namespace Components {
          */
         "tooltip": string;
         /**
-          * Define checkbox type
+          * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
         "type": CheckboxType;
         /**
@@ -1855,7 +1855,7 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
-          * Define checkbox type
+          * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
         "type"?: CheckboxType;
         /**

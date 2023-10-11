@@ -49,7 +49,7 @@ describe('mg-popover', () => {
 
       expect(popover).toHaveAttribute('data-show');
 
-      await page.setViewport({ width: 800, height: 800 });
+      await page.setViewport({ width: 1200, height: 1200 });
 
       const screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
@@ -120,7 +120,7 @@ describe('mg-popover', () => {
           Lorem ipsum
         </${tagName}>
         </mg-popover>`,
-        { width: 400, height: 100 },
+        { width: 400, height: 130 },
       );
 
       let screenshot = await page.screenshot();
@@ -135,6 +135,22 @@ describe('mg-popover', () => {
       screenshot = await page.screenshot();
       expect(screenshot).toMatchImageSnapshot();
     });
+  });
+
+  test(`should position popover where it have enough place`, async () => {
+    const page = await createPage(
+      `<style>mg-button{position:fixed;left:0;bottom:0}</style>
+      <mg-popover ${renderAttributes({ display: true })}>
+      <mg-button>Button</mg-button>
+      <p slot="content">
+        Lorem ipsum
+      </p>
+      </mg-popover>`,
+      { width: 400, height: 100 },
+    );
+
+    const screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
   });
 
   describe('style', () => {

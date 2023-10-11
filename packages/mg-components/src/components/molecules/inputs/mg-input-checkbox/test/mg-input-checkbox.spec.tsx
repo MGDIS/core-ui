@@ -43,7 +43,7 @@ describe('mg-input-checkbox', () => {
     { title: 'bane', value: null },
   ];
 
-  describe.each(checkboxTypes)('render by type %s', type => {
+  describe.each([...checkboxTypes, undefined])('render by type %s', type => {
     let testValues: unknown[] = [
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, readonly: true },
