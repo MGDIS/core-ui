@@ -65,13 +65,21 @@ describe('mg-input-textarea', () => {
     }
   });
 
-  test.each(['', undefined])('Should throw an error when pattern is used with patternErrorMessage: %s', async value => {
+  test.each(['', ' ', null, undefined])('Should throw an error when pattern is used with patternErrorMessage: %s', async patternErrorMessage => {
     expect.assertions(1);
     try {
-      const { root } = await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage: value });
-      expect(root).toMatchSnapshot();
+      await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-textarea> prop "pattern" must be paired with the prop "patternErrorMessage"');
+      expect(err.message).toMatch('<mg-input-textarea> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
+    }
+  });
+
+  test.each(['', ' ', null, undefined])('Should throw an error when patternErrorMessage is used with invalid pattern: %s', async pattern => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'blu', pattern, patternErrorMessage: 'pattern error message' });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input-textarea> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
     }
   });
 

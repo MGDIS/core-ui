@@ -142,3 +142,10 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
   }
   return windows;
 };
+
+/**
+ * Validate string
+ * @param value - value to check
+ * @returns if string is valid
+ */
+export const isValidString = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';

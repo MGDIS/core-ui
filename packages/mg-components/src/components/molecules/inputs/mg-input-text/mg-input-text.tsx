@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -141,21 +141,18 @@ export class MgInputText {
    * Define input pattern to validate
    */
   @Prop() pattern: string;
-  @Watch('pattern')
-  validatePattern(newValue): void {
-    if (
-      typeof newValue === 'string' &&
-      newValue.trim() !== '' &&
-      (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
-    ) {
-      throw new Error('<mg-input-text> prop "pattern" must be paired with the prop "patternErrorMessage"');
-    }
-  }
 
   /**
    * Define input pattern error message
    */
   @Prop() patternErrorMessage: string;
+  @Watch('pattern')
+  @Watch('patternErrorMessage')
+  validatePattern(newValue: string): void {
+    if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
+      throw new Error('<mg-input-text> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
+    }
+  }
 
   /**
    * Add a tooltip message next to the input
@@ -339,6 +336,7 @@ export class MgInputText {
     // Validate
     this.validateIcon(this.icon);
     this.validatePattern(this.pattern);
+    this.validatePattern(this.patternErrorMessage);
     this.validateAppendSlot();
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().

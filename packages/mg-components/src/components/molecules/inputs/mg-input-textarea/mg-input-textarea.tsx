@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -128,6 +128,13 @@ export class MgInputTextarea {
    * Define input pattern error message
    */
   @Prop() patternErrorMessage: string;
+  @Watch('pattern')
+  @Watch('patternErrorMessage')
+  validatePattern(newValue: string): void {
+    if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
+      throw new Error('<mg-input-textarea> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
+    }
+  }
 
   /**
    * Define the number of visible text lines for the control
@@ -298,19 +305,6 @@ export class MgInputTextarea {
     }
   };
 
-  /**
-   * Validate pattern configuration
-   */
-  private validatePattern = (): void => {
-    if (
-      typeof this.pattern === 'string' &&
-      this.pattern.trim() !== '' &&
-      (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
-    ) {
-      throw new Error('<mg-input-textarea> prop "pattern" must be paired with the prop "patternErrorMessage"');
-    }
-  };
-
   /*************
    * Lifecycle *
    *************/
@@ -325,7 +319,8 @@ export class MgInputTextarea {
     this.characterLeftId = `${this.identifier}-character-left`;
     // Validate
     this.validateDisplayCharacterLeft(this.displayCharacterLeft);
-    this.validatePattern();
+    this.validatePattern(this.pattern);
+    this.validatePattern(this.patternErrorMessage);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
