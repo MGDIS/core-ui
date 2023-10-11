@@ -16,10 +16,6 @@ export const config: Config = {
           src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
           dest: 'variables.css', // export variable in a seperate file for component inside another framework
         },
-        // {
-        //   src: 'styles/**/*.scss',
-        //   dest: './styles', // export variable in a seperate file for component inside another framework
-        // },
         {
           src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
           dest: 'fonts', // export fonts
