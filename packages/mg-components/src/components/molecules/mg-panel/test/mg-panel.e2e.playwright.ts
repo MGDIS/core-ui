@@ -141,7 +141,7 @@ describe('mg-panel', () => {
       const args = {
         ...baseArgs,
         titleEditable: true,
-        titlePattern: /^(?!(joker)$)[a-z A-Z0-9s]+$/ as unknown as string,
+        titlePattern: '^((?!joker).)*$',
         titlePatternErrorMessage: "You can't enter a bad guy !",
       };
 
