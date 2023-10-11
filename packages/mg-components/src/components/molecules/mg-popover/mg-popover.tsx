@@ -31,6 +31,11 @@ export class MgPopover {
    * Needed by the input for accessibility `aria-decribedby`.
    */
   @Prop() identifier: string = createID('mg-popover');
+  @Watch('identifier')
+  validateIdentifier(): void {
+    // use renderPopoverContent to update popover-content id
+    this.renderPopoverContent();
+  }
 
   /**
    * Popover placement
@@ -139,23 +144,28 @@ export class MgPopover {
    * Render popover content element
    */
   private renderPopoverContent = (): void => {
-    this.mgPopoverContent = document.createElement('mg-popover-content');
-    this.mgPopoverContent.setAttribute('slot', 'content');
-    this.mgPopoverContent.setAttribute('id', this.identifier);
-    this.mgPopoverContent.addEventListener('hide-content', this.handleHideContent);
+    const mgPopoverContent = this.element.querySelector('mg-popover-content');
+    if (mgPopoverContent === null) {
+      this.mgPopoverContent = document.createElement('mg-popover-content');
+      this.mgPopoverContent.setAttribute('slot', 'content');
+      this.mgPopoverContent.setAttribute('id', this.identifier);
+      this.mgPopoverContent.addEventListener('hide-content', this.handleHideContent);
 
-    const arrow = document.createElement('div');
-    arrow.setAttribute('slot', 'arrow');
-    arrow.dataset.popperArrow = '';
-    this.mgPopoverContent.appendChild(arrow);
+      const arrow = document.createElement('div');
+      arrow.setAttribute('slot', 'arrow');
+      arrow.dataset.popperArrow = '';
+      this.mgPopoverContent.appendChild(arrow);
 
-    // insert elements in DOM
-    ['[slot="title"]', '[slot="content"]:not(mg-popover-content)'].forEach(slotType => {
-      Array.from(this.element.querySelectorAll(slotType)).forEach(slot => {
-        this.mgPopoverContent.appendChild(slot);
+      // insert elements in DOM
+      ['[slot="title"]', '[slot="content"]:not(mg-popover-content)'].forEach(slotType => {
+        Array.from(this.element.querySelectorAll(slotType)).forEach(slot => {
+          this.mgPopoverContent.appendChild(slot);
+        });
       });
-    });
-    this.element.appendChild(this.mgPopoverContent);
+      this.element.appendChild(this.mgPopoverContent);
+    } else {
+      mgPopoverContent.setAttribute('id', this.identifier);
+    }
   };
 
   /*************
@@ -178,6 +188,7 @@ export class MgPopover {
     // render mg-popover-content slot
     this.renderPopoverContent();
     this.validateCloseButton(this.closeButton);
+    this.validateIdentifier();
     this.validateArrowHide(this.arrowHide);
   }
 
@@ -203,6 +214,12 @@ export class MgPopover {
           name: 'offset',
           options: {
             offset: [0, 0],
+          },
+        },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['auto'],
           },
         },
       ],

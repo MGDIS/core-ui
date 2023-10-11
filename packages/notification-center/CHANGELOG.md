@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.2
+
+### Patch Changes
+
+- c25283d: [#298](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/298) chore: create apps to test lib integration
+
 ## 1.1.1
 
 ### Patch Changes
