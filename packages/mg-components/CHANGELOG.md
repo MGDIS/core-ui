@@ -1,5 +1,17 @@
 # @mgdis/mg-components
 
+## 5.18.0
+
+### Minor Changes
+
+- 1d96c0e: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use automatic type only when prop 'type' is undefined
+
+### Patch Changes
+
+- 272294b: [#384](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/384) popperjs: some elements are displayed out of the page and are not reachable
+- 25f448f: [#378](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/378) mg-popover - mg-tooltip: impossible to condition the display mg-\*\*-content with a if on base component
+- f9f70e8: [#362](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/362) mg-input-\*\*: Enable customisation of errors
+
 ## 5.17.0
 
 ### Minor Changes
