@@ -5,7 +5,7 @@ import { initLocales } from '../../../locales';
 
 @Component({
   tag: 'mg-skip-links',
-  styleUrl: 'mg-skip-links.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-skip-links.css',
   shadow: true,
 })
 export class MgSkipLinks {

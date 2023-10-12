@@ -96,7 +96,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   };
 
   /**
-   * Toogle items button handler
+   * Toggle items button handler
    */
   private handleToggleClick = (): void => {
     this.expanded = !this.expanded;

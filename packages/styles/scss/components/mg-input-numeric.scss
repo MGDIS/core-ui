@@ -1,0 +1,10 @@
+@import 'mg-input';
+@import 'mg-input-box';
+@import 'mg-input-width';
+@import '../utils/a11y';
+
+.mg-input {
+  .mg-input__box {
+    text-align: var(--mg-inputs-text-align, right);
+  }
+}

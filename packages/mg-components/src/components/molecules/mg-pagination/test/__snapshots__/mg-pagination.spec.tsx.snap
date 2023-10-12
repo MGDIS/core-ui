@@ -23,7 +23,7 @@ exports[`mg-pagination Should render Should hidde navigation labels 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -41,7 +41,7 @@ exports[`mg-pagination Should render Should hidde navigation labels 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -92,7 +92,7 @@ exports[`mg-pagination Should render Should hidde navigation labels 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -110,7 +110,7 @@ exports[`mg-pagination Should render Should hidde navigation labels 2`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -159,10 +159,10 @@ exports[`mg-pagination Should render Should hidde page select 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         / 2 pages
       </span>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -211,7 +211,7 @@ exports[`mg-pagination Should render Should hidde page select 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -229,7 +229,7 @@ exports[`mg-pagination Should render Should hidde page select 2`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -281,7 +281,7 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -299,7 +299,7 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -351,7 +351,7 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Sélectionner la page à afficher.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -369,7 +369,7 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -421,7 +421,7 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -439,7 +439,7 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -491,7 +491,7 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -506,7 +506,7 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -558,7 +558,7 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -576,7 +576,7 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -628,7 +628,7 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -646,7 +646,7 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 2
       </span>
       <span>
@@ -698,7 +698,7 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -719,7 +719,7 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -771,7 +771,7 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -792,7 +792,7 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 2
       </span>
       <span>
@@ -844,7 +844,7 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -865,7 +865,7 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 3
       </span>
       <span>
@@ -917,7 +917,7 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -959,7 +959,7 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -1011,7 +1011,7 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1053,7 +1053,7 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 2
       </span>
       <span>
@@ -1105,7 +1105,7 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1147,7 +1147,7 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 3
       </span>
       <span>
@@ -1199,7 +1199,7 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1241,7 +1241,7 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 4
       </span>
       <span>
@@ -1293,7 +1293,7 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1335,7 +1335,7 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 5
       </span>
       <span>
@@ -1387,7 +1387,7 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1429,7 +1429,7 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 6
       </span>
       <span>
@@ -1481,7 +1481,7 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1523,7 +1523,7 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 7
       </span>
       <span>
@@ -1575,7 +1575,7 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1617,7 +1617,7 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 8
       </span>
       <span>
@@ -1669,7 +1669,7 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1711,7 +1711,7 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 9
       </span>
       <span>
@@ -1763,7 +1763,7 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1805,7 +1805,7 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 10
       </span>
       <span>
@@ -1857,7 +1857,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1884,7 +1884,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -1936,7 +1936,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -1963,7 +1963,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -2015,7 +2015,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -2042,7 +2042,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 2
       </span>
       <span>
@@ -2094,7 +2094,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -2121,7 +2121,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -2173,7 +2173,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -2200,7 +2200,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>
@@ -2252,7 +2252,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -2279,7 +2279,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 5
       </span>
       <span>
@@ -2331,7 +2331,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -2358,7 +2358,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 2
       </span>
       <span>
@@ -2410,7 +2410,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-input mg-input--select">
-            <mg-input-title class="sr-only" identifier="id-select">
+            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
               Select the page to display.
             </mg-input-title>
             <div class="mg-input__input-container">
@@ -2440,7 +2440,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
           </div>
         </mock:shadow-root>
       </mg-input-select>
-      <span class="sr-only">
+      <span class="mg-u-visually-hidden">
         page 1
       </span>
       <span>

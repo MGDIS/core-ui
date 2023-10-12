@@ -1,0 +1,12 @@
+@import '../utils/a11y';
+
+:host {
+  display: flex;
+  background-color: hsl(var(--mg-menu-background-color-hsl, var(--color-light)));
+}
+
+:host([direction='vertical']) {
+  height: 100%;
+  flex-direction: column;
+  overflow-y: auto;
+}

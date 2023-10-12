@@ -1,0 +1,87 @@
+@import 'mixins/reset-mg-card-slotted-variables';
+
+@mixin message-variants($variants...) {
+  @each $variant in $variants {
+    &.mg-message--#{$variant} .mg-message__icon {
+      color: hsl(var(--color-#{$variant}));
+    }
+  }
+}
+
+:host {
+  // Set mg-card variables
+  --mg-card-padding: 0;
+  --mg-card-border-radius: var(--mg-message-border-radius);
+  --mg-card-border: none;
+  --mg-card-overflow: hidden;
+}
+
+:host([hide]) {
+  display: none;
+}
+
+.mg-message {
+  display: inline-block;
+  min-height: var(--default-size);
+
+  @include message-variants('info', 'warning', 'success', 'danger');
+
+  &.mg-message--close-button {
+    --mg-card-padding: 0 3.4rem 0 0;
+  }
+
+  &.mg-message--hide {
+    display: none;
+  }
+
+  ::slotted(*) {
+    padding: 0;
+
+    // Removing default marging to slotted element
+    margin: 0;
+  }
+
+  &__icon {
+    position: absolute;
+    top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
+    left: 1.3rem;
+    line-height: 1;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: flex-end;
+    padding: 0 1rem 0 3.8rem;
+  }
+
+  &__content-slot {
+    flex-grow: 1;
+    margin: 0.84rem 0;
+  }
+
+  &__content-separator {
+    display: inline-block;
+    width: 4.5rem;
+    height: 0;
+  }
+
+  &__content-actions-slot {
+    padding: 1rem 0;
+    text-align: right;
+  }
+
+  &__close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @include reset-slot-card-variables;
+}
+
+.mg-message,
+mg-message {
+  max-width: 100%;
+}

@@ -3,7 +3,7 @@ import { isTagName } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-illustrated-message',
-  styleUrl: 'mg-illustrated-message.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-illustrated-message.css',
   shadow: true,
 })
 export class MgIllustratedMessage {

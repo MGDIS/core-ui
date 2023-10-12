@@ -3,7 +3,7 @@ import { TagVariantType, variants } from './mg-tag.conf';
 import { ClassList } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-tag',
-  styleUrl: 'mg-tag.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tag.css',
   shadow: true,
 })
 export class MgTag {

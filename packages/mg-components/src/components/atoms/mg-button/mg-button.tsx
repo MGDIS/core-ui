@@ -4,7 +4,7 @@ import { ClassList } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-button',
-  styleUrl: 'mg-button.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-button.css',
   shadow: true,
 })
 export class MgButton {

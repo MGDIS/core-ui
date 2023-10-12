@@ -1,0 +1,12 @@
+@import '../utils/a11y';
+@import 'mixins/mg-icon-animation';
+
+:host {
+  --mg-popover-padding-vertical: 1rem;
+  --mg-popover-padding-horizontal: 0;
+  --mg-popover-max-width: unset;
+}
+
+.mg-action-more__chevron {
+  @include rotate('.mg-action-more__chevron', 200ms);
+}

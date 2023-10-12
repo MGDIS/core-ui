@@ -4,7 +4,7 @@ import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/c
 
 @Component({
   tag: 'mg-popover',
-  styleUrl: 'mg-popover.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-popover.css',
   shadow: true,
 })
 export class MgPopover {
@@ -57,7 +57,7 @@ export class MgPopover {
    */
   @Prop() closeButton = false;
   @Watch('closeButton')
-  validateCloseButton(newValue: MgPopover['arrowHide']): void {
+  validateCloseButton(newValue: MgPopover['closeButton']): void {
     this.mgPopoverContent.closeButton = newValue;
   }
 

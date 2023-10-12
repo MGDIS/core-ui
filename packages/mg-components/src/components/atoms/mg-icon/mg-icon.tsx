@@ -6,7 +6,7 @@ import { icons } from '../../../assets/icons';
 
 @Component({
   tag: 'mg-icon',
-  styleUrl: 'mg-icon.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-icon.css',
   shadow: true,
 })
 export class MgIcon {

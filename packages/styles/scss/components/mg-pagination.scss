@@ -1,0 +1,31 @@
+@import '../utils/a11y';
+
+$min-height: 3rem;
+$border-size: 0.3rem;
+
+.mg-pagination {
+  $component: &;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  mg-input-select {
+    margin-right: 0.5rem;
+  }
+
+  mg-button {
+    display: flex;
+
+    &:first-of-type {
+      margin-right: 1rem;
+    }
+
+    &:last-of-type {
+      margin-left: 1rem;
+    }
+  }
+  &#{$component}--hide-page-count mg-button {
+    margin: 0;
+  }
+}
