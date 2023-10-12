@@ -1,4 +1,4 @@
-import { createID, ClassList, allItemsAreString, isTagName, getWindows } from './components.utils';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString } from './components.utils';
 import { mockConsoleError } from './unit.test.utils';
 
 mockConsoleError();
@@ -129,6 +129,16 @@ describe('components.utils', () => {
       expect(spyConsole).toBeCalledTimes(1);
       expect(spyWindowSelf).toBeCalledTimes(1);
       expect(spyWindowParent).toBeCalledTimes(1);
+    });
+  });
+
+  describe('isValidString', () => {
+    test.each(['', ' ', null, undefined, 1, {}, []])('Should return "false" for invalid values', value => {
+      expect(isValidString(value)).toEqual(false);
+    });
+
+    test.each(['batman', 'batman '])('Should return "true" for valid value', value => {
+      expect(isValidString(value)).toEqual(true);
     });
   });
 });

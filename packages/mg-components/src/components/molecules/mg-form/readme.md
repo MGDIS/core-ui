@@ -105,7 +105,7 @@ The "Display errors" button use the `mg-form` `displayError()` method.
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
 
 #### Returns
 
