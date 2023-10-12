@@ -150,7 +150,7 @@ export class MgInputText {
   @Watch('patternErrorMessage')
   validatePattern(newValue: string): void {
     if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
-      throw new Error('<mg-input-text> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
+      throw new Error('<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
     }
   }
 
