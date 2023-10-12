@@ -70,7 +70,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-textarea> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
+      expect(err.message).toMatch('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
     }
   });
 
@@ -79,7 +79,7 @@ describe('mg-input-textarea', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'blu', pattern, patternErrorMessage: 'pattern error message' });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-textarea> prop "pattern" and "patternErrorMessage" must be must be a non empty string and paired.');
+      expect(err.message).toMatch('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
     }
   });
 
