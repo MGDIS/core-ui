@@ -9999,6 +9999,189 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
 </mg-input-checkbox>
 `;
 
+exports[`mg-input-checkbox render by type undefined should display override error with setError component's public method 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined should display override error with setError component's public method 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined should display override error with setError component's public method 3`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined should display override error with setError component's public method 4`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          Override error
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
 exports[`mg-input-checkbox render by type undefined should enable "displaySearchInput" when value list is greater than 10 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
