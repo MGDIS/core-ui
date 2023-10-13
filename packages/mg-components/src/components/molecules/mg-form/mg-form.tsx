@@ -5,7 +5,7 @@ import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 
 @Component({
   tag: 'mg-form',
-  styleUrl: 'mg-form.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-form.css',
   shadow: true,
 })
 export class MgForm {
@@ -94,7 +94,7 @@ export class MgForm {
   @Event({ eventName: 'form-submit' }) formSubmit: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {

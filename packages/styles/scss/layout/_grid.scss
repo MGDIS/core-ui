@@ -1,0 +1,26 @@
+@use 'sass:math';
+
+// Number of column
+$grid-columns: 12;
+
+.mg-l-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+// Those columns will equaly share space
+.mg-l-grid__col {
+  flex: 1 0 0;
+  padding: 0 var(--mg-l-grid-spacing);
+
+  &[class*='mg-l-grid__col-'] {
+    flex: 0 0 auto;
+  }
+
+  // Building columns
+  @for $i from 1 through $grid-columns {
+    &.mg-l-grid__col-#{$i} {
+      width: math.percentage(math.div($i, $grid-columns));
+    }
+  }
+}

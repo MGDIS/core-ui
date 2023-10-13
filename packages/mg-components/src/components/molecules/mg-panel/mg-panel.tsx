@@ -5,7 +5,7 @@ import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDispl
 
 @Component({
   tag: 'mg-panel',
-  styleUrl: 'mg-panel.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-panel.css',
   shadow: true,
 })
 export class MgPanel {
@@ -48,17 +48,16 @@ export class MgPanel {
    * Panel title pattern
    */
   @Prop() titlePattern: string;
-  @Watch('titlePattern')
-  validatetitlePattern(newValue: string): void {
-    if (newValue !== undefined && !this.titleEditable) throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
-    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === ''))
-      throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
-  }
 
   /**
    * Panel title pattern error message
    */
   @Prop() titlePatternErrorMessage: string;
+  @Watch('titlePattern')
+  @Watch('titlePatternErrorMessage')
+  validateTitlePattern(newValue: string): void {
+    if (newValue !== undefined && !this.titleEditable) throw new Error(`<mg-panel> prop "titleEditable" must be set to "true".`);
+  }
 
   /**
    * Define if panel title is editable
@@ -188,7 +187,8 @@ export class MgPanel {
     // Get locales
     this.messages = initLocales(this.element).messages;
     // Validate
-    this.validatetitlePattern(this.titlePattern);
+    this.validateTitlePattern(this.titlePattern);
+    this.validateTitlePattern(this.titlePatternErrorMessage);
     this.validatePanelTitle(this.panelTitle);
     this.validateExpandToggleDisplay(this.expandToggleDisplay);
     this.validateTitlePosition(this.titlePosition);

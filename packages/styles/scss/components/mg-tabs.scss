@@ -1,0 +1,30 @@
+@import 'mixins/navigation-button';
+
+$navigation-button-sizes: (
+  'regular': (
+    'vertical': 1rem,
+    'horizontal': 2rem,
+  ),
+  'large': (
+    'vertical': 1.5rem,
+    'horizontal': 3rem,
+  ),
+);
+
+@include navigation-button('mg-tabs', $navigation-button-sizes);
+
+.mg-tabs {
+  &__header {
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: var(--mg-tabs-border-bottom);
+  }
+
+  &__content-container:focus-visible {
+    outline: none;
+  }
+
+  &__navigation-button-text {
+    flex: 0 0 content;
+  }
+}

@@ -17,6 +17,7 @@ describe('mg-modal, firefox', () => {
       // loop in modal
       await page.keyboard.press('Tab');
       await expect(page.locator('.mg-modal')).toHaveScreenshot();
+
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await expect(page.locator('.mg-modal')).toHaveScreenshot();

@@ -168,7 +168,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   const getInputTitle = (): VNode[] => (
     <mg-input-title
       identifier={props.identifier}
-      class={props.labelHide ? 'sr-only' : undefined}
+      class={props.labelHide ? 'mg-u-visually-hidden' : undefined}
       required={props.required && !props.disabled && !props.readonly}
       is-legend={props.isFieldset}
     >

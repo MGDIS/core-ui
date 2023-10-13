@@ -43,7 +43,7 @@ describe('mg-input-checkbox', () => {
     { title: 'bane', value: null },
   ];
 
-  describe.each(checkboxTypes)('render by type %s', type => {
+  describe.each([...checkboxTypes, undefined])('render by type %s', type => {
     let testValues: unknown[] = [
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, readonly: true },
@@ -193,6 +193,70 @@ describe('mg-input-checkbox', () => {
           expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
         }
       });
+    });
+    test.each([
+      {
+        valid: true,
+        errorMessage: 'Override error',
+      },
+      {
+        valid: false,
+        errorMessage: 'Override error',
+      },
+    ])("should display override error with setError component's public method", async params => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), helpText: 'My help text', required: true });
+
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const inputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+
+      //mock validity
+      inputs.forEach(input => {
+        Object.defineProperty(input, 'validity', {
+          get: () => ({}),
+        });
+      });
+
+      await element.setError(params.valid, params.errorMessage);
+
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test.each([
+      {
+        valid: '',
+        errorMessage: 'Override error',
+        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean',
+      },
+      {
+        valid: undefined,
+        errorMessage: 'Override error',
+        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean',
+      },
+      {
+        valid: true,
+        errorMessage: ' ',
+        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string',
+      },
+      {
+        valid: true,
+        errorMessage: true,
+        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string',
+      },
+    ])("shloud throw error with setError component's public method invalid params", async params => {
+      expect.assertions(1);
+      try {
+        const page = await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), helpText: 'My help text', required: true });
+        const element = page.doc.querySelector('mg-input-checkbox');
+
+        await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
+        await page.waitForChanges();
+      } catch (err) {
+        expect(err.message).toMatch(params.error);
+      }
     });
 
     test("display error with displayError component's public method", async () => {

@@ -44,7 +44,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -59,7 +59,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -125,10 +125,10 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -266,7 +266,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -281,7 +281,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     4 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -420,7 +420,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="11">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -435,7 +435,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     1 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -556,7 +556,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="111">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -571,7 +571,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     0 result
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -688,7 +688,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -703,7 +703,7 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -769,10 +769,10 @@ exports[`mg-input-checkbox multi search should enable return search result and u
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -910,7 +910,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -925,7 +925,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -991,10 +991,10 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 3
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
@@ -1078,7 +1078,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -1093,7 +1093,7 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -1166,10 +1166,10 @@ exports[`mg-input-checkbox multi search should go to previous page when last ite
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 2
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
@@ -1307,7 +1307,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -1322,7 +1322,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -1388,10 +1388,10 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -1529,7 +1529,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -1544,7 +1544,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -1610,10 +1610,10 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 2
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -1751,7 +1751,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -1766,7 +1766,7 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -1832,10 +1832,10 @@ exports[`mg-input-checkbox multi search should navigate across paginated list wi
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 3
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
@@ -1919,7 +1919,7 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -1934,7 +1934,7 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -2000,10 +2000,10 @@ exports[`mg-input-checkbox multi search should search and update values 1`] = `
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -2141,7 +2141,7 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -2156,7 +2156,7 @@ exports[`mg-input-checkbox multi search should search and update values 2`] = `
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     4 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -2296,7 +2296,7 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -2311,7 +2311,7 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -2384,10 +2384,10 @@ exports[`mg-input-checkbox multi search should search and update values 3`] = `
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -2525,7 +2525,7 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -2540,7 +2540,7 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -2621,10 +2621,10 @@ exports[`mg-input-checkbox multi search should toggle selected items section 1`]
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -2762,7 +2762,7 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -2777,7 +2777,7 @@ exports[`mg-input-checkbox multi search should toggle selected items section 2`]
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -2942,7 +2942,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -2957,7 +2957,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -3023,10 +3023,10 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -3164,7 +3164,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -3179,7 +3179,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -3245,10 +3245,10 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -3386,7 +3386,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -3401,7 +3401,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -3445,10 +3445,10 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -3608,7 +3608,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -3623,7 +3623,7 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     21 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -3689,10 +3689,10 @@ exports[`mg-input-checkbox multi search should update all values with mass actio
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 3 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -4016,7 +4016,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Saisissez une valeur
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -4031,7 +4031,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     22 resultats
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -4075,10 +4075,10 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -4190,10 +4190,10 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -4491,7 +4491,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-input mg-input--checkbox">
-      <mg-input-title class="sr-only" identifier="identifier" is-legend="">
+      <mg-input-title class="mg-u-visually-hidden" identifier="identifier" is-legend="">
         label
       </mg-input-title>
       <div class="mg-input__input-container">
@@ -5103,221 +5103,266 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type checkbox should enable "displaySearchInput" when value list is greater than 10 1`] = `
-<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+exports[`mg-input-checkbox render by type checkbox should display override error with setError component's public method 1`] = `
+<mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox should display override error with setError component's public method 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox should display override error with setError component's public method 3`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox should display override error with setError component's public method 4`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          Override error
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox should enable "displaySearchInput" when value list is greater than 10 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
       <mg-input-title identifier="identifier" is-legend="">
         label
       </mg-input-title>
       <div class="mg-input__input-container">
         <div class="mg-input__input">
-          <div class="mg-input__input-checkbox-multi mg-input__input-container">
-            <strong>
-              0 selected value
-            </strong>
-            <mg-popover>
-              <mock:shadow-root>
-                <slot></slot>
-                <slot name="content"></slot>
-              </mock:shadow-root>
-              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
-                <mock:shadow-root>
-                  <div class="mg-button mg-button--secondary">
-                    <div class="mg-button__content">
-                      <slot></slot>
-                    </div>
-                  </div>
-                </mock:shadow-root>
-                <mg-icon icon="list"></mg-icon>
-                Select values
-              </mg-button>
-              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-                <mock:shadow-root>
-                  <mg-card class="mg-popover-content">
-                    <div class="mg-popover-content__title">
-                      <slot name="title"></slot>
-                    </div>
-                    <slot name="content"></slot>
-                  </mg-card>
-                  <slot name="arrow"></slot>
-                </mock:shadow-root>
-                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-                <div slot="content">
-                  <mg-input-text aria-controls="search-results items-list" value="">
-                    <mock:shadow-root>
-                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
-                          Enter a value
-                        </mg-input-title>
-                        <div class="mg-input__input-container">
-                          <div class="mg-input__input">
-                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                              <mg-icon icon="magnifying-glass"></mg-icon>
-                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
-                            </div>
-                            <slot name="append-input"></slot>
-                          </div>
-                        </div>
-                      </div>
-                    </mock:shadow-root>
-                  </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
-                    11 results
-                  </p>
-                  <div class="mg-input__input-checkbox-multi-sections-container">
-                    <mg-input-checkbox-paginated hidden="" identifier="identifier">
-                      <div class="mg-input__input-checkbox-multi-section-header">
-                        <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
-                          <mock:shadow-root>
-                            <div class="mg-button mg-button--flat">
-                              <div class="mg-button__content">
-                                <slot></slot>
-                              </div>
-                            </div>
-                          </mock:shadow-root>
-                          <mg-icon icon="chevron-up" size="small"></mg-icon>
-                          <span class="mg-input__input-checkbox-multi-text">
-                            <em>
-                              Selected (0)
-                            </em>
-                          </span>
-                        </mg-button>
-                        <mg-button role="button" tabindex="0">
-                          <mock:shadow-root>
-                            <div class="mg-button mg-button--link">
-                              <div class="mg-button__content">
-                                <slot></slot>
-                              </div>
-                            </div>
-                          </mock:shadow-root>
-                          Unselect all
-                        </mg-button>
-                      </div>
-                      <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
-                        <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
-                      </div>
-                    </mg-input-checkbox-paginated>
-                    <mg-input-checkbox-paginated identifier="identifier">
-                      <div class="mg-input__input-checkbox-multi-section-header">
-                        <p class="mg-input__input-checkbox-multi-title">
-                          <em>
-                            Not selected (11)
-                          </em>
-                        </p>
-                        <mg-button role="button" tabindex="0">
-                          <mock:shadow-root>
-                            <div class="mg-button mg-button--link">
-                              <div class="mg-button__content">
-                                <slot></slot>
-                              </div>
-                            </div>
-                          </mock:shadow-root>
-                          Select all
-                        </mg-button>
-                        <mg-pagination current-page="1">
-                          <mock:shadow-root>
-                            <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
-                              <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
-                                <mock:shadow-root>
-                                  <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
-                                    <div class="mg-button__content">
-                                      <slot></slot>
-                                    </div>
-                                  </div>
-                                </mock:shadow-root>
-                                <mg-icon icon="chevron-left"></mg-icon>
-                              </mg-button>
-                              <span class="sr-only">
-                                page 1
-                              </span>
-                              <span class="sr-only">
-                                / 2 pages
-                              </span>
-                              <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
-                                <mock:shadow-root>
-                                  <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-next">
-                                    <div class="mg-button__content">
-                                      <slot></slot>
-                                    </div>
-                                  </div>
-                                </mock:shadow-root>
-                                <mg-icon icon="chevron-right"></mg-icon>
-                              </mg-button>
-                            </nav>
-                          </mock:shadow-root>
-                        </mg-pagination>
-                      </div>
-                      <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
-                        <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
-                          <li class="mg-input__input-group">
-                            <input id="identifier_0" type="checkbox" value="false">
-                            <label htmlfor="identifier_0">
-                              item 1
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_1" type="checkbox" value="false">
-                            <label htmlfor="identifier_1">
-                              item 2
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_2" type="checkbox" value="false">
-                            <label htmlfor="identifier_2">
-                              item 3
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_3" type="checkbox" value="false">
-                            <label htmlfor="identifier_3">
-                              item 4
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_4" type="checkbox" value="false">
-                            <label htmlfor="identifier_4">
-                              item 5
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_5" type="checkbox" value="false">
-                            <label htmlfor="identifier_5">
-                              item 6
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_6" type="checkbox" value="false">
-                            <label htmlfor="identifier_6">
-                              item 7
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_7" type="checkbox" value="false">
-                            <label htmlfor="identifier_7">
-                              item 8
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_8" type="checkbox" value="false">
-                            <label htmlfor="identifier_8">
-                              item 9
-                            </label>
-                          </li>
-                          <li class="mg-input__input-group">
-                            <input id="identifier_9" type="checkbox" value="false">
-                            <label htmlfor="identifier_9">
-                              item 10
-                            </label>
-                          </li>
-                        </ul>
-                      </div>
-                    </mg-input-checkbox-paginated>
-                  </div>
-                </div>
-              </mg-popover-content>
-            </mg-popover>
-          </div>
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                item 1
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                item 2
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                item 3
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                item 4
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_4" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_4">
+                item 5
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_5" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_5">
+                item 6
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_6" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_6">
+                item 7
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_7" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_7">
+                item 8
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_8" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_8">
+                item 9
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_9" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_9">
+                item 10
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_10" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_10">
+                item 11
+              </label>
+            </li>
+          </ul>
         </div>
       </div>
     </fieldset>
@@ -5695,7 +5740,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Saisissez une valeur
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -5710,7 +5755,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     22 resultats
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -5754,10 +5799,10 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -5869,10 +5914,10 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -6664,7 +6709,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
-      <mg-input-title class="sr-only" identifier="identifier" is-legend="">
+      <mg-input-title class="mg-u-visually-hidden" identifier="identifier" is-legend="">
         label
       </mg-input-title>
       <div class="mg-input__input-container">
@@ -7912,6 +7957,333 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
 </mg-input-checkbox>
 `;
 
+exports[`mg-input-checkbox render by type multi should display override error with setError component's public method 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <slot name="content"></slot>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
+                <mock:shadow-root>
+                  <div class="mg-button mg-button--secondary">
+                    <div class="mg-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </mock:shadow-root>
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+                <mock:shadow-root>
+                  <mg-card class="mg-popover-content">
+                    <div class="mg-popover-content__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                  <slot name="arrow"></slot>
+                </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+                <div slot="content">
+                  <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                      <label htmlfor="identifier_0">
+                        batman
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group mg-input__input-group--disabled">
+                      <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_1">
+                        robin
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_2">
+                        joker
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                      <label htmlfor="identifier_3">
+                        bane
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </mg-popover-content>
+            </mg-popover>
+          </div>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi should display override error with setError component's public method 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <slot name="content"></slot>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
+                <mock:shadow-root>
+                  <div class="mg-button mg-button--secondary">
+                    <div class="mg-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </mock:shadow-root>
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+                <mock:shadow-root>
+                  <mg-card class="mg-popover-content">
+                    <div class="mg-popover-content__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                  <slot name="arrow"></slot>
+                </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+                <div slot="content">
+                  <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                      <label htmlfor="identifier_0">
+                        batman
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group mg-input__input-group--disabled">
+                      <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_1">
+                        robin
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_2">
+                        joker
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                      <label htmlfor="identifier_3">
+                        bane
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </mg-popover-content>
+            </mg-popover>
+          </div>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi should display override error with setError component's public method 3`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <slot name="content"></slot>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
+                <mock:shadow-root>
+                  <div class="mg-button mg-button--secondary">
+                    <div class="mg-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </mock:shadow-root>
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+                <mock:shadow-root>
+                  <mg-card class="mg-popover-content">
+                    <div class="mg-popover-content__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                  <slot name="arrow"></slot>
+                </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+                <div slot="content">
+                  <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                      <label htmlfor="identifier_0">
+                        batman
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group mg-input__input-group--disabled">
+                      <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_1">
+                        robin
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_2">
+                        joker
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                      <label htmlfor="identifier_3">
+                        bane
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </mg-popover-content>
+            </mg-popover>
+          </div>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi should display override error with setError component's public method 4`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              1 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <slot name="content"></slot>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
+                <mock:shadow-root>
+                  <div class="mg-button mg-button--secondary">
+                    <div class="mg-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </mock:shadow-root>
+                <mg-icon icon="list"></mg-icon>
+                Edit
+              </mg-button>
+              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+                <mock:shadow-root>
+                  <mg-card class="mg-popover-content">
+                    <div class="mg-popover-content__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                  <slot name="arrow"></slot>
+                </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+                <div slot="content">
+                  <ul class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text identifier-error" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                      <label htmlfor="identifier_0">
+                        batman
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group mg-input__input-group--disabled">
+                      <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_1">
+                        robin
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+                      <label htmlfor="identifier_2">
+                        joker
+                      </label>
+                    </li>
+                    <li class="mg-input__input-group">
+                      <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+                      <label htmlfor="identifier_3">
+                        bane
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </mg-popover-content>
+            </mg-popover>
+          </div>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          Override error
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
 exports[`mg-input-checkbox render by type multi should enable "displaySearchInput" when value list is greater than 10 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
@@ -7956,7 +8328,7 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
-                        <mg-input-title class="sr-only" identifier="identifier-input-search">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
                           Enter a value
                         </mg-input-title>
                         <div class="mg-input__input-container">
@@ -7971,7 +8343,7 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                       </div>
                     </mock:shadow-root>
                   </mg-input-text>
-                  <p class="sr-only" id="search-results" role="status">
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
                     11 results
                   </p>
                   <div class="mg-input__input-checkbox-multi-sections-container">
@@ -8037,10 +8409,10 @@ exports[`mg-input-checkbox render by type multi should enable "displaySearchInpu
                                 </mock:shadow-root>
                                 <mg-icon icon="chevron-left"></mg-icon>
                               </mg-button>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 page 1
                               </span>
-                              <span class="sr-only">
+                              <span class="mg-u-visually-hidden">
                                 / 2 pages
                               </span>
                               <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
@@ -8387,6 +8759,1613 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list"></ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render component error with locale: fr 1`] = `
+<mg-input-checkbox lang="fr">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          Ce champ est obligatoire.
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render component error with locale: xx 1`] = `
+<mg-input-checkbox lang="xx">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render component with locale "fr" 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover" lang="fr">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              11 valeurs selectionnées
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <slot name="content"></slot>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
+                <mock:shadow-root>
+                  <div class="mg-button mg-button--secondary">
+                    <div class="mg-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </mock:shadow-root>
+                <mg-icon icon="list"></mg-icon>
+                Modifier
+              </mg-button>
+              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+                <mock:shadow-root>
+                  <mg-card class="mg-popover-content">
+                    <div class="mg-popover-content__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                  <slot name="arrow"></slot>
+                </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+                <div slot="content">
+                  <mg-input-text aria-controls="search-results items-list" value="">
+                    <mock:shadow-root>
+                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
+                          Saisissez une valeur
+                        </mg-input-title>
+                        <div class="mg-input__input-container">
+                          <div class="mg-input__input">
+                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                              <mg-icon icon="magnifying-glass"></mg-icon>
+                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Saisissez une valeur" title="Saisissez une valeur" type="search" value="">
+                            </div>
+                            <slot name="append-input"></slot>
+                          </div>
+                        </div>
+                      </div>
+                    </mock:shadow-root>
+                  </mg-input-text>
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
+                    22 resultats
+                  </p>
+                  <div class="mg-input__input-checkbox-multi-sections-container">
+                    <mg-input-checkbox-paginated identifier="identifier">
+                      <div class="mg-input__input-checkbox-multi-section-header">
+                        <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
+                          <mock:shadow-root>
+                            <div class="mg-button mg-button--flat">
+                              <div class="mg-button__content">
+                                <slot></slot>
+                              </div>
+                            </div>
+                          </mock:shadow-root>
+                          <mg-icon icon="chevron-up" size="small"></mg-icon>
+                          <span class="mg-input__input-checkbox-multi-text">
+                            <em>
+                              Sélectionnés (11)
+                            </em>
+                          </span>
+                        </mg-button>
+                        <mg-button role="button" tabindex="0">
+                          <mock:shadow-root>
+                            <div class="mg-button mg-button--link">
+                              <div class="mg-button__content">
+                                <slot></slot>
+                              </div>
+                            </div>
+                          </mock:shadow-root>
+                          Tout désélectionner
+                        </mg-button>
+                        <mg-pagination current-page="1">
+                          <mock:shadow-root>
+                            <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-selected">
+                              <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+                                <mock:shadow-root>
+                                  <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-selected-button-previous">
+                                    <div class="mg-button__content">
+                                      <slot></slot>
+                                    </div>
+                                  </div>
+                                </mock:shadow-root>
+                                <mg-icon icon="chevron-left"></mg-icon>
+                              </mg-button>
+                              <span class="mg-u-visually-hidden">
+                                page 1
+                              </span>
+                              <span class="mg-u-visually-hidden">
+                                / 2 pages
+                              </span>
+                              <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+                                <mock:shadow-root>
+                                  <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-selected-button-next">
+                                    <div class="mg-button__content">
+                                      <slot></slot>
+                                    </div>
+                                  </div>
+                                </mock:shadow-root>
+                                <mg-icon icon="chevron-right"></mg-icon>
+                              </mg-button>
+                            </nav>
+                          </mock:shadow-root>
+                        </mg-pagination>
+                      </div>
+                      <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
+                        <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list">
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_0" type="checkbox" value="true">
+                            <label htmlfor="identifier_0">
+                              1
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_1" type="checkbox" value="true">
+                            <label htmlfor="identifier_1">
+                              2
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_2" type="checkbox" value="true">
+                            <label htmlfor="identifier_2">
+                              3
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_3" type="checkbox" value="true">
+                            <label htmlfor="identifier_3">
+                              4
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_4" type="checkbox" value="true">
+                            <label htmlfor="identifier_4">
+                              5
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_5" type="checkbox" value="true">
+                            <label htmlfor="identifier_5">
+                              6
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_6" type="checkbox" value="true">
+                            <label htmlfor="identifier_6">
+                              7
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_7" type="checkbox" value="true">
+                            <label htmlfor="identifier_7">
+                              8
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_8" type="checkbox" value="true">
+                            <label htmlfor="identifier_8">
+                              9
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input checked="" id="identifier_9" type="checkbox" value="true">
+                            <label htmlfor="identifier_9">
+                              10
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                    </mg-input-checkbox-paginated>
+                    <mg-input-checkbox-paginated identifier="identifier">
+                      <div class="mg-input__input-checkbox-multi-section-header">
+                        <p class="mg-input__input-checkbox-multi-title">
+                          <em>
+                            Non sélectionnés (11)
+                          </em>
+                        </p>
+                        <mg-button role="button" tabindex="0">
+                          <mock:shadow-root>
+                            <div class="mg-button mg-button--link">
+                              <div class="mg-button__content">
+                                <slot></slot>
+                              </div>
+                            </div>
+                          </mock:shadow-root>
+                          Tout sélectionner
+                        </mg-button>
+                        <mg-pagination current-page="1">
+                          <mock:shadow-root>
+                            <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
+                              <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+                                <mock:shadow-root>
+                                  <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
+                                    <div class="mg-button__content">
+                                      <slot></slot>
+                                    </div>
+                                  </div>
+                                </mock:shadow-root>
+                                <mg-icon icon="chevron-left"></mg-icon>
+                              </mg-button>
+                              <span class="mg-u-visually-hidden">
+                                page 1
+                              </span>
+                              <span class="mg-u-visually-hidden">
+                                / 2 pages
+                              </span>
+                              <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+                                <mock:shadow-root>
+                                  <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-next">
+                                    <div class="mg-button__content">
+                                      <slot></slot>
+                                    </div>
+                                  </div>
+                                </mock:shadow-root>
+                                <mg-icon icon="chevron-right"></mg-icon>
+                              </mg-button>
+                            </nav>
+                          </mock:shadow-root>
+                        </mg-pagination>
+                      </div>
+                      <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
+                        <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
+                          <li class="mg-input__input-group">
+                            <input id="identifier_11" type="checkbox" value="false">
+                            <label htmlfor="identifier_11">
+                              1
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_12" type="checkbox" value="false">
+                            <label htmlfor="identifier_12">
+                              2
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_13" type="checkbox" value="false">
+                            <label htmlfor="identifier_13">
+                              3
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_14" type="checkbox" value="false">
+                            <label htmlfor="identifier_14">
+                              4
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_15" type="checkbox" value="false">
+                            <label htmlfor="identifier_15">
+                              5
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_16" type="checkbox" value="false">
+                            <label htmlfor="identifier_16">
+                              6
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_17" type="checkbox" value="false">
+                            <label htmlfor="identifier_17">
+                              7
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_18" type="checkbox" value="false">
+                            <label htmlfor="identifier_18">
+                              8
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_19" type="checkbox" value="false">
+                            <label htmlfor="identifier_19">
+                              9
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_20" type="checkbox" value="false">
+                            <label htmlfor="identifier_20">
+                              10
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                    </mg-input-checkbox-paginated>
+                  </div>
+                </div>
+              </mg-popover-content>
+            </mg-popover>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  disabled: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  helpText: 'Hello joker'
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          Hello joker
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  inputVerticalList: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container mg-input__input-group-container--vertical" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  labelHide: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title class="mg-u-visually-hidden" identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  labelOnTop: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--label-on-top">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  readonly: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  readonly: true,
+  labelOnTop: true,
+  tooltip: 'Tooltip message'
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--label-on-top">
+      <div class="mg-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  required: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  required: true,
+  disabled: true,
+  helpText: 'Hello joker'
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          Hello joker
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  required: true,
+  readonly: true,
+  helpText: 'Hello joker'
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  tooltip: 'Batman is a DC Comics license'
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should trigger events, case validity check false 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should trigger events, case validity check false 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should trigger events, case validity check true 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should trigger events, case validity check true 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" checked="" id="identifier_2" name="identifier" type="checkbox" value="true">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined display error with displayError component's public method 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined display error with displayError component's public method 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined should enable "displaySearchInput" when value list is greater than 10 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox mg-input--checkbox-multi">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input">
+          <div class="mg-input__input-checkbox-multi mg-input__input-container">
+            <strong>
+              0 selected value
+            </strong>
+            <mg-popover>
+              <mock:shadow-root>
+                <slot></slot>
+                <slot name="content"></slot>
+              </mock:shadow-root>
+              <mg-button aria-controls="identifier-input-mg-popover" aria-expanded="false" role="button" tabindex="0">
+                <mock:shadow-root>
+                  <div class="mg-button mg-button--secondary">
+                    <div class="mg-button__content">
+                      <slot></slot>
+                    </div>
+                  </div>
+                </mock:shadow-root>
+                <mg-icon icon="list"></mg-icon>
+                Select values
+              </mg-button>
+              <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+                <mock:shadow-root>
+                  <mg-card class="mg-popover-content">
+                    <div class="mg-popover-content__title">
+                      <slot name="title"></slot>
+                    </div>
+                    <slot name="content"></slot>
+                  </mg-card>
+                  <slot name="arrow"></slot>
+                </mock:shadow-root>
+                <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+                <div slot="content">
+                  <mg-input-text aria-controls="search-results items-list" value="">
+                    <mock:shadow-root>
+                      <div class="mg-input mg-input--has-icon mg-input--text mg-input--width-full">
+                        <mg-input-title class="mg-u-visually-hidden" identifier="identifier-input-search">
+                          Enter a value
+                        </mg-input-title>
+                        <div class="mg-input__input-container">
+                          <div class="mg-input__input">
+                            <div class="mg-input__with-character-left" style="--mg-character-left-message-length: 0;">
+                              <mg-icon icon="magnifying-glass"></mg-icon>
+                              <input aria-describedby="identifier-input-search-character-left" class="mg-input__box" id="identifier-input-search" maxlength="400" name="q" placeholder="Enter a value" title="Enter a value" type="search" value="">
+                            </div>
+                            <slot name="append-input"></slot>
+                          </div>
+                        </div>
+                      </div>
+                    </mock:shadow-root>
+                  </mg-input-text>
+                  <p class="mg-u-visually-hidden" id="search-results" role="status">
+                    11 results
+                  </p>
+                  <div class="mg-input__input-checkbox-multi-sections-container">
+                    <mg-input-checkbox-paginated hidden="" identifier="identifier">
+                      <div class="mg-input__input-checkbox-multi-section-header">
+                        <mg-button aria-controls="items-selected-container" aria-expanded="true" role="button" tabindex="0">
+                          <mock:shadow-root>
+                            <div class="mg-button mg-button--flat">
+                              <div class="mg-button__content">
+                                <slot></slot>
+                              </div>
+                            </div>
+                          </mock:shadow-root>
+                          <mg-icon icon="chevron-up" size="small"></mg-icon>
+                          <span class="mg-input__input-checkbox-multi-text">
+                            <em>
+                              Selected (0)
+                            </em>
+                          </span>
+                        </mg-button>
+                        <mg-button role="button" tabindex="0">
+                          <mock:shadow-root>
+                            <div class="mg-button mg-button--link">
+                              <div class="mg-button__content">
+                                <slot></slot>
+                              </div>
+                            </div>
+                          </mock:shadow-root>
+                          Unselect all
+                        </mg-button>
+                      </div>
+                      <div class="mg-input__input-checkbox-multi-section-content" id="items-selected-container">
+                        <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-selected" role="list"></ul>
+                      </div>
+                    </mg-input-checkbox-paginated>
+                    <mg-input-checkbox-paginated identifier="identifier">
+                      <div class="mg-input__input-checkbox-multi-section-header">
+                        <p class="mg-input__input-checkbox-multi-title">
+                          <em>
+                            Not selected (11)
+                          </em>
+                        </p>
+                        <mg-button role="button" tabindex="0">
+                          <mock:shadow-root>
+                            <div class="mg-button mg-button--link">
+                              <div class="mg-button__content">
+                                <slot></slot>
+                              </div>
+                            </div>
+                          </mock:shadow-root>
+                          Select all
+                        </mg-button>
+                        <mg-pagination current-page="1">
+                          <mock:shadow-root>
+                            <nav aria-label="Pagination" class="mg-pagination mg-pagination--hide-page-count" id="input-checkbox-pagination-not-selected">
+                              <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
+                                <mock:shadow-root>
+                                  <div class="mg-button mg-button--disabled mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-previous">
+                                    <div class="mg-button__content">
+                                      <slot></slot>
+                                    </div>
+                                  </div>
+                                </mock:shadow-root>
+                                <mg-icon icon="chevron-left"></mg-icon>
+                              </mg-button>
+                              <span class="mg-u-visually-hidden">
+                                page 1
+                              </span>
+                              <span class="mg-u-visually-hidden">
+                                / 2 pages
+                              </span>
+                              <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
+                                <mock:shadow-root>
+                                  <div class="mg-button mg-button--flat mg-button--icon" id="input-checkbox-pagination-not-selected-button-next">
+                                    <div class="mg-button__content">
+                                      <slot></slot>
+                                    </div>
+                                  </div>
+                                </mock:shadow-root>
+                                <mg-icon icon="chevron-right"></mg-icon>
+                              </mg-button>
+                            </nav>
+                          </mock:shadow-root>
+                        </mg-pagination>
+                      </div>
+                      <div class="mg-input__input-checkbox-multi-section-content" id="items-not-selected-container">
+                        <ul aria-describedby="search-results" aria-live="polite" class="mg-input__input-checkbox-multi-inputs mg-input__input-group-container mg-input__input-group-container--vertical" id="items-not-selected" role="list">
+                          <li class="mg-input__input-group">
+                            <input id="identifier_0" type="checkbox" value="false">
+                            <label htmlfor="identifier_0">
+                              item 1
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_1" type="checkbox" value="false">
+                            <label htmlfor="identifier_1">
+                              item 2
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_2" type="checkbox" value="false">
+                            <label htmlfor="identifier_2">
+                              item 3
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_3" type="checkbox" value="false">
+                            <label htmlfor="identifier_3">
+                              item 4
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_4" type="checkbox" value="false">
+                            <label htmlfor="identifier_4">
+                              item 5
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_5" type="checkbox" value="false">
+                            <label htmlfor="identifier_5">
+                              item 6
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_6" type="checkbox" value="false">
+                            <label htmlfor="identifier_6">
+                              item 7
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_7" type="checkbox" value="false">
+                            <label htmlfor="identifier_7">
+                              item 8
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_8" type="checkbox" value="false">
+                            <label htmlfor="identifier_8">
+                              item 9
+                            </label>
+                          </li>
+                          <li class="mg-input__input-group">
+                            <input id="identifier_9" type="checkbox" value="false">
+                            <label htmlfor="identifier_9">
+                              item 10
+                            </label>
+                          </li>
+                        </ul>
+                      </div>
+                    </mg-input-checkbox-paginated>
+                  </div>
+                </div>
+              </mg-popover-content>
+            </mg-popover>
+          </div>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
+      <mg-input-title identifier="identifier" is-legend="" required="">
+        label
+      </mg-input-title>
+      <div class="mg-input__input-container">
+        <div class="mg-input__input mg-input__input--has-error">
+          <ul class="mg-input__input-group-container" id="checkboxes-list" role="list">
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_0" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-input__input-group mg-input__input-group--disabled">
+              <input aria-describedby="identifier-help-text identifier-error" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_2" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-input__input-group">
+              <input aria-describedby="identifier-help-text identifier-error" id="identifier_3" name="identifier" type="checkbox" value="false">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="mg-input__help-text" id="identifier-help-text">
+          My help text
+        </div>
+        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+          This field is required.
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <fieldset class="mg-input mg-input--checkbox">
       <mg-input-title identifier="identifier" is-legend="">
         label
       </mg-input-title>

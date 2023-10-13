@@ -2,7 +2,7 @@ import { Component, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'mg-tooltip-content',
-  styleUrl: 'mg-tooltip-content.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-tooltip-content.css',
   shadow: true,
 })
 export class MgTooltipContent {

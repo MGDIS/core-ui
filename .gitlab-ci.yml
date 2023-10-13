@@ -38,6 +38,12 @@ stages:
     - changes:
         - 'packages/img/**/*'
 
+# Rule to execute job only on styles folder content changes
+.rules:changes:styles:
+  rules:
+    - changes:
+        - 'packages/styles/**/*'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -133,17 +139,15 @@ test:e2e:
 
 test:e2e:playwright:
   stage: tests
-  image: mcr.microsoft.com/playwright:v1.37.1-focal
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install:dependencies
   script:
-    - !reference [.install:jq, script]
-    - pnpm build
-    - pnpm dlx playwright install
     - pnpm test:e2e:playwright
+  retry: 2
   artifacts:
     when: always
     paths:
@@ -153,10 +157,14 @@ test:e2e:playwright:
       - packages/mg-components/playwright-report/
       - packages/mg-components/test-results/
       - packages/mg-components/results.xml
+      - packages/styles/playwright-report/
+      - packages/styles/test-results/
+      - packages/styles/results.xml
     reports:
       junit:
         - packages/notification-center/results.xml
         - packages/mg-components/results.xml
+        - packages/styles/results.xml
 
 sonar:
   stage: tests
@@ -248,9 +256,7 @@ pages:
 
 .mg-components:build:
   script:
-    - pnpm build --filter=@mgdis/img
-    - cd packages/mg-components
-    - pnpm build
+    - pnpm build --filter=@mgdis/mg-components
 
 .docusaurus:
   script:
@@ -262,6 +268,7 @@ pages:
   script:
     - mkdir -p public/storybook
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - pnpm storybook:build
     - mv storybook-static/* ../../public/storybook
 
@@ -273,6 +280,7 @@ mg-components:artifact:
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - !reference [.artifact, script]
   needs:
     - lint
@@ -373,4 +381,33 @@ img:npmjs:
     - .npmjs
   script:
     - !reference [.img:build, script]
+    - pnpm publish --no-git-checks --access public
+
+##########
+# styles #
+##########
+
+.styles:build:
+  script:
+    - cd packages/styles
+    - pnpm build
+
+styles:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:styles
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - !reference [.styles:build, script]
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+styles:npmjs:
+  extends:
+    - .rules:changes:styles
+    - .npmjs
+  script:
+    - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public

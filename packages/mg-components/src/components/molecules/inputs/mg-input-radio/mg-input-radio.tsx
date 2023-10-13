@@ -16,7 +16,7 @@ const isOption = (option: RadioOption): boolean => typeof option === 'object' &&
 
 @Component({
   tag: 'mg-input-radio',
-  styleUrl: 'mg-input-radio.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-radio.css',
   shadow: true,
 })
 export class MgInputRadio {
@@ -178,13 +178,45 @@ export class MgInputRadio {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
     this.checkValidity();
     this.setErrorMessage();
     this.hasDisplayedError = this.invalid;
+  }
+
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputRadio['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-radio> method "setError()" param "valid" must be a boolean');
+    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+      throw new Error('<mg-input-radio> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputRadio['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
   }
 
   /**
@@ -208,22 +240,24 @@ export class MgInputRadio {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || this.getInvalidElement() === undefined;
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || this.getInvalidElement() === undefined);
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     const invalidElement = this.getInvalidElement();
 
     // Set error message
     this.errorMessage = undefined;
-    if (!this.valid && invalidElement.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (invalidElement.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 

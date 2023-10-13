@@ -66,37 +66,6 @@ All of the MGDIS generated web components must use the prefix `mg`.
 
 You will find how to use the library instructions in the [Getting Started section](./getting-started.md).
 
-### Style
-
-#### Naming methodology
-
-MG Components is using [BEM](https://en.bem.info/) (Block, Element, Modifier) methodology with the [two dashes style](https://en.bem.info/methodology/naming-convention/#two-dashes-style) naming scheme.
-
-#### Declaration organisation
-
-When a selector contains too many declaration it is recommended to organize them by theme : Display, Decoration, Font, Others.
-
-```CSS
-.mg-button {
-  // Display
-  display: inline-block;
-  vertical-align: middle;
-  min-height: 3.5rem;
-  padding: 0.6rem 1.2rem;
-  // Decoration
-  background-image: none;
-  border-radius: 0.3rem;
-  border: 0.1rem solid transparent;
-  cursor: pointer;
-  // Font
-  font-weight: normal;
-  text-align: center;
-  white-space: nowrap;
-  // Others
-  touch-action: manipulation;
-}
-```
-
 ### Storybook
 
 The plugin [storybook-addon-docs-stencil

@@ -176,7 +176,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -238,7 +238,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -286,11 +286,17 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
         /**
-          * Define checkbox type
+          * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
         "type": CheckboxType;
         /**
@@ -337,7 +343,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -385,6 +391,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputDate['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
@@ -411,7 +423,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -471,6 +483,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
@@ -493,7 +511,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -541,6 +559,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
@@ -559,7 +583,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -607,6 +631,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
@@ -625,7 +655,7 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -685,6 +715,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Add a tooltip message next to the input
          */
         "tooltip": string;
@@ -711,7 +747,7 @@ export namespace Components {
          */
         "displayCharacterLeft": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -775,6 +811,12 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputText['valid'], errorMessage: string) => Promise<void>;
+        /**
           * Public method to play input focus
          */
         "setFocus": () => Promise<void>;
@@ -805,7 +847,7 @@ export namespace Components {
          */
         "displayCharacterLeft": boolean;
         /**
-          * Public method to display errors
+          * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
         /**
@@ -872,6 +914,12 @@ export namespace Components {
           * Define the number of visible text lines for the control
          */
         "rows": number;
+        /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -1813,7 +1861,7 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
-          * Define checkbox type
+          * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
         "type"?: CheckboxType;
         /**

@@ -4,7 +4,7 @@ import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-popover-content',
-  styleUrl: 'mg-popover-content.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-popover-content.css',
   shadow: true,
 })
 export class MgPopoverContent {

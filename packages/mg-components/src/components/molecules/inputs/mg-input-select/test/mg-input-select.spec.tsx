@@ -251,6 +251,69 @@ describe('mg-input-select', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test.each([
+    {
+      valid: true,
+      errorMessage: 'Override error',
+    },
+    {
+      valid: false,
+      errorMessage: 'Override error',
+    },
+  ])("should display override error with setError component's public method", async params => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });
+
+    expect(page.root).toMatchSnapshot();
+
+    const element = page.doc.querySelector('mg-input-select');
+    const input = element.shadowRoot.querySelector('select');
+
+    //mock validity
+    Object.defineProperty(input, 'validity', {
+      get: () => ({}),
+    });
+
+    await element.setError(params.valid, params.errorMessage);
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([
+    {
+      valid: '',
+      errorMessage: 'Override error',
+      error: '<mg-input-select> method "setError()" param "valid" must be a boolean',
+    },
+    {
+      valid: undefined,
+      errorMessage: 'Override error',
+      error: '<mg-input-select> method "setError()" param "valid" must be a boolean',
+    },
+    {
+      valid: true,
+      errorMessage: ' ',
+      error: '<mg-input-select> method "setError()" param "errorMessage" must be a string',
+    },
+    {
+      valid: true,
+      errorMessage: true,
+      error: '<mg-input-select> method "setError()" param "errorMessage" must be a string',
+    },
+  ])("shloud throw error with setError component's public method invalid params", async params => {
+    expect.assertions(1);
+    try {
+      const page = await getPage({ label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true });
+      const element = page.doc.querySelector('mg-input-select');
+
+      await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
+      await page.waitForChanges();
+    } catch (err) {
+      expect(err.message).toMatch(params.error);
+    }
+  });
+
   test.each(['fr', 'xx'])('display error message with locale: %s', async lang => {
     const page = await getPage({ label: 'label', items: ['batman', 'robin', 'joker', 'bane'], identifier: 'identifier', required: true, lang });
     const element = page.doc.querySelector('mg-input-select');

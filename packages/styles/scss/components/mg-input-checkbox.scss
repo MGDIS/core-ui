@@ -1,0 +1,107 @@
+@import 'mg-input';
+@import 'mg-input-fieldset';
+@import '../utils/a11y';
+
+$checkbox-multi-spacer: 0.4rem;
+
+@mixin flex-container($spacer-ratio: 1, $direction: row, $wrap: wrap) {
+  display: flex;
+  flex-flow: $direction $wrap;
+  gap: calc(#{$checkbox-multi-spacer} * #{$spacer-ratio});
+}
+
+/**
+* checkbox multi
+*/
+.mg-input.mg-input--checkbox-multi {
+  .mg-input__input-checkbox-multi {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--mg-inputs-spacer) * 1.2);
+
+    &--with-values.mg-input__input-checkbox-multi {
+      gap: $checkbox-multi-spacer;
+    }
+
+    &-values-container {
+      @include flex-container;
+
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    &-value {
+      display: inline-flex;
+      min-width: var(--default-size);
+      min-height: var(--default-size);
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      padding: calc((var(--default-size) - 0.2rem - var(--font-size) * var(--line-height)) / 2) 1.1rem;
+      border-radius: 0.3rem;
+      background-color: hsl(var(--mg-color-dark-5-hsl));
+      font-size: var(--font-size);
+    }
+
+    &-no-result {
+      text-align: center;
+    }
+
+    &-text,
+    &-title {
+      display: inline;
+      margin: 0;
+      color: hsl(var(--mg-color-dark-40-hsl));
+    }
+
+    &-title {
+      margin: 0 1.1rem;
+    }
+
+    &-sections {
+      @include flex-container(1, column);
+
+      &-container {
+        @include flex-container(0, column, nowrap);
+
+        max-height: 80vh;
+        padding-right: 1rem;
+        overflow-y: auto;
+      }
+    }
+
+    &-section-header {
+      @include flex-container(2);
+
+      min-height: var(--default-size);
+      align-items: center;
+    }
+
+    &-inputs {
+      padding: $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} * 2) $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} / 2);
+      margin: 0;
+    }
+  }
+
+  &:not(.mg-input--label-on-top) mg-tooltip {
+    margin-left: var(--mg-inputs-spacer);
+  }
+
+  mg-popover {
+    --mg-popover-min-width: 7rem;
+    --mg-card-padding: calc(#{$checkbox-multi-spacer} * 2);
+
+    &-content [slot='content'] {
+      @include flex-container(2, column);
+
+      .mg-input__input-group {
+        margin-left: calc(#{$checkbox-multi-spacer} * 2);
+      }
+    }
+  }
+
+  mg-input-text {
+    --mg-inputs-margin-bottom: 0;
+  }
+}

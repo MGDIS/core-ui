@@ -2,7 +2,7 @@ import { Component, h, Prop, State, Watch } from '@stencil/core';
 
 @Component({
   tag: 'mg-input-title',
-  styleUrl: 'mg-input-title.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-input-title.css',
   scoped: true,
 })
 export class MgInputTitle {

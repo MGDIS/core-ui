@@ -10,7 +10,7 @@ import type { MgPopover } from '../../mg-popover/mg-popover';
 
 @Component({
   tag: 'mg-menu-item',
-  styleUrl: 'mg-menu-item.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-menu-item.css',
   shadow: true,
 })
 export class MgMenuItem {

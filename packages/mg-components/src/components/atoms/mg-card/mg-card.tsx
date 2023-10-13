@@ -4,7 +4,7 @@ import { type VariantStyleType, variantStyles, type VariantType, variants } from
 
 @Component({
   tag: 'mg-card',
-  styleUrl: 'mg-card.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-card.css',
   shadow: true,
 })
 export class MgCard {

@@ -4,7 +4,7 @@ import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
 
 @Component({
   tag: 'mg-menu',
-  styleUrl: 'mg-menu.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-menu.css',
   shadow: true,
 })
 export class MgMenu {

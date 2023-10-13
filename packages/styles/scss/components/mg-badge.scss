@@ -1,0 +1,64 @@
+@import '../utils/a11y';
+
+/* Variables */
+$mg-badge-border-width: 0.1rem;
+
+/* Mixins */
+@mixin badge-variant($name, $backgroundColor, $color) {
+  &.mg-badge--#{$name} {
+    @if $name == 'text-color' {
+      border-color: currentcolor;
+      background-color: currentcolor;
+
+      .mg-badge__value {
+        color: hsl(var(--mg-badge-text-color, var(--color-light)));
+      }
+    } @else {
+      border-color: hsl(var(--color-#{$backgroundColor}));
+      background-color: hsl(var(--color-#{$backgroundColor}));
+      color: hsl(var(--color-#{$color}));
+    }
+
+    &.mg-badge--outline {
+      background-color: transparent;
+
+      @if $name == 'text-color' {
+        .mg-badge__value {
+          color: currentcolor;
+        }
+      } @else {
+        color: hsl(var(--color-#{$backgroundColor}));
+      }
+    }
+  }
+}
+
+/* Styles */
+.mg-badge {
+  min-width: var(--mg-badge-size);
+  height: var(--mg-badge-size);
+  box-sizing: border-box;
+  padding: 0 0.4rem;
+  border: $mg-badge-border-width solid;
+  border-radius: calc(var(--mg-badge-size) / 2);
+  font-size: var(--mg-badge-font-size);
+  font-weight: 600;
+  line-height: var(--mg-badge-size);
+  text-align: center;
+
+  // Variant
+  @include badge-variant('primary', 'dark', 'light');
+  @include badge-variant('secondary', 'light', 'dark');
+  @include badge-variant('success', 'success', 'dark');
+  @include badge-variant('warning', 'warning', 'dark');
+  @include badge-variant('danger', 'danger', 'light');
+  @include badge-variant('info', 'info', 'light');
+  @include badge-variant('text-color', none, 'light');
+}
+
+.mg-badge,
+mg-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

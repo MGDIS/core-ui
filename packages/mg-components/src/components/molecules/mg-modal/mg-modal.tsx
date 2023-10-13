@@ -5,7 +5,7 @@ import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
 @Component({
   tag: 'mg-modal',
-  styleUrl: 'mg-modal.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-modal.css',
   shadow: true,
 })
 export class MgModal {

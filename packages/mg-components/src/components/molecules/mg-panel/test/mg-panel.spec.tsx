@@ -39,22 +39,12 @@ describe('mg-panel', () => {
   });
 
   describe('errors', () => {
-    test.each([
-      { props: { identifier: 'identifier', panelTitle: 'panel title', titlePattern: /joker/ }, error: '<mg-panel> prop "titleEditable" must be set to `true`.' },
-      {
-        props: { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, titlePattern: '^(?!(joker)$)[a-z A-Z0-9s]+$' },
-        error: '<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".',
-      },
-      {
-        props: { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, titlePattern: '^(?!(joker)$)[a-z A-Z0-9s]+$', titlePatternErrorMessage: '' },
-        error: '<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".',
-      },
-    ])('Should throw error when props association are unauthorized %s:', async ({ props, error }) => {
+    test('Should throw error when props association are unauthorized %s:', async () => {
       expect.assertions(1);
       try {
-        await getPage(props);
+        await getPage({ identifier: 'identifier', panelTitle: 'panel title', titlePattern: /joker/ });
       } catch (err) {
-        expect(err.message).toBe(error);
+        expect(err.message).toBe('<mg-panel> prop "titleEditable" must be set to "true".');
       }
     });
 

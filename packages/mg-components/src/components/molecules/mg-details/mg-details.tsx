@@ -2,7 +2,7 @@ import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 
 @Component({
   tag: 'mg-details',
-  styleUrl: 'mg-details.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-details.css',
   shadow: true,
 })
 export class MgDetails {
@@ -83,7 +83,7 @@ export class MgDetails {
           <slot name="summary"></slot>
           <span class="mg-details__toggle">
             <mg-icon icon="chevron-up" size="small" class={{ 'mg-details__toggle-icon': true, 'mg-details__toggle-icon--reverse': !this.expanded }}></mg-icon>
-            <span class={{ 'sr-only': this.hideSummary }}>{this.expanded ? this.toggleOpened : this.toggleClosed}</span>
+            <span class={{ 'mg-u-visually-hidden': this.hideSummary }}>{this.expanded ? this.toggleOpened : this.toggleClosed}</span>
           </span>
         </summary>
         <div class="mg-details__details">
