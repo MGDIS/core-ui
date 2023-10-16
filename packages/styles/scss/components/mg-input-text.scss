@@ -7,15 +7,15 @@
 /**
 * Character left
 */
-.mg-input__with-character-left {
+.mg-c-input__with-character-left {
   position: relative;
   display: inline-flex;
 
-  .mg-input--width-full & {
+  .mg-c-input--width-full & {
     width: 100%;
   }
 
-  .mg-input.is-focused & .mg-input__box {
+  .mg-c-input.mg-u-is-focused & .mg-c-input__box {
     padding-right: calc(var(--mg-character-left-message-length) * 1ch + 0.8rem);
   }
 
@@ -28,7 +28,7 @@
     opacity: 0.6;
     transform: translateY(-50%);
 
-    .mg-input.is-focused & {
+    .mg-c-input.mg-u-is-focused & {
       display: block;
     }
   }
@@ -37,7 +37,7 @@
 /**
 * Icon in input
 */
-.mg-input.mg-input--has-icon .mg-input__with-character-left {
+.mg-c-input.mg-c-input--has-icon .mg-c-input__with-character-left {
   & > mg-icon {
     position: absolute;
     top: 50%;
@@ -46,7 +46,7 @@
     transform: translateY(-50%);
   }
 
-  .mg-input__box {
+  .mg-c-input__box {
     padding-left: calc(var(--mg-icon-regular-size) + var(--mg-inputs-spacer) * 2);
   }
 }

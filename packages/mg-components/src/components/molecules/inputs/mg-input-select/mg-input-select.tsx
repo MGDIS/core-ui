@@ -226,7 +226,7 @@ export class MgInputSelect {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--select']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--select']);
 
   /**
    * Error message to display
@@ -438,7 +438,7 @@ export class MgInputSelect {
         isFieldset={false}
       >
         <select
-          class="mg-input__box"
+          class="mg-c-input__box"
           id={this.identifier}
           name={this.name}
           title={this.placeholder}

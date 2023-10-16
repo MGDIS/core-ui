@@ -7,7 +7,7 @@
  * - select
  */
 
-.mg-input__box {
+.mg-c-input__box {
   height: var(--default-size);
   box-sizing: border-box;
   padding: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2) var(--mg-inputs-spacer);
@@ -41,12 +41,12 @@
 * Variations
 */
 
-.mg-input.mg-input--label-on-top .mg-input__box {
+.mg-c-input.mg-c-input--label-on-top .mg-c-input__box {
   width: auto;
   max-width: 100%;
 }
 
-.mg-input.mg-input--is-input-group-append {
+.mg-c-input.mg-c-input--is-input-group-append {
   // Input group button
   --mg-button-border-radius-top-left: 0;
   --mg-button-border-radius-bottom-left: 0;
@@ -54,7 +54,7 @@
   /**
   * Append input slot
   */
-  .mg-input__box {
+  .mg-c-input__box {
     margin-right: -0.1rem;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
@@ -69,12 +69,12 @@
   /**
   * Readonly variation
   */
-  &.mg-input--readonly slot[name='append-input'] {
+  &.mg-c-input--readonly slot[name='append-input'] {
     display: none;
   }
 }
 
-.mg-input.mg-input--has-buttons-group-append {
+.mg-c-input.mg-c-input--has-buttons-group-append {
   ::slotted([slot='append-input']) {
     --mg-button-border-radius-top-right: 0;
     --mg-button-border-radius-bottom-right: 0;
@@ -90,6 +90,6 @@
   }
 }
 
-.mg-input.mg-input--is-append-input-slot-content:not(.mg-input--readonly) ::slotted([slot='append-input']) {
+.mg-c-input.mg-c-input--is-append-input-slot-content:not(.mg-c-input--readonly) ::slotted([slot='append-input']) {
   padding-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
 }

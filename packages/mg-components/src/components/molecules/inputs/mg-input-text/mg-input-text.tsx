@@ -18,9 +18,9 @@ export class MgInputText {
    ************/
 
   // Classes
-  private classFocus = 'is-focused';
-  private classIsInputGroupAppend = 'mg-input--is-input-group-append';
-  private classHasIcon = 'mg-input--has-icon';
+  private classFocus = 'mg-u-mg-u-is-focused';
+  private classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
+  private classHasIcon = 'mg-c-input--has-icon';
 
   // IDs
   private characterLeftId;
@@ -197,7 +197,7 @@ export class MgInputText {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--text']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--text']);
 
   /**
    * Error message to display
@@ -329,10 +329,10 @@ export class MgInputText {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
 
     if (slotAppendInput.length === 1) {
-      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-c-input--is-append-input-slot-content');
     } else if (slotAppendInput.filter(slot => slot.nodeName === 'MG-BUTTON').length > 1) {
       this.classCollection.add(this.classIsInputGroupAppend);
-      this.classCollection.add('mg-input--has-buttons-group-append');
+      this.classCollection.add('mg-c-input--has-buttons-group-append');
     }
   };
 
@@ -394,7 +394,7 @@ export class MgInputText {
         isFieldset={false}
       >
         <div
-          class="mg-input__with-character-left"
+          class="mg-c-input__with-character-left"
           style={{
             '--mg-character-left-message-length': (this.displayCharacterLeft
               ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
@@ -405,7 +405,7 @@ export class MgInputText {
           {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
           <input
             type={this.type}
-            class="mg-input__box"
+            class="mg-c-input__box"
             value={this.value}
             id={this.identifier}
             list={this.hasDatalist() ? this.datalistId : undefined}

@@ -6,56 +6,56 @@
 $width-2: 5rem;
 $width-16: 21rem;
 
-.mg-input {
+.mg-c-input {
   // default width
-  &:not(.mg-input--label-on-top) .mg-input__box {
+  &:not(.mg-c-input--label-on-top) .mg-c-input__box {
     width: 100%;
     min-width: $width-2;
     max-width: calc(17.7rem + var(--mg-inputs-spacer) * 2); // keep native width + mg-input spacer
   }
 
-  &.mg-input--width-full {
-    &:not(.mg-input--label-on-top) {
+  &.mg-c-input--width-full {
+    &:not(.mg-c-input--label-on-top) {
       justify-content: space-between;
     }
 
-    &.mg-input--label-on-top .mg-input__box {
+    &.mg-c-input--label-on-top .mg-c-input__box {
       width: 100%;
     }
 
-    .mg-input__input-container {
+    .mg-c-input__input-container {
       width: 100%;
       flex: auto;
 
-      .mg-input__box {
+      .mg-c-input__box {
         max-width: 100%;
       }
     }
   }
 
-  &.mg-input--width-16 .mg-input__input-container {
+  &.mg-c-input--width-16 .mg-c-input__input-container {
     width: 100%;
 
-    .mg-input__input {
+    .mg-c-input__input {
       width: 100%;
       max-width: $width-16;
     }
 
-    .mg-input__with-character-left {
+    .mg-c-input__with-character-left {
       width: 100%;
     }
 
-    .mg-input__box {
+    .mg-c-input__box {
       min-width: 100%;
       max-width: $width-16;
     }
   }
 
-  &.mg-input--width-4 .mg-input__input-container .mg-input__box {
+  &.mg-c-input--width-4 .mg-c-input__input-container .mg-c-input__box {
     max-width: 7rem;
   }
 
-  &.mg-input--width-2 .mg-input__input-container .mg-input__box {
+  &.mg-c-input--width-2 .mg-c-input__input-container .mg-c-input__box {
     max-width: $width-2;
   }
 }

@@ -38,7 +38,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private mode: 'custom' | 'auto' = 'custom';
 
   // style
-  private readonly baseClassName = 'mg-input--checkbox';
+  private readonly baseClassName = 'mg-c-input--checkbox';
 
   // "multi" setup
   private readonly multiStart = 5;
@@ -491,11 +491,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     if (this.displaySelectedValues) {
       return (
         selectedValuesNb > 0 && (
-          <ul role="list" class="mg-input__input-checkbox-multi-values-container">
+          <ul role="list" class="mg-c-input__input-checkbox-multi-values-container">
             {this.checkboxItems
               .filter(({ value }) => value)
               .map(({ title }) => (
-                <li class="mg-input__input-checkbox-multi-value" key={title}>
+                <li class="mg-c-input__input-checkbox-multi-value" key={title}>
                   {title}
                 </li>
               ))}
@@ -554,7 +554,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     const checkboxes = this.getDisplayItems();
 
     return (
-      <div class={{ 'mg-input__input-container': true, 'mg-input__input-checkbox-multi': true, 'mg-input__input-checkbox-multi--with-values': this.displaySelectedValues }}>
+      <div class={{ 'mg-c-input__input-container': true, 'mg-c-input__input-checkbox-multi': true, 'mg-c-input__input-checkbox-multi--with-values': this.displaySelectedValues }}>
         {this.renderCheckboxMultiDisplaySelectedValues(selectedValuesNb)}
         <mg-popover
           arrowHide={true}
@@ -590,7 +590,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
               </p>,
             ]}
             {this.displaySearchInput ? (
-              <div class="mg-input__input-checkbox-multi-sections-container">{this.renderCheckboxBySection(checkboxes)}</div>
+              <div class="mg-c-input__input-checkbox-multi-sections-container">{this.renderCheckboxBySection(checkboxes)}</div>
             ) : (
               <MgInputCheckboxList
                 checkboxes={checkboxes}
@@ -604,7 +604,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 name={this.name}
               ></MgInputCheckboxList>
             )}
-            {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
+            {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-c-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
           </div>
         </mg-popover>
       </div>
