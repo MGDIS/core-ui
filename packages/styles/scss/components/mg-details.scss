@@ -1,6 +1,6 @@
 @import '../utils/a11y';
 
-.mg-details {
+.mg-c-details {
   summary {
     display: flex;
     align-items: baseline;
@@ -16,7 +16,7 @@
     margin-left: 1.5rem;
     gap: 0.6rem;
 
-    &-icon.mg-details__toggle-icon--reverse {
+    &-icon.mg-c-details__toggle-icon--reverse {
       transform: rotate(180deg);
     }
   }
@@ -28,7 +28,7 @@
 
 /* hide toggle button when < 700px */
 @media (width < 43.75rem) {
-  .mg-details__toggle > span {
+  .mg-c-details__toggle > span {
     @include visually-hidden;
   }
 }

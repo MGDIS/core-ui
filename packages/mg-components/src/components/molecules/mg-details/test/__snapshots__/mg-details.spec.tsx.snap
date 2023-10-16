@@ -10,14 +10,14 @@ exports[`mg-details with args {
     <details class="mg-details" open="">
       <summary>
         <slot name="summary"></slot>
-        <span class="mg-details__toggle">
-          <mg-icon class="mg-details__toggle-icon" icon="chevron-up" size="small"></mg-icon>
+        <span class="mg-c-details__toggle">
+          <mg-icon class="mg-c-details__toggle-icon" icon="chevron-up" size="small"></mg-icon>
           <span>
             Hide details
           </span>
         </span>
       </summary>
-      <div class="mg-details__details">
+      <div class="mg-c-details__details">
         <slot name="details"></slot>
       </div>
     </details>
@@ -41,14 +41,14 @@ exports[`mg-details with args {
     <details class="mg-details">
       <summary>
         <slot name="summary"></slot>
-        <span class="mg-details__toggle">
-          <mg-icon class="mg-details__toggle-icon mg-details__toggle-icon--reverse" icon="chevron-up" size="small"></mg-icon>
+        <span class="mg-c-details__toggle">
+          <mg-icon class="mg-c-details__toggle-icon mg-c-details__toggle-icon--reverse" icon="chevron-up" size="small"></mg-icon>
           <span class="mg-u-visually-hidden">
             Show details
           </span>
         </span>
       </summary>
-      <div class="mg-details__details">
+      <div class="mg-c-details__details">
         <slot name="details"></slot>
       </div>
     </details>
@@ -68,14 +68,14 @@ exports[`mg-details with args { toggleClosed: 'Show details', toggleOpened: 'Hid
     <details class="mg-details">
       <summary>
         <slot name="summary"></slot>
-        <span class="mg-details__toggle">
-          <mg-icon class="mg-details__toggle-icon mg-details__toggle-icon--reverse" icon="chevron-up" size="small"></mg-icon>
+        <span class="mg-c-details__toggle">
+          <mg-icon class="mg-c-details__toggle-icon mg-c-details__toggle-icon--reverse" icon="chevron-up" size="small"></mg-icon>
           <span>
             Show details
           </span>
         </span>
       </summary>
-      <div class="mg-details__details">
+      <div class="mg-c-details__details">
         <slot name="details"></slot>
       </div>
     </details>
