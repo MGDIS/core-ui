@@ -60,7 +60,7 @@ export class MgInputTitle {
         <slot></slot>
         {this.required && (
           <span class="mg-input-title__required">
-            &nbsp;<span class="is-asterisk">*</span>
+            &nbsp;<span class="mg-u-is-asterisk">*</span>
           </span>
         )}
       </TagName>
