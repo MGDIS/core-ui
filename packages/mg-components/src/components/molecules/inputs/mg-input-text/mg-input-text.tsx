@@ -18,7 +18,7 @@ export class MgInputText {
    ************/
 
   // Classes
-  private classFocus = 'mg-u-mg-u-is-focused';
+  private classFocus = 'mg-u-is-focused';
   private classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
   private classHasIcon = 'mg-c-input--has-icon';
 

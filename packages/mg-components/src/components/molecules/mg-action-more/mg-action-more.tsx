@@ -44,7 +44,9 @@ export class MgActionMore {
   /************
    * Internal *
    ************/
+
   private readonly name = 'mg-action-more';
+  private readonly classBase = 'mg-c-action-more';
   private readonly mgPopoverIdentifier = createID(this.name);
   private messages: MgActionMoreMessageType;
 
@@ -170,8 +172,8 @@ export class MgActionMore {
       buttonContent.push(
         <span
           class={{
-            [`${this.name}__chevron`]: true,
-            [`${this.name}__chevron--rotate`]: this.expanded === true,
+            [`${this.classBase}__chevron`]: true,
+            [`${this.classBase}__chevron--rotate`]: this.expanded === true,
             'mg-a11y-animation': true,
           }}
         >
