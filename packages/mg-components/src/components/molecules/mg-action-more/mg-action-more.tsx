@@ -174,7 +174,6 @@ export class MgActionMore {
           class={{
             [`${this.classBase}__chevron`]: true,
             [`${this.classBase}__chevron--rotate`]: this.expanded === true,
-            'mg-a11y-animation': true,
           }}
         >
           <mg-icon icon="chevron-down" size="small"></mg-icon>

@@ -87,10 +87,8 @@ export class MgIcon {
   handleSpin(newValue: MgIcon['spin']): void {
     if (newValue) {
       this.classCollection.add('mg-c-icon--spin');
-      this.classCollection.add('mg-a11y-animation');
     } else {
       this.classCollection.delete('mg-c-icon--spin');
-      this.classCollection.delete('mg-a11y-animation');
     }
   }
 

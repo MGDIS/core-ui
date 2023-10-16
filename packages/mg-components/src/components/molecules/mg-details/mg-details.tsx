@@ -78,7 +78,7 @@ export class MgDetails {
    */
   render(): HTMLElement {
     return (
-      <details class="mg-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
+      <details class="mg-c-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
         <summary>
           <slot name="summary"></slot>
           <span class="mg-c-details__toggle">
