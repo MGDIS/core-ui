@@ -26,6 +26,7 @@ describe('mg-input-text', () => {
     { label: 'label', identifier: 'identifier', readonly: true },
     { label: 'label', identifier: 'identifier', type: 'search' },
     { label: 'label', identifier: 'identifier', type: 'search', icon: 'magnifying-glass' },
+    { label: 'label', identifier: 'identifier', datalistoptions: ['batman', 'robin', 'joker'] },
     { label: 'label', identifier: 'identifier', readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
     { label: 'label', identifier: 'identifier', readonly: true, value: 'blu' },
     { label: 'label', identifier: 'identifier', required: true, value: 'blu', helpText: 'My help text' },
@@ -65,6 +66,15 @@ describe('mg-input-text', () => {
       await getPage({ identifier });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+    }
+  });
+
+  test.each([{ batman: undefined }, [undefined, 'batman']])('Should not render with invalid datalistoptions property: %s', async datalistoptions => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'comics', datalistoptions });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, DatalistOption.');
     }
   });
 

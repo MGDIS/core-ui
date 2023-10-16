@@ -189,7 +189,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
       {props.readonly ? (
         <div class="mg-input__input-container">
           <strong>{props.readonlyValue}</strong>
-          {children.filter(child => child.$name$ === 'append-input')}
+          {children.filter(child => Object.values(child).includes('append-input'))}
         </div>
       ) : (
         <div class="mg-input__input-container">

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-11T09:19:48",
+  "timestamp": "2023-10-13T07:16:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -4935,11 +4935,37 @@
       "filePath": "src/components/molecules/inputs/mg-input-text/mg-input-text.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-text",
-      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--docs), opacity : 0.6\n\n#### Spacing\n\n![](./doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as search input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n",
+      "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--docs), opacity : 0.6\n\n#### Spacing\n\n![](./doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./doc/img/mg-input-text-position.png)\n\nPosition : center\n\n## Use as `search` input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field.\n\n## Display a `datalist`\n\nThe `datalist` behavior is set with `datalistoptions` prop to initalize options list.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
+        {
+          "name": "datalistoptions",
+          "type": "string[]",
+          "complexType": {
+            "original": "DatalistOption[]",
+            "resolved": "string[]",
+            "references": {
+              "DatalistOption": {
+                "location": "import",
+                "path": "./mg-input-text.conf",
+                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::DatalistOption"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define datalist options",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
         {
           "name": "disabled",
           "type": "boolean",
@@ -5349,9 +5375,15 @@
           "name": "type",
           "type": "\"search\" | \"text\"",
           "complexType": {
-            "original": "'text' | 'search'",
+            "original": "TextType",
             "resolved": "\"search\" | \"text\"",
-            "references": {}
+            "references": {
+              "TextType": {
+                "location": "import",
+                "path": "./mg-input-text.conf",
+                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType"
+              }
+            }
           },
           "mutable": false,
           "attr": "type",
@@ -9064,6 +9096,16 @@
       "declaration": "export enum SectionKind {\n  SELECTED = 'selected',\n  NOT_SELECTED = 'not-selected',\n}",
       "docstring": "mg-input-checkbox-paginated section kind",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
+      "declaration": "\"text\" | \"search\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::DatalistOption": {
+      "declaration": "string",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },
     "src/components/molecules/inputs/MgInput.conf.ts::Width": {
       "declaration": "2 | 4 | 16 | \"full\"",

@@ -144,3 +144,14 @@ export const Search = {
     icon: 'magnifying-glass',
   },
 };
+
+export const Datalist = {
+  render: Template,
+
+  args: {
+    ...MgInputText.args,
+    type: 'text',
+    icon: 'magnifying-glass',
+    datalistoptions: ['agent', 'admin', 'user'],
+  },
+};
