@@ -1,13 +1,13 @@
 @import 'form';
 
-.mg-form,
-.mg-form-group {
+.mg-c-form,
+.mg-c-form-group {
   --mg-inputs-title-width: var(--mg-form-inputs-title-width, 15rem);
   --mg-inputs-margin-bottom: 1.5rem;
   --mg-inputs-title-horizontal-space: 3rem;
   --mg-inputs-shrink: 0;
 
-  &.mg-form--all-required {
+  &.mg-c-form--all-required {
     --mg-input-title-display: none;
   }
 

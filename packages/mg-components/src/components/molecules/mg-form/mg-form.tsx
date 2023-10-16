@@ -17,7 +17,7 @@ export class MgForm {
   private mgButtons: HTMLMgButtonElement[];
 
   // Classes
-  private readonly classAllRequired = 'mg-form--all-required';
+  private readonly classAllRequired = 'mg-c-form--all-required';
 
   // HTML selector
   private form: HTMLFormElement;
@@ -75,7 +75,7 @@ export class MgForm {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-form']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-form']);
 
   /**
    * Required message
