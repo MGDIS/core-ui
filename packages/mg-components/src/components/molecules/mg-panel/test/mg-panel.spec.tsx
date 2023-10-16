@@ -119,7 +119,7 @@ describe('mg-panel', () => {
     test.each([true, false])('Should toggle edit panel title', async titleEditable => {
       const page = await getPage({ identifier: 'identifier', panelTitle: 'panel title', titleEditable });
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -142,7 +142,7 @@ describe('mg-panel', () => {
       const args = { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true };
       const page = await getPage(args);
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -163,7 +163,7 @@ describe('mg-panel', () => {
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      const afterInputAction = mgPanel.shadowRoot.querySelector(`.mg-panel__header-title mg-input-text mg-button:${lastAction}`);
+      const afterInputAction = mgPanel.shadowRoot.querySelector(`.mg-c-panel__header-title mg-input-text mg-button:${lastAction}`);
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       jest.runOnlyPendingTimers();
@@ -185,7 +185,7 @@ describe('mg-panel', () => {
       const args = { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true };
       const page = await getPage(args);
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -202,7 +202,7 @@ describe('mg-panel', () => {
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-input-text mg-button:last-of-type');
+      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       jest.runOnlyPendingTimers();
@@ -225,7 +225,7 @@ describe('mg-panel', () => {
       };
       const page = await getPage(args);
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -255,7 +255,7 @@ describe('mg-panel', () => {
       await page.waitForChanges();
 
       // and click on validate button
-      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-input-text mg-button:last-of-type');
+      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       jest.runOnlyPendingTimers();
@@ -267,7 +267,7 @@ describe('mg-panel', () => {
       expect(page.rootInstance.titleChange.emit).not.toHaveBeenCalledWith(updatedPanelTitle);
 
       // finaly return to default view by clicking on cancel button
-      const cancelAction = mgPanel.shadowRoot.querySelector('.mg-panel__header-title mg-input-text mg-button:last-of-type');
+      const cancelAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       cancelAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       jest.runOnlyPendingTimers();
