@@ -3,15 +3,15 @@
 exports[`mg-illustrated-message Should render even if slotted content is not an image file 1`] = `
 <mg-illustrated-message>
   <mock:shadow-root>
-    <div class="mg-illustrated-message">
-      <div class="mg-illustrated-message__illustration">
+    <div class="mg-c-illustrated-message">
+      <div class="mg-c-illustrated-message__illustration">
         <slot name="illustration"></slot>
       </div>
-      <div class="mg-illustrated-message__slots">
-        <div class="mg-illustrated-message__title">
+      <div class="mg-c-illustrated-message__slots">
+        <div class="mg-c-illustrated-message__title">
           <slot name="title"></slot>
         </div>
-        <div class="mg-illustrated-message__details">
+        <div class="mg-c-illustrated-message__details">
           <slot name="details"></slot>
         </div>
       </div>
@@ -33,15 +33,15 @@ exports[`mg-illustrated-message Should render even if slotted content is not an 
 exports[`mg-illustrated-message with args { direction: 'horizontal' } 1`] = `
 <mg-illustrated-message>
   <mock:shadow-root>
-    <div class="mg-illustrated-message mg-illustrated-message--horizontal">
-      <div class="mg-illustrated-message__illustration">
+    <div class="mg-c-illustrated-message mg-c-illustrated-message--horizontal">
+      <div class="mg-c-illustrated-message__illustration">
         <slot name="illustration"></slot>
       </div>
-      <div class="mg-illustrated-message__slots">
-        <div class="mg-illustrated-message__title">
+      <div class="mg-c-illustrated-message__slots">
+        <div class="mg-c-illustrated-message__title">
           <slot name="title"></slot>
         </div>
-        <div class="mg-illustrated-message__details">
+        <div class="mg-c-illustrated-message__details">
           <slot name="details"></slot>
         </div>
       </div>
@@ -65,15 +65,15 @@ exports[`mg-illustrated-message with args { direction: 'horizontal' } 1`] = `
 exports[`mg-illustrated-message with args { size: 'small' } 1`] = `
 <mg-illustrated-message>
   <mock:shadow-root>
-    <div class="mg-illustrated-message">
-      <div class="mg-illustrated-message__illustration mg-illustrated-message__illustration--small">
+    <div class="mg-c-illustrated-message">
+      <div class="mg-c-illustrated-message__illustration mg-c-illustrated-message__illustration--small">
         <slot name="illustration"></slot>
       </div>
-      <div class="mg-illustrated-message__slots">
-        <div class="mg-illustrated-message__title">
+      <div class="mg-c-illustrated-message__slots">
+        <div class="mg-c-illustrated-message__title">
           <slot name="title"></slot>
         </div>
-        <div class="mg-illustrated-message__details">
+        <div class="mg-c-illustrated-message__details">
           <slot name="details"></slot>
         </div>
       </div>
@@ -97,15 +97,15 @@ exports[`mg-illustrated-message with args { size: 'small' } 1`] = `
 exports[`mg-illustrated-message with args {} 1`] = `
 <mg-illustrated-message>
   <mock:shadow-root>
-    <div class="mg-illustrated-message">
-      <div class="mg-illustrated-message__illustration">
+    <div class="mg-c-illustrated-message">
+      <div class="mg-c-illustrated-message__illustration">
         <slot name="illustration"></slot>
       </div>
-      <div class="mg-illustrated-message__slots">
-        <div class="mg-illustrated-message__title">
+      <div class="mg-c-illustrated-message__slots">
+        <div class="mg-c-illustrated-message__title">
           <slot name="title"></slot>
         </div>
-        <div class="mg-illustrated-message__details">
+        <div class="mg-c-illustrated-message__details">
           <slot name="details"></slot>
         </div>
       </div>
