@@ -19,7 +19,7 @@ export class MgMenuItem {
    ************/
 
   private readonly name = 'mg-menu-item';
-  private readonly navigationButton = `${this.name}__navigation-button`;
+  private readonly navigationButton = 'mg-c-menu-item__navigation-button';
   private badgeLabel: string;
 
   /**************
@@ -385,7 +385,7 @@ export class MgMenuItem {
             <slot name="label"></slot>
             {!this.displayNotificationBadge && <slot name="information"></slot>}
             {this.displayNotificationBadge && (
-              <span class="mg-menu-item__navigation-button-text-content-notification">
+              <span class={`${this.navigationButton}-text-content-notification`}>
                 <mg-badge label={this.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
               </span>
             )}
