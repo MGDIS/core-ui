@@ -123,7 +123,7 @@ describe('mg-modal', () => {
         }, []);
         // When close button is enabled it's the first focusable element.
         if (closeButton) {
-          modalFocusableElements.unshift(element.shadowRoot.querySelector(`.mg-modal__close-button mg-button`));
+          modalFocusableElements.unshift(element.shadowRoot.querySelector(`.mg-c-modal__close-button mg-button`));
         }
         const lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
         const spyFirst = jest.spyOn(modalFocusableElements[0], 'focus');
