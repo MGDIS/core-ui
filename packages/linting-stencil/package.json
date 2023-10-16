@@ -18,8 +18,8 @@
   "scripts": {
     "build": "rollup -c ./rollup.config.js --bundleConfigAsCjs",
     "build:config": "tsc --build --clean && tsc --build",
-    "lint": "run-s lint:es lint:prettier",
-    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint ./{src,bin}/**/*.{js,ts}",
     "lint:es:fix": "eslint ./{src,bin}/**/*.{js,ts} --fix",
     "lint:prettier": "prettier --check **/*.{js,ts,json,md} --ignore-path ../../.gitignore",
