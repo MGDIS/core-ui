@@ -8,8 +8,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "lint": "run-s lint:es lint:prettier",
-    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:prettier": "prettier --check **/*.{js,json} --ignore-path ../../.gitignore --config ./src/index.js",
     "lint:prettier:fix": "prettier --write **/*.{js,json} --ignore-path ../../.gitignore --config ./src/index.js",
     "lint:es": "eslint src/**/*.js -c ../eslint-config-custom/src/index.js",
