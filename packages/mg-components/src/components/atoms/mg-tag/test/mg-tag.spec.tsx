@@ -25,8 +25,8 @@ describe('mg-tag', () => {
   test('Should replace classes on variant/ouline changes', async () => {
     const page = await getPage({}, 'Blu');
     const element = page.doc.querySelector('mg-tag');
-    let classPrimary = element.shadowRoot.querySelector('.mg-tag--primary');
-    let classOutline = element.shadowRoot.querySelector('.mg-tag--outline');
+    let classPrimary = element.shadowRoot.querySelector('.mg-c-tag--primary');
+    let classOutline = element.shadowRoot.querySelector('.mg-c-tag--outline');
 
     expect(classPrimary).not.toBeNull();
     expect(classOutline).toBeNull();
@@ -35,8 +35,8 @@ describe('mg-tag', () => {
     element.variant = 'danger';
     await page.waitForChanges();
 
-    classPrimary = element.shadowRoot.querySelector('.mg-tag--primary');
-    const classDanger = element.shadowRoot.querySelector('.mg-tag--danger');
+    classPrimary = element.shadowRoot.querySelector('.mg-c-tag--primary');
+    const classDanger = element.shadowRoot.querySelector('.mg-c-tag--danger');
 
     expect(classPrimary).toBeNull();
     expect(classDanger).not.toBeNull();
@@ -45,7 +45,7 @@ describe('mg-tag', () => {
     element.outline = true;
     await page.waitForChanges();
 
-    classOutline = element.shadowRoot.querySelector('.mg-tag--outline');
+    classOutline = element.shadowRoot.querySelector('.mg-c-tag--outline');
     expect(classOutline).not.toBeNull();
   });
 
