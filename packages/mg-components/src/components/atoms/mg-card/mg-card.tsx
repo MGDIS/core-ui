@@ -78,7 +78,7 @@ export class MgCard {
   render(): HTMLElement {
     return (
       <div class={this.classCollection.join()}>
-        {this.variantStyle?.startsWith('bar-') && <span class="mg-card__bar"></span>}
+        {this.variantStyle?.startsWith('bar-') && <span class="mg-c-card__bar"></span>}
         <slot></slot>
       </div>
     );
