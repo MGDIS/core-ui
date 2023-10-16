@@ -2,7 +2,7 @@
 
 @mixin message-variants($variants...) {
   @each $variant in $variants {
-    &.mg-message--#{$variant} .mg-message__icon {
+    &.mg-c-message--#{$variant} .mg-c-message__icon {
       color: hsl(var(--color-#{$variant}));
     }
   }
@@ -20,17 +20,17 @@
   display: none;
 }
 
-.mg-message {
+.mg-c-message {
   display: inline-block;
   min-height: var(--default-size);
 
   @include message-variants('info', 'warning', 'success', 'danger');
 
-  &.mg-message--close-button {
+  &.mg-c-message--close-button {
     --mg-card-padding: 0 3.4rem 0 0;
   }
 
-  &.mg-message--hide {
+  &.mg-c-message--hide {
     display: none;
   }
 
@@ -81,7 +81,7 @@
   @include reset-slot-card-variables;
 }
 
-.mg-message,
+.mg-c-message,
 mg-message {
   max-width: 100%;
 }
