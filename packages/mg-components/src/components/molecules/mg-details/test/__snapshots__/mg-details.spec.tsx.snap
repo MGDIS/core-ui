@@ -7,7 +7,7 @@ exports[`mg-details with args {
 } 1`] = `
 <mg-details>
   <mock:shadow-root>
-    <details class="mg-details" open="">
+    <details class="mg-c-details" open="">
       <summary>
         <slot name="summary"></slot>
         <span class="mg-c-details__toggle">
@@ -38,7 +38,7 @@ exports[`mg-details with args {
 } 1`] = `
 <mg-details>
   <mock:shadow-root>
-    <details class="mg-details">
+    <details class="mg-c-details">
       <summary>
         <slot name="summary"></slot>
         <span class="mg-c-details__toggle">
@@ -65,7 +65,7 @@ exports[`mg-details with args {
 exports[`mg-details with args { toggleClosed: 'Show details', toggleOpened: 'Hide details' } 1`] = `
 <mg-details>
   <mock:shadow-root>
-    <details class="mg-details">
+    <details class="mg-c-details">
       <summary>
         <slot name="summary"></slot>
         <span class="mg-c-details__toggle">
