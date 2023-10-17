@@ -59,6 +59,9 @@ export const config: Config = {
       ],
     },
   ],
+  extras: {
+    enableImportInjection: true,
+  },
   testing: {
     timers: 'fake',
     /**
