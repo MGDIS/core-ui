@@ -21,7 +21,7 @@ describe('mg-button', () => {
     expect(screenshot).toMatchImageSnapshot();
   });
 
-  test('Should render whith icon slot', async () => {
+  test('Should render with icon slot', async () => {
     const slots = ['<mg-icon icon="trash"></mg-icon>Text button', '<mg-icon icon="trash"></mg-icon>Text button<mg-badge value="1" label="label"></mg-badge>'];
     const html = slots.map(slot => `<div><mg-button>${slot}</mg-button></div>`).join('');
     const page = await createPage(html, { width: 150, height: slots.length * buttonHeight });
