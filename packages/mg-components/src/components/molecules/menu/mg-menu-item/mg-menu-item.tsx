@@ -418,8 +418,8 @@ export class MgMenuItem {
    */
   render(): HTMLElement {
     const getContainerClasses = () => ({
-      [`${this.name}__collapse-container`]: true,
-      [`${this.name}__collapse-container--first-level`]: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container']: true,
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
     });
 
     return (
