@@ -104,12 +104,12 @@ describe('mg-tabs', () => {
       }
     });
 
-    test.each([0, 3])('should trown an error with invalid tabItem props', async activeTab => {
+    test.each([0, 3, null, { test: 'fail' }, 'string'])('should trown an error with invalid range for "activeTab" props', async activeTab => {
       expect.assertions(1);
       try {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], activeTab }, createSlots());
       } catch (err) {
-        expect(err.message).toMatch('<mg-tabs> prop "activeTab" must be between 1 and tabs length.');
+        expect(err.message).toMatch(`<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable".`);
       }
     });
 
@@ -138,8 +138,8 @@ describe('mg-tabs', () => {
       nextTab.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
       expect(page.rootInstance.activeTabChange.emit).toHaveBeenCalledWith(2);
+      expect(page.root).toMatchSnapshot();
 
       activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
       expect(activeTab).toHaveProperty('id', 'id-2');
