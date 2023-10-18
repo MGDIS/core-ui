@@ -193,11 +193,11 @@ export class MgTooltip {
   private setMgButtonWrapper = (mgButton: HTMLMgButtonElement): void => {
     if (mgButton.disabled) {
       const div = document.createElement('div');
-      div.classList.add('mg-tooltip__mg-button-wrapper');
+      div.classList.add('mg-c-tooltip__mg-button-wrapper');
       mgButton.parentNode.insertBefore(div, mgButton);
       div.appendChild(mgButton);
       this.tooltipedElement = div;
-    } else if (mgButton.parentElement.classList.contains('mg-tooltip__mg-button-wrapper')) {
+    } else if (mgButton.parentElement.classList.contains('mg-c-tooltip__mg-button-wrapper')) {
       this.element.firstElementChild.replaceWith(mgButton);
       this.tooltipedElement = mgButton;
     }

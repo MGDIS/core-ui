@@ -38,13 +38,13 @@ describe('mg-icon', () => {
   });
 
   test.each([
-    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-icon--chevron-up'], nextProps: { icon: 'chevron-down' }, nextClass: ['.mg-icon--chevron-down'] },
-    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-icon--size-regular'], nextProps: { size: 'large' }, nextClass: ['.mg-icon--size-large'] },
+    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-c-icon--chevron-up'], nextProps: { icon: 'chevron-down' }, nextClass: ['.mg-c-icon--chevron-down'] },
+    { initialProps: { icon: 'chevron-up' }, initialClass: ['.mg-c-icon--size-regular'], nextProps: { size: 'large' }, nextClass: ['.mg-c-icon--size-large'] },
     {
       initialProps: { icon: 'chevron-up', variant: 'success', variantStyle: 'icon' },
-      initialClass: ['.mg-icon--variant-success', '.mg-icon--variant-style-icon'],
+      initialClass: ['.mg-c-icon--variant-success', '.mg-c-icon--variant-style-icon'],
       nextProps: { variant: 'danger', variantStyle: 'background' },
-      nextClass: ['.mg-icon--variant-danger', '.mg-icon--variant-style-background'],
+      nextClass: ['.mg-c-icon--variant-danger', '.mg-c-icon--variant-style-background'],
     },
   ])('Should replace classes on icon changes', async ({ initialProps, initialClass, nextProps, nextClass }) => {
     const page = await getPage(initialProps);

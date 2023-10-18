@@ -7,13 +7,13 @@
 }
 
 mg-icon {
-  .mg-input__input &,
-  .mg-input__error & {
+  .mg-c-input__input &,
+  .mg-c-input__error & {
     display: flex;
   }
 }
 
-.mg-input {
+.mg-c-input {
   display: flex;
   max-width: 100%;
   min-height: var(--default-size);
@@ -55,18 +55,18 @@ mg-icon {
       margin-left: var(--mg-inputs-spacer);
     }
 
-    .mg-input__help-text,
-    .mg-input__error {
+    .mg-c-input__help-text,
+    .mg-c-input__error {
       font-size: 1.2rem;
       text-align: start;
     }
   }
 
   /* Label-on-top */
-  &.mg-input--label-on-top {
+  &.mg-c-input--label-on-top {
     flex-direction: column;
 
-    .mg-input__input-container {
+    .mg-c-input__input-container {
       width: 100%;
     }
   }
@@ -102,23 +102,23 @@ mg-icon {
       margin-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
     }
 
-    &.mg-input__input--has-error {
-      .mg-input__box {
+    &.mg-c-input__input--has-error {
+      .mg-c-input__box {
         border-color: hsl(var(--color-danger));
       }
     }
 
     /* Manage space between input and first message */
-    & + .mg-input__help-text,
-    & + .mg-input__error {
+    & + .mg-c-input__help-text,
+    & + .mg-c-input__error {
       margin-top: 0.5rem;
     }
 
     /* Set custom opacity on disabled input */
-    .mg-input__box:disabled,
+    .mg-c-input__box:disabled,
     &-group--disabled label,
-    .mg-input.mg-input--toggle-disabled & .mg-input__button-toggle,
-    .mg-input.mg-input--checkbox-multi-disabled & strong {
+    .mg-c-input.mg-c-input--toggle-disabled & .mg-c-input__button-toggle,
+    .mg-c-input.mg-c-input--checkbox-multi-disabled & strong {
       opacity: var(--mg-disabled-opacity);
     }
   }

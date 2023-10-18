@@ -23,7 +23,7 @@ describe('mg-input-radio', () => {
       const screenshotFocus = await page.screenshot();
       expect(screenshotFocus).toMatchImageSnapshot();
 
-      const radio = await page.find('mg-input-radio >>> .mg-input__input-group input');
+      const radio = await page.find('mg-input-radio >>> .mg-c-input__input-group input');
       await radio.press('Space');
 
       await page.waitForChanges();

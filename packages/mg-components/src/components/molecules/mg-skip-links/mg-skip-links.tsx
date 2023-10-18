@@ -75,11 +75,11 @@ export class MgSkipLinks {
    */
   render(): HTMLElement {
     return (
-      <nav class="mg-skip-links" role="navigation" aria-label={this.messages.skipLinks.navLabel}>
-        <ul class="mg-skip-links__list" role="list">
+      <nav class="mg-c-skip-links" role="navigation" aria-label={this.messages.skipLinks.navLabel}>
+        <ul class="mg-c-skip-links__list" role="list">
           {this.links.map(link => (
             <li key={link.href}>
-              <a class="mg-skip-links__link" href={link.href} onClick={this.handleLinkCLick}>
+              <a class="mg-c-skip-links__link" href={link.href} onClick={this.handleLinkCLick}>
                 {link.label}
               </a>
             </li>

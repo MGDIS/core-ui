@@ -1,4 +1,4 @@
-.mg-illustrated-message {
+.mg-c-illustrated-message {
   display: flex;
   max-width: 47.5rem;
   box-sizing: border-box;
@@ -19,7 +19,7 @@
       max-height: 18.4rem;
     }
 
-    &.mg-illustrated-message__illustration--small {
+    &.mg-c-illustrated-message__illustration--small {
       max-height: 6rem;
 
       ::slotted([slot='illustration']) {
@@ -28,13 +28,13 @@
     }
   }
 
-  &.mg-illustrated-message--horizontal {
+  &.mg-c-illustrated-message--horizontal {
     max-width: unset;
     flex-flow: row wrap;
     align-items: center;
 
-    .mg-illustrated-message__slots,
-    .mg-illustrated-message__illustration {
+    .mg-c-illustrated-message__slots,
+    .mg-c-illustrated-message__illustration {
       max-width: 47.5rem;
     }
   }

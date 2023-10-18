@@ -118,16 +118,16 @@ describe('mg-input-checkbox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await page.locator('mg-input-checkbox .mg-input__input-group:first-of-type input').press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:first-of-type input').press('Space');
 
       await page.keyboard.down('Tab');
-      await page.locator('mg-input-checkbox .mg-input__input-group:nth-of-type(2) input').press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(2) input').press('Space');
 
       await page.keyboard.down('Tab');
-      await page.locator('mg-input-checkbox .mg-input__input-group:nth-of-type(3) input').press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(3) input').press('Space');
 
       await page.keyboard.down('Tab');
-      await page.locator('mg-input-checkbox .mg-input__input-group:nth-of-type(4) input').press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(4) input').press('Space');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });

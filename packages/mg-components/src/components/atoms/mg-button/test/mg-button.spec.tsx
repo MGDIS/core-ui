@@ -35,7 +35,7 @@ describe('mg-button', () => {
   test('Should replace classes on variant changes', async () => {
     const page = await getPage({ variant: 'primary', label: 'label' });
     const element = page.doc.querySelector('mg-button');
-    let classPrimary = element.shadowRoot.querySelector('.mg-button--primary');
+    let classPrimary = element.shadowRoot.querySelector('.mg-c-button--primary');
 
     expect(classPrimary).not.toBeNull();
 
@@ -43,8 +43,8 @@ describe('mg-button', () => {
     element.variant = 'danger';
     await page.waitForChanges();
 
-    classPrimary = element.shadowRoot.querySelector('.mg-button--primary');
-    const classDanger = element.shadowRoot.querySelector('.mg-button--danger');
+    classPrimary = element.shadowRoot.querySelector('.mg-c-button--primary');
+    const classDanger = element.shadowRoot.querySelector('.mg-c-button--danger');
 
     expect(classPrimary).toBeNull();
     expect(classDanger).not.toBeNull();

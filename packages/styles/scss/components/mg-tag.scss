@@ -4,17 +4,17 @@ $mg-tag-padding-horizontal: 0.7rem;
 
 /* Mixins */
 @mixin tag-variant($name, $backgroundColor, $color) {
-  &.mg-tag--#{$name} {
+  &.mg-c-tag--#{$name} {
     border-color: hsl(var(--color-#{$backgroundColor}));
     background-color: hsl(var(--color-#{$backgroundColor}));
     color: hsl(var(--color-#{$color}));
 
-    &.mg-tag--outline {
+    &.mg-c-tag--outline {
       background-color: transparent;
       color: hsl(var(--color-#{$backgroundColor}));
     }
 
-    &.mg-tag--soft {
+    &.mg-c-tag--soft {
       $fill-color: hsl(var(--color-#{$backgroundColor}-h) var(--color-#{$backgroundColor}-s) var(--mg-color-soft-l));
 
       border-color: $fill-color;
@@ -34,7 +34,7 @@ $mg-tag-padding-horizontal: 0.7rem;
 }
 
 /* Styles */
-.mg-tag {
+.mg-c-tag {
   $padding-value: calc((var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2) ($mg-tag-padding-horizontal - $mg-tag-border-width);
 
   min-height: var(--mg-tag-height);
@@ -55,7 +55,7 @@ $mg-tag-padding-horizontal: 0.7rem;
   @include tag-variant('info', 'info', 'light');
 }
 
-.mg-tag,
+.mg-c-tag,
 mg-tag {
   display: inline-block;
   vertical-align: middle;

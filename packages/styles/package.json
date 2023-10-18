@@ -14,6 +14,7 @@
     "build:dev": "sass scss:dist",
     "lint": "stylelint 'scss/**/*.{css,scss}'",
     "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
+    "lint:dist": "stylelint 'dist/**/*.css' --config .stylelintrc.dist.json",
     "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
     "test:e2e:playwright:docker": "pnpm dlx @playwright/test test"
   },

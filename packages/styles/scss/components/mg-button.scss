@@ -12,7 +12,7 @@ $button-column-gap: 0.6rem;
     $background-color: --color-#{$background-color};
     $font-color: --color-#{$font-color};
   }
-  .mg-button.mg-button--#{$name} {
+  .mg-c-button.mg-c-button--#{$name} {
     border-color: hsl(
       var(
         #{--mg-button-#{$name}-border-color},
@@ -30,7 +30,7 @@ $button-column-gap: 0.6rem;
   }
 
   // Only apply if not disabled
-  :host(:hover) .mg-button--#{$name}:not(.mg-button--disabled) {
+  :host(:hover) .mg-c-button--#{$name}:not(.mg-c-button--disabled) {
     background: hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l));
   }
 }
@@ -50,7 +50,7 @@ $button-column-gap: 0.6rem;
 }
 
 // Only apply if not disabled
-:host(:hover) .mg-button--flat:not(.mg-button--disabled) {
+:host(:hover) .mg-c-button--flat:not(.mg-c-button--disabled) {
   background: hsl(var(--color-dark) / 10%);
 }
 
@@ -73,7 +73,7 @@ $button-column-gap: 0.6rem;
 @include style-gradient('success', 'success', 'dark');
 
 /* Styles */
-.mg-button {
+.mg-c-button {
   $padding-value: calc((var(--default-size) - (2 * $mg-button-border-width) - (var(--font-size) * var(--line-height))) / 2) $mg-button-padding-horizontal;
 
   position: relative;
@@ -96,13 +96,13 @@ $button-column-gap: 0.6rem;
   @include font-style;
 
   // Disabled style
-  &.mg-button--disabled {
+  &.mg-c-button--disabled {
     cursor: default;
     opacity: var(--mg-button-disabled-opacity);
   }
 
   // Icon only button
-  &.mg-button--icon {
+  &.mg-c-button--icon {
     width: var(--default-size);
     height: var(--default-size);
     justify-content: center;
@@ -114,7 +114,7 @@ $button-column-gap: 0.6rem;
   }
 
   // Flat variant
-  &.mg-button--flat {
+  &.mg-c-button--flat {
     border: none;
     background: none;
   }
@@ -129,7 +129,7 @@ $button-column-gap: 0.6rem;
   }
 
   // Link variant
-  &.mg-button--link {
+  &.mg-c-button--link {
     min-height: unset;
     padding: unset;
     border: unset;
@@ -147,7 +147,7 @@ $button-column-gap: 0.6rem;
   }
 
   // full-width style
-  &.mg-button--full-width {
+  &.mg-c-button--full-width {
     display: flex;
     justify-content: center;
   }
@@ -161,7 +161,7 @@ $button-column-gap: 0.6rem;
   }
 
   // loading style
-  &.mg-button--loading {
+  &.mg-c-button--loading {
     > mg-icon:first-of-type {
       position: absolute;
       top: 50%;
@@ -169,7 +169,7 @@ $button-column-gap: 0.6rem;
       transform: translate(-50%, -50%);
     }
 
-    .mg-button__content {
+    .mg-c-button__content {
       opacity: 0;
     }
   }
@@ -179,7 +179,7 @@ $button-column-gap: 0.6rem;
   outline: 0;
 
   // same style as chrome
-  .mg-button {
+  .mg-c-button {
     /* stylelint-disable declaration-block-no-redundant-longhand-properties */
     outline-color: -webkit-focus-ring-color;
     outline-style: auto;

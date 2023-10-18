@@ -15,7 +15,7 @@ export class MgMessage {
    ************/
 
   // Classes
-  private readonly classHide = 'mg-message--hide';
+  private readonly classHide = 'mg-c-message--hide';
 
   // IDs
   private closeButtonId = '';
@@ -67,9 +67,9 @@ export class MgMessage {
       throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
       if (oldValue !== undefined) {
-        this.classCollection.delete(`mg-message--${oldValue}`);
+        this.classCollection.delete(`mg-c-message--${oldValue}`);
       }
-      this.classCollection.add(`mg-message--${newValue}`);
+      this.classCollection.add(`mg-c-message--${newValue}`);
     }
   }
 
@@ -119,7 +119,7 @@ export class MgMessage {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-message']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-message']);
 
   /**
    * Define if component is using actions slot
@@ -214,7 +214,7 @@ export class MgMessage {
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
     this.validateCloseButton(this.closeButton);
     if (this.closeButton) {
-      this.classCollection.add('mg-message--close-button');
+      this.classCollection.add('mg-c-message--close-button');
       this.closeButtonId = `${this.identifier}-close-button`;
     }
     this.validateDelay(this.delay);
@@ -229,22 +229,22 @@ export class MgMessage {
     return (
       <div id={this.identifier} class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
         <mg-card variant={this.variant} variant-style="bar-left">
-          <span class="mg-message__icon">
+          <span class="mg-c-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>
-          <div class="mg-message__content">
-            <span class="mg-message__content-slot">
+          <div class="mg-c-message__content">
+            <span class="mg-c-message__content-slot">
               <slot></slot>
             </span>
-            {this.hasActions && <span class="mg-message__content-separator"></span>}
+            {this.hasActions && <span class="mg-c-message__content-separator"></span>}
             {this.hasActions && (
-              <span class="mg-message__content-actions-slot">
+              <span class="mg-c-message__content-actions-slot">
                 <slot name="actions"></slot>
               </span>
             )}
           </div>
           {this.closeButton && (
-            <span class="mg-message__close-button">
+            <span class="mg-c-message__close-button">
               <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.message.closeButton} onClick={this.handleClose}>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>

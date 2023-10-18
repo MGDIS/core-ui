@@ -78,15 +78,15 @@ export class MgDetails {
    */
   render(): HTMLElement {
     return (
-      <details class="mg-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
+      <details class="mg-c-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
         <summary>
           <slot name="summary"></slot>
-          <span class="mg-details__toggle">
-            <mg-icon icon="chevron-up" size="small" class={{ 'mg-details__toggle-icon': true, 'mg-details__toggle-icon--reverse': !this.expanded }}></mg-icon>
+          <span class="mg-c-details__toggle">
+            <mg-icon icon="chevron-up" size="small" class={{ 'mg-c-details__toggle-icon': true, 'mg-c-details__toggle-icon--reverse': !this.expanded }}></mg-icon>
             <span class={{ 'mg-u-visually-hidden': this.hideSummary }}>{this.expanded ? this.toggleOpened : this.toggleClosed}</span>
           </span>
         </summary>
-        <div class="mg-details__details">
+        <div class="mg-c-details__details">
           <slot name="details"></slot>
         </div>
       </details>

@@ -8,8 +8,8 @@ exports[`mg-popover Should render with element 1`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -18,8 +18,8 @@ exports[`mg-popover Should render with element 1`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -45,8 +45,8 @@ exports[`mg-popover Should render with element 2`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -55,8 +55,8 @@ exports[`mg-popover Should render with element 2`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="top" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -82,8 +82,8 @@ exports[`mg-popover Should render with element 3`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -92,8 +92,8 @@ exports[`mg-popover Should render with element 3`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -119,8 +119,8 @@ exports[`mg-popover Should render with element 4`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -129,18 +129,18 @@ exports[`mg-popover Should render with element 4`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
+      <mg-card class="mg-c-popover-content">
         <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
           <mock:shadow-root>
-            <div class="mg-button mg-button--flat mg-button--icon">
-              <div class="mg-button__content">
+            <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+              <div class="mg-c-button__content">
                 <slot></slot>
               </div>
             </div>
           </mock:shadow-root>
           <mg-icon icon="cross"></mg-icon>
         </mg-button>
-        <div class="mg-popover-content__title">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -166,8 +166,8 @@ exports[`mg-popover Should render with element 5`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -176,8 +176,8 @@ exports[`mg-popover Should render with element 5`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -203,8 +203,8 @@ exports[`mg-popover Should render with element 6`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -213,18 +213,18 @@ exports[`mg-popover Should render with element 6`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
+      <mg-card class="mg-c-popover-content">
         <mg-button aria-label="Fermer" is-icon="" role="button" tabindex="0">
           <mock:shadow-root>
-            <div class="mg-button mg-button--flat mg-button--icon">
-              <div class="mg-button__content">
+            <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+              <div class="mg-c-button__content">
                 <slot></slot>
               </div>
             </div>
           </mock:shadow-root>
           <mg-icon icon="cross"></mg-icon>
         </mg-button>
-        <div class="mg-popover-content__title">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -250,8 +250,8 @@ exports[`mg-popover Should render with element 7`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -260,18 +260,18 @@ exports[`mg-popover Should render with element 7`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
+      <mg-card class="mg-c-popover-content">
         <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
           <mock:shadow-root>
-            <div class="mg-button mg-button--flat mg-button--icon">
-              <div class="mg-button__content">
+            <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+              <div class="mg-c-button__content">
                 <slot></slot>
               </div>
             </div>
           </mock:shadow-root>
           <mg-icon icon="cross"></mg-icon>
         </mg-button>
-        <div class="mg-popover-content__title">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -297,8 +297,8 @@ exports[`mg-popover Should render with element 8`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -307,8 +307,8 @@ exports[`mg-popover Should render with element 8`] = `
   </mg-button>
   <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -334,8 +334,8 @@ exports[`mg-popover should update mg-popover-content id when identifier is updat
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -344,8 +344,8 @@ exports[`mg-popover should update mg-popover-content id when identifier is updat
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -371,8 +371,8 @@ exports[`mg-popover should update mg-popover-content id when identifier is updat
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -381,8 +381,8 @@ exports[`mg-popover should update mg-popover-content id when identifier is updat
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="new-identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -408,8 +408,8 @@ exports[`mg-popover should update popper instance when slot %s update 1`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -418,8 +418,8 @@ exports[`mg-popover should update popper instance when slot %s update 1`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
@@ -445,8 +445,8 @@ exports[`mg-popover should update popper instance when slot %s update 2`] = `
   </mock:shadow-root>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -455,8 +455,8 @@ exports[`mg-popover should update popper instance when slot %s update 2`] = `
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
     <mock:shadow-root>
-      <mg-card class="mg-popover-content">
-        <div class="mg-popover-content__title">
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>

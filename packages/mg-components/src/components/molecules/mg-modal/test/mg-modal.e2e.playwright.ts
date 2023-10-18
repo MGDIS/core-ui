@@ -15,7 +15,7 @@ describe('mg-modal', () => {
     ])('Should render %s', async (page: PageType, args: MgModalType) => {
       await setPageContent(page, createHTML(args, slots));
 
-      await expect(page.locator(args.hide ? 'body' : '.mg-modal')).toHaveScreenshot();
+      await expect(page.locator(args.hide ? 'body' : '.mg-c-modal')).toHaveScreenshot();
     });
   });
 
@@ -36,7 +36,7 @@ describe('mg-modal', () => {
         `,
       );
 
-      await expect(page.locator('.mg-modal')).toHaveScreenshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
     });
   });
 
@@ -49,10 +49,10 @@ describe('mg-modal', () => {
       // open modal
       await page.locator('#modal-button').click();
 
-      await expect(page.locator('.mg-modal')).toHaveScreenshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
       // close modal
-      await page.locator('.mg-modal mg-button').click();
+      await page.locator('.mg-c-modal mg-button').click();
 
       await expect(page.locator('body')).toHaveScreenshot();
     });
@@ -64,14 +64,14 @@ describe('mg-modal', () => {
       // open modal
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
-      await expect(page.locator('.mg-modal')).toHaveScreenshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
       // loop in modal
       await page.keyboard.press('Tab');
-      await expect(page.locator('.mg-modal')).toHaveScreenshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
       await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
-      await expect(page.locator('.mg-modal')).toHaveScreenshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
       // close modal
       await page.keyboard.press('Enter');

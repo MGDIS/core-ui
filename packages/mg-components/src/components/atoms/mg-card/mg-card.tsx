@@ -13,7 +13,7 @@ export class MgCard {
    *************/
 
   private readonly name = 'mg-card';
-  private readonly baseClass = this.name;
+  private readonly classBase = 'mg-c-card';
 
   /*************
    * Decorators *
@@ -28,9 +28,9 @@ export class MgCard {
     if (newValue && !variants.includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
     if (Boolean(newValue)) {
       this.setDefaultVariantStyle();
-      this.classCollection.add(`${this.baseClass}--${newValue}`);
+      this.classCollection.add(`${this.classBase}--${newValue}`);
     }
-    if (Boolean(oldValue)) this.classCollection.delete(`${this.baseClass}--${oldValue}`);
+    if (Boolean(oldValue)) this.classCollection.delete(`${this.classBase}--${oldValue}`);
   }
 
   /**
@@ -42,14 +42,14 @@ export class MgCard {
     if (newValue && !variantStyles.includes(newValue)) throw new Error(`<${this.name}> prop "variantStyle" must match VariantStyleType type.`);
     else if (Boolean(newValue) && !variants.includes(this.variant))
       throw new Error(`<${this.name}> prop "variantStyle" must be paired with ${JSON.stringify(variants)} "variant" prop.`);
-    if (Boolean(newValue)) this.classCollection.add(`${this.baseClass}--${newValue}`);
-    if (Boolean(oldValue)) this.classCollection.delete(`${this.baseClass}--${oldValue}`);
+    if (Boolean(newValue)) this.classCollection.add(`${this.classBase}--${newValue}`);
+    if (Boolean(oldValue)) this.classCollection.delete(`${this.classBase}--${oldValue}`);
   }
 
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList([this.baseClass]);
+  @State() classCollection: ClassList = new ClassList([this.classBase]);
 
   /**
    * Methode to set default varianStyle props
@@ -78,7 +78,7 @@ export class MgCard {
   render(): HTMLElement {
     return (
       <div class={this.classCollection.join()}>
-        {this.variantStyle?.startsWith('bar-') && <span class="mg-card__bar"></span>}
+        {this.variantStyle?.startsWith('bar-') && <span class="mg-c-card__bar"></span>}
         <slot></slot>
       </div>
     );

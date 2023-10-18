@@ -292,7 +292,7 @@ describe('mg-form', () => {
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
       ],
-      message: 'Field with a <strong class="is-asterisk">*</strong> is required',
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
     },
     {
       slot: () => [
@@ -310,7 +310,7 @@ describe('mg-form', () => {
           <span slot="item-2">oui</span>
         </mg-input-toggle>,
       ],
-      message: 'Field with a <strong class="is-asterisk">*</strong> is required',
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
     },
     {
       slot: () => [
@@ -336,7 +336,7 @@ describe('mg-form', () => {
         <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
         <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
       ],
-      message: 'Fields with a <strong class="is-asterisk">*</strong> are required',
+      message: 'Fields with a <strong class="mg-u-is-asterisk">*</strong> are required',
     },
     {
       slot: () => [
@@ -353,7 +353,7 @@ describe('mg-form', () => {
           <span slot="item-2">oui</span>
         </mg-input-toggle>,
       ],
-      message: 'Field with a <strong class="is-asterisk">*</strong> is required',
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
     },
   ])('Should display needeed required message', async ({ slot, message }) => {
     const page = await getPage({ identifier: 'identifier' }, slot());

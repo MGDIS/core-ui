@@ -71,7 +71,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -96,8 +96,8 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-mg-button">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-mg-button">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -166,7 +166,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -191,8 +191,8 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-mg-button">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-mg-button">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -261,7 +261,7 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -286,8 +286,8 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-mg-button">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-mg-button">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -459,11 +459,11 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -491,8 +491,8 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 2`] = `
   </mock:shadow-root>
   <mg-button aria-disabled="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -762,7 +762,7 @@ exports[`mg-tooltip render Should render with tooltip 13`] = `
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -787,7 +787,7 @@ exports[`mg-tooltip render Should render with tooltip 14`] = `
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -812,7 +812,7 @@ exports[`mg-tooltip render Should render with tooltip 15`] = `
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -837,7 +837,7 @@ exports[`mg-tooltip render Should render with tooltip 16`] = `
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -862,7 +862,7 @@ exports[`mg-tooltip render Should render with tooltip 17`] = `
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier" role="button">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -887,7 +887,7 @@ exports[`mg-tooltip render Should render with tooltip 18`] = `
   </mock:shadow-root>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <svg aria-hidden="true" class="mg-icon mg-icon--check-circle mg-icon--size-regular" focusable="false" viewBox="0 0 16 16">
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" focusable="false" viewBox="0 0 16 16">
         <path d="M15.33 8A7.33 7.33 0 1 1 8 .67 7.33 7.33 0 0 1 15.33 8Zm-8.18 3.88 5.44-5.44a.46.46 0 0 0 0-.65l-.67-.67a.48.48 0 0 0-.67 0L6.82 9.54 4.75 7.47a.46.46 0 0 0-.65 0l-.67.67a.46.46 0 0 0 0 .65l3.07 3.07a.46.46 0 0 0 .65 0Z" fill="currentColor"></path>
       </svg>
     </mock:shadow-root>
@@ -912,8 +912,8 @@ exports[`mg-tooltip render Should render with tooltip 19`] = `
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -940,8 +940,8 @@ exports[`mg-tooltip render Should render with tooltip 20`] = `
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -968,8 +968,8 @@ exports[`mg-tooltip render Should render with tooltip 21`] = `
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -996,8 +996,8 @@ exports[`mg-tooltip render Should render with tooltip 22`] = `
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -1024,8 +1024,8 @@ exports[`mg-tooltip render Should render with tooltip 23`] = `
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -1052,8 +1052,8 @@ exports[`mg-tooltip render Should render with tooltip 24`] = `
   </mock:shadow-root>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
@@ -1078,11 +1078,11 @@ exports[`mg-tooltip render Should render with tooltip 25`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1108,11 +1108,11 @@ exports[`mg-tooltip render Should render with tooltip 26`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1138,11 +1138,11 @@ exports[`mg-tooltip render Should render with tooltip 27`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1168,11 +1168,11 @@ exports[`mg-tooltip render Should render with tooltip 28`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1198,11 +1198,11 @@ exports[`mg-tooltip render Should render with tooltip 29`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1228,11 +1228,11 @@ exports[`mg-tooltip render Should render with tooltip 30`] = `
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1258,11 +1258,11 @@ exports[`mg-tooltip should update mg-popover-content id when "identifier" is upd
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
@@ -1288,11 +1288,11 @@ exports[`mg-tooltip should update mg-popover-content id when "identifier" is upd
     <slot></slot>
     <slot name="content"></slot>
   </mock:shadow-root>
-  <div aria-describedby="identifier" class="mg-tooltip__mg-button-wrapper">
+  <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
       <mock:shadow-root>
-        <div class="mg-button mg-button--disabled mg-button--primary" id="identifier">
-          <div class="mg-button__content">
+        <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
