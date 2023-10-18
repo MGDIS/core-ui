@@ -98,7 +98,7 @@ describe('mg-input-checkbox', () => {
       { ...baseArgs, type, labelHide: true },
       { ...baseArgs, type, helpText: 'HelpText Message' },
     ])('Should render without tooltip %s', async (page: PageType, args) => {
-      await setPageContent(page, createHTML(args));
+      await setPageContent(page, createHTML(args), type === 'multi' ? { width: 300, height: 200 } : undefined);
 
       await page.waitForSelector('mg-input-checkbox.hydrated');
 
@@ -108,7 +108,6 @@ describe('mg-input-checkbox', () => {
       if (type === 'multi') {
         // wait few seconds to insure to have the interactive element rendered
         await waitForInteractiveElement(page, type);
-        await updateScreenshotClass(page, { width: '300px', height: '200px' });
         await page.keyboard.down('Tab');
         await page.keyboard.down('Enter');
         await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
@@ -116,7 +115,7 @@ describe('mg-input-checkbox', () => {
 
       await page.keyboard.down('Tab');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
 
       await page.locator('mg-input-checkbox .mg-c-input__input-group:first-of-type input').press('Space');
 
@@ -129,14 +128,14 @@ describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(4) input').press('Space');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
     });
 
     testEach([
       { ...baseArgs, helpText: 'HelpText Message', required: true, type },
       { ...baseArgs, helpText: "Message d'aide", lang: 'fr', required: true, type },
     ])('Should render error when leaving an empty required input %s', async (page: PageType, args) => {
-      await setPageContent(page, createHTML(args));
+      await setPageContent(page, createHTML(args), type === 'multi' ? { width: 390, height: 200 } : undefined);
 
       await page.waitForSelector('mg-input-checkbox.hydrated');
 
@@ -144,7 +143,6 @@ describe('mg-input-checkbox', () => {
       if (type === 'multi') {
         // wait few seconds to insure to have the interactive element rendered
         await waitForInteractiveElement(page, type);
-        await updateScreenshotClass(page, { width: '300px', height: '200px' });
         await page.keyboard.down('Tab');
         await page.keyboard.down('Enter');
         await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
@@ -159,8 +157,6 @@ describe('mg-input-checkbox', () => {
       if (type === 'multi') {
         await page.keyboard.down('Escape');
       }
-
-      await updateScreenshotClass(page, { width: 'unset', height: 'unset' });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -213,7 +209,7 @@ describe('mg-input-checkbox', () => {
     ])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, args: object) => {
       await setPageContent(page, createHTML({ ...baseArgs, ...args, type: 'multi', displaySelectedValues: true }));
 
-      await page.waitForSelector('mg-input-checkbox.hydrated');
+      await page.locator('mg-input-checkbox.hydrated').waitFor({ timeout: TIMEOUT });
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
@@ -223,7 +219,7 @@ describe('mg-input-checkbox', () => {
     testEach([false, true])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, displaySelectedValues) => {
       await setPageContent(page, createHTML({ ...baseArgs, type: 'multi', value: selectedValues, displaySelectedValues }));
 
-      await page.waitForSelector('mg-input-checkbox.hydrated');
+      await page.locator('mg-input-checkbox.hydrated').waitFor({ timeout: TIMEOUT });
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
@@ -238,14 +234,12 @@ describe('mg-input-checkbox', () => {
         title: index === 9 ? `my super long title item ${item} is very super long and finaly it could not be shorter so what can I do with it` : `${item}`,
         value: false,
       }));
-      await setPageContent(page, createHTML({ ...baseArgs, value }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }), { width: 450, height: 470 });
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      await updateScreenshotClass(page, { width: '450px', height: '470px' });
 
       // open popover
       await page.keyboard.down('Tab');
@@ -253,17 +247,17 @@ describe('mg-input-checkbox', () => {
 
       await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // take focus in search input
       await page.keyboard.down('Tab');
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // got to navigation after 10th input
       for (const index of value.map((_item, index) => index)) {
         if (index < 10) await page.keyboard.down('Tab');
       }
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // use navigatio to go to last page
       await page.keyboard.down('Tab');
@@ -272,16 +266,16 @@ describe('mg-input-checkbox', () => {
       await page.keyboard.down('Enter');
       await page.keyboard.down('Enter');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       await page.getByPlaceholder(/value/).fill('2');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // update search with an unmatchable value
       await page.getByPlaceholder(/value/).fill('batman');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // close popover
       await page.keyboard.down('Escape');
@@ -294,21 +288,19 @@ describe('mg-input-checkbox', () => {
         title: `item ${item}`,
         value: [5, 12, 13, 17].some(item => item === index),
       }));
-      await setPageContent(page, createHTML({ ...baseArgs, value }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }), { width: 450, height: 570 });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
-      await updateScreenshotClass(page, { width: '450px', height: '570px' });
-
       // open popover
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
       await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
     });
 
     test('Should render "multi" with 2 sections and a closed selected section', async ({ page }) => {
@@ -316,14 +308,12 @@ describe('mg-input-checkbox', () => {
         title: `item ${item}`,
         value: [5, 12, 13, 17].some(item => item === index),
       }));
-      await setPageContent(page, createHTML({ ...baseArgs, value }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }), { width: 450, height: 570 });
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      await updateScreenshotClass(page, { width: '450px', height: '570px' });
 
       // open popover
       await page.keyboard.down('Tab');
@@ -335,7 +325,7 @@ describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
     });
   });
 });
