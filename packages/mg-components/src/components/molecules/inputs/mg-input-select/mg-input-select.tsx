@@ -3,7 +3,7 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 
@@ -280,7 +280,7 @@ export class MgInputSelect {
   async setError(valid: MgInputSelect['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean');
-    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+    } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);

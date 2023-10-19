@@ -2,6 +2,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { SkipLink } from './mg-skip-links.conf';
 import { initLocales } from '../../../locales';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-skip-links',
@@ -30,11 +31,7 @@ export class MgSkipLinks {
   @Prop() links: SkipLink[];
   @Watch('links')
   validateLinks(links: SkipLink[]): void {
-    if (
-      links === undefined ||
-      links.length === 0 ||
-      links.some(link => link.href === undefined || !link.href.startsWith('#') || link.label === undefined || link.label.trim() === '')
-    ) {
+    if (links === undefined || links.length === 0 || links.some(link => !isValidString(link.href) || !link.href.startsWith('#') || !isValidString(link.label))) {
       throw new Error(`<mg-skip-links> prop "links": Cannot be empty and each link must contains an href starting with a "#" and a non empty label attributes.`);
     }
   }

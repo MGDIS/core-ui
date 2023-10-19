@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
 
@@ -199,7 +199,7 @@ export class MgInputRadio {
   async setError(valid: MgInputRadio['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-radio> method "setError()" param "valid" must be a boolean');
-    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+    } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-radio> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);

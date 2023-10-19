@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SearchValueType, SectionKind, MgInputCheckboxListProps } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
@@ -270,7 +270,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   async setError(valid: MgInputCheckbox['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean');
-    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+    } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);
