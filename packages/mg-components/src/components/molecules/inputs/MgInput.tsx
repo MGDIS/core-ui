@@ -34,18 +34,18 @@ const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>
  * @param props - MgInput Interface Props
  */
 const manageClasses = (props: MgInputProps): void => {
-  props.classCollection.add('mg-input');
+  props.classCollection.add('mg-c-input');
 
-  if (props.labelOnTop) props.classCollection.add('mg-input--label-on-top');
-  else props.classCollection.delete('mg-input--label-on-top');
+  if (props.labelOnTop) props.classCollection.add('mg-c-input--label-on-top');
+  else props.classCollection.delete('mg-c-input--label-on-top');
 
-  if (props.readonly) props.classCollection.add('mg-input--readonly');
-  else props.classCollection.delete('mg-input--readonly');
+  if (props.readonly) props.classCollection.add('mg-c-input--readonly');
+  else props.classCollection.delete('mg-c-input--readonly');
 
   widths.forEach(width => {
-    props.classCollection.delete(`mg-input--width-${width}`);
+    props.classCollection.delete(`mg-c-input--width-${width}`);
   });
-  if (props.mgWidth !== undefined) props.classCollection.add(`mg-input--width-${props.mgWidth}`);
+  if (props.mgWidth !== undefined) props.classCollection.add(`mg-c-input--width-${props.mgWidth}`);
 };
 
 /**
@@ -179,7 +179,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   return (
     <TagName class={props.classCollection.join()}>
       {props.labelOnTop ? (
-        <div class="mg-input__title">
+        <div class="mg-c-input__title">
           {getInputTitle()}
           {!props.readonly && props.tooltip && getTooltip()}
         </div>
@@ -187,19 +187,19 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
         getInputTitle()
       )}
       {props.readonly ? (
-        <div class="mg-input__input-container">
+        <div class="mg-c-input__input-container">
           <strong>{props.readonlyValue}</strong>
           {children.filter(child => Object.values(child).includes('append-input'))}
         </div>
       ) : (
-        <div class="mg-input__input-container">
-          <div class={{ 'mg-input__input': true, 'mg-input__input--has-error': props.errorMessage !== undefined }}>
+        <div class="mg-c-input__input-container">
+          <div class={{ 'mg-c-input__input': true, 'mg-c-input__input--has-error': props.errorMessage !== undefined }}>
             {applyAriadescribedBy(children, ariaDescribedbyIDs, utils)}
             {!props.labelOnTop && props.tooltip && getTooltip()}
           </div>
-          {props.helpText && <div id={helpTextId} class="mg-input__help-text" innerHTML={props.helpText}></div>}
+          {props.helpText && <div id={helpTextId} class="mg-c-input__help-text" innerHTML={props.helpText}></div>}
           {props.errorMessage && !props.readonly && !props.disabled && (
-            <div id={helpTextErrorId} class="mg-input__error" innerHTML={props.errorMessage} aria-live="assertive"></div>
+            <div id={helpTextErrorId} class="mg-c-input__error" innerHTML={props.errorMessage} aria-live="assertive"></div>
           )}
         </div>
       )}

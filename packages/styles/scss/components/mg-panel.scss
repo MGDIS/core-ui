@@ -11,7 +11,7 @@ $spacer-small: 0.3rem;
   --mg-card-box-shadow: var(--mg-panel-box-shadow);
 }
 
-.mg-panel {
+.mg-c-panel {
   &__header {
     $padding-value: 0 $spacer-default 0 $spacer-small;
 
@@ -21,7 +21,7 @@ $spacer-small: 0.3rem;
     justify-content: space-between;
     padding: $padding-value;
 
-    &.mg-panel__header--reverse {
+    &.mg-c-panel__header--reverse {
       padding-right: $spacer-small;
       padding-left: $spacer-default;
     }
@@ -50,7 +50,7 @@ $spacer-small: 0.3rem;
       margin-left: $spacer-small;
     }
 
-    &.mg-panel__header-title--full {
+    &.mg-c-panel__header-title--full {
       flex: 1 1 auto;
     }
   }
@@ -61,7 +61,7 @@ $spacer-small: 0.3rem;
       --mg-button-font-weight: 600;
     }
 
-    &-icon.mg-panel__collapse-button-icon--reverse {
+    &-icon.mg-c-panel__collapse-button-icon--reverse {
       transform: rotate(180deg);
     }
   }

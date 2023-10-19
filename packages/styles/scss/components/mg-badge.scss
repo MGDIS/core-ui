@@ -5,12 +5,12 @@ $mg-badge-border-width: 0.1rem;
 
 /* Mixins */
 @mixin badge-variant($name, $backgroundColor, $color) {
-  &.mg-badge--#{$name} {
+  &.mg-c-badge--#{$name} {
     @if $name == 'text-color' {
       border-color: currentcolor;
       background-color: currentcolor;
 
-      .mg-badge__value {
+      .mg-c-badge__value {
         color: hsl(var(--mg-badge-text-color, var(--color-light)));
       }
     } @else {
@@ -19,11 +19,11 @@ $mg-badge-border-width: 0.1rem;
       color: hsl(var(--color-#{$color}));
     }
 
-    &.mg-badge--outline {
+    &.mg-c-badge--outline {
       background-color: transparent;
 
       @if $name == 'text-color' {
-        .mg-badge__value {
+        .mg-c-badge__value {
           color: currentcolor;
         }
       } @else {
@@ -34,7 +34,7 @@ $mg-badge-border-width: 0.1rem;
 }
 
 /* Styles */
-.mg-badge {
+.mg-c-badge {
   min-width: var(--mg-badge-size);
   height: var(--mg-badge-size);
   box-sizing: border-box;
@@ -56,7 +56,7 @@ $mg-badge-border-width: 0.1rem;
   @include badge-variant('text-color', none, 'light');
 }
 
-.mg-badge,
+.mg-c-badge,
 mg-badge {
   display: inline-flex;
   align-items: center;

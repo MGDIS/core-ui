@@ -27,12 +27,12 @@ $navigation-button-sizes: (
     // Building level from 1 to 6
     @for $i from 1 through 6 {
       :host([data-style-direction-vertical][data-level='#{$i}']) {
-        .mg-menu-item__navigation-button.mg-menu-item__navigation-button--size-#{$name} {
+        .mg-c-menu-item__navigation-button.mg-c-menu-item__navigation-button--size-#{$name} {
           padding-left: calc(#{$i} * #{map.get($size, 'horizontal')} - 0.3rem);
         }
       }
       :host([data-level='#{$i}']) {
-        .mg-menu-item__collapse-container {
+        .mg-c-menu-item__collapse-container {
           z-index: calc(#{$i} * 10);
         }
       }
@@ -40,10 +40,10 @@ $navigation-button-sizes: (
   }
 }
 
-@include navigation-button('mg-menu-item', $navigation-button-sizes);
+@include navigation-button('mg-c-menu-item', 'mg-menu-item', $navigation-button-sizes);
 @include level($navigation-button-sizes);
 
-.mg-menu-item {
+.mg-c-menu-item {
   max-width: var(--mg-menu-item-navigation-button-max-width);
 
   &__collapse-container {
@@ -71,7 +71,7 @@ $navigation-button-sizes: (
     &-chevron {
       margin-left: auto;
 
-      @include rotate('.mg-menu-item__navigation-button-chevron', 200ms);
+      @include rotate('.mg-c-menu-item__navigation-button-chevron', 200ms);
     }
   }
 }
@@ -89,7 +89,7 @@ $navigation-button-sizes: (
 :host([data-style-direction-vertical]) {
   flex-direction: column;
 
-  .mg-menu-item {
+  .mg-c-menu-item {
     &__navigation-button {
       width: 100%;
     }
@@ -111,7 +111,7 @@ $navigation-button-sizes: (
 :host([data-overflow-more]) {
   --mg-menu-item-navigation-button-column-gap: 0;
 
-  .mg-menu-item__navigation-button {
+  .mg-c-menu-item__navigation-button {
     &-chevron {
       display: none;
     }
@@ -129,7 +129,7 @@ $navigation-button-sizes: (
 // horizontal item style
 :host([data-style-direction-horizontal]),
 :host([data-overflow-more]) {
-  .mg-menu-item__collapse-container.mg-menu-item__collapse-container--first-level {
+  .mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
     background-color: hsl(var(--color-light));
 
     ::slotted(mg-menu) {

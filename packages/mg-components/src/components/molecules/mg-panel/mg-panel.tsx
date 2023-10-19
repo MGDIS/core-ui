@@ -100,7 +100,7 @@ export class MgPanel {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-panel']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-panel']);
 
   /**
    * Title is in edition mode
@@ -221,8 +221,8 @@ export class MgPanel {
       isIcon={this.expandToggleDisplay === 'icon'}
       label={this.panelTitle}
     >
-      <span class="mg-panel__collapse-button-content">
-        <mg-icon icon="chevron-up" class={{ 'mg-panel__collapse-button-icon': true, 'mg-panel__collapse-button-icon--reverse': !this.expanded }}></mg-icon>
+      <span class="mg-c-panel__collapse-button-content">
+        <mg-icon icon="chevron-up" class={{ 'mg-c-panel__collapse-button-icon': true, 'mg-c-panel__collapse-button-icon--reverse': !this.expanded }}></mg-icon>
         {!this.isEditing && this.expandToggleDisplay !== 'icon' && this.panelTitle}
       </span>
     </mg-button>
@@ -299,12 +299,12 @@ export class MgPanel {
   private renderHeaderChildren = (): HTMLElement[] => {
     const children = [
       <div
-        class={{ 'mg-panel__header-title': true, 'mg-panel__header-title--full': this.isEditing, 'mg-panel__header-title--reverse': this.titlePosition === 'right' }}
+        class={{ 'mg-c-panel__header-title': true, 'mg-c-panel__header-title--full': this.isEditing, 'mg-c-panel__header-title--reverse': this.titlePosition === 'right' }}
         key={this.panelTitle}
       >
         {this.renderTitle()}
       </div>,
-      <div class="mg-panel__header-content" key="slot-header">
+      <div class="mg-c-panel__header-content" key="slot-header">
         <slot name="header-right"></slot>
       </div>,
     ];
@@ -320,10 +320,10 @@ export class MgPanel {
     return (
       <section class={this.classCollection.join()} id={this.identifier}>
         <mg-card>
-          <header class={{ 'mg-panel__header': true, 'mg-panel__header--reverse': this.titlePosition === 'right' }} id={headerId}>
+          <header class={{ 'mg-c-panel__header': true, 'mg-c-panel__header--reverse': this.titlePosition === 'right' }} id={headerId}>
             {this.renderHeaderChildren()}
           </header>
-          <article class="mg-panel__content" id={`${this.identifier}-content`} aria-labelledby={headerId} hidden={!this.expanded}>
+          <article class="mg-c-panel__content" id={`${this.identifier}-content`} aria-labelledby={headerId} hidden={!this.expanded}>
             <slot></slot>
           </article>
         </mg-card>

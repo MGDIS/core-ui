@@ -5,21 +5,21 @@
 @import '../utils/a11y';
 
 /* Component Custom Style */
-.mg-input {
-  .mg-input__box {
+.mg-c-input {
+  &__box {
     display: block;
     height: auto;
     resize: none;
 
-    &.mg-input__box--resizable {
+    &.mg-c-input__box--resizable {
       resize: both;
     }
 
-    &.mg-input__box--resizable-horizontal {
+    &.mg-c-input__box--resizable-horizontal {
       resize: horizontal;
     }
 
-    &.mg-input__box--resizable-vertical {
+    &.mg-c-input__box--resizable-vertical {
       resize: vertical;
     }
   }
@@ -29,7 +29,7 @@
   * Character left
   */
 
-.mg-input__with-character-left {
+.mg-c-input__with-character-left {
   width: 100%;
 
   mg-character-left {
@@ -38,7 +38,7 @@
     text-align: end;
     visibility: hidden;
 
-    .mg-input.is-focused & {
+    .mg-c-input.mg-u-is-focused & {
       visibility: visible;
     }
   }
@@ -46,7 +46,7 @@
 
 /* Firefox selector */
 @-moz-document url-prefix() {
-  .mg-input__box {
+  .mg-c-input__box {
     overflow-x: hidden; // remove Firefox bottom "phantom scrollbar" in textarea
   }
 }

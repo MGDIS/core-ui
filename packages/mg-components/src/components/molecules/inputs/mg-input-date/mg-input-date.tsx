@@ -145,7 +145,7 @@ export class MgInputDate {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--date']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--date']);
 
   /**
    * Error message to display
@@ -335,7 +335,7 @@ export class MgInputDate {
       >
         <input
           type="date"
-          class="mg-input__box"
+          class="mg-c-input__box"
           min={this.min}
           max={this.max}
           value={this.value}

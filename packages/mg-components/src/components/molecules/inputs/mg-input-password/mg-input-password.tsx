@@ -129,7 +129,7 @@ export class MgInputPassword {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--password']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--password']);
 
   /**
    * Error message to display
@@ -276,7 +276,7 @@ export class MgInputPassword {
       >
         <input
           type="password"
-          class="mg-input__box"
+          class="mg-c-input__box"
           value={this.value}
           id={this.identifier}
           name={this.name}

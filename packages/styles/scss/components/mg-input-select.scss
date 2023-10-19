@@ -3,13 +3,13 @@
 @import 'mg-input-width';
 @import '../utils/a11y';
 
-.mg-input__box {
+.mg-c-input__box {
   width: 100%;
   padding-top: 0;
   padding-right: 1rem;
   padding-bottom: 0;
 }
 
-:host(:not([mg-width])) .mg-input--select:not(.mg-input--label-on-top) .mg-input__box {
+:host(:not([mg-width])) .mg-c-input--select:not(.mg-c-input--label-on-top) .mg-c-input__box {
   max-width: unset;
 }

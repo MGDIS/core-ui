@@ -23,8 +23,8 @@ export class MgDivider {
     return (
       <div
         class={{
-          'mg-divider': true,
-          'mg-divider--full': this.size === 'full',
+          'mg-c-divider': true,
+          'mg-c-divider--full': this.size === 'full',
         }}
       ></div>
     );

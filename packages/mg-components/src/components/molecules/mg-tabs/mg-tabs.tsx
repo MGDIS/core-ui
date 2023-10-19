@@ -21,7 +21,7 @@ export class MgTabs {
 
   // classes
   private readonly tabPanel = 'panel';
-  private readonly buttonTabBaseClass = 'mg-tabs__navigation-button';
+  private readonly buttonTabBaseClass = 'mg-c-tabs__navigation-button';
 
   // variables
   private tabFocus: number;
@@ -63,7 +63,7 @@ export class MgTabs {
     if (!sizes.includes(newValue)) {
       throw new Error(`<mg-tabs> prop "size" must be one of: ${sizes.join(', ')}`);
     }
-    this.classCollection.add(`mg-tabs--size-${this.size}`);
+    this.classCollection.add(`mg-c-tabs--size-${this.size}`);
   }
 
   /**
@@ -115,7 +115,7 @@ export class MgTabs {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-tabs']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-tabs']);
 
   /**
    * Emited event when active tab change
@@ -266,7 +266,7 @@ export class MgTabs {
   render(): HTMLElement {
     return (
       <div class={this.classCollection.join()}>
-        <header role="tablist" aria-label={this.label} class="mg-tabs__header">
+        <header role="tablist" aria-label={this.label} class="mg-c-tabs__header">
           {this.tabs.map((tab, index) => (
             <button
               key={tab.label}
@@ -301,7 +301,7 @@ export class MgTabs {
             hidden={!this.tabHasStatus(tab, Status.ACTIVE)}
             aria-labelledby={this.getElementId(this.identifier, index)}
             tabindex={this.tabHasStatus(tab, Status.ACTIVE) ? 0 : -1}
-            class="mg-tabs__content-container"
+            class="mg-c-tabs__content-container"
           >
             <slot name={this.getElementId('tab_content', index)}></slot>
           </article>

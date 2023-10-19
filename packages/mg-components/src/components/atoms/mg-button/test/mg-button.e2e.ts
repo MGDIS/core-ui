@@ -92,7 +92,7 @@ describe('mg-button', () => {
       // Remove spinner annimation for screenshot
       await page.$eval('mg-button', elm => {
         const svg = elm.shadowRoot.querySelector('mg-icon').shadowRoot.querySelector('svg');
-        svg.classList.remove('mg-icon--spin');
+        svg.classList.remove('mg-c-icon--spin');
       });
       await page.waitForChanges();
 
@@ -103,9 +103,9 @@ describe('mg-button', () => {
 
   test('should render a link like a button', async () => {
     const links = [
-      '<a href="#" class="mg-button mg-button--primary">a.mg-button</a>',
-      '<a href="#" class="mg-button mg-button--primary"><mg-icon icon="check-circle"></mg-icon>a.mg-button w/ icon</a>',
-      '<a href="#" class="mg-button mg-button--primary mg-button--icon"><mg-icon icon="check-circle"></mg-icon></a>',
+      '<a href="#" class="mg-c-button mg-c-button--primary">a.mg-button</a>',
+      '<a href="#" class="mg-c-button mg-c-button--primary"><mg-icon icon="check-circle"></mg-icon>a.mg-button w/ icon</a>',
+      '<a href="#" class="mg-c-button mg-c-button--primary mg-c-button--icon"><mg-icon icon="check-circle"></mg-icon></a>',
     ];
     const html = links.map(link => `<div>${link}</div>`).join('');
     const page = await createPage(`<link rel="stylesheet" href="http://localhost:3333/build/mg-components.css" />${html}`, { width: 200, height: links.length * buttonHeight });

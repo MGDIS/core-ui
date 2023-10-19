@@ -19,7 +19,7 @@ export class MgMenuItem {
    ************/
 
   private readonly name = 'mg-menu-item';
-  private readonly navigationButton = `${this.name}__navigation-button`;
+  private readonly navigationButton = 'mg-c-menu-item__navigation-button';
   private badgeLabel: string;
 
   /**************
@@ -385,7 +385,7 @@ export class MgMenuItem {
             <slot name="label"></slot>
             {!this.displayNotificationBadge && <slot name="information"></slot>}
             {this.displayNotificationBadge && (
-              <span class="mg-menu-item__navigation-button-text-content-notification">
+              <span class={`${this.navigationButton}-text-content-notification`}>
                 <mg-badge label={this.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
               </span>
             )}
@@ -397,7 +397,6 @@ export class MgMenuItem {
             class={{
               [`${this.navigationButton}-chevron`]: true,
               [`${this.navigationButton}-chevron--rotate`]: this.expanded === true,
-              'mg-a11y-animation': true,
             }}
           >
             <mg-icon icon="chevron-down" size="small"></mg-icon>
@@ -419,8 +418,8 @@ export class MgMenuItem {
    */
   render(): HTMLElement {
     const getContainerClasses = () => ({
-      [`${this.name}__collapse-container`]: true,
-      [`${this.name}__collapse-container--first-level`]: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container']: true,
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
     });
 
     return (

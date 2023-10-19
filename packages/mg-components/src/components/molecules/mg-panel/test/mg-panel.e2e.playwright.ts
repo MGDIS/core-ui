@@ -114,7 +114,7 @@ describe('mg-panel', () => {
 
       await expect(page.locator('mg-panel')).toHaveScreenshot();
 
-      await page.locator('.mg-panel__header-title mg-button:last-of-type').click();
+      await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
       // Hide caret for screenshots
       await page.locator('mg-panel input').evaluate(element => (element.style.caretColor = 'transparent'));
@@ -147,7 +147,7 @@ describe('mg-panel', () => {
 
       await setPageContent(page, createHTML(args));
 
-      await page.locator('.mg-panel__header-title mg-button:last-of-type').click();
+      await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
       // Hide caret for screenshots
       await page.locator('mg-panel input').evaluate(element => (element.style.caretColor = 'transparent'));

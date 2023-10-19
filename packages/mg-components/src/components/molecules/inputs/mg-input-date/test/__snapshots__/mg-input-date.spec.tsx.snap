@@ -9,13 +9,13 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--label-on-top mg-input--readonly">
-      <div class="mg-input__title">
+    <div class="mg-c-input mg-c-input--date mg-c-input--label-on-top mg-c-input--readonly">
+      <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
       </div>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong></strong>
       </div>
     </div>
@@ -31,11 +31,11 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--readonly">
+    <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong>
           6/2/2022
         </strong>
@@ -54,11 +54,11 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date lang="fr" value="2022-06-02">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--readonly">
+    <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong>
           02/06/2022
         </strong>
@@ -77,11 +77,11 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date lang="xx" value="2022-06-02">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--readonly">
+    <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong>
           6/2/2022
         </strong>
@@ -101,15 +101,15 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-input__box" disabled="" id="identifier" name="identifier" required="" type="date" value="2022-06-02">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="identifier-help-text" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="date" value="2022-06-02">
         </div>
-        <div class="mg-input__help-text" id="identifier-help-text">
+        <div class="mg-c-input__help-text" id="identifier-help-text">
           My help text
         </div>
       </div>
@@ -128,11 +128,11 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--readonly">
+    <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong>
           6/2/2022
         </strong>
@@ -151,15 +151,15 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-input__box" id="identifier" name="identifier" required="" type="date" value="2022-06-02">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date" value="2022-06-02">
         </div>
-        <div class="mg-input__help-text" id="identifier-help-text">
+        <div class="mg-c-input__help-text" id="identifier-help-text">
           My help text
         </div>
       </div>
@@ -175,13 +175,13 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="date">
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon icon="info-circle"></mg-icon>
           </mg-tooltip>
@@ -200,8 +200,8 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--label-on-top">
-      <div class="mg-input__title">
+    <div class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
+      <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
@@ -209,9 +209,9 @@ exports[`mg-input-date Should render with args {
           <mg-icon icon="info-circle"></mg-icon>
         </mg-tooltip>
       </div>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
       </div>
     </div>
@@ -222,13 +222,13 @@ exports[`mg-input-date Should render with args {
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier' }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
       </div>
     </div>
@@ -239,13 +239,13 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', labelHide: true }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
       </div>
     </div>
@@ -256,15 +256,15 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', labelOnTop: true }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--label-on-top">
-      <div class="mg-input__title">
+    <div class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
+      <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
       </div>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
       </div>
     </div>
@@ -275,11 +275,11 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', readonly: true }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--readonly">
+    <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong></strong>
       </div>
     </div>
@@ -290,15 +290,15 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should trigger events 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
-        <div class="mg-input__help-text" id="identifier-help-text">
+        <div class="mg-c-input__help-text" id="identifier-help-text">
           My help text
         </div>
       </div>
@@ -310,15 +310,15 @@ exports[`mg-input-date Should trigger events 1`] = `
 exports[`mg-input-date display error message with locale: fr 1`] = `
 <mg-input-date lang="fr">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input mg-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
-        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           Ce champ est obligatoire.
         </div>
       </div>
@@ -330,15 +330,15 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
 exports[`mg-input-date display error message with locale: xx 1`] = `
 <mg-input-date lang="xx">
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input mg-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
-        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
         </div>
       </div>
@@ -350,13 +350,13 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
 exports[`mg-input-date display error with displayError component's public method 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
       </div>
     </div>
@@ -367,15 +367,15 @@ exports[`mg-input-date display error with displayError component's public method
 exports[`mg-input-date display error with displayError component's public method 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input mg-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
-        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
         </div>
       </div>
@@ -387,13 +387,13 @@ exports[`mg-input-date display error with displayError component's public method
 exports[`mg-input-date should display override error with setError component's public method 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
       </div>
     </div>
@@ -404,13 +404,13 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date should display override error with setError component's public method 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
       </div>
     </div>
@@ -421,13 +421,13 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date should display override error with setError component's public method 3`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
       </div>
     </div>
@@ -438,15 +438,15 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date should display override error with setError component's public method 4`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier" required="">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input mg-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" required="" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
         </div>
-        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           Override error
         </div>
       </div>
@@ -458,15 +458,15 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date validity, case next state is disabled validity ({ validity: false, valueMissing: true, badInput: false }), valueMissing (%s), badInput (%s) 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input mg-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
-        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
         </div>
       </div>
@@ -478,13 +478,13 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
 exports[`mg-input-date validity, case next state is disabled validity ({ validity: false, valueMissing: true, badInput: false }), valueMissing (%s), badInput (%s) 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input">
-          <input aria-describedby="" class="mg-input__box" disabled="" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="date">
         </div>
       </div>
     </div>
@@ -495,15 +495,15 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
 exports[`mg-input-date validity, case next state is readonly validity ({ validity: false, valueMissing: true, badInput: false }), valueMissing (%s), badInput (%s) 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date">
+    <div class="mg-c-input mg-c-input--date">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
-        <div class="mg-input__input mg-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-input__box" id="identifier" name="identifier" type="date">
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="date">
         </div>
-        <div aria-live="assertive" class="mg-input__error" id="identifier-error">
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
         </div>
       </div>
@@ -515,11 +515,11 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
 exports[`mg-input-date validity, case next state is readonly validity ({ validity: false, valueMissing: true, badInput: false }), valueMissing (%s), badInput (%s) 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <div class="mg-input mg-input--date mg-input--readonly">
+    <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mg-input-title identifier="identifier">
         label
       </mg-input-title>
-      <div class="mg-input__input-container">
+      <div class="mg-c-input__input-container">
         <strong></strong>
       </div>
     </div>

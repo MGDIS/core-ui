@@ -155,7 +155,7 @@ export class MgInputRadio {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--radio']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--radio']);
 
   /**
    * Error message to display
@@ -312,9 +312,9 @@ export class MgInputRadio {
         errorMessage={this.errorMessage}
         isFieldset={true}
       >
-        <ul class={{ 'mg-input__input-group-container': true, 'mg-input__input-group-container--vertical': this.inputVerticalList }} role="list">
+        <ul class={{ 'mg-c-input__input-group-container': true, 'mg-c-input__input-group-container--vertical': this.inputVerticalList }} role="list">
           {this.options.map((input, index) => (
-            <li key={input.title} class={{ 'mg-input__input-group': true, 'mg-input__input-group--disabled': this.disabled || input.disabled }}>
+            <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
               <input
                 type="radio"
                 id={this.identifier + '_' + index}

@@ -12,7 +12,7 @@ export class MgBadge {
    ************/
 
   // Classes
-  private readonly classOutline = `mg-badge--outline`;
+  private readonly classOutline = `mg-c-badge--outline`;
 
   /**************
    * Decorators *
@@ -51,9 +51,9 @@ export class MgBadge {
       throw new Error(`<mg-badge> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
       if (oldValue !== undefined) {
-        this.classCollection.delete(`mg-badge--${oldValue}`);
+        this.classCollection.delete(`mg-c-badge--${oldValue}`);
       }
-      this.classCollection.add(`mg-badge--${newValue}`);
+      this.classCollection.add(`mg-c-badge--${newValue}`);
     }
   }
 
@@ -70,7 +70,7 @@ export class MgBadge {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-badge']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-badge']);
 
   /**
    * Check if props are well configured on init
@@ -89,7 +89,7 @@ export class MgBadge {
   render(): HTMLElement {
     return (
       <span class={this.classCollection.join()}>
-        <span class="mg-badge__value">{this.value}</span>
+        <span class="mg-c-badge__value">{this.value}</span>
         <span class="mg-u-visually-hidden">{this.label}</span>
       </span>
     );

@@ -15,8 +15,8 @@ export class MgInputTextarea {
    ************/
 
   // Classes
-  private classFocus = 'is-focused';
-  private classHasDisplayCharacterLeft = 'mg-input--has-display-character-left';
+  private classFocus = 'mg-u-is-focused';
+  private classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
 
   // IDs
   private characterLeftId;
@@ -182,7 +182,7 @@ export class MgInputTextarea {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--textarea']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--textarea']);
 
   /**
    * Error message to display
@@ -353,13 +353,13 @@ export class MgInputTextarea {
         errorMessage={this.errorMessage}
         isFieldset={false}
       >
-        <div class="mg-input__with-character-left">
+        <div class="mg-c-input__with-character-left">
           <textarea
             class={{
-              'mg-input__box': true,
-              'mg-input__box--resizable': this.resizable === 'both',
-              'mg-input__box--resizable-horizontal': this.resizable === 'horizontal',
-              'mg-input__box--resizable-vertical': this.resizable === 'vertical',
+              'mg-c-input__box': true,
+              'mg-c-input__box--resizable': this.resizable === 'both',
+              'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
+              'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
             }}
             value={this.value}
             id={this.identifier}

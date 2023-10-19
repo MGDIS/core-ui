@@ -59,7 +59,9 @@ export const MgMenuItemWhitMetadata = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: [<span slot="label">My label</span>, <span slot="metadata">My metadata</span>],
+    'data-overflow-more': true,
+    'data-size': 'medium',
+    'slot': [<span slot="label">My label</span>, <span slot="metadata">My metadata</span>],
   },
 };
 

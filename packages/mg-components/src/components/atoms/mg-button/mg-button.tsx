@@ -13,9 +13,9 @@ export class MgButton {
    ************/
 
   private onClickElementFn = null;
-  private readonly classDisabled = 'mg-button--disabled';
-  private readonly classLoading = 'mg-button--loading';
-  private readonly classFullWidth = 'mg-button--full-width';
+  private readonly classDisabled = 'mg-c-button--disabled';
+  private readonly classLoading = 'mg-c-button--loading';
+  private readonly classFullWidth = 'mg-c-button--full-width';
 
   /**************
    * Decorators *
@@ -36,9 +36,9 @@ export class MgButton {
       throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
       if (oldValue !== undefined) {
-        this.classCollection.delete(`mg-button--${oldValue}`);
+        this.classCollection.delete(`mg-c-button--${oldValue}`);
       }
-      this.classCollection.add(`mg-button--${newValue}`);
+      this.classCollection.add(`mg-c-button--${newValue}`);
     }
   }
 
@@ -134,7 +134,7 @@ export class MgButton {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-button']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-button']);
 
   /**
    * Emmited event when disabled change
@@ -185,7 +185,7 @@ export class MgButton {
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
     if (this.isIcon) {
-      this.classCollection.add(`mg-button--icon`);
+      this.classCollection.add(`mg-c-button--icon`);
       if (typeof this.label !== 'string' || this.label.trim() === '') {
         throw new Error(`<mg-button> prop "label" is mandatory when prop "isIcon" is set to true.`);
       }
@@ -215,7 +215,7 @@ export class MgButton {
       >
         <div class={this.classCollection.join()} id={this.identifier}>
           {this.loading && <mg-icon icon="loader" spin></mg-icon>}
-          <div class="mg-button__content">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>

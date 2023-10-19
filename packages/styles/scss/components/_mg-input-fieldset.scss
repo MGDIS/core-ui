@@ -3,7 +3,7 @@
  */
 
 /* input group container */
-.mg-input__input-group-container {
+.mg-c-input__input-group-container {
   display: flex;
   flex-wrap: wrap;
   padding: 0;
@@ -18,7 +18,7 @@
   }
 }
 
-fieldset.mg-input {
+fieldset.mg-c-input {
   padding: 0;
   border: 0;
   margin-right: 0;
@@ -32,17 +32,17 @@ fieldset.mg-input {
     margin: calc((var(--font-size) * var(--line-height) - var(--mg-input-check-size)) / 2) 0.6rem 0 0;
   }
 
-  &.mg-input--label-on-top .mg-input__input-group-container {
+  &.mg-c-input--label-on-top .mg-c-input__input-group-container {
     margin-top: 0.7rem;
   }
 }
 
-.mg-input__input-container mg-tooltip {
+.mg-c-input__input-container mg-tooltip {
   margin-left: 3rem;
 }
 
 /* input group */
-.mg-input__input-group {
+.mg-c-input__input-group {
   display: flex;
   align-items: start;
 }

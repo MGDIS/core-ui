@@ -10,20 +10,20 @@
 
 @mixin card-variants($variants...) {
   @each $variant in $variants {
-    &.mg-card--#{$variant} {
+    &.mg-c-card--#{$variant} {
       $custom-property-color-h: --#{get-color-prefix($variant)}-#{$variant}-h;
       $custom-property-color-s: --#{get-color-prefix($variant)}-#{$variant}-s;
 
       overflow: hidden;
 
-      &.mg-card--bar-left .mg-card__bar {
+      &.mg-c-card--bar-left .mg-c-card__bar {
         $custom-property-color-l: --#{get-color-prefix($variant)}-#{$variant}-l;
         $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var($custom-property-color-l));
 
         background-color: $background-color-value;
       }
 
-      &.mg-card--fill {
+      &.mg-c-card--fill {
         $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var(--mg-color-soft-l));
 
         background-color: $background-color-value;
@@ -32,7 +32,7 @@
   }
 }
 
-.mg-card {
+.mg-c-card {
   position: relative;
   z-index: inherit;
   overflow: var(--mg-card-overflow, var(--mg-card-overflow-default));

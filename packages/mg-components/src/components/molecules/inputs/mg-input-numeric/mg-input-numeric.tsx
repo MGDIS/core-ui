@@ -201,7 +201,7 @@ export class MgInputNumeric {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--numeric']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--numeric']);
 
   /**
    * Error message to display
@@ -404,7 +404,7 @@ export class MgInputNumeric {
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
     if (slotAppendInput !== null) {
-      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-input--is-input-group-append' : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-c-input--is-input-group-append' : 'mg-c-input--is-append-input-slot-content');
     }
   };
 
@@ -462,7 +462,7 @@ export class MgInputNumeric {
       >
         <input
           type="text"
-          class="mg-input__box"
+          class="mg-c-input__box"
           value={this.displayValue()}
           id={this.identifier}
           name={this.name}

@@ -135,7 +135,7 @@ describe('mg-input-text', () => {
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classCollection.has('is-focused')).toEqual(true);
+    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(true);
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
@@ -146,7 +146,7 @@ describe('mg-input-text', () => {
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classCollection.has('is-focused')).toEqual(false);
+    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(false);
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
