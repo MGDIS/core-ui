@@ -7,7 +7,7 @@ import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
  * @param tab - tab item
  * @returns tab item type is valid
  */
-const isTabItem = (tab: TabItem): boolean => typeof tab === 'object' && typeof tab.label === 'string';
+const isTabItem = (tab: unknown): tab is TabItem => typeof tab === 'object' && typeof (tab as TabItem).label === 'string';
 
 @Component({
   tag: 'mg-tabs',
@@ -73,17 +73,10 @@ export class MgTabs {
   @Watch('items')
   validateItems(newValue: MgTabs['items']): void {
     // String array
-    if (allItemsAreString(newValue as string[])) {
-      this.tabs = (newValue as string[]).map((item, index) => ({ label: item, status: index === 0 ? Status.ACTIVE : Status.VISIBLE }));
-    }
+    if (allItemsAreString(newValue)) this.tabs = newValue.map(item => ({ label: item, status: Status.VISIBLE }));
     // Object array
-    else if (newValue && newValue.length > 0 && (newValue as TabItem[]).every(item => isTabItem(item))) {
-      this.tabs = newValue as TabItem[];
-      // init active tabs if not set. Default: index 0.
-      if (this.tabs.find(tab => this.tabHasStatus(tab, Status.ACTIVE)) === undefined) this.tabs[0].status = Status.ACTIVE;
-    } else {
-      throw new Error('<mg-tabs> prop "items" is required and all items must be the same type: TabItem.');
-    }
+    else if (Array.isArray(newValue) && newValue.length > 0 && newValue.every(isTabItem)) this.tabs = newValue;
+    else throw new Error('<mg-tabs> prop "items" is required and all items must be the same type: TabItem.');
   }
 
   /**
@@ -92,20 +85,25 @@ export class MgTabs {
   @Prop({ reflect: true, mutable: true }) activeTab: number;
   @Watch('activeTab')
   validateActiveTab(newValue: MgTabs['activeTab']): void {
-    if (typeof newValue === 'number' && newValue >= 1 && newValue <= this.tabs.length) {
+    // when `active-tab` is undefined we set default value by searching an item with `Status.ACTIVE` or we use the `startIndex` has fallback value
+    // after setting new value to `active-tab` the validate will be triggered again with the updated value and process the tab update
+    if (newValue === undefined) {
+      this.activeTab = this.tabs.some(tab => this.tabHasStatus(tab, Status.ACTIVE))
+        ? this.getTabItemIndex(this.tabs.findIndex(tab => this.tabHasStatus(tab, Status.ACTIVE)))
+        : this.startIndex;
+    } else if (typeof newValue === 'number' && newValue >= this.startIndex && newValue <= this.tabs.length && this.isActivableTab(this.tabs[newValue - this.startIndex])) {
+      // if new 'active-tab' is activable we update tab status to ACTIVE and toggle past ACTIVE to VISIBLE
       this.tabs.forEach((tab, index) => {
         const isNewActiveTab = index === newValue - this.startIndex;
         // reset active tabs
         if (this.tabHasStatus(tab, Status.ACTIVE) && !isNewActiveTab) tab.status = Status.VISIBLE;
         // set active tab from given tab key
-        else if ((tab.status === undefined || this.tabHasStatus(tab, Status.VISIBLE)) && isNewActiveTab) tab.status = Status.ACTIVE;
+        else if (this.isActivableTab(tab) && isNewActiveTab) tab.status = Status.ACTIVE;
       });
       // emit change active tab key event
-      if (this.tabs.find(tab => this.tabHasStatus(tab, Status.ACTIVE)) !== undefined) {
-        this.activeTabChange.emit(newValue);
-      }
-    } else if (newValue !== undefined) {
-      throw new Error('<mg-tabs> prop "activeTab" must be between 1 and tabs length.');
+      this.activeTabChange.emit(newValue);
+    } else {
+      throw new Error(`<mg-tabs> prop "activeTab" must be a number between ${this.startIndex} and ${this.tabs.length} and new value must be "activable".`);
     }
   }
 
@@ -123,6 +121,13 @@ export class MgTabs {
    * Emited event when active tab change
    */
   @Event({ eventName: 'active-tab-change' }) activeTabChange: EventEmitter<number>;
+
+  /**
+   * Validate that new tab status can be `Status.ACTIVE`
+   * @param tab - tab item
+   * @returns true when tab match condition to get a `Status.ACTIVE`
+   */
+  private isActivableTab = (tab: TabItem): boolean => [undefined, Status.ACTIVE, Status.VISIBLE].includes(tab.status);
 
   /**
    * Method to know if given tab has the given status
@@ -148,20 +153,12 @@ export class MgTabs {
   private getTabItemIndex = (index: number): number => index + this.startIndex;
 
   /**
-   * Method to get the active-tab value
-   * @returns of the active-tab
-   */
-  private getActiveTab = (): number =>
-    this.activeTab || this.getTabItemIndex(this.tabs.map((tab, index) => ({ ...tab, index })).find(tab => this.tabHasStatus(tab, Status.ACTIVE)).index);
-
-  /**
    * Handle click events on tabs
    * @param event - mouse event
    */
   private handleClick = (event: MouseEvent & { currentTarget: HTMLElement }): void => {
     const tabId = event.currentTarget.dataset.index;
-    const tab = this.tabs[Number(tabId) - this.startIndex];
-    if (this.tabHasStatus(tab, Status.HIDDEN) || this.tabHasStatus(tab, Status.DISABLED)) {
+    if (!this.isActivableTab(this.tabs[Number(tabId) - this.startIndex])) {
       event.preventDefault();
     } else {
       this.activeTab = Number(tabId);
@@ -220,7 +217,7 @@ export class MgTabs {
     setTimeout(() => {
       this.tabFocus = undefined;
       Array.from(this.element.shadowRoot.querySelectorAll('[data-index]')).forEach((tab, index) => {
-        tab.setAttribute('tabindex', this.getActiveTab() - this.startIndex !== index ? '-1' : '0');
+        tab.setAttribute('tabindex', this.activeTab - this.startIndex !== index ? '-1' : '0');
       });
     }, 0);
   };
