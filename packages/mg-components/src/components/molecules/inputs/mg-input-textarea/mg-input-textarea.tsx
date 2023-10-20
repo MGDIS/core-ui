@@ -221,7 +221,7 @@ export class MgInputTextarea {
   async setError(valid: MgInputTextarea['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean');
-    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+    } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);

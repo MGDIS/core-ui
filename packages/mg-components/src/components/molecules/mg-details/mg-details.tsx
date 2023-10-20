@@ -1,4 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-details',
@@ -29,7 +30,7 @@ export class MgDetails {
   @Watch('toggleClosed')
   @Watch('toggleOpened')
   validateTitles(newValue: string): void {
-    if (newValue === undefined || newValue.trim() === '') {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-details> prop "toggleClosed" and "toggleOpened" must be defined.');
     }
   }

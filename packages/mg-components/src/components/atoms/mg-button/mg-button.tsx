@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-button',
@@ -186,7 +186,7 @@ export class MgButton {
     this.validateFullWidth(this.fullWidth);
     if (this.isIcon) {
       this.classCollection.add(`mg-c-button--icon`);
-      if (typeof this.label !== 'string' || this.label.trim() === '') {
+      if (!isValidString(this.label)) {
         throw new Error(`<mg-button> prop "label" is mandatory when prop "isIcon" is set to true.`);
       }
     }

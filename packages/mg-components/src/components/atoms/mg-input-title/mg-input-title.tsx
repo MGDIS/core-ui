@@ -1,4 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-input-title',
@@ -11,8 +12,8 @@ export class MgInputTitle {
    */
   @Prop() identifier!: string;
   @Watch('identifier')
-  validateIdentifier(newValue: string): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+  validateIdentifier(newValue: MgInputTitle['identifier']): void {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-input-title> prop "identifier" is required.');
     }
   }

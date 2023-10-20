@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
+import { createID, focusableElements, getWindows, isValidString } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
@@ -54,8 +54,8 @@ export class MgTooltip {
    */
   @Prop() message!: string;
   @Watch('message')
-  validateMessage(newValue: string): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+  validateMessage(newValue: MgTooltip['message']): void {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
     this.mgTooltipContent.message = newValue;
@@ -71,7 +71,7 @@ export class MgTooltip {
    */
   @Prop({ mutable: true }) display = false;
   @Watch('display')
-  handleDisplay(newValue: boolean): void {
+  handleDisplay(newValue: MgTooltip['display']): void {
     if (newValue) {
       this.show();
     } else {
@@ -154,7 +154,7 @@ export class MgTooltip {
    * @param newValue - display prop new value
    * @param condition - additionnal condition to apply display prop newValue
    */
-  private setDisplay = (newValue: boolean, condition = true): void => {
+  private setDisplay = (newValue: MgTooltip['display'], condition = true): void => {
     if (!this.disabled && condition) this.display = newValue;
   };
 
