@@ -14,10 +14,10 @@ export interface CheckboxValue {
  * use to match checkbox attributes
  */
 export interface CheckboxItem extends CheckboxValue {
-  id: string;
-  handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;
-  handleBlur: () => void;
-  handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;
+  _id: string;
+  _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;
+  _handleBlur: () => void;
+  _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;
 }
 
 /**
