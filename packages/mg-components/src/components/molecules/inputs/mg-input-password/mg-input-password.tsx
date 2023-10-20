@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -168,7 +168,7 @@ export class MgInputPassword {
   async setError(valid: MgInputPassword['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-password> method "setError()" param "valid" must be a boolean');
-    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+    } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-password> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);

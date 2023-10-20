@@ -3,6 +3,7 @@ import { initLocales } from '../../../locales';
 import { OverflowBehavior } from '../../../utils/behaviors.utils';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import type { IconType, MessageType, SizeType, SlotLabelType } from './mg-item-more.conf';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-item-more',
@@ -88,7 +89,7 @@ export class MgItemMore {
       });
 
       // add id suffix to prevent duplicate key. default html id is: '';
-      if (proxy.id.trim() !== '') proxy.id = `${proxy.id}-proxy`;
+      if (isValidString(proxy.id)) proxy.id = `${proxy.id}-proxy`;
 
       // manage status change miror in proxy
       allMenuItem[index].addEventListener('status-change', (event: CustomEvent) => {

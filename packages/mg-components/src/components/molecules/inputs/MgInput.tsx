@@ -1,6 +1,6 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
 import { widths, Width } from './MgInput.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../utils/components.utils';
 
 /**
  * Apply in all input child node the aria-describedby attribute
@@ -95,10 +95,10 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Check required properties
    */
-  if (typeof props.identifier !== 'string' || props.identifier.trim() === '') {
+  if (!isValidString(props.identifier)) {
     throw new Error('<mg-input> prop "identifier" is required.');
   }
-  if (typeof props.label !== 'string' || props.label.trim() === '') {
+  if (!isValidString(props.label)) {
     throw new Error('<mg-input> prop "label" is required.');
   }
   if (props.labelOnTop && props.labelHide) {

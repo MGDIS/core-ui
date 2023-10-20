@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
-import { createID, ClassList, allItemsAreString } from '../../../utils/components.utils';
+import { createID, ClassList, allItemsAreString, isValidString } from '../../../utils/components.utils';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
@@ -49,7 +49,7 @@ export class MgTabs {
   @Prop() label!: string;
   @Watch('label')
   validateLabel(newValue: MgTabs['label']): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-tabs> prop "label" is required.');
     }
   }

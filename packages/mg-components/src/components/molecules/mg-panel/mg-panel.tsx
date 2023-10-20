@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList } from '../../../utils/components.utils';
+import { createID, ClassList, isValidString } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
@@ -39,8 +39,8 @@ export class MgPanel {
    */
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
-  validatePanelTitle(newValue: string): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') throw new Error('<mg-panel> prop "panelTitle" is required.');
+  validatePanelTitle(newValue: MgPanel['panelTitle']): void {
+    if (!isValidString(newValue)) throw new Error('<mg-panel> prop "panelTitle" is required.');
     this.titleChange.emit(newValue);
   }
 
@@ -78,7 +78,7 @@ export class MgPanel {
    */
   @Prop({ mutable: true }) expanded = false;
   @Watch('expanded')
-  handleExpanded(newValue: boolean): void {
+  handleExpanded(newValue: MgPanel['expanded']): void {
     this.expandedChange.emit(newValue);
   }
 

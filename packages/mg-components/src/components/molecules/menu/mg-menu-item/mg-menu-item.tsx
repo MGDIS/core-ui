@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID } from '../../../../utils/components.utils';
+import { ClassList, createID, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { Direction } from '../mg-menu/mg-menu.conf';
 import { Status } from './mg-menu-item.conf';
@@ -219,7 +219,7 @@ export class MgMenuItem {
     if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) throw new Error(`<${this.name}> slot "label" is required.`);
     ['label', 'metadata'].forEach(slot => {
       Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
-        if (element.textContent.trim().length < 1) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
+        if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
         if ((guard && element.getAttribute('title') === null) || !guard) element.setAttribute('title', element.textContent);
       });
     });

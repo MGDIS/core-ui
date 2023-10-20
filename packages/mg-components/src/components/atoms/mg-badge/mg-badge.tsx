@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { variants, BadgeVariantType } from './mg-badge.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-badge',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-badge.css',
@@ -36,7 +36,7 @@ export class MgBadge {
   @Prop() label!: string;
   @Watch('label')
   validateLabel(newValue: MgBadge['label']): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-badge> prop "label" is required.');
     }
   }

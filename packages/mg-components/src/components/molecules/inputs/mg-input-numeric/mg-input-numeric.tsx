@@ -2,7 +2,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales/';
 import { localeCurrency, localeNumber } from '../../../../utils/locale.utils';
 
@@ -245,7 +245,7 @@ export class MgInputNumeric {
   async setError(valid: MgInputNumeric['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
       throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean');
-    } else if (typeof errorMessage !== 'string' || errorMessage.trim() === '') {
+    } else if (!isValidString(errorMessage)) {
       throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string');
     } else {
       this.setValidity(valid);

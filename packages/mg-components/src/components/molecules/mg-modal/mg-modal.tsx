@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
-import { createID, ClassList, focusableElements } from '../../../utils/components.utils';
+import { createID, ClassList, focusableElements, isValidString } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
@@ -59,7 +59,7 @@ export class MgModal {
   @Prop() modalTitle!: string;
   @Watch('modalTitle')
   validateModalTitle(newValue: MgModal['modalTitle']): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-modal> prop "modalTitle" is required.');
     }
   }
