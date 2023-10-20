@@ -23,21 +23,21 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
     {props.checkboxes
       .filter(item => !props.readonly || item.value)
       .map(input => (
-        <li key={input.id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>
+        <li key={input._id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>
           <input
             type="checkbox"
-            id={input.id}
+            id={input._id}
             name={props.name}
             value={input.value && input.value.toString()}
             checked={Boolean(input.value)}
             required={input.required}
             disabled={props.readonly || props.disabled || input.disabled}
             indeterminate={input.value === null}
-            onInput={input.handleInput}
-            onBlur={input.handleBlur}
-            onKeyDown={input.handleKeydown}
+            onInput={input._handleInput}
+            onBlur={input._handleBlur}
+            onKeyDown={input._handleKeydown}
           />
-          <label htmlFor={input.id}>{input.title}</label>
+          <label htmlFor={input._id}>{input.title}</label>
         </li>
       ))}
   </ul>
