@@ -149,3 +149,16 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
  * @returns if string is valid
  */
 export const isValidString = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';
+
+/**
+ * Clean string caraters
+ * @param text - text to cliean
+ * @returns cleanded string
+ */
+export const cleanString = (text: string): string =>
+  typeof text === 'string' &&
+  text
+    .trim()
+    .toLocaleLowerCase()
+    .normalize('NFD')
+    .replaceAll(/[\u0300-\u036f]/g, '');

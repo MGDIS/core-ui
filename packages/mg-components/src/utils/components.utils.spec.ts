@@ -1,4 +1,4 @@
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString } from './components.utils';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString } from './components.utils';
 import { mockConsoleError } from './unit.test.utils';
 
 mockConsoleError();
@@ -139,6 +139,15 @@ describe('components.utils', () => {
 
     test.each(['batman', 'batman '])('Should return "true" for valid value', value => {
       expect(isValidString(value)).toEqual(true);
+    });
+  });
+
+  describe('cleanString', () => {
+    test.each(['batman', ' batman ', 'BATMAN', 'Batman'])('Should format string properly', value => {
+      expect(cleanString(value)).toEqual('batman');
+    });
+    test('should clean special caraters from string', async () => {
+      expect(cleanString('âäàçéèêñù')).toEqual('aaaceeenu');
     });
   });
 });
