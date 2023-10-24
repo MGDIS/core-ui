@@ -158,7 +158,6 @@ export const isValidString = (value: unknown): boolean => typeof value === 'stri
 export const cleanString = (text: string): string =>
   typeof text === 'string' &&
   text
-    .trim()
     .toLocaleLowerCase()
     .normalize('NFD')
     .replaceAll(/[\u0300-\u036f]/g, '');

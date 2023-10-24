@@ -143,8 +143,11 @@ describe('components.utils', () => {
   });
 
   describe('cleanString', () => {
-    test.each(['batman', ' batman ', 'BATMAN', 'Batman'])('Should format string properly', value => {
+    test.each(['batman', 'BATMAN', 'Batman'])('Should format string properly', value => {
       expect(cleanString(value)).toEqual('batman');
+    });
+    test.each([' batman ', ' batman', 'batman '])('Should format and keep space', value => {
+      expect(cleanString(value)).toEqual(value);
     });
     test('should clean special caraters from string', async () => {
       expect(cleanString('âäàçéèêñù')).toEqual('aaaceeenu');
