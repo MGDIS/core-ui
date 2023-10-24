@@ -62,14 +62,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   validateValue(newValue: MgInputCheckbox['value']): void {
     if (isCheckboxItems(newValue)) {
       this.checkboxItems = newValue.map((item, index) => ({
-        id: `${this.identifier}_${index}`,
-        title: item.title,
-        value: item.value,
-        disabled: item.disabled,
-        required: item.required,
-        handleInput: this.handleInput.bind(this),
-        handleBlur: this.handleBlur.bind(this),
-        handleKeydown: this.handleKeydown.bind(this),
+        ...item,
+        _id: `${this.identifier}_${index}`,
+        _handleInput: this.handleInput.bind(this),
+        _handleBlur: this.handleBlur.bind(this),
+        _handleKeydown: this.handleKeydown.bind(this),
       }));
       this.valueChange.emit(newValue);
     } else {
@@ -295,7 +292,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param event - input event
    */
   private handleInput = (event: InputEvent & { target: HTMLInputElement }): void => {
-    this.updateCheckboxItems('value', Boolean(event.target.checked), item => item.id === event.target.id);
+    this.updateCheckboxItems('value', Boolean(event.target.checked), item => item._id === event.target.id);
     this.updateValues();
     this.checkValidity();
   };
@@ -366,7 +363,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Update values
    */
   private updateValues = (): void => {
-    this.value = this.checkboxItems.map(o => ({ value: o.value, title: o.title, disabled: o.disabled }));
+    this.value = this.checkboxItems.map(o => {
+      delete o._handleBlur;
+      delete o._handleInput;
+      delete o._handleKeydown;
+      delete o._id;
+      return o;
+    });
   };
 
   /**

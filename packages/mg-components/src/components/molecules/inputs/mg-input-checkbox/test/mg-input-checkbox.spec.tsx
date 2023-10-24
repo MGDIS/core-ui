@@ -113,8 +113,8 @@ describe('mg-input-checkbox', () => {
     });
 
     test.each([true, false])('Should trigger events, case validity check %s', async validity => {
-      const value = items.map(item => ({ ...item, value: false }));
-      if (!validity) value[0].value = true;
+      const value = items.map((item, index) => ({ ...item, value: false, id: index, required: item.required, disabled: item.disabled, hero: 'batman' }));
+      value[0].value = !validity;
       const page = await getPage({ label: 'label', type, identifier: 'identifier', helpText: 'My help text', value, required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = element.shadowRoot.querySelectorAll('input');
