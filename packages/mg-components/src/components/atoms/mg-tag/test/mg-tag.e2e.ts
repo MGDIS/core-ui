@@ -1,5 +1,5 @@
 import { createPage } from '../../../../utils/stencil.e2e.test.utils';
-import { darkBackground } from '../../../../utils/e2e.test.utils';
+import { darkBackground, renderAttributes } from '../../../../utils/e2e.test.utils';
 import { variants } from '../mg-tag.conf';
 
 describe('mg-tag', () => {
@@ -16,7 +16,9 @@ describe('mg-tag', () => {
               .map(({ outline, soft }) =>
                 darkBackground(
                   variant === 'secondary',
-                  `<mg-tag style="margin: 0.2rem;" variant="${variant}" outline="${outline}" soft="${soft}">${icon ? '<mg-icon icon="user"></mg-icon>' : ''}${variant}</mg-tag>`,
+                  `<mg-tag style="margin: 0.2rem;" ${renderAttributes({ variant, outline, soft })}>${
+                    icon ? `<mg-icon ${renderAttributes({ icon: 'user', size: 'small' })}></mg-icon>` : ''
+                  }${variant}</mg-tag>`,
                 ),
               )
               .join(''),
