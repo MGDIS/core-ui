@@ -1,11 +1,5 @@
 # Changelog
 
-## Release (2023-10-25-13-06_Rich-Razzmatazz-Raccoon)
-
-### Packages released
-
-- [mg-components changelog](packages/mg-components/CHANGELOG.md)
-
 ## Release (2023-10-12-09-21_Deafening-Desert-Sand-Dolphin)
 
 ### Packages released
