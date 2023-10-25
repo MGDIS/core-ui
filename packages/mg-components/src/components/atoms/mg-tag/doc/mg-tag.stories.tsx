@@ -13,7 +13,7 @@ export default {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-tag {...filterArgs(args, { variant: variants[0] })}>{args.slot}</mg-tag>;
+const Template = (args: any): HTMLElement => <mg-tag {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-tag>;
 
 export const MgTag = {
   render: Template,
