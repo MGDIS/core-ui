@@ -33,6 +33,10 @@ $mg-tag-padding-horizontal: 0.7rem;
   }
 }
 
+:host {
+  display: inline-block;
+}
+
 /* Styles */
 .mg-c-tag {
   $padding-value: calc((var(--mg-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-tag-font-size) * var(--line-height))) / 2) ($mg-tag-padding-horizontal - $mg-tag-border-width);
