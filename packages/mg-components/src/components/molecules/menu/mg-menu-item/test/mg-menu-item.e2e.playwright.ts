@@ -28,9 +28,12 @@ describe('mg-menu-item', () => {
     )('should render whith status %s', async (page: PageType, html: string) => {
       await setPageContent(page, html, { width: 100, height: 38 });
 
-      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      if (!html.includes('status="hidden"')) {
+        await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      } else {
+        await expect(page.locator('body')).toHaveScreenshot();
+      }
     });
 
     testEach(
@@ -79,9 +82,12 @@ describe('mg-menu-item', () => {
     testEach([Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED])('shoud manage keyboard navigation %s', async (page: PageType, status) => {
       await setPageContent(page, createHTML({ status }, slotMenuItem, direction), { width: 120, height: 200 });
 
-      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      if (status !== Status.HIDDEN) {
+        await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      } else {
+        await expect(page.locator('body')).toHaveScreenshot();
+      }
 
       for await (const key of ['Tab', 'Enter']) {
         await page.keyboard.press(key);
