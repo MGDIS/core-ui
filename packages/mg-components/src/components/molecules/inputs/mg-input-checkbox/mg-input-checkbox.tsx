@@ -605,6 +605,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 id="checkboxes-list"
                 disabled={this.disabled}
                 name={this.name}
+                invalid={this.invalid}
               ></MgInputCheckboxList>
             )}
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-c-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
@@ -649,6 +650,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             id="checkboxes-list"
             disabled={this.disabled}
             name={this.name}
+            invalid={this.invalid}
           ></MgInputCheckboxList>
         ) : (
           this.renderCheckboxMulti()
