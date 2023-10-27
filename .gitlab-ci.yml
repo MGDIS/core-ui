@@ -4,7 +4,6 @@ default:
   interruptible: true # allows to cancel the job automatically
 
 stages:
-  - build
   - tests
   - artifacts
   - mg-components
@@ -87,21 +86,6 @@ stages:
   script:
     - apt update -y
     - apt install jq -y
-
-#########
-# build #
-#########
-
-build:
-  stage: build
-  script:
-    - pnpm build
-  artifacts:
-    name: build
-    untracked: true
-    expire_in: 1 week
-  extends:
-    - .install:dependencies
 
 #########
 # tests #
