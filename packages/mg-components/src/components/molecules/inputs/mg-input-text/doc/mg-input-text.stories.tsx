@@ -22,7 +22,6 @@ export default {
 const Template = (args: any): HTMLElement => {
   const displayCharacterLeft = args.displayCharacterLeft;
   delete args.displayCharacterLeft;
-  // return element
   return <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}></mg-input-text>;
 };
 
@@ -143,5 +142,16 @@ export const Search = {
     ...MgInputText.args,
     type: 'search',
     icon: 'magnifying-glass',
+  },
+};
+
+export const Datalist = {
+  render: Template,
+
+  args: {
+    ...MgInputText.args,
+    type: 'text',
+    icon: 'magnifying-glass',
+    datalistoptions: ['agent', 'admin', 'user'],
   },
 };

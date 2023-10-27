@@ -14,7 +14,7 @@ const isOption = (option: ToggleValue): boolean => typeof option === 'object' &&
 
 @Component({
   tag: 'mg-input-toggle',
-  styleUrl: 'mg-input-toggle.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-toggle.css',
   shadow: true,
 })
 export class MgInputToggle {
@@ -23,11 +23,11 @@ export class MgInputToggle {
    ************/
 
   // Classes
-  private classReadonly = 'mg-input--toggle-readonly';
-  private classDisabled = 'mg-input--toggle-disabled';
-  private classIsActive = 'mg-input--toggle-is-active';
-  private classOnOff = 'mg-input--toggle-on-off';
-  private classIcon = 'mg-input--toggle-icon';
+  private classReadonly = 'mg-c-input--toggle-readonly';
+  private classDisabled = 'mg-c-input--toggle-disabled';
+  private classIsActive = 'mg-c-input--toggle-is-active';
+  private classOnOff = 'mg-c-input--toggle-on-off';
+  private classIcon = 'mg-c-input--toggle-icon';
 
   /**************
    * Decorators *
@@ -150,7 +150,7 @@ export class MgInputToggle {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--toggle']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--toggle']);
 
   /**
    * Formated items for display
@@ -277,14 +277,14 @@ export class MgInputToggle {
           aria-checked={this.checked.toString()}
           aria-readonly={this.disabled || this.readonly}
           id={this.identifier}
-          class="mg-input__button-toggle"
+          class="mg-c-input__button-toggle"
           disabled={this.disabled || this.readonly}
           onClick={this.toggleChecked}
         >
-          <span aria-hidden="true" class="mg-input__toggle-item-container">
+          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
-          <span aria-hidden="true" class="mg-input__toggle-item-container">
+          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-2"></slot>
           </span>
         </button>

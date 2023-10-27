@@ -1,11 +1,11 @@
 import { Component, Element, h, Prop, State, EventEmitter, Watch, Event } from '@stencil/core';
-import { createID, ClassList } from '../../../utils/components.utils';
+import { createID, ClassList, isValidString } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
 @Component({
   tag: 'mg-panel',
-  styleUrl: 'mg-panel.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-panel.css',
   shadow: true,
 })
 export class MgPanel {
@@ -39,8 +39,8 @@ export class MgPanel {
    */
   @Prop({ mutable: true }) panelTitle!: string;
   @Watch('panelTitle')
-  validatePanelTitle(newValue: string): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') throw new Error('<mg-panel> prop "panelTitle" is required.');
+  validatePanelTitle(newValue: MgPanel['panelTitle']): void {
+    if (!isValidString(newValue)) throw new Error('<mg-panel> prop "panelTitle" is required.');
     this.titleChange.emit(newValue);
   }
 
@@ -48,17 +48,16 @@ export class MgPanel {
    * Panel title pattern
    */
   @Prop() titlePattern: string;
-  @Watch('titlePattern')
-  validatetitlePattern(newValue: string): void {
-    if (newValue !== undefined && !this.titleEditable) throw new Error('<mg-panel> prop "titleEditable" must be set to `true`.');
-    if (newValue !== undefined && (this.titlePatternErrorMessage === undefined || this.titlePatternErrorMessage.trim() === ''))
-      throw new Error('<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".');
-  }
 
   /**
    * Panel title pattern error message
    */
   @Prop() titlePatternErrorMessage: string;
+  @Watch('titlePattern')
+  @Watch('titlePatternErrorMessage')
+  validateTitlePattern(newValue: string): void {
+    if (newValue !== undefined && !this.titleEditable) throw new Error(`<mg-panel> prop "titleEditable" must be set to "true".`);
+  }
 
   /**
    * Define if panel title is editable
@@ -79,7 +78,7 @@ export class MgPanel {
    */
   @Prop({ mutable: true }) expanded = false;
   @Watch('expanded')
-  handleExpanded(newValue: boolean): void {
+  handleExpanded(newValue: MgPanel['expanded']): void {
     this.expandedChange.emit(newValue);
   }
 
@@ -101,7 +100,7 @@ export class MgPanel {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-panel']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-panel']);
 
   /**
    * Title is in edition mode
@@ -188,7 +187,8 @@ export class MgPanel {
     // Get locales
     this.messages = initLocales(this.element).messages;
     // Validate
-    this.validatetitlePattern(this.titlePattern);
+    this.validateTitlePattern(this.titlePattern);
+    this.validateTitlePattern(this.titlePatternErrorMessage);
     this.validatePanelTitle(this.panelTitle);
     this.validateExpandToggleDisplay(this.expandToggleDisplay);
     this.validateTitlePosition(this.titlePosition);
@@ -221,8 +221,8 @@ export class MgPanel {
       isIcon={this.expandToggleDisplay === 'icon'}
       label={this.panelTitle}
     >
-      <span class="mg-panel__collapse-button-content">
-        <mg-icon icon="chevron-up" class={{ 'mg-panel__collapse-button-icon': true, 'mg-panel__collapse-button-icon--reverse': !this.expanded }}></mg-icon>
+      <span class="mg-c-panel__collapse-button-content">
+        <mg-icon icon="chevron-up" class={{ 'mg-c-panel__collapse-button-icon': true, 'mg-c-panel__collapse-button-icon--reverse': !this.expanded }}></mg-icon>
         {!this.isEditing && this.expandToggleDisplay !== 'icon' && this.panelTitle}
       </span>
     </mg-button>
@@ -299,12 +299,12 @@ export class MgPanel {
   private renderHeaderChildren = (): HTMLElement[] => {
     const children = [
       <div
-        class={{ 'mg-panel__header-title': true, 'mg-panel__header-title--full': this.isEditing, 'mg-panel__header-title--reverse': this.titlePosition === 'right' }}
+        class={{ 'mg-c-panel__header-title': true, 'mg-c-panel__header-title--full': this.isEditing, 'mg-c-panel__header-title--reverse': this.titlePosition === 'right' }}
         key={this.panelTitle}
       >
         {this.renderTitle()}
       </div>,
-      <div class="mg-panel__header-content" key="slot-header">
+      <div class="mg-c-panel__header-content" key="slot-header">
         <slot name="header-right"></slot>
       </div>,
     ];
@@ -320,10 +320,10 @@ export class MgPanel {
     return (
       <section class={this.classCollection.join()} id={this.identifier}>
         <mg-card>
-          <header class={{ 'mg-panel__header': true, 'mg-panel__header--reverse': this.titlePosition === 'right' }} id={headerId}>
+          <header class={{ 'mg-c-panel__header': true, 'mg-c-panel__header--reverse': this.titlePosition === 'right' }} id={headerId}>
             {this.renderHeaderChildren()}
           </header>
-          <article class="mg-panel__content" id={`${this.identifier}-content`} aria-labelledby={headerId} hidden={!this.expanded}>
+          <article class="mg-c-panel__content" id={`${this.identifier}-content`} aria-labelledby={headerId} hidden={!this.expanded}>
             <slot></slot>
           </article>
         </mg-card>

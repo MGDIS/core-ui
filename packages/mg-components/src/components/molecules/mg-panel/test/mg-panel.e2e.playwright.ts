@@ -114,7 +114,7 @@ describe('mg-panel', () => {
 
       await expect(page.locator('mg-panel')).toHaveScreenshot();
 
-      await page.locator('.mg-panel__header-title mg-button:last-of-type').click();
+      await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
       // Hide caret for screenshots
       await page.locator('mg-panel input').evaluate(element => (element.style.caretColor = 'transparent'));
@@ -141,13 +141,13 @@ describe('mg-panel', () => {
       const args = {
         ...baseArgs,
         titleEditable: true,
-        titlePattern: /^(?!(joker)$)[a-z A-Z0-9s]+$/ as unknown as string,
+        titlePattern: '^((?!joker).)*$',
         titlePatternErrorMessage: "You can't enter a bad guy !",
       };
 
       await setPageContent(page, createHTML(args));
 
-      await page.locator('.mg-panel__header-title mg-button:last-of-type').click();
+      await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
       // Hide caret for screenshots
       await page.locator('mg-panel input').evaluate(element => (element.style.caretColor = 'transparent'));

@@ -3,7 +3,7 @@ import { isTagName } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-illustrated-message',
-  styleUrl: 'mg-illustrated-message.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-illustrated-message.css',
   shadow: true,
 })
 export class MgIllustratedMessage {
@@ -54,23 +54,23 @@ export class MgIllustratedMessage {
     return (
       <div
         class={{
-          'mg-illustrated-message': true,
-          'mg-illustrated-message--horizontal': this.direction === 'horizontal',
+          'mg-c-illustrated-message': true,
+          'mg-c-illustrated-message--horizontal': this.direction === 'horizontal',
         }}
       >
         <div
           class={{
-            'mg-illustrated-message__illustration': true,
-            'mg-illustrated-message__illustration--small': this.size === 'small',
+            'mg-c-illustrated-message__illustration': true,
+            'mg-c-illustrated-message__illustration--small': this.size === 'small',
           }}
         >
           <slot name="illustration"></slot>
         </div>
-        <div class="mg-illustrated-message__slots">
-          <div class="mg-illustrated-message__title">
+        <div class="mg-c-illustrated-message__slots">
+          <div class="mg-c-illustrated-message__title">
             <slot name="title"></slot>
           </div>
-          <div class="mg-illustrated-message__details">
+          <div class="mg-c-illustrated-message__details">
             <slot name="details"></slot>
           </div>
         </div>

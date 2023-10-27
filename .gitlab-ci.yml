@@ -4,6 +4,7 @@ default:
   interruptible: true # allows to cancel the job automatically
 
 stages:
+  - build
   - tests
   - artifacts
   - mg-components
@@ -37,6 +38,12 @@ stages:
   rules:
     - changes:
         - 'packages/img/**/*'
+
+# Rule to execute job only on styles folder content changes
+.rules:changes:styles:
+  rules:
+    - changes:
+        - 'packages/styles/**/*'
 
 # Rule to execute job only in merge request
 .rules:mr:
@@ -82,6 +89,22 @@ stages:
     - apt install jq -y
 
 #########
+# build #
+#########
+
+build:
+  stage: build
+  extends:
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - pnpm build
+  artifacts:
+    name: '$CI_COMMIT_REF_SLUG'
+    untracked: true
+    expire_in: 1 week
+
+#########
 # tests #
 #########
 
@@ -89,7 +112,6 @@ lint:
   stage: tests
   extends:
     - .rules:except-tags
-    - .install:dependencies
   script:
     - pnpm lint
 
@@ -98,7 +120,6 @@ test:unit:
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:except-tags
-    - .install:dependencies
   script:
     - pnpm coverage
   artifacts:
@@ -118,7 +139,6 @@ test:e2e:
   extends:
     - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
-    - .install:dependencies
   script:
     - pnpm test:e2e
   retry: 2
@@ -133,17 +153,14 @@ test:e2e:
 
 test:e2e:playwright:
   stage: tests
-  image: mcr.microsoft.com/playwright:v1.37.1-focal
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
-    - .install:dependencies
   script:
-    - !reference [.install:jq, script]
-    - pnpm build
-    - pnpm dlx playwright install
     - pnpm test:e2e:playwright
+  retry: 2
   artifacts:
     when: always
     paths:
@@ -153,10 +170,14 @@ test:e2e:playwright:
       - packages/mg-components/playwright-report/
       - packages/mg-components/test-results/
       - packages/mg-components/results.xml
+      - packages/styles/playwright-report/
+      - packages/styles/test-results/
+      - packages/styles/results.xml
     reports:
       junit:
         - packages/notification-center/results.xml
         - packages/mg-components/results.xml
+        - packages/styles/results.xml
 
 sonar:
   stage: tests
@@ -164,7 +185,6 @@ sonar:
     GIT_DEPTH: 0
   extends:
     - .rules:except-tags
-    - .install:dependencies
   script:
     - gitlabci-quality-gate A+++
     - sonar-scanner -D sonar.login=$SONAR_KEY
@@ -248,13 +268,11 @@ pages:
 
 .mg-components:build:
   script:
-    - pnpm build --filter=@mgdis/img
-    - cd packages/mg-components
-    - pnpm build
+    - pnpm build --filter=@mgdis/mg-components
 
 .docusaurus:
   script:
-    - pnpm build --filter=docusaurus
+    - pnpm build:app --filter=docusaurus
     - mkdir -p public
     - mv apps/docusaurus/build/* public
 
@@ -262,6 +280,7 @@ pages:
   script:
     - mkdir -p public/storybook
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - pnpm storybook:build
     - mv storybook-static/* ../../public/storybook
 
@@ -273,6 +292,7 @@ mg-components:artifact:
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - !reference [.artifact, script]
   needs:
     - lint
@@ -302,6 +322,7 @@ chromatic:publish:
     - if: $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG
   script:
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
 
 mg-components:npmjs:
@@ -373,4 +394,33 @@ img:npmjs:
     - .npmjs
   script:
     - !reference [.img:build, script]
+    - pnpm publish --no-git-checks --access public
+
+##########
+# styles #
+##########
+
+.styles:build:
+  script:
+    - cd packages/styles
+    - pnpm build
+
+styles:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:styles
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - !reference [.styles:build, script]
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+styles:npmjs:
+  extends:
+    - .rules:changes:styles
+    - .npmjs
+  script:
+    - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public

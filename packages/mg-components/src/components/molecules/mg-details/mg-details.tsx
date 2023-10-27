@@ -1,8 +1,9 @@
 import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-details',
-  styleUrl: 'mg-details.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-details.css',
   shadow: true,
 })
 export class MgDetails {
@@ -29,7 +30,7 @@ export class MgDetails {
   @Watch('toggleClosed')
   @Watch('toggleOpened')
   validateTitles(newValue: string): void {
-    if (newValue === undefined || newValue.trim() === '') {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-details> prop "toggleClosed" and "toggleOpened" must be defined.');
     }
   }
@@ -78,15 +79,15 @@ export class MgDetails {
    */
   render(): HTMLElement {
     return (
-      <details class="mg-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
+      <details class="mg-c-details" onToggle={this.handleToggle} open={this.expanded} ref={(el: HTMLDetailsElement) => (this.details = el)}>
         <summary>
           <slot name="summary"></slot>
-          <span class="mg-details__toggle">
-            <mg-icon icon="chevron-up" size="small" class={{ 'mg-details__toggle-icon': true, 'mg-details__toggle-icon--reverse': !this.expanded }}></mg-icon>
-            <span class={{ 'sr-only': this.hideSummary }}>{this.expanded ? this.toggleOpened : this.toggleClosed}</span>
+          <span class="mg-c-details__toggle">
+            <mg-icon icon="chevron-up" size="small" class={{ 'mg-c-details__toggle-icon': true, 'mg-c-details__toggle-icon--reverse': !this.expanded }}></mg-icon>
+            <span class={{ 'mg-u-visually-hidden': this.hideSummary }}>{this.expanded ? this.toggleOpened : this.toggleClosed}</span>
           </span>
         </summary>
-        <div class="mg-details__details">
+        <div class="mg-c-details__details">
           <slot name="details"></slot>
         </div>
       </details>

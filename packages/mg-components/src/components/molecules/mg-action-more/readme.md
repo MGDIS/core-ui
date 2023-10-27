@@ -51,7 +51,7 @@ It is possible to display a chevron on the label right side, it make a 180 degre
 | -------------------- | ----------------- | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
 | `button`             | --                | Define button properties       | `{ isIcon: boolean; variant: "flat" \| "info" \| "success" \| "link" \| "primary" \| "secondary" \| "danger" \| "danger-alt"; label?: string; }` | `{ variant: 'flat', isIcon: true }` |
 | `displayChevron`     | `display-chevron` | Define if chevron is display   | `boolean`                                                                                                                                        | `undefined`                         |
-| `icon`               | --                | Define displaied icon          | `{ icon: string; }`                                                                                                                              | `{ icon: 'ellipsis' }`              |
+| `icon`               | --                | Define displaied icon          | `{ icon: string; }`                                                                                                                              | `undefined`                         |
 | `items` _(required)_ | --                | Define the menu-items elements | `MgActionMoreItemType[]`                                                                                                                         | `undefined`                         |
 
 

@@ -1,0 +1,17 @@
+/**
+ * Set mg-character-left with inputs
+ */
+
+.mg-c-input {
+  mg-character-left {
+    font-size: 1.1rem;
+    opacity: 0.6;
+  }
+
+  &.mg-c-input--has-display-character-left .mg-c-input__input {
+    & + .mg-c-input__help-text,
+    & + .mg-c-input__error {
+      margin-top: 0;
+    }
+  }
+}

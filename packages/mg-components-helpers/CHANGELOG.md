@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.11.5
+
+### Patch Changes
+
+- c25283d: [#298](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/298) chore: create apps to test lib integration
+
 ## 3.11.4
 
 ### Patch Changes
@@ -77,7 +83,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **mgComponentHelpers:** prevent conflicts between angular and vue with a simple "main" exports 
+- **mgComponentHelpers:** prevent conflicts between angular and vue with a simple "main" exports
 - **mgComponentsHelpers:** update exports to manage import un gulp projects , closes [#114](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/114)
 - **mgComponentsHelpers:** update exports to split vue and angular , closes [#114](http://gitlab@gitlab.mgdis.fr:core/core-back/core/issues/114)
 
@@ -85,6 +91,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **mgTranslate:** @drouian-m MR feedback 
-- **mgTranslate:** @duhem-s MR feedback 
-- **mgTranslate:** add mg-translate directive helper 
+- **mgTranslate:** @drouian-m MR feedback
+- **mgTranslate:** @duhem-s MR feedback
+- **mgTranslate:** add mg-translate directive helper

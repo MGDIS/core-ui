@@ -1,9 +1,9 @@
 import { Component, h, Prop, State, Watch, Element } from '@stencil/core';
 import { TagVariantType, variants } from './mg-tag.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../utils/components.utils';
 @Component({
   tag: 'mg-tag',
-  styleUrl: 'mg-tag.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tag.css',
   shadow: true,
 })
 export class MgTag {
@@ -12,8 +12,8 @@ export class MgTag {
    ************/
 
   // Classes
-  private readonly classOutline = 'mg-tag--outline';
-  private readonly classSoft = 'mg-tag--soft';
+  private readonly classOutline = 'mg-c-tag--outline';
+  private readonly classSoft = 'mg-c-tag--soft';
 
   /**************
    * Decorators *
@@ -34,9 +34,9 @@ export class MgTag {
       throw new Error(`<mg-tag> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
       if (oldValue !== undefined) {
-        this.classCollection.delete(`mg-tag--${oldValue}`);
+        this.classCollection.delete(`mg-c-tag--${oldValue}`);
       }
-      this.classCollection.add(`mg-tag--${newValue}`);
+      this.classCollection.add(`mg-c-tag--${newValue}`);
     }
   }
 
@@ -67,7 +67,7 @@ export class MgTag {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-tag']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-tag']);
 
   /*************
    * Methods *
@@ -78,7 +78,7 @@ export class MgTag {
    * @param textContent - html element textContent property
    */
   private validateTextContent(textContent: string): void {
-    if (typeof textContent !== 'string' || textContent.trim() === '') throw new Error('<mg-tag> slot must contain a text content.');
+    if (!isValidString(textContent)) throw new Error('<mg-tag> slot must contain a text content.');
   }
 
   /*************

@@ -1,11 +1,11 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
-import { createID, ClassList, focusableElements } from '../../../utils/components.utils';
+import { createID, ClassList, focusableElements, isValidString } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
 @Component({
   tag: 'mg-modal',
-  styleUrl: 'mg-modal.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-modal.css',
   shadow: true,
 })
 export class MgModal {
@@ -18,7 +18,7 @@ export class MgModal {
   private closeButtonElement: HTMLMgButtonElement;
 
   // Classes
-  private readonly classHide = 'mg-modal--hide';
+  private readonly classHide = 'mg-c-modal--hide';
 
   // IDs
   private titleId = '';
@@ -59,7 +59,7 @@ export class MgModal {
   @Prop() modalTitle!: string;
   @Watch('modalTitle')
   validateModalTitle(newValue: MgModal['modalTitle']): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-modal> prop "modalTitle" is required.');
     }
   }
@@ -103,7 +103,7 @@ export class MgModal {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-modal']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-modal']);
 
   /**
    * Emmited event when modal is diplayed
@@ -233,10 +233,10 @@ export class MgModal {
     return (
       <div role={this.dialogRole} id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
         <mg-card>
-          <div class="mg-modal__dialog">
-            <header class="mg-modal__header">
+          <div class="mg-c-modal__dialog">
+            <header class="mg-c-modal__header">
               {this.closeButton && (
-                <span class="mg-modal__close-button">
+                <span class="mg-c-modal__close-button">
                   <mg-button
                     identifier={`${this.identifier}-close-button`}
                     is-icon
@@ -256,19 +256,19 @@ export class MgModal {
                   </mg-button>
                 </span>
               )}
-              <h1 class="mg-modal__title" id={this.titleId}>
+              <h1 class="mg-c-modal__title" id={this.titleId}>
                 {this.modalTitle}
               </h1>
             </header>
 
             {this.hasContent && (
-              <article class="mg-modal__content">
+              <article class="mg-c-modal__content">
                 <slot name="content"></slot>
               </article>
             )}
 
             {this.hasActions && (
-              <footer class="mg-modal__footer">
+              <footer class="mg-c-modal__footer">
                 <slot name="actions"></slot>
               </footer>
             )}

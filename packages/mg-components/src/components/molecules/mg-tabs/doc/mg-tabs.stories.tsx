@@ -22,7 +22,7 @@ export default {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => (
-  <mg-tabs {...filterArgs(args, { size: sizes[0], activeTab: 1 })}>
+  <mg-tabs {...filterArgs(args, { size: sizes[0] })}>
     <div slot="tab_content-1">Content 1</div>
     <div slot="tab_content-2">Content 2</div>
     <div slot="tab_content-3">Content 3</div>

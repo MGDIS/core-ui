@@ -6,7 +6,7 @@ import { icons } from '../../../assets/icons';
 
 @Component({
   tag: 'mg-icon',
-  styleUrl: 'mg-icon.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-icon.css',
   shadow: true,
 })
 export class MgIcon {
@@ -25,8 +25,8 @@ export class MgIcon {
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
     if (!iconList.includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}`);
     else {
-      if (oldValue !== undefined) this.classCollection.delete(`mg-icon--${oldValue}`);
-      this.classCollection.add(`mg-icon--${newValue}`);
+      if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--${oldValue}`);
+      this.classCollection.add(`mg-c-icon--${newValue}`);
       this.renderIcon(newValue);
     }
   }
@@ -39,8 +39,8 @@ export class MgIcon {
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
     if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}`);
     else {
-      if (oldValue !== undefined) this.classCollection.delete(`mg-icon--size-${oldValue}`);
-      this.classCollection.add(`mg-icon--size-${newValue}`);
+      if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--size-${oldValue}`);
+      this.classCollection.add(`mg-c-icon--size-${newValue}`);
     }
   }
 
@@ -54,8 +54,8 @@ export class MgIcon {
       if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
       else {
         this.setDefaultVariantStyle();
-        if (oldValue !== undefined) this.classCollection.delete(`mg-icon--variant-${oldValue}`);
-        this.classCollection.add(`mg-icon--variant-${newValue}`);
+        if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-${oldValue}`);
+        this.classCollection.add(`mg-c-icon--variant-${newValue}`);
       }
     }
   }
@@ -73,8 +73,8 @@ export class MgIcon {
     if (Boolean(newValue)) {
       if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
       else {
-        if (oldValue !== undefined) this.classCollection.delete(`mg-icon--variant-style-${oldValue}`);
-        this.classCollection.add(`mg-icon--variant-style-${newValue}`);
+        if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-style-${oldValue}`);
+        this.classCollection.add(`mg-c-icon--variant-style-${newValue}`);
       }
     }
   }
@@ -86,18 +86,16 @@ export class MgIcon {
   @Watch('spin')
   handleSpin(newValue: MgIcon['spin']): void {
     if (newValue) {
-      this.classCollection.add('mg-icon--spin');
-      this.classCollection.add('mg-a11y-animation');
+      this.classCollection.add('mg-c-icon--spin');
     } else {
-      this.classCollection.delete('mg-icon--spin');
-      this.classCollection.delete('mg-a11y-animation');
+      this.classCollection.delete('mg-c-icon--spin');
     }
   }
 
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-icon']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-icon']);
 
   /**
    * Method to set default varianStyle props

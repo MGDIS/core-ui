@@ -1,0 +1,29 @@
+{
+  "name": "vue-2",
+  "private": true,
+  "version": "0.0.3",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:app": "vite build",
+    "preview": "vite preview",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint src/**/*.{vue,js,jsx}",
+    "lint:es:fix": "eslint src/**/*.{vue,js,jsx} --fix",
+    "lint:prettier": "prettier --check **/*.{scss,vue,js,jsx,md,json}",
+    "lint:prettier:fix": "prettier --write **/*.{scss,vue,js,jsx,md,json}"
+  },
+  "dependencies": {
+    "@mgdis/mg-components": "workspace:*",
+    "@mgdis/notification-center": "workspace:*",
+    "vue": "npm:vue@2.7.14"
+  },
+  "devDependencies": {
+    "@mgdis/eslint-plugin-vue": "workspace:*",
+    "@mgdis/linting-vue2": "workspace:*",
+    "sass": "^1.58.0",
+    "vite": "4",
+    "vite-plugin-vue2": "^2.0.3"
+  }
+}

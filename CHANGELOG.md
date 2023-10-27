@@ -1,5 +1,26 @@
 # Changelog
 
+## Release (2023-10-26-09-35_Petite-Pink-Flamingo-Porpoise)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
+## Release (2023-10-12-09-21_Deafening-Desert-Sand-Dolphin)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
+## Release (2023-10-03-09-07_Tame-Tropical-Rain-Forest-Turtle)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
 ## Release (2023-09-14-11-09_Shrill-Shamrock-Sheep)
 
 ### Packages released

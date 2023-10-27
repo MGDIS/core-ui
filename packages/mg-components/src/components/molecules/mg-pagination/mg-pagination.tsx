@@ -28,7 +28,7 @@ const range = (start: number, end: number, step = 1): number[] => Array.from(Arr
 
 @Component({
   tag: 'mg-pagination',
-  styleUrl: 'mg-pagination.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-pagination.css',
   shadow: true,
 })
 export class MgPagination {
@@ -173,7 +173,7 @@ export class MgPagination {
 
     return (
       <Host hidden={this.totalPages < 2}>
-        <nav aria-label={this.label} id={this.identifier} class={{ 'mg-pagination': true, 'mg-pagination--hide-page-count': this.hidePageCount }}>
+        <nav aria-label={this.label} id={this.identifier} class={{ 'mg-c-pagination': true, 'mg-c-pagination--hide-page-count': this.hidePageCount }}>
           {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
           {!this.hidePageCount && (
             <mg-input-select
@@ -186,10 +186,10 @@ export class MgPagination {
               placeholder-hide
             ></mg-input-select>
           )}
-          <span class="sr-only">
+          <span class="mg-u-visually-hidden">
             {this.messages.pagination.page} {this.currentPage}
           </span>
-          <span class={{ 'sr-only': this.hidePageCount }}>
+          <span class={{ 'mg-u-visually-hidden': this.hidePageCount }}>
             / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
           </span>
           {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}

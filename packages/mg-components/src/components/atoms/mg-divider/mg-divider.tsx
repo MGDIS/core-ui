@@ -2,7 +2,7 @@ import { Component, h, Prop } from '@stencil/core';
 
 @Component({
   tag: 'mg-divider',
-  styleUrl: 'mg-divider.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-divider.css',
   shadow: true,
 })
 export class MgDivider {
@@ -23,8 +23,8 @@ export class MgDivider {
     return (
       <div
         class={{
-          'mg-divider': true,
-          'mg-divider--full': this.size === 'full',
+          'mg-c-divider': true,
+          'mg-c-divider--full': this.size === 'full',
         }}
       ></div>
     );

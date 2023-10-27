@@ -60,7 +60,7 @@ describe('mg-tooltip', () => {
     '<mg-tooltip message="my tooltip coucou"><span>coucou</span></mg-tooltip>',
     `<mg-tooltip message="this is a tooltip message"><mg-icon icon="info-circle"></mg-icon></mg-tooltip>`,
     '<mg-tooltip message="my tooltip mg-button"><mg-button>mg-button</mg-button></mg-tooltip>',
-    '<mg-tooltip message="my tooltip native button"><button class="mg-button mg-button--primary" aria-describedby="blu">native button</button></mg-tooltip>',
+    '<mg-tooltip message="my tooltip native button"><button class="mg-c-button mg-c-button--primary" aria-describedby="blu">native button</button></mg-tooltip>',
   ])('Keyboard navigation with template', template => {
     test.each(['Space', 'Enter'])('Should NOT navigate with keyboard, case key %s', async key => {
       const page = await createPage(template);
@@ -149,6 +149,17 @@ describe('mg-tooltip', () => {
     await page.waitForChanges();
 
     screenshot = await page.screenshot();
+    expect(screenshot).toMatchImageSnapshot();
+  });
+
+  test(`should position tooltip where it have enough place`, async () => {
+    const page = await createPage(
+      `<style>mg-icon{position:fixed;left:0;bottom:0}</style>
+      <mg-tooltip message="Batman tooltip" display><mg-icon icon="user"></mg-icon></mg-tooltip>`,
+      { width: 400, height: 100 },
+    );
+
+    const screenshot = await page.screenshot();
     expect(screenshot).toMatchImageSnapshot();
   });
 

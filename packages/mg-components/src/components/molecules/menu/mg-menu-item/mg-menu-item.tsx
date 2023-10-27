@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID } from '../../../../utils/components.utils';
+import { ClassList, createID, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { Direction } from '../mg-menu/mg-menu.conf';
 import { Status } from './mg-menu-item.conf';
@@ -10,7 +10,7 @@ import type { MgPopover } from '../../mg-popover/mg-popover';
 
 @Component({
   tag: 'mg-menu-item',
-  styleUrl: 'mg-menu-item.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-menu-item.css',
   shadow: true,
 })
 export class MgMenuItem {
@@ -19,7 +19,7 @@ export class MgMenuItem {
    ************/
 
   private readonly name = 'mg-menu-item';
-  private readonly navigationButton = `${this.name}__navigation-button`;
+  private readonly navigationButton = 'mg-c-menu-item__navigation-button';
   private badgeLabel: string;
 
   /**************
@@ -219,7 +219,7 @@ export class MgMenuItem {
     if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) throw new Error(`<${this.name}> slot "label" is required.`);
     ['label', 'metadata'].forEach(slot => {
       Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
-        if (element.textContent.trim().length < 1) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
+        if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
         if ((guard && element.getAttribute('title') === null) || !guard) element.setAttribute('title', element.textContent);
       });
     });
@@ -385,7 +385,7 @@ export class MgMenuItem {
             <slot name="label"></slot>
             {!this.displayNotificationBadge && <slot name="information"></slot>}
             {this.displayNotificationBadge && (
-              <span class="mg-menu-item__navigation-button-text-content-notification">
+              <span class={`${this.navigationButton}-text-content-notification`}>
                 <mg-badge label={this.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
               </span>
             )}
@@ -397,7 +397,6 @@ export class MgMenuItem {
             class={{
               [`${this.navigationButton}-chevron`]: true,
               [`${this.navigationButton}-chevron--rotate`]: this.expanded === true,
-              'mg-a11y-animation': true,
             }}
           >
             <mg-icon icon="chevron-down" size="small"></mg-icon>
@@ -419,8 +418,8 @@ export class MgMenuItem {
    */
   render(): HTMLElement {
     const getContainerClasses = () => ({
-      [`${this.name}__collapse-container`]: true,
-      [`${this.name}__collapse-container--first-level`]: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container']: true,
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
     });
 
     return (

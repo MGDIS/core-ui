@@ -43,7 +43,7 @@ describe('mg-input-checkbox', () => {
     { title: 'bane', value: null },
   ];
 
-  describe.each(checkboxTypes)('render by type %s', type => {
+  describe.each([...checkboxTypes, undefined])('render by type %s', type => {
     let testValues: unknown[] = [
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type },
       { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, readonly: true },
@@ -113,8 +113,8 @@ describe('mg-input-checkbox', () => {
     });
 
     test.each([true, false])('Should trigger events, case validity check %s', async validity => {
-      const value = items.map(item => ({ ...item, value: false }));
-      if (!validity) value[0].value = true;
+      const value = items.map((item, index) => ({ ...item, value: false, id: index, required: item.required, disabled: item.disabled, hero: 'batman' }));
+      value[0].value = !validity;
       const page = await getPage({ label: 'label', type, identifier: 'identifier', helpText: 'My help text', value, required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = element.shadowRoot.querySelectorAll('input');
@@ -193,6 +193,70 @@ describe('mg-input-checkbox', () => {
           expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
         }
       });
+    });
+    test.each([
+      {
+        valid: true,
+        errorMessage: 'Override error',
+      },
+      {
+        valid: false,
+        errorMessage: 'Override error',
+      },
+    ])("should display override error with setError component's public method", async params => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), helpText: 'My help text', required: true });
+
+      expect(page.root).toMatchSnapshot();
+
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const inputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+
+      //mock validity
+      inputs.forEach(input => {
+        Object.defineProperty(input, 'validity', {
+          get: () => ({}),
+        });
+      });
+
+      await element.setError(params.valid, params.errorMessage);
+
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test.each([
+      {
+        valid: '',
+        errorMessage: 'Override error',
+        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean',
+      },
+      {
+        valid: undefined,
+        errorMessage: 'Override error',
+        error: '<mg-input-checkbox> method "setError()" param "valid" must be a boolean',
+      },
+      {
+        valid: true,
+        errorMessage: ' ',
+        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string',
+      },
+      {
+        valid: true,
+        errorMessage: true,
+        error: '<mg-input-checkbox> method "setError()" param "errorMessage" must be a string',
+      },
+    ])("shloud throw error with setError component's public method invalid params", async params => {
+      expect.assertions(1);
+      try {
+        const page = await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), helpText: 'My help text', required: true });
+        const element = page.doc.querySelector('mg-input-checkbox');
+
+        await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
+        await page.waitForChanges();
+      } catch (err) {
+        expect(err.message).toMatch(params.error);
+      }
     });
 
     test("display error with displayError component's public method", async () => {
@@ -575,7 +639,7 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
 
       const unselectAllButton = Array.from(
-        mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-input__input-checkbox-multi-section-header mg-button:last-of-type'),
+        mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-c-input__input-checkbox-multi-section-header mg-button:last-of-type'),
       ).find(button => button.textContent === 'Unselect all');
       unselectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
@@ -606,7 +670,7 @@ describe('mg-input-checkbox', () => {
 
       for (const [i, section] of sections.entries()) {
         const firstButton = section.querySelector('mg-button');
-        const sectionContent = section.querySelector('.mg-input__input-checkbox-multi-section-content');
+        const sectionContent = section.querySelector('.mg-c-input__input-checkbox-multi-section-content');
         expect(sectionContent).not.toHaveAttribute('hidden');
 
         firstButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));

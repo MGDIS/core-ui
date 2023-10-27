@@ -10,9 +10,9 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
   // eslint-disable-next-line jsx-a11y/no-redundant-roles
   <ul
     class={{
-      'mg-input__input-group-container': true,
-      'mg-input__input-group-container--vertical': props.inputVerticalList || (props.type === 'multi' && !props.readonly),
-      'mg-input__input-checkbox-multi-inputs': props.type === 'multi' && !props.readonly,
+      'mg-c-input__input-group-container': true,
+      'mg-c-input__input-group-container--vertical': props.inputVerticalList || (props.type === 'multi' && !props.readonly),
+      'mg-c-input__input-checkbox-multi-inputs': props.type === 'multi' && !props.readonly,
     }}
     role="list"
     aria-describedby={props.displaySearchInput ? 'search-results' : undefined}
@@ -23,21 +23,21 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
     {props.checkboxes
       .filter(item => !props.readonly || item.value)
       .map(input => (
-        <li key={input.id} class={{ 'mg-input__input-group': true, 'mg-input__input-group--disabled': props.disabled || input.disabled }}>
+        <li key={input._id} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': props.disabled || input.disabled }}>
           <input
             type="checkbox"
-            id={input.id}
+            id={input._id}
             name={props.name}
             value={input.value && input.value.toString()}
             checked={Boolean(input.value)}
             required={input.required}
             disabled={props.readonly || props.disabled || input.disabled}
             indeterminate={input.value === null}
-            onInput={input.handleInput}
-            onBlur={input.handleBlur}
-            onKeyDown={input.handleKeydown}
+            onInput={input._handleInput}
+            onBlur={input._handleBlur}
+            onKeyDown={input._handleKeydown}
           />
-          <label htmlFor={input.id}>{input.title}</label>
+          <label htmlFor={input._id}>{input.title}</label>
         </li>
       ))}
   </ul>

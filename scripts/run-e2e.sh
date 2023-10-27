@@ -1,20 +1,100 @@
 #!/usr/bin/env bash
 
-function clean() {
+script_name="create-test-files"
+temp_dir="temp"
+
+# Make a copy ok package file with specific keys
+prepare_package() {
+  file=$1
+  jq_query=$2
+  destination="$temp_dir/$file"
+  mkdir -p "$(dirname "$destination")"
+  jq "$jq_query" "$file" > "$destination"
+  echo "[$script_name] $file added to your project."
+}
+
+# Stop Docker
+clean() {
   docker compose down
-  
   exit 2
 }
 
-# prepare image content
-pnpm build
+# Remove temp directory
+rm -rf "$temp_dir"
 
-node ./scripts/create-test-files.js
+# Prepare image content
+pnpm build "$@"
 
-docker build --platform linux/amd64 -t coreui-e2e:latest .
+# Prepare root package.json
+prepare_package "package.json" '{
+  name, 
+  "scripts": {
+    "apps:notification-center": .scripts."apps:notification-center",
+    "test:e2e:playwright": .scripts."test:e2e:playwright"
+  }, 
+  "dependencies": { "turbo": .dependencies.turbo } 
+}'
+
+# Prepare packages/mg-components/package.json
+prepare_package "packages/mg-components/package.json" '{
+  name,
+  module: .module, 
+  "types": .types, 
+  "files": .files, 
+  "scripts": { 
+    prebuild: .scripts.prebuild,
+    start: .scripts.start,
+    "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
+  }, 
+  "dependencies": { "@stencil/core": .dependencies."@stencil/core" }
+}'
+
+# Prepare packages/notification-center/package.json
+prepare_package "packages/notification-center/package.json" '{
+  name,
+  module: .module, 
+  "types": .types, 
+  "files": .files, 
+  "exports": .exports, 
+  "scripts": { 
+    "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
+  }
+}'
+
+# Prepare packages/styles/package.json
+prepare_package "packages/styles/package.json" '{
+  name, 
+  "scripts": { "test:e2e:playwright": .scripts."test:e2e:playwright:docker" }
+}'
+
+# Prepare apps/notification-center/package.json
+prepare_package "apps/notification-center/package.json" '{
+  name, 
+  "scripts": { dev: .scripts.dev },
+  "dependencies": { 
+    "@mgdis/mg-components": .dependencies."@mgdis/mg-components",
+    "@mgdis/notification-center": .dependencies."@mgdis/notification-center",
+  }, 
+  "devDependencies": {
+    typescript: .devDependencies.typescript,
+    vite: .devDependencies.vite,
+  }
+}'
+
+# Create turbo.json
+echo '{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "test:e2e:playwright": {}
+  }
+}' > "$temp_dir/turbo.json"
+echo "[$script_name] turbo.json added to your project."
+
+# Build docker image with passed args
+docker build --build-arg args="$@" --platform linux/amd64 -t coreui-e2e:latest .
 
 echo "Press CTRL + C once tests are finished"
 
-docker compose -f docker-compose.test.yml up
+docker compose -f docker-compose.yml up
 
 trap "clean" SIGINT

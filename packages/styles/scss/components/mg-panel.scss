@@ -1,0 +1,81 @@
+@import 'mixins/reset-mg-card-slotted-variables';
+
+$spacer-default: 1rem;
+$spacer-small: 0.3rem;
+
+:host {
+  --mg-card-border: none;
+  --mg-card-padding: 0;
+  --mg-card-border-radius: var(--mg-panel-border-radius);
+  --mg-card-background: hsl(var(--mg-panel-background));
+  --mg-card-box-shadow: var(--mg-panel-box-shadow);
+}
+
+.mg-c-panel {
+  &__header {
+    $padding-value: 0 $spacer-default 0 $spacer-small;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: $padding-value;
+
+    &.mg-c-panel__header--reverse {
+      padding-right: $spacer-small;
+      padding-left: $spacer-default;
+    }
+  }
+
+  &__header-title,
+  &__header-content {
+    display: flex;
+    margin: $spacer-small 0;
+  }
+
+  &__header-content {
+    min-height: var(--default-size);
+    flex: 1 auto;
+    align-items: center;
+    padding-left: $spacer-small;
+  }
+
+  &__header-title {
+    mg-input-text {
+      flex-grow: 1;
+      margin-left: $spacer-small;
+    }
+
+    mg-button + mg-button:not([slot='append-input']) {
+      margin-left: $spacer-small;
+    }
+
+    &.mg-c-panel__header-title--full {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__collapse-button {
+    &-content {
+      --font-size: 1.4rem;
+      --mg-button-font-weight: 600;
+    }
+
+    &-icon.mg-c-panel__collapse-button-icon--reverse {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    padding: var(--mg-panel-content-padding);
+  }
+
+  ::slotted([slot='header-right']) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    gap: $spacer-default;
+  }
+
+  @include reset-slot-card-variables;
+}

@@ -96,7 +96,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   };
 
   /**
-   * Toogle items button handler
+   * Toggle items button handler
    */
   private handleToggleClick = (): void => {
     this.expanded = !this.expanded;
@@ -159,14 +159,14 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
 
     return (
       <Host hidden={this.checkboxes.length < 1}>
-        <div class="mg-input__input-checkbox-multi-section-header">
+        <div class="mg-c-input__input-checkbox-multi-section-header">
           {this.titleKind === SectionTitleKind.BUTTON ? (
             <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.expanded.toString()}>
               <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
-              <span class="mg-input__input-checkbox-multi-text">{getText(this.checkboxes)}</span>
+              <span class="mg-c-input__input-checkbox-multi-text">{getText(this.checkboxes)}</span>
             </mg-button>
           ) : (
-            <p class="mg-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
+            <p class="mg-c-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.expanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
             <mg-button variant="link" onClick={this.massActionHandler}>
@@ -185,7 +185,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             ></mg-pagination>
           )}
         </div>
-        <div hidden={!this.expanded} id={itemsContainerId} class="mg-input__input-checkbox-multi-section-content">
+        <div hidden={!this.expanded} id={itemsContainerId} class="mg-c-input__input-checkbox-multi-section-content">
           <MgInputCheckboxList
             checkboxes={this.getArrayRange(this.checkboxes, checkboxItemsFromIndex, checkboxItemsToIndex)}
             inputVerticalList={true}

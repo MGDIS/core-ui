@@ -2,10 +2,11 @@
 import { Component, Element, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { SkipLink } from './mg-skip-links.conf';
 import { initLocales } from '../../../locales';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-skip-links',
-  styleUrl: 'mg-skip-links.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-skip-links.css',
   shadow: true,
 })
 export class MgSkipLinks {
@@ -30,11 +31,7 @@ export class MgSkipLinks {
   @Prop() links: SkipLink[];
   @Watch('links')
   validateLinks(links: SkipLink[]): void {
-    if (
-      links === undefined ||
-      links.length === 0 ||
-      links.some(link => link.href === undefined || !link.href.startsWith('#') || link.label === undefined || link.label.trim() === '')
-    ) {
+    if (links === undefined || links.length === 0 || links.some(link => !isValidString(link.href) || !link.href.startsWith('#') || !isValidString(link.label))) {
       throw new Error(`<mg-skip-links> prop "links": Cannot be empty and each link must contains an href starting with a "#" and a non empty label attributes.`);
     }
   }
@@ -75,11 +72,11 @@ export class MgSkipLinks {
    */
   render(): HTMLElement {
     return (
-      <nav class="mg-skip-links" role="navigation" aria-label={this.messages.skipLinks.navLabel}>
-        <ul class="mg-skip-links__list" role="list">
+      <nav class="mg-c-skip-links" role="navigation" aria-label={this.messages.skipLinks.navLabel}>
+        <ul class="mg-c-skip-links__list" role="list">
           {this.links.map(link => (
             <li key={link.href}>
-              <a class="mg-skip-links__link" href={link.href} onClick={this.handleLinkCLick}>
+              <a class="mg-c-skip-links__link" href={link.href} onClick={this.handleLinkCLick}>
                 {link.label}
               </a>
             </li>

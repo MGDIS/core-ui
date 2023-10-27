@@ -4,7 +4,7 @@ import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-popover-content',
-  styleUrl: 'mg-popover-content.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-popover-content.css',
   shadow: true,
 })
 export class MgPopoverContent {
@@ -32,7 +32,7 @@ export class MgPopoverContent {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-popover-content']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-popover-content']);
 
   /**
    * Emited event when close button is clicked
@@ -83,7 +83,7 @@ export class MgPopoverContent {
               <mg-icon icon="cross"></mg-icon>
             </mg-button>
           )}
-          <div class="mg-popover-content__title">
+          <div class="mg-c-popover-content__title">
             <slot name="title"></slot>
           </div>
           <slot name="content"></slot>

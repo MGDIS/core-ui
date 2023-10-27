@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows } from '../../../utils/components.utils';
+import { createID, focusableElements, getWindows, isValidString } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
@@ -12,7 +12,7 @@ const isButton = (element: unknown): element is HTMLMgButtonElement => typeof el
 
 @Component({
   tag: 'mg-tooltip',
-  styleUrl: 'mg-tooltip.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tooltip.css',
   shadow: true,
 })
 export class MgTooltip {
@@ -43,14 +43,19 @@ export class MgTooltip {
    * Needed by the input for accessibility `aria-decribedby`.
    */
   @Prop() identifier: string = createID('mg-tooltip');
+  @Watch('identifier')
+  validateIdentifier(): void {
+    // use renderTooltipContent to update tooltip-content id
+    this.renderTooltipContent();
+  }
 
   /**
    * Displayed message in the tooltip
    */
   @Prop() message!: string;
   @Watch('message')
-  validateMessage(newValue: string): void {
-    if (typeof newValue !== 'string' || newValue.trim() === '') {
+  validateMessage(newValue: MgTooltip['message']): void {
+    if (!isValidString(newValue)) {
       throw new Error('<mg-tooltip> prop "message" is required.');
     }
     this.mgTooltipContent.message = newValue;
@@ -66,7 +71,7 @@ export class MgTooltip {
    */
   @Prop({ mutable: true }) display = false;
   @Watch('display')
-  handleDisplay(newValue: boolean): void {
+  handleDisplay(newValue: MgTooltip['display']): void {
     if (newValue) {
       this.show();
     } else {
@@ -149,7 +154,7 @@ export class MgTooltip {
    * @param newValue - display prop new value
    * @param condition - additionnal condition to apply display prop newValue
    */
-  private setDisplay = (newValue: boolean, condition = true): void => {
+  private setDisplay = (newValue: MgTooltip['display'], condition = true): void => {
     if (!this.disabled && condition) this.display = newValue;
   };
 
@@ -188,11 +193,11 @@ export class MgTooltip {
   private setMgButtonWrapper = (mgButton: HTMLMgButtonElement): void => {
     if (mgButton.disabled) {
       const div = document.createElement('div');
-      div.classList.add('mg-tooltip__mg-button-wrapper');
+      div.classList.add('mg-c-tooltip__mg-button-wrapper');
       mgButton.parentNode.insertBefore(div, mgButton);
       div.appendChild(mgButton);
       this.tooltipedElement = div;
-    } else if (mgButton.parentElement.classList.contains('mg-tooltip__mg-button-wrapper')) {
+    } else if (mgButton.parentElement.classList.contains('mg-c-tooltip__mg-button-wrapper')) {
       this.element.firstElementChild.replaceWith(mgButton);
       this.tooltipedElement = mgButton;
     }
@@ -230,6 +235,12 @@ export class MgTooltip {
           name: 'offset',
           options: {
             offset: [0, 8],
+          },
+        },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['auto'],
           },
         },
       ],
@@ -272,18 +283,23 @@ export class MgTooltip {
   /**
    * Render tooltip content element
    */
-  private renderTooltip(): void {
-    const mgTooltipContent = document.createElement('mg-tooltip-content');
-    mgTooltipContent.setAttribute('slot', 'content');
-    mgTooltipContent.setAttribute('id', this.identifier);
+  private renderTooltipContent(): void {
+    const mgTooltipContent = this.element.querySelector('mg-tooltip-content');
+    if (mgTooltipContent === null) {
+      const mgTooltipContent = document.createElement('mg-tooltip-content');
+      mgTooltipContent.setAttribute('slot', 'content');
+      mgTooltipContent.setAttribute('id', this.identifier);
 
-    const arrow = document.createElement('div');
-    arrow.setAttribute('slot', 'arrow');
-    arrow.dataset.popperArrow = '';
-    mgTooltipContent.appendChild(arrow);
+      const arrow = document.createElement('div');
+      arrow.setAttribute('slot', 'arrow');
+      arrow.dataset.popperArrow = '';
+      mgTooltipContent.appendChild(arrow);
 
-    // append tooltip element to component
-    this.element.appendChild(mgTooltipContent);
+      // append tooltip element to component
+      this.element.appendChild(mgTooltipContent);
+    } else {
+      mgTooltipContent.setAttribute('id', this.identifier);
+    }
   }
 
   /*************
@@ -298,12 +314,13 @@ export class MgTooltip {
     this.windows = getWindows(window);
 
     // Get tooltip element
-    this.renderTooltip();
+    this.renderTooltipContent();
     this.mgTooltipContent = this.element.querySelector(`#${this.identifier}`);
 
     //validate properties
     this.validateDisabled(this.disabled);
     this.validateMessage(this.message);
+    this.validateIdentifier();
   }
 
   /**

@@ -5,7 +5,7 @@ import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 
 @Component({
   tag: 'mg-form',
-  styleUrl: 'mg-form.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-form.css',
   shadow: true,
 })
 export class MgForm {
@@ -17,7 +17,7 @@ export class MgForm {
   private mgButtons: HTMLMgButtonElement[];
 
   // Classes
-  private readonly classAllRequired = 'mg-form--all-required';
+  private readonly classAllRequired = 'mg-c-form--all-required';
 
   // HTML selector
   private form: HTMLFormElement;
@@ -75,7 +75,7 @@ export class MgForm {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-form']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-form']);
 
   /**
    * Required message
@@ -94,7 +94,7 @@ export class MgForm {
   @Event({ eventName: 'form-submit' }) formSubmit: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {

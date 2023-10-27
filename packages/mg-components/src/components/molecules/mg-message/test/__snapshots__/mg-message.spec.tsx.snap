@@ -3,13 +3,13 @@
 exports[`mg-message Should render a danger message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--danger" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
@@ -28,17 +28,17 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--danger" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -58,17 +58,17 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--danger" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -88,17 +88,17 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--danger" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -118,13 +118,13 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 exports[`mg-message Should render a info message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--info" id="identifier" role="status">
+    <div class="mg-c-message mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="info-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
@@ -143,17 +143,17 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--info" id="identifier" role="status">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="info-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -173,17 +173,17 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--info" id="identifier" role="status">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="info-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -203,17 +203,17 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--info" id="identifier" role="status">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="info-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -233,13 +233,13 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 exports[`mg-message Should render a success message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--success" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="check-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
@@ -258,17 +258,17 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--success" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="check-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -288,17 +288,17 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--success" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="check-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -318,17 +318,17 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--success" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="check-circle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -348,13 +348,13 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 exports[`mg-message Should render a warning message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--warning" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-triangle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
@@ -373,17 +373,17 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--warning" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-triangle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -403,17 +403,17 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--warning" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-triangle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>
@@ -433,17 +433,17 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
   <mock:shadow-root>
-    <div class="mg-message mg-message--close-button mg-message--warning" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
-        <span class="mg-message__icon">
+        <span class="mg-c-message__icon">
           <mg-icon icon="exclamation-triangle"></mg-icon>
         </span>
-        <div class="mg-message__content">
-          <span class="mg-message__content-slot">
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
         </div>
-        <span class="mg-message__close-button">
+        <span class="mg-c-message__close-button">
           <mg-button identifier="identifier-close-button" is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
           </mg-button>

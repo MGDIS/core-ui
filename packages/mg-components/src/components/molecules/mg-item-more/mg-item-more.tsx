@@ -3,10 +3,11 @@ import { initLocales } from '../../../locales';
 import { OverflowBehavior } from '../../../utils/behaviors.utils';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import type { IconType, MessageType, SizeType, SlotLabelType } from './mg-item-more.conf';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-item-more',
-  styleUrl: 'mg-item-more.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-item-more.css',
   shadow: true,
 })
 export class MgItemMore {
@@ -88,7 +89,7 @@ export class MgItemMore {
       });
 
       // add id suffix to prevent duplicate key. default html id is: '';
-      if (proxy.id.trim() !== '') proxy.id = `${proxy.id}-proxy`;
+      if (isValidString(proxy.id)) proxy.id = `${proxy.id}-proxy`;
 
       // manage status change miror in proxy
       allMenuItem[index].addEventListener('status-change', (event: CustomEvent) => {
@@ -141,7 +142,7 @@ export class MgItemMore {
       <Host role="listitem">
         <mg-menu-item data-overflow-more data-size={this.parentMenu.size}>
           <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
-          <span class={{ 'sr-only': !this.slotlabel.display }} slot="label">
+          <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
             {this.slotlabel.label}
           </span>
           <mg-menu direction={Direction.VERTICAL} label={this.messages.moreLabel} size={this.size}></mg-menu>

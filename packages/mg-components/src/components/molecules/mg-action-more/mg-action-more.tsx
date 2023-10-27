@@ -37,14 +37,16 @@ const isMgActionMoreIcon = (prop: unknown): prop is MgActionMoreIconType => {
 
 @Component({
   tag: 'mg-action-more',
-  styleUrl: 'mg-action-more.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-action-more.css',
   shadow: true,
 })
 export class MgActionMore {
   /************
    * Internal *
    ************/
+
   private readonly name = 'mg-action-more';
+  private readonly classBase = 'mg-c-action-more';
   private readonly mgPopoverIdentifier = createID(this.name);
   private messages: MgActionMoreMessageType;
 
@@ -60,11 +62,13 @@ export class MgActionMore {
   /**
    * Define displaied icon
    */
-  @Prop() icon: MgActionMoreIconType = { icon: 'ellipsis' };
+  @Prop({ mutable: true }) icon: MgActionMoreIconType;
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
       throw new Error(`<${this.name}> prop icon must match MgActionMoreIconType.`);
+    } else if (!Boolean(newValue?.icon) && Boolean(this.button.isIcon)) {
+      this.icon = { icon: 'ellipsis' };
     }
   }
 
@@ -110,7 +114,7 @@ export class MgActionMore {
    ***********/
 
   /**
-   * Toogle expanded props
+   * Toggle expanded props
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
@@ -168,9 +172,8 @@ export class MgActionMore {
       buttonContent.push(
         <span
           class={{
-            [`${this.name}__chevron`]: true,
-            [`${this.name}__chevron--rotate`]: this.expanded === true,
-            'mg-a11y-animation': true,
+            [`${this.classBase}__chevron`]: true,
+            [`${this.classBase}__chevron--rotate`]: this.expanded === true,
           }}
         >
           <mg-icon icon="chevron-down" size="small"></mg-icon>
@@ -183,7 +186,7 @@ export class MgActionMore {
         <span class="mg-action-more">
           <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
             <mg-button variant={this.button.variant} isIcon={this.button.isIcon} type="button" label={buttonLabel} onClick={this.handleButton}>
-              <mg-icon {...this.icon}></mg-icon>
+              {this.icon && <mg-icon {...this.icon}></mg-icon>}
               {!this.button.isIcon && buttonContent}
             </mg-button>
             <div slot="content">

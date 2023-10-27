@@ -3,7 +3,7 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 
@@ -55,7 +55,7 @@ const groupOptions = (acc: (SelectOption | OptGroup)[], { group, title, value, d
 
 @Component({
   tag: 'mg-input-select',
-  styleUrl: 'mg-input-select.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-select.css',
   shadow: true,
 })
 export class MgInputSelect {
@@ -226,7 +226,7 @@ export class MgInputSelect {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-input--select']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--select']);
 
   /**
    * Error message to display
@@ -259,7 +259,7 @@ export class MgInputSelect {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -268,6 +268,37 @@ export class MgInputSelect {
     this.hasDisplayedError = this.invalid;
   }
 
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputSelect['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputSelect['valid']) {
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    this.inputValid.emit(this.valid);
+  }
   /**
    * Handle input event
    */
@@ -326,20 +357,22 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = !this.isDisabledValue() && (this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true)));
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
-    if (!this.valid && this.input.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (this.input.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 
@@ -405,7 +438,7 @@ export class MgInputSelect {
         isFieldset={false}
       >
         <select
-          class="mg-input__box"
+          class="mg-c-input__box"
           id={this.identifier}
           name={this.name}
           title={this.placeholder}

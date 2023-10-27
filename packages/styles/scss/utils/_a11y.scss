@@ -1,0 +1,45 @@
+/**
+ a11y
+*/
+
+/**
+ Make content available only for screen reader
+ https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
+*/
+@mixin visually-hidden {
+  /* stylelint-disable declaration-no-important */
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 0.1rem !important;
+  height: 0.1rem !important;
+  padding: 0 !important;
+  border: 0 !important;
+  margin: -0.1rem !important;
+  clip: rect(0.1rem, 0.1rem, 0.1rem, 0.1rem) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  /* stylelint-enable declaration-no-important */
+}
+
+.mg-u-visually-hidden {
+  @include visually-hidden;
+}
+
+// Remove outline for non-keyboard :focus
+// https://www.tpgi.com/focus-visible-and-backwards-compatibility/
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/**
+   Remove animations if `prefers-reduced-motion` is enabled
+  */
+@media (prefers-reduced-motion) {
+  // TODO: check if needs to add before and after
+  * {
+    /* stylelint-disable declaration-no-important */
+    animation: none !important;
+    transition: none !important;
+    /* stylelint-enable declaration-no-important */
+  }
+}

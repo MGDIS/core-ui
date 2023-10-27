@@ -23,11 +23,15 @@ Color: [@color-dark](./?path=/docs/style-colors--docs), opacity : 0.6
 
 Position : center
 
-## Use as search input
+## Use as `search` input
 
 Due to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type="search" />` must be used within a `<form role="search" />` we recommend using mg-input-text as in dedicated story.
 
 The "search" role can only be used when the input field is the main website search field.
+
+## Display a `datalist`
+
+The `datalist` behavior is set with `datalistoptions` prop to initalize options list.
 
 ## Slot
 
@@ -40,6 +44,7 @@ The spacing between the field and the slot content is not managed by the compone
 
 | Property                  | Attribute                | Description                                                                                                                                    | Type                     | Default           |
 | ------------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ----------------- |
+| `datalistoptions`         | --                       | Define datalist options                                                                                                                        | `string[]`               | `undefined`       |
 | `disabled`                | `disabled`               | Define if input is disabled                                                                                                                    | `boolean`                | `false`           |
 | `displayCharacterLeft`    | `display-character-left` | Define if component should display character left                                                                                              | `boolean`                | `true`            |
 | `helpText`                | `help-text`              | Add a help text under the input, usually expected data format and example                                                                      | `string`                 | `undefined`       |
@@ -75,7 +80,20 @@ The spacing between the field and the slot content is not managed by the compone
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setError(valid: MgInputText['valid'], errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
 #### Returns
 

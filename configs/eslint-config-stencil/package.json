@@ -5,8 +5,8 @@
   "main": "./src/index.js",
   "private": true,
   "scripts": {
-    "lint": "run-s lint:es lint:prettier",
-    "lint:fix": "run-s lint:es:fix lint:prettier:fix",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint src/**/*.js",
     "lint:es:fix": "eslint src/**/*.js --fix",
     "lint:prettier": "prettier --check **/*.{js,json} --ignore-path ../../.gitignore",
@@ -27,6 +27,6 @@
     "eslint-plugin-react": "^7.32.2",
     "prettier-config": "workspace:*",
     "tsconfig": "workspace:*",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.0"
   }
 }

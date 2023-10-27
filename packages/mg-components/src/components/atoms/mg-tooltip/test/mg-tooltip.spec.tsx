@@ -163,7 +163,7 @@ describe('mg-tooltip', () => {
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 
-  test.each([true, false])('Should toogle tooltip from prop display, case display %s', async display => {
+  test.each([true, false])('Should toggle tooltip from prop display, case display %s', async display => {
     const args = { identifier: 'identifier', message: 'batman', display };
     const page = await getPage(args, <span>batman</span>);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
@@ -336,5 +336,23 @@ describe('mg-tooltip', () => {
     await page.waitForChanges();
 
     expect(spy).toHaveBeenCalled();
+  });
+
+  test('should update mg-popover-content id when "identifier" is updated', async () => {
+    const page = await getPage(
+      { identifier: 'identifier', message: 'My tooltip message' },
+      <mg-button identifier="identifier" disabled>
+        mg-button.disabled
+      </mg-button>,
+    );
+
+    expect(page.root).toMatchSnapshot();
+
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    mgTooltip.identifier = 'new-identifier';
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 });

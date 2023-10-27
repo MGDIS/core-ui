@@ -7,16 +7,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -26,16 +26,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -45,16 +45,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -71,22 +71,22 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_more-item" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_more-item" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
-              <div class="mg-menu-item__navigation-button-center">
-                <div class="mg-menu-item__navigation-button-text-content">
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
                   <slot name="label"></slot>
                   <slot name="information"></slot>
                 </div>
               </div>
-              <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+              <span class="mg-c-menu-item__navigation-button-chevron">
                 <mg-icon icon="chevron-down" size="small"></mg-icon>
               </span>
             </button>
             <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
               <mock:shadow-root>
-                <mg-card class="mg-popover-content">
-                  <div class="mg-popover-content__title">
+                <mg-card class="mg-c-popover-content">
+                  <div class="mg-c-popover-content__title">
                     <slot name="title"></slot>
                   </div>
                   <slot name="content"></slot>
@@ -94,14 +94,14 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 <slot name="arrow"></slot>
               </mock:shadow-root>
               <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-              <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
             </mg-popover-content>
           </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -110,16 +110,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -129,16 +129,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -148,16 +148,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -179,16 +179,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <a class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible" href="#">
+      <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="#">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </a>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -198,16 +198,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -217,16 +217,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -243,22 +243,22 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_more-item" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_more-item" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
-              <div class="mg-menu-item__navigation-button-center">
-                <div class="mg-menu-item__navigation-button-text-content">
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
                   <slot name="label"></slot>
                   <slot name="information"></slot>
                 </div>
               </div>
-              <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+              <span class="mg-c-menu-item__navigation-button-chevron">
                 <mg-icon icon="chevron-down" size="small"></mg-icon>
               </span>
             </button>
             <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
               <mock:shadow-root>
-                <mg-card class="mg-popover-content">
-                  <div class="mg-popover-content__title">
+                <mg-card class="mg-c-popover-content">
+                  <div class="mg-c-popover-content__title">
                     <slot name="title"></slot>
                   </div>
                   <slot name="content"></slot>
@@ -266,14 +266,14 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
                 <slot name="arrow"></slot>
               </mock:shadow-root>
               <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-              <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
             </mg-popover-content>
           </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -282,16 +282,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -301,16 +301,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -320,16 +320,16 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -351,16 +351,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -370,16 +370,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -389,16 +389,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -410,24 +410,24 @@ exports[`mg-item-more events should update proxy status when base item status-ch
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -436,16 +436,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -455,16 +455,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -474,16 +474,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -505,16 +505,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -524,16 +524,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -543,16 +543,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -569,22 +569,22 @@ exports[`mg-item-more events should update proxy status when base item status-ch
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_more-item" aria-current="page" aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--active mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_more-item" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
               <slot name="image"></slot>
-              <div class="mg-menu-item__navigation-button-center">
-                <div class="mg-menu-item__navigation-button-text-content">
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
                   <slot name="label"></slot>
                   <slot name="information"></slot>
                 </div>
               </div>
-              <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+              <span class="mg-c-menu-item__navigation-button-chevron">
                 <mg-icon icon="chevron-down" size="small"></mg-icon>
               </span>
             </button>
             <mg-popover-content data-arrow-hide data-popper-placement="bottom-start" data-popper-reference-hidden id="mg-popover-test_more-item" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
               <mock:shadow-root>
-                <mg-card class="mg-popover-content">
-                  <div class="mg-popover-content__title">
+                <mg-card class="mg-c-popover-content">
+                  <div class="mg-c-popover-content__title">
                     <slot name="title"></slot>
                   </div>
                   <slot name="content"></slot>
@@ -592,14 +592,14 @@ exports[`mg-item-more events should update proxy status when base item status-ch
                 <slot name="arrow"></slot>
               </mock:shadow-root>
               <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-              <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" slot="content">
+              <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
                 <slot></slot>
               </div>
             </mg-popover-content>
           </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -608,16 +608,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--active mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -627,16 +627,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -646,16 +646,16 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--vertical mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -677,16 +677,16 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal id="my-id-1" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -696,16 +696,16 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal id="my-id-2" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -715,16 +715,16 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal id="my-id-3" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -736,24 +736,24 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -762,16 +762,16 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical id="my-id-1-proxy" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -781,16 +781,16 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical id="my-id-2-proxy" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -800,16 +800,16 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical id="my-id-3-proxy" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -831,16 +831,16 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -850,16 +850,16 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -869,16 +869,16 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -890,24 +890,24 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -916,16 +916,16 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -935,16 +935,16 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -954,16 +954,16 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -985,17 +985,17 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-large mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
           <slot name="metadata"></slot>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1005,17 +1005,17 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-large mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
           <slot name="metadata"></slot>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1025,17 +1025,17 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-large mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
           <slot name="metadata"></slot>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1047,24 +1047,24 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="large" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -1073,16 +1073,16 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1092,16 +1092,16 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1111,16 +1111,16 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1142,16 +1142,16 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1161,16 +1161,16 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1180,16 +1180,16 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1201,24 +1201,24 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -1227,16 +1227,16 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1246,16 +1246,16 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1265,16 +1265,16 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1296,16 +1296,16 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1315,16 +1315,16 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1334,16 +1334,16 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1355,24 +1355,24 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -1381,16 +1381,16 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1400,16 +1400,16 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1419,16 +1419,16 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1450,16 +1450,16 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1469,16 +1469,16 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1488,16 +1488,16 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1509,24 +1509,24 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
-            <div class="mg-menu-item__navigation-button-center">
-              <div class="mg-menu-item__navigation-button-text-content">
+            <div class="mg-c-menu-item__navigation-button-center">
+              <div class="mg-c-menu-item__navigation-button-text-content">
                 <slot name="label"></slot>
                 <slot name="information"></slot>
               </div>
             </div>
-            <span class="mg-a11y-animation mg-menu-item__navigation-button-chevron">
+            <span class="mg-c-menu-item__navigation-button-chevron">
               <mg-icon icon="chevron-down" size="small"></mg-icon>
             </span>
           </button>
-          <div class="mg-menu-item__collapse-container" hidden="">
+          <div class="mg-c-menu-item__collapse-container" hidden="">
             <slot></slot>
           </div>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
-        <span class="sr-only" slot="label" title="Additional menu">
+        <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
         <mg-menu aria-label="Additional menu" direction="vertical" role="list">
@@ -1535,16 +1535,16 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
           </mock:shadow-root>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1554,16 +1554,16 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1573,16 +1573,16 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
-                <div class="mg-menu-item__navigation-button-center">
-                  <div class="mg-menu-item__navigation-button-text-content">
+                <div class="mg-c-menu-item__navigation-button-center">
+                  <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
                 </div>
               </button>
-              <div class="mg-menu-item__collapse-container" hidden="">
+              <div class="mg-c-menu-item__collapse-container" hidden="">
                 <slot></slot>
               </div>
             </mock:shadow-root>
@@ -1604,16 +1604,16 @@ exports[`mg-item-more should fire disconnect callback 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1623,16 +1623,16 @@ exports[`mg-item-more should fire disconnect callback 2`] = `
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>
@@ -1642,16 +1642,16 @@ exports[`mg-item-more should fire disconnect callback 2`] = `
   </mg-menu-item>
   <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-menu-item__navigation-button mg-menu-item__navigation-button--horizontal mg-menu-item__navigation-button--size-regular mg-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
-        <div class="mg-menu-item__navigation-button-center">
-          <div class="mg-menu-item__navigation-button-text-content">
+        <div class="mg-c-menu-item__navigation-button-center">
+          <div class="mg-c-menu-item__navigation-button-text-content">
             <slot name="label"></slot>
             <slot name="information"></slot>
           </div>
         </div>
       </button>
-      <div class="mg-menu-item__collapse-container mg-menu-item__collapse-container--first-level" hidden="">
+      <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" hidden="">
         <slot></slot>
       </div>
     </mock:shadow-root>

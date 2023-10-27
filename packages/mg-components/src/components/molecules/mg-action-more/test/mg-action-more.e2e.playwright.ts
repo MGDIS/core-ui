@@ -57,6 +57,36 @@ describe('mg-action-more', () => {
       {
         items,
         displayChevron: true,
+        icon: {
+          icon: 'ellipsis',
+        },
+        button: {
+          variant: 'flat',
+          isIcon: false,
+        },
+      },
+      {
+        items,
+        displayChevron: true,
+        button: {
+          variant: 'flat',
+          isIcon: false,
+        },
+      },
+      {
+        items,
+        displayChevron: false,
+        button: {
+          variant: 'flat',
+          isIcon: false,
+        },
+      },
+      {
+        items,
+        displayChevron: false,
+        icon: {
+          icon: 'ellipsis',
+        },
         button: {
           variant: 'flat',
           isIcon: false,

@@ -142,3 +142,22 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
   }
   return windows;
 };
+
+/**
+ * Validate string
+ * @param value - value to check
+ * @returns if string is valid
+ */
+export const isValidString = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';
+
+/**
+ * Clean string caraters
+ * @param text - text to cliean
+ * @returns cleanded string
+ */
+export const cleanString = (text: string): string =>
+  typeof text === 'string' &&
+  text
+    .toLocaleLowerCase()
+    .normalize('NFD')
+    .replaceAll(/[\u0300-\u036f]/g, '');

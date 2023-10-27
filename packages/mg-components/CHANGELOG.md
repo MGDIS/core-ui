@@ -1,5 +1,52 @@
 # @mgdis/mg-components
 
+## 5.19.0
+
+### Minor Changes
+
+- b376c2e: Set CSS pattern to our SCSS files to enforce a convention.
+- b376c2e: Use @mgdis/styles package
+- b376c2e: [**`mg-input-text`**](./?path=/docs/molecules-inputs-mg-input-text--docs) add datalist type
+
+### Patch Changes
+
+- b376c2e: [#391](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/391) mg-components: vitejs build incompatibility
+- b376c2e: [#388](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/388) refacto: use isValidText utils fonction where text need validation type with trim
+- b376c2e: [#395](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/395) e2e: move mg-popover tests to playwright to improve stability
+- b376c2e: [#396](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/396) mg-input-checkbox: emit updated value with all keys present at the prop initatilization
+- b376c2e: [#399](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/399) mg-tag: review content vertical alignement
+- b376c2e: [#393](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/393) mg-input-checkbox [muli]: search must not be case sentive with special caraters (ex: accents)
+- b376c2e: [#387](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/387) mg-tabs: active-tab prop does not match displayed style
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+  - @mgdis/styles@1.0.0
+
+## 5.18.0
+
+### Minor Changes
+
+- 1d96c0e: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use automatic type only when prop 'type' is undefined
+
+### Patch Changes
+
+- 272294b: [#384](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/384) popperjs: some elements are displayed out of the page and are not reachable
+- 25f448f: [#378](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/378) mg-popover - mg-tooltip: impossible to condition the display mg-\*\*-content with a if on base component
+- f9f70e8: [#362](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/362) mg-input-\*\*: Enable customisation of errors
+
+## 5.17.0
+
+### Minor Changes
+
+- 9336e2b: Add and update icons
+
+### Patch Changes
+
+- b078027: [#28](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/28) chore: upgrade Stenciljs to v4
+- 7035494: [#371](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/371) mg-action-more : follow documentation for a hidden icon when label is visible
+- Updated dependencies [9336e2b]
+  - @mgdis/img@1.3.0
+
 ## 5.16.0
 
 ### Minor Changes
