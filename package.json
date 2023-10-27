@@ -21,7 +21,7 @@
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "turbo test:unit",
     "test:e2e": "turbo test:e2e --force",
-    "test:e2e:playwright": "turbo test:e2e:playwright --force",
+    "test:e2e:playwright": "turbo test:e2e:playwright --force --concurrency=1",
     "test:e2e:playwright:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
     "coverage": "pnpm turbo:coverage && pnpm report:merge && pnpm junit:merge",
