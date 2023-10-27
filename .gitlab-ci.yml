@@ -95,6 +95,7 @@ stages:
 build:
   stage: build
   extends:
+    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm build
