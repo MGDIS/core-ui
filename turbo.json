@@ -10,6 +10,10 @@
       "dependsOn": ["^build:config"],
       "outputs": ["dist/**"]
     },
+    "build:app": {
+      "dependsOn": ["^build:app", "^build"],
+      "outputs": ["dist/**"]
+    },
     "dev": {},
     "test": {},
     "test:unit": {},

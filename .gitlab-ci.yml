@@ -260,7 +260,7 @@ pages:
 
 .docusaurus:
   script:
-    - pnpm build --filter=docusaurus
+    - pnpm build:app --filter=docusaurus
     - mkdir -p public
     - mv apps/docusaurus/build/* public
 
