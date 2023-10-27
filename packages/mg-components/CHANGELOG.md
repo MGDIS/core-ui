@@ -1,5 +1,27 @@
 # @mgdis/mg-components
 
+## 5.19.0
+
+### Minor Changes
+
+- b376c2e: Set CSS pattern to our SCSS files to enforce a convention.
+- b376c2e: Use @mgdis/styles package
+- b376c2e: [**`mg-input-text`**](./?path=/docs/molecules-inputs-mg-input-text--docs) add datalist type
+
+### Patch Changes
+
+- b376c2e: [#391](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/391) mg-components: vitejs build incompatibility
+- b376c2e: [#388](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/388) refacto: use isValidText utils fonction where text need validation type with trim
+- b376c2e: [#395](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/395) e2e: move mg-popover tests to playwright to improve stability
+- b376c2e: [#396](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/396) mg-input-checkbox: emit updated value with all keys present at the prop initatilization
+- b376c2e: [#399](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/399) mg-tag: review content vertical alignement
+- b376c2e: [#393](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/393) mg-input-checkbox [muli]: search must not be case sentive with special caraters (ex: accents)
+- b376c2e: [#387](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/387) mg-tabs: active-tab prop does not match displayed style
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+  - @mgdis/styles@1.0.0
+
 ## 5.18.0
 
 ### Minor Changes

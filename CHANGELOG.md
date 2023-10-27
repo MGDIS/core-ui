@@ -1,5 +1,11 @@
 # Changelog
 
+## Release (2023-10-26-09-35_Petite-Pink-Flamingo-Porpoise)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-10-12-09-21_Deafening-Desert-Sand-Dolphin)
 
 ### Packages released

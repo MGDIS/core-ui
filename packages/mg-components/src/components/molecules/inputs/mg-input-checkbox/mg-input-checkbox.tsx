@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, isValidString } from '../../../../utils/components.utils';
+import { ClassList, cleanString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SearchValueType, SectionKind, MgInputCheckboxListProps } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
@@ -398,7 +398,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Method to update searchResults
    */
   private updateSearchResults = (): void => {
-    this.searchResults = this.checkboxItems.filter(item => item.title.toLocaleLowerCase().includes(this.searchValue.trim().toLocaleLowerCase()));
+    this.searchResults = this.checkboxItems.filter(item => cleanString(item.title).includes(cleanString(this.searchValue)));
   };
 
   /**

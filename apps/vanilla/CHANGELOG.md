@@ -1,5 +1,22 @@
 # vanilla
 
+## 0.0.3
+
+### Patch Changes
+
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+- Updated dependencies [b376c2e]
+  - @mgdis/mg-components@5.19.0
+  - @mgdis/notification-center@1.1.2
+
 ## 0.0.2
 
 ### Patch Changes
