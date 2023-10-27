@@ -94,14 +94,14 @@ stages:
 
 build:
   stage: build
+  extends:
+    - .install:dependencies
   script:
     - pnpm build
   artifacts:
     name: '$CI_COMMIT_REF_SLUG'
     untracked: true
     expire_in: 1 week
-  extends:
-    - .install:dependencies
 
 #########
 # tests #
