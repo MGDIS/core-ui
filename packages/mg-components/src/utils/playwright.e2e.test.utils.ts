@@ -21,13 +21,13 @@ export const setPageContent = async (page: Page, html: string, viewportSize?: Vi
   // JS
   await page.addScriptTag({ url: 'http://localhost:3333/build/mg-components.esm.js', type: 'module' });
 
+  // Set page size before style setting to prevent "resize" event to be triggered
+  if (viewportSize !== undefined) await page.setViewportSize(viewportSize);
+
   // Set page content
   // Added the `e2e-screenshot` class to be able to do the screenshot on this specific one with
   // `await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();`
   await page.setContent(`<style>${css} .e2e-screenshot { display: inline-block; }</style><span class="e2e-screenshot">${html}</span>`);
-
-  // Set page size
-  if (viewportSize !== undefined) await page.setViewportSize(viewportSize);
 
   // Make sure everything is loaded
   await page.waitForLoadState('networkidle');
