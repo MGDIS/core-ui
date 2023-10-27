@@ -114,8 +114,6 @@ lint:
     - .rules:except-tags
   script:
     - pnpm lint
-  needs:
-    - build
 
 test:unit:
   stage: tests
@@ -135,8 +133,6 @@ test:unit:
       coverage_report:
         coverage_format: cobertura
         path: coverage/cobertura-coverage.xml
-  needs:
-    - build
 
 test:e2e:
   stage: tests
@@ -154,8 +150,6 @@ test:e2e:
     reports:
       junit:
         - packages/mg-components/coverage/junit.xml
-  needs:
-    - build
 
 test:e2e:playwright:
   stage: tests
@@ -184,8 +178,6 @@ test:e2e:playwright:
         - packages/notification-center/results.xml
         - packages/mg-components/results.xml
         - packages/styles/results.xml
-  needs:
-    - build
 
 sonar:
   stage: tests
@@ -198,7 +190,6 @@ sonar:
     - sonar-scanner -D sonar.login=$SONAR_KEY
     - gitlabci-sonar-compare report
   needs:
-    - build
     - test:unit
 
 auto-review:
