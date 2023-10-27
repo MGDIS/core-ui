@@ -154,12 +154,13 @@ test:e2e:
 test:e2e:playwright:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  parallel: 7
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
   script:
-    - pnpm test:e2e:playwright
+    - pnpm test:e2e:playwright -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   retry: 2
   artifacts:
     when: always
