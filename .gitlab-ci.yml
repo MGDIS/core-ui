@@ -6,6 +6,7 @@ default:
 stages:
   - build
   - tests
+  - sonar
   - artifacts
   - mg-components
   - release
@@ -94,15 +95,16 @@ stages:
 
 build:
   stage: build
+  rules:
+    - when: always
   extends:
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm build
   artifacts:
     name: '$CI_COMMIT_REF_SLUG'
     untracked: true
-    expire_in: 1 week
+    expire_in: 1 day
 
 #########
 # tests #
@@ -181,7 +183,7 @@ test:e2e:playwright:
         - packages/styles/results.xml
 
 sonar:
-  stage: tests
+  stage: sonar
   variables:
     GIT_DEPTH: 0
   extends:
@@ -190,11 +192,9 @@ sonar:
     - gitlabci-quality-gate A+++
     - sonar-scanner -D sonar.login=$SONAR_KEY
     - gitlabci-sonar-compare report
-  needs:
-    - test:unit
 
 auto-review:
-  stage: tests
+  stage: sonar
   extends:
     - .rules:mr
   script:
@@ -212,9 +212,7 @@ release:
   stage: release
   extends:
     - .rules:tags
-    - .install:dependencies
   script:
-    - pnpm build
     - pnpm publish -r --no-git-checks
 
 chromatic:mr:
@@ -242,7 +240,6 @@ bot-publish:
   stage: release
   extends:
     - .rules:tags
-    - .install:dependencies
   script:
     - cd tools/release-bot
     - ./bin/release.js
@@ -253,7 +250,6 @@ pages:
   stage: release
   extends:
     - .rules:tags
-    - .install:dependencies
   script:
     - !reference [.docusaurus, script]
     - !reference [.mg-components:build:storybook, script]
@@ -267,20 +263,14 @@ pages:
 # mg-components #
 #################
 
-.mg-components:build:
-  script:
-    - pnpm build --filter=@mgdis/mg-components
-
 .docusaurus:
   script:
-    - pnpm build:app --filter=docusaurus
     - mkdir -p public
     - mv apps/docusaurus/build/* public
 
 .mg-components:build:storybook:
   script:
     - mkdir -p public/storybook
-    - !reference [.mg-components:build, script]
     - cd packages/mg-components
     - pnpm storybook:build
     - mv storybook-static/* ../../public/storybook
@@ -290,20 +280,15 @@ mg-components:artifact:
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
-    - .install:dependencies
   script:
-    - !reference [.mg-components:build, script]
     - cd packages/mg-components
     - !reference [.artifact, script]
-  needs:
-    - lint
 
 storybook-mr:
   stage: mg-components
   extends:
     - .rules:changes:mg-components
     - .rules:mr
-    - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
     paths:
@@ -312,17 +297,12 @@ storybook-mr:
     name: review/$CI_COMMIT_REF_SLUG
     url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/storybook/index.html'
     auto_stop_in: 1 week
-  needs:
-    - lint
 
 chromatic:publish:
   stage: mg-components
-  extends:
-    - .install:dependencies
   rules:
     - if: $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG
   script:
-    - !reference [.mg-components:build, script]
     - cd packages/mg-components
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
 
@@ -331,7 +311,6 @@ mg-components:npmjs:
     - .rules:changes:mg-components
     - .npmjs
   script:
-    - !reference [.mg-components:build, script]
     - pnpm publish --no-git-checks --access public
 
 #######################
@@ -343,13 +322,9 @@ notification-center:artifact:
   extends:
     - .rules:changes:notification-center
     - .rules:except-tags
-    - .install:dependencies
   script:
-    - pnpm build
     - cd packages/notification-center
     - !reference [.artifact, script]
-  needs:
-    - lint
 
 ###################
 # linting-stencil #
@@ -360,68 +335,46 @@ linting-stencil:artifact:
   extends:
     - .rules:changes:linting-stencil
     - .rules:except-tags
-    - .install:dependencies
   script:
     - cd packages/linting-stencil
-    - pnpm build
     - !reference [.artifact, script]
-  needs:
-    - lint
 
 #######
 # img #
 #######
-
-.img:build:
-  script:
-    - cd packages/img
-    - pnpm build
 
 img:artifact:
   stage: artifacts
   extends:
     - .rules:changes:img
     - .rules:except-tags
-    - .install:dependencies
   script:
-    - !reference [.img:build, script]
+    - cd packages/img
     - !reference [.artifact, script]
-  needs:
-    - lint
 
 img:npmjs:
   extends:
     - .rules:changes:img
     - .npmjs
   script:
-    - !reference [.img:build, script]
     - pnpm publish --no-git-checks --access public
 
 ##########
 # styles #
 ##########
 
-.styles:build:
-  script:
-    - cd packages/styles
-    - pnpm build
-
 styles:artifact:
   stage: artifacts
   extends:
     - .rules:changes:styles
     - .rules:except-tags
-    - .install:dependencies
   script:
-    - !reference [.styles:build, script]
+    - cd packages/styles
     - !reference [.artifact, script]
-  needs:
-    - lint
 
 styles:npmjs:
   extends:
     - .rules:changes:styles
     - .npmjs
   script:
-    - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public

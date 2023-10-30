@@ -6,33 +6,16 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "build/**", "src/assets/**"]
     },
-    "build:config": {
-      "dependsOn": ["^build:config"],
-      "outputs": ["dist/**"]
-    },
-    "build:app": {
-      "dependsOn": ["^build:app", "^build"],
-      "outputs": ["dist/**"]
-    },
     "dev": {},
     "test": {},
     "test:unit": {},
-    "test:e2e": {
-      "dependsOn": ["build", "^build"]
-    },
-    "test:e2e:playwright": {
-      "dependsOn": ["build", "^build"]
-    },
+    "test:e2e": {},
+    "test:e2e:playwright": {},
     "test:watch": {},
     "coverage": {
-      "dependsOn": ["build", "^build"],
       "outputs": ["coverage/**", ".nyc_output/**"]
     },
-    "lint": {
-      "dependsOn": ["^build:config"]
-    },
-    "lint:fix": {
-      "dependsOn": ["^build:config"]
-    }
+    "lint": {},
+    "lint:fix": {}
   }
 }

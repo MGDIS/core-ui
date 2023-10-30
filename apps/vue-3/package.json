@@ -7,14 +7,14 @@
     "dev": "vite",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "build-only": "vite build",
-    "build:app": "pnpm \"/^(type-check|build-only)$/\"",
+    "build": "pnpm \"/^(type-check|build-only)$/\"",
     "preview": "vite preview",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint src/**/*.{vue,ts,tsx} --ignore-path .gitignore",
-    "lint:es:fix": "eslint src/**/*.{vue,ts,tsx} --fix --ignore-path .gitignore",
-    "lint:prettier": "prettier --check **/*.{scss,vue,ts,tsx,md,json}",
-    "lint:prettier:fix": "prettier --write **/*.{scss,vue,ts,tsx,md,json}"
+    "lint:es": "eslint 'src/**/*.{vue,ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint 'src/**/*.{vue,ts,tsx}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{scss,vue,ts,tsx,md,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{scss,vue,ts,tsx,md,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",

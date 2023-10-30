@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --port 3210",
-    "build:app": "tsc && vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint src/**/*.{ts,tsx}",
-    "lint:es:fix": "eslint src/**/*.{ts,tsx} --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,tsx,html,json} --ignore-path .gitignore",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,tsx,html,json} --ignore-path .gitignore"
+    "lint:es": "eslint 'src/**/*.{ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint 'src/**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{js,ts,tsx,html,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{js,ts,tsx,html,json}' --ignore-path ../../.gitignore"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
