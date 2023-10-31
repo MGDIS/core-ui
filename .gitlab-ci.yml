@@ -6,7 +6,6 @@ default:
 stages:
   - build
   - tests
-  - sonar
   - artifacts
   - mg-components
   - release
@@ -183,7 +182,7 @@ test:e2e:playwright:
         - packages/styles/results.xml
 
 sonar:
-  stage: sonar
+  stage: tests
   variables:
     GIT_DEPTH: 0
   extends:
@@ -192,9 +191,11 @@ sonar:
     - gitlabci-quality-gate A+++
     - sonar-scanner -D sonar.login=$SONAR_KEY
     - gitlabci-sonar-compare report
+  needs:
+    - test:unit
 
 auto-review:
-  stage: sonar
+  stage: tests
   extends:
     - .rules:mr
   script:
@@ -311,6 +312,8 @@ mg-components:npmjs:
     - .rules:changes:mg-components
     - .npmjs
   script:
+    - cd packages/mg-components
+    - pnpm build
     - pnpm publish --no-git-checks --access public
 
 #######################
@@ -357,6 +360,8 @@ img:npmjs:
     - .rules:changes:img
     - .npmjs
   script:
+    - cd packages/img
+    - pnpm build
     - pnpm publish --no-git-checks --access public
 
 ##########
@@ -377,4 +382,6 @@ styles:npmjs:
     - .rules:changes:styles
     - .npmjs
   script:
+    - cd packages/styles
+    - pnpm build
     - pnpm publish --no-git-checks --access public
