@@ -53,7 +53,7 @@ const manageClasses = (props: MgInputProps): void => {
  * @param isFieldset - is fieldset
  * @returns tag name
  */
-const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : 'div');
+const getTagName = (isFieldset: MgInputProps['isFieldset'], readOnly: MgInputProps['readonly']): string => (!isFieldset ? 'div' : readOnly ? 'span' : 'fieldset');
 
 /**
  * MgInput Interface
@@ -148,7 +148,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
    * Error message is based on this aria method: https://www.w3.org/WAI/tutorials/forms/notifications/#on-focus-change
    */
 
-  const TagName: string = getTagName(props.isFieldset);
+  const TagName = getTagName(props.isFieldset, props.readonly);
 
   /**
    * Get tooltip node
