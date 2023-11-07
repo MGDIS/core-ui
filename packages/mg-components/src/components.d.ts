@@ -945,6 +945,10 @@ export namespace Components {
         /**
           * If input is required an asterisk is added at the end of the label
          */
+        "readonly": boolean;
+        /**
+          * If input is required an asterisk is added at the end of the label
+         */
         "required": boolean;
     }
     interface MgInputToggle {
@@ -2493,6 +2497,10 @@ declare namespace LocalJSX {
           * Switch from label to fieldset sementic
          */
         "isLegend"?: boolean;
+        /**
+          * If input is required an asterisk is added at the end of the label
+         */
+        "readonly"?: boolean;
         /**
           * If input is required an asterisk is added at the end of the label
          */

@@ -24,6 +24,11 @@ export class MgInputTitle {
   @Prop() required: boolean;
 
   /**
+   * If input is required an asterisk is added at the end of the label
+   */
+  @Prop() readonly: boolean;
+
+  /**
    * Switch from label to fieldset sementic
    */
   @Prop() isLegend = false;
@@ -54,7 +59,7 @@ export class MgInputTitle {
    * @returns HTML element
    */
   render(): HTMLElement {
-    const TagName = this.tagName;
+    const TagName = this.readonly ? 'span' : this.tagName;
     // \u00A0 represent a &nbsp;
     return (
       <TagName class="mg-c-input-title" htmlFor={this.isLegend ? undefined : this.identifier}>
