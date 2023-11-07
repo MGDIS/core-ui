@@ -177,11 +177,6 @@ export class MgInputToggle {
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<any>;
 
   /**
-   * Emited event when checking validity
-   */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
-
-  /**
    * Change checked value
    */
   private toggleChecked = (): void => {

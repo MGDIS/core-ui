@@ -12,3 +12,10 @@ export type TextType = (typeof textTypes)[number];
  * Type for datalist option
  */
 export type DatalistOption = string;
+
+/**
+ * Available handlers
+ */
+export enum Handler {
+  BLUR = 'blur',
+}

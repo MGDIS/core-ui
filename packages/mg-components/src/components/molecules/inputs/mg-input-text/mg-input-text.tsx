@@ -3,7 +3,7 @@ import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
-import { DatalistOption, TextType } from './mg-input-text.conf';
+import { DatalistOption, Handler, TextType } from './mg-input-text.conf';
 
 const isDatalistOption = (options: unknown[]): options is DatalistOption[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
@@ -34,6 +34,8 @@ export class MgInputText {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -258,10 +260,11 @@ export class MgInputText {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputText['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -291,7 +294,11 @@ export class MgInputText {
     this.classCollection.delete(this.classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**

@@ -50,10 +50,9 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 ## Events
 
-| Event          | Description                         | Type                   |
-| -------------- | ----------------------------------- | ---------------------- |
-| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
-| `value-change` | Emited event when value change      | `CustomEvent<any>`     |
+| Event          | Description                    | Type               |
+| -------------- | ------------------------------ | ------------------ |
+| `value-change` | Emited event when value change | `CustomEvent<any>` |
 
 
 ## Dependencies
