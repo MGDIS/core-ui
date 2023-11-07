@@ -56,6 +56,22 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `value-change` | Emited event when value change      | `CustomEvent<any>`     |
 
 
+## Methods
+
+### `setError(valid: boolean, errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

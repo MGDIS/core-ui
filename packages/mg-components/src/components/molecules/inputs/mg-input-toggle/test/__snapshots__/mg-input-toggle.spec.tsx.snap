@@ -165,6 +165,69 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 </mg-input-toggle>
 `;
 
+exports[`mg-input-toggle setError should display override error with setError component's public method 1`] = `
+<mg-input-toggle>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--toggle">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-1"></slot>
+            </span>
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-2"></slot>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <span slot="item-1" title="Batman">
+    Batman
+  </span>
+  <span slot="item-2" title="Joker">
+    Joker
+  </span>
+</mg-input-toggle>
+`;
+
+exports[`mg-input-toggle setError should display override error with setError component's public method 2`] = `
+<mg-input-toggle>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--toggle">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-1"></slot>
+            </span>
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-2"></slot>
+            </span>
+          </button>
+        </div>
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
+          error batman
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+  <span slot="item-1" title="Batman">
+    Batman
+  </span>
+  <span slot="item-2" title="Joker">
+    Joker
+  </span>
+</mg-input-toggle>
+`;
+
 exports[`mg-input-toggle template Should render with args {
   label: 'label',
   identifier: 'identifier',

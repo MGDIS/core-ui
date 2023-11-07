@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-10-20T10:32:48",
+  "timestamp": "2023-11-06T12:04:24",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -6652,7 +6652,58 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setError",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(valid: boolean, errorMessage: string) => Promise<void>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "valid - value indicating the validity"
+                  }
+                ],
+                "text": "- value indicating the validity"
+              },
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "errorMessage - the error message to display"
+                  }
+                ],
+                "text": "- the error message to display"
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setError(valid: boolean, errorMessage: string) => Promise<void>",
+          "parameters": [],
+          "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "valid - value indicating the validity"
+            },
+            {
+              "name": "param",
+              "text": "errorMessage - the error message to display"
+            }
+          ]
+        }
+      ],
       "events": [
         {
           "event": "input-valid",
