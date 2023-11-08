@@ -53,7 +53,7 @@ const manageClasses = (props: MgInputProps): void => {
  * @param isFieldset - is fieldset
  * @returns tag name
  */
-const getTagName = (isFieldset: MgInputProps['isFieldset'], readOnly: MgInputProps['readonly']): string => (!isFieldset ? 'div' : readOnly ? 'span' : 'fieldset');
+const getTagName = (isFieldset: MgInputProps['isFieldset'], readOnly: MgInputProps['readonly']): string => (!isFieldset || readOnly ? 'div' : 'fieldset');
 
 /**
  * MgInput Interface
