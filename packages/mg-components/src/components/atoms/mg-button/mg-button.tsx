@@ -208,7 +208,7 @@ export class MgButton {
         form={this.form}
         full-width={this.fullWidth}
         aria-label={this.label}
-        aria-disabled={this.disabled !== undefined && this.disabled.toString()}
+        aria-disabled={this.disabled?.toString()}
         onClick={this.handleClick}
         onKeyup={this.handleKeyup}
         onKeydown={this.handleKeydown}

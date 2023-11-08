@@ -100,7 +100,7 @@ export class MgForm {
   async displayError(): Promise<void> {
     if (!this.readonly) {
       this.mgInputs.forEach(input => {
-        input.displayError && input.displayError();
+        input.displayError?.();
       });
       this.checkValidity();
     }

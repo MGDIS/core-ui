@@ -88,7 +88,8 @@ export class OverflowBehavior {
     const acc = { accWidth: 0, previousItem: null };
     [...this._baseChildren, this._moreElement].forEach((child: HTMLMgMenuItemElement | HTMLMgItemMoreElement) => {
       acc.accWidth += child.offsetWidth;
-      const isPreviousItemHidden = acc.previousItem !== null && acc.previousItem.getAttribute('hidden') !== null;
+      const hasPreviuosItem = acc.previousItem !== null;
+      const isPreviousItemHidden = hasPreviuosItem && acc.previousItem.getAttribute('hidden') !== null;
       // if previous item is hidden AND is NOT more element we hidde current
       // OR if item has an overflow we hidde current
       // OR if current item is more element AND have NOT previous hidden items, current more element item is an hidden item

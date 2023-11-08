@@ -632,7 +632,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         readonly={undefined}
         mgWidth={undefined}
         disabled={this.disabled}
-        value={this.value && this.value.toString()}
+        value={this.value?.toString()}
         readonlyValue={undefined}
         tooltip={!this.readonly ? this.tooltip : undefined}
         helpText={!this.readonly ? this.helpText : undefined}
