@@ -284,7 +284,7 @@ export class MgInputNumeric {
    * @returns The corrected value.
    */
   private handleInvalidValue(): string | null {
-    return this.storedValue !== undefined ? this.storedValue : null;
+    return this.storedValue ?? null;
   }
 
   /**
