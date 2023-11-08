@@ -17,6 +17,7 @@ The label can be on more than one line.
 | ------------------------- | ------------ | ----------------------------------------------------------------- | --------- | ----------- |
 | `identifier` _(required)_ | `identifier` | Label input id                                                    | `string`  | `undefined` |
 | `isLegend`                | `is-legend`  | Switch from label to fieldset sementic                            | `boolean` | `false`     |
+| `readonly`                | `readonly`   | If input is required an asterisk is added at the end of the label | `boolean` | `undefined` |
 | `required`                | `required`   | If input is required an asterisk is added at the end of the label | `boolean` | `undefined` |
 
 
