@@ -140,13 +140,14 @@ test:e2e:
 test:e2e:playwright:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  parallel: 7
   extends:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm test:e2e:playwright
+    - pnpm test:e2e:playwright -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   retry: 2
   artifacts:
     when: always
@@ -201,7 +202,7 @@ release:
     - .rules:tags
     - .install:dependencies
   script:
-    - pnpm build
+    - pnpm build:packages
     - pnpm publish -r --no-git-checks
 
 chromatic:mr:
@@ -332,7 +333,7 @@ notification-center:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm build
+    - pnpm build --filter=@mgdis/notification-center
     - cd packages/notification-center
     - !reference [.artifact, script]
   needs:
