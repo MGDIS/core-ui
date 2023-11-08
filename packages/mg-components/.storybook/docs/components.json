@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-07T15:14:27",
+  "timestamp": "2023-11-08T13:47:30",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -6675,6 +6675,20 @@
       ],
       "methods": [],
       "events": [
+        {
+          "event": "input-valid",
+          "detail": "boolean",
+          "bubbles": true,
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when checking validity",
+          "docsTags": []
+        },
         {
           "event": "value-change",
           "detail": "any",

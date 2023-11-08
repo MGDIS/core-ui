@@ -2548,6 +2548,10 @@ declare namespace LocalJSX {
          */
         "name"?: string;
         /**
+          * Emited event when checking validity
+         */
+        "onInput-valid"?: (event: MgInputToggleCustomEvent<boolean>) => void;
+        /**
           * Emited event when value change
          */
         "onValue-change"?: (event: MgInputToggleCustomEvent<any>) => void;
