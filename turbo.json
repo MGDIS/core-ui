@@ -10,7 +10,7 @@
     "test": {},
     "test:unit": {},
     "test:e2e": {
-      "dependsOn": ["build", "^build"]
+      "dependsOn": ["^build"]
     },
     "test:e2e:playwright": {
       "dependsOn": ["build", "^build"]
