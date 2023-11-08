@@ -20,6 +20,7 @@ export const MgInputTitle = {
     slot: 'Label',
     identifier: 'identifier',
     required: true,
+    readonly: false,
     isLegend: false,
   },
 };

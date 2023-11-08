@@ -20,10 +20,10 @@
     "build:config": "tsc --build --clean && tsc --build",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint ./{src,bin}/**/*.{js,ts}",
-    "lint:es:fix": "eslint ./{src,bin}/**/*.{js,ts} --fix",
-    "lint:prettier": "prettier --check **/*.{js,ts,json,md} --ignore-path ../../.gitignore",
-    "lint:prettier:fix": "prettier --write **/*.{js,ts,json,md} --ignore-path ../../.gitignore"
+    "lint:es": "eslint './{src,bin}/**/*.{js,ts}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint './{src,bin}/**/*.{js,ts}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{js,ts,json,md}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json,md}' --ignore-path ../../.gitignore"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^25.0.2",

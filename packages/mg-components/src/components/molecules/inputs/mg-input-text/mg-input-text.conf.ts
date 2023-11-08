@@ -1,7 +1,7 @@
 /**
- * List of all availables text type
+ * List of all available text types
  */
-export const textTypes = ['text', 'search'] as const;
+const textTypes = ['text', 'search'] as const;
 
 /**
  * TextType from text types

@@ -6307,6 +6307,27 @@
           "required": false
         },
         {
+          "name": "readonly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "If input is required an asterisk is added at the end of the label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "required",
           "type": "boolean",
           "complexType": {
