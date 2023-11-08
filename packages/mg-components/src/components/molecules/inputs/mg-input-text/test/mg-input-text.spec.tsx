@@ -74,7 +74,7 @@ describe('mg-input-text', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'comics', datalistoptions });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, DatalistOption.');
+      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, string.');
     }
   });
 

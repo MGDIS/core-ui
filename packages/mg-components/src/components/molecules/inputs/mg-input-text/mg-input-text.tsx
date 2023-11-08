@@ -3,9 +3,9 @@ import { MgInput } from '../MgInput';
 import { Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
-import { DatalistOption, TextType } from './mg-input-text.conf';
+import { TextType } from './mg-input-text.conf';
 
-const isDatalistOption = (options: unknown[]): options is DatalistOption[] => Array.isArray(options) && options.every(option => typeof option === 'string');
+const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
 @Component({
   tag: 'mg-input-text',
@@ -106,11 +106,11 @@ export class MgInputText {
   /**
    * Define datalist options
    */
-  @Prop() datalistoptions: DatalistOption[];
+  @Prop() datalistoptions: string[];
   @Watch('datalistoptions')
   validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
     if (Boolean(newValue) && !isDatalistOption(newValue)) {
-      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, DatalistOption.');
+      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string.');
     }
   }
 

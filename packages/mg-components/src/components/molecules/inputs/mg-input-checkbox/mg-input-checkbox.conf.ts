@@ -31,11 +31,6 @@ export const checkboxTypes = ['checkbox', 'multi'] as const;
 export type CheckboxType = (typeof checkboxTypes)[number];
 
 /**
- * Search value type
- */
-export type SearchValueType = string;
-
-/**
  * mg-input-checkbox-paginated section kind
  */
 export enum SectionKind {
