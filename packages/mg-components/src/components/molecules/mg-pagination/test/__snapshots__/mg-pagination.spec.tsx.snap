@@ -3,7 +3,7 @@
 exports[`mg-pagination Should render Should hidde navigation labels 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon" id="id-button-previous">
@@ -71,7 +71,7 @@ exports[`mg-pagination Should render Should hidde navigation labels 1`] = `
 exports[`mg-pagination Should render Should hidde navigation labels 2`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -141,7 +141,7 @@ exports[`mg-pagination Should render Should hidde navigation labels 2`] = `
 exports[`mg-pagination Should render Should hidde page select 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination mg-c-pagination--hide-page-count" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -190,7 +190,7 @@ exports[`mg-pagination Should render Should hidde page select 1`] = `
 exports[`mg-pagination Should render Should hidde page select 2`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -260,7 +260,7 @@ exports[`mg-pagination Should render Should hidde page select 2`] = `
 exports[`mg-pagination Should render Should set custom label 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="custom label" class="mg-c-pagination" id="id">
+    <nav aria-label="custom label" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -330,7 +330,7 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
 exports[`mg-pagination Should render with locale: fr 1`] = `
 <mg-pagination current-page="1" lang="fr">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Page précédente" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -400,7 +400,7 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
 exports[`mg-pagination Should render with locale: xx 1`] = `
 <mg-pagination current-page="1" lang="xx">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -470,7 +470,7 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
 exports[`mg-pagination Should render with totalPages 1 1`] = `
 <mg-pagination current-page="1" hidden="">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -537,7 +537,7 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
 exports[`mg-pagination Should render with totalPages 2 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -607,7 +607,7 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
 exports[`mg-pagination Should render with totalPages 2 2`] = `
 <mg-pagination current-page="2">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -677,7 +677,7 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
 exports[`mg-pagination Should render with totalPages 3 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -750,7 +750,7 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
 exports[`mg-pagination Should render with totalPages 3 2`] = `
 <mg-pagination current-page="2">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -823,7 +823,7 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
 exports[`mg-pagination Should render with totalPages 3 3`] = `
 <mg-pagination current-page="3">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -896,7 +896,7 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
 exports[`mg-pagination Should render with totalPages 10 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -990,7 +990,7 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
 exports[`mg-pagination Should render with totalPages 10 2`] = `
 <mg-pagination current-page="2">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1084,7 +1084,7 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
 exports[`mg-pagination Should render with totalPages 10 3`] = `
 <mg-pagination current-page="3">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1178,7 +1178,7 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
 exports[`mg-pagination Should render with totalPages 10 4`] = `
 <mg-pagination current-page="4">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1272,7 +1272,7 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
 exports[`mg-pagination Should render with totalPages 10 5`] = `
 <mg-pagination current-page="5">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1366,7 +1366,7 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
 exports[`mg-pagination Should render with totalPages 10 6`] = `
 <mg-pagination current-page="6">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1460,7 +1460,7 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
 exports[`mg-pagination Should render with totalPages 10 7`] = `
 <mg-pagination current-page="7">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1554,7 +1554,7 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
 exports[`mg-pagination Should render with totalPages 10 8`] = `
 <mg-pagination current-page="8">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1648,7 +1648,7 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
 exports[`mg-pagination Should render with totalPages 10 9`] = `
 <mg-pagination current-page="9">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1742,7 +1742,7 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
 exports[`mg-pagination Should render with totalPages 10 10`] = `
 <mg-pagination current-page="10">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -1836,7 +1836,7 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
 exports[`mg-pagination navigation navigate with next and previous, case totalPages=5 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -1915,7 +1915,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
 exports[`mg-pagination navigation navigate with next and previous, case totalPages=5 2`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -1994,7 +1994,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
 exports[`mg-pagination navigation navigate with next and previous, case totalPages=5 3`] = `
 <mg-pagination current-page="2">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -2073,7 +2073,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
 exports[`mg-pagination navigation navigate with next and previous, case totalPages=5 4`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -2152,7 +2152,7 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
 exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case totalPages=5 1`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
@@ -2231,7 +2231,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
 exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case totalPages=5 2`] = `
 <mg-pagination current-page="5">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -2310,7 +2310,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
 exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case totalPages=5 3`] = `
 <mg-pagination current-page="2">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="false" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat" id="id-button-previous">
@@ -2389,7 +2389,7 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
 exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case totalPages=5 4`] = `
 <mg-pagination current-page="1">
   <mock:shadow-root>
-    <nav aria-label="Pagination" class="mg-c-pagination" id="id">
+    <nav aria-label="Pagination" class="mg-c-pagination" id="id" role="navigation">
       <mg-button aria-disabled="true" aria-label="Previous page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat" id="id-button-previous">
