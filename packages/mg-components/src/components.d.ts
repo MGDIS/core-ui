@@ -321,6 +321,10 @@ export namespace Components {
          */
         "disabled": boolean;
         /**
+          * Define mg-input-checkbox input invalid
+         */
+        "invalid": boolean;
+        /**
           * Define component message
          */
         "messages": Record<string, string>;
@@ -1891,6 +1895,10 @@ declare namespace LocalJSX {
           * Define if mg-input-checkbox-list is disabled
          */
         "disabled"?: boolean;
+        /**
+          * Define mg-input-checkbox input invalid
+         */
+        "invalid"?: boolean;
         /**
           * Define component message
          */
