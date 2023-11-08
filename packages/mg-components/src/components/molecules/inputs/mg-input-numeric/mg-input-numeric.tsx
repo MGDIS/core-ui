@@ -49,7 +49,7 @@ export class MgInputNumeric {
     // has input value is always render as string we get a stringified value or a '' for nullish value, so we test string type
     if (typeof newValue === 'string') {
       // Split number and decimal
-      const [integer, decimal = ''] = newValue.replace('-', '').split(/[\.,]/);
+      const [integer, decimal = ''] = newValue.replace('-', '').split(/[.,]/);
       // Regex
       const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+(?:[.,]\d*)?$/;
       // Filter input
