@@ -26,11 +26,11 @@ export class MgCard {
   @Watch('variant')
   validateVariant(newValue: MgCard['variant'], oldValue?: MgCard['variant']) {
     if (newValue && !variants.includes(newValue)) throw new Error(`<${this.name}> prop "variant" must match VariantType type.`);
-    if (Boolean(newValue)) {
+    if (newValue) {
       this.setDefaultVariantStyle();
       this.classCollection.add(`${this.classBase}--${newValue}`);
     }
-    if (Boolean(oldValue)) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+    if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
   }
 
   /**
@@ -42,8 +42,8 @@ export class MgCard {
     if (newValue && !variantStyles.includes(newValue)) throw new Error(`<${this.name}> prop "variantStyle" must match VariantStyleType type.`);
     else if (Boolean(newValue) && !variants.includes(this.variant))
       throw new Error(`<${this.name}> prop "variantStyle" must be paired with ${JSON.stringify(variants)} "variant" prop.`);
-    if (Boolean(newValue)) this.classCollection.add(`${this.classBase}--${newValue}`);
-    if (Boolean(oldValue)) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+    if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
+    if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
   }
 
   /**

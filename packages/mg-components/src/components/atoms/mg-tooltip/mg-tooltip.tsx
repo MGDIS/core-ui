@@ -210,7 +210,7 @@ export class MgTooltip {
    */
   private initTooltip = (slotElement: HTMLElement, interactiveElement: HTMLElement): void => {
     // Add tabindex to slotted element if we can't find any interactive element
-    if (!this.disabled && !Boolean(interactiveElement)) {
+    if (!this.disabled && !interactiveElement) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
       // Add role on non-interactive element to work with "aria-describedby" for screen readers

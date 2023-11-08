@@ -311,13 +311,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }
 
       const enableInputs = Array.from(this.element.shadowRoot.querySelectorAll('input'))
-        .filter(input => !Boolean(input.getAttribute('disabled')))
+        .filter(input => !input.getAttribute('disabled'))
         .map(({ id }) => id);
       const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 
       // close popover when tab trigger focus outside its DOM
-      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && !Boolean(this.searchInput)))
-        this.mgPopover.display = false;
+      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && !this.searchInput)) this.mgPopover.display = false;
     }
   };
 
@@ -564,7 +563,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
           identifier={this.getMgPopoverIdentifier()}
           onDisplay-change={this.handleMgPopoverDisplayChange}
           ref={(el: HTMLMgPopoverElement) => {
-            if (Boolean(el)) this.mgPopover = el;
+            if (el) this.mgPopover = el;
           }}
         >
           <mg-button variant="secondary">
