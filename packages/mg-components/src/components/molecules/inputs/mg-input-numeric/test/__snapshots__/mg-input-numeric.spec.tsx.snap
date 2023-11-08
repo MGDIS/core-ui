@@ -9,7 +9,7 @@ exports[`mg-input-numeric Should update mg-width 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -27,7 +27,7 @@ exports[`mg-input-numeric Should update mg-width 2`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -45,7 +45,7 @@ exports[`mg-input-numeric Should update mg-width 3`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -63,7 +63,7 @@ exports[`mg-input-numeric Should update mg-width 4`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -81,7 +81,7 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -102,7 +102,7 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -123,7 +123,7 @@ exports[`mg-input-numeric should display override error with setError component'
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -141,7 +141,7 @@ exports[`mg-input-numeric should display override error with setError component'
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -159,7 +159,7 @@ exports[`mg-input-numeric should display override error with setError component'
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -177,7 +177,7 @@ exports[`mg-input-numeric should display override error with setError component'
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -204,7 +204,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -227,7 +227,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -252,7 +252,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -398,7 +398,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -452,7 +452,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -478,7 +478,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
@@ -522,7 +522,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -546,7 +546,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="€1,234,567,890.00">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="€1,234,567,890.00">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -570,7 +570,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890,00&nbsp;$US">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890,00&nbsp;$US">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -594,7 +594,7 @@ exports[`mg-input-numeric type currency Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -612,7 +612,7 @@ exports[`mg-input-numeric type currency Should render with args { label: 'label'
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -630,7 +630,7 @@ exports[`mg-input-numeric type currency Should render with slot. 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -665,7 +665,7 @@ exports[`mg-input-numeric type currency Should render with slot. 2`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -686,7 +686,7 @@ exports[`mg-input-numeric type currency Should trigger events 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -707,7 +707,7 @@ exports[`mg-input-numeric type currency Should update display value when value p
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -725,7 +725,7 @@ exports[`mg-input-numeric type currency Should update display value when value p
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$10.00">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$10.00">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -743,7 +743,7 @@ exports[`mg-input-numeric type currency display error with displayError componen
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -761,7 +761,7 @@ exports[`mg-input-numeric type currency display error with displayError componen
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -782,7 +782,7 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -803,7 +803,7 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -821,7 +821,7 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -864,7 +864,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -887,7 +887,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -912,7 +912,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1058,7 +1058,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -1112,7 +1112,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -1138,7 +1138,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
@@ -1182,7 +1182,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1206,7 +1206,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1230,7 +1230,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1254,7 +1254,7 @@ exports[`mg-input-numeric type decimal Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1272,7 +1272,7 @@ exports[`mg-input-numeric type decimal Should render with args { label: 'label',
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1290,7 +1290,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1325,7 +1325,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1346,7 +1346,7 @@ exports[`mg-input-numeric type decimal Should trigger events 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -1367,7 +1367,7 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1385,7 +1385,7 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="10">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="10">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1403,7 +1403,7 @@ exports[`mg-input-numeric type decimal display error with displayError component
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1421,7 +1421,7 @@ exports[`mg-input-numeric type decimal display error with displayError component
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -1442,7 +1442,7 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -1463,7 +1463,7 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1481,7 +1481,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -1524,7 +1524,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1547,7 +1547,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1572,7 +1572,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1718,7 +1718,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -1772,7 +1772,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -1798,7 +1798,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
@@ -1842,7 +1842,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1866,7 +1866,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1890,7 +1890,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1 234 567 890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1914,7 +1914,7 @@ exports[`mg-input-numeric type integer Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1932,7 +1932,7 @@ exports[`mg-input-numeric type integer Should render with args { label: 'label',
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1950,7 +1950,7 @@ exports[`mg-input-numeric type integer Should render with slot. 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -1985,7 +1985,7 @@ exports[`mg-input-numeric type integer Should render with slot. 2`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -2006,7 +2006,7 @@ exports[`mg-input-numeric type integer Should trigger events 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="identifier-help-text" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div class="mg-c-input__help-text" id="identifier-help-text">
@@ -2027,7 +2027,7 @@ exports[`mg-input-numeric type integer Should update display value when value pr
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -2045,7 +2045,7 @@ exports[`mg-input-numeric type integer Should update display value when value pr
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="10">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="10">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -2063,7 +2063,7 @@ exports[`mg-input-numeric type integer display error with displayError component
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -2081,7 +2081,7 @@ exports[`mg-input-numeric type integer display error with displayError component
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -2102,7 +2102,7 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
@@ -2123,7 +2123,7 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
       </div>
@@ -2141,7 +2141,7 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" class="mg-c-input__box" id="identifier" name="identifier" type="text">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text">
           <slot name="append-input"></slot>
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">

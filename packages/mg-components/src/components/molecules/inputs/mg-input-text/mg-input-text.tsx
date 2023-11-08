@@ -423,6 +423,7 @@ export class MgInputText {
             maxlength={this.maxlength}
             disabled={this.disabled}
             required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
             pattern={this.pattern}
             onInput={this.handleInput}
             onFocus={this.handleFocus}
