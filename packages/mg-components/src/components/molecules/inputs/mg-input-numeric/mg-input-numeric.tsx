@@ -274,7 +274,9 @@ export class MgInputNumeric {
    * @returns Returns true if the value is valid, otherwise false.
    */
   private isValidValue(value: string, regex: RegExp, integer: string, decimal: string): boolean {
-    return ['', '-'].includes(value) || (value.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength));
+    return (
+      ['', '-'].includes(value) || (regex.exec(value) !== null && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))
+    );
   }
 
   /**
