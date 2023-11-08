@@ -14,7 +14,7 @@ exports[`mg-input-text Should render with args {
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
           </div>
           <slot name="append-input"></slot>
         </div>
@@ -88,7 +88,7 @@ exports[`mg-input-text Should render with args {
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-help-text" class="mg-c-input__box" disabled="" id="identifier" maxlength="400" name="identifier" required="" type="text" value="blu">
+            <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" maxlength="400" name="identifier" required="" type="text" value="blu">
             <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -143,7 +143,7 @@ exports[`mg-input-text Should render with args {
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-help-text" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text" value="blu">
+            <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text" value="blu">
             <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -171,7 +171,7 @@ exports[`mg-input-text Should render with args {
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -217,7 +217,7 @@ exports[`mg-input-text Should render with args {
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -250,7 +250,7 @@ exports[`mg-input-text Should render with args {
                 </svg>
               </mock:shadow-root>
             </mg-icon>
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -271,7 +271,7 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -292,7 +292,7 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" autocomplete="off" class="mg-c-input__box" id="identifier" list="identifier-datalist" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" autocomplete="off" class="mg-c-input__box" id="identifier" list="identifier-datalist" maxlength="400" name="identifier" type="text">
             <datalist id="identifier-datalist">
               <option value="batman"></option>
               <option value="robin"></option>
@@ -318,7 +318,7 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -341,7 +341,7 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -378,7 +378,7 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -399,7 +399,7 @@ exports[`mg-input-text Should render with slot. 1`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -437,7 +437,7 @@ exports[`mg-input-text Should render with slot. 2`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -461,7 +461,7 @@ exports[`mg-input-text Should render with slot. 3`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="search">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -514,7 +514,7 @@ exports[`mg-input-text Should trigger events 1`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-help-text" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -538,7 +538,7 @@ exports[`mg-input-text Should update mg-width 1`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -559,7 +559,7 @@ exports[`mg-input-text Should update mg-width 2`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -580,7 +580,7 @@ exports[`mg-input-text Should update mg-width 3`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -601,7 +601,7 @@ exports[`mg-input-text display error message with locale: fr 1`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-error" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -625,7 +625,7 @@ exports[`mg-input-text display error message with locale: xx 1`] = `
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-error" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -649,7 +649,7 @@ exports[`mg-input-text display error with displayError component's public method
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -670,7 +670,7 @@ exports[`mg-input-text display error with displayError component's public method
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-error" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -694,7 +694,7 @@ exports[`mg-input-text should display override error with setError component's p
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -715,7 +715,7 @@ exports[`mg-input-text should display override error with setError component's p
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -736,7 +736,7 @@ exports[`mg-input-text should display override error with setError component's p
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -757,7 +757,7 @@ exports[`mg-input-text should display override error with setError component's p
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-error" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
+            <input aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" required="" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -781,7 +781,7 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-error" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" pattern="[a-z]*" type="text">
+            <input aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" pattern="[a-z]*" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -805,7 +805,7 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left" class="mg-c-input__box" disabled="" id="identifier" maxlength="400" name="identifier" pattern="[a-z]*" type="text">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" maxlength="400" name="identifier" pattern="[a-z]*" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
@@ -826,7 +826,7 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-            <input aria-describedby="identifier-character-left identifier-error" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" pattern="[a-z]*" type="text">
+            <input aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" pattern="[a-z]*" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>

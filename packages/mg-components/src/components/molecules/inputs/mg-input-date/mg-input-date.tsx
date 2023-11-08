@@ -343,6 +343,7 @@ export class MgInputDate {
           name={this.name}
           disabled={this.disabled}
           required={this.required}
+          aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
           ref={(el: HTMLInputElement) => {

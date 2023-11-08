@@ -21,13 +21,13 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
           <div class="mg-c-input__input mg-c-input__input--has-error">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="mg-input-checkbox-error" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="mg-input-checkbox-error" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -49,7 +49,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-date-error" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-date-error">
             This field is required.
@@ -66,7 +66,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-numeric-error" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+            <input aria-describedby="mg-input-numeric-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
             <slot name="append-input"></slot>
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-numeric-error">
@@ -84,7 +84,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-password-error" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
+            <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-password-error">
             This field is required.
@@ -143,7 +143,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <select aria-describedby="mg-input-select-error" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
+            <select aria-describedby="mg-input-select-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -177,7 +177,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left mg-input-text-error" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
+              <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -197,7 +197,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -255,7 +255,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
@@ -400,13 +400,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -425,7 +425,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
           </div>
         </div>
       </div>
@@ -439,7 +439,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
             <slot name="append-input"></slot>
           </div>
         </div>
@@ -454,7 +454,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
           </div>
         </div>
       </div>
@@ -507,7 +507,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <select aria-describedby="" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -538,7 +538,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
+              <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -555,7 +555,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -611,7 +611,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
@@ -759,13 +759,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -784,7 +784,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
           </div>
         </div>
       </div>
@@ -798,7 +798,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
             <slot name="append-input"></slot>
           </div>
         </div>
@@ -813,7 +813,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
           </div>
         </div>
       </div>
@@ -866,7 +866,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <select aria-describedby="" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
+            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -897,7 +897,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
+              <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -914,7 +914,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -977,13 +977,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -1002,7 +1002,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
           </div>
         </div>
       </div>
@@ -1016,7 +1016,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
             <slot name="append-input"></slot>
           </div>
         </div>
@@ -1031,7 +1031,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
           </div>
         </div>
       </div>
@@ -1084,7 +1084,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <select aria-describedby="" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -1115,7 +1115,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
+              <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -1132,7 +1132,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -1195,13 +1195,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -1220,7 +1220,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
           </div>
         </div>
       </div>
@@ -1234,7 +1234,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
             <slot name="append-input"></slot>
           </div>
         </div>
@@ -1249,7 +1249,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
           </div>
         </div>
       </div>
@@ -1302,7 +1302,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <select aria-describedby="" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -1333,7 +1333,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
+              <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -1350,7 +1350,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -1409,13 +1409,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -1446,13 +1446,13 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-                <input aria-describedby="" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-                <input aria-describedby="" disabled="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="" aria-invalid="false" disabled="" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -1471,7 +1471,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" disabled="" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-date" name="mg-input-date" type="date">
           </div>
         </div>
       </div>
@@ -1485,7 +1485,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" disabled="" id="mg-input-numeric" name="mg-input-numeric" type="text">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-numeric" name="mg-input-numeric" type="text">
             <slot name="append-input"></slot>
           </div>
         </div>
@@ -1500,7 +1500,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" class="mg-c-input__box" disabled="" id="mg-input-password" name="mg-input-password" type="password">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-password" name="mg-input-password" type="password">
           </div>
         </div>
       </div>
@@ -1553,7 +1553,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <select aria-describedby="" class="mg-c-input__box" disabled="" id="mg-input-select" name="mg-input-select" title="Select a value">
+            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-select" name="mg-input-select" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -1584,7 +1584,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left" class="mg-c-input__box" disabled="" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
+              <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -1601,7 +1601,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" class="mg-c-input__box" disabled="" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -1656,7 +1656,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
           <div class="mg-c-input__input">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
@@ -1804,13 +1804,13 @@ exports[`mg-form display error message with locale: fr 1`] = `
           <div class="mg-c-input__input mg-c-input__input--has-error">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="mg-input-checkbox-error" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="mg-input-checkbox-error" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -1832,7 +1832,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-date-error" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-date-error">
             Ce champ est obligatoire.
@@ -1849,7 +1849,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-numeric-error" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+            <input aria-describedby="mg-input-numeric-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
             <slot name="append-input"></slot>
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-numeric-error">
@@ -1867,7 +1867,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-password-error" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
+            <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-password-error">
             Ce champ est obligatoire.
@@ -1926,7 +1926,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <select aria-describedby="mg-input-select-error" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Sélectionnez une valeur">
+            <select aria-describedby="mg-input-select-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Sélectionnez une valeur">
               <option value="">
                 Sélectionnez une valeur
               </option>
@@ -1960,7 +1960,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left mg-input-text-error" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
+              <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -1980,7 +1980,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -2042,13 +2042,13 @@ exports[`mg-form display error message with locale: xx 1`] = `
           <div class="mg-c-input__input mg-c-input__input--has-error">
             <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
               <li class="mg-c-input__input-group">
-                <input aria-describedby="mg-input-checkbox-error" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_0">
                   oui
                 </label>
               </li>
               <li class="mg-c-input__input-group">
-                <input aria-describedby="mg-input-checkbox-error" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <input aria-describedby="mg-input-checkbox-error" aria-invalid="true" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
                 <label htmlfor="mg-input-checkbox_1">
                   non
                 </label>
@@ -2070,7 +2070,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-date-error" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-date-error">
             This field is required.
@@ -2087,7 +2087,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-numeric-error" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
+            <input aria-describedby="mg-input-numeric-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
             <slot name="append-input"></slot>
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-numeric-error">
@@ -2105,7 +2105,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-password-error" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
+            <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" required="" type="password">
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-password-error">
             This field is required.
@@ -2164,7 +2164,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <select aria-describedby="mg-input-select-error" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
+            <select aria-describedby="mg-input-select-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" required="" title="Select a value">
               <option value="">
                 Select a value
               </option>
@@ -2198,7 +2198,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
-              <input aria-describedby="mg-input-text-character-left mg-input-text-error" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
+              <input aria-describedby="mg-input-text-character-left mg-input-text-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" required="" type="text">
               <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
             </div>
             <slot name="append-input"></slot>
@@ -2218,7 +2218,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>

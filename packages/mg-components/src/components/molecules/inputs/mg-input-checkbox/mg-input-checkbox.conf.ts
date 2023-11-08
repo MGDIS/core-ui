@@ -58,6 +58,7 @@ export interface IMgInputCheckboxBase {
   readonly: boolean;
   disabled: boolean;
   name: string;
+  invalid: boolean;
 }
 
 /**
