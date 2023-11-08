@@ -9,10 +9,15 @@
     "dev": {},
     "test": {},
     "test:unit": {},
-    "test:e2e": {},
-    "test:e2e:playwright": {},
+    "test:e2e": {
+      "dependsOn": ["build", "^build"]
+    },
+    "test:e2e:playwright": {
+      "dependsOn": ["build", "^build"]
+    },
     "test:watch": {},
     "coverage": {
+      "dependsOn": ["build", "^build"],
       "outputs": ["coverage/**", ".nyc_output/**"]
     },
     "lint": {},

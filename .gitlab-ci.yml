@@ -4,7 +4,6 @@ default:
   interruptible: true # allows to cancel the job automatically
 
 stages:
-  - build
   - tests
   - artifacts
   - mg-components
@@ -89,23 +88,6 @@ stages:
     - apt install jq -y
 
 #########
-# build #
-#########
-
-build:
-  stage: build
-  rules:
-    - when: always
-  extends:
-    - .install:dependencies
-  script:
-    - pnpm build
-  artifacts:
-    name: '$CI_COMMIT_REF_SLUG'
-    untracked: true
-    expire_in: 1 day
-
-#########
 # tests #
 #########
 
@@ -113,6 +95,7 @@ lint:
   stage: tests
   extends:
     - .rules:except-tags
+    - .install:dependencies
   script:
     - pnpm lint
 
@@ -121,6 +104,7 @@ test:unit:
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   extends:
     - .rules:except-tags
+    - .install:dependencies
   script:
     - pnpm coverage
   artifacts:
@@ -140,6 +124,7 @@ test:e2e:
   extends:
     - .rules:changes:mg-components # only mg-components use test:e2e
     - .rules:except-tags
+    - .install:dependencies
   script:
     - pnpm test:e2e
   retry: 2
@@ -160,6 +145,7 @@ test:e2e:playwright:
     - .rules:changes:notification-center
     - .rules:changes:mg-components
     - .rules:except-tags
+    - .install:dependencies
   script:
     - pnpm test:e2e:playwright -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   retry: 2
@@ -187,6 +173,7 @@ sonar:
     GIT_DEPTH: 0
   extends:
     - .rules:except-tags
+    - .install:dependencies
   script:
     - gitlabci-quality-gate A+++
     - sonar-scanner -D sonar.login=$SONAR_KEY
@@ -213,7 +200,9 @@ release:
   stage: release
   extends:
     - .rules:tags
+    - .install:dependencies
   script:
+    - pnpm build:packages
     - pnpm publish -r --no-git-checks
 
 chromatic:mr:
@@ -241,6 +230,7 @@ bot-publish:
   stage: release
   extends:
     - .rules:tags
+    - .install:dependencies
   script:
     - cd tools/release-bot
     - ./bin/release.js
@@ -251,6 +241,7 @@ pages:
   stage: release
   extends:
     - .rules:tags
+    - .install:dependencies
   script:
     - !reference [.docusaurus, script]
     - !reference [.mg-components:build:storybook, script]
@@ -264,34 +255,43 @@ pages:
 # mg-components #
 #################
 
+.mg-components:build:
+  script:
+    - pnpm build --filter=@mgdis/mg-components
+
 .docusaurus:
   script:
+    - pnpm build --filter=docusaurus
     - mkdir -p public
     - mv apps/docusaurus/build/* public
 
 .mg-components:build:storybook:
   script:
     - mkdir -p public/storybook
+    - !reference [.mg-components:build, script]
     - cd packages/mg-components
     - pnpm storybook:build
     - mv storybook-static/* ../../public/storybook
 
 mg-components:artifact:
   stage: artifacts
-  needs:
-    - build
   extends:
     - .rules:changes:mg-components
     - .rules:except-tags
+    - .install:dependencies
   script:
+    - !reference [.mg-components:build, script]
     - cd packages/mg-components
     - !reference [.artifact, script]
+  needs:
+    - lint
 
 storybook-mr:
   stage: mg-components
   extends:
     - .rules:changes:mg-components
     - .rules:mr
+    - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
     paths:
@@ -300,12 +300,17 @@ storybook-mr:
     name: review/$CI_COMMIT_REF_SLUG
     url: 'http://core.pages.mgdis.fr/-/core-ui/$CI_PROJECT_NAME/-/jobs/$CI_JOB_ID/artifacts/public/storybook/index.html'
     auto_stop_in: 1 week
+  needs:
+    - lint
 
 chromatic:publish:
   stage: mg-components
+  extends:
+    - .install:dependencies
   rules:
     - if: $CI_COMMIT_BRANCH == "master" || $CI_COMMIT_TAG
   script:
+    - !reference [.mg-components:build, script]
     - cd packages/mg-components
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name master --build-script-name storybook:build
 
@@ -314,8 +319,7 @@ mg-components:npmjs:
     - .rules:changes:mg-components
     - .npmjs
   script:
-    - cd packages/mg-components
-    - pnpm build
+    - !reference [.mg-components:build, script]
     - pnpm publish --no-git-checks --access public
 
 #######################
@@ -324,14 +328,16 @@ mg-components:npmjs:
 
 notification-center:artifact:
   stage: artifacts
-  needs:
-    - build
   extends:
     - .rules:changes:notification-center
     - .rules:except-tags
+    - .install:dependencies
   script:
+    - pnpm build --filter=@mgdis/notification-center
     - cd packages/notification-center
     - !reference [.artifact, script]
+  needs:
+    - lint
 
 ###################
 # linting-stencil #
@@ -339,59 +345,71 @@ notification-center:artifact:
 
 linting-stencil:artifact:
   stage: artifacts
-  needs:
-    - build
   extends:
     - .rules:changes:linting-stencil
     - .rules:except-tags
+    - .install:dependencies
   script:
     - cd packages/linting-stencil
+    - pnpm build
     - !reference [.artifact, script]
+  needs:
+    - lint
 
 #######
 # img #
 #######
 
+.img:build:
+  script:
+    - cd packages/img
+    - pnpm build
+
 img:artifact:
   stage: artifacts
-  needs:
-    - build
   extends:
     - .rules:changes:img
     - .rules:except-tags
+    - .install:dependencies
   script:
-    - cd packages/img
+    - !reference [.img:build, script]
     - !reference [.artifact, script]
+  needs:
+    - lint
 
 img:npmjs:
   extends:
     - .rules:changes:img
     - .npmjs
   script:
-    - cd packages/img
-    - pnpm build
+    - !reference [.img:build, script]
     - pnpm publish --no-git-checks --access public
 
 ##########
 # styles #
 ##########
 
+.styles:build:
+  script:
+    - cd packages/styles
+    - pnpm build
+
 styles:artifact:
   stage: artifacts
-  needs:
-    - build
   extends:
     - .rules:changes:styles
     - .rules:except-tags
+    - .install:dependencies
   script:
-    - cd packages/styles
+    - !reference [.styles:build, script]
     - !reference [.artifact, script]
+  needs:
+    - lint
 
 styles:npmjs:
   extends:
     - .rules:changes:styles
     - .npmjs
   script:
-    - cd packages/styles
-    - pnpm build
+    - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public
