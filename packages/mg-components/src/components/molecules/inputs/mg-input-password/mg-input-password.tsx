@@ -284,6 +284,7 @@ export class MgInputPassword {
           title={this.placeholder}
           disabled={this.disabled}
           required={this.required}
+          aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
           ref={(el: HTMLInputElement) => {

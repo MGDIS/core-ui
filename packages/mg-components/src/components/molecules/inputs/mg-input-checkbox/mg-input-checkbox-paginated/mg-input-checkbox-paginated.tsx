@@ -36,6 +36,11 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @Prop() name: string;
 
   /**
+   * Define mg-input-checkbox input invalid
+   */
+  @Prop() invalid: boolean;
+
+  /**
    * Define checkboxes to paginate
    */
   @Prop() checkboxes: CheckboxItem[] = [];
@@ -196,6 +201,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             readonly={this.readonly}
             disabled={this.disabled}
             name={this.name}
+            invalid={this.invalid}
           ></MgInputCheckboxList>
         </div>
       </Host>
