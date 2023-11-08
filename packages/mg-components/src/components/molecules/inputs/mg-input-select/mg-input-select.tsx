@@ -457,7 +457,13 @@ export class MgInputSelect {
             </option>
           )}
           {this.options.map(option =>
-            isOptGroup(option) ? <optgroup label={option.group}>{option.options.map(this.renderOption)}</optgroup> : isOption(option) && this.renderOption(option),
+            isOptGroup(option) ? (
+              <optgroup label={option.group} key={option.group}>
+                {option.options.map(this.renderOption)}
+              </optgroup>
+            ) : (
+              isOption(option) && this.renderOption(option)
+            ),
           )}
         </select>
       </MgInput>
