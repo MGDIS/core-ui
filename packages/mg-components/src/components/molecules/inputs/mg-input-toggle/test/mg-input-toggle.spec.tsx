@@ -273,9 +273,14 @@ describe('mg-input-toggle', () => {
       const page = await getPage({ ...defaultProps }, defaultSlots);
 
       const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+
+      const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
+
       await mgInputToggle.setError(valid, 'error batman');
 
       await page.waitForChanges();
+
+      expect(spyInputValid).toHaveBeenCalledTimes(1);
 
       expect(page.root).toMatchSnapshot();
     });

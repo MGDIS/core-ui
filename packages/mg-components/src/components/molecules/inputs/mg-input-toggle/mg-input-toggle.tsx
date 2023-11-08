@@ -207,6 +207,7 @@ export class MgInputToggle {
       throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string');
     } else {
       this.valid = valid;
+      this.inputValid.emit(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
     }
   }
