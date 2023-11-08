@@ -215,7 +215,7 @@ export class MgPanel {
       onClick={this.handleCollapseButton}
       variant="flat"
       identifier={`${this.identifier}-collapse-button`}
-      aria-expanded={this.expanded?.toString()}
+      aria-expanded={this.expanded.toString()}
       aria-controls={`${this.identifier}-content`}
       disabled={this.expandToggleDisabled}
       isIcon={this.expandToggleDisplay === 'icon'}
