@@ -50,7 +50,7 @@ export class MgIcon {
   @Prop() variant: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
-    if (Boolean(newValue)) {
+    if (newValue) {
       if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
       else {
         this.setDefaultVariantStyle();
@@ -70,7 +70,7 @@ export class MgIcon {
   @Prop({ mutable: true }) variantStyle: IconVariantStyleType;
   @Watch('variantStyle')
   validateVariantStyle(newValue: MgIcon['variantStyle'], oldValue?: MgIcon['variantStyle']): void {
-    if (Boolean(newValue)) {
+    if (newValue) {
       if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
       else {
         if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-style-${oldValue}`);

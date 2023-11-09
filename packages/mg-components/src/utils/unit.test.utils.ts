@@ -110,11 +110,7 @@ export const setupResizeObserverMock = ({ disconnect, observe }: setupResizeObse
  * @returns custom event mock
  */
 export const setupSubmitEventMock = (): typeof MockCustomEvent => {
-  class SubmitEvent extends MockCustomEvent {
-    constructor(type: string, eventInitDict?: SubmitEventInit) {
-      super(type, eventInitDict);
-    }
-  }
+  class SubmitEvent extends MockCustomEvent {}
 
   [window, global].forEach(element => {
     Object.defineProperty(element, 'SubmitEvent', {

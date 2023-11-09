@@ -39,6 +39,4 @@ export type MgActionMoreItemType = {
 /**
  * MouseEvent callback interface
  */
-interface IMouseEventHandler {
-  (event: MouseEvent): void;
-}
+type IMouseEventHandler = (event: MouseEvent) => void;
