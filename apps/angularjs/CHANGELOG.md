@@ -1,5 +1,13 @@
 # angularjs
 
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [4e31332]
+  - @mgdis/mg-components@5.19.2
+  - @mgdis/notification-center@1.1.2
+
 ## 0.0.4
 
 ### Patch Changes
