@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-06T12:04:24",
+  "timestamp": "2023-11-09T14:21:23",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.3.0",
@@ -4965,15 +4965,9 @@
           "name": "datalistoptions",
           "type": "string[]",
           "complexType": {
-            "original": "DatalistOption[]",
+            "original": "string[]",
             "resolved": "string[]",
-            "references": {
-              "DatalistOption": {
-                "location": "import",
-                "path": "./mg-input-text.conf",
-                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::DatalistOption"
-              }
-            }
+            "references": {}
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -9192,11 +9186,6 @@
     },
     "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
       "declaration": "\"text\" | \"search\"",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
-    },
-    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::DatalistOption": {
-      "declaration": "string",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },

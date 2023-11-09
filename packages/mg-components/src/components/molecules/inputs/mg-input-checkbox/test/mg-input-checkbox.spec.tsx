@@ -106,10 +106,10 @@ describe('mg-input-checkbox', () => {
     test.each([
       { identifier: 'identifier', type, label: 'label', value: undefined },
       { identifier: 'identifier', type, label: 'label', value: ['batman', 'joker', 'bane'] },
-    ])('Should not render with invalid value property: %s', async () => {
+    ])('Should not render with invalid value property: %s', async args => {
       expect.assertions(1);
       try {
-        await getPage();
+        await getPage(args);
       } catch (err) {
         expect(err.message).toMatch('<mg-input-checkbox> prop "value" is required and all values must be the same type, CheckboxItem.');
       }
