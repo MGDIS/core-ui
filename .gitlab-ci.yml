@@ -320,6 +320,7 @@ mg-components:npmjs:
     - .npmjs
   script:
     - !reference [.mg-components:build, script]
+    - cd packages/mg-components
     - pnpm publish --no-git-checks --access public
 
 #######################
