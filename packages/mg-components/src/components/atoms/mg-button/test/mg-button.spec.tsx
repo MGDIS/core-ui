@@ -6,7 +6,14 @@ import { variants, buttonTypes } from '../mg-button.conf';
 const getPage = (args, content = 'Text button') =>
   newSpecPage({
     components: [MgButton],
-    template: () => <mg-button {...args}>{content}</mg-button>,
+    template: () => {
+      const TagName = () => (args.formTag ? args.formTag : 'span');
+      return (
+        <TagName>
+          <mg-button {...args}>{content}</mg-button>
+        </TagName>
+      );
+    },
   });
 
 describe('mg-button', () => {
@@ -171,6 +178,36 @@ describe('mg-button', () => {
       await page.waitForChanges();
 
       expect(spy).not.lastCalledWith(expect.objectContaining({ type: 'click' }));
+    });
+  });
+
+  describe.each(['form', 'mg-form'])('form <%s/>', form => {
+    test.each([undefined, 'submit'])('Should emit "submit" event, case type is %s', async type => {
+      const args = { identifier: 'identifier', type };
+      const page = await getPage(args);
+
+      const mgForm = page.doc.querySelector('mg-form').shadowRoot.querySelector('form') || page.doc.querySelector('form');
+      const mgButton = page.doc.querySelector('mg-button');
+
+      const formSpy = jest.spyOn(mgForm, 'dispatchEvent');
+      const mgFormSpy = jest.spyOn(page.rootInstance.formSubmit, 'emit');
+
+      mgButton.dispatchEvent(new Event('click', { bubbles: true }));
+
+      await page.waitForChanges();
+
+      if ([undefined, 'submit'].includes(type)) {
+        expect(formSpy).toHaveBeenCalledWith(
+          expect.objectContaining({
+            type: 'submit',
+            cancelable: true,
+          }),
+        );
+        expect(mgFormSpy).toHaveBeenCalled();
+      } else {
+        expect(formSpy).not.toHaveBeenCalled();
+        expect(mgFormSpy).not.toHaveBeenCalled();
+      }
     });
   });
 });

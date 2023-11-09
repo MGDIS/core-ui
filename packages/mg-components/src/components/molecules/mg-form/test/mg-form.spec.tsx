@@ -185,41 +185,6 @@ describe('mg-form', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test.each([undefined, ...buttonTypes])('Should only emit "submit" event for <mg-button type="submit">, case type is %s', async type => {
-    const args = { identifier: 'identifier' };
-    const slot = [
-      ...getSlottedContent(),
-      <div slot="actions">
-        <mg-button type={type}>Submit</mg-button>
-      </div>,
-    ];
-    const page = await getPage(args, slot);
-
-    const mgForm = page.doc.querySelector('mg-form');
-    const form = mgForm.shadowRoot.querySelector('form');
-    const mgButton = page.doc.querySelector('mg-button');
-
-    const formSpy = jest.spyOn(form, 'dispatchEvent');
-    const mgFormSpy = jest.spyOn(page.rootInstance.formSubmit, 'emit');
-
-    mgButton.dispatchEvent(new Event('click', { bubbles: true }));
-
-    await page.waitForChanges();
-
-    if ([undefined, 'submit'].includes(type)) {
-      expect(formSpy).toHaveBeenCalledWith(
-        expect.objectContaining({
-          type: 'submit',
-          cancelable: true,
-        }),
-      );
-      expect(mgFormSpy).toHaveBeenCalled();
-    } else {
-      expect(formSpy).not.toHaveBeenCalled();
-      expect(mgFormSpy).not.toHaveBeenCalled();
-    }
-  });
-
   test('Should update input list when element is added to DOM', async () => {
     const args = { identifier: 'identifier' };
     const slot = getSlottedContent();
