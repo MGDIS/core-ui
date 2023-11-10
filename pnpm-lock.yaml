@@ -463,9 +463,6 @@ importers:
 
   packages/img:
     devDependencies:
-      axios:
-        specifier: ^1.0.0
-        version: 1.6.1
       sharp:
         specifier: ^0.32.1
         version: 0.32.1
@@ -11073,6 +11070,7 @@ packages:
       proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
+    dev: false
 
   /axobject-query@3.1.1:
     resolution: { integrity: sha512-goKlv8DZrK9hUh975fnHzhNIO4jUnFCfv/dszV5VwUGDFjI6vQ2VwoyjYjYNEbBE8AH87TduWP5uyDR1D+Iteg== }
@@ -15189,6 +15187,7 @@ packages:
         optional: true
     dependencies:
       debug: 4.3.4(supports-color@8.1.1)
+    dev: false
 
   /for-each@0.3.3:
     resolution: { integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw== }
