@@ -1,4 +1,4 @@
-image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:18-build
+image: $DOCKER_REGISTRE_URL/$DOCKER_REGISTRE_NAMESPACE_INT/node:20-build
 
 default:
   interruptible: true # allows to cancel the job automatically
@@ -215,7 +215,7 @@ chromatic:mr:
     - chromatic:publish
 
 .npmjs:
-  image: node:18 ## use official image to avoid the .npmrc present in our images
+  image: node:20 ## use official image to avoid the .npmrc present in our images
   stage: release
   extends:
     - .rules:tags
