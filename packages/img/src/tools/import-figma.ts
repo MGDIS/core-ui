@@ -8,15 +8,28 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+/**
+ * Figma API access token for authentication.
+ */
 const figmaAccessToken = process.env.FIGMA_ACCESS_TOKEN;
+
+/**
+ * Figma file key and icon page key.
+ */
 const figmaFileKey = process.env.FIGMA_FILE_KEY;
 const figmaPageId = process.env.FIGMA_PAGE_ID;
 
+/**
+ * Check if required environment variables are set.
+ */
 if (!figmaAccessToken || !figmaFileKey || !figmaPageId) {
   console.error('Please set the environment variables FIGMA_ACCESS_TOKEN, FIGMA_FILE_KEY, and FIGMA_PAGE_ID.');
   process.exit(1);
 }
 
+/**
+ * Axios instance configured for Figma API requests.
+ */
 const figmaApiInstance = axios.create({
   baseURL: 'https://api.figma.com/v1/',
   headers: {
@@ -24,6 +37,12 @@ const figmaApiInstance = axios.create({
   },
 });
 
+/**
+ * Handles errors from Axios requests.
+ *
+ * @param error - The error object.
+ * @throws - The error object.
+ */
 const handleError = (error: any): void => {
   if (axios.isAxiosError(error)) {
     const axiosError = error as AxiosError;
@@ -35,6 +54,14 @@ const handleError = (error: any): void => {
   throw error;
 };
 
+/**
+ * Fetch data from the Figma API.
+ *
+ * @param endpoint - The API endpoint.
+ * @param params - Optional parameters for the request.
+ * @returns - The response data.
+ * @throws - An error from the Axios request.
+ */
 const getFigmaData = async (endpoint: string, params?: any): Promise<any> => {
   try {
     const response: AxiosResponse = await figmaApiInstance.get(endpoint, { params });
@@ -44,6 +71,14 @@ const getFigmaData = async (endpoint: string, params?: any): Promise<any> => {
   }
 };
 
+/**
+ * Download, optimize, and write Figma SVG icons to files.
+ *
+ * @param id - The Figma component ID.
+ * @param url - The URL of the SVG icon.
+ * @param figmaData - Additional Figma data.
+ * @returns - A promise that resolves once the icon is downloaded, optimized, and written.
+ */
 const downloadOptimizeAndWriteIcon = async (id: string, url: string, figmaData: any): Promise<void> => {
   const componentSetId = figmaData.components[id].componentSetId;
   let iconName = figmaData.components[id].name;
@@ -78,6 +113,9 @@ const downloadOptimizeAndWriteIcon = async (id: string, url: string, figmaData: 
   console.log(`File ${iconName} has been successfully written.`);
 };
 
+/**
+ * Main function to fetch Figma data and download/modify/write icons.
+ */
 const main = async (): Promise<void> => {
   try {
     const fileData = await getFigmaData(`files/${figmaFileKey}`, { ids: figmaPageId });
@@ -96,4 +134,5 @@ const main = async (): Promise<void> => {
   }
 };
 
+// Run the main function
 main();
