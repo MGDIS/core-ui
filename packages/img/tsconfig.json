@@ -1,0 +1,9 @@
+{
+  "extends": "tsconfig/base.node20.json",
+  "compilerOptions": {
+    "lib": ["ES2015", "dom"],
+    "outDir": "dist"
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["src/**/*.spec.ts", "src/**/*.e2e.ts"]
+}
