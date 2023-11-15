@@ -67,7 +67,7 @@ describe('mg-input-toggle', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  testEach([undefined, false, true])('Render and toggle value whith reverse checked logic %s', async (page: PageType, value) => {
+  testEach([undefined, false, true])('Render and toggle value with reverse checked logic %s', async (page: PageType, value) => {
     await setPageContent(
       page,
       createHTML({

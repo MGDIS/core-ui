@@ -3,7 +3,7 @@ import { MgModalType, actions, contents, createHTML } from './mg-modal.e2e.templ
 
 describe('mg-modal', () => {
   const slotsToTests = actions.flatMap(action => contents.map(content => ({ action, content })));
-  describeEach(slotsToTests)('render whith slots %s', slots => {
+  describeEach(slotsToTests)('render with slots %s', slots => {
     testEach([
       { closeButton: false, hide: false },
       { closeButton: true, hide: false },

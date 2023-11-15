@@ -211,7 +211,7 @@ export class MgMenuItem {
 
   /**
    * Validate slots
-   * @param guard - prevent action whith guard. Default: false.
+   * @param guard - prevent action with guard. Default: false.
    */
   private validateSlot = (guard = false): void => {
     // slot title AND metadata validation

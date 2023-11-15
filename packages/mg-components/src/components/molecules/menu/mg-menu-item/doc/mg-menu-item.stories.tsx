@@ -65,7 +65,7 @@ export const MgMenuItemWhitMetadata = {
   },
 };
 
-export const MgMenuItemWhithSubmenu = {
+export const MgMenuItemWithSubmenu = {
   render: Template,
   args: {
     ...MgMenuItem.args,

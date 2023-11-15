@@ -77,7 +77,7 @@ describe('mg-panel', () => {
       expanded: true,
       slot: '<div>header right items should be vertically aligned</div><div slot="header-right"><mg-tag>Label</mg-tag><mg-icon size="small" icon="check-circle" variant="success"></mg-icon></div>',
     },
-    { ...baseArgs, expanded: true, style: '--mg-panel-background: var(--color-danger)', slot: '<mg-card>Content whith child card.</mg-card>' },
+    { ...baseArgs, expanded: true, style: '--mg-panel-background: var(--color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
   ])('Should render with template %s', async (page: PageType, args: ArgsType) => {
     await setPageContent(
       page,
