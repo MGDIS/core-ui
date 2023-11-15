@@ -47,7 +47,3 @@ To allow for customization, classes must be added to every SVG element (path, ci
 The required format for these classes is: `svg-{filename}-color-{number}`.
 
 For example, if the file name is `no-data.svg`, the classes should be `svg-no-data-color-1`, `svg-no-data-color-2`, `svg-no-data-color-3`, and so on.
-
-```
-
-```
