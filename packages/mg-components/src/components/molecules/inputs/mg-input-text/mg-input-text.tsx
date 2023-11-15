@@ -1,9 +1,9 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
+import { Handler, Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
-import { Handler, TextType } from './mg-input-text.conf';
+import { TextType } from './mg-input-text.conf';
 
 const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 

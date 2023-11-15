@@ -4,7 +4,7 @@ import { filterArgs } from '../../../../../../.storybook/utils';
 export default {
   component: 'mg-input-toggle',
   title: 'Molecules/Inputs/mg-input-toggle',
-  parameters: { actions: { handles: ['value-change'] } },
+  parameters: { actions: { handles: ['value-change', 'input-valid'] } },
 };
 
 const args = {
