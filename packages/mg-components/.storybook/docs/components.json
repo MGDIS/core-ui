@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-11-09T14:21:23",
+  "timestamp": "2023-11-15T21:09:40",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.3.0",
-    "typescriptVersion": "5.1.6"
+    "version": "4.4.1",
+    "typescriptVersion": "5.2.2"
   },
   "components": [
     {
@@ -8251,7 +8251,7 @@
               "Placement": {
                 "location": "import",
                 "path": "@popperjs/core",
-                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement"
               }
             }
           },
@@ -8901,7 +8901,7 @@
               "Placement": {
                 "location": "import",
                 "path": "@popperjs/core",
-                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement"
               }
             }
           },
@@ -9139,10 +9139,10 @@
       "docstring": "",
       "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
     },
-    "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement": {
+    "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement": {
       "declaration": "any",
       "docstring": "",
-      "path": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts"
+      "path": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts"
     },
     "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status": {
       "declaration": "export enum Status {\n  VISIBLE = 'visible',\n  HIDDEN = 'hidden',\n  DISABLED = 'disabled',\n  ACTIVE = 'active',\n}",
@@ -9185,7 +9185,7 @@
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
-      "declaration": "\"text\" | \"search\"",
+      "declaration": "export type TextType = 'text' | 'search';",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },
