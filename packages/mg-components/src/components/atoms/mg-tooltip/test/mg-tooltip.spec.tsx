@@ -269,7 +269,7 @@ describe('mg-tooltip', () => {
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 
-  test('Should prevent focus guard whith click event', async () => {
+  test('Should prevent focus guard with click event', async () => {
     const args = { identifier: 'identifier', message: 'batman' };
     const page = await getPage(args, <mg-button>batman</mg-button>);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
