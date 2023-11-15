@@ -43,7 +43,7 @@ const figmaApiInstance = axios.create({
  * @param error - The error object.
  * @throws - The error object.
  */
-const handleError = (error: any): void => {
+const handleError = (error: unknown): void => {
   if (axios.isAxiosError(error)) {
     const axiosError = error as AxiosError;
     console.error(`Axios Error: ${axiosError.message}`);
@@ -62,7 +62,7 @@ const handleError = (error: any): void => {
  * @returns - The response data.
  * @throws - An error from the Axios request.
  */
-const getFigmaData = async (endpoint: string, params?: any): Promise<any> => {
+const getFigmaData = async (endpoint: string, params?: { ids: string; format?: string }): Promise<AxiosResponse['data']> => {
   try {
     const response: AxiosResponse = await figmaApiInstance.get(endpoint, { params });
     return response.data;
@@ -79,16 +79,20 @@ const getFigmaData = async (endpoint: string, params?: any): Promise<any> => {
  * @param figmaData - Additional Figma data.
  * @returns - A promise that resolves once the icon is downloaded, optimized, and written.
  */
-const downloadOptimizeAndWriteIcon = async (id: string, url: string, figmaData: any): Promise<void> => {
-  const componentSetId = figmaData.components[id].componentSetId;
-  let iconName = figmaData.components[id].name;
+const downloadOptimizeAndWriteIcon = async (
+  id: string,
+  url: string,
+  figmaData: { components: { [x: string]: { name: string; componentSetId: string } }; componentSets: { [x: string]: { name: string } } },
+): Promise<void> => {
+  const componentSetId = figmaData.components?.[id]?.componentSetId;
+  let iconName = figmaData.components?.[id]?.name;
 
   if (componentSetId) {
-    iconName = figmaData.componentSets[componentSetId].name;
-    if (figmaData.components[id].name === 'Fill=false') iconName += '-outline';
+    iconName = figmaData.componentSets?.[componentSetId]?.name;
+    if (iconName && figmaData.components?.[id]?.name === 'Fill=false') iconName += '-outline';
   }
 
-  iconName = `${iconName.replaceAll('/', '-').toLowerCase().trim()}.svg`;
+  iconName = `${iconName?.replaceAll('/', '-').toLowerCase().trim()}.svg`;
 
   const { data: svgSrc } = await figmaApiInstance.get(url);
 
