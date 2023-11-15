@@ -1,22 +1,47 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../mg-button';
+import { MgForm } from '../../../molecules/mg-form/mg-form';
 import { variants, buttonTypes } from '../mg-button.conf';
+import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
 
-const getPage = (args, content = 'Text button') =>
-  newSpecPage({
-    components: [MgButton],
+const getPage = async (args, content = 'Text button') => {
+  const page = await newSpecPage({
+    components: [MgButton, MgForm],
     template: () => {
-      const TagName = () => (args.formTag ? args.formTag : 'span');
-      return (
-        <TagName>
-          <mg-button {...args}>{content}</mg-button>
-        </TagName>
-      );
+      const TagName = args.formTag;
+      delete args.formTag;
+      const button = () => <mg-button {...args}>{content}</mg-button>;
+      if (!TagName) return button();
+      else return <TagName identifier="identifier">{button()}</TagName>;
     },
   });
 
+  jest.runOnlyPendingTimers();
+
+  await page.waitForChanges();
+
+  return page;
+};
+
 describe('mg-button', () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+
+    setupMutationObserverMock({
+      observe: function () {
+        return null;
+      },
+      disconnect: function () {
+        return null;
+      },
+      takeRecords: () => [],
+    });
+    setupSubmitEventMock();
+  });
+
+  afterEach(() => jest.runOnlyPendingTimers());
+
   test('Should render a button with an id', async () => {
     const { root } = await getPage({ identifier: 'identifier', label: 'label' });
     expect(root).toMatchSnapshot();
@@ -182,15 +207,14 @@ describe('mg-button', () => {
   });
 
   describe.each(['form', 'mg-form'])('form <%s/>', form => {
-    test.each([undefined, 'submit'])('Should emit "submit" event, case type is %s', async type => {
-      const args = { identifier: 'identifier', type };
+    test.each([undefined, 'submit', 'button'])('Should emit "submit" event, case type is %s', async type => {
+      const args = { identifier: 'identifier', type, formTag: form };
       const page = await getPage(args);
 
-      const mgForm = page.doc.querySelector('mg-form').shadowRoot.querySelector('form') || page.doc.querySelector('form');
+      const mgForm = page.doc.querySelector('mg-form')?.shadowRoot.querySelector('form') || page.doc.querySelector('form');
       const mgButton = page.doc.querySelector('mg-button');
 
       const formSpy = jest.spyOn(mgForm, 'dispatchEvent');
-      const mgFormSpy = jest.spyOn(page.rootInstance.formSubmit, 'emit');
 
       mgButton.dispatchEvent(new Event('click', { bubbles: true }));
 
@@ -203,10 +227,8 @@ describe('mg-button', () => {
             cancelable: true,
           }),
         );
-        expect(mgFormSpy).toHaveBeenCalled();
       } else {
         expect(formSpy).not.toHaveBeenCalled();
-        expect(mgFormSpy).not.toHaveBeenCalled();
       }
     });
   });
