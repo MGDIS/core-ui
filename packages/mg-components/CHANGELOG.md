@@ -1,5 +1,11 @@
 # @mgdis/mg-components
 
+## 5.19.2
+
+### Patch Changes
+
+- 4e31332: fix @5.19.1 build
+
 ## 5.19.1
 
 ### Patch Changes

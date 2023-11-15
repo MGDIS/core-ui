@@ -1,11 +1,11 @@
 {
   "name": "core-ui",
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@8.10.5",
   "engineStrict": true,
   "engines": {
-    "pnpm": ">=7",
-    "node": ">=18"
+    "pnpm": ">=8",
+    "node": ">=20"
   },
   "repository": {
     "type": "git",
@@ -31,9 +31,9 @@
     "lint": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint",
     "lint:fix": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint:fix",
     "build": "turbo build --force",
-    "build:apps": "turbo run build --filter='./apps/*'",
-    "build:configs": "turbo run build --filter='./configs/*'",
-    "build:packages": "turbo run build --filter='./packages/*'",
+    "build:apps": "turbo build --filter='./apps/*' --force",
+    "build:configs": "turbo build --filter='./configs/*' --force",
+    "build:packages": "turbo build --filter='./packages/*' --force",
     "change": "changeset",
     "change:empty": "changeset --empty",
     "release": "./scripts/release.sh",
