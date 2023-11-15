@@ -49,7 +49,7 @@ export class MgInputNumeric {
     // has input value is always render as string we get a stringified value or a '' for nullish value, so we test string type
     if (typeof newValue === 'string') {
       // Split number and decimal
-      const [integer, decimal = ''] = newValue.replace('-', '').split(/[\.,]/);
+      const [integer, decimal = ''] = newValue.replace('-', '').split(/[.,]/);
       // Regex
       const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+(?:[.,]\d*)?$/;
       // Filter input
@@ -274,7 +274,9 @@ export class MgInputNumeric {
    * @returns Returns true if the value is valid, otherwise false.
    */
   private isValidValue(value: string, regex: RegExp, integer: string, decimal: string): boolean {
-    return ['', '-'].includes(value) || (value.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength));
+    return (
+      ['', '-'].includes(value) || (regex.exec(value) !== null && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))
+    );
   }
 
   /**
@@ -282,7 +284,7 @@ export class MgInputNumeric {
    * @returns The corrected value.
    */
   private handleInvalidValue(): string | null {
-    return this.storedValue !== undefined ? this.storedValue : null;
+    return this.storedValue ?? null;
   }
 
   /**

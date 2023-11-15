@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
-pnpm build:config && pnpm dlx lint-staged
+pnpm --filter @mgdis/linting-stencil build:config && pnpm dlx lint-staged

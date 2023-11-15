@@ -19,9 +19,6 @@ export class MgForm {
   // Classes
   private readonly classAllRequired = 'mg-c-form--all-required';
 
-  // HTML selector
-  private form: HTMLFormElement;
-
   // Locales
   private messages;
 
@@ -100,7 +97,7 @@ export class MgForm {
   async displayError(): Promise<void> {
     if (!this.readonly) {
       this.mgInputs.forEach(input => {
-        input.displayError && input.displayError();
+        input.displayError?.();
       });
       this.checkValidity();
     }
@@ -226,14 +223,6 @@ export class MgForm {
    * Add slot listeners
    */
   componentDidLoad(): void {
-    this.mgButtons.forEach(mgButton => {
-      // submit buttons should trigger form submition;
-      if (['submit', null].includes(mgButton.getAttribute('type'))) {
-        mgButton.addEventListener('click', () => {
-          this.form.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
-        });
-      }
-    });
     // Update mgInputs when mgForm content change
     new MutationObserver(() => {
       this.setMgInputs();
@@ -246,7 +235,7 @@ export class MgForm {
    */
   render(): HTMLElement {
     return (
-      <form class={this.classCollection.join()} id={this.identifier} name={this.name} ref={(el: HTMLFormElement) => (this.form = el)} onSubmit={this.handleFormSubmit}>
+      <form class={this.classCollection.join()} id={this.identifier} name={this.name} onSubmit={this.handleFormSubmit}>
         {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}

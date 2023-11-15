@@ -1,5 +1,21 @@
 # @mgdis/mg-components
 
+## 5.19.2
+
+### Patch Changes
+
+- 4e31332: fix @5.19.1 build
+
+## 5.19.1
+
+### Patch Changes
+
+- d19f944: [#404](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/404) mg-input-toggle: Add setError public method
+- aadb89e: [#410](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/410) mg-pagination: Missing "role=navigation"
+- 271a171: [#409](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/409) mg-input-title : in readonly mode the components should not use a label or a fieldset
+- 8e0171f: [#398](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/398) e2e: move mg-menu tests to playwright to improve stability
+- 3bcb8d6: [#383](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/383)mg-input-\*: add the aria-invalid attribut
+
 ## 5.19.0
 
 ### Minor Changes

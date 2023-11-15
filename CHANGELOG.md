@@ -1,5 +1,17 @@
 # Changelog
 
+## Release (2023-11-09-16-29_Tough-Tan-Tarsier)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
+## Release (2023-11-09-09-27_Drab-Desert-Sand-Dove)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-10-26-09-35_Petite-Pink-Flamingo-Porpoise)
 
 ### Packages released

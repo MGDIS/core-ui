@@ -67,7 +67,7 @@ export class MgActionMore {
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
       throw new Error(`<${this.name}> prop icon must match MgActionMoreIconType.`);
-    } else if (!Boolean(newValue?.icon) && Boolean(this.button.isIcon)) {
+    } else if (!newValue?.icon && Boolean(this.button.isIcon)) {
       this.icon = { icon: 'ellipsis' };
     }
   }

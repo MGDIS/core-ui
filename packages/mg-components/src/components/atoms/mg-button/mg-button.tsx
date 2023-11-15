@@ -196,6 +196,21 @@ export class MgButton {
   }
 
   /**
+   * Add listners
+   */
+  componentDidLoad(): void {
+    setTimeout(() => {
+      const closestForm = this.element.closest('form') || this.element.closest('mg-form')?.shadowRoot.querySelector('form');
+      // submit buttons should trigger form submition;
+      if (!!closestForm && ['submit', undefined].includes(this.type)) {
+        this.element.addEventListener('click', () => {
+          closestForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
+        });
+      }
+    }, 100);
+  }
+
+  /**
    * Render component
    * @returns html element
    */
@@ -208,7 +223,7 @@ export class MgButton {
         form={this.form}
         full-width={this.fullWidth}
         aria-label={this.label}
-        aria-disabled={this.disabled !== undefined && this.disabled.toString()}
+        aria-disabled={this.disabled?.toString()}
         onClick={this.handleClick}
         onKeyup={this.handleKeyup}
         onKeydown={this.handleKeydown}

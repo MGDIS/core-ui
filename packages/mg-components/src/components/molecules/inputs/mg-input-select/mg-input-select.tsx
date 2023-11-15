@@ -88,7 +88,7 @@ export class MgInputSelect {
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
-      this.readonlyValue = Boolean(this.input?.value) ? this.input.value : newValue;
+      this.readonlyValue = this.input?.value ? this.input.value : newValue;
     } else if (allItemsAreOptions(this.items)) {
       this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
     } else {
@@ -457,7 +457,13 @@ export class MgInputSelect {
             </option>
           )}
           {this.options.map(option =>
-            isOptGroup(option) ? <optgroup label={option.group}>{option.options.map(this.renderOption)}</optgroup> : isOption(option) && this.renderOption(option),
+            isOptGroup(option) ? (
+              <optgroup label={option.group} key={option.group}>
+                {option.options.map(this.renderOption)}
+              </optgroup>
+            ) : (
+              isOption(option) && this.renderOption(option)
+            ),
           )}
         </select>
       </MgInput>

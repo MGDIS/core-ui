@@ -14,7 +14,7 @@ import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./compon
 import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
-import { DatalistOption, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
@@ -35,7 +35,7 @@ export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./compon
 export { Width } from "./components/molecules/inputs/MgInput.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
-export { DatalistOption, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
@@ -741,7 +741,7 @@ export namespace Components {
         /**
           * Define datalist options
          */
-        "datalistoptions": DatalistOption[];
+        "datalistoptions": string[];
         /**
           * Define if input is disabled
          */
@@ -949,6 +949,10 @@ export namespace Components {
         /**
           * If input is required an asterisk is added at the end of the label
          */
+        "readonly": boolean;
+        /**
+          * If input is required an asterisk is added at the end of the label
+         */
         "required": boolean;
     }
     interface MgInputToggle {
@@ -996,6 +1000,12 @@ export namespace Components {
           * Define if input is readonly
          */
         "readonly": boolean;
+        /**
+          * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+          * @param valid - value indicating the validity
+          * @param errorMessage - the error message to display
+         */
+        "setError": (valid: boolean, errorMessage: string) => Promise<void>;
         /**
           * Add a tooltip message next to the input
          */
@@ -2304,7 +2314,7 @@ declare namespace LocalJSX {
         /**
           * Define datalist options
          */
-        "datalistoptions"?: DatalistOption[];
+        "datalistoptions"?: string[];
         /**
           * Define if input is disabled
          */
@@ -2501,6 +2511,10 @@ declare namespace LocalJSX {
           * Switch from label to fieldset sementic
          */
         "isLegend"?: boolean;
+        /**
+          * If input is required an asterisk is added at the end of the label
+         */
+        "readonly"?: boolean;
         /**
           * If input is required an asterisk is added at the end of the label
          */

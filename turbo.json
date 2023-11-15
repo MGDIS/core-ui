@@ -1,20 +1,16 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalEnv": ["GITLAB_CI", "CI", "NODE_ENV"],
+  "globalEnv": ["GITLAB_CI", "CI", "NODE_ENV", "FIGMA_ACCESS_TOKEN", "FIGMA_FILE_KEY", "FIGMA_PAGE_ID"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**", "build/**", "src/assets/**"]
     },
-    "build:config": {
-      "dependsOn": ["^build:config"],
-      "outputs": ["dist/**"]
-    },
     "dev": {},
     "test": {},
     "test:unit": {},
     "test:e2e": {
-      "dependsOn": ["build", "^build"]
+      "dependsOn": ["^build"]
     },
     "test:e2e:playwright": {
       "dependsOn": ["build", "^build"]
@@ -24,11 +20,7 @@
       "dependsOn": ["build", "^build"],
       "outputs": ["coverage/**", ".nyc_output/**"]
     },
-    "lint": {
-      "dependsOn": ["^build:config"]
-    },
-    "lint:fix": {
-      "dependsOn": ["^build:config"]
-    }
+    "lint": {},
+    "lint:fix": {}
   }
 }

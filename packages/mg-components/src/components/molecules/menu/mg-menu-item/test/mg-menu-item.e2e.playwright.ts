@@ -25,7 +25,7 @@ describe('mg-menu-item', () => {
       [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED].flatMap(status =>
         [undefined, '#link'].flatMap(href => [true, false].map(submenu => createHTML({ status, href }, submenu && slotMenuItem, direction))),
       ),
-    )('should render whith status %s', async (page: PageType, html: string) => {
+    )('should render with status %s', async (page: PageType, html: string) => {
       await setPageContent(page, html, { width: 100, height: 38 });
 
       if (!html.includes('status="hidden"')) {
@@ -47,7 +47,7 @@ describe('mg-menu-item', () => {
           [slotMetadata, ''].map(metadata => createHTML({ label, size: metadata !== '' ? 'medium' : 'regular' }, [slot, metadata, submenu].join(''), direction)),
         ),
       ),
-    )('should render whith slots %s', async (page: PageType, html: string) => {
+    )('should render with slots %s', async (page: PageType, html: string) => {
       await setPageContent(page, html, { width: 130, height: 60 });
 
       await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });

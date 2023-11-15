@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-11-08T13:47:30",
+  "timestamp": "2023-11-15T20:52:51",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.3.0",
-    "typescriptVersion": "5.1.6"
+    "version": "4.4.1",
+    "typescriptVersion": "5.2.2"
   },
   "components": [
     {
@@ -4965,15 +4965,9 @@
           "name": "datalistoptions",
           "type": "string[]",
           "complexType": {
-            "original": "DatalistOption[]",
+            "original": "string[]",
             "resolved": "string[]",
-            "references": {
-              "DatalistOption": {
-                "location": "import",
-                "path": "./mg-input-text.conf",
-                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::DatalistOption"
-              }
-            }
+            "references": {}
           },
           "mutable": false,
           "reflectToAttr": false,
@@ -6307,6 +6301,27 @@
           "required": false
         },
         {
+          "name": "readonly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "If input is required an asterisk is added at the end of the label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "required",
           "type": "boolean",
           "complexType": {
@@ -6673,7 +6688,58 @@
           "required": false
         }
       ],
-      "methods": [],
+      "methods": [
+        {
+          "name": "setError",
+          "returns": {
+            "type": "Promise<void>",
+            "docs": ""
+          },
+          "complexType": {
+            "signature": "(valid: boolean, errorMessage: string) => Promise<void>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "valid - value indicating the validity"
+                  }
+                ],
+                "text": "- value indicating the validity"
+              },
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "errorMessage - the error message to display"
+                  }
+                ],
+                "text": "- the error message to display"
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              }
+            },
+            "return": "Promise<void>"
+          },
+          "signature": "setError(valid: boolean, errorMessage: string) => Promise<void>",
+          "parameters": [],
+          "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "valid - value indicating the validity"
+            },
+            {
+              "name": "param",
+              "text": "errorMessage - the error message to display"
+            }
+          ]
+        }
+      ],
       "events": [
         {
           "event": "input-valid",
@@ -8185,7 +8251,7 @@
               "Placement": {
                 "location": "import",
                 "path": "@popperjs/core",
-                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement"
               }
             }
           },
@@ -8835,7 +8901,7 @@
               "Placement": {
                 "location": "import",
                 "path": "@popperjs/core",
-                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement"
+                "id": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement"
               }
             }
           },
@@ -9073,10 +9139,10 @@
       "docstring": "",
       "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
     },
-    "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts::Placement": {
+    "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement": {
       "declaration": "any",
       "docstring": "",
-      "path": "../../node_modules/.pnpm/@popperjs+core@2.11.7/node_modules/@popperjs/core/index.d.ts"
+      "path": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts"
     },
     "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status": {
       "declaration": "export enum Status {\n  VISIBLE = 'visible',\n  HIDDEN = 'hidden',\n  DISABLED = 'disabled',\n  ACTIVE = 'active',\n}",
@@ -9119,12 +9185,7 @@
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
-      "declaration": "\"text\" | \"search\"",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
-    },
-    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::DatalistOption": {
-      "declaration": "string",
+      "declaration": "export type TextType = 'text' | 'search';",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },

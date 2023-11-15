@@ -269,7 +269,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-date">
+        <mg-input-title identifier="mg-input-date" readonly="">
           mg-input-date label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -281,7 +281,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-numeric">
+        <mg-input-title identifier="mg-input-numeric" readonly="">
           mg-input-numeric label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -294,7 +294,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
+        <mg-input-title identifier="mg-input-password" readonly="">
           mg-input-password label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -305,20 +305,20 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <fieldset class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
+      <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
+        <mg-input-title identifier="mg-input-radio" is-legend="" readonly="">
           mg-input-radio label
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
         </div>
-      </fieldset>
+      </div>
     </mock:shadow-root>
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
+        <mg-input-title identifier="mg-input-select" readonly="">
           mg-input-select label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -330,7 +330,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
+        <mg-input-title identifier="mg-input-text" readonly="">
           mg-input-text label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -343,7 +343,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
+        <mg-input-title identifier="mg-input-textarea" readonly="">
           mg-input-textarea label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -555,7 +555,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -625,7 +625,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-date">
+        <mg-input-title identifier="mg-input-date" readonly="">
           mg-input-date label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -637,7 +637,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-numeric">
+        <mg-input-title identifier="mg-input-numeric" readonly="">
           mg-input-numeric label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -650,7 +650,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
+        <mg-input-title identifier="mg-input-password" readonly="">
           mg-input-password label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -661,20 +661,20 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <fieldset class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
+      <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
+        <mg-input-title identifier="mg-input-radio" is-legend="" readonly="">
           mg-input-radio label
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
         </div>
-      </fieldset>
+      </div>
     </mock:shadow-root>
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
+        <mg-input-title identifier="mg-input-select" readonly="">
           mg-input-select label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -686,7 +686,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
+        <mg-input-title identifier="mg-input-text" readonly="">
           mg-input-text label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -699,7 +699,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
+        <mg-input-title identifier="mg-input-textarea" readonly="">
           mg-input-textarea label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -914,7 +914,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -1132,7 +1132,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -1350,7 +1350,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
               <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
             </div>
           </div>
@@ -1670,7 +1670,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-date">
+        <mg-input-title identifier="mg-input-date" readonly="">
           mg-input-date label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1682,7 +1682,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-numeric">
+        <mg-input-title identifier="mg-input-numeric" readonly="">
           mg-input-numeric label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1695,7 +1695,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
+        <mg-input-title identifier="mg-input-password" readonly="">
           mg-input-password label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1706,20 +1706,20 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <fieldset class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
+      <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
+        <mg-input-title identifier="mg-input-radio" is-legend="" readonly="">
           mg-input-radio label
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
         </div>
-      </fieldset>
+      </div>
     </mock:shadow-root>
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
+        <mg-input-title identifier="mg-input-select" readonly="">
           mg-input-select label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1731,7 +1731,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
+        <mg-input-title identifier="mg-input-text" readonly="">
           mg-input-text label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1744,7 +1744,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
+        <mg-input-title identifier="mg-input-textarea" readonly="">
           mg-input-textarea label
         </mg-input-title>
         <div class="mg-c-input__input-container">

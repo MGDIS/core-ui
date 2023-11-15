@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, Event, h, Prop, EventEmitter, State, Watch, Element } from '@stencil/core';
+import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
@@ -158,6 +158,16 @@ export class MgInputToggle {
   @State() options: ToggleValue[];
 
   /**
+   * Error message to display
+   */
+  @State() errorMessage: string;
+
+  /**
+   * Define input valid state
+   */
+  @State() valid: boolean;
+
+  /**
    * Checked internal value
    */
   @State() checked = false;
@@ -180,6 +190,40 @@ export class MgInputToggle {
    * Emited event when checking validity
    */
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: boolean, errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.valid = valid;
+      this.inputValid.emit(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+    }
+  }
+
+  /**
+   * Set input error message
+   * @param errorMessage - errorMessage override
+   */
+  private setErrorMessage = (errorMessage?: string): void => {
+    // Set error message
+    this.errorMessage = undefined;
+    // Does have a custom error message
+    if (!this.valid && errorMessage !== undefined) {
+      this.errorMessage = errorMessage;
+    }
+  };
 
   /**
    * Change checked value
@@ -268,7 +312,7 @@ export class MgInputToggle {
         readonlyValue={undefined}
         tooltip={!this.readonly && this.tooltip}
         helpText={this.helpText}
-        errorMessage={undefined}
+        errorMessage={this.errorMessage}
         isFieldset={false}
       >
         <button
