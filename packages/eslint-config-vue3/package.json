@@ -4,9 +4,9 @@
   "description": "CORE eslint-config-vue3",
   "main": "src/index.js",
   "dependencies": {
-    "@typescript-eslint/parser": "^5.62.0",
-    "@vue/eslint-config-prettier": "^7.1.0",
-    "@vue/eslint-config-typescript": "^11.0.3",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "eslint-config-prettier": "^9.0.0",
@@ -14,28 +14,28 @@
   },
   "peerDependencies": {
     "@mgdis/eslint-plugin-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.x",
+    "@typescript-eslint/eslint-plugin": "^5.x || ^6.0.0",
     "eslint": "^8.x",
     "eslint-import-resolver-typescript": "^3.x",
     "eslint-plugin-import": "^2.x",
-    "eslint-plugin-prettier": "^4.x",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-tsdoc": "^0.x",
     "eslint-plugin-vue": "^9.x",
     "eslint-plugin-vue3-jsx": "latest",
     "eslint-plugin-vuejs-accessibility": "^1.x",
-    "prettier": "^2.x"
+    "prettier": "^2.x || ^3.0.0"
   },
   "devDependencies": {
     "@mgdis/eslint-plugin-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
     "eslint": "^8.53.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-tsdoc": "^0.2.17",
     "eslint-plugin-vue": "^9.18.1",
     "eslint-plugin-vue3-jsx": "latest",
     "eslint-plugin-vuejs-accessibility": "^1.2.0",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.0"
   }
 }
