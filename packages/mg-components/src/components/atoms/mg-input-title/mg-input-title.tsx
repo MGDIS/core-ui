@@ -19,6 +19,11 @@ export class MgInputTitle {
   }
 
   /**
+   * Define `legend|label` element id
+   */
+  @Prop() titleId: string;
+
+  /**
    * If input is required an asterisk is added at the end of the label
    */
   @Prop() required: boolean;
@@ -62,7 +67,7 @@ export class MgInputTitle {
     const TagName = this.readonly ? 'span' : this.tagName;
     // \u00A0 represent a &nbsp;
     return (
-      <TagName class="mg-c-input-title" htmlFor={this.isLegend ? undefined : this.identifier}>
+      <TagName class="mg-c-input-title" htmlFor={this.isLegend ? undefined : this.identifier} id={this.titleId}>
         <slot></slot>
         {this.required && (
           <span class="mg-c-input-title__required">

@@ -14,7 +14,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -248,7 +248,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -393,7 +393,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -604,7 +604,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -752,7 +752,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -970,7 +970,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1188,7 +1188,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1402,7 +1402,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1439,7 +1439,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1649,7 +1649,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -1797,7 +1797,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">
@@ -2035,7 +2035,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox" is-legend="" required="">
+        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
           mg-input-checkbox label
         </mg-input-title>
         <div class="mg-c-input__input-container">

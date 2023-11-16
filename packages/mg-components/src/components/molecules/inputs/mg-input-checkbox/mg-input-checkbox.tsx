@@ -36,6 +36,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private hasDisplayedError = false;
 
   private mode: 'custom' | 'auto' = 'custom';
+  private legendId: string;
 
   // style
   private readonly baseClassName = 'mg-c-input--checkbox';
@@ -468,6 +469,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
     this.validateDisplaySelectedValues(this.displaySelectedValues);
+    this.legendId = `${this.identifier}-title`;
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -566,7 +568,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             if (el) this.mgPopover = el;
           }}
         >
-          <mg-button variant="secondary">
+          <mg-button variant="secondary" aria-describedby={this.legendId}>
             <mg-icon icon="list"></mg-icon>
             {this.renderButtonText(selectedValuesNb)}
           </mg-button>
@@ -627,6 +629,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         label={this.label}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
+        titleId={this.legendId}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
         readonly={undefined}
         mgWidth={undefined}

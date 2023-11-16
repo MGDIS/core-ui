@@ -19,6 +19,7 @@ The label can be on more than one line.
 | `isLegend`                | `is-legend`  | Switch from label to fieldset sementic                            | `boolean` | `false`     |
 | `readonly`                | `readonly`   | If input is required an asterisk is added at the end of the label | `boolean` | `undefined` |
 | `required`                | `required`   | If input is required an asterisk is added at the end of the label | `boolean` | `undefined` |
+| `titleId`                 | `title-id`   | Define `legend\|label` element id                                 | `string`  | `undefined` |
 
 
 ## Dependencies

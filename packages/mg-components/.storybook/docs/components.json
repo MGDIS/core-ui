@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-15T21:09:40",
+  "timestamp": "2023-11-16T00:22:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.1",
@@ -6337,6 +6337,27 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "titleId",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "title-id",
+          "reflectToAttr": false,
+          "docs": "Define `legend|label` element id",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
