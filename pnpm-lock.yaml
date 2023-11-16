@@ -26,8 +26,8 @@ importers:
         specifier: ^16.0.0
         version: 16.0.0
       junit-report-merger:
-        specifier: ^4.0.1
-        version: 4.0.1
+        specifier: ^6.0.0
+        version: 6.0.3
       lint-staged:
         specifier: ^15.0.0
         version: 15.1.0
@@ -12494,17 +12494,6 @@ packages:
     resolution: { integrity: sha512-/d9sfos4yxzpwkDkuN7k2SqFKtYNmCTzgfEpz82x34IM9/zc8KGxQoXg1liNC/izpRM/MBdt44Nmx41ZWqk+FQ== }
     dev: true
 
-  /fast-glob@3.2.12:
-    resolution: { integrity: sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w== }
-    engines: { node: '>=8.6.0' }
-    dependencies:
-      '@nodelib/fs.stat': 2.0.5
-      '@nodelib/fs.walk': 1.2.8
-      glob-parent: 5.1.2
-      merge2: 1.4.1
-      micromatch: 4.0.5
-    dev: false
-
   /fast-glob@3.3.2:
     resolution: { integrity: sha512-oX2ruAFQwf/Orj8m737Y5adxDQO0LAB7/S5MnxCdTNDd4p6BsyIVsv9JQsATbTSq8KHRpLwIHbVlUNatxd+1Ow== }
     engines: { node: '>=8.6.0' }
@@ -15574,14 +15563,6 @@ packages:
   /js-tokens@4.0.0:
     resolution: { integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ== }
 
-  /js-yaml@3.14.0:
-    resolution: { integrity: sha512-/4IbIeHcD9VMHFqDR/gQ7EdZdLimOvW2DdcxFjdyyZ9NsbS+ccrXqVWDtab/lRl5AlUqmpBx8EhPaWR+OtY17A== }
-    hasBin: true
-    dependencies:
-      argparse: 1.0.10
-      esprima: 4.0.1
-    dev: false
-
   /js-yaml@3.14.1:
     resolution: { integrity: sha512-okMH7OXXJ7YrN9Ok3/SXrnu4iX9yOk+25nqX4imS2npuvTYDmo/QEZoqwZkYaIDk3jVvBOTOIEgEhaLOynBS9g== }
     hasBin: true
@@ -15835,14 +15816,14 @@ packages:
       csstype: 3.1.2
     dev: true
 
-  /junit-report-merger@4.0.1:
-    resolution: { integrity: sha512-RPuTsORePx7++rcQj0tsq+E49T2Hx+f9WZ6jZwfla7eyU87IP1RRG9VluNgKWc1ygR319SAhLCM7RnUjhqbGow== }
-    engines: { node: ^12.20.0 || >=14 }
+  /junit-report-merger@6.0.3:
+    resolution: { integrity: sha512-gtGHrq+otZLtSP1FPDSKYiFkDayCoEx1wslgzodLVxckwL8XgdbQlko1mz9wdXqieeniCQjkJFrTtqDEsTWzTQ== }
+    engines: { node: '>=14' }
     hasBin: true
     dependencies:
-      commander: 10.0.1
-      fast-glob: 3.2.12
-      xmlbuilder2: 3.0.1
+      commander: 11.1.0
+      fast-glob: 3.3.2
+      xmlbuilder2: 3.1.1
     dev: false
 
   /keyv@3.1.0:
@@ -23648,15 +23629,14 @@ packages:
   /xml@1.0.1:
     resolution: { integrity: sha512-huCv9IH9Tcf95zuYCsQraZtWnJvBtLVE0QHMOs8bWyZAFZNDcYjsPq1nEx8jKA9y+Beo9v+7OBPRisQTjinQMw== }
 
-  /xmlbuilder2@3.0.1:
-    resolution: { integrity: sha512-BpZMcl56Qz72wZqAlaMyhtfOR5DsWhZZ3j/vUJf5eMKkySgEvBAv7ztC+pa+oUa4Y5aGGzB24C+t5ZLJyarrog== }
+  /xmlbuilder2@3.1.1:
+    resolution: { integrity: sha512-WCSfbfZnQDdLQLiMdGUQpMxxckeQ4oZNMNhLVkcekTu7xhD4tuUDyAPoY8CwXvBYE6LwBHd6QW2WZXlOWr1vCw== }
     engines: { node: '>=12.0' }
     dependencies:
       '@oozcitak/dom': 1.15.10
       '@oozcitak/infra': 1.0.8
       '@oozcitak/util': 8.3.8
-      '@types/node': 20.9.0
-      js-yaml: 3.14.0
+      js-yaml: 3.14.1
     dev: false
 
   /xmlchars@2.2.0:
