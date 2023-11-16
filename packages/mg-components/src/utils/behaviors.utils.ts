@@ -17,7 +17,10 @@ export class OverflowBehavior {
   private _baseChildren: Element[];
   private _proxyChildren: Element[];
 
-  constructor(private element: Element, private render: () => HTMLElement) {
+  constructor(
+    private element: Element,
+    private render: () => HTMLElement,
+  ) {
     if (this._resizeObserver === undefined) {
       // add resize observer
       this._resizeObserver = new ResizeObserver(entries => {
