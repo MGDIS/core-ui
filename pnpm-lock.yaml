@@ -325,8 +325,8 @@ importers:
   configs/prettier-config:
     dependencies:
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.1.0
     devDependencies:
       eslint:
         specifier: ^8.53.0
@@ -349,7 +349,7 @@ importers:
         version: 5.62.0(eslint@8.53.0)(typescript@5.2.2)
       '@vue/eslint-config-prettier':
         specifier: ^7.1.0
-        version: 7.1.0(eslint@8.53.0)(prettier@2.8.8)
+        version: 7.1.0(eslint@8.53.0)(prettier@3.1.0)
       '@vue/eslint-config-typescript':
         specifier: ^11.0.3
         version: 11.0.3(eslint-plugin-vue@9.18.1)(eslint@8.53.0)(typescript@5.2.2)
@@ -383,7 +383,7 @@ importers:
         version: 2.29.0(@typescript-eslint/parser@5.62.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
       eslint-plugin-prettier:
         specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@2.8.8)
+        version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@3.1.0)
       eslint-plugin-tsdoc:
         specifier: ^0.2.17
         version: 0.2.17
@@ -397,8 +397,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(eslint@8.53.0)
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.1.0
 
   packages/eslint-plugin-html:
     dependencies:
@@ -520,10 +520,10 @@ importers:
         version: 39.9.1(eslint@8.53.0)
       eslint-plugin-prettier:
         specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@2.8.8)
+        version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@3.1.0)
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.1.0
     devDependencies:
       jest-config:
         specifier: workspace:*
@@ -578,7 +578,7 @@ importers:
         version: 5.0.8(@vue/cli-service@5.0.8)(eslint@8.53.0)
       '@vue/eslint-config-prettier':
         specifier: ^7.1.0
-        version: 7.1.0(eslint@8.53.0)(prettier@2.8.8)
+        version: 7.1.0(eslint@8.53.0)(prettier@3.1.0)
       eslint:
         specifier: ^8.53.0
         version: 8.53.0
@@ -587,7 +587,7 @@ importers:
         version: 39.9.1(eslint@8.53.0)
       eslint-plugin-prettier:
         specifier: ^4.2.1
-        version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@2.8.8)
+        version: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@3.1.0)
       eslint-plugin-vue:
         specifier: ^9.18.1
         version: 9.18.1(eslint@8.53.0)
@@ -595,8 +595,8 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0(eslint@8.53.0)
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.1.0
     devDependencies:
       jest-config:
         specifier: workspace:*
@@ -726,8 +726,8 @@ importers:
         specifier: workspace:*
         version: link:../../configs/playwright-config
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.1.0
       puppeteer:
         specifier: ^13.7.0
         version: 13.7.0
@@ -845,8 +845,8 @@ importers:
         specifier: workspace:*
         version: link:../../configs/playwright-config
       prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
+        specifier: ^3.0.0
+        version: 3.1.0
       prettier-config:
         specifier: workspace:*
         version: link:../../configs/prettier-config
@@ -7542,7 +7542,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.3
       '@vue/babel-preset-app': 5.0.8(@babel/core@7.23.3)
-      '@vue/cli-service': 5.0.8(prettier@2.8.8)
+      '@vue/cli-service': 5.0.8(prettier@3.1.0)
       '@vue/cli-shared-utils': 5.0.8
       babel-loader: 8.3.0(@babel/core@7.23.3)(webpack@5.89.0)
       thread-loader: 3.0.4(webpack@5.89.0)
@@ -7564,7 +7564,7 @@ packages:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
       eslint: '>=7.5.0'
     dependencies:
-      '@vue/cli-service': 5.0.8(prettier@2.8.8)
+      '@vue/cli-service': 5.0.8(prettier@3.1.0)
       '@vue/cli-shared-utils': 5.0.8
       eslint: 8.53.0
       eslint-webpack-plugin: 3.2.0(eslint@8.53.0)(webpack@5.89.0)
@@ -7584,7 +7584,7 @@ packages:
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      '@vue/cli-service': 5.0.8(prettier@2.8.8)
+      '@vue/cli-service': 5.0.8(prettier@3.1.0)
       '@vue/cli-shared-utils': 5.0.8
     transitivePeerDependencies:
       - encoding
@@ -7595,10 +7595,10 @@ packages:
     peerDependencies:
       '@vue/cli-service': ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      '@vue/cli-service': 5.0.8(prettier@2.8.8)
+      '@vue/cli-service': 5.0.8(prettier@3.1.0)
     dev: false
 
-  /@vue/cli-service@5.0.8(prettier@2.8.8):
+  /@vue/cli-service@5.0.8(prettier@3.1.0):
     resolution: {integrity: sha512-nV7tYQLe7YsTtzFrfOMIHc5N2hp5lHG2rpYr0aNja9rNljdgcPZLyQRb2YRivTHqTv7lI962UXFURcpStHgyFw==}
     engines: {node: ^12.0.0 || >= 14.0.0}
     hasBin: true
@@ -7638,7 +7638,7 @@ packages:
       '@vue/cli-plugin-vuex': 5.0.8(@vue/cli-service@5.0.8)
       '@vue/cli-shared-utils': 5.0.8
       '@vue/component-compiler-utils': 3.3.0
-      '@vue/vue-loader-v15': /vue-loader@15.11.1(css-loader@6.8.1)(prettier@2.8.8)(webpack@5.89.0)
+      '@vue/vue-loader-v15': /vue-loader@15.11.1(css-loader@6.8.1)(prettier@3.1.0)(webpack@5.89.0)
       '@vue/web-component-wrapper': 1.3.0
       acorn: 8.11.2
       acorn-walk: 8.3.0
@@ -7882,7 +7882,7 @@ packages:
       - walrus
       - whiskers
 
-  /@vue/eslint-config-prettier@7.1.0(eslint@8.53.0)(prettier@2.8.8):
+  /@vue/eslint-config-prettier@7.1.0(eslint@8.53.0)(prettier@3.1.0):
     resolution: {integrity: sha512-Pv/lVr0bAzSIHLd9iz0KnvAr4GKyCEl+h52bc4e5yWuDVtLgFwycF7nrbWTAQAS+FU6q1geVd07lc6EWfJiWKQ==}
     peerDependencies:
       eslint: '>= 7.28.0'
@@ -7890,8 +7890,8 @@ packages:
     dependencies:
       eslint: 8.53.0
       eslint-config-prettier: 8.10.0(eslint@8.53.0)
-      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@2.8.8)
-      prettier: 2.8.8
+      eslint-plugin-prettier: 4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@3.1.0)
+      prettier: 3.1.0
     dev: false
 
   /@vue/eslint-config-typescript@11.0.3(eslint-plugin-vue@9.18.1)(eslint@8.53.0)(typescript@5.2.2):
@@ -11791,7 +11791,7 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@2.8.8):
+  /eslint-plugin-prettier@4.2.1(eslint-config-prettier@8.10.0)(eslint@8.53.0)(prettier@3.1.0):
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -11804,7 +11804,7 @@ packages:
     dependencies:
       eslint: 8.53.0
       eslint-config-prettier: 8.10.0(eslint@8.53.0)
-      prettier: 2.8.8
+      prettier: 3.1.0
       prettier-linter-helpers: 1.0.0
 
   /eslint-plugin-react@7.33.2(eslint@8.53.0):
@@ -18898,6 +18898,11 @@ packages:
     engines: {node: '>=10.13.0'}
     hasBin: true
 
+  /prettier@3.1.0:
+    resolution: {integrity: sha512-TQLvXjq5IAibjh8EpBIkNKxO749UEWABoiIZehEPiY4GNpVdhaFKqSTu+QrlU6D2dPAfubRmtJTi4K4YkQ5eXw==}
+    engines: {node: '>=14'}
+    hasBin: true
+
   /pretty-error@4.0.0:
     resolution: {integrity: sha512-AoJ5YMAcXKYxKhuJGdcvse+Voc6v1RgnsR3nWcYU7q4t6z0Q6T86sv5Zq8VIRbOWWFpvdGE83LtdSMNd+6Y0xw==}
     dependencies:
@@ -22715,7 +22720,7 @@ packages:
       - supports-color
     dev: true
 
-  /vue-loader@15.11.1(css-loader@6.8.1)(prettier@2.8.8)(webpack@5.89.0):
+  /vue-loader@15.11.1(css-loader@6.8.1)(prettier@3.1.0)(webpack@5.89.0):
     resolution: {integrity: sha512-0iw4VchYLePqJfJu9s62ACWUXeSqM30SQqlIftbYWM3C+jpPcEHKSPUZBLjSF9au4HTHQ/naF6OGnO3Q/qGR3Q==}
     peerDependencies:
       '@vue/compiler-sfc': ^3.0.8
@@ -22738,7 +22743,7 @@ packages:
       css-loader: 6.8.1(webpack@5.89.0)
       hash-sum: 1.0.2
       loader-utils: 1.4.2
-      prettier: 2.8.8
+      prettier: 3.1.0
       vue-hot-reload-api: 2.3.4
       vue-style-loader: 4.1.3
       webpack: 5.89.0
