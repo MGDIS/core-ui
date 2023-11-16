@@ -36,7 +36,7 @@ describe('Notification center', () => {
 
   it('Should throw an error when parent document is undefined', () => {
     const spyConsole = jest.spyOn(console, 'error');
-    const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => ({} as Window));
+    const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => ({}) as Window);
 
     notifsCenter = new NotificationCenter();
 
