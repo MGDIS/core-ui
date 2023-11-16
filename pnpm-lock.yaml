@@ -486,7 +486,7 @@ importers:
         version: 3.0.3
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@20.9.0)(typescript@5.2.2)
+        version: 10.9.1(@swc/core@1.3.96)(@types/node@20.9.0)(typescript@5.2.2)
       tsconfig:
         specifier: workspace:*
         version: link:../../configs/tsconfig
@@ -616,8 +616,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: ^4.4.1
-        version: 4.7.2
+        specifier: 4.4.1
+        version: 4.4.1
     devDependencies:
       '@babel/core':
         specifier: ^7.23.3
@@ -7192,8 +7192,8 @@ packages:
       typescript: 5.2.2
     dev: false
 
-  /@stencil/core@4.7.2:
-    resolution: { integrity: sha512-sPPDYrXiTbfeUF5CCyfqysXK/yfTHC4xYR1+nHzGkS2vhRSBOLp0oPuB+xkJLKA+K2ZqDJUxpOnDxy1CLWwBXA== }
+  /@stencil/core@4.4.1:
+    resolution: { integrity: sha512-SirGcrb5yKHCn2BwdM7HGVXuvCdmwiXlVczEj8jJxQIm42CAUQCUECxtZidTzp+oZBZnWLnoAvfanchJsgkQzA== }
     engines: { node: '>=16.0.0', npm: '>=7.10.0' }
     hasBin: true
     dev: false
@@ -9625,7 +9625,7 @@ packages:
       webpack-sources:
         optional: true
     dependencies:
-      '@babel/helper-compilation-targets': 7.22.10
+      '@babel/helper-compilation-targets': 7.22.15
       '@soda/friendly-errors-webpack-plugin': 1.8.1(webpack@5.89.0)
       '@soda/get-current-script': 1.0.2
       '@types/minimist': 1.2.2
@@ -12393,7 +12393,7 @@ packages:
     peerDependencies:
       webpack: ^5.1.0
     dependencies:
-      fast-glob: 3.3.0
+      fast-glob: 3.3.2
       glob-parent: 6.0.2
       globby: 11.1.0
       normalize-path: 3.0.0
@@ -24268,37 +24268,6 @@ packages:
       '@tsconfig/node16': 1.0.3
       '@types/node': 20.9.0
       acorn: 8.8.2
-      acorn-walk: 8.2.0
-      arg: 4.1.3
-      create-require: 1.1.1
-      diff: 4.0.2
-      make-error: 1.3.6
-      typescript: 5.2.2
-      v8-compile-cache-lib: 3.0.1
-      yn: 3.1.1
-    dev: true
-
-  /ts-node@10.9.1(@types/node@20.9.0)(typescript@5.2.2):
-    resolution: { integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw== }
-    hasBin: true
-    peerDependencies:
-      '@swc/core': '>=1.2.50'
-      '@swc/wasm': '>=1.2.50'
-      '@types/node': '*'
-      typescript: '>=2.7'
-    peerDependenciesMeta:
-      '@swc/core':
-        optional: true
-      '@swc/wasm':
-        optional: true
-    dependencies:
-      '@cspotcode/source-map-support': 0.8.1
-      '@tsconfig/node10': 1.0.9
-      '@tsconfig/node12': 1.0.11
-      '@tsconfig/node14': 1.0.3
-      '@tsconfig/node16': 1.0.3
-      '@types/node': 20.9.0
-      acorn: 8.10.0
       acorn-walk: 8.2.0
       arg: 4.1.3
       create-require: 1.1.1
