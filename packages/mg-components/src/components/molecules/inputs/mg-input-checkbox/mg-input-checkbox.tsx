@@ -5,6 +5,7 @@ import { ClassList, cleanString, isValidString } from '../../../../utils/compone
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
+import { Handler } from '../MgInput.conf';
 
 /**
  * type CheckboxItem validation function
@@ -34,6 +35,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   private mode: 'custom' | 'auto' = 'custom';
 
@@ -281,10 +283,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputCheckbox['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -324,9 +327,15 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle blur event
    */
   private handleBlur = (): void => {
+    // set guard
+    this.handlerInProgress = Handler.BLUR;
+
     // Check validity
     this.checkValidity();
     this.setErrorMessage();
+
+    // reset guard
+    this.handlerInProgress = undefined;
   };
 
   /**

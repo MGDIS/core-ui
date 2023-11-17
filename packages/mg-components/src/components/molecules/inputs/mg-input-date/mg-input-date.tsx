@@ -4,6 +4,7 @@ import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { localeDate, dateRegExp } from '../../../../utils/locale.utils';
 import { initLocales } from '../../../../locales';
+import { Handler } from '../MgInput.conf';
 
 @Component({
   tag: 'mg-input-date',
@@ -24,6 +25,7 @@ export class MgInputDate {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -198,10 +200,11 @@ export class MgInputDate {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputDate['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -219,7 +222,11 @@ export class MgInputDate {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**

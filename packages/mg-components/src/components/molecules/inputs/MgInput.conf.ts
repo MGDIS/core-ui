@@ -25,4 +25,5 @@ export type HTMLMgInputsElement =
  */
 export enum Handler {
   BLUR = 'blur',
+  FOCUS = 'focus',
 }
