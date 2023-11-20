@@ -135,6 +135,7 @@ describe('mg-input-checkbox', () => {
       });
 
       jest.spyOn(page.rootInstance.valueChange, 'emit');
+      const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
       input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
@@ -153,6 +154,7 @@ describe('mg-input-checkbox', () => {
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot(); //Snapshot on blur
+      expect(inputValidSpy).toHaveBeenCalledTimes(1);
     });
 
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {

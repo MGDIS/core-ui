@@ -129,6 +129,7 @@ describe('mg-input-date', () => {
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
+    const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
@@ -139,6 +140,10 @@ describe('mg-input-date', () => {
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(inputValue);
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {

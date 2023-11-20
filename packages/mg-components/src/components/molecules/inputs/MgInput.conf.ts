@@ -19,3 +19,11 @@ export type HTMLMgInputsElement =
   | HTMLMgInputTextElement
   | HTMLMgInputTextareaElement
   | (HTMLMgInputToggleElement & { required: true; invalid: false; displayError: () => void });
+
+/**
+ * Available handlers
+ */
+export enum Handler {
+  BLUR = 'blur',
+  FOCUS = 'focus',
+}
