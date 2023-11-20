@@ -242,7 +242,7 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Display selected values list in "multi" type
+          * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
         "displaySelectedValues": boolean;
         /**
@@ -1819,7 +1819,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Display selected values list in "multi" type
+          * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
         "displaySelectedValues"?: boolean;
         /**
