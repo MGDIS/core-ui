@@ -9,7 +9,7 @@ export const createID = (prefix = '', length = 10): string => {
   const charsLength = chars.length;
 
   let ID = '';
-  let now = Date.now();
+  let now = Math.floor(Math.random() * Date.now());
   while (length > 0) {
     now += Math.pow(10, 6); // Add 1 millisecond to the timestamp
     const index = now % charsLength;
