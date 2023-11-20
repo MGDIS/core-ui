@@ -185,7 +185,7 @@ export class MgActionMore {
       <Host data-mg-popover-guard={this.mgPopoverIdentifier}>
         <span class="mg-action-more">
           <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
-            <mg-button variant={this.button.variant} isIcon={this.button.isIcon} type="button" label={buttonLabel} onClick={this.handleButton}>
+            <mg-button variant={this.button.variant} isIcon={this.button.isIcon} disabled={this.button.disabled} type="button" label={buttonLabel} onClick={this.handleButton}>
               {this.icon && <mg-icon {...this.icon}></mg-icon>}
               {!this.button.isIcon && buttonContent}
             </mg-button>
