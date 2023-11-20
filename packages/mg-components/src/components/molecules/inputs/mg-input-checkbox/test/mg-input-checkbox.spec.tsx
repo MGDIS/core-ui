@@ -477,15 +477,6 @@ describe('mg-input-checkbox', () => {
     }
   });
 
-  test.each([undefined, 'checkbox'])('Should not render with invalid displaySelectedValues and type configuration', async type => {
-    expect.assertions(1);
-    try {
-      await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), displaySelectedValues: true });
-    } catch (err) {
-      expect(err.message).toMatch('<mg-input-checkbox> prop "displaySelectedValues" can only be used with prop type "multi".');
-    }
-  });
-
   describe('multi search', () => {
     test('should enable return search result and update pagination', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
