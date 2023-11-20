@@ -115,6 +115,14 @@ describe('mg-action-more', () => {
         isIcon: false,
       },
     },
+    {
+      items,
+      button: {
+        variant: 'flat',
+        isIcon: false,
+        disabled: true,
+      },
+    },
   ])('render', args => {
     test(`Should render with args ${args}`, async () => {
       const { root } = await getPage(args);
