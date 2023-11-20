@@ -5,6 +5,7 @@ import { ClassList, cleanString, isValidString } from '../../../../utils/compone
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
+import { Handler } from '../MgInput.conf';
 
 /**
  * type CheckboxItem validation function
@@ -34,6 +35,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   private mode: 'custom' | 'auto' = 'custom';
   private legendId: string;
@@ -143,12 +145,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Display selected values list in "multi" type
+   * This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
    */
   @Prop() displaySelectedValues: boolean;
-  @Watch('displaySelectedValues')
-  validateDisplaySelectedValues(newValue: MgInputCheckbox['displaySelectedValues']): void {
-    if (newValue !== undefined && this.type !== 'multi') throw new Error('<mg-input-checkbox> prop "displaySelectedValues" can only be used with prop type "multi".');
-  }
+
   /**
    * Define if input is disabled
    */
@@ -282,10 +282,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputCheckbox['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -325,9 +326,15 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle blur event
    */
   private handleBlur = (): void => {
+    // set guard
+    this.handlerInProgress = Handler.BLUR;
+
     // Check validity
     this.checkValidity();
     this.setErrorMessage();
+
+    // reset guard
+    this.handlerInProgress = undefined;
   };
 
   /**
@@ -468,7 +475,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
-    this.validateDisplaySelectedValues(this.displaySelectedValues);
     this.legendId = `${this.identifier}-title`;
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().

@@ -1,6 +1,5 @@
-import { dirname, join } from 'path';
 const { readdirSync, statSync } = require('fs');
-const { join } = require('path');
+const { join, dirname } = require('path');
 
 /**
  * List folders from a given path

@@ -6,6 +6,7 @@ import { MgInput } from '../MgInput';
 import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
+import { Handler } from '../MgInput.conf';
 
 /**
  * type Option validation function
@@ -32,6 +33,7 @@ export class MgInputRadio {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -213,10 +215,11 @@ export class MgInputRadio {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputRadio['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -232,8 +235,11 @@ export class MgInputRadio {
    * Handle blur event
    */
   private handleBlur = (): void => {
+    this.handlerInProgress = Handler.BLUR;
     this.checkValidity();
     this.setErrorMessage();
+    // reset guard
+    this.handlerInProgress = undefined;
   };
 
   /**
