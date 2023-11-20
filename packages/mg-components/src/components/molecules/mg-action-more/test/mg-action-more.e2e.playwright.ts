@@ -83,6 +83,14 @@ describe('mg-action-more', () => {
       },
       {
         items,
+        button: {
+          variant: 'flat',
+          isIcon: false,
+          disabled: true,
+        },
+      },
+      {
+        items,
         displayChevron: false,
         icon: {
           icon: 'ellipsis',

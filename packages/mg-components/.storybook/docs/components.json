@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-11-20T07:05:27",
+  "timestamp": "2023-11-20T11:33:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.4.1",
@@ -17,10 +17,10 @@
       "props": [
         {
           "name": "button",
-          "type": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; }",
+          "type": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; disabled?: boolean; }",
           "complexType": {
             "original": "MgActionMoreButtonType",
-            "resolved": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; }",
+            "resolved": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; disabled?: boolean; }",
             "references": {
               "MgActionMoreButtonType": {
                 "location": "import",
@@ -63,7 +63,7 @@
               "type": "string"
             },
             {
-              "type": "\"danger-alt\"; label?: string; }"
+              "type": "\"danger-alt\"; label?: string; disabled?: boolean; }"
             }
           ],
           "optional": false,
@@ -9220,7 +9220,7 @@
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreButtonType": {
-      "declaration": "{\n  isIcon: MgButton['isIcon'];\n  variant: MgButton['variant'];\n  label?: MgButton['label'];\n}",
+      "declaration": "{\n  isIcon: MgButton['isIcon'];\n  variant: MgButton['variant'];\n  label?: MgButton['label'];\n  disabled?: MgButton['disabled'];\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },
