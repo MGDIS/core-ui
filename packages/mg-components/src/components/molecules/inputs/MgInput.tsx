@@ -68,7 +68,6 @@ interface MgInputProps {
   labelOnTop: boolean;
   labelHide: boolean;
   isFieldset: MgInputTitle['isLegend'];
-  titleId?: MgInputTitle['titleId'];
   // Input
   value: string;
   readonlyValue: string;
@@ -169,8 +168,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
    */
   const getInputTitle = (): VNode[] => (
     <mg-input-title
-      identifier={props.titleId || props.identifier}
-      title-id={props.titleId}
+      identifier={props.identifier}
       readonly={props.readonly}
       class={props.labelHide ? 'mg-u-visually-hidden' : undefined}
       required={props.required && !props.disabled && !props.readonly}

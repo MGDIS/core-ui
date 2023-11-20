@@ -954,10 +954,6 @@ export namespace Components {
           * If input is required an asterisk is added at the end of the label
          */
         "required": boolean;
-        /**
-          * Define `legend|label` element id
-         */
-        "titleId": string;
     }
     interface MgInputToggle {
         /**
@@ -2523,10 +2519,6 @@ declare namespace LocalJSX {
           * If input is required an asterisk is added at the end of the label
          */
         "required"?: boolean;
-        /**
-          * Define `legend|label` element id
-         */
-        "titleId"?: string;
     }
     interface MgInputToggle {
         /**

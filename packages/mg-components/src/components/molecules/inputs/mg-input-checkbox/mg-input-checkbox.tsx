@@ -479,9 +479,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
-   * add listeners
+   * add listeners and DOM attributed
    */
   componentDidLoad(): void {
+    this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId)
     this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
     this.searchInput?.addEventListener('keydown', this.handleKeydown);
   }
@@ -629,7 +630,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         label={this.label}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
-        titleId={this.legendId}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
         readonly={undefined}
         mgWidth={undefined}
