@@ -488,7 +488,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * add listeners and DOM attributed
    */
   componentDidLoad(): void {
-    this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId)
+    this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId);
     this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
     this.searchInput?.addEventListener('keydown', this.handleKeydown);
   }

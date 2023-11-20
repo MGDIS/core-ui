@@ -14,8 +14,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -44,8 +52,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date" required="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -61,8 +77,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric" required="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -79,8 +103,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" required="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -96,8 +128,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="" required="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -138,8 +178,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" required="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -171,8 +219,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" required="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -192,8 +248,16 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" required="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -211,8 +275,11 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   <mg-input-toggle required="">
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -248,8 +315,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -269,8 +339,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-date" readonly="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -281,8 +354,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-numeric" readonly="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -294,8 +370,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" readonly="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -306,8 +385,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-radio>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-radio" is-legend="" readonly="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            mg-input-radio label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -318,8 +400,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" readonly="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -330,8 +415,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" readonly="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -343,8 +431,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" readonly="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -355,8 +446,11 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   <mg-input-toggle required="">
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -393,8 +487,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -420,8 +517,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -434,8 +534,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -449,8 +552,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -463,8 +569,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -502,8 +611,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -532,8 +644,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -550,8 +665,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -566,8 +684,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   <mg-input-toggle>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -604,8 +725,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -625,8 +749,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-date" readonly="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -637,8 +764,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-numeric" readonly="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -650,8 +780,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" readonly="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -662,8 +795,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-radio>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-radio" is-legend="" readonly="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            mg-input-radio label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -674,8 +810,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" readonly="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -686,8 +825,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" readonly="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -699,8 +841,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" readonly="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -711,8 +856,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-toggle>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -752,8 +900,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -779,8 +935,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date" required="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -793,8 +957,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric" required="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -808,8 +980,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" required="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -822,8 +1002,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="" required="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -861,8 +1049,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" required="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -891,8 +1087,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" required="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -909,8 +1113,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" required="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -925,8 +1137,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-toggle required="">
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -970,8 +1185,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -997,8 +1220,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date" required="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1011,8 +1242,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1026,8 +1260,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1040,8 +1277,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1079,8 +1319,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1109,8 +1352,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1127,8 +1373,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1143,8 +1392,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-toggle>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1188,8 +1440,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1215,8 +1475,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1229,8 +1492,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1244,8 +1510,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1258,8 +1527,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1297,8 +1569,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1327,8 +1602,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1345,8 +1623,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1361,8 +1642,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-toggle>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1402,8 +1686,16 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1439,8 +1731,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1466,8 +1761,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1480,8 +1778,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1495,8 +1796,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1509,8 +1813,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1548,8 +1855,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1578,8 +1888,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1596,8 +1909,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1612,8 +1928,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   <mg-input-toggle>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1649,8 +1968,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1670,8 +1992,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-date" readonly="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1682,8 +2007,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-numeric" readonly="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1695,8 +2023,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" readonly="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1707,8 +2038,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-radio>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-        <mg-input-title identifier="mg-input-radio" is-legend="" readonly="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            mg-input-radio label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1719,8 +2053,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" readonly="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1731,8 +2068,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" readonly="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1744,8 +2084,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" readonly="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <span class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </span>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <strong></strong>
@@ -1756,8 +2099,11 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   <mg-input-toggle>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -1797,8 +2143,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1827,8 +2181,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date" required="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1844,8 +2206,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric" required="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1862,8 +2232,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" required="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1879,8 +2257,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="" required="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1921,8 +2307,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" required="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1954,8 +2348,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" required="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1975,8 +2377,16 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" required="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -1994,8 +2404,11 @@ exports[`mg-form display error message with locale: fr 1`] = `
   <mg-input-toggle required="">
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -2035,8 +2448,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-checkbox>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--checkbox">
-        <mg-input-title identifier="mg-input-checkbox-title" is-legend="" required="" title-id="mg-input-checkbox-title">
-          mg-input-checkbox label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2065,8 +2486,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-date>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--date">
-        <mg-input-title identifier="mg-input-date" required="">
-          mg-input-date label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2082,8 +2511,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-numeric>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--numeric">
-        <mg-input-title identifier="mg-input-numeric" required="">
-          mg-input-numeric label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2100,8 +2537,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-password>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-password" required="">
-          mg-input-password label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2117,8 +2562,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-radio>
     <mock:shadow-root>
       <fieldset class="mg-c-input mg-c-input--radio">
-        <mg-input-title identifier="mg-input-radio" is-legend="" required="">
-          mg-input-radio label
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </legend>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2159,8 +2612,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-select>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--select">
-        <mg-input-title identifier="mg-input-select" required="">
-          mg-input-select label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2192,8 +2653,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-text>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-text" required="">
-          mg-input-text label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2213,8 +2682,16 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-textarea>
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
-        <mg-input-title identifier="mg-input-textarea" required="">
-          mg-input-textarea label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
+            </span>
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
@@ -2232,8 +2709,11 @@ exports[`mg-form display error message with locale: xx 1`] = `
   <mg-input-toggle required="">
     <mock:shadow-root>
       <div class="mg-c-input mg-c-input--toggle">
-        <mg-input-title identifier="mg-input-toggle">
-          mg-input-toggle label
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">

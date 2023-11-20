@@ -14,10 +14,24 @@ import { MgInputTextarea } from '../../inputs/mg-input-textarea/mg-input-textare
 import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/MgInput.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
+import { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
-    components: [MgForm, MgInputCheckbox, MgInputDate, MgInputNumeric, MgInputPassword, MgInputRadio, MgInputSelect, MgInputText, MgInputTextarea, MgInputToggle, MgButton],
+    components: [
+      MgForm,
+      MgInputCheckbox,
+      MgInputDate,
+      MgInputNumeric,
+      MgInputPassword,
+      MgInputRadio,
+      MgInputSelect,
+      MgInputText,
+      MgInputTextarea,
+      MgInputToggle,
+      MgButton,
+      MgInputTitle,
+    ],
     template: () => <mg-form {...args}>{content}</mg-form>,
   });
 
