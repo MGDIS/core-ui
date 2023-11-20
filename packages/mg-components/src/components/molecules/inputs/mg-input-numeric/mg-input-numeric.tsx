@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
+import { Handler, Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales/';
@@ -30,6 +30,7 @@ export class MgInputNumeric {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -211,7 +212,7 @@ export class MgInputNumeric {
   /**
    * Define if input has focus
    */
-  @State() hasFocus = false;
+  @State() hasFocus: boolean;
 
   /**
    * Emited event when value change
@@ -259,10 +260,11 @@ export class MgInputNumeric {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputNumeric['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -335,8 +337,12 @@ export class MgInputNumeric {
   private handleBlur = (): void => {
     if (this.value === '-') this.value = '';
     // Display Error
-    this.displayError();
-    this.hasFocus = false;
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+      this.hasFocus = false;
+    });
   };
 
   /**

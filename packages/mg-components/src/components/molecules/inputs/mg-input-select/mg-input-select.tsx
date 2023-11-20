@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
+import { Handler, Width } from '../MgInput.conf';
 import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
@@ -71,6 +71,7 @@ export class MgInputSelect {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -294,10 +295,11 @@ export class MgInputSelect {
    * @param newValue - valid new value
    */
   private setValidity(newValue: MgInputSelect['valid']) {
+    const oldValidValue = this.valid;
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
   /**
    * Handle input event
@@ -344,7 +346,11 @@ export class MgInputSelect {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**

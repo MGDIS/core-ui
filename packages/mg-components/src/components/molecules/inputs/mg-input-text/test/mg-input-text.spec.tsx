@@ -132,6 +132,7 @@ describe('mg-input-text', () => {
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
+    const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
@@ -147,6 +148,7 @@ describe('mg-input-text', () => {
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
     expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(false);
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {

@@ -135,6 +135,7 @@ describe('mg-input-checkbox', () => {
       });
 
       jest.spyOn(page.rootInstance.valueChange, 'emit');
+      const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
       input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
@@ -153,6 +154,7 @@ describe('mg-input-checkbox', () => {
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot(); //Snapshot on blur
+      expect(inputValidSpy).toHaveBeenCalledTimes(1);
     });
 
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
@@ -474,15 +476,6 @@ describe('mg-input-checkbox', () => {
       await getPage({ identifier: 'identifier', type, label: 'label', value: cloneDeep(items) });
     } catch (err) {
       expect(err.message).toMatch('<mg-input-checkbox> prop "type" must be a CheckboxType.');
-    }
-  });
-
-  test.each([undefined, 'checkbox'])('Should not render with invalid displaySelectedValues and type configuration', async type => {
-    expect.assertions(1);
-    try {
-      await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), displaySelectedValues: true });
-    } catch (err) {
-      expect(err.message).toMatch('<mg-input-checkbox> prop "displaySelectedValues" can only be used with prop type "multi".');
     }
   });
 
