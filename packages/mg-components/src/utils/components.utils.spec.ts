@@ -13,6 +13,11 @@ describe('components.utils', () => {
       }
       expect(id).toMatch(regexp);
     });
+    test('Should generate a unique ID when both are created at the same time', () => {
+      const id1 = createID();
+      const id2 = createID();
+      expect(id1).not.toEqual(id2);
+    });
   });
 
   describe('ClassList', () => {
