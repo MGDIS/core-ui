@@ -11,13 +11,14 @@ import { MgPagination } from '../../../mg-pagination/mg-pagination';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
+import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 mockWindowFrames();
 mockConsoleError();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated],
+    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 

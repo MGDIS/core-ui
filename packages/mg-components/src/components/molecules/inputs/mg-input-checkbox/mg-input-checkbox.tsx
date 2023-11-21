@@ -38,6 +38,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private handlerInProgress: Handler;
 
   private mode: 'custom' | 'auto' = 'custom';
+  private legendId: string;
 
   // style
   private readonly baseClassName = 'mg-c-input--checkbox';
@@ -474,6 +475,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
+    this.legendId = `${this.identifier}-title`;
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -483,9 +485,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
-   * add listeners
+   * add listeners and DOM attributed
    */
   componentDidLoad(): void {
+    this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId);
     this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
     this.searchInput?.addEventListener('keydown', this.handleKeydown);
   }
@@ -572,7 +575,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             if (el) this.mgPopover = el;
           }}
         >
-          <mg-button variant="secondary">
+          <mg-button variant="secondary" aria-describedby={this.legendId}>
             <mg-icon icon="list"></mg-icon>
             {this.renderButtonText(selectedValuesNb)}
           </mg-button>

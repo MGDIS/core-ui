@@ -1,6 +1,7 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
 import { widths, Width } from './MgInput.conf';
 import { ClassList, isValidString } from '../../../utils/components.utils';
+import { MgInputTitle } from '../../atoms/mg-input-title/mg-input-title';
 
 /**
  * Apply in all input child node the aria-describedby attribute
@@ -66,7 +67,7 @@ interface MgInputProps {
   label: string;
   labelOnTop: boolean;
   labelHide: boolean;
-  isFieldset: boolean;
+  isFieldset: MgInputTitle['isLegend'];
   // Input
   value: string;
   readonlyValue: string;
