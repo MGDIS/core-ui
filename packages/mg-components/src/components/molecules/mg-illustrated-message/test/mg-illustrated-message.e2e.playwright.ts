@@ -20,7 +20,7 @@ const template = (size = 'regular', direction = 'vertical') => `<mg-illustrated-
 </div>
 </mg-illustrated-message>`;
 
-describe.only('mg-illustrated-message', () => {
+describe('mg-illustrated-message', () => {
   testEach(['regular', 'small'])('renders size %s', async (page: PageType, size: string) => {
     await setPageContent(page, template(size));
 
