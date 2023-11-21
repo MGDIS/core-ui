@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.4.0
+
+### Minor Changes
+
+- 558821cc: add Figma import script
+
 ## 1.3.0
 
 ### Minor Changes

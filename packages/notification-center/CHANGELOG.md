@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.3
+
+### Patch Changes
+
+- 558821cc: add Figma import script
+
 ## 1.1.2
 
 ### Patch Changes

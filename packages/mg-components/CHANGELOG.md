@@ -1,5 +1,19 @@
 # @mgdis/mg-components
 
+## 5.19.3
+
+### Patch Changes
+
+- 558821cc: add Figma import script
+- 621d77a7: [#412](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/412) mg-action-more: a mg-action-more not closing himself when clicking on another mg-action-more
+- 68e5fee4: [#419](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/419) [mg-input-checkbox] multi missing vocal link between legend and button add values
+- b5acc121: [#408](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/408) mg-input-\*\* : 'input-valid' event triggerd even if no change
+- b2f17ad0: [#417](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/417) [mg-input-checkbox] console error with display-values=true and unset type
+- c76e3048: [#403](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/403) mg-button does not submit native <form>
+- 35b3260f: [#415](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/415) mg-action-more: main button can be disabled
+- Updated dependencies [558821cc]
+  - @mgdis/img@1.4.0
+
 ## 5.19.2
 
 ### Patch Changes

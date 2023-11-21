@@ -1,5 +1,13 @@
 # Changelog
 
+## Release (2023-11-21-11-14_Tender-Timberwolf-Termite)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
 ## Release (2023-11-09-16-29_Tough-Tan-Tarsier)
 
 ### Packages released
