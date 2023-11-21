@@ -1,4 +1,6 @@
-import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { PageType, describe, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
+
+const TIMEOUT = 1000;
 
 const template = (size = 'regular', direction = 'vertical') => `<mg-illustrated-message size="${size}" direction="${direction}">
 <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
@@ -18,31 +20,26 @@ const template = (size = 'regular', direction = 'vertical') => `<mg-illustrated-
 </div>
 </mg-illustrated-message>`;
 
-describe('mg-illustrated-message', () => {
-  test.each(['regular', 'small'])('renders size %', async size => {
-    const page = await createPage(template(size));
+describe.only('mg-illustrated-message', () => {
+  testEach(['regular', 'small'])('renders size %s', async (page: PageType, size: string) => {
+    await setPageContent(page, template(size));
 
-    const element = await page.find('mg-illustrated-message');
-    expect(element).toHaveClass('hydrated');
+    await page.locator('mg-illustrated-message.hydrated').waitFor({ timeout: TIMEOUT });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('renders horizontal', async () => {
-    const page = await createPage(template(undefined, 'horizontal'));
+  test('renders horizontal', async ({ page }) => {
+    await setPageContent(page, template(undefined, 'horizontal'));
 
-    const element = await page.find('mg-illustrated-message');
-    expect(element).toHaveClass('hydrated');
+    await page.locator('mg-illustrated-message.hydrated').waitFor({ timeout: TIMEOUT });
 
-    await page.setViewport({ width: 800, height: 300 });
+    page.setViewportSize({ width: 800, height: 300 });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    await page.setViewport({ width: 600, height: 600 });
+    page.setViewportSize({ width: 600, height: 600 });
 
-    const screenshotResponsive = await page.screenshot();
-    expect(screenshotResponsive).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });
