@@ -17,7 +17,7 @@ global.HTMLInputElement.prototype.checkValidity = jest.fn(() => true);
 // implement crypto behavior in jest
 Object.defineProperty(globalThis, 'crypto', {
   value: {
-    getRandomValues: lenght => crypto.getRandomValues(lenght),
+    getRandomValues: length => crypto.getRandomValues(length),
   },
 });
 
