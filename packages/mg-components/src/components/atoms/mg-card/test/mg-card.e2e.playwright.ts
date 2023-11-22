@@ -5,7 +5,7 @@ const TIMEOUT = 1000;
 
 const style = `<style>.margin-y { margin: 1rem 0; } .d-block { display: block; } [variant='app'] { --mg-color-app-h: 250 }</style>`;
 
-describe.only('mg-card', () => {
+describe('mg-card', () => {
   describeEach(variants)('Should render with variant %s', async variant => {
     describeEach(variantStyles)('variant style %s', async variantStyle => {
       testEach([
