@@ -7,7 +7,7 @@ const TIMEOUT = 1000;
 
 const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
-describe.only('mg-icon', () => {
+describe('mg-icon', () => {
   testEach(icons)('renders icon %s', async (page: PageType, icon) => {
     await setPageContent(page, `<mg-icon icon="${icon}"></mg-icon>`);
 
