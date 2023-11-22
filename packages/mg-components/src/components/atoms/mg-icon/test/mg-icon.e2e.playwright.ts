@@ -9,7 +9,7 @@ const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
 describe('mg-icon', () => {
   testEach(icons)('renders icon %s', async (page: PageType, icon) => {
-    await setPageContent(page, `<mg-icon icon="${icon}"></mg-icon>`);
+    await setPageContent(page, `<mg-icon icon="${icon}" size="extra-large"></mg-icon>`);
 
     await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
 
