@@ -105,10 +105,10 @@ Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-m
 
 ## Events
 
-| Event            | Description                          | Type                  |
-| ---------------- | ------------------------------------ | --------------------- |
-| `component-hide` | Emmited event when modal is hidden   | `CustomEvent<string>` |
-| `component-show` | Emmited event when modal is diplayed | `CustomEvent<string>` |
+| Event            | Description                          | Type                |
+| ---------------- | ------------------------------------ | ------------------- |
+| `component-hide` | Emmited event when modal is hidden   | `CustomEvent<void>` |
+| `component-show` | Emmited event when modal is diplayed | `CustomEvent<void>` |
 
 
 ## Dependencies

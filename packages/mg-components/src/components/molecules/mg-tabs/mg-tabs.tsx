@@ -120,7 +120,7 @@ export class MgTabs {
   /**
    * Emited event when active tab change
    */
-  @Event({ eventName: 'active-tab-change' }) activeTabChange: EventEmitter<number>;
+  @Event({ eventName: 'active-tab-change' }) activeTabChange: EventEmitter<HTMLMgTabsElement['activeTab']>;
 
   /**
    * Validate that new tab status can be `Status.ACTIVE`

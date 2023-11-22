@@ -52,7 +52,7 @@ export class MgDetails {
   /**
    * Emmited event when expanded change
    */
-  @Event({ eventName: 'expanded-change' }) expandedChange: EventEmitter<boolean>;
+  @Event({ eventName: 'expanded-change' }) expandedChange: EventEmitter<HTMLMgDetailsElement['expanded']>;
 
   /**
    * Handle details toggle

@@ -39,10 +39,10 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 
 ## Events
 
-| Event            | Description                           | Type                  |
-| ---------------- | ------------------------------------- | --------------------- |
-| `component-hide` | Emited event when message is hidden   | `CustomEvent<string>` |
-| `component-show` | Emited event when message is diplayed | `CustomEvent<string>` |
+| Event            | Description                           | Type                |
+| ---------------- | ------------------------------------- | ------------------- |
+| `component-hide` | Emited event when message is hidden   | `CustomEvent<void>` |
+| `component-show` | Emited event when message is diplayed | `CustomEvent<void>` |
 
 
 ## Dependencies

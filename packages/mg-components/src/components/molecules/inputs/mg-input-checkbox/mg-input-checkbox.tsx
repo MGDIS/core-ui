@@ -239,12 +239,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Emitted event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<MgInputCheckbox['value']>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputCheckboxElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<MgInputCheckbox['valid']>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputCheckboxElement['valid']>;
 
   /**
    * Display input error if it exists.

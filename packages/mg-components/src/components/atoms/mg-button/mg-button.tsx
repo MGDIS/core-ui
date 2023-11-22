@@ -139,7 +139,7 @@ export class MgButton {
   /**
    * Emmited event when disabled change
    */
-  @Event({ eventName: 'disabled-change' }) disabledChange: EventEmitter<MgButton['disabled']>;
+  @Event({ eventName: 'disabled-change' }) disabledChange: EventEmitter<HTMLMgButtonElement['disabled']>;
 
   /**
    * Trigger actions onClick event
