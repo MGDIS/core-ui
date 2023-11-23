@@ -128,6 +128,43 @@ importers:
         specifier: ^5.0.0
         version: 5.0.0(@types/node@20.9.1)(sass@1.69.5)
 
+  apps/stencil:
+    dependencies:
+      '@mgdis/mg-components':
+        specifier: workspace:*
+        version: link:../../packages/mg-components
+      '@stencil/core':
+        specifier: 4.4.1
+        version: 4.4.1
+    devDependencies:
+      '@mgdis/linting-stencil':
+        specifier: workspace:*
+        version: link:../../packages/linting-stencil
+      '@stencil/sass':
+        specifier: ^2.0.0
+        version: 2.0.4(@stencil/core@4.4.1)
+      '@types/jest':
+        specifier: ^29.5.8
+        version: 29.5.8
+      '@types/node':
+        specifier: ^20.9.0
+        version: 20.9.1
+      eslint:
+        specifier: ^8.53.0
+        version: 8.53.0
+      eslint-config-stencil:
+        specifier: workspace:*
+        version: link:../../configs/eslint-config-stencil
+      jest:
+        specifier: ^29.7.0
+        version: 29.7.0(@types/node@20.9.1)
+      jest-cli:
+        specifier: ^29.7.0
+        version: 29.7.0(@types/node@20.9.1)
+      prettier:
+        specifier: ^3.0.0
+        version: 3.1.0
+
   apps/vanilla:
     dependencies:
       '@mgdis/mg-components':
@@ -293,7 +330,7 @@ importers:
         version: 0.2.29(@swc/core@1.3.96)
       jest:
         specifier: ^29.7.0
-        version: 29.7.0
+        version: 29.7.0(@types/node@20.9.1)
       jest-junit:
         specifier: ^16.0.0
         version: 16.0.0
@@ -787,7 +824,7 @@ importers:
         version: 2.19.0
       jest:
         specifier: ^29.7.0
-        version: 29.7.0
+        version: 29.7.0(@types/node@20.9.1)
       jest-config:
         specifier: workspace:*
         version: link:../../configs/jest-config
@@ -830,7 +867,7 @@ importers:
         version: link:../../configs/eslint-config-custom
       jest:
         specifier: ^29.7.0
-        version: 29.7.0
+        version: 29.7.0(@types/node@20.9.1)
       jest-config:
         specifier: workspace:*
         version: link:../../configs/jest-config
@@ -5590,7 +5627,14 @@ packages:
     resolution: { integrity: sha512-SirGcrb5yKHCn2BwdM7HGVXuvCdmwiXlVczEj8jJxQIm42CAUQCUECxtZidTzp+oZBZnWLnoAvfanchJsgkQzA== }
     engines: { node: '>=16.0.0', npm: '>=7.10.0' }
     hasBin: true
-    dev: false
+
+  /@stencil/sass@2.0.4(@stencil/core@4.4.1):
+    resolution: { integrity: sha512-tq+ZgJ9ynmag+e21cYmA6+YYJxBJapxjf94eL+uysxY78dM1801ydAhnT+64S5UnX8Jh+22uAuTY2bEYDBPUww== }
+    peerDependencies:
+      '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0'
+    dependencies:
+      '@stencil/core': 4.4.1
+    dev: true
 
   /@storybook/addon-a11y@7.5.3(react-dom@18.2.0)(react@18.2.0):
     resolution: { integrity: sha512-Fs6BA4P0xBfsevo8H5E2IhMLLR3Q+FBRWHWAxGzhlkpNeH7ZZd87L5GrrLUmhzbCQvlHdWCVujWkwb21KX7Vsw== }
@@ -10654,7 +10698,7 @@ packages:
       path-type: 4.0.0
       typescript: 5.2.2
 
-  /create-jest@29.7.0:
+  /create-jest@29.7.0(@types/node@20.9.1):
     resolution: { integrity: sha512-Adz2bdH0Vq3F53KEMJOoftQFutWCukm6J24wbPWRO4k1kMY7gS7ds/uoJkNuV8wDCtWWnuwGcJwpWcih+zEW1Q== }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     hasBin: true
@@ -14952,7 +14996,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /jest-cli@29.7.0:
+  /jest-cli@29.7.0(@types/node@20.9.1):
     resolution: { integrity: sha512-OVVobw2IubN/GSYsxETi+gOe7Ka59EFMR/twOU3Jb2GnKKeMGJB5SGUUrEz3SFVmJASUdZUzy83sLNNQ2gZslg== }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     hasBin: true
@@ -14966,7 +15010,7 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0
+      create-jest: 29.7.0(@types/node@20.9.1)
       exit: 0.1.2
       import-local: 3.1.0
       jest-config: 29.7.0(@types/node@20.9.1)
@@ -15759,7 +15803,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /jest@29.7.0:
+  /jest@29.7.0(@types/node@20.9.1):
     resolution: { integrity: sha512-NIy3oAFp9shda19hy4HK0HRTWKtPJmGdnvywu01nOqNC2vZg+Z+fvJDxpMQA88eb2I9EcafcdjYgsDthnYTvGw== }
     engines: { node: ^14.15.0 || ^16.10.0 || >=18.0.0 }
     hasBin: true
@@ -15772,7 +15816,7 @@ packages:
       '@jest/core': 29.7.0
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0
+      jest-cli: 29.7.0(@types/node@20.9.1)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -22111,7 +22155,7 @@ packages:
       '@babel/core': 7.23.3
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0
+      jest: 29.7.0(@types/node@20.9.1)
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
