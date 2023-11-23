@@ -16,9 +16,15 @@ export const darkBackground = (condition: boolean, html: string): string =>
 export const renderAttributes = (args: unknown): string =>
   (typeof args === 'object' &&
     Object.keys(args)
-      .filter(key => ![null, undefined, false].includes(args[key]) && typeof args[key] !== 'object')
+      .filter(key => ![null, undefined, false].includes(args[key]) && typeof args[key] !== 'object' && !key.startsWith('slot'))
       .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${args[key]}"`)
-      .join(' ')) ||
+      .reduce((acc, val, i, arr) => {
+        if (!acc.length) acc.push('');
+        acc.push(val);
+        if (i + 1 === arr.length) acc.push('');
+        return acc;
+      }, [])
+      .join('\n ')) ||
   '';
 
 /**
@@ -38,7 +44,7 @@ export const renderProperties = (args: unknown, selector: string): string => {
     ? `
   ${
     Object.keys(args)
-      .filter(key => typeof args[key] === 'object')
+      .filter(key => typeof args[key] === 'object' && key !== 'slot')
       .map(key => `document.${query}('${selector}').${key}=${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
       .join(';\n') // create string
       .split('"<fn>') // remove fn start decorator

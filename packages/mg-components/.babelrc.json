@@ -10,7 +10,21 @@
       }
     ],
     "@babel/preset-typescript",
-    "@babel/preset-react"
+    [
+      "@babel/preset-react",
+      {
+        "pragma": "h"
+      }
+    ]
   ],
-  "plugins": []
+  "plugins": [
+    [
+      "babel-plugin-jsx-pragmatic",
+      {
+        "export": "h",
+        "import": "h",
+        "module": "jsx-dom"
+      }
+    ]
+  ]
 }
