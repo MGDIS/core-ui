@@ -1,4 +1,6 @@
-import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
+
+const TIMEOUT = 1000;
 
 const inputs = `<mg-input-checkbox identifier="mg-input-checkbox" label="mg-input-checkbox label"></mg-input-checkbox>
 <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
@@ -23,7 +25,6 @@ const inputsScript = `<script>
   const mgInputText = document.querySelector('mg-input-text');
   const mgInputTextarea = document.querySelector('mg-input-textarea');
   const mgInputToggle = document.querySelector('mg-input-toggle');
-
   mgInputCheckbox.value = [
     { title: 'oui', value: false },
     { title: 'non', value: false },
@@ -99,95 +100,113 @@ const inputsScriptDisabledAll = `<script>
 </script>`;
 
 describe('mg-form', () => {
-  describe.each([`<mg-form>`, `<mg-form disabled>`, `<mg-form readonly>`])('params %s', startTag => {
-    test('Should render', async () => {
-      const page = await createPage(`${startTag}
+  test.beforeEach(async ({ page }) => {
+    page.setViewportSize({ width: 800, height: 800 });
+  });
+
+  describeEach([`<mg-form>`, `<mg-form disabled>`, `<mg-form readonly>`])('startTag %s', (startTag: string) => {
+    test(`Should render`, async ({ page }) => {
+      await setPageContent(
+        page,
+        `${startTag}
         ${inputs}
         </mg-form>
         ${inputsScript}
-        ${inputsScriptSetValues}`);
+        ${inputsScriptSetValues}`,
+      );
 
-      const element = await page.find('mg-form');
-      expect(element).toHaveClass('hydrated');
+      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test('Should render with custom style', async () => {
-      const page = await createPage(`${startTag}
+    test('Should render with custom style', async ({ page }) => {
+      await setPageContent(
+        page,
+        `${startTag}
         ${inputs}
         </mg-form>
         ${inputsScript}
         ${inputsScriptSetValues}
-        ${inputsScriptRequiredSome}`);
+        ${inputsScriptRequiredSome}`,
+      );
 
-      await page.$eval('mg-form', el => {
+      const elementHandle = await page.$('mg-form');
+      elementHandle.evaluate(el => {
         el.setAttribute('style', '--mg-form-inputs-title-width: 25rem;');
       });
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  describe.each(['<mg-form>', '<mg-form lang="fr">'])('With different locale', startTag => {
-    describe.each([inputsScriptRequiredAll, inputsScriptRequiredSome, inputsScriptRequiredSingle])('Should render required and errors', inputsScriptRequired => {
-      test('Should render errors', async () => {
-        const page = await createPage(`${startTag}
+  describeEach(['<mg-form>', '<mg-form lang="fr">'])('With different locale %s', startTag => {
+    testEach([inputsScriptRequiredAll, inputsScriptRequiredSome, inputsScriptRequiredSingle])(
+      'Should render required and errors %s',
+      async (page: PageType, inputsScriptRequired: string) => {
+        await setPageContent(
+          page,
+          `${startTag}
         ${inputs}
         </mg-form>
         ${inputsScript}
-        ${inputsScriptRequired}`);
+        ${inputsScriptRequired}`,
+        );
 
-        const element = await page.find('mg-form');
-        expect(element).toHaveClass('hydrated');
+        await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
 
-        const screenshot = await page.screenshot();
-        expect(screenshot).toMatchImageSnapshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await element.callMethod('displayError');
-        await page.waitForChanges();
+        const elementHandle = await page.$('mg-form');
+        await elementHandle.evaluate(element => {
+          element.displayError();
+        });
 
-        const screenshotErrors = await page.screenshot();
-        expect(screenshotErrors).toMatchImageSnapshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      },
+    );
+
+    test(`Should render single required input`, async ({ page }) => {
+      await setPageContent(
+        page,
+        `${startTag}
+          <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
+        </mg-form>
+        <script>
+          const mgInputDate = document.querySelector('mg-input-date');
+          mgInputDate.required = true;
+        </script>`,
+      );
+
+      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      const elementHandle = await page.$('mg-form');
+      await elementHandle.evaluate(element => {
+        element.displayError();
       });
-    });
-    test('Should render single required input in form', async () => {
-      const page = await createPage(`${startTag}
-        <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
-      </mg-form>
-      <script>
-        const mgInputDate = document.querySelector('mg-input-date');
-        mgInputDate.required = true;
-      </script>`);
-      const element = await page.find('mg-form');
-      expect(element).toHaveClass('hydrated');
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
-
-      await element.callMethod('displayError');
-      await page.waitForChanges();
-
-      const screenshotErrors = await page.screenshot();
-      expect(screenshotErrors).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  test.each(['readonly', 'disabled'])('Should not have required message when all inputs are required and %s', async attribute => {
-    const page = await createPage(`<mg-form>
+  testEach(['readonly', 'disabled'])('Should not have required message when all inputs are required and %s', async (page: PageType, attribute) => {
+    await setPageContent(
+      page,
+      `<mg-form>
     ${inputs}
     </mg-form>
     ${inputsScript}
     ${inputsScriptSetValues}
     ${inputsScriptRequiredAll}
-    ${attribute === 'readonly' ? inputsScriptReadonlyAll : inputsScriptDisabledAll}`);
+    ${attribute === 'readonly' ? inputsScriptReadonlyAll : inputsScriptDisabledAll}`,
+    );
 
-    const element = await page.find('mg-form');
-    expect(element).toHaveClass('hydrated');
+    await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });
