@@ -22,6 +22,8 @@ const badge = { value: 2, label: 'messages' };
 const key = { next: 'ArrowRight', prev: 'ArrowLeft' };
 
 describe('mg-tabs', () => {
+  beforeEach(() => jest.useFakeTimers());
+  afterEach(() => jest.runOnlyPendingTimers());
   describe.each(sizes)('template', size => {
     test.each([
       [['Batman', 'Joker', 'Bane']],

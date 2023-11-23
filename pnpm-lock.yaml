@@ -616,8 +616,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.7.2
-        version: 4.7.2
+        specifier: 4.5.0
+        version: 4.5.0
     devDependencies:
       '@babel/core':
         specifier: ^7.23.3
@@ -4372,7 +4372,7 @@ packages:
       '@types/istanbul-lib-coverage': 2.0.6
       '@types/istanbul-reports': 3.0.4
       '@types/node': 20.9.1
-      '@types/yargs': 15.0.18
+      '@types/yargs': 15.0.19
       chalk: 4.1.2
     dev: true
 
@@ -5586,8 +5586,8 @@ packages:
       typescript: 5.2.2
     dev: false
 
-  /@stencil/core@4.7.2:
-    resolution: { integrity: sha512-sPPDYrXiTbfeUF5CCyfqysXK/yfTHC4xYR1+nHzGkS2vhRSBOLp0oPuB+xkJLKA+K2ZqDJUxpOnDxy1CLWwBXA== }
+  /@stencil/core@4.5.0:
+    resolution: { integrity: sha512-XRbHdb9t4SQzCCbF9qsh0dexvnlArEzCDJl19BJzxzazVBM398SeJUKCBh4p91AZIWveN0gHuZSIGMhLWR7qSA== }
     engines: { node: '>=16.0.0', npm: '>=7.10.0' }
     hasBin: true
     dev: false
@@ -7400,8 +7400,8 @@ packages:
   /@types/yargs-parser@21.0.3:
     resolution: { integrity: sha512-I4q9QU9MQv4oEOz4tAHJtNz1cwuLxn2F3xcc2iV5WdqLPpUnj30aUuxt1mAxYTG+oe8CZMV/+6rU4S4gRDzqtQ== }
 
-  /@types/yargs@15.0.18:
-    resolution: { integrity: sha512-DDi2KmvAnNsT/EvU8jp1UR7pOJojBtJ3GLZ/uw1MUq4VbbESppPWoHUY4h0OB4BbEbGJiyEsmUcuZDZtoR+ZwQ== }
+  /@types/yargs@15.0.19:
+    resolution: { integrity: sha512-2XUaGVmyQjgyAZldf0D0c14vvo/yv0MhQBSTJcejMMaitsn3nxCB6TmH4G0ZQf+uxROOa9mpanoSm8h6SG/1ZA== }
     dependencies:
       '@types/yargs-parser': 21.0.3
     dev: true
@@ -15511,7 +15511,7 @@ packages:
       '@jest/test-result': 26.6.2
       '@jest/transform': 26.6.2
       '@jest/types': 26.6.2
-      '@types/yargs': 15.0.18
+      '@types/yargs': 15.0.19
       chalk: 4.1.2
       cjs-module-lexer: 0.6.0
       collect-v8-coverage: 1.0.2
