@@ -30,11 +30,9 @@ describe('mg-illustrated-message', () => {
   });
 
   test('renders horizontal', async ({ page }) => {
-    await setPageContent(page, template(undefined, 'horizontal'));
+    await setPageContent(page, template(undefined, 'horizontal'), { width: 800, height: 300 });
 
     await page.locator('mg-illustrated-message.hydrated').waitFor({ timeout: TIMEOUT });
-
-    page.setViewportSize({ width: 800, height: 300 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
