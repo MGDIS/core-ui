@@ -5,18 +5,23 @@
  * @returns ID
  */
 export const createID = (prefix = '', length = 10): string => {
-  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-  const charsLength = chars.length;
+  // alphabetical chars
+  const chars = 'abcdefghijklmnopqrstuvwxyz';
 
-  let ID = '';
-  let now = Math.floor(globalThis.crypto.getRandomValues(new Uint32Array(1))[0] * Date.now());
-  while (length > 0) {
-    now += Math.pow(10, 6); // Add 1 millisecond to the timestamp
-    const index = now % charsLength;
-    ID += chars.charAt(index);
-    length--;
-  }
-  return (prefix !== '' ? `${prefix}-` : '') + ID;
+  // generate random number
+  const randomNumber = () => globalThis.crypto.getRandomValues(new Uint32Array(1))[0];
+
+  // get a string from an amplify the random number
+  const randomValue = (randomNumber() * randomNumber()).toString();
+
+  // from iterable randomValue generate a [number,chars] tuple to get an aplanumerical value wich match the required lenght
+  const ID = Array.from(randomValue)
+    .flatMap(num => [num, chars[num]])
+    .slice(0, length)
+    .join('');
+
+  // apply prefix if set
+  return prefix.length ? `${prefix}-${ID}` : ID;
 };
 
 /**
