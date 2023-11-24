@@ -243,6 +243,8 @@ pages:
     - .rules:tags
     - .install:dependencies
   script:
+    - mkdir public
+    - cp _redirects public/
     - !reference [.mg-components:build:storybook, script]
   artifacts:
     paths:
