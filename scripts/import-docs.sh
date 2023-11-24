@@ -1,8 +1,7 @@
 #!/bin/bash
 
-parent_dir="$(dirname "$(dirname "$PWD")")"
-packages_dir="$parent_dir/packages"
-dest_dir="$parent_dir/apps/docusaurus/docs"
+packages_dir="./packages"
+dest_dir="./build/docs"
 
 # Empty docs folder
 rm -rf "$dest_dir"
@@ -16,4 +15,7 @@ for file in $(find "$packages_dir" -maxdepth 2 -name "*.md"); do
 done
 
 # Import monorepo markdown
-cp $parent_dir/*.md "$dest_dir"
+cp ./*.md "$dest_dir"
+
+echo "{ \"label\": \"Packages\"}" > build/docs/packages/_category_.json
+tar czf core-ui-artifact.tgz build/
