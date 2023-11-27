@@ -20,7 +20,7 @@ const createHTML = (args, identifier = createID()) =>
 
 const waitForInteractiveElement = async (page: PageType, type: CheckboxType) => {
   // wait few seconds to insure to have the interactive element rendered
-  const interactiveElement = await page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
+  const interactiveElement = page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
   return interactiveElement.waitFor({ timeout: 3000 });
 };
 

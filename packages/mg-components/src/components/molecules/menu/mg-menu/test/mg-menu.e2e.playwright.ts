@@ -87,7 +87,7 @@ describe('mg-menu', () => {
         { position: 0, expanded: 'true' },
       ];
       for (const { position, expanded } of actions) {
-        const item = await page.locator('mg-menu').first().locator('mg-menu-item').nth(position);
+        const item = page.locator('mg-menu').first().locator('mg-menu-item').nth(position);
         await item.click();
         await page.locator('mg-popover-content[data-show]').waitFor({ timeout: TIMEOUT });
         expect(await item.locator('button').first().getAttribute('aria-expanded')).toEqual(expanded);
@@ -123,10 +123,10 @@ describe('mg-menu', () => {
         }
         let item;
         if (action.openeItem > 0) {
-          item = await page.locator('mg-menu').first().locator('mg-menu-item').nth(action.openeItem).locator('button[aria-expanded="true"]');
+          item = page.locator('mg-menu').first().locator('mg-menu-item').nth(action.openeItem).locator('button[aria-expanded="true"]');
           expect(await item.getAttribute('aria-expanded')).toEqual('true');
         } else {
-          item = await page.locator('mg-menu').first().locator('mg-menu-item').first().locator('button').first();
+          item = page.locator('mg-menu').first().locator('mg-menu-item').first().locator('button').first();
           expect(await item.getAttribute('aria-expanded')).toEqual('false');
         }
       }
@@ -142,7 +142,7 @@ describe('mg-menu', () => {
 
       const positions = [0, 4, 5, 0];
       for await (const position of positions) {
-        const item = await page.locator('mg-menu').first().locator('mg-menu-item').nth(position);
+        const item = page.locator('mg-menu').first().locator('mg-menu-item').nth(position);
         await item.click();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
