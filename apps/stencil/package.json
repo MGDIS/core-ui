@@ -1,0 +1,49 @@
+{
+  "name": "stencil",
+  "version": "0.0.1",
+  "description": "Stencil Component Starter",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.js",
+  "es2017": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/stencil/stencil.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ionic-team/stencil-component-starter.git"
+  },
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test:unit": "TZ=UTC stencil test --spec --collectCoverage",
+    "generate": "stencil generate",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint src/**/*.{ts,tsx} --ignore-path ./.gitignore",
+    "lint:es:fix": "eslint --fix src/**/*.{ts,tsx} --ignore-path ./.gitignore",
+    "lint:prettier": "prettier --check **/*.{ts,tsx,html,json} --ignore-path ./.gitignore",
+    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,html,json} --ignore-path ./.gitignore"
+  },
+  "dependencies": {
+    "@mgdis/mg-components": "workspace:*",
+    "@stencil/core": "4.4.1"
+  },
+  "devDependencies": {
+    "@mgdis/linting-stencil": "workspace:*",
+    "@stencil/sass": "^2.0.0",
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.9.0",
+    "eslint": "^8.53.0",
+    "eslint-config-stencil": "workspace:*",
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0",
+    "prettier": "^3.0.0"
+  },
+  "license": "MIT"
+}

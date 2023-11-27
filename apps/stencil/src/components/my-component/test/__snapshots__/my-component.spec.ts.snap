@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`my-component renders 1`] = `
+<my-component>
+  <mock:shadow-root>
+    <div>
+      Hello, World! I'm
+      <mg-button type="button" variant="secondary">
+        count is 0
+      </mg-button>
+    </div>
+  </mock:shadow-root>
+</my-component>
+`;
+
+exports[`my-component renders with values 1`] = `
+<my-component first="Stencil" last="'Don't call me a framework' JS">
+  <mock:shadow-root>
+    <div>
+      Hello, World! I'm Stencil 'Don't call me a framework' JS
+      <mg-button type="button" variant="secondary">
+        count is 0
+      </mg-button>
+    </div>
+  </mock:shadow-root>
+</my-component>
+`;
