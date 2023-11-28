@@ -91,15 +91,12 @@ describe('mg-input-checkbox', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    testEach(
-      [
-        { ...baseArgs, type },
-        { ...baseArgs, type, labelOnTop: true },
-        { ...baseArgs, type, labelHide: true },
-        { ...baseArgs, type, helpText: 'HelpText Message' },
-      ],
-      'only',
-    )('Should render without tooltip %s', async (page: PageType, args) => {
+    testEach([
+      { ...baseArgs, type },
+      { ...baseArgs, type, labelOnTop: true },
+      { ...baseArgs, type, labelHide: true },
+      { ...baseArgs, type, helpText: 'HelpText Message' },
+    ])('Should render without tooltip %s', async (page: PageType, args) => {
       await setPageContent(page, createHTML(args), type === 'multi' ? { width: 300, height: 200 } : undefined);
 
       await page.waitForSelector('mg-input-checkbox.hydrated');
