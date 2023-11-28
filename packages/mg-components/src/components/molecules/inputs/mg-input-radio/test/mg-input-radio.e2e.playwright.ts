@@ -2,7 +2,7 @@ import { PageType, describe, describeEach, expect, setPageContent, testEach, tes
 
 const TIMEOUT = 1000;
 
-describe.only('mg-input-radio', () => {
+describe('mg-input-radio', () => {
   describeEach([`<mg-input-radio identifier="identifier" label="legend"></mg-input-radio>`])('without tooltip', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(
