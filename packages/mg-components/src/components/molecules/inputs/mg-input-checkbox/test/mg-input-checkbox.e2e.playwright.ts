@@ -1,5 +1,4 @@
 import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType, test } from '../../../../../utils/playwright.e2e.test.utils';
-import { createID } from '../../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
 import { CheckboxType, checkboxTypes } from '../mg-input-checkbox.conf';
 
@@ -15,7 +14,7 @@ const baseArgs = {
   ],
 };
 
-const createHTML = (args, identifier = createID()) =>
+const createHTML = (args, identifier = 'identifier') =>
   `<mg-input-checkbox ${renderAttributes({ ...args, identifier })}></mg-input-checkbox><script>${renderProperties(args, `[identifier="${identifier}"]`)}</script>`;
 
 const waitForInteractiveElement = async (page: PageType, type: CheckboxType) => {
