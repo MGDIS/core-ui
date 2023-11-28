@@ -114,11 +114,11 @@ describe('mg-action-more', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       if (navigation === 'mouse') {
-        const mgButton = await page.locator('mg-action-more mg-button');
+        const mgButton = page.locator('mg-action-more mg-button');
         await mgButton.click();
         await expect(page.locator('body')).toHaveScreenshot();
 
-        const mgMenuItem = await page.locator('mg-menu-item:first-of-type');
+        const mgMenuItem = page.locator('mg-menu-item:first-of-type');
         await mgMenuItem.click();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       } else {
@@ -145,7 +145,7 @@ describe('mg-action-more', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      const mgButton = await page.locator('mg-action-more mg-button');
+      const mgButton = page.locator('mg-action-more mg-button');
       await mgButton.click();
 
       await page.waitForTimeout(300); // wait chevron animation ended
