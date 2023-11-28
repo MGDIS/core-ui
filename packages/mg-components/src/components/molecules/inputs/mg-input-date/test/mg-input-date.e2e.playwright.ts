@@ -2,7 +2,7 @@ import { PageType, describe, describeEach, expect, setPageContent, testEach, tes
 
 const TIMEOUT = 1000;
 
-describe.only('mg-input-date', () => {
+describe('mg-input-date', () => {
   describeEach([
     `<mg-input-date identifier="identifier" label="label"></mg-input-date>`,
     `<mg-input-date identifier="identifier" label="label" label-on-top></mg-input-date>`,
