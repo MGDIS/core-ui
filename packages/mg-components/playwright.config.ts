@@ -3,8 +3,6 @@ import { devices, type PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
   ...base,
-  /* We need to separate e2e tests from Stencil */
-  testMatch: '*.e2e.playwright.ts',
   /* Maximum time one test can run for. */
   timeout: 60 * 1000,
   /**
