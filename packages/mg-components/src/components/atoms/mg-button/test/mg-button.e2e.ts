@@ -82,7 +82,7 @@ describe('mg-button', () => {
       await button.press('Space');
 
       // Remove spinner annimation for screenshot
-      const svg = page.locator('svg');
+      const svg = page.locator('svg').first();
       await svg.evaluate(element => {
         element.classList.remove('mg-c-icon--spin');
       });
