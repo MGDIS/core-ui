@@ -1,5 +1,6 @@
-const { readdirSync, statSync } = require('fs');
-const { join, dirname } = require('path');
+import type { StorybookConfig } from '@storybook/html-vite';
+import { readdirSync, statSync } from 'fs';
+import { join, dirname } from 'path';
 
 /**
  * List folders from a given path
@@ -30,23 +31,22 @@ const getFilePathsEndingWith = (folderPath: string, folderName: string): string[
  */
 const getAbsolutePath = (value: string): any => dirname(require.resolve(join(value, 'package.json')));
 
-module.exports = {
+const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(tsx)'],
   addons: [
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@pxtrn/storybook-addon-docs-stencil'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-mdx-gfm'),
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-interactions'),
   ],
   framework: {
-    name: getAbsolutePath('@storybook/html-webpack5'),
+    name: getAbsolutePath('@storybook/html-vite'),
     options: {},
   },
   docs: {
     autodocs: true,
-  },
-  core: {
-    disableTelemetry: true,
   },
   staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce((acc: any[], from) => {
     acc.push(
@@ -105,3 +105,4 @@ module.exports = {
     },
   },
 };
+export default config;
