@@ -1,5 +1,4 @@
 import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType, test } from '../../../../../utils/playwright.e2e.test.utils';
-import { createID } from '../../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
 import { CheckboxType, checkboxTypes } from '../mg-input-checkbox.conf';
 
@@ -15,12 +14,12 @@ const baseArgs = {
   ],
 };
 
-const createHTML = (args, identifier = createID()) =>
+const createHTML = (args, identifier = 'identifier') =>
   `<mg-input-checkbox ${renderAttributes({ ...args, identifier })}></mg-input-checkbox><script>${renderProperties(args, `[identifier="${identifier}"]`)}</script>`;
 
 const waitForInteractiveElement = async (page: PageType, type: CheckboxType) => {
   // wait few seconds to insure to have the interactive element rendered
-  const interactiveElement = await page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
+  const interactiveElement = page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
   return interactiveElement.waitFor({ timeout: 3000 });
 };
 
@@ -66,7 +65,7 @@ describe('mg-input-checkbox', () => {
 
       const KEY_TAB = 'Tab';
 
-      await expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
+      expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, type);
