@@ -130,7 +130,6 @@ test:e2e:
     - .install:dependencies
   script:
     - pnpm test:e2e -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
-  retry: 2
   artifacts:
     when: always
     paths:
