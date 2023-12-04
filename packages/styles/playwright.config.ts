@@ -1,7 +1,7 @@
 import base from '@mgdis/playwright-config';
-import { devices, type PlaywrightTestConfig } from '@playwright/test';
+import { devices, defineConfig } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
+export default defineConfig({
   ...base,
   /**
    * Configure projects for major browsers
@@ -21,6 +21,4 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-};
-
-export default config;
+});

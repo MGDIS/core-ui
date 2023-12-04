@@ -1,7 +1,7 @@
 import base from '@mgdis/playwright-config';
-import { devices, type PlaywrightTestConfig } from '@playwright/test';
+import { devices, defineConfig } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
+export default defineConfig({
   ...base,
   /* Maximum time one test can run for. */
   timeout: 60 * 1000,
@@ -26,6 +26,4 @@ const config: PlaywrightTestConfig = {
   use: {
     baseURL: 'http://localhost:3333',
   },
-};
-
-export default config;
+});

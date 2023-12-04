@@ -1,7 +1,7 @@
 import base from '@mgdis/playwright-config';
-import type { PlaywrightTestConfig } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
+export default defineConfig({
   ...base,
   /* Maximum time one test can run for. */
   timeout: 60 * 1000,
@@ -11,6 +11,4 @@ const config: PlaywrightTestConfig = {
     port: 3210,
     reuseExistingServer: true,
   },
-};
-
-export default config;
+});
