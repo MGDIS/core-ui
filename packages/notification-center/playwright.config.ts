@@ -1,4 +1,4 @@
-import base from 'playwright-config/base';
+import base from '@mgdis/playwright-config/base';
 import type { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
