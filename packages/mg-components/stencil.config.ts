@@ -64,15 +64,9 @@ export const config: Config = {
   },
   testing: {
     timers: 'fake',
-    /**
-     * Gitlab CI doesn't allow sandbox, therefor this parameters must be passed to your Headless Chrome
-     * before it can run your tests
-     */
-    browserArgs: ['--no-sandbox', '--disable-setuid-sandbox'],
     setupFilesAfterEnv: ['./jest.setup.ts'],
     transform: {
       '^.+\\.(ts|tsx|jsx|js)$': '<rootDir>/node_modules/@stencil/core/testing/jest-preprocessor.js',
     },
-    // browserHeadless: false
   },
 };
