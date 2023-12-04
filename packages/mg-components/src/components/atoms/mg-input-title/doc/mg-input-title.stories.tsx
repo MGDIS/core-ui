@@ -12,7 +12,7 @@ export default {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-title {...filterArgs(args)}>{args.slot}</mg-input-title>;
+const Template = (args: any): HTMLElement => <mg-input-title {...filterArgs(args)} innerHTML={args.slot}></mg-input-title>;
 
 export const MgInputTitle = {
   render: Template,

@@ -14,7 +14,7 @@ export default {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-menu-item {...filterArgs(args)}>{args.slot}</mg-menu-item>;
+const Template = (args: any): HTMLElement => <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>;
 
 export const MgMenuItem = {
   render: Template,
