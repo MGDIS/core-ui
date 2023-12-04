@@ -34,7 +34,7 @@ export const stencilWrapper = (storyFn, context): Element => {
 };
 
 const renderAttribute = (element, name, value): void => {
-  if ([null, undefined, '', false].includes(value) || name === 'innerHTML') return;
+  if ([null, undefined, '', false].includes(value) || ['innerHTML', 'style'].includes(name)) return;
 
   element.setAttribute(name, typeof value !== 'object' ? value : `/!\\ Object props are not rendered in the code example`);
 };
