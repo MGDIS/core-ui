@@ -413,7 +413,7 @@ styles:npmjs:
 # Playwright Config #
 #####################
 
-playwright:artifact:
+playwright-config:artifact:
   stage: artifacts
   extends:
     - .rules:changes:playwright-config
