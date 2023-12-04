@@ -19,7 +19,7 @@ const createHTML = (args, identifier = 'identifier') =>
 
 const waitForInteractiveElement = async (page: PageType, type: CheckboxType) => {
   // wait few seconds to insure to have the interactive element rendered
-  const interactiveElement = await page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
+  const interactiveElement = page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
   return interactiveElement.waitFor({ timeout: 3000 });
 };
 
@@ -65,7 +65,7 @@ describe('mg-input-checkbox', () => {
 
       const KEY_TAB = 'Tab';
 
-      await expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
+      expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
 
       // wait few seconds to insure to have the interactive element rendered
       await waitForInteractiveElement(page, type);

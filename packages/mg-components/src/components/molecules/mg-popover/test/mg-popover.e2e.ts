@@ -40,9 +40,9 @@ describe('mg-popover', () => {
         { height: 900, width: 900 },
       );
 
-      const mgPopover = await page.locator('mg-popover');
-      const mgButton = await page.locator('mg-button');
-      const mgPopoverContent = await page.locator('mg-popover-content');
+      const mgPopover = page.locator('mg-popover');
+      const mgButton = page.locator('mg-button');
+      const mgPopoverContent = page.locator('mg-popover-content');
 
       await mgPopover.waitFor({ timeout: TIMEOUT });
 

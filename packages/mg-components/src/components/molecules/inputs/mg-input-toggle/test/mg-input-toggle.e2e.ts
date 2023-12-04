@@ -139,7 +139,7 @@ describe('mg-input-toggle', () => {
       await el.setError(false, 'This is an error Batman');
     });
 
-    await page.locator('.mg-c-input__input--has-error');
+    page.locator('.mg-c-input__input--has-error');
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

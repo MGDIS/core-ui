@@ -121,7 +121,7 @@ describe('mg-panel', () => {
 
       await expect(page.locator('mg-panel')).toHaveScreenshot();
 
-      const input = await page.locator('mg-panel mg-input-text input');
+      const input = page.locator('mg-panel mg-input-text input');
 
       await input.press('Space');
       await input.press('KeyU');
@@ -154,7 +154,7 @@ describe('mg-panel', () => {
 
       await expect(page.locator('mg-panel')).toHaveScreenshot();
 
-      const input = await page.locator('mg-panel mg-input-text input');
+      const input = page.locator('mg-panel mg-input-text input');
 
       await input.press('Backspace');
       await input.press('Backspace');

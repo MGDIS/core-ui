@@ -26,7 +26,7 @@ describe('mg-pagination', () => {
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for (const _ of actions) {
-        const nextButton = await page.locator('mg-pagination mg-button:last-of-type');
+        const nextButton = page.locator('mg-pagination mg-button:last-of-type');
         await nextButton.click();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
