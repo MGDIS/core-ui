@@ -20,9 +20,9 @@ describe('mg-input-text', () => {
     ])('without tooltip %s', async (page: PageType, props: MgInputText) => {
       await setPageContent(page, creatHtml(props));
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
-      const input = await page.locator('mg-input-text input');
+      const input = page.locator('mg-input-text input');
 
       // Hide caret for screenshots
       await page.locator('mg-input-text input').evaluate(element => (element.style.caretColor = 'transparent'));
@@ -44,7 +44,7 @@ describe('mg-input-text', () => {
       const args: Partial<MgInputText> = { ...defaultProps, tooltip: 'Tooltip message', labelOnTop };
       await setPageContent(page, creatHtml(args));
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -75,7 +75,7 @@ describe('mg-input-text', () => {
     ])('Should render with template %s', async (page: PageType, args) => {
       await setPageContent(page, creatHtml(args));
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -87,7 +87,7 @@ describe('mg-input-text', () => {
     ])('Should render error when leaving an empty required input %s', async (page: PageType, args) => {
       await setPageContent(page, creatHtml(args));
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
       await page.keyboard.down('Tab');
@@ -107,9 +107,9 @@ describe('mg-input-text', () => {
         }),
       );
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
-      const input = await page.locator('mg-input-text input');
+      const input = page.locator('mg-input-text input');
 
       expect(element).toHaveClass('hydrated');
 
@@ -144,7 +144,7 @@ describe('mg-input-text', () => {
     ])('inside a div.mg-form-group %s', async (page: PageType, args) => {
       await setPageContent(page, `<div class="mg-form-group">${creatHtml(args)}</div>`);
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
       await page.setViewportSize({ height: 100, width: 500 });
@@ -189,7 +189,7 @@ describe('mg-input-text', () => {
           }),
         );
 
-        const element = await page.locator('mg-input-text.hydrated');
+        const element = page.locator('mg-input-text.hydrated');
         await element.waitFor({ timeout: 1000 });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -208,7 +208,7 @@ describe('mg-input-text', () => {
           }),
         );
 
-        const element = await page.locator('mg-input-text.hydrated');
+        const element = page.locator('mg-input-text.hydrated');
         await element.waitFor({ timeout: 1000 });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -224,7 +224,7 @@ describe('mg-input-text', () => {
         }),
       );
 
-      const element = await page.locator('mg-input-text.hydrated');
+      const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
       await page.setViewportSize({ height: 100, width: 200 });

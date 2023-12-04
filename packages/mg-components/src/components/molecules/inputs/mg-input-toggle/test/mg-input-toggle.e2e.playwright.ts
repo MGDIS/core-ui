@@ -1,4 +1,3 @@
-import { createID } from '../../../../../utils/components.utils';
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
 import { setPageContent, describe, testEach, expect, PageType, test } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputToggle } from '../mg-input-toggle';
@@ -10,7 +9,7 @@ const TIMEOUT = 1000;
 const defaultSlots = '<span slot="item-1">Choix A</span><span slot="item-2">Choix B</span>';
 
 const defaultProps = {
-  identifier: createID(),
+  identifier: 'identifier',
   label: 'label',
   items: [
     { title: 'batman', value: false },
@@ -140,7 +139,7 @@ describe('mg-input-toggle', () => {
       await el.setError(false, 'This is an error Batman');
     });
 
-    await page.locator('.mg-c-input__input--has-error');
+    page.locator('.mg-c-input__input--has-error');
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });
