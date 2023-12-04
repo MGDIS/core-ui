@@ -21,7 +21,7 @@ export default {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })}>{args.slot}</mg-button>;
+const Template = (args: any): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-button>;
 
 export const MgButton = {
   render: Template,
@@ -43,7 +43,7 @@ export const IsIcon = {
   args: {
     ...MgButton.args,
     isIcon: true,
-    slot: <mg-icon icon={iconList[0]}></mg-icon>,
+    slot: `<mg-icon icon="${iconList[0]}"></mg-icon>`,
   },
 };
 
