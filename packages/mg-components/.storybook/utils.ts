@@ -15,7 +15,7 @@ export const filterArgs = (args, defaultValues?) => {
   return filteredArgs;
 };
 
-export const stencilWrapper = (storyFn, context): HTMLELement => {
+export const stencilWrapper = (storyFn, context): Element => {
   const host = document.getElementById('storybook-root');
   renderVdom(
     {
@@ -34,28 +34,34 @@ export const stencilWrapper = (storyFn, context): HTMLELement => {
 };
 
 const renderAttribute = (element, name, value): void => {
-  if ([null, undefined, ''].includes(value)) return;
+  if ([null, undefined, '', false].includes(value) || name === 'innerHTML') return;
 
   element.setAttribute(name, typeof value !== 'object' ? value : `/!\\ Object props are not rendered in the code example`);
 };
 
-const renderElement = (parentNode, tagName, attributes, children): void => {
+const renderElement = (parentNode, tagName, attributes, children, text): void => {
+  if (text) {
+    parentNode.innerText = text;
+    return;
+  } else if (!tagName) return;
   const element = document.createElement(tagName);
   Object.keys(attributes || {}).forEach(attr => {
     renderAttribute(element, attr, attributes[attr]);
   });
 
   children?.forEach(child => {
-    renderElement(element, child.$tag$, child.$attrs$, child.$children$);
+    renderElement(element, child.$tag$, child.$attrs$, child.$children$, child.$text$);
   });
+
+  if (attributes?.innerHTML) element.innerHTML = attributes.innerHTML;
 
   parentNode.appendChild(element);
 };
 
-export const getStoryHTML = ({ $tag$, $attrs$, $children$ }): string => {
+export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }): string => {
   const host = document.createElement('div');
 
-  renderElement(host, $tag$, $attrs$, $children$);
+  renderElement(host, $tag$, $attrs$, $children$, $text$);
 
   return host.innerHTML;
 };
