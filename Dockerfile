@@ -22,4 +22,4 @@ RUN --mount=type=cache,target=/cache
 RUN pnpm i ${ARGS}
 
 # run all tests in parallel
-CMD pnpm test:e2e:playwright ${ARGS}
+CMD pnpm test:e2e ${ARGS}

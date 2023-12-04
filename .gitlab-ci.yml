@@ -121,24 +121,6 @@ test:unit:
 
 test:e2e:
   stage: tests
-  extends:
-    - .rules:changes:mg-components # only mg-components use test:e2e
-    - .rules:except-tags
-    - .install:dependencies
-  script:
-    - pnpm test:e2e
-  retry: 2
-  artifacts:
-    when: on_failure
-    paths:
-      - /**/__diff_output__/
-      - packages/mg-components/coverage/junit.xml
-    reports:
-      junit:
-        - packages/mg-components/coverage/junit.xml
-
-test:e2e:playwright:
-  stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   parallel: 7
   extends:
@@ -147,8 +129,7 @@ test:e2e:playwright:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm test:e2e:playwright -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
-  retry: 2
+    - pnpm test:e2e -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   artifacts:
     when: always
     paths:
