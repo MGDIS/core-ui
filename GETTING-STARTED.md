@@ -46,13 +46,13 @@ pnpm coverage
 Since we are working on different machines (Windows, WSL, Mac, Linux, etc.), to ensure consistency with Gitlab CI, we recommend using the following Docker script to generate screenshots:
 
 ```sh
-pnpm test:e2e:playwright:docker
+pnpm test:e2e:docker
 ```
 
 If you want to generate screenshots for a specific package, you can use the following command with a filter:
 
 ```sh
-pnpm test:e2e:playwright:docker --filter=@mgdis/styles
+pnpm test:e2e:docker --filter=@mgdis/styles
 ```
 
 ## Changesets and Releases
