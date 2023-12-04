@@ -44,6 +44,12 @@ stages:
     - changes:
         - 'packages/styles/**/*'
 
+# Rule to execute job only on playwright-config folder content changes
+.rules:changes:playwright-config:
+  rules:
+    - changes:
+        - 'packages/playwright-config/**/*'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -402,3 +408,19 @@ styles:npmjs:
   script:
     - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public
+
+#####################
+# Playwright Config #
+#####################
+
+playwright:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:playwright-config
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - cd packages/playwright-config
+    - !reference [.artifact, script]
+  needs:
+    - lint
