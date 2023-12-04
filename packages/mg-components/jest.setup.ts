@@ -1,14 +1,4 @@
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
 import crypto from 'crypto';
-
-/**
- * Global configuration for Image Snapshot
- */
-const toMatchImageSnapshot = configureToMatchImageSnapshot({
-  dumpInlineDiffToConsole: true,
-});
-
-expect.extend({ toMatchImageSnapshot });
 
 // missing JSDom polyfill
 // https://github.com/enzymejs/enzyme/issues/374#issuecomment-371823436
