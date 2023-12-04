@@ -5,18 +5,16 @@
  * @returns ID
  */
 export const createID = (prefix = '', length = 10): string => {
-  const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-  const charsLength = chars.length;
+  const randomBytes = new Uint8Array(length);
 
-  let ID = '';
-  let now = Math.floor(globalThis.crypto.getRandomValues(new Uint32Array(1))[0] * Date.now());
-  while (length > 0) {
-    now += Math.pow(10, 6); // Add 1 millisecond to the timestamp
-    const index = now % charsLength;
-    ID += chars.charAt(index);
-    length--;
-  }
-  return (prefix !== '' ? `${prefix}-` : '') + ID;
+  crypto.getRandomValues(randomBytes);
+
+  const hexString = Array.from(randomBytes)
+    .map(byte => byte.toString(16).padStart(2, '0'))
+    .join('')
+    .slice(0, length);
+
+  return prefix !== '' ? `${prefix}-${hexString}` : hexString;
 };
 
 /**

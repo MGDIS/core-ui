@@ -1,9 +1,10 @@
-import { KeyInput } from 'puppeteer';
-import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { describe, expect, setPageContent, test } from '../../../../utils/playwright.e2e.test.utils';
 
 describe('mg-skip-links', () => {
-  test('Should render', async () => {
-    const page = await createPage(`<mg-skip-links></mg-skip-links>
+  test('Should render', async ({ page }) => {
+    await setPageContent(
+      page,
+      `<mg-skip-links></mg-skip-links>
     <style>body{background:#999;}</style>
     <script>
       const mgSkipLinks = document.querySelector('mg-skip-links');
@@ -13,22 +14,19 @@ describe('mg-skip-links', () => {
         { href: '#search', label: 'Search' },
         { href: '#footer', label: 'Footer' },
       ];
-    </script>`);
+    </script>`,
+    );
 
-    const mgSkipLinks = await page.find('mg-skip-links');
-    expect(mgSkipLinks).toHaveClass('hydrated');
+    const mgSkipLinks = page.locator('mg-skip-links.hydrated');
 
-    await page.setViewport({ width: 400, height: 60 });
+    await expect(mgSkipLinks).not.toBeVisible();
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await page.keyboard.press('Tab');
 
-    for await (const key of ['Tab', 'Enter']) {
-      await page.keyboard.down(key as KeyInput);
-      await page.waitForChanges();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      const screenshotTab = await page.screenshot();
-      expect(screenshotTab).toMatchImageSnapshot();
-    }
+    await page.keyboard.press('Enter');
+
+    await expect(mgSkipLinks).not.toBeVisible();
   });
 });

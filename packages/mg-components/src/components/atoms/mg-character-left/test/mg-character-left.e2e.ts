@@ -1,16 +1,17 @@
-import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { PageType, describe, expect, setPageContent, testEach } from '../../../../utils/playwright.e2e.test.utils';
+
+const TIMEOUT = 1000;
 
 describe('mg-character-left', () => {
-  test('Should render', async () => {
-    const components = [
-      `<mg-character-left characters="" maxlength="100"></mg-character-left>`,
-      `<mg-character-left characters="blu" maxlength="200"></mg-character-left>`,
-      `<mg-character-left characters="blu blu blu blu" maxlength="1000"></mg-character-left>`,
-    ];
-    const html = components.join('');
-    const page = await createPage(html, { width: 60, height: 60 });
+  testEach([
+    `<mg-character-left characters="" maxlength="100"></mg-character-left>`,
+    `<mg-character-left characters="blu" maxlength="200"></mg-character-left>`,
+    `<mg-character-left characters="blu blu blu blu" maxlength="1000"></mg-character-left>`,
+  ])('Should render %s', async (page: PageType, html: string) => {
+    await setPageContent(page, html);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await page.locator('mg-character-left.hydrated').waitFor({ timeout: TIMEOUT });
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

@@ -1,69 +1,39 @@
-import { createPage } from '../../../../utils/stencil.e2e.test.utils';
+import { PageType, describe, expect, setPageContent, testEach, test } from '../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '../../../../utils/e2e.test.utils';
-import { MgIcon } from '../mg-icon';
 import { sizes, variantStyles, variants } from '../mg-icon.conf';
 import icons from '@mgdis/img/dist/icons/index.json';
 
-const getIconWidth = (size: MgIcon['size']): number => {
-  switch (size) {
-    case 'small':
-      return 12;
-    case 'medium':
-      return 20;
-    case 'large':
-      return 24;
-    case 'extra-large':
-      return 32;
-    default:
-      return 16;
-  }
-};
+const TIMEOUT = 1000;
 
 const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
 
 describe('mg-icon', () => {
-  test('renders icons', async () => {
-    const textWithoutDash = text => text.split('-').join('');
-    const html = icons
-      .sort((a, b) => textWithoutDash(a).localeCompare(textWithoutDash(b)))
-      .map(icon => `<mg-icon icon="${icon}"></mg-icon>`)
-      .join('');
-    const page = await createPage(html);
+  testEach(icons)('renders icon %s', async (page: PageType, icon) => {
+    await setPageContent(page, `<mg-icon icon="${icon}" size="extra-large"></mg-icon>`);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('renders sizes', async () => {
+  test('renders sizes', async ({ page }) => {
     const html = sizes.map(size => `<mg-icon ${renderAttributes({ icon: 'thumb-up', size })}></mg-icon>`).join('');
-    const page = await createPage(html);
+    await setPageContent(page, html);
 
-    await page.setViewport({ width: 120, height: getIconWidth('extra-large') });
+    await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test.each(variantStyles)('renders variants, with variantStyle %s', async variantStyle => {
-    let width = 0;
-    const variantStyleIsIcon = variantStyle !== 'icon';
-
+  testEach(variantStyles)('renders variants, with variantStyle %s', async (page: PageType, variantStyle) => {
     const html = variants
-      .map(variant =>
-        sizes
-          .map(size => {
-            width += variantStyleIsIcon ? getIconWidth(size) * 2 : getIconWidth(size);
-            return `<mg-icon ${renderAttributes({ icon: 'check-circle', variant: variant, variantStyle, size })}></mg-icon>`;
-          })
-          .join(''),
-      )
+      .map(variant => sizes.map(size => `<mg-icon ${renderAttributes({ icon: 'check-circle', variant: variant, variantStyle, size })}></mg-icon>`).join(''))
       .join('');
 
-    const page = await createPage(html + style);
+    await setPageContent(page, html + style);
 
-    await page.setViewport({ width, height: variantStyleIsIcon ? getIconWidth('extra-large') * 2 : getIconWidth('extra-large') });
+    await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

@@ -121,24 +121,6 @@ test:unit:
 
 test:e2e:
   stage: tests
-  extends:
-    - .rules:changes:mg-components # only mg-components use test:e2e
-    - .rules:except-tags
-    - .install:dependencies
-  script:
-    - pnpm test:e2e
-  retry: 2
-  artifacts:
-    when: on_failure
-    paths:
-      - /**/__diff_output__/
-      - packages/mg-components/coverage/junit.xml
-    reports:
-      junit:
-        - packages/mg-components/coverage/junit.xml
-
-test:e2e:playwright:
-  stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   parallel: 7
   extends:
@@ -147,8 +129,7 @@ test:e2e:playwright:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm test:e2e:playwright -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
-  retry: 2
+    - pnpm test:e2e -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   artifacts:
     when: always
     paths:
@@ -243,11 +224,24 @@ pages:
     - .rules:tags
     - .install:dependencies
   script:
-    - !reference [.docusaurus, script]
+    - mkdir public
+    - cp _redirects public/
     - !reference [.mg-components:build:storybook, script]
   artifacts:
     paths:
       - public
+  needs:
+    - release
+
+doc:artifact:
+  stage: release
+  extends:
+    - .rules:tags
+    - .install:dependencies
+  script:
+    - sh scripts/import-docs.sh
+    - curl -u$ARTIFACTORY_USER_LOGIN:$ARTIFACTORY_USER_PASS -T ./core-ui-artifact.tgz "$ARTIFACTORY_URL/core-documentation/core-ui-artifact.tgz"
+    - curl -X POST --fail -F token=$CORE_PIPELINE_TOKEN -F ref=master https://gitlab.mgdis.fr/api/v4/projects/2516/trigger/pipeline
   needs:
     - release
 
@@ -258,12 +252,6 @@ pages:
 .mg-components:build:
   script:
     - pnpm build --filter=@mgdis/mg-components
-
-.docusaurus:
-  script:
-    - pnpm build --filter=docusaurus
-    - mkdir -p public
-    - mv apps/docusaurus/build/* public
 
 .mg-components:build:storybook:
   script:
