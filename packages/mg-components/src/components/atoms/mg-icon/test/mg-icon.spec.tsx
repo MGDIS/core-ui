@@ -11,10 +11,6 @@ const getPage = args =>
   });
 
 describe('mg-icon', () => {
-  afterEach(() => {
-    jest.clearAllMocks();
-  });
-
   describe.each(iconList)('Should render %s icon', icon => {
     test.each(sizes)('in %s size', async size => {
       const { root } = await getPage({ icon, size });

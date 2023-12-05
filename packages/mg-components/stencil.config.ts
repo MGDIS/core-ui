@@ -63,10 +63,6 @@ export const config: Config = {
     enableImportInjection: true,
   },
   testing: {
-    timers: 'fake',
     setupFilesAfterEnv: ['./jest.setup.ts'],
-    transform: {
-      '^.+\\.(ts|tsx|jsx|js)$': '<rootDir>/node_modules/@stencil/core/testing/jest-preprocessor.js',
-    },
   },
 };

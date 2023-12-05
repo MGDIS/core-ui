@@ -20,7 +20,7 @@ const date = {
 };
 
 describe('mg-input-date', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   /**
    * Snapshots

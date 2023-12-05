@@ -78,7 +78,7 @@ describe('mg-menu', () => {
   let fireMo;
   beforeEach(() => {
     id = 1;
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: function () {
         return null;

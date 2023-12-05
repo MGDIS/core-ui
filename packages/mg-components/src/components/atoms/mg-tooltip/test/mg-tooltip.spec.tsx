@@ -19,7 +19,7 @@ describe('mg-tooltip', () => {
   let fireMo;
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupMutationObserverMock({
       observe: function () {
         fireMo = this.cb;

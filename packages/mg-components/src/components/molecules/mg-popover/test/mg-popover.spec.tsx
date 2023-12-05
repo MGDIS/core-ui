@@ -19,7 +19,6 @@ const getPage = (args, slot, parent?: boolean) => {
 describe('mg-popover', () => {
   let fireRo;
   beforeEach(() => {
-    jest.useFakeTimers();
     setupResizeObserverMock({
       observe: function () {
         fireRo = this.cb;
@@ -29,7 +28,6 @@ describe('mg-popover', () => {
       },
     });
   });
-  afterEach(() => jest.clearAllTimers());
 
   test.each([
     { identifier: 'identifier' },
@@ -87,7 +85,6 @@ describe('mg-popover', () => {
 
     interactiveElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
     await page.waitForChanges();
-    jest.runAllTimers();
 
     expect(popover).toHaveAttribute('data-show');
 

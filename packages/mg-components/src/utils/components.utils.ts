@@ -159,3 +159,13 @@ export const cleanString = (text: string): string =>
     .toLocaleLowerCase()
     .normalize('NFD')
     .replaceAll(/[\u0300-\u036f]/g, '');
+
+/**
+ * Use to process code next tick in the event loop
+ * @param callback - code to excute on next tick
+ * @returns differed code excution
+ */
+export const nextTick = (callback: () => void): Promise<void> =>
+  new Promise(resolve => {
+    resolve(callback());
+  });

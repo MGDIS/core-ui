@@ -1,4 +1,4 @@
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString } from './components.utils';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './components.utils';
 import { mockConsoleError } from './unit.test.utils';
 
 mockConsoleError();
@@ -158,6 +158,18 @@ describe('components.utils', () => {
       { string: 'âäàçéèêñù', expected: 'aaaceeenu' },
     ])('Should format string properly', ({ string, expected }) => {
       expect(cleanString(string)).toEqual(expected);
+    });
+  });
+
+  describe('nextTick', () => {
+    test('should wrapp and execute a callback in a promise', async () => {
+      const fn = jest.fn();
+      const job = nextTick(fn);
+      expect(job.then).toBeDefined();
+
+      const res = await job;
+      expect(fn).toHaveBeenCalled();
+      expect(res).toBeUndefined();
     });
   });
 });

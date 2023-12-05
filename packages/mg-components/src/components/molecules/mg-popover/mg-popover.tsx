@@ -1,5 +1,5 @@
 import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
-import { createID, getWindows } from '../../../utils/components.utils';
+import { createID, getWindows, nextTick } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 
 @Component({
@@ -108,12 +108,12 @@ export class MgPopover {
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
     // hide when click outside
-    // setTimeout is used to prevent event to trigger after creation
-    setTimeout(() => {
+    // nextTick is used to prevent event to trigger after creation
+    nextTick(() => {
       this.windows.forEach((localWindow: Window) => {
         localWindow.addEventListener('click', this.clickOutside, false);
       });
-    }, 0);
+    });
   };
 
   /**
