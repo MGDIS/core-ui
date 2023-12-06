@@ -23,7 +23,7 @@ export default {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-card {...filterArgs(args)}>{args.slot}</mg-card>;
+const Template = (args: any): HTMLElement => <mg-card {...filterArgs(args)} innerHTML={args.slot}></mg-card>;
 
 export const MgCard = {
   render: Template,

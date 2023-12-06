@@ -14,12 +14,12 @@ export default {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-menu-item {...filterArgs(args)}>{args.slot}</mg-menu-item>;
+const Template = (args: any): HTMLElement => <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>;
 
 export const MgMenuItem = {
   render: Template,
   args: {
-    slot: <span slot="label">My label</span>,
+    slot: `<span slot="label">My label</span>`,
   },
 };
 
@@ -35,7 +35,7 @@ export const MgMenuItemWhitIcon = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: [<span slot="label">My label</span>, <mg-icon icon="user" slot="image"></mg-icon>],
+    slot: `<span slot="label">My label</span><mg-icon icon="user" slot="image"></mg-icon>`,
   },
 };
 
@@ -43,7 +43,7 @@ export const MgMenuItemWhitBadge = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: [<span slot="label">My label</span>, <mg-badge value="2" label="hello" slot="information"></mg-badge>],
+    slot: `<span slot="label">My label</span><mg-badge value="2" label="hello" slot="information"></mg-badge>`,
   },
 };
 
@@ -51,7 +51,7 @@ export const MgMenuItemWhitBadgeAndIcon = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: [<span slot="label">My label</span>, <mg-badge value="2" label="hello" slot="information"></mg-badge>, <mg-icon icon="user" slot="image"></mg-icon>],
+    slot: `<span slot="label">My label</span><mg-badge value="2" label="hello" slot="information"></mg-badge><mg-icon icon="user" slot="image"></mg-icon>`,
   },
 };
 
@@ -61,7 +61,7 @@ export const MgMenuItemWhitMetadata = {
     ...MgMenuItem.args,
     'data-overflow-more': true,
     'data-size': 'medium',
-    'slot': [<span slot="label">My label</span>, <span slot="metadata">My metadata</span>],
+    'slot': `<span slot="label">My label</span>, <span slot="metadata">My metadata</span>`,
   },
 };
 
@@ -69,22 +69,20 @@ export const MgMenuItemWithSubmenu = {
   render: Template,
   args: {
     ...MgMenuItem.args,
-    slot: [
-      <span slot="label">My label</span>,
-      <mg-menu direction={Direction.VERTICAL} label="submenu">
-        <mg-menu-item>
-          <span slot="label">Subitem 1</span>
-        </mg-menu-item>
-        <mg-menu-item>
-          <mg-icon icon="user" slot="image"></mg-icon>
-          <span slot="label">Subitem 2</span>
-        </mg-menu-item>
-        <mg-menu-item>
-          <span slot="label">Subitem 3</span>
-          <mg-icon icon="user" slot="image"></mg-icon>
-          <mg-badge value="2" label="hello" variant="text-color" slot="information"></mg-badge>
-        </mg-menu-item>
-      </mg-menu>,
-    ],
+    slot: `<span slot="label">My label</span>
+    <mg-menu direction=${Direction.VERTICAL} label="submenu">
+      <mg-menu-item>
+        <span slot="label">Subitem 1</span>
+      </mg-menu-item>
+      <mg-menu-item>
+        <mg-icon icon="user" slot="image"></mg-icon>
+        <span slot="label">Subitem 2</span>
+      </mg-menu-item>
+      <mg-menu-item>
+        <span slot="label">Subitem 3</span>
+        <mg-icon icon="user" slot="image"></mg-icon>
+        <mg-badge value="2" label="hello" variant="text-color" slot="information"></mg-badge>
+      </mg-menu-item>
+    </mg-menu>`,
   },
 };
