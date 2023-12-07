@@ -13,11 +13,11 @@ pnpm i -D @mgdis/playwright-helpers
 Here a configuration exemple for your `playwright.config.ts` if you need to override a value or run a webserver for your e2e tests :
 
 ```TS
-import base from '@mgdis/playwright-helpers';
+import { config } from '@mgdis/playwright-helpers';
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  ...base,
+  ...config
   /* Maximum time one test can run for. */
   timeout: 60 * 1000,
   /* Run your local dev server before starting the tests */

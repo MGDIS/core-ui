@@ -1,8 +1,8 @@
-import base from '@mgdis/playwright-helpers';
+import { config } from '@mgdis/playwright-helpers';
 import { devices, defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  ...base,
+  ...config,
   /* Maximum time one test can run for. */
   timeout: 60 * 1000,
   /**
