@@ -566,7 +566,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
     return (
       <div class={{ 'mg-c-input__input-container': true, 'mg-c-input__input-checkbox-multi': true, 'mg-c-input__input-checkbox-multi--with-values': this.displaySelectedValues }}>
-        {this.renderCheckboxMultiDisplaySelectedValues(selectedValuesNb)}
         <mg-popover
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
@@ -619,6 +618,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-c-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
           </div>
         </mg-popover>
+        {this.renderCheckboxMultiDisplaySelectedValues(selectedValuesNb)}
       </div>
     );
   }
