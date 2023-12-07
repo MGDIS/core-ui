@@ -1,4 +1,4 @@
-import base from '@mgdis/playwright-config';
+import base from '@mgdis/playwright-helpers';
 import { devices, defineConfig } from '@playwright/test';
 
 export default defineConfig({

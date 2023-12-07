@@ -1,44 +1,27 @@
-import { test, expect } from '@playwright/test';
-import { setPageContent } from '../../../../utils/playwright.e2e.test.utils';
-import { BadgeVariantType, variants } from '../mg-badge.conf';
-import { darkBackground, renderAttributes } from '../../../../utils/e2e.test.utils';
-
-const addCustomTextColor = (variant: BadgeVariantType): string =>
-  `${
-    variant === 'text-color'
-      ? `<style>
-    mg-badge {
-      --mg-badge-text-color: 40 80% 60%;
-      color: hsl(260 80% 50%);
-    }
-  </style>`
-      : ''
-  }`;
+import { expect } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
+import { renderAttributes } from '@mgdis/playwright-helpers';
+import { variants } from '../mg-badge.conf';
 
 test.describe('mg-badge', () => {
-  test('Should render', async ({ page }) => {
-    // Build HTML
-    const html = variants
-      .map(variant => {
-        const template = [true, false]
-          .map(outline =>
-            [1, 99, '*', '!', '99+']
-              .map(value =>
-                darkBackground(variant === 'secondary', `<mg-badge ${renderAttributes({ value, label: variant, variant, outline })}></mg-badge>${addCustomTextColor(variant)}`),
-              )
-              .join(''),
-          )
-          .join('');
-
-        return `<h2>${variant}</h2>
-        <div>${template}</div>`;
-      })
-      .join('');
-
-    // Set page content
-    await setPageContent(page, html);
-
-    // Screenshot
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  // Variants
+  variants.forEach(variant => {
+    // Outline
+    [false, true].forEach(outline => {
+      test(`variant ${variant} outline ${outline}`, async ({ page }) => {
+        // Set HTML
+        const html = [1, 99, '*', '!', '99+'].map(value => `<mg-badge ${renderAttributes({ value, label: variant, variant, outline })}></mg-badge>`).join('');
+        // Add style based on variant
+        if (variant === 'text-color') {
+          await page.addStyleTag({ content: 'mg-badge{--mg-badge-text-color:40 80% 60%;color:hsl(260 80% 50%)}' });
+        } else if (variant === 'secondary') {
+          await page.addStyleTag({ content: 'body{background:#999}' });
+        }
+        // Set page content
+        await page.setContent(html);
+        // Screenshot
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
   });
 });

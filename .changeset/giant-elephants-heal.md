@@ -1,5 +1,5 @@
 ---
-'@mgdis/playwright-config': major
+'@mgdis/playwright-helpers': major
 ---
 
 Playwright package release
