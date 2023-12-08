@@ -1,8 +1,8 @@
-import { config } from '@mgdis/playwright-helpers';
+import { playwrightBaseConfig } from '@mgdis/e2e-helpers';
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
-  ...config,
+  ...playwrightBaseConfig,
   /* Run your local dev server before starting the tests */
   webServer: {
     command: 'cd ../.. && pnpm apps:notification-center',

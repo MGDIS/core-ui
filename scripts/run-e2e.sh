@@ -47,7 +47,7 @@ prepare_package "packages/mg-components/package.json" '{
     "test:e2e": .scripts."test:e2e:docker"
   }, 
   "dependencies": { "@stencil/core": .dependencies."@stencil/core" },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/e2e-helpers": .devDependencies."@mgdis/e2e-helpers" }
 }'
 
 # Prepare packages/notification-center/package.json
@@ -60,14 +60,14 @@ prepare_package "packages/notification-center/package.json" '{
   "scripts": { 
     "test:e2e": .scripts."test:e2e:docker"
   },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/e2e-helpers": .devDependencies."@mgdis/e2e-helpers" }
 }'
 
 # Prepare packages/styles/package.json
 prepare_package "packages/styles/package.json" '{
   name, 
   "scripts": { "test:e2e": .scripts."test:e2e:docker" },
-  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
+  "devDependencies": { "@mgdis/e2e-helpers": .devDependencies."@mgdis/e2e-helpers" }
 }'
 
 # Prepare apps/notification-center/package.json
