@@ -1,11 +1,11 @@
-# @mgdis/e2e-helpers
+# @mgdis/playwright-helpers
 
 This package provides [Playwright](https://playwright.dev/) configuration file for your project.
 
 ## Installation
 
 ```bash
-pnpm i -D @mgdis/e2e-helpers
+pnpm i -D @mgdis/playwright-helpers
 ```
 
 ## Configuration
@@ -13,7 +13,7 @@ pnpm i -D @mgdis/e2e-helpers
 Here a configuration exemple for your `playwright.config.ts` if you need to override a value or run a webserver for your e2e tests :
 
 ```TS
-import { playwrightBaseConfig } from '@mgdis/e2e-helpers';
+import { playwrightBaseConfig } from '@mgdis/playwright-helpers';
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({

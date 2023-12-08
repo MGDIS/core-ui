@@ -1,5 +1,5 @@
 ---
-'@mgdis/e2e-helpers': major
+'@mgdis/playwright-helpers': major
 ---
 
 Playwright package release
