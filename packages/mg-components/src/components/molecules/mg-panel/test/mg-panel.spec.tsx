@@ -6,21 +6,18 @@ import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
 
-const getPage = (args, slot?) => {
-  const page = newSpecPage({
+const getPage = (args, slot?) =>
+  newSpecPage({
     components: [MgPanel, MgButton, MgInputText],
     template: () => <mg-panel {...args}>{slot}</mg-panel>,
   });
-  jest.runAllTimers();
-
-  return page;
-};
 
 describe('mg-panel', () => {
   beforeAll(() => (global.HTMLInputElement.prototype.focus = jest.fn()));
   afterAll(() => delete global.HTMLInputElement.prototype.focus);
 
-  beforeEach(() => jest.useFakeTimers());
+  // use faketimers for mg-input-text
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
 
   test.each([
@@ -130,7 +127,6 @@ describe('mg-panel', () => {
         expect(page.root).toMatchSnapshot();
 
         editButton.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-        jest.runOnlyPendingTimers();
         await page.waitForChanges();
 
         expect(page.root).toMatchSnapshot();
@@ -166,7 +162,6 @@ describe('mg-panel', () => {
       const afterInputAction = mgPanel.shadowRoot.querySelector(`.mg-c-panel__header-title mg-input-text mg-button:${lastAction}`);
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -205,7 +200,6 @@ describe('mg-panel', () => {
       const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -258,7 +252,6 @@ describe('mg-panel', () => {
       const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -270,7 +263,6 @@ describe('mg-panel', () => {
       const cancelAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       cancelAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();

@@ -52,7 +52,7 @@ describe('mg-menu-item', () => {
   let fireMo = [];
   beforeEach(() => {
     fireMo = [];
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupMutationObserverMock({
       observe: function () {
         fireMo.push(this.cb);
@@ -345,7 +345,7 @@ describe('mg-menu-item', () => {
     test.each([true, false])('should update notification badge with args %s', async badge => {
       const page = await getPage(menuItem({ label: 'Batman' }, childMenu({ label: 'child menu', badge })));
 
-      spyOn(page.rootInstance, 'updateDisplayNotificationBadge');
+      jest.spyOn(page.rootInstance, 'updateDisplayNotificationBadge');
 
       expect(page.rootInstance.updateDisplayNotificationBadge).not.toHaveBeenCalled();
 

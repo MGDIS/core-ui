@@ -222,7 +222,7 @@ export class MgInputNumeric {
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputNumericElement['valid']>;
 
   /**
    * Display input error if it exists.

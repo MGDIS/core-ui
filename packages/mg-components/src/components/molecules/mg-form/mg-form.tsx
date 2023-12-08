@@ -83,7 +83,7 @@ export class MgForm {
    * Emitted event on form validity check
    * Tells if form is valid or not
    */
-  @Event({ eventName: 'form-valid' }) formValid: EventEmitter<boolean>;
+  @Event({ eventName: 'form-valid' }) formValid: EventEmitter<HTMLMgFormElement['valid']>;
 
   /**
    * Emitted event on form submit

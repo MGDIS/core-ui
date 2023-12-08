@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList, isValidString } from '../../../utils/components.utils';
+import { ClassList, isValidString, nextTick } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-button',
@@ -139,7 +139,7 @@ export class MgButton {
   /**
    * Emmited event when disabled change
    */
-  @Event({ eventName: 'disabled-change' }) disabledChange: EventEmitter<MgButton['disabled']>;
+  @Event({ eventName: 'disabled-change' }) disabledChange: EventEmitter<HTMLMgButtonElement['disabled']>;
 
   /**
    * Trigger actions onClick event
@@ -199,7 +199,7 @@ export class MgButton {
    * Add listners
    */
   componentDidLoad(): void {
-    setTimeout(() => {
+    nextTick(() => {
       const closestForm = this.element.closest('form') || this.element.closest('mg-form')?.shadowRoot.querySelector('form');
       // submit buttons should trigger form submition;
       if (!!closestForm && ['submit', undefined].includes(this.type)) {
@@ -207,7 +207,7 @@ export class MgButton {
           closestForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
         });
       }
-    }, 100);
+    });
   }
 
   /**

@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValidString } from '../../../utils/components.utils';
+import { createID, focusableElements, getWindows, isValidString, nextTick } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
@@ -102,14 +102,13 @@ export class MgTooltip {
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
-    // hide when click outside
-    // setTimeout is used to prevent event to trigger after creation
-    setTimeout(() => {
+    // hide when click outside on nextTick to prevent event to trigger after creation
+    nextTick(() => {
       this.windows.forEach((localWindow: Window) => {
         localWindow.addEventListener('click', this.clickOutside, false);
         localWindow.addEventListener('keydown', this.pressEscape, false);
       });
-    }, 0);
+    });
   };
 
   /**
@@ -169,6 +168,7 @@ export class MgTooltip {
     if (this.guard !== Guard.FOCUS) {
       this.guard = elementGuard;
       if (!isMouseenter) {
+        // process action in the next event loop macro task
         setTimeout(() => {
           this.setDisplay(isMouseenter, this.guard !== conditionalGuard);
           this.resetGuard();
