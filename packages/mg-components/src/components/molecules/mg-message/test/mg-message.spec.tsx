@@ -16,6 +16,8 @@ const getPage = (args, content) =>
   });
 
 describe('mg-message', () => {
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
+  afterEach(() => jest.runOnlyPendingTimers());
   describe.each(variants)('Should render a %s message', variant => {
     test.each([
       { identifier: 'identifier' },

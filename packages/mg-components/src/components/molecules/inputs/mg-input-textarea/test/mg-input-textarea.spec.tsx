@@ -15,7 +15,7 @@ const getPage = args => {
 };
 
 describe('mg-input-textarea', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   test.each([
     { label: 'label', identifier: 'identifier' },

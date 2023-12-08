@@ -129,12 +129,12 @@ export class MgMessage {
   /**
    * Emited event when message is diplayed
    */
-  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<string>;
+  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<void>;
 
   /**
    * Emited event when message is hidden
    */
-  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<string>;
+  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
 
   /**
    * Set timer

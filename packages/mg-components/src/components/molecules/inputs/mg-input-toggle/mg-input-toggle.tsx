@@ -184,7 +184,7 @@ export class MgInputToggle {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<any>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputToggleElement['value']>;
 
   /**
    * Emited event when checking validity

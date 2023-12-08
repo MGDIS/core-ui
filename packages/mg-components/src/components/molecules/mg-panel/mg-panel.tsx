@@ -115,12 +115,12 @@ export class MgPanel {
   /**
    * Emmited event when title change
    */
-  @Event({ eventName: 'title-change' }) titleChange: EventEmitter<string>;
+  @Event({ eventName: 'title-change' }) titleChange: EventEmitter<HTMLMgPanelElement['panelTitle']>;
 
   /**
    * Emmited event when expanded change
    */
-  @Event({ eventName: 'expanded-change' }) expandedChange: EventEmitter<boolean>;
+  @Event({ eventName: 'expanded-change' }) expandedChange: EventEmitter<HTMLMgPanelElement['expanded']>;
 
   /************
    * Methods *

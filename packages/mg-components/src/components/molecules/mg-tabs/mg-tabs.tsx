@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, State, Element, Watch } from '@stencil/core';
-import { createID, ClassList, allItemsAreString, isValidString } from '../../../utils/components.utils';
+import { createID, ClassList, allItemsAreString, isValidString, nextTick } from '../../../utils/components.utils';
 import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
 
 /**
@@ -120,7 +120,7 @@ export class MgTabs {
   /**
    * Emited event when active tab change
    */
-  @Event({ eventName: 'active-tab-change' }) activeTabChange: EventEmitter<number>;
+  @Event({ eventName: 'active-tab-change' }) activeTabChange: EventEmitter<HTMLMgTabsElement['activeTab']>;
 
   /**
    * Validate that new tab status can be `Status.ACTIVE`
@@ -214,12 +214,12 @@ export class MgTabs {
    */
   private resetFocus = (): void => {
     // update asynchronously tabindex to prevent get focus on new tabindex at then end of event process
-    setTimeout(() => {
+    nextTick(() => {
       this.tabFocus = undefined;
       Array.from(this.element.shadowRoot.querySelectorAll('[data-index]')).forEach((tab, index) => {
         tab.setAttribute('tabindex', this.activeTab - this.startIndex !== index ? '-1' : '0');
       });
-    }, 0);
+    });
   };
 
   /**

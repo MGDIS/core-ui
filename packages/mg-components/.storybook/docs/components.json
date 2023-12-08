@@ -2,7 +2,7 @@
   "timestamp": "2023-12-08T11:13:42",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.4.1",
+    "version": "4.8.0",
     "typescriptVersion": "5.2.2"
   },
   "components": [
@@ -598,12 +598,12 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "MgButton['disabled']",
+            "original": "HTMLMgButtonElement['disabled']",
             "resolved": "boolean",
             "references": {
-              "MgButton": {
+              "HTMLMgButtonElement": {
                 "location": "global",
-                "id": "global::MgButton"
+                "id": "global::HTMLMgButtonElement"
               }
             }
           },
@@ -971,9 +971,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgDetailsElement['expanded']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgDetailsElement": {
+                "location": "global",
+                "id": "global::HTMLMgDetailsElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -1226,9 +1231,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgFormElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgFormElement": {
+                "location": "global",
+                "id": "global::HTMLMgFormElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -2044,12 +2054,12 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "MgInputCheckbox['valid']",
+            "original": "HTMLMgInputCheckboxElement['valid']",
             "resolved": "boolean",
             "references": {
-              "MgInputCheckbox": {
+              "HTMLMgInputCheckboxElement": {
                 "location": "global",
-                "id": "global::MgInputCheckbox"
+                "id": "global::HTMLMgInputCheckboxElement"
               }
             }
           },
@@ -2063,12 +2073,12 @@
           "detail": "CheckboxValue[]",
           "bubbles": true,
           "complexType": {
-            "original": "MgInputCheckbox['value']",
+            "original": "HTMLMgInputCheckboxElement['value']",
             "resolved": "CheckboxValue[]",
             "references": {
-              "MgInputCheckbox": {
+              "HTMLMgInputCheckboxElement": {
                 "location": "global",
-                "id": "global::MgInputCheckbox"
+                "id": "global::HTMLMgInputCheckboxElement"
               }
             }
           },
@@ -2322,12 +2332,12 @@
           "detail": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
           "bubbles": true,
           "complexType": {
-            "original": "MgInputCheckboxPaginated['sectionKind']",
+            "original": "HTMLMgInputCheckboxPaginatedElement['sectionKind']",
             "resolved": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
             "references": {
-              "MgInputCheckboxPaginated": {
+              "HTMLMgInputCheckboxPaginatedElement": {
                 "location": "global",
-                "id": "global::MgInputCheckboxPaginated"
+                "id": "global::HTMLMgInputCheckboxPaginatedElement"
               }
             }
           },
@@ -2790,9 +2800,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputDateElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputDateElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputDateElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -2804,9 +2819,14 @@
           "detail": "string",
           "bubbles": true,
           "complexType": {
-            "original": "string",
+            "original": "HTMLMgInputDateElement['value']",
             "resolved": "string",
-            "references": {}
+            "references": {
+              "HTMLMgInputDateElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputDateElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -3398,9 +3418,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputNumericElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputNumericElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputNumericElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -3877,9 +3902,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputPasswordElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputPasswordElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputPasswordElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -3891,9 +3921,14 @@
           "detail": "string",
           "bubbles": true,
           "complexType": {
-            "original": "string",
+            "original": "HTMLMgInputPasswordElement['value']",
             "resolved": "string",
-            "references": {}
+            "references": {
+              "HTMLMgInputPasswordElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputPasswordElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -4346,9 +4381,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputRadioElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputRadioElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputRadioElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -4360,9 +4400,14 @@
           "detail": "any",
           "bubbles": true,
           "complexType": {
-            "original": "any",
+            "original": "HTMLMgInputRadioElement['value']",
             "resolved": "any",
-            "references": {}
+            "references": {
+              "HTMLMgInputRadioElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputRadioElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -4897,9 +4942,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputCheckboxElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputCheckboxElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputCheckboxElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -4908,15 +4958,15 @@
         },
         {
           "event": "value-change",
-          "detail": "any",
+          "detail": "CheckboxValue[]",
           "bubbles": true,
           "complexType": {
-            "original": "MgInputSelect['value']",
-            "resolved": "any",
+            "original": "HTMLMgInputCheckboxElement['value']",
+            "resolved": "CheckboxValue[]",
             "references": {
-              "MgInputSelect": {
+              "HTMLMgInputCheckboxElement": {
                 "location": "global",
-                "id": "global::MgInputSelect"
+                "id": "global::HTMLMgInputCheckboxElement"
               }
             }
           },
@@ -5568,9 +5618,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputTextElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputTextElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputTextElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -5582,9 +5637,14 @@
           "detail": "string",
           "bubbles": true,
           "complexType": {
-            "original": "string",
+            "original": "HTMLMgInputTextElement['value']",
             "resolved": "string",
-            "references": {}
+            "references": {
+              "HTMLMgInputTextElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputTextElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -6201,9 +6261,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgInputTextareaElement['valid']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgInputTextareaElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputTextareaElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -6215,9 +6280,14 @@
           "detail": "string",
           "bubbles": true,
           "complexType": {
-            "original": "string",
+            "original": "HTMLMgInputTextareaElement['value']",
             "resolved": "string",
-            "references": {}
+            "references": {
+              "HTMLMgInputTextareaElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputTextareaElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -6760,9 +6830,14 @@
           "detail": "any",
           "bubbles": true,
           "complexType": {
-            "original": "any",
+            "original": "HTMLMgInputToggleElement['value']",
             "resolved": "any",
-            "references": {}
+            "references": {
+              "HTMLMgInputToggleElement": {
+                "location": "global",
+                "id": "global::HTMLMgInputToggleElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -7212,12 +7287,12 @@
           "detail": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
           "bubbles": true,
           "complexType": {
-            "original": "MgMenuItem['status']",
+            "original": "HTMLMgMenuItemElement['status']",
             "resolved": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
             "references": {
-              "MgMenuItem": {
+              "HTMLMgMenuItemElement": {
                 "location": "global",
-                "id": "global::MgMenuItem"
+                "id": "global::HTMLMgMenuItemElement"
               }
             }
           },
@@ -7407,11 +7482,11 @@
       "events": [
         {
           "event": "component-hide",
-          "detail": "string",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "void",
+            "resolved": "void",
             "references": {}
           },
           "cancelable": true,
@@ -7421,11 +7496,11 @@
         },
         {
           "event": "component-show",
-          "detail": "string",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "void",
+            "resolved": "void",
             "references": {}
           },
           "cancelable": true,
@@ -7588,11 +7663,11 @@
       "events": [
         {
           "event": "component-hide",
-          "detail": "string",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "void",
+            "resolved": "void",
             "references": {}
           },
           "cancelable": true,
@@ -7602,11 +7677,11 @@
         },
         {
           "event": "component-show",
-          "detail": "string",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "void",
+            "resolved": "void",
             "references": {}
           },
           "cancelable": true,
@@ -8066,9 +8141,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgPanelElement['expanded']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgPanelElement": {
+                "location": "global",
+                "id": "global::HTMLMgPanelElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -8080,9 +8160,14 @@
           "detail": "string",
           "bubbles": true,
           "complexType": {
-            "original": "string",
+            "original": "HTMLMgPanelElement['panelTitle']",
             "resolved": "string",
-            "references": {}
+            "references": {
+              "HTMLMgPanelElement": {
+                "location": "global",
+                "id": "global::HTMLMgPanelElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -8334,9 +8419,14 @@
           "detail": "boolean",
           "bubbles": true,
           "complexType": {
-            "original": "boolean",
+            "original": "HTMLMgPopoverElement['display']",
             "resolved": "boolean",
-            "references": {}
+            "references": {
+              "HTMLMgPopoverElement": {
+                "location": "global",
+                "id": "global::HTMLMgPopoverElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,
@@ -8415,11 +8505,11 @@
       "events": [
         {
           "event": "hide-content",
-          "detail": "string",
+          "detail": "void",
           "bubbles": true,
           "complexType": {
-            "original": "string",
-            "resolved": "string",
+            "original": "void",
+            "resolved": "void",
             "references": {}
           },
           "cancelable": true,
@@ -8658,9 +8748,14 @@
           "detail": "number",
           "bubbles": true,
           "complexType": {
-            "original": "number",
+            "original": "HTMLMgTabsElement['activeTab']",
             "resolved": "number",
-            "references": {}
+            "references": {
+              "HTMLMgTabsElement": {
+                "location": "global",
+                "id": "global::HTMLMgTabsElement"
+              }
+            }
           },
           "cancelable": true,
           "composed": true,

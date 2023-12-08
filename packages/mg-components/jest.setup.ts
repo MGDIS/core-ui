@@ -15,4 +15,4 @@ Object.defineProperty(globalThis, 'crypto', {
  * Change Jest Timeout
  */
 
-jest.setTimeout(60000);
+jest.setTimeout(6000);

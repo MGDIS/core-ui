@@ -16,7 +16,7 @@ describe('behavior.utils', () => {
   describe('OverflowBehavior', () => {
     let fireRo;
     beforeEach(() => {
-      jest.useFakeTimers();
+      jest.useFakeTimers({ legacyFakeTimers: true });
       setupResizeObserverMock({
         observe: function () {
           fireRo = this.cb;
@@ -71,7 +71,7 @@ describe('behavior.utils', () => {
 
     test('should fire disconnect callback', () => {
       const behavior = new OverflowBehavior(<div></div>, () => <span></span>);
-      const spy = jest.spyOn((behavior as unknown as { _resizeObserver: string })._resizeObserver, 'disconnect');
+      const spy = jest.spyOn((behavior as unknown as { _resizeObserver: never })._resizeObserver, 'disconnect');
       behavior.disconnect();
 
       expect(spy).toHaveBeenCalled();

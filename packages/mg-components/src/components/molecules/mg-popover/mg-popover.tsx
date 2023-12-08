@@ -83,7 +83,7 @@ export class MgPopover {
   /**
    * Emited event when display value change
    */
-  @Event({ eventName: 'display-change' }) displayChange: EventEmitter<boolean>;
+  @Event({ eventName: 'display-change' }) displayChange: EventEmitter<HTMLMgPopoverElement['display']>;
 
   /**
    * Check if clicked outside of component
@@ -113,7 +113,7 @@ export class MgPopover {
       this.windows.forEach((localWindow: Window) => {
         localWindow.addEventListener('click', this.clickOutside, false);
       });
-    }, 0);
+    });
   };
 
   /**

@@ -28,7 +28,7 @@ const getPage = args => {
 
 describe('mg-input-checkbox', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: () => null,
       disconnect: () => null,

@@ -16,7 +16,7 @@ const getPage = args => {
 };
 
 describe('mg-input-radio', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   test.each([
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'] },

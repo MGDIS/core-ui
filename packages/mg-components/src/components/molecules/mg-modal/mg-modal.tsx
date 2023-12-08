@@ -108,12 +108,12 @@ export class MgModal {
   /**
    * Emmited event when modal is diplayed
    */
-  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<string>;
+  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<void>;
 
   /**
    * Emmited event when modal is hidden
    */
-  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<string>;
+  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
 
   /**
    * Handle 'escape' key down
