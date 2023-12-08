@@ -25,10 +25,10 @@
     "generate": "stencil generate",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint src/**/*.{ts,tsx} --ignore-path ./.gitignore",
-    "lint:es:fix": "eslint --fix src/**/*.{ts,tsx} --ignore-path ./.gitignore",
-    "lint:prettier": "prettier --check **/*.{ts,tsx,html,json} --ignore-path ./.gitignore",
-    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,html,json} --ignore-path ./.gitignore"
+    "lint:es": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:es:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "lint:prettier": "prettier --check '**/*.{ts,tsx,html,json}'",
+    "lint:prettier:fix": "prettier --write '**/*.{ts,tsx,html,json}'"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
