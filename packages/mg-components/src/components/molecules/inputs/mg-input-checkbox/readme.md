@@ -45,58 +45,17 @@ The style of the active checkbox is the browser's style.
 
 ### Displayed values
 
-#### Style
+![](./doc/img/mg-input-checkbox-display-values.png)
 
-![](./doc/img/mg-input-checkbox-values-style.png)
-
-- Radius : 3px
-- Font : OpenSans, Regular, 13px
-- Color : [@color-dark-5](./?path=/docs/style-colors--docs)
-
-#### Alignment
-
-![](./doc/img/mg-input-checkbox-alignment-displayed-values.png)
-
-Text is centered vertically and horizontally in the container
-
-#### Spacing
-
-![](./doc/img/mg-input-checkbox-spacing-values.png)
-
-#### Sizing
-
-- Min-width : 35px
-- Min-height : 35px
-
-#### Behavior
-
-##### Lack of space
-
-1. Without values
-
-![](./doc/img/mg-input-checkbox-behavior-lack-of-space-btn.png)
+#### Without values
 
 If the space is too narrow the text button will do a line break.
 
-1. With values
-
-![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value.png)
+#### With values
 
 If the space is too narrow the button and values will do a line break.
 
-![](./doc/img/mg-input-checkbox-behavior-lack-of-space-value-breakline.png)
-
 The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
-
-### Values not displayed
-
-#### Spacing
-
-![](./doc/img/mg-input-checkbox-values-not-displayed-spacing.png)
-
-#### Style
-
-![](./doc/img/mg-input-checkbox-values-not-displayed-style.png)
 
 ## CSS Variables
 
