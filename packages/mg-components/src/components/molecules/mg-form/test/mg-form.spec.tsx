@@ -14,14 +14,30 @@ import { MgInputTextarea } from '../../inputs/mg-input-textarea/mg-input-textare
 import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/MgInput.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
+import { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title';
 
-const getPage = (args, content?) => {
-  const page = newSpecPage({
-    components: [MgForm, MgInputCheckbox, MgInputDate, MgInputNumeric, MgInputPassword, MgInputRadio, MgInputSelect, MgInputText, MgInputTextarea, MgInputToggle, MgButton],
+const getPage = async (args, content?) => {
+  const page = await newSpecPage({
+    components: [
+      MgForm,
+      MgInputCheckbox,
+      MgInputDate,
+      MgInputNumeric,
+      MgInputPassword,
+      MgInputRadio,
+      MgInputSelect,
+      MgInputText,
+      MgInputTextarea,
+      MgInputToggle,
+      MgButton,
+      MgInputTitle,
+    ],
     template: () => <mg-form {...args}>{content}</mg-form>,
   });
 
-  jest.runAllTimers();
+  jest.runOnlyPendingTimers();
+
+  await page.waitForChanges();
 
   return page;
 };
@@ -55,11 +71,31 @@ const getSlottedContent = () => [
   </mg-input-toggle>,
 ];
 
+const setCheckValitidy = (input: HTMLMgInputsElement): void => {
+  const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
+  shadowInputs.forEach(input => {
+    input.checkValidity = jest.fn(() => false);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: true,
+      })),
+    });
+  });
+};
+
+const setMgInputChecboxeInvalid = (input: HTMLMgInputCheckboxElement): void => {
+  input.required = true;
+  input.value = [
+    { title: 'oui', value: false },
+    { title: 'non', value: false },
+  ];
+};
+
 describe('mg-form', () => {
   let fireMo;
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
 
     setupMutationObserverMock({
       observe: function () {
@@ -123,16 +159,11 @@ describe('mg-form', () => {
         (node: Node) => node.nodeName.startsWith('MG-INPUT-') && node.nodeName !== 'MG-INPUT-TOGGLE',
       ) as HTMLMgInputsElement[];
       mgInputs.forEach(input => {
-        const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
-        shadowInputs.forEach(input => {
-          input.checkValidity = jest.fn(() => false);
-          Object.defineProperty(input, 'validity', {
-            get: jest.fn(() => ({
-              valueMissing: true,
-            })),
-          });
-        });
+        if (input.nodeName.includes('CHECKBOX')) setMgInputChecboxeInvalid(input as HTMLMgInputCheckboxElement);
+        setCheckValitidy(input);
       });
+      await page.waitForChanges();
+
       await mgForm.displayError();
     }
 
@@ -158,22 +189,157 @@ describe('mg-form', () => {
       (node: Node) => node.nodeName.startsWith('MG-INPUT-') && node.nodeName !== 'MG-INPUT-TOGGLE',
     ) as HTMLMgInputsElement[];
     mgInputs.forEach(input => {
-      const shadowInputs = input.shadowRoot.querySelectorAll('input, textarea, select') as NodeListOf<HTMLInputElement>;
-      shadowInputs.forEach(input => {
-        input.checkValidity = jest.fn(() => false);
-        Object.defineProperty(input, 'validity', {
-          get: jest.fn(() => ({
-            valueMissing: true,
-          })),
-        });
-      });
+      if (input.nodeName.includes('CHECKBOX')) setMgInputChecboxeInvalid(input as HTMLMgInputCheckboxElement);
+      setCheckValitidy(input);
     });
+    await page.waitForChanges();
 
     await mgForm.displayError();
 
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should update input list when element is added to DOM', async () => {
+    const args = { identifier: 'identifier' };
+    const slot = getSlottedContent();
+    const page = await getPage(args, slot);
+
+    jest.spyOn(page.rootInstance, 'setMgInputs');
+
+    expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
+
+    fireMo([]);
+    await page.waitForChanges();
+
+    expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+  });
+
+  test.each(['readonly', 'disabled'])('Should update input list when attribute % change', async attribute => {
+    const args = { identifier: 'identifier' };
+    const slot = getSlottedContent();
+    const page = await getPage(args, slot);
+    const mgForm = page.doc.querySelector('mg-form');
+
+    jest.spyOn(page.rootInstance, 'setMgInputs');
+    jest.spyOn(page.rootInstance, 'setRequiredMessage');
+
+    expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
+    expect(page.rootInstance.setRequiredMessage).not.toHaveBeenCalled();
+
+    mgForm[attribute] = true;
+    await page.waitForChanges();
+
+    expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
+    expect(page.rootInstance.setRequiredMessage).toHaveBeenCalled();
+  });
+
+  test.each([
+    {
+      slot: () => [<mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
+      message: null,
+    },
+    {
+      slot: () => [
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: null,
+    },
+    {
+      slot: () => [<mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
+      message: 'The field is required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'All fields are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+      ],
+      message: 'Fields with a <strong class="mg-u-is-asterisk">*</strong> are required',
+    },
+    {
+      slot: () => [
+        <mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>,
+        <mg-input-toggle
+          identifier="mg-input-toggle"
+          label="mg-input-toggle label"
+          items={[
+            { title: 'non', value: false },
+            { title: 'oui', value: true },
+          ]}
+        >
+          <span slot="item-1">non</span>
+          <span slot="item-2">oui</span>
+        </mg-input-toggle>,
+      ],
+      message: 'Field with a <strong class="mg-u-is-asterisk">*</strong> is required',
+    },
+  ])('Should display needeed required message', async ({ slot, message }) => {
+    const page = await getPage({ identifier: 'identifier' }, slot());
+
+    expect(page.rootInstance.requiredMessage).toBe(message);
   });
 
   test.each([undefined, ...buttonTypes])('Should only emit "submit" event for <mg-button type="submit">, case type is %s', async type => {
@@ -193,7 +359,7 @@ describe('mg-form', () => {
     const formSpy = jest.spyOn(form, 'dispatchEvent');
     const mgFormSpy = jest.spyOn(page.rootInstance.formSubmit, 'emit');
 
-    mgButton.dispatchEvent(new Event('click', { bubbles: true }));
+    mgButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
 
     await page.waitForChanges();
 
@@ -201,6 +367,7 @@ describe('mg-form', () => {
       expect(formSpy).toHaveBeenCalledWith(
         expect.objectContaining({
           type: 'submit',
+          cancelable: true,
         }),
       );
       expect(mgFormSpy).toHaveBeenCalled();
@@ -208,39 +375,5 @@ describe('mg-form', () => {
       expect(formSpy).not.toHaveBeenCalled();
       expect(mgFormSpy).not.toHaveBeenCalled();
     }
-  });
-
-  test('Should update input list when element is added to DOM', async () => {
-    const args = { identifier: 'identifier' };
-    const slot = getSlottedContent();
-    const page = await getPage(args, slot);
-
-    spyOn(page.rootInstance, 'setMgInputs');
-
-    expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
-
-    fireMo([]);
-    await page.waitForChanges();
-
-    expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
-  });
-
-  test.each(['readonly', 'disabled'])('Should update input list when attribute % change', async attribute => {
-    const args = { identifier: 'identifier' };
-    const slot = getSlottedContent();
-    const page = await getPage(args, slot);
-    const mgForm = page.doc.querySelector('mg-form');
-
-    spyOn(page.rootInstance, 'setMgInputs');
-    spyOn(page.rootInstance, 'setRequiredMessage');
-
-    expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
-    expect(page.rootInstance.setRequiredMessage).not.toHaveBeenCalled();
-
-    mgForm[attribute] = true;
-    await page.waitForChanges();
-
-    expect(page.rootInstance.setMgInputs).toHaveBeenCalled();
-    expect(page.rootInstance.setRequiredMessage).toHaveBeenCalled();
   });
 });

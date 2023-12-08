@@ -1,0 +1,155 @@
+@import 'mg-input';
+@import '../utils/a11y';
+
+/**
+* Toggle
+*/
+
+// variables
+$color-light-blue: hsl(var(--color-info-h) calc(var(--color-info-s) - 64%) calc(var(--color-info-l) + 55%));
+$color-light-dark: hsl(var(--color-dark-h) calc(var(--color-dark-s) - 30%) calc(var(--color-dark-l) + 75%));
+$button-toggle-padding: 0.2rem;
+$toggle-item-container-padding-vertical: 0.5rem;
+
+.mg-c-input {
+  &__toggle-item-container {
+    $border-radius-value: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)) / var(--mg-input-toggle-border-radius-ratio));
+
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: $toggle-item-container-padding-vertical 0.9rem;
+    border: 0;
+    border-radius: $border-radius-value;
+    background-color: unset;
+    color: hsl(var(--color-dark));
+    font-weight: unset;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &:first-of-type {
+      background-color: $color-light-blue;
+      color: hsl(var(--color-info));
+      font-weight: 600;
+    }
+  }
+
+  &__button-toggle {
+    $mg-input-button-toggle-border-radius: $button-toggle-padding + $toggle-item-container-padding-vertical;
+    $border-radius-value: calc(
+      ((var(--font-size) * var(--line-height)) + (2 * ($mg-input-button-toggle-border-radius + var(--mg-inputs-border-width)))) / var(--mg-input-toggle-border-radius-ratio)
+    );
+
+    display: flex;
+    min-width: 0;
+    padding: $button-toggle-padding;
+    border-width: var(--mg-inputs-border-width);
+    border-style: solid;
+    border-color: var(--mg-inputs-color);
+    border-radius: $border-radius-value;
+    background-color: hsl(var(--color-light));
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: inherit;
+    line-height: inherit;
+
+    &:disabled {
+      cursor: default;
+    }
+  }
+
+  &.mg-c-input--toggle .mg-c-input__input-container {
+    min-width: 0;
+    flex: auto;
+  }
+
+  // toggle default active variation
+  &.mg-c-input--toggle-is-active {
+    .mg-c-input__toggle-item-container {
+      &:first-of-type {
+        background-color: unset;
+        color: hsl(var(--color-dark));
+        font-weight: unset;
+      }
+
+      &:last-of-type {
+        background-color: $color-light-blue;
+        color: hsl(var(--color-info));
+        font-weight: 600;
+      }
+    }
+  }
+
+  // icon
+  &.mg-c-input--toggle-icon {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .mg-c-input__toggle-item-container {
+      $size: calc(((var(--font-size) * var(--line-height)) + (2 * $toggle-item-container-padding-vertical)));
+
+      display: flex;
+      width: $size;
+      height: $size;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      visibility: hidden;
+
+      &:first-of-type {
+        visibility: visible;
+      }
+
+      ::slotted(mg-icon) {
+        display: flex;
+      }
+    }
+
+    &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container {
+      &:first-of-type {
+        visibility: hidden;
+      }
+
+      &:last-of-type {
+        visibility: visible;
+      }
+    }
+  }
+
+  // readonly
+  &.mg-c-input--toggle-readonly {
+    .mg-c-input__button-toggle {
+      border-color: transparent;
+      background-color: transparent;
+      cursor: initial;
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    .mg-c-input__toggle-item-container:last-of-type {
+      display: none;
+    }
+    /* stylelint-disable-next-line no-descending-specificity */
+    &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container {
+      &:first-of-type {
+        display: none;
+      }
+
+      &:last-of-type {
+        display: flex;
+      }
+    }
+  }
+
+  // on/off
+  &.mg-c-input--toggle-on-off {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .mg-c-input__toggle-item-container:first-of-type {
+      background-color: $color-light-dark;
+      color: hsl(var(--color-dark));
+      font-weight: 600;
+    }
+
+    &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container:first-of-type {
+      background-color: unset;
+      color: hsl(var(--color-dark));
+      font-weight: unset;
+    }
+  }
+}

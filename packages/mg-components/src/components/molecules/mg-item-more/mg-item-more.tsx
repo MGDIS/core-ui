@@ -3,10 +3,11 @@ import { initLocales } from '../../../locales';
 import { OverflowBehavior } from '../../../utils/behaviors.utils';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import type { IconType, MessageType, SizeType, SlotLabelType } from './mg-item-more.conf';
+import { isValidString } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-item-more',
-  styleUrl: 'mg-item-more.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-item-more.css',
   shadow: true,
 })
 export class MgItemMore {
@@ -29,18 +30,16 @@ export class MgItemMore {
 
   /**
    * Define icon
-   * Default: {icon: 'ellipsis-vertical'}
    */
   @Prop() icon: IconType = { icon: 'ellipsis-vertical' };
   @Watch('icon')
   validateIcon(newValue: MgItemMore['icon']): void {
-    if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof (newValue as MgItemMore['icon']).icon !== 'string'))
+    if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.icon !== 'string'))
       throw new Error(`<${this.name}> prop "icon" must match MgItemMore['icon'] type.`);
   }
 
   /**
    * Define slot label element
-   * Default: {display: false}
    */
   @Prop() slotlabel: SlotLabelType = { display: false };
   @Watch('slotlabel')
@@ -70,8 +69,7 @@ export class MgItemMore {
 
   /**
    * render mg-item-more overflow element
-   *
-   * @returns {HTMLMgItemMoreElement} mg-item-more element
+   * @returns mg-item-more element
    */
   private renderMgMenuItemOverflowElement = (): HTMLMgItemMoreElement => {
     // create menu items proxy element from item clones
@@ -86,11 +84,12 @@ export class MgItemMore {
       // manage click on proxy to mirror it on initial element
       proxy.addEventListener('click', () => {
         // be carefull to use element.click() method instead of dispatchEvent to ensure bubbles outside shadowDom
-        (allMenuItem[index].shadowRoot.querySelector('a, button') as HTMLButtonElement | HTMLAnchorElement).click();
+        const navElement = allMenuItem[index].shadowRoot.querySelector('a, button');
+        if (navElement instanceof HTMLButtonElement || navElement instanceof HTMLAnchorElement) navElement.click();
       });
 
       // add id suffix to prevent duplicate key. default html id is: '';
-      if (proxy.id.trim() !== '') proxy.id = `${proxy.id}-proxy`;
+      if (isValidString(proxy.id)) proxy.id = `${proxy.id}-proxy`;
 
       // manage status change miror in proxy
       allMenuItem[index].addEventListener('status-change', (event: CustomEvent) => {
@@ -107,8 +106,6 @@ export class MgItemMore {
 
   /**
    * Disconnect overflow ResizeObserver
-   *
-   * @returns {void} run overflow resize obeserver disconnexion
    */
   disconnectedCallback(): void {
     this.overflowBehavior.disconnect();
@@ -116,8 +113,6 @@ export class MgItemMore {
 
   /**
    * Set variables and validate props
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // init variables
@@ -133,8 +128,6 @@ export class MgItemMore {
 
   /**
    * Add overflow behavior
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
     this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.renderMgMenuItemOverflowElement);
@@ -142,15 +135,14 @@ export class MgItemMore {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
-      <Host role="menuitem" aria-haspopup="true">
+      <Host role="listitem">
         <mg-menu-item data-overflow-more data-size={this.parentMenu.size}>
           <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
-          <span class={{ 'sr-only': !this.slotlabel.display }} slot="label">
+          <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
             {this.slotlabel.label}
           </span>
           <mg-menu direction={Direction.VERTICAL} label={this.messages.moreLabel} size={this.size}></mg-menu>

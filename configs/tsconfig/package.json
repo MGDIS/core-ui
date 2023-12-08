@@ -1,18 +1,16 @@
 {
-	"name": "tsconfig",
-	"version": "1.0.0",
-	"private": true,
-	"description": "",
-	"files": [
-		"./tsconfig.base.node18.json"
-	],
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"dependencies": {
-		"@tsconfig/node18": "^1.0.1"
-	},
-	"devDependencies": {
-		"@types/node": "^18.14.0"
-	}
+  "name": "tsconfig",
+  "version": "1.0.0",
+  "private": true,
+  "files": [
+    "./base.node20.json",
+    "./commonjs.build.json"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@tsconfig/node20": "^20.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0"
+  }
 }

@@ -4,7 +4,7 @@ Item menu is used with horizontal, vertical or mobile menus.
 
 ## Anatomy
 
-![](./mg-menu-item/doc/img/mg-menu-item-anatomy.png)
+![](./doc/img/mg-menu-item-anatomy.png)
 
 An item must have a label.
 An icon can be added before the text.
@@ -17,29 +17,29 @@ Item's display depends on the size of the menu (regular, medium, large) and its 
 
 ### Spacing
 
-![](./mg-menu-item/doc/img/mg-menu-item-spacing.png)
+![](./doc/img/mg-menu-item-spacing.png)
 
 ### Sizing
 
 #### Horizontal menu
 
-![](./mg-menu-item/doc/img/mg-menu-item-sizing-horizontal.png)
+![](./doc/img/mg-menu-item-sizing-horizontal.png)
 
 Width of the item depends on its content.
 
-![](./mg-menu-item/doc/img/mg-menu-item-sizing-maxwidth.png)
+![](./doc/img/mg-menu-item-sizing-maxwidth.png)
 
 If a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.
 
 #### Vertical menu
 
-![](./mg-menu-item/doc/img/mg-menu-item-sizing-vertical.png)
+![](./doc/img/mg-menu-item-sizing-vertical.png)
 
 Width of the item is 100% width of the menu.
 
 #### Mobile (todo)
 
-![](./mg-menu-item/doc/img/mg-menu-item-sizing-mobile.png)
+![](./doc/img/mg-menu-item-sizing-mobile.png)
 
 Width of the item is equal to the width of the menu divided by number of items displayed.
 
@@ -47,30 +47,30 @@ Width of the item is equal to the width of the menu divided by number of items d
 
 #### Horizontal and vertical menus
 
-![](./mg-menu-item/doc/img/mg-menu-item-alignment.png)
+![](./doc/img/mg-menu-item-alignment.png)
 
 All contents are aligned vertically.
 
 #### Vertical menu
 
-![](./mg-menu-item/doc/img/mg-menu-item-alignment-vertical.png)
+![](./doc/img/mg-menu-item-alignment-vertical.png)
 
 All items are aligned to left.
 The chevron is aligned to the right of the item.
 
 #### Mobile (todo)
 
-![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile.png)
+![](./doc/img/mg-menu-item-alignment-mobile.png)
 
 Content of the item is centered
 
-![](./mg-menu-item/doc/img/mg-menu-item-alignment-mobile-badge.png)
+![](./doc/img/mg-menu-item-alignment-mobile-badge.png)
 
 Badge is positionned to 20px right and -15px up from the center of the item.
 
 ### Styling
 
-![](./mg-menu-item/doc/img/mg-menu-item-styling.png)
+![](./doc/img/mg-menu-item-styling.png)
 
 Hover item: the background is colored
 Active item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal and mobile menus), at the left of the item for vertical menus.
@@ -129,33 +129,33 @@ The child content can be:
 
 #### In an horizontal menu
 
-![](./mg-menu-item/doc/img/mg-menu-submenu-alignment.png)
+![](./doc/img/mg-menu-submenu-alignment.png)
 
 Child content is displayed in a floating component over the content (like a popover).
 It is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.
 
 If the floating component is higher than the screen size, there is no overflow, user has to scroll the page.
 
-![](./mg-menu-item/doc/img/mg-menu-item-child-styling.png)
+![](./doc/img/mg-menu-item-child-styling.png)
 
 The floating component has a _@color-light_ background and a _@shadow_.
 
-![](./mg-menu-item/doc/img/mg-menu-item-child-menu-spacing.png)
+![](./doc/img/mg-menu-item-child-menu-spacing.png)
 
 If the floating component displays a submenu, there are top and bottom spacing of 10px.
 
-![](./mg-menu-item/doc/img/mg-menu-item-child-slot-spacing.png)
+![](./doc/img/mg-menu-item-child-slot-spacing.png)
 
 If the floating component displays a slot, there is no spacing.
 
-![](./mg-menu-item/doc/img/mg-menu-submenu-slot.png)
+![](./doc/img/mg-menu-submenu-slot.png)
 
 The minimal width of the submenu is the item's width.
 Width of the submenu is determined by the width of the largest item or the content of the slot.
 
 #### In a vertical menu
 
-![](./mg-menu-item/doc/img/mg-menu-submenu-vertical-menu.png)
+![](./doc/img/mg-menu-submenu-vertical-menu.png)
 
 Menu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**
 Idem for the slot.
@@ -170,7 +170,17 @@ Sub-items add to their left spacing the spacing between left border and content 
 
 Child content is displayed via an **mg-tray** component.
 
-![](./mg-menu-item/doc/img/mg-menu-submenu-tray.png)
+![](./doc/img/mg-menu-submenu-tray.png)
+
+## Slots
+
+### Image
+
+Recommanded element is an icon or a SVG.
+
+### Information
+
+Recommanded element is a mg-badge. Use it when you need to notify new events in this section.
 
 ## CSS Variables
 
@@ -193,10 +203,10 @@ Child content is displayed via an **mg-tray** component.
 
 | Property     | Attribute    | Description                                                                      | Type                                                                  | Default                    |
 | ------------ | ------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------- |
-| `expanded`   | `expanded`   | Define menu-item content expanded. Default: false.                               | `boolean`                                                             | `false`                    |
+| `expanded`   | `expanded`   | Define menu-item content expanded.                                               | `boolean`                                                             | `false`                    |
 | `href`       | `href`       | Define menu-item href when defined menu-item contain an anchor instead of button | `string`                                                              | `undefined`                |
-| `identifier` | `identifier` | Identifier is used to control mg-popover Default: createID('mg-menu-item');      | `string`                                                              | `createID('mg-menu-item')` |
-| `status`     | `status`     | Define menu-item status. Default: "visible"                                      | `Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE` | `Status.VISIBLE`           |
+| `identifier` | `identifier` | Identifier is used to control mg-popover                                         | `string`                                                              | `createID('mg-menu-item')` |
+| `status`     | `status`     | Define menu-item status.                                                         | `Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE` | `Status.VISIBLE`           |
 
 
 ## Events
@@ -226,9 +236,10 @@ graph TD;
   mg-menu-item --> mg-badge
   mg-menu-item --> mg-icon
   mg-menu-item --> mg-popover
-  mg-popover --> mg-card
-  mg-popover --> mg-button
-  mg-popover --> mg-icon
+  mg-popover --> mg-popover-content
+  mg-popover-content --> mg-card
+  mg-popover-content --> mg-button
+  mg-popover-content --> mg-icon
   mg-button --> mg-icon
   mg-action-more --> mg-menu-item
   mg-item-more --> mg-menu-item

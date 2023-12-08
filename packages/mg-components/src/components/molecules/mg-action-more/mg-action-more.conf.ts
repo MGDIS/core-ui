@@ -17,6 +17,7 @@ export type MgActionMoreButtonType = {
   isIcon: MgButton['isIcon'];
   variant: MgButton['variant'];
   label?: MgButton['label'];
+  disabled?: MgButton['disabled'];
 };
 
 /**
@@ -39,6 +40,4 @@ export type MgActionMoreItemType = {
 /**
  * MouseEvent callback interface
  */
-interface IMouseEventHandler {
-  (event: MouseEvent): void;
-}
+type IMouseEventHandler = (event: MouseEvent) => void;

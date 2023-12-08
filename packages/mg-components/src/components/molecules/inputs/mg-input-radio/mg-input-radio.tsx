@@ -3,21 +3,21 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
+import { Handler } from '../MgInput.conf';
 
 /**
  * type Option validation function
- *
- * @param {RadioOption} option radio option
- * @returns {boolean} radio option type is valid
+ * @param option - radio option
+ * @returns radio option type is valid
  */
 const isOption = (option: RadioOption): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
 
 @Component({
   tag: 'mg-input-radio',
-  styleUrl: 'mg-input-radio.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-radio.css',
   shadow: true,
 })
 export class MgInputRadio {
@@ -33,6 +33,7 @@ export class MgInputRadio {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -54,7 +55,6 @@ export class MgInputRadio {
 
   /**
    * Items are the possible options to select
-   * Required
    */
   @Prop() items!: string[] | RadioOption[];
   @Watch('items')
@@ -157,7 +157,7 @@ export class MgInputRadio {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--radio']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--radio']);
 
   /**
    * Error message to display
@@ -172,17 +172,15 @@ export class MgInputRadio {
   /**
    * Emitted event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<any>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputRadioElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputRadioElement['valid']>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -192,10 +190,41 @@ export class MgInputRadio {
   }
 
   /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputRadio['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-radio> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-radio> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputRadio['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+  }
+
+  /**
    * Handle input event
-   *
-   * @param {event} event input event
-   * @returns {void}
+   * @param event - input event
    */
   private handleInput = (event: InputEvent & { target: HTMLInputElement }) => {
     this.checkValidity();
@@ -204,45 +233,43 @@ export class MgInputRadio {
 
   /**
    * Handle blur event
-   *
-   * @returns {void}
    */
   private handleBlur = (): void => {
+    this.handlerInProgress = Handler.BLUR;
     this.checkValidity();
     this.setErrorMessage();
+    // reset guard
+    this.handlerInProgress = undefined;
   };
 
   /**
    * Check if input is valid
-   *
-   * @returns {void}
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || this.getInvalidElement() === undefined;
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || this.getInvalidElement() === undefined);
   };
 
   /**
    * Set input error message
-   *
-   * @returns {void}
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     const invalidElement = this.getInvalidElement();
 
     // Set error message
     this.errorMessage = undefined;
-    if (!this.valid && invalidElement.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (invalidElement.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 
   /**
    * get invalid element
-   *
-   * @returns {HTMLInputElement} element
+   * @returns element
    */
   private getInvalidElement = (): HTMLInputElement => this.inputs.find((input: HTMLInputElement) => !input.disabled && !input.readOnly && !input.checkValidity());
 
@@ -252,8 +279,7 @@ export class MgInputRadio {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -270,14 +296,13 @@ export class MgInputRadio {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -293,9 +318,9 @@ export class MgInputRadio {
         errorMessage={this.errorMessage}
         isFieldset={true}
       >
-        <ul class={{ 'mg-input__input-group-container': true, 'mg-input__input-group-container--vertical': this.inputVerticalList }} role="list">
+        <ul class={{ 'mg-c-input__input-group-container': true, 'mg-c-input__input-group-container--vertical': this.inputVerticalList }} role="list">
           {this.options.map((input, index) => (
-            <li key={input.title} class={{ 'mg-input__input-group': true, 'mg-input__input-group--disabled': this.disabled || input.disabled }}>
+            <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
               <input
                 type="radio"
                 id={this.identifier + '_' + index}
@@ -306,8 +331,8 @@ export class MgInputRadio {
                 required={this.required}
                 onBlur={this.handleBlur}
                 onInput={this.handleInput}
-                ref={el => {
-                  if (el !== null) this.inputs[index] = el as HTMLInputElement;
+                ref={(el: HTMLInputElement) => {
+                  if (el !== null) this.inputs[index] = el;
                 }}
               />
               <label htmlFor={this.identifier + '_' + index}>{input.title}</label>

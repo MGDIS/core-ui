@@ -2,46 +2,38 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { Handler, Width } from '../MgInput.conf';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
 
 /**
  * Check if item is a well configured option
- *
- * @param {unknown} option select option
- * @returns {boolean} select option type is valid
+ * @param option - select option
+ * @returns select option type is valid
  */
 const isOption = (option: unknown): option is SelectOption => typeof option === 'object' && typeof (option as SelectOption).title === 'string';
 
 /**
  * Check if items[] is SelectOption
- *
- * @param {unknown[]} items select option
- * @returns {boolean} select option array type is valid
+ * @param items - select option
+ * @returns select option array type is valid
  */
 const allItemsAreOptions = (items: unknown[]): items is SelectOption[] => Array.isArray(items) && items.every(item => isOption(item));
 
 /**
  * Check if item is a well configured optgroup
- *
- * @param {unknown} optgroup select option
- * @returns {boolean} select optgroup type is valid
+ * @param optgroup - select option
+ * @returns select optgroup type is valid
  */
 const isOptGroup = (optgroup: unknown): optgroup is OptGroup =>
   typeof optgroup === 'object' && typeof (optgroup as OptGroup).group === 'string' && allItemsAreOptions((optgroup as OptGroup).options);
 
 /**
  * Group options
- *
- * @param {(SelectOption | OptGroup)[]} acc reduce accumulator
- * @param {SelectOption} item item to add
- * @param {string} item.group item group
- * @param {string} item.title item title
- * @param {unknown} item.value item value
- * @param {boolean} item.disabled is item disabled
- * @returns {(SelectOption | OptGroup)[]} grouped options
+ * @param acc - reduce accumulator
+ * @param item - item to add
+ * @returns grouped options
  */
 const groupOptions = (acc: (SelectOption | OptGroup)[], { group, title, value, disabled }: SelectOption): (SelectOption | OptGroup)[] => {
   if (group !== undefined) {
@@ -63,7 +55,7 @@ const groupOptions = (acc: (SelectOption | OptGroup)[], { group, title, value, d
 
 @Component({
   tag: 'mg-input-select',
-  styleUrl: 'mg-input-select.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-select.css',
   shadow: true,
 })
 export class MgInputSelect {
@@ -79,6 +71,7 @@ export class MgInputSelect {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -96,7 +89,7 @@ export class MgInputSelect {
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
-      this.readonlyValue = Boolean(this.input?.value) ? this.input.value : newValue;
+      this.readonlyValue = this.input?.value ? this.input.value : newValue;
     } else if (allItemsAreOptions(this.items)) {
       this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
     } else {
@@ -209,7 +202,7 @@ export class MgInputSelect {
   /**
    * Define input width
    */
-  @Prop() mgWidth: Width;
+  @Prop({ reflect: true }) mgWidth: Width;
 
   /**
    * Add a tooltip message next to the input
@@ -234,7 +227,7 @@ export class MgInputSelect {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--select']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--select']);
 
   /**
    * Error message to display
@@ -259,17 +252,15 @@ export class MgInputSelect {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<MgInputSelect['value']>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputCheckboxElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputCheckboxElement['valid']>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -279,9 +270,39 @@ export class MgInputSelect {
   }
 
   /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputSelect['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputSelect['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+  }
+  /**
    * Handle input event
-   *
-   * @returns {void}
    */
   private handleInput = (): void => {
     this.updateValue();
@@ -290,17 +311,14 @@ export class MgInputSelect {
 
   /**
    * Method to compare item.title with input.value
-   *
-   * @param {SelectOption} item item to compare with
-   * @returns {boolean} truthy if input.value is an item
+   * @param item - item to compare with
+   * @returns truthy if input.value is an item
    */
   private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
 
   /**
    * value props setter
-   *
-   * @param {MgInputSelect['value']} newValue value to update with
-   * @returns {void}
+   * @param newValue - value to update with
    */
   private setValue = (newValue: MgInputSelect['value']): void => {
     this.checkValidity();
@@ -309,8 +327,6 @@ export class MgInputSelect {
 
   /**
    * Update value from input.value
-   *
-   * @returns {void}
    */
   private updateValue = (): void => {
     if (this.input.value === '') {
@@ -330,13 +346,16 @@ export class MgInputSelect {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**
    * Input value is disabled
-   *
-   * @returns {boolean} truthy if input value is disabled
+   * @returns truthy if input value is disabled
    */
   private isDisabledValue = (): boolean => allItemsAreOptions(this.options) && this.options.find(this.isInputValue)?.disabled === true;
 
@@ -344,20 +363,22 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = !this.isDisabledValue() && (this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true)));
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
-    if (!this.valid && this.input.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (this.input.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 
@@ -367,8 +388,7 @@ export class MgInputSelect {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -390,9 +410,8 @@ export class MgInputSelect {
 
   /**
    * Render option
-   *
-   * @param {SelectOption} option to render
-   * @returns {HTMLElement} render option
+   * @param option - to render
+   * @returns render option
    */
   private renderOption = (option: SelectOption): HTMLElement => (
     <option key={option.title} value={option.title} selected={JSON.stringify(this.value) === JSON.stringify(option.value)} disabled={option.disabled}>
@@ -402,14 +421,13 @@ export class MgInputSelect {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -426,16 +444,17 @@ export class MgInputSelect {
         isFieldset={false}
       >
         <select
-          class="mg-input__box"
+          class="mg-c-input__box"
           id={this.identifier}
           name={this.name}
           title={this.placeholder}
           disabled={this.disabled}
           required={this.required}
+          aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLSelectElement;
+          ref={(el: HTMLSelectElement) => {
+            if (el !== null) this.input = el;
           }}
         >
           {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder
@@ -444,7 +463,13 @@ export class MgInputSelect {
             </option>
           )}
           {this.options.map(option =>
-            isOptGroup(option) ? <optgroup label={option.group}>{option.options.map(this.renderOption)}</optgroup> : isOption(option) && this.renderOption(option),
+            isOptGroup(option) ? (
+              <optgroup label={option.group} key={option.group}>
+                {option.options.map(this.renderOption)}
+              </optgroup>
+            ) : (
+              isOption(option) && this.renderOption(option)
+            ),
           )}
         </select>
       </MgInput>

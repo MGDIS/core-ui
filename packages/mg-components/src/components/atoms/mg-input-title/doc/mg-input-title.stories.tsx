@@ -8,17 +8,19 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-title {...filterArgs(args)}>{args.slot}</mg-input-title>;
+const Template = (args: any): HTMLElement => <mg-input-title {...filterArgs(args)} innerHTML={args.slot}></mg-input-title>;
 
-export const MgInputTitle = Template.bind({});
-MgInputTitle.args = {
-  slot: 'Label',
-  identifier: 'identifier',
-  required: true,
-  isLegend: false,
+export const MgInputTitle = {
+  render: Template,
+  args: {
+    slot: 'Label',
+    identifier: 'identifier',
+    required: true,
+    readonly: false,
+    isLegend: false,
+  },
 };

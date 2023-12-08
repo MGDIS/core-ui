@@ -1,13 +1,14 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { localeDate, dateRegExp } from '../../../../utils/locale.utils';
 import { initLocales } from '../../../../locales';
+import { Handler } from '../MgInput.conf';
 
 @Component({
   tag: 'mg-input-date',
-  styleUrl: './mg-input-date.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-date.css',
   shadow: true,
 })
 export class MgInputDate {
@@ -24,6 +25,7 @@ export class MgInputDate {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -39,7 +41,7 @@ export class MgInputDate {
    */
   @Prop({ mutable: true, reflect: true }) value: string;
   @Watch('value')
-  validateValue(newValue: string): void {
+  validateValue(newValue: MgInputDate['value']): void {
     // When the input is not fully completed or has been cleared, the value becomes an empty string.
     if (newValue === '') newValue = null;
     if (newValue !== undefined && newValue !== null && (typeof newValue !== 'string' || !dateRegExp.test(newValue))) {
@@ -145,7 +147,7 @@ export class MgInputDate {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--date']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--date']);
 
   /**
    * Error message to display
@@ -155,23 +157,54 @@ export class MgInputDate {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputDateElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputDateElement['valid']>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
     this.checkValidity();
     this.setErrorMessage();
     this.hasDisplayedError = this.invalid;
+  }
+
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputDate['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-date> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputDate['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -189,23 +222,23 @@ export class MgInputDate {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
   };
 
   /**
    * get input error code
-   *
-   * @returns {null | InputError} error code
+   * @returns error code
    */
   private getInputError = (): null | InputError => {
     let inputError = null;
@@ -232,16 +265,18 @@ export class MgInputDate {
 
   /**
    * Check input errors
-   *
-   * @returns {void}
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
       const inputError = this.getInputError();
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      }
       // required
-      if (inputError === InputError.REQUIRED) {
+      else if (inputError === InputError.REQUIRED) {
         this.errorMessage = this.messages.errors[inputError];
       }
       // min, max & minMax
@@ -262,8 +297,7 @@ export class MgInputDate {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -284,14 +318,13 @@ export class MgInputDate {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -309,7 +342,7 @@ export class MgInputDate {
       >
         <input
           type="date"
-          class="mg-input__box"
+          class="mg-c-input__box"
           min={this.min}
           max={this.max}
           value={this.value}
@@ -317,10 +350,11 @@ export class MgInputDate {
           name={this.name}
           disabled={this.disabled}
           required={this.required}
+          aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLInputElement;
+          ref={(el: HTMLInputElement) => {
+            if (el !== null) this.input = el;
           }}
         />
       </MgInput>

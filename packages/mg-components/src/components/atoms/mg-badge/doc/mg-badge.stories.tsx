@@ -14,17 +14,18 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
 
-export const MgBadge = Template.bind({});
-MgBadge.args = {
-  value: '99',
-  label: 'unread messages',
-  variant: variants[0],
-  outline: false,
+export const MgBadge = {
+  render: Template,
+  args: {
+    value: '99',
+    label: 'unread messages',
+    variant: variants[0],
+    outline: false,
+  },
 };

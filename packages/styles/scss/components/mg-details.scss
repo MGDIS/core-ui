@@ -1,0 +1,34 @@
+@import '../utils/a11y';
+
+.mg-c-details {
+  summary {
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+  }
+
+  &__toggle {
+    display: flex;
+    min-height: calc(var(--font-size) * var(--line-height));
+    flex-shrink: 0;
+    align-items: center;
+    align-self: flex-start;
+    margin-left: 1.5rem;
+    gap: 0.6rem;
+
+    &-icon.mg-c-details__toggle-icon--reverse {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__details {
+    margin-top: var(--mg-details-spacing);
+  }
+}
+
+/* hide toggle button when < 700px */
+@media (width < 43.75rem) {
+  .mg-c-details__toggle > span {
+    @include visually-hidden;
+  }
+}

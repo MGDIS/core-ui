@@ -9,20 +9,20 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-skip-links {...filterArgs(args)}></mg-skip-links>;
 
-export const MgSkipLinks = Template.bind({});
-
-MgSkipLinks.args = {
-  links: [
-    { href: '#content', label: 'Content' },
-    { href: '#menu', label: 'Menu' },
-    { href: '#search', label: 'Search' },
-    { href: '#footer', label: 'Footer' },
-  ],
+export const MgSkipLinks = {
+  render: Template,
+  args: {
+    links: [
+      { href: '#content', label: 'Content' },
+      { href: '#menu', label: 'Menu' },
+      { href: '#search', label: 'Search' },
+      { href: '#footer', label: 'Footer' },
+    ],
+  },
 };

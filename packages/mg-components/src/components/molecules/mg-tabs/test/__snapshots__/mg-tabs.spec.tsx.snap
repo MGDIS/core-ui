@@ -1,27 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -39,27 +39,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 1`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -77,27 +77,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 2`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 3`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -115,27 +115,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 3`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 4`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -153,27 +153,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 4`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 5`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -191,27 +191,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 5`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 6`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -229,27 +229,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 6`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 7`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -267,27 +267,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 7`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 8`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -305,27 +305,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 8`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 9`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="0">
+        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="0">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -343,27 +343,27 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 9`] 
 `;
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 10`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="0">
+        <button aria-controls="panel-3" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="3" id="id-3" role="tab" tabindex="0">
           Bane
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="id-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -381,21 +381,21 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 10`]
 `;
 
 exports[`mg-tabs navigation should go to next tab on click event 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -412,19 +412,19 @@ exports[`mg-tabs navigation should go to next tab on click event 1`] = `
 exports[`mg-tabs navigation should go to next tab on click event 2`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -439,21 +439,21 @@ exports[`mg-tabs navigation should go to next tab on click event 2`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on click event 3`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -470,19 +470,19 @@ exports[`mg-tabs navigation should go to next tab on click event 3`] = `
 exports[`mg-tabs navigation should go to next tab on click event 4`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           Joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -497,21 +497,21 @@ exports[`mg-tabs navigation should go to next tab on click event 4`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on keyboard event 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -526,21 +526,21 @@ exports[`mg-tabs navigation should go to next tab on keyboard event 1`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on keyboard event 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -555,21 +555,21 @@ exports[`mg-tabs navigation should go to next tab on keyboard event 2`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on keyboard event 3`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -584,21 +584,21 @@ exports[`mg-tabs navigation should go to next tab on keyboard event 3`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on keyboard event 4`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -613,21 +613,21 @@ exports[`mg-tabs navigation should go to next tab on keyboard event 4`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on keyboard event 5`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="0">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -642,21 +642,21 @@ exports[`mg-tabs navigation should go to next tab on keyboard event 5`] = `
 `;
 
 exports[`mg-tabs navigation should go to next tab on keyboard event 6`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -671,21 +671,21 @@ exports[`mg-tabs navigation should go to next tab on keyboard event 6`] = `
 `;
 
 exports[`mg-tabs navigation should manage Tab key 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -700,21 +700,21 @@ exports[`mg-tabs navigation should manage Tab key 1`] = `
 `;
 
 exports[`mg-tabs navigation should manage Tab key 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -729,21 +729,21 @@ exports[`mg-tabs navigation should manage Tab key 2`] = `
 `;
 
 exports[`mg-tabs navigation should manage Tab key 3`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -758,21 +758,21 @@ exports[`mg-tabs navigation should manage Tab key 3`] = `
 `;
 
 exports[`mg-tabs navigation should manage mixed navigation 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -787,21 +787,21 @@ exports[`mg-tabs navigation should manage mixed navigation 1`] = `
 `;
 
 exports[`mg-tabs navigation should manage mixed navigation 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -816,21 +816,21 @@ exports[`mg-tabs navigation should manage mixed navigation 2`] = `
 `;
 
 exports[`mg-tabs navigation should manage mixed navigation 3`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -845,21 +845,21 @@ exports[`mg-tabs navigation should manage mixed navigation 3`] = `
 `;
 
 exports[`mg-tabs navigation should prevent click on tab with status disabled 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -874,21 +874,21 @@ exports[`mg-tabs navigation should prevent click on tab with status disabled 1`]
 `;
 
 exports[`mg-tabs navigation should prevent click on tab with status disabled 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -903,21 +903,21 @@ exports[`mg-tabs navigation should prevent click on tab with status disabled 2`]
 `;
 
 exports[`mg-tabs navigation should prevent click on tab with status hidden 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -932,21 +932,21 @@ exports[`mg-tabs navigation should prevent click on tab with status hidden 1`] =
 `;
 
 exports[`mg-tabs navigation should prevent click on tab with status hidden 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="id-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="id-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -963,25 +963,25 @@ exports[`mg-tabs navigation should prevent click on tab with status hidden 2`] =
 exports[`mg-tabs template display large tabs with activeProps set by props 1`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Tab 1
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Tab 2
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Tab 3
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -999,27 +999,27 @@ exports[`mg-tabs template display large tabs with activeProps set by props 1`] =
 `;
 
 exports[`mg-tabs template display large tabs with activeProps set by props 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1039,25 +1039,25 @@ exports[`mg-tabs template display large tabs with activeProps set by props 2`] =
 exports[`mg-tabs template display large tabs with activeProps set by props 3`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1077,25 +1077,25 @@ exports[`mg-tabs template display large tabs with activeProps set by props 3`] =
 exports[`mg-tabs template display large tabs with activeProps set by props 4`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1115,25 +1115,25 @@ exports[`mg-tabs template display large tabs with activeProps set by props 4`] =
 exports[`mg-tabs template display large tabs with activeProps set by props 5`] = `
 <mg-tabs active-tab="3">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="0">
+        <button aria-controls="panel-3" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="0">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" id="panel-3" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" id="panel-3" role="tabpanel" tabindex="0">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1151,21 +1151,21 @@ exports[`mg-tabs template display large tabs with activeProps set by props 5`] =
 `;
 
 exports[`mg-tabs template display only slots with name "tab_content-*" 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -1183,21 +1183,21 @@ exports[`mg-tabs template display only slots with name "tab_content-*" 1`] = `
 `;
 
 exports[`mg-tabs template display only slots with name "tab_content-*" 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           Joker
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
     </div>
@@ -1217,25 +1217,25 @@ exports[`mg-tabs template display only slots with name "tab_content-*" 2`] = `
 exports[`mg-tabs template display regular tabs with activeProps set by props 1`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Tab 1
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Tab 2
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Tab 3
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1253,27 +1253,27 @@ exports[`mg-tabs template display regular tabs with activeProps set by props 1`]
 `;
 
 exports[`mg-tabs template display regular tabs with activeProps set by props 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1293,25 +1293,25 @@ exports[`mg-tabs template display regular tabs with activeProps set by props 2`]
 exports[`mg-tabs template display regular tabs with activeProps set by props 3`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1331,25 +1331,25 @@ exports[`mg-tabs template display regular tabs with activeProps set by props 3`]
 exports[`mg-tabs template display regular tabs with activeProps set by props 4`] = `
 <mg-tabs active-tab="2">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
+        <button aria-controls="panel-2" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="0">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" id="panel-2" role="tabpanel" tabindex="0">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1369,25 +1369,25 @@ exports[`mg-tabs template display regular tabs with activeProps set by props 4`]
 exports[`mg-tabs template display regular tabs with activeProps set by props 5`] = `
 <mg-tabs active-tab="3">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="0">
+        <button aria-controls="panel-3" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="0">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" hidden="" id="panel-1" role="tabpanel" tabindex="-1">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" id="panel-3" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" id="panel-3" role="tabpanel" tabindex="0">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1405,27 +1405,27 @@ exports[`mg-tabs template display regular tabs with activeProps set by props 5`]
 `;
 
 exports[`mg-tabs template render 1`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1443,33 +1443,33 @@ exports[`mg-tabs template render 1`] = `
 `;
 
 exports[`mg-tabs template render 2`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-regular">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-regular">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
           <mg-icon icon="check"></mg-icon>
           Batman
           <mg-badge label="messages" value="2" variant="text-color"></mg-badge>
         </button>
-        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           <mg-icon icon="cross"></mg-icon>
           Joker
           <mg-badge label="messages" outline="" value="2" variant="text-color"></mg-badge>
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           <mg-icon icon="trash"></mg-icon>
           Bane
           <mg-badge label="messages" value="2" variant="text-color"></mg-badge>
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1487,27 +1487,27 @@ exports[`mg-tabs template render 2`] = `
 `;
 
 exports[`mg-tabs template render 3`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-large">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-large">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
           Batman
         </button>
-        <button aria-controls="panel-2" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           Joker
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           Bane
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>
@@ -1525,33 +1525,33 @@ exports[`mg-tabs template render 3`] = `
 `;
 
 exports[`mg-tabs template render 4`] = `
-<mg-tabs>
+<mg-tabs active-tab="1">
   <mock:shadow-root>
-    <div class="mg-tabs mg-tabs--size-large">
-      <header aria-label="Sample label" class="mg-tabs__header" role="tablist">
-        <button aria-controls="panel-1" aria-selected="true" class="mg-tabs__navigation-button mg-tabs__navigation-button--active mg-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
+    <div class="mg-c-tabs mg-c-tabs--size-large">
+      <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+        <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
           <mg-icon icon="check"></mg-icon>
           Batman
           <mg-badge label="messages" value="2" variant="text-color"></mg-badge>
         </button>
-        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--disabled mg-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
+        <button aria-controls="panel-2" aria-disabled="" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--disabled mg-c-tabs__navigation-button--horizontal" data-index="2" id="identifier-2" role="tab" tabindex="-1">
           <mg-icon icon="cross"></mg-icon>
           Joker
           <mg-badge label="messages" outline="" value="2" variant="text-color"></mg-badge>
         </button>
-        <button aria-controls="panel-3" aria-selected="false" class="mg-tabs__navigation-button mg-tabs__navigation-button--hidden mg-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
+        <button aria-controls="panel-3" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--hidden mg-c-tabs__navigation-button--horizontal" data-index="3" id="identifier-3" role="tab" tabindex="-1">
           <mg-icon icon="trash"></mg-icon>
           Bane
           <mg-badge label="messages" value="2" variant="text-color"></mg-badge>
         </button>
       </header>
-      <article aria-labelledby="identifier-1" class="mg-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+      <article aria-labelledby="identifier-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
         <slot name="tab_content-1"></slot>
       </article>
-      <article aria-labelledby="identifier-2" class="mg-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
         <slot name="tab_content-2"></slot>
       </article>
-      <article aria-labelledby="identifier-3" class="mg-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
+      <article aria-labelledby="identifier-3" class="mg-c-tabs__content-container" hidden="" id="panel-3" role="tabpanel" tabindex="-1">
         <slot name="tab_content-3"></slot>
       </article>
     </div>

@@ -7,9 +7,8 @@ import { createID } from '../../../utils/components.utils';
 
 /**
  * MgActionMore['items'] type guard
- *
- * @param {unknown} prop commponent items prop
- * @returns {boolean} return true if type is valid
+ * @param prop - commponent items prop
+ * @returns return true if type is valid
  */
 const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
   const items = prop as MgActionMoreItemType[];
@@ -18,9 +17,8 @@ const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
 
 /**
  * MgActionMore['button'] type guard
- *
- * @param {unknown} prop commponent button prop
- * @returns {boolean} return true if type is valid
+ * @param prop - commponent button prop
+ * @returns return true if type is valid
  */
 const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => {
   const button = prop as MgActionMoreButtonType;
@@ -29,9 +27,8 @@ const isMgActionMoreButton = (prop: unknown): prop is MgActionMoreButtonType => 
 
 /**
  * MgActionMore['icon'] type guard
- *
- * @param {unknown} prop commponent icon prop
- * @returns {boolean} return true if type is valid
+ * @param prop - commponent icon prop
+ * @returns return true if type is valid
  */
 const isMgActionMoreIcon = (prop: unknown): prop is MgActionMoreIconType => {
   const icon = prop as MgActionMoreIconType;
@@ -40,14 +37,16 @@ const isMgActionMoreIcon = (prop: unknown): prop is MgActionMoreIconType => {
 
 @Component({
   tag: 'mg-action-more',
-  styleUrl: 'mg-action-more.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-action-more.css',
   shadow: true,
 })
 export class MgActionMore {
   /************
    * Internal *
    ************/
+
   private readonly name = 'mg-action-more';
+  private readonly classBase = 'mg-c-action-more';
   private readonly mgPopoverIdentifier = createID(this.name);
   private messages: MgActionMoreMessageType;
 
@@ -62,19 +61,19 @@ export class MgActionMore {
 
   /**
    * Define displaied icon
-   * Default: {icon: 'ellipsis'}
    */
-  @Prop() icon: MgActionMoreIconType = { icon: 'ellipsis' };
+  @Prop({ mutable: true }) icon: MgActionMoreIconType;
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
       throw new Error(`<${this.name}> prop icon must match MgActionMoreIconType.`);
+    } else if (!newValue?.icon && Boolean(this.button.isIcon)) {
+      this.icon = { icon: 'ellipsis' };
     }
   }
 
   /**
    * Define button properties
-   * Default: {variant: 'flat', isIcon: true}.
    */
   @Prop() button: MgActionMoreButtonType = { variant: 'flat', isIcon: true };
   @Watch('button')
@@ -107,27 +106,30 @@ export class MgActionMore {
   }
   /**
    * Menu expanded state
-   * Default: false.
    */
   @State() expanded = false;
 
   /************
-   * Merthods *
+   * Methods *
    ***********/
 
   /**
-   * Toogle expanded props
-   *
-   * @returns {void}
+   * Toggle expanded props
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
   };
 
   /**
+   * Handle popover display change value
+   * @param event - display change updated value
+   */
+  private handleDisplayChange = (event: CustomEvent): void => {
+    this.expanded = event.detail;
+  };
+
+  /**
    * Button click handler
-   *
-   * @returns {void}
    */
   private handleButton = (): void => {
     this.toggleExpanded();
@@ -135,10 +137,8 @@ export class MgActionMore {
 
   /**
    * Item click handler
-   *
-   * @param {MouseEvent} event click event
-   * @param {MgActionMoreItemType['mouseEventHandler']} customHandler item['mouseEventHandler']
-   * @returns {void}
+   * @param event - click event
+   * @param customHandler - item['mouseEventHandler']
    */
   private handleItemClick = (event: MouseEvent, customHandler: MgActionMoreItemType['mouseEventHandler']) => {
     this.expanded = false;
@@ -151,8 +151,6 @@ export class MgActionMore {
 
   /**
    * Validate props
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.messages = initLocales(this.element).messages.actionMore as MgActionMoreMessageType;
@@ -164,8 +162,7 @@ export class MgActionMore {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     const buttonLabel = this.button.label || this.messages.label;
@@ -175,9 +172,8 @@ export class MgActionMore {
       buttonContent.push(
         <span
           class={{
-            [`${this.name}__chevron`]: true,
-            [`${this.name}__chevron--rotate`]: this.expanded === true,
-            'mg-a11y-animation': true,
+            [`${this.classBase}__chevron`]: true,
+            [`${this.classBase}__chevron--rotate`]: this.expanded === true,
           }}
         >
           <mg-icon icon="chevron-down" size="small"></mg-icon>
@@ -188,9 +184,9 @@ export class MgActionMore {
     return (
       <Host data-mg-popover-guard={this.mgPopoverIdentifier}>
         <span class="mg-action-more">
-          <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded}>
-            <mg-button variant={this.button.variant} isIcon={this.button.isIcon} type="button" label={buttonLabel} onClick={this.handleButton}>
-              <mg-icon {...this.icon}></mg-icon>
+          <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
+            <mg-button variant={this.button.variant} isIcon={this.button.isIcon} disabled={this.button.disabled} type="button" label={buttonLabel} onClick={this.handleButton}>
+              {this.icon && <mg-icon {...this.icon}></mg-icon>}
               {!this.button.isIcon && buttonContent}
             </mg-button>
             <div slot="content">

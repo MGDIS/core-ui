@@ -17,7 +17,7 @@ const getPage = (args, slot?) => {
 };
 
 describe('mg-input-numeric', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   describe.each(types)('type %s', type => {
     test.each([
@@ -127,6 +127,7 @@ describe('mg-input-numeric', () => {
       });
 
       jest.spyOn(page.rootInstance.valueChange, 'emit');
+      const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
       input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
@@ -137,6 +138,10 @@ describe('mg-input-numeric', () => {
       input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
       await page.waitForChanges();
       expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(parseFloat(inputValue));
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+      expect(inputValidSpy).toHaveBeenCalledTimes(1);
     });
 
     describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
@@ -215,6 +220,17 @@ describe('mg-input-numeric', () => {
 
       expect(page.rootInstance.valid).toEqual(false);
       expect(page.rootInstance.invalid).toEqual(true);
+
+      // as nullish value is a '' we set a null value with ''
+      input.value = '';
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.rootInstance.valid).toEqual(true);
+      expect(page.rootInstance.invalid).toEqual(false);
     });
 
     test('Should filter entered value', async () => {
@@ -268,6 +284,69 @@ describe('mg-input-numeric', () => {
 
       expect(page.root).toMatchSnapshot();
     });
+  });
+
+  test.each([
+    {
+      valid: true,
+      errorMessage: 'Override error',
+    },
+    {
+      valid: false,
+      errorMessage: 'Override error',
+    },
+  ])("should display override error with setError component's public method", async params => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+
+    expect(page.root).toMatchSnapshot();
+
+    const element = page.doc.querySelector('mg-input-numeric');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    Object.defineProperty(input, 'validity', {
+      get: () => ({}),
+    });
+
+    await element.setError(params.valid, params.errorMessage);
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([
+    {
+      valid: '',
+      errorMessage: 'Override error',
+      error: '<mg-input-numeric> method "setError()" param "valid" must be a boolean',
+    },
+    {
+      valid: undefined,
+      errorMessage: 'Override error',
+      error: '<mg-input-numeric> method "setError()" param "valid" must be a boolean',
+    },
+    {
+      valid: true,
+      errorMessage: ' ',
+      error: '<mg-input-numeric> method "setError()" param "errorMessage" must be a string',
+    },
+    {
+      valid: true,
+      errorMessage: true,
+      error: '<mg-input-numeric> method "setError()" param "errorMessage" must be a string',
+    },
+  ])("shloud throw error with setError component's public method invalid params", async params => {
+    expect.assertions(1);
+    try {
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+      const element = page.doc.querySelector('mg-input-numeric');
+
+      await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
+      await page.waitForChanges();
+    } catch (err) {
+      expect(err.message).toMatch(params.error);
+    }
   });
 
   test.each(['', 'blu'])('Should throw error with invalid type property: %s', async type => {
@@ -386,5 +465,60 @@ describe('mg-input-numeric', () => {
     // If back on required the message is still not displayed
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
     expect(page.rootInstance.errorMessage).toBeUndefined();
+  });
+
+  it('should manage negative number', async () => {
+    const args = { label: 'label', identifier: 'identifier' };
+    const page = await getPage(args);
+
+    const element = page.doc.querySelector('mg-input-numeric');
+    const input = element.shadowRoot.querySelector('input');
+
+    input.checkValidity = jest.fn(() => true);
+
+    /**
+     * update input value
+     * @param value - to update input with
+     */
+    const updateInputValue = async (value: string): Promise<void> => {
+      input.value = value;
+      input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+      await page.waitForChanges();
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+    };
+
+    for await (const newValue of ['-', '-5']) {
+      await updateInputValue(newValue);
+      expect(input.value).toEqual(newValue === '-' ? '' : '-5');
+      expect(page.rootInstance.valid).toEqual(true);
+      expect(page.rootInstance.invalid).toEqual(false);
+    }
+  });
+
+  test('Should update mg-width', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const element = page.doc.querySelector('mg-input-numeric');
+
+    element.mgWidth = 2;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 4;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 16;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 'full';
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 });

@@ -1,0 +1,35 @@
+{
+  "name": "@mgdis/styles",
+  "version": "1.0.0",
+  "description": "MGDIS styles",
+  "keywords": [
+    "SCSS",
+    "CSS"
+  ],
+  "author": "Simon Duhem <duhem-s@mgdis.fr>",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "start": "sass scss:dist -w",
+    "build": "sass scss:dist -s compressed && cp -r scss/mg-temp/fonts dist/mg-temp",
+    "build:dev": "sass scss:dist",
+    "lint": "stylelint 'scss/**/*.{css,scss}'",
+    "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
+    "lint:dist": "stylelint 'dist/**/*.css' --config .stylelintrc.dist.json",
+    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
+    "test:e2e:playwright:docker": "pnpm dlx @playwright/test test"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@playwright/test": "1.40.1",
+    "playwright-config": "workspace:*",
+    "sass": "^1.69.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-idiomatic-order": "^9.0.0",
+    "stylelint-config-standard-scss": "^11.1.0"
+  },
+  "dependencies": {
+    "modern-normalize": "^2.0.0"
+  }
+}

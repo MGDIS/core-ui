@@ -1,0 +1,168 @@
+@import 'mixins/reset-mg-card-slotted-variables';
+
+$popover-space: 1rem;
+$arrow-height: 1rem;
+$arrow-width: 3rem;
+$border-arrow-head: $arrow-height solid hsl(var(--mg-popover-background-color));
+$border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
+
+:host {
+  position: relative;
+  z-index: 2000;
+  display: none;
+  padding: $popover-space;
+  color: hsl(var(--mg-popover-font-color));
+}
+
+:host([data-show]) {
+  display: block;
+}
+
+:host([data-popper-placement^='left-start']),
+:host([data-popper-placement^='left-end']),
+:host([data-popper-placement^='right-start']),
+:host([data-popper-placement^='right-end']) {
+  $padding-value: 0 $popover-space;
+
+  padding: $padding-value;
+}
+
+.mg-c-popover-content {
+  --mg-card-max-width: var(--mg-popover-max-width);
+  --mg-card-min-width: var(--mg-popover-min-width);
+
+  mg-button {
+    margin-top: calc(0rem - (var(--default-size) - var(--mg-popover-title-font-size) * var(--line-height)) / 2);
+    margin-right: calc(0rem - (var(--default-size) - var(--mg-icon-regular-size)) / 2); // Without unit (rem) the value can not be negative
+    margin-left: 3rem;
+    float: right;
+  }
+
+  &__title ::slotted([slot='title']) {
+    margin: 0 0 1rem !important; /* stylelint-disable-line declaration-no-important */
+    font-size: var(--mg-popover-title-font-size) !important; /* stylelint-disable-line declaration-no-important */
+    font-weight: 600 !important; /* stylelint-disable-line declaration-no-important */
+  }
+
+  @include reset-slot-card-variables;
+}
+
+/**
+* Arrow hide
+*/
+:host([data-popper-placement^='top'][data-arrow-hide]) {
+  padding-bottom: 0;
+}
+
+:host([data-popper-placement^='bottom'][data-arrow-hide]) {
+  padding-top: 0;
+}
+
+:host([data-popper-placement$='end'][data-arrow-hide]),
+:host([data-popper-placement^='left'][data-arrow-hide]) {
+  padding-right: 0;
+}
+
+:host([data-popper-placement$='start'][data-arrow-hide]),
+:host([data-popper-placement^='right'][data-arrow-hide]) {
+  padding-left: 0;
+}
+
+/**
+* Arrow style
+*/
+::slotted([slot='arrow']) {
+  $width-value: calc($arrow-width + 2 * var(--mg-card-border-radius) + 2 * $popover-space);
+  $popover-position: calc(var(--mg-card-border-radius) + $popover-space);
+
+  position: absolute;
+
+  // Need to set the max size to ensure it will be well centered
+  width: $width-value;
+  height: $width-value;
+  visibility: hidden;
+
+  &::before {
+    position: absolute;
+    content: '';
+    visibility: visible;
+  }
+
+  :host([data-arrow-hide]) & {
+    display: none;
+  }
+
+  /**
+  * Arrow position
+  */
+  :host([data-popper-placement^='top']) &,
+  :host([data-popper-placement^='bottom']) & {
+    height: $arrow-height;
+
+    &::before {
+      left: $popover-position;
+      border-right: $border-arrow-side;
+      border-left: $border-arrow-side;
+    }
+  }
+
+  :host([data-popper-placement^='top']) & {
+    bottom: 0.1rem;
+    filter: drop-shadow(0 0.5rem 0.25rem hsl(var(--color-dark) / 15%));
+
+    &::before {
+      border-top: $border-arrow-head;
+    }
+  }
+
+  :host([data-popper-placement^='bottom']) & {
+    top: 0.1rem;
+    filter: drop-shadow(0 -0.5rem 0.25rem hsl(var(--color-dark) / 15%));
+
+    &::before {
+      border-bottom: $border-arrow-head;
+    }
+  }
+
+  :host([data-popper-placement^='left']) &,
+  :host([data-popper-placement^='right']) & {
+    width: $arrow-height;
+
+    &::before {
+      top: $popover-position;
+      border-top: $border-arrow-side;
+      border-bottom: $border-arrow-side;
+    }
+  }
+
+  :host([data-popper-placement^='left']) & {
+    right: 0.1rem;
+    filter: drop-shadow(0.5rem 0 0.25rem hsl(var(--color-dark) / 15%));
+
+    &::before {
+      border-left: $border-arrow-head;
+    }
+  }
+
+  :host([data-popper-placement^='right']) & {
+    left: 0.1rem;
+    filter: drop-shadow(-0.5rem 0 0.25rem hsl(var(--color-dark) / 15%));
+
+    &::before {
+      border-right: $border-arrow-head;
+    }
+  }
+
+  :host([data-popper-placement^='left-start']) &,
+  :host([data-popper-placement^='left-end']) &,
+  :host([data-popper-placement^='right-start']) &,
+  :host([data-popper-placement^='right-end']) & {
+    $height-value: calc($arrow-width + 2 * var(--mg-card-border-radius));
+
+    height: $height-value;
+
+    &::before {
+      top: var(--mg-card-border-radius);
+    }
+  }
+}

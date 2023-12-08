@@ -104,12 +104,12 @@ describe('mg-tabs', () => {
       }
     });
 
-    test.each([0, 3])('should trown an error with invalid tabItem props', async activeTab => {
+    test.each([0, 3, null, { test: 'fail' }, 'string'])('should trown an error with invalid range for "activeTab" props', async activeTab => {
       expect.assertions(1);
       try {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], activeTab }, createSlots());
       } catch (err) {
-        expect(err.message).toMatch('<mg-tabs> prop "activeTab" must be between 1 and tabs length.');
+        expect(err.message).toMatch(`<mg-tabs> prop "activeTab" must be a number between 1 and 2 and new value must be "activable".`);
       }
     });
 
@@ -129,7 +129,7 @@ describe('mg-tabs', () => {
       expect(page.root).toMatchSnapshot();
 
       const element = page.doc.querySelector('mg-tabs');
-      let activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      let activeTab = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
       expect(activeTab).toHaveProperty('id', 'id-1');
 
       jest.spyOn(page.rootInstance.activeTabChange, 'emit');
@@ -138,10 +138,10 @@ describe('mg-tabs', () => {
       nextTab.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
       expect(page.rootInstance.activeTabChange.emit).toHaveBeenCalledWith(2);
+      expect(page.root).toMatchSnapshot();
 
-      activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      activeTab = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
       expect(activeTab).toHaveProperty('id', 'id-2');
     });
 
@@ -150,7 +150,7 @@ describe('mg-tabs', () => {
       expect(page.root).toMatchSnapshot();
 
       const element = page.doc.querySelector('mg-tabs');
-      let activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      let activeTab = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
       expect(activeTab).toHaveProperty('id', 'id-1');
 
       jest.spyOn(page.rootInstance.activeTabChange, 'emit');
@@ -162,7 +162,7 @@ describe('mg-tabs', () => {
       expect(page.root).toMatchSnapshot();
       expect(page.rootInstance.activeTabChange.emit).not.toHaveBeenCalled();
 
-      activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      activeTab = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
       expect(activeTab).toHaveProperty('id', 'id-1');
     });
 
@@ -177,7 +177,7 @@ describe('mg-tabs', () => {
         button.focus = jest.fn();
       });
 
-      let activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      let activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
       activeTab.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
 
       await page.waitForChanges();
@@ -194,7 +194,7 @@ describe('mg-tabs', () => {
 
         expect(page.root).toMatchSnapshot();
 
-        activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+        activeTab = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
         expect(activeTab).toHaveProperty('id', 'id-1');
         expect(buttons[action.to].focus).toHaveBeenCalledTimes(action.key === key.next ? 1 : 2);
         expect(activeTabChangeSpy).not.toHaveBeenCalled();
@@ -212,7 +212,7 @@ describe('mg-tabs', () => {
         button.focus = jest.fn();
       });
 
-      let activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      let activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
 
       activeTab.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
@@ -233,7 +233,7 @@ describe('mg-tabs', () => {
 
           expect(page.root).toMatchSnapshot();
 
-          activeTab = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+          activeTab = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
           expect(activeTab).toHaveProperty('id', 'id-1');
           if (action.to === 2) {
             const button = buttons[action.key === key.next ? action.from - 1 : action.from + 1];
@@ -263,7 +263,7 @@ describe('mg-tabs', () => {
       const element = page.doc.querySelector('mg-tabs');
       const spys = Array.from(element.shadowRoot.querySelectorAll('button')).map(button => jest.spyOn(button, 'setAttribute'));
 
-      const activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      const activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
 
       activeTab.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
@@ -275,7 +275,6 @@ describe('mg-tabs', () => {
 
       activeTab.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
       await page.waitForChanges();
-      jest.runOnlyPendingTimers();
 
       expect(spys[0]).toHaveBeenCalledTimes(2);
       expect(spys[0]).toHaveBeenLastCalledWith('tabindex', '0');
@@ -292,7 +291,7 @@ describe('mg-tabs', () => {
       const element = page.doc.querySelector('mg-tabs');
       const spys = Array.from(element.shadowRoot.querySelectorAll('button')).map(button => jest.spyOn(button, 'setAttribute'));
 
-      const activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-tabs__navigation-button--active');
+      const activeTab: HTMLElement = element.shadowRoot.querySelector('.mg-c-tabs__navigation-button--active');
 
       activeTab.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
@@ -304,7 +303,6 @@ describe('mg-tabs', () => {
 
       document.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
-      jest.runOnlyPendingTimers();
 
       expect(spys[0]).toHaveBeenCalledTimes(2);
       expect(spys[0]).toHaveBeenLastCalledWith('tabindex', '0');

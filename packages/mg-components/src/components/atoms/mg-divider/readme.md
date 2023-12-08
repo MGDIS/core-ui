@@ -1,6 +1,6 @@
 ## Sizing
 
-![](./mg-divider/doc/img/mg-divider-sizing.png)
+![](./doc/img/mg-divider-sizing.png)
 
 Two sizes are possible :
 
@@ -15,17 +15,17 @@ Rules :
 
 ## Spacing
 
-![](./mg-divider/doc/img/mg-divider-spacing.png)
+![](./doc/img/mg-divider-spacing.png)
 
 Default margin applied on top and bottom of the divider is set to 40px.
 
 ## Color
 
-![](./mg-divider/doc/img/mg-divider-color.png)
+![](./doc/img/mg-divider-color.png)
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-divider-background-color`: define the divider background color, default: `hsla(var(--color-danger), 15%)`
 - `--mg-divider-thickness`: define the divider thickness, default: `0.1rem`

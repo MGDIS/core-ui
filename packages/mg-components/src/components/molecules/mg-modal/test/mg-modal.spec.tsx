@@ -6,6 +6,7 @@ import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgModal } from '../mg-modal';
 import { focusableElements } from '../../../../utils/components.utils';
 import { setupMutationObserverMock } from '../../../../utils/unit.test.utils';
+import { dialogRoles } from '../mg-modal.conf';
 
 const getPage = (args, slots?) =>
   newSpecPage({
@@ -45,6 +46,7 @@ describe('mg-modal', () => {
   describe.each([undefined, { content: true }, { actions: true }, { content: true, actions: true }])('Should render a modal', slots => {
     test.each([
       { modalTitle: 'Modal Title', identifier: 'identifier' },
+      { modalTitle: 'Modal Title', identifier: 'identifier', dialogRole: 'alertdialog' },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, hide: true },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, lang: 'fr' },
@@ -61,6 +63,15 @@ describe('mg-modal', () => {
       await getPage({ modalTitle });
     } catch (err) {
       expect(err.message).toMatch('<mg-modal> prop "modalTitle" is required.');
+    }
+  });
+
+  test.each([' ', 'batman'])('Should throw error with invalid dialogRole property: %s', async dialogRole => {
+    expect.assertions(1);
+    try {
+      await getPage({ modalTitle: 'Modal title', dialogRole });
+    } catch (err) {
+      expect(err.message).toMatch(`<mg-modal> prop "dialogRole" must be one of: ${dialogRoles.join(', ')}.`);
     }
   });
 
@@ -97,35 +108,43 @@ describe('mg-modal', () => {
       }
     });
 
-    test.each([true, false])('should keep focus inside modale', async closeButton => {
-      const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hide: true }, { content: true, actions: true });
-      const element = page.doc.querySelector('mg-modal');
-      // Get all focusable elements
-      const modalFocusableElements = Array.from(element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
-        acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
-        return acc;
-      }, []);
-      // When close button is enabled it's the first focusable element.
-      if (closeButton) {
-        modalFocusableElements.unshift(element.shadowRoot.querySelector(`.mg-modal__close-button mg-button`));
-      }
-      const lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
-      const spyFirst = jest.spyOn(modalFocusableElements[0], 'focus');
-      const spyLast = jest.spyOn(lastFocusableElement, 'focus');
+    describe.each([
+      { attributeName: 'aria-hidden', target: { ariaHidden: null } },
+      { attributeName: 'aria-hidden', target: { ariaHidden: '' } },
+      { attributeName: 'aria-hidden', target: { ariaHidden: undefined } },
+    ])('mutationObserver', mutation => {
+      test.each([true, false])('should keep focus inside modal, closeButton %s', async closeButton => {
+        const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hide: true }, { content: true, actions: true });
+        const element = page.doc.querySelector('mg-modal');
+        // Get all focusable elements
+        const modalFocusableElements = Array.from(element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
+          acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
+          return acc;
+        }, []);
+        // When close button is enabled it's the first focusable element.
+        if (closeButton) {
+          modalFocusableElements.unshift(element.shadowRoot.querySelector(`.mg-c-modal__close-button mg-button`));
+        }
+        const lastFocusableElement = modalFocusableElements[modalFocusableElements.length - 1];
+        const spyFirst = jest.spyOn(modalFocusableElements[0], 'focus');
+        const spyLast = jest.spyOn(lastFocusableElement, 'focus');
 
-      // Display modal
-      element.hide = false;
-      fireMo([{ attributeName: 'aria-hidden', target: { ariaHidden: null } }]);
-      await page.waitForChanges();
-      expect(spyFirst).toHaveBeenCalledTimes(1);
-      // Tab from last focusable element
-      lastFocusableElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: false }));
-      await page.waitForChanges();
-      expect(spyFirst).toHaveBeenCalledTimes(2);
-      // Tab first focusable element with shift key
-      modalFocusableElements[0].dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: true }));
-      await page.waitForChanges();
-      expect(spyLast).toHaveBeenCalledTimes(1);
+        // Display modal
+        element.hide = false;
+        await page.waitForChanges();
+        expect(spyFirst).toHaveBeenCalledTimes(0);
+        fireMo([mutation]);
+        await page.waitForChanges();
+        expect(spyFirst).toHaveBeenCalledTimes(1);
+        // Tab from last focusable element
+        lastFocusableElement.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: false }));
+        await page.waitForChanges();
+        expect(spyFirst).toHaveBeenCalledTimes(2);
+        // Tab first focusable element with shift key
+        modalFocusableElements[0].dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Tab', shiftKey: true }));
+        await page.waitForChanges();
+        expect(spyLast).toHaveBeenCalledTimes(1);
+      });
     });
   });
 });

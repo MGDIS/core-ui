@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID } from '../../../../utils/components.utils';
+import { ClassList, createID, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 import { Direction } from '../mg-menu/mg-menu.conf';
 import { Status } from './mg-menu-item.conf';
@@ -10,7 +10,7 @@ import type { MgPopover } from '../../mg-popover/mg-popover';
 
 @Component({
   tag: 'mg-menu-item',
-  styleUrl: 'mg-menu-item.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-menu-item.css',
   shadow: true,
 })
 export class MgMenuItem {
@@ -19,7 +19,7 @@ export class MgMenuItem {
    ************/
 
   private readonly name = 'mg-menu-item';
-  private readonly navigationButton = `${this.name}__navigation-button`;
+  private readonly navigationButton = 'mg-c-menu-item__navigation-button';
   private badgeLabel: string;
 
   /**************
@@ -37,7 +37,6 @@ export class MgMenuItem {
 
   /**
    * Identifier is used to control mg-popover
-   * Default: createID('mg-menu-item');
    */
   @Prop() identifier = createID('mg-menu-item');
 
@@ -48,7 +47,7 @@ export class MgMenuItem {
   @Prop() href: string;
 
   /**
-   * Define menu-item status. Default: "visible"
+   * Define menu-item status.
    */
   @Prop({ reflect: true, mutable: true }) status: Status = Status.VISIBLE;
   @Watch('status')
@@ -61,7 +60,7 @@ export class MgMenuItem {
   }
 
   /**
-   * Define menu-item content expanded. Default: false.
+   * Define menu-item content expanded.
    */
   @Prop({ mutable: true }) expanded = false;
   @Watch('expanded')
@@ -94,7 +93,7 @@ export class MgMenuItem {
   /**
    * Emited event when status change
    */
-  @Event({ eventName: 'status-change' }) statusChange: EventEmitter<MgMenuItem['status']>;
+  @Event({ eventName: 'status-change' }) statusChange: EventEmitter<HTMLMgMenuItemElement['status']>;
 
   /**
    * Emited event when item is loaded
@@ -106,7 +105,7 @@ export class MgMenuItem {
    *********/
 
   /**
-   * Define menu-item size. Default: "regular".
+   * Define menu-item size.
    */
   @State() size: MenuSizeType = 'regular';
   @Watch('size')
@@ -148,7 +147,7 @@ export class MgMenuItem {
   @State() isItemMore: boolean;
 
   /**
-   * Does component have children. Default: false.
+   * Does component have children.
    */
   @State() hasChildren = false;
   @Watch('hasChildren')
@@ -169,8 +168,6 @@ export class MgMenuItem {
 
   /**
    * Toggle expanded prop value
-   *
-   * @returns {void}
    */
   private toggleExpanded = (): void => {
     this.expanded = !this.expanded;
@@ -178,27 +175,23 @@ export class MgMenuItem {
 
   /**
    * Does an Element have given Status
-   *
-   * @param {HTMLMgMenuItemElement} mgMenuItemElement to parse
-   * @param {MgMenuItem['status']} status to check
-   * @returns {boolean} true if element with status is found
+   * @param mgMenuItemElement - to parse
+   * @param status - to check
+   * @returns true if element with status is found
    */
   private hasStatus = (mgMenuItemElement: HTMLMgMenuItemElement, status: MgMenuItem['status']): boolean => mgMenuItemElement.status === status;
 
   /**
    * Is component contextual direction match the given direction
-   *
-   * @param {MgMenuItem['direction']} direction in parent menu
-   * @param {MgMenuItem['direction']} compareWith direction to compare with. Default: `this.direction`
-   * @returns {boolean} true is direction match the direction propertie
+   * @param direction - in parent menu
+   * @param compareWith - direction to compare with. Default: `this.direction`
+   * @returns true is direction match the direction propertie
    */
   private isDirection = (direction: MgMenuItem['direction'], compareWith = this.direction): boolean => direction === compareWith;
 
   /**
    * Update displayNotificationBadge
    * current component notification badge have priority over the slot badge when submenu contain badge
-   *
-   * @returns {void} update displayNotificationBadge value
    */
   private updateDisplayNotificationBadge = (): void => {
     const childMenu = this.element.querySelector('mg-menu');
@@ -209,8 +202,7 @@ export class MgMenuItem {
 
   /**
    * Method to control if one of component children have active status
-   *
-   * @returns {boolean} truthy if component has active child
+   * @returns truthy if component has active child
    */
   private hasActiveChild = (): boolean =>
     Array.from(this.element.querySelector('mg-menu')?.children || []).some(
@@ -219,9 +211,7 @@ export class MgMenuItem {
 
   /**
    * Validate slots
-   *
-   * @param {boolean} guard prevent action whith guard. Default: false.
-   * @returns {void}
+   * @param guard - prevent action with guard. Default: false.
    */
   private validateSlot = (guard = false): void => {
     // slot title AND metadata validation
@@ -229,7 +219,7 @@ export class MgMenuItem {
     if (Array.from(this.element.children).find(child => child.getAttribute('slot') === 'label') === undefined) throw new Error(`<${this.name}> slot "label" is required.`);
     ['label', 'metadata'].forEach(slot => {
       Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
-        if (element.textContent.trim().length < 1) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
+        if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
         if ((guard && element.getAttribute('title') === null) || !guard) element.setAttribute('title', element.textContent);
       });
     });
@@ -237,9 +227,7 @@ export class MgMenuItem {
 
   /**
    * Update status
-   *
-   * @param {Status[]} guard status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
-   * @returns {void}
+   * @param guard - status to exclude from process in addition to [Status.HIDDEN, Status.DISABLED] . Default: [].
    */
   private updateStatus = (guard = []): void => {
     if (![Status.HIDDEN, Status.DISABLED, ...guard].includes(this.status)) {
@@ -249,8 +237,6 @@ export class MgMenuItem {
 
   /**
    * Init event-listeners
-   *
-   * @returns {void}
    */
   private initListeners = (): void => {
     // manage first sub-level menu-items
@@ -266,15 +252,12 @@ export class MgMenuItem {
 
   /**
    * Get mg-popover identifier
-   *
-   * @returns {MgPopover['identifier']} generated mg-popover identifier
+   * @returns generated mg-popover identifier
    */
   private getPopoverIdentifier = (): MgPopover['identifier'] => `${this.identifier}-popover`;
 
   /**
    * Render popover clickoutside guard for content slot
-   *
-   * @returns {void}
    */
   private updatePopoverGuard(): void {
     if (this.displayPopover())
@@ -285,8 +268,7 @@ export class MgMenuItem {
 
   /**
    * Condition to know if component should display a mg-popover
-   *
-   * @returns {boolean} truthy if component display popover
+   * @returns truthy if component display popover
    */
   private displayPopover = (): boolean => this.isDirection(Direction.HORIZONTAL) && this.hasChildren && this.href === undefined;
 
@@ -296,9 +278,7 @@ export class MgMenuItem {
 
   /**
    * Handle interacrtive element click
-   *
-   * @param {MouseEvent} event click on element
-   * @returns {void}
+   * @param event - click on element
    */
   private handleElementCLick = (event: MouseEvent): void => {
     if ((this.hasChildren && !this.isInMainMenu) || this.status === Status.DISABLED) {
@@ -312,9 +292,7 @@ export class MgMenuItem {
 
   /**
    * Handle popover element display-change event
-   *
-   * @param {CustomEvent} event popover display event
-   * @returns {void}
+   * @param event - popover display event
    */
   private handlePopoverDisplay = (event: CustomEvent): void => {
     this.expanded = event.detail;
@@ -326,8 +304,6 @@ export class MgMenuItem {
 
   /**
    * Validate props
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // has children items that is NOT [slot='image' | 'information' | 'label' | 'metadata'] element
@@ -346,8 +322,7 @@ export class MgMenuItem {
 
   /**
    * Check if component slots configuration
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
     // validation
@@ -389,8 +364,7 @@ export class MgMenuItem {
 
   /**
    * Render ineractive element
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   private renderInteractiveElement(): HTMLElement {
     const TagName: string = this.href !== undefined ? 'a' : 'button';
@@ -398,7 +372,7 @@ export class MgMenuItem {
       <TagName
         href={this.href}
         class={this.navigationButtonClassList.join()}
-        tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : 0}
+        tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
         aria-expanded={this.hasChildren && this.expanded.toString()}
@@ -411,7 +385,7 @@ export class MgMenuItem {
             <slot name="label"></slot>
             {!this.displayNotificationBadge && <slot name="information"></slot>}
             {this.displayNotificationBadge && (
-              <span class="mg-menu-item__navigation-button-text-content-notification">
+              <span class={`${this.navigationButton}-text-content-notification`}>
                 <mg-badge label={this.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
               </span>
             )}
@@ -423,10 +397,9 @@ export class MgMenuItem {
             class={{
               [`${this.navigationButton}-chevron`]: true,
               [`${this.navigationButton}-chevron--rotate`]: this.expanded === true,
-              'mg-a11y-animation': true,
             }}
           >
-            <mg-icon icon="chevron-down"></mg-icon>
+            <mg-icon icon="chevron-down" size="small"></mg-icon>
           </span>
         )}
       </TagName>
@@ -435,24 +408,22 @@ export class MgMenuItem {
 
   /**
    * Render slot
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   private renderSlot = (): HTMLElement => <slot></slot>;
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     const getContainerClasses = () => ({
-      [`${this.name}__collapse-container`]: true,
-      [`${this.name}__collapse-container--first-level`]: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
+      ['mg-c-menu-item__collapse-container']: true,
+      ['mg-c-menu-item__collapse-container--first-level']: (this.isInMainMenu || this.isItemMore) && this.isDirection(Direction.HORIZONTAL),
     });
 
     return (
-      <Host role={!this.isItemMore && 'menuitem'} aria-haspopup={!this.isItemMore && this.hasChildren.toString()}>
+      <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
         {this.displayPopover() ? (
           <mg-popover display={this.expanded} placement="bottom-start" arrowHide={true} onDisplay-change={this.handlePopoverDisplay} identifier={this.getPopoverIdentifier()}>
             {this.renderInteractiveElement()}

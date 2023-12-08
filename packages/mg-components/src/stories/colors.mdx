@@ -1,0 +1,123 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Style/Colors" />
+
+# Colors
+
+## Information colors
+
+(!) Accessibility: This color must be combined with black if it is not used for decorative purposes because the ratio with white is not sufficient.
+
+<ColorPalette>
+  <ColorItem
+    title="Neutral / Draft"
+    subtitle="@color-neutral"
+    colors={{
+      Hexa: '#FEFEFE',
+      RGB: 'rgb(254, 254, 254)',
+      HSL: 'hsl(0, 0%, 99.6%)',
+    }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="@color-warning"
+    colors={{
+      Hexa: '#FFC33E',
+      RGB: 'rgb(255, 195, 62)',
+      HSL: 'hsl(41, 100%, 62.2%)',
+    }}
+  />
+  <ColorItem
+    title="Success"
+    subtitle="@color-success"
+    colors={{
+      Hexa: '#32D59C',
+      RGB: 'rgb(50, 213, 156)',
+      HSL: 'hsl(159, 66%, 51.6%)',
+    }}
+  />
+  <ColorItem
+    title="Info / Brand"
+    subtitle="@color-info"
+    colors={{
+      Hexa: '#005E9C',
+      RGB: 'rgb(0, 94, 156)',
+      HSL: 'hsl(204, 100%, 30.6%)',
+    }}
+  />
+  <ColorItem
+    title="Danger"
+    subtitle="@color-danger"
+    colors={{
+      Hexa: '#DB1F29',
+      RGB: 'rgb(219, 31, 41)',
+      HSL: 'hsl(357, 75%, 49%)',
+    }}
+  />
+</ColorPalette>
+
+## Font colors
+
+<ColorPalette>
+  <ColorItem
+    title="Light"
+    subtitle="@color-light"
+    colors={{
+      Hexa: '#FFFFFF',
+      RGB: 'rgb(255, 255, 255)',
+      HSL: 'hsl(0, 0%, 100%)',
+    }}
+  />
+  <ColorItem
+    title="Dark"
+    subtitle="@color-dark"
+    colors={{
+      Hexa: '#15282E',
+      RGB: 'rgb(21, 40, 45)',
+      HSL: 'hsl(194, 37%, 13%)',
+    }}
+  />
+  <ColorItem
+    title="Dark-40"
+    subtitle="@color-dark-40"
+    colors={{
+      Hexa: '#657175',
+      RGB: 'rgb(101,113,117)',
+      HSL: 'hsl(194, 7%, 43%)',
+    }}
+  />
+  <ColorItem
+    title="Dark-soft"
+    subtitle="@color-dark-soft"
+    colors={{
+      Hexa: '#DCEAEF',
+      RGB: 'rgb(220, 234, 239)',
+      HSL: 'hsl(194, 37%, 90%)',
+    }}
+  />
+  <ColorItem
+    title="Dark-5"
+    subtitle="@color-dark-5"
+    colors={{
+      Hexa: '#F3F4F5',
+      RGB: 'rgb(243, 244, 245)',
+      HSL: 'hsl(210, 9%, 96%)',
+    }}
+  />
+</ColorPalette>
+
+## Variables
+
+### Drop Shadow (@shadow)
+
+@color-dark
+opacity: 15%.  
+x: 0px  
+y: 3px  
+blur: 8px
+
+## Soft color
+
+Soft color is an HSL lightness based variation.
+
+To apply it you need to update ligthness value with `--mg-color-soft-l` CSS variable. Default: `90%`.

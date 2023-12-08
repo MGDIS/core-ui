@@ -11,11 +11,11 @@ The style of the active radio button is that of the browser.
 
 ## Specs
 
-![](./mg-input-radio/doc/img/mg-input-radio-specs.png)
+![](./doc/img/mg-input-radio-specs.png)
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-input-check-size`: Define radio input size, default: `1.3rem`
 
@@ -31,7 +31,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `identifier` _(required)_ | `identifier`          | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                    | `undefined`       |
 | `inputVerticalList`       | `input-vertical-list` | Define if inputs are display verticaly                                      | `boolean`                   | `false`           |
 | `invalid`                 | `invalid`             | Define input invalid state                                                  | `boolean`                   | `undefined`       |
-| `items` _(required)_      | --                    | Items are the possible options to select Required                           | `RadioOption[] \| string[]` | `undefined`       |
+| `items` _(required)_      | --                    | Items are the possible options to select                                    | `RadioOption[] \| string[]` | `undefined`       |
 | `label` _(required)_      | `label`               | Input label                                                                 | `string`                    | `undefined`       |
 | `labelHide`               | `label-hide`          | Define if label is visible                                                  | `boolean`                   | `false`           |
 | `labelOnTop`              | `label-on-top`        | Define if label is displayed on top                                         | `boolean`                   | `false`           |
@@ -55,7 +55,20 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setError(valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
 #### Returns
 
@@ -78,6 +91,7 @@ graph TD;
   mg-input-radio --> mg-tooltip
   mg-input-radio --> mg-icon
   mg-input-radio --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-radio fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

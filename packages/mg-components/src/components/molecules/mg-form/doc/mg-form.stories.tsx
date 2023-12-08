@@ -16,21 +16,22 @@ const args = {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => {
   let form;
   let submit;
+  let canSubmit = false;
   return (
     <mg-form
       {...filterArgs(args)}
-      ref={el => {
+      ref={(el: HTMLMgFormElement) => {
         form = el;
         form.addEventListener('form-valid', e => {
           submit.disabled = !e.detail;
+          canSubmit = submit.disabled;
         });
         form.addEventListener('form-submit', () => {
           window.alert('Your form has been submitted');
@@ -66,7 +67,7 @@ const Template = (args: any): HTMLElement => {
       <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
         <mg-button
           id="can-submit"
-          disabled
+          disabled={canSubmit}
           ref={e => {
             submit = e;
           }}
@@ -88,5 +89,7 @@ const Template = (args: any): HTMLElement => {
   );
 };
 
-export const MgForm = Template.bind({});
-MgForm.args = { ...args };
+export const MgForm = {
+  render: Template,
+  args: { ...args },
+};

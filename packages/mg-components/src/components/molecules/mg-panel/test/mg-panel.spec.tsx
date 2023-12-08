@@ -3,24 +3,21 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgPanel } from '../mg-panel';
 
 import { MgButton } from '../../../atoms/mg-button/mg-button';
-import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
+import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
 
-const getPage = (args, slot?) => {
-  const page = newSpecPage({
-    components: [MgPanel, MgButton, MgIcon, MgInputText],
+const getPage = (args, slot?) =>
+  newSpecPage({
+    components: [MgPanel, MgButton, MgInputText],
     template: () => <mg-panel {...args}>{slot}</mg-panel>,
   });
-  jest.runAllTimers();
-
-  return page;
-};
 
 describe('mg-panel', () => {
   beforeAll(() => (global.HTMLInputElement.prototype.focus = jest.fn()));
   afterAll(() => delete global.HTMLInputElement.prototype.focus);
 
-  beforeEach(() => jest.useFakeTimers());
+  // use faketimers for mg-input-text
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
 
   test.each([
@@ -30,28 +27,21 @@ describe('mg-panel', () => {
     { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, titlePattern: /joker/, titlePatternErrorMessage: "You can't enter a bad guy !" },
     { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, lang: 'fr' },
     { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, lang: 'xx' },
+    ...titlePositions.map(titlePosition => ({ identifier: 'identifier', panelTitle: 'panel title', titlePosition })),
+    ...expandToggleDisplays.map(expandToggleDisplay => ({ identifier: 'identifier', panelTitle: 'panel title', expandToggleDisplay })),
+    ...expandToggleDisplays.map(expandToggleDisplay => ({ identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, expandToggleDisplay })),
   ])('Should render with args %s:', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
   });
 
   describe('errors', () => {
-    test.each([
-      { props: { identifier: 'identifier', panelTitle: 'panel title', titlePattern: /joker/ }, error: '<mg-panel> prop "titleEditable" must be set to `true`.' },
-      {
-        props: { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, titlePattern: '^(?!(joker)$)[a-z A-Z0-9s]+$' },
-        error: '<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".',
-      },
-      {
-        props: { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true, titlePattern: '^(?!(joker)$)[a-z A-Z0-9s]+$', titlePatternErrorMessage: '' },
-        error: '<mg-panel> prop "titlePattern" must be paired with the prop "titlePatternErrorMessage".',
-      },
-    ])('Should throw error when props association are unauthorized %s:', async ({ props, error }) => {
+    test('Should throw error when props association are unauthorized %s:', async () => {
       expect.assertions(1);
       try {
-        await getPage(props);
+        await getPage({ identifier: 'identifier', panelTitle: 'panel title', titlePattern: /joker/ });
       } catch (err) {
-        expect(err.message).toBe(error);
+        expect(err.message).toBe('<mg-panel> prop "titleEditable" must be set to "true".');
       }
     });
 
@@ -63,6 +53,28 @@ describe('mg-panel', () => {
         expect(err.message).toMatch('<mg-panel> prop "panelTitle" is required.');
       }
     });
+
+    test.each(['', ' ', 'batman'].map(titlePosition => ({ panelTitle: 'panel title', titlePosition })))(
+      'Should throw an error when prop "titlePosition" is invalid',
+      async props => {
+        try {
+          await getPage(props);
+        } catch (err) {
+          expect(err.message).toMatch(`<mg-panel> prop "titlePosition" must be one of: ${titlePositions.join(', ')}.`);
+        }
+      },
+    );
+
+    test.each(['', ' ', 'batman'].map(expandToggleDisplay => ({ panelTitle: 'panel title', expandToggleDisplay })))(
+      'Should throw an error when prop "expandToggleDisplay" is invalid',
+      async props => {
+        try {
+          await getPage(props);
+        } catch (err) {
+          expect(err.message).toMatch(`<mg-panel> prop "expandToggleDisplay" must be one of: ${expandToggleDisplays.join(', ')}.`);
+        }
+      },
+    );
   });
 
   describe('navigation', () => {
@@ -104,7 +116,7 @@ describe('mg-panel', () => {
     test.each([true, false])('Should toggle edit panel title', async titleEditable => {
       const page = await getPage({ identifier: 'identifier', panelTitle: 'panel title', titleEditable });
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -115,7 +127,6 @@ describe('mg-panel', () => {
         expect(page.root).toMatchSnapshot();
 
         editButton.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-        jest.runOnlyPendingTimers();
         await page.waitForChanges();
 
         expect(page.root).toMatchSnapshot();
@@ -127,7 +138,7 @@ describe('mg-panel', () => {
       const args = { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true };
       const page = await getPage(args);
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -148,10 +159,9 @@ describe('mg-panel', () => {
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      const afterInputAction = mgPanel.shadowRoot.querySelector(`.mg-panel__header-left mg-input-text mg-button:${lastAction}`);
+      const afterInputAction = mgPanel.shadowRoot.querySelector(`.mg-c-panel__header-title mg-input-text mg-button:${lastAction}`);
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -170,7 +180,7 @@ describe('mg-panel', () => {
       const args = { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true };
       const page = await getPage(args);
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -187,10 +197,9 @@ describe('mg-panel', () => {
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-input-text mg-button:last-of-type');
+      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -210,7 +219,7 @@ describe('mg-panel', () => {
       };
       const page = await getPage(args);
       const mgPanel = page.doc.querySelector('mg-panel');
-      const editButton = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-button[is-icon]');
+      const editButton = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-button[is-icon]');
 
       expect(page.root).toMatchSnapshot();
 
@@ -240,10 +249,9 @@ describe('mg-panel', () => {
       await page.waitForChanges();
 
       // and click on validate button
-      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-input-text mg-button:last-of-type');
+      const afterInputAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       afterInputAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -252,10 +260,9 @@ describe('mg-panel', () => {
       expect(page.rootInstance.titleChange.emit).not.toHaveBeenCalledWith(updatedPanelTitle);
 
       // finaly return to default view by clicking on cancel button
-      const cancelAction = mgPanel.shadowRoot.querySelector('.mg-panel__header-left mg-input-text mg-button:last-of-type');
+      const cancelAction = mgPanel.shadowRoot.querySelector('.mg-c-panel__header-title mg-input-text mg-button:last-of-type');
 
       cancelAction.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();

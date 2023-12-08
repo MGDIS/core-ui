@@ -15,7 +15,7 @@ const getPage = args => {
 };
 
 describe('mg-input-textarea', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   test.each([
     { label: 'label', identifier: 'identifier' },
@@ -65,13 +65,21 @@ describe('mg-input-textarea', () => {
     }
   });
 
-  test.each(['', undefined])('Should throw an error when pattern is used with patternErrorMessage: %s', async value => {
+  test.each(['', ' ', null, undefined])('Should throw an error when pattern is used with patternErrorMessage: %s', async patternErrorMessage => {
     expect.assertions(1);
     try {
-      const { root } = await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage: value });
-      expect(root).toMatchSnapshot();
+      await getPage({ identifier: 'identifier', label: 'blu', pattern: '[a-z]*', patternErrorMessage });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-textarea> prop "pattern" must be paired with the prop "patternErrorMessage"');
+      expect(err.message).toMatch('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+    }
+  });
+
+  test.each(['', ' ', null, undefined])('Should throw an error when patternErrorMessage is used with invalid pattern: %s', async pattern => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'blu', pattern, patternErrorMessage: 'pattern error message' });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
     }
   });
 
@@ -92,10 +100,11 @@ describe('mg-input-textarea', () => {
     });
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
+    const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
     input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classList.has('is-focused')).toEqual(true);
+    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(true);
 
     expect(page.root).toMatchSnapshot(); //Snapshot on focus
 
@@ -106,7 +115,8 @@ describe('mg-input-textarea', () => {
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.classList.has('is-focused')).toEqual(false);
+    expect(page.rootInstance.classCollection.has('mg-u-is-focused')).toEqual(false);
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
@@ -171,6 +181,69 @@ describe('mg-input-textarea', () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([
+    {
+      valid: true,
+      errorMessage: 'Override error',
+    },
+    {
+      valid: false,
+      errorMessage: 'Override error',
+    },
+  ])("should display override error with setError component's public method", async params => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+
+    expect(page.root).toMatchSnapshot();
+
+    const element = page.doc.querySelector('mg-input-textarea');
+    const input = element.shadowRoot.querySelector('textarea');
+
+    //mock validity
+    Object.defineProperty(input, 'validity', {
+      get: () => ({}),
+    });
+
+    await element.setError(params.valid, params.errorMessage);
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([
+    {
+      valid: '',
+      errorMessage: 'Override error',
+      error: '<mg-input-textarea> method "setError()" param "valid" must be a boolean',
+    },
+    {
+      valid: undefined,
+      errorMessage: 'Override error',
+      error: '<mg-input-textarea> method "setError()" param "valid" must be a boolean',
+    },
+    {
+      valid: true,
+      errorMessage: ' ',
+      error: '<mg-input-textarea> method "setError()" param "errorMessage" must be a string',
+    },
+    {
+      valid: true,
+      errorMessage: true,
+      error: '<mg-input-textarea> method "setError()" param "errorMessage" must be a string',
+    },
+  ])("shloud throw error with setError component's public method invalid params", async params => {
+    expect.assertions(1);
+    try {
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+      const element = page.doc.querySelector('mg-input-textarea');
+
+      await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
+      await page.waitForChanges();
+    } catch (err) {
+      expect(err.message).toMatch(params.error);
+    }
   });
 
   test.each(['fr', 'xx'])('display error message with locale: %s', async lang => {
@@ -280,5 +353,27 @@ describe('mg-input-textarea', () => {
     // If back on required the message is still not displayed
     expect(page.rootInstance.hasDisplayedError).toEqual(false);
     expect(page.rootInstance.errorMessage).toBeUndefined();
+  });
+
+  test('Should update mg-width', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
+    const element = page.doc.querySelector('mg-input-textarea');
+
+    element.mgWidth = 2;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 4;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    element.mgWidth = 16;
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    expect(page.root).toMatchSnapshot();
   });
 });

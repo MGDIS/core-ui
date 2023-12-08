@@ -1,4 +1,4 @@
-import { Component, Element, h, Prop, Watch, Event, EventEmitter } from '@stencil/core';
+import { Component, Element, h, Prop, Watch, Event, EventEmitter, Host } from '@stencil/core';
 import { createID } from '../../../utils/components.utils';
 import { NavigationAction } from './mg-pagination.conf';
 import { initLocales } from './../../../locales';
@@ -6,6 +6,7 @@ import { initLocales } from './../../../locales';
 /**
  * Range generator
  *
+ * ```
  * start by get the range length, add "+ 1" to include last value, ex: Math.ceil((3 + 1 - 1) / 1) => 3
  * then with Array(Math.ceil...) we get the final array with empty values, ex: Array(Math.ceil(2 + 1 - 1) / 1)) => [empty, empty, empty]
  * then with Array(Math.ceil...).keys() we get the Array Iterator from empty values
@@ -13,21 +14,21 @@ import { initLocales } from './../../../locales';
  * ex: Array.from(Array(Math.ceil((2 + 1 - 1) / 1) || 1).keys()) => [0, 1, 2]
  * finaly we map values from "start" range and apply the "step" coefficiant,
  * ex: Array.from(Array(Math.ceil((2 + 1 - 1) / 1) || 1).keys()).map(x => 1 + x * 1) => [1, 2, 3]
+ * ```
  *
  * range(1, 1) = [1]
  * range(1, 5) = [1, 2, 3, 4, 5]
  * range(10, 20, 2) = [10, 12, 14, 16, 18, 20]
- *
- * @param {number} start start range
- * @param {number} end start end
- * @param {number} step step size
- * @returns {number[]} range numbers
+ * @param start - start range
+ * @param end - start end
+ * @param step - step size
+ * @returns range numbers
  */
 const range = (start: number, end: number, step = 1): number[] => Array.from(Array(Math.ceil((end + 1 - start) / step)).keys()).map(x => start + x * step);
 
 @Component({
   tag: 'mg-pagination',
-  styleUrl: 'mg-pagination.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-pagination.css',
   shadow: true,
 })
 export class MgPagination {
@@ -65,6 +66,11 @@ export class MgPagination {
   @Prop() hideNavigationLabels: boolean;
 
   /**
+   * Hide select input
+   */
+  @Prop() hidePageCount: boolean;
+
+  /**
    * Component total pages
    */
   @Prop() totalPages = 1;
@@ -97,9 +103,7 @@ export class MgPagination {
 
   /**
    * Change current page from target
-   *
-   * @param {number} target target page
-   * @returns {void}
+   * @param target - target page
    */
   private goToPage = (target: number): void => {
     this.currentPage = target;
@@ -111,9 +115,7 @@ export class MgPagination {
 
   /**
    * select handler
-   *
-   * @param {InputEvent} event value change event
-   * @returns {void}
+   * @param event - value change event
    */
   private handleSelect = (event: InputEvent & { target: HTMLInputElement }): void => {
     const to = Number(event.target.value);
@@ -122,10 +124,8 @@ export class MgPagination {
 
   /**
    * Go to 'previous/next' page button handler
-   *
-   * @param {string} action navigation action
-   * @param {boolean} disabled button disable state
-   * @returns {void}
+   * @param action - navigation action
+   * @param disabled - button disable state
    */
   private handleGoToPage = (action: string, disabled: boolean): void => {
     !disabled && this.goToPage(action === NavigationAction.NEXT ? this.currentPage + 1 : this.currentPage - 1);
@@ -137,8 +137,6 @@ export class MgPagination {
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get locales
@@ -154,8 +152,7 @@ export class MgPagination {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     const navigationActionButton = (disabled: boolean, action: string) => (
@@ -175,25 +172,29 @@ export class MgPagination {
     );
 
     return (
-      <nav aria-label={this.label} id={this.identifier} class="mg-pagination">
-        {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
-        <mg-input-select
-          identifier={`${this.identifier}-select`}
-          items={range(1, this.totalPages).map(page => page.toString())}
-          label={this.messages.pagination.selectPage}
-          label-hide={true}
-          on-value-change={this.handleSelect}
-          value={this.currentPage.toString()}
-          placeholder-hide
-        ></mg-input-select>
-        <span class="sr-only">
-          {this.messages.pagination.page} {this.currentPage}
-        </span>
-        <span>
-          / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
-        </span>
-        {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}
-      </nav>
+      <Host hidden={this.totalPages < 2}>
+        <nav role="navigation" aria-label={this.label} id={this.identifier} class={{ 'mg-c-pagination': true, 'mg-c-pagination--hide-page-count': this.hidePageCount }}>
+          {navigationActionButton(this.currentPage <= 1, NavigationAction.PREVIOUS)}
+          {!this.hidePageCount && (
+            <mg-input-select
+              identifier={`${this.identifier}-select`}
+              items={range(1, this.totalPages).map(page => page.toString())}
+              label={this.messages.pagination.selectPage}
+              label-hide={true}
+              on-value-change={this.handleSelect}
+              value={this.currentPage.toString()}
+              placeholder-hide
+            ></mg-input-select>
+          )}
+          <span class="mg-u-visually-hidden">
+            {this.messages.pagination.page} {this.currentPage}
+          </span>
+          <span class={{ 'mg-u-visually-hidden': this.hidePageCount }}>
+            / {this.totalPages} {this.totalPages > 1 ? this.messages.pagination.pages : this.messages.pagination.page}
+          </span>
+          {navigationActionButton(this.currentPage >= this.totalPages, NavigationAction.NEXT)}
+        </nav>
+      </Host>
     );
   }
 }

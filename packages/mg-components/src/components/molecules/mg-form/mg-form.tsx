@@ -5,7 +5,7 @@ import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 
 @Component({
   tag: 'mg-form',
-  styleUrl: 'mg-form.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-form.css',
   shadow: true,
 })
 export class MgForm {
@@ -17,10 +17,7 @@ export class MgForm {
   private mgButtons: HTMLMgButtonElement[];
 
   // Classes
-  private readonly classAllRequired = 'mg-form--all-required';
-
-  // HTML selector
-  private form: HTMLFormElement;
+  private readonly classAllRequired = 'mg-c-form--all-required';
 
   // Locales
   private messages;
@@ -75,7 +72,7 @@ export class MgForm {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-form']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-form']);
 
   /**
    * Required message
@@ -86,7 +83,7 @@ export class MgForm {
    * Emitted event on form validity check
    * Tells if form is valid or not
    */
-  @Event({ eventName: 'form-valid' }) formValid: EventEmitter<boolean>;
+  @Event({ eventName: 'form-valid' }) formValid: EventEmitter<HTMLMgFormElement['valid']>;
 
   /**
    * Emitted event on form submit
@@ -94,15 +91,13 @@ export class MgForm {
   @Event({ eventName: 'form-submit' }) formSubmit: EventEmitter<boolean>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
     if (!this.readonly) {
       this.mgInputs.forEach(input => {
-        input.displayError && input.displayError();
+        input.displayError?.();
       });
       this.checkValidity();
     }
@@ -110,36 +105,48 @@ export class MgForm {
 
   /**
    * Define required message based on mg-inputs required elements
-   * Also
-   *
-   * @returns {void}
    */
   private setRequiredMessage = (): void => {
     // init required message
     this.requiredMessage = null;
-    this.classList.delete(this.classAllRequired);
+    this.classCollection.delete(this.classAllRequired);
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)
-    if (!this.disabled && !this.readonly && !this.mgInputs.every(input => input.disabled || input.readonly)) {
-      // Get required fields
-      const requiredInputs = this.mgInputs.filter(input => input.required && !input.disabled && !input.readonly);
-      // All fields are required
+    const isEditable = input => !(input.disabled || input.readonly);
+    const isMgInputToggle = input => input.nodeName === 'MG-INPUT-TOGGLE';
+    if (!this.disabled && !this.readonly && this.mgInputs.some(input => isEditable(input) && !isMgInputToggle(input))) {
+      // Get editable inputs
+      const editableInputs: HTMLMgInputsElement[] = this.mgInputs.filter(isEditable);
+      // Get required inputs
       // mg-input-toggle can not be required
-      if (requiredInputs.length > 0 && requiredInputs.length === this.mgInputs.filter(input => input.nodeName !== 'MG-INPUT-TOGGLE').length) {
-        this.requiredMessage = requiredInputs.length === 1 ? this.messages.form.allRequiredSingle : this.messages.form.allRequired;
-        this.classList.add(this.classAllRequired);
+      const requiredInputs: HTMLMgInputsElement[] = editableInputs.filter(input => !isMgInputToggle(input) && input.required);
+      // All inputs are required
+      if (
+        [requiredInputs.length, editableInputs.length].every(length => length === 1) ||
+        (requiredInputs.length > 1 && requiredInputs.length === editableInputs.filter(input => !isMgInputToggle(input)).length)
+      ) {
+        this.requiredMessage = this.getRequiredMessageBasedOnCount(requiredInputs, 'allRequiredSingle', 'allRequired');
+        this.classCollection.add(this.classAllRequired);
       }
       // Some fields are required
       else if (requiredInputs.length > 0) {
-        this.requiredMessage = requiredInputs.length === 1 ? this.messages.form.requiredSingle : this.messages.form.required;
+        this.requiredMessage = this.getRequiredMessageBasedOnCount(requiredInputs, 'requiredSingle', 'required');
       }
     }
   };
 
   /**
+   * Returns a required message based on the count of required inputs.
+   * @param requiredInputs - An array of required input elements.
+   * @param keySingle - The key for the singular message format.
+   * @param keyPlural - The key for the plural message format.
+   * @returns The appropriate required message based on the count of required inputs.
+   */
+  private getRequiredMessageBasedOnCount = (requiredInputs: HTMLMgInputsElement[], keySingle: string, keyPlural: string) =>
+    this.messages.form[requiredInputs.length === 1 ? keySingle : keyPlural];
+
+  /**
    * Check if form is valid
-   *
-   * @returns {void}
    */
   private checkValidity = (): void => {
     // Update required on input event
@@ -153,9 +160,7 @@ export class MgForm {
 
   /**
    * Handle Form Submit
-   *
-   * @param {SubmitEvent} event submit event
-   * @returns {void}
+   * @param event - submit event
    */
   private handleFormSubmit = (event: SubmitEvent): void => {
     event.preventDefault();
@@ -164,8 +169,6 @@ export class MgForm {
 
   /**
    * Set mgInputs
-   *
-   * @returns {void}
    */
   private setMgInputs = (): void => {
     // Get slotted mgInputs
@@ -185,8 +188,6 @@ export class MgForm {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     // Get locales
@@ -220,18 +221,8 @@ export class MgForm {
 
   /**
    * Add slot listeners
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
-    this.mgButtons.forEach(mgButton => {
-      // submit buttons should trigger form submition;
-      if (['submit', null].includes(mgButton.getAttribute('type'))) {
-        mgButton.addEventListener('click', () => {
-          this.form.dispatchEvent(new SubmitEvent('submit', { bubbles: true }));
-        });
-      }
-    });
     // Update mgInputs when mgForm content change
     new MutationObserver(() => {
       this.setMgInputs();
@@ -240,12 +231,11 @@ export class MgForm {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
-      <form class={this.classList.join()} id={this.identifier} name={this.name} ref={el => (this.form = el as HTMLFormElement)} onSubmit={this.handleFormSubmit}>
+      <form class={this.classCollection.join()} id={this.identifier} name={this.name} onSubmit={this.handleFormSubmit}>
         {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}

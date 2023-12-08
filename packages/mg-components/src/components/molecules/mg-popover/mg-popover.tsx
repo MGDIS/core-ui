@@ -1,11 +1,10 @@
-import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event, State } from '@stencil/core';
-import { createID, isTagName, getWindows, ClassList } from '../../../utils/components.utils';
+import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@stencil/core';
+import { createID, getWindows } from '../../../utils/components.utils';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
-import { initLocales } from '../../../locales';
 
 @Component({
   tag: 'mg-popover',
-  styleUrl: 'mg-popover.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-popover.css',
   shadow: true,
 })
 export class MgPopover {
@@ -14,16 +13,9 @@ export class MgPopover {
    ************/
 
   private popper: PopperInstance;
-  private popover: HTMLElement;
-  private closeButtonId = '';
-  private windows;
-  private resizeObserver: ResizeObserver;
-
-  // Locales
-  private messages;
-
-  // Classes
-  private readonly classArrowHide = `mg-popover--arrow-hide`;
+  private mgPopover: HTMLElement;
+  private mgPopoverContent: HTMLMgPopoverContentElement;
+  private windows: Window[];
 
   /**************
    * Decorators *
@@ -39,6 +31,11 @@ export class MgPopover {
    * Needed by the input for accessibility `aria-decribedby`.
    */
   @Prop() identifier: string = createID('mg-popover');
+  @Watch('identifier')
+  validateIdentifier(): void {
+    // use renderPopoverContent to update popover-content id
+    this.renderPopoverContent();
+  }
 
   /**
    * Popover placement
@@ -51,14 +48,18 @@ export class MgPopover {
   @Prop() arrowHide = false;
   @Watch('arrowHide')
   validateArrowHide(newValue: MgPopover['arrowHide']): void {
-    if (newValue) this.classList.add(this.classArrowHide);
-    else this.classList.delete(this.classArrowHide);
+    if (newValue) this.mgPopoverContent.dataset.arrowHide = '';
+    else delete this.mgPopoverContent.dataset.arrowHide;
   }
 
   /**
    * Define if popover has a cross button
    */
   @Prop() closeButton = false;
+  @Watch('closeButton')
+  validateCloseButton(newValue: MgPopover['closeButton']): void {
+    this.mgPopoverContent.closeButton = newValue;
+  }
 
   /**
    * Display popover
@@ -77,66 +78,50 @@ export class MgPopover {
   /**
    * Disable popover
    */
-  @Prop({ mutable: true }) disabled = false;
-
-  /**
-   * Component classes
-   */
-  @State() classList: ClassList = new ClassList(['mg-popover']);
+  @Prop() disabled = false;
 
   /**
    * Emited event when display value change
    */
-  @Event({ eventName: 'display-change' }) displayChange: EventEmitter<boolean>;
+  @Event({ eventName: 'display-change' }) displayChange: EventEmitter<HTMLMgPopoverElement['display']>;
 
   /**
    * Check if clicked outside of component
-   *
-   * @param {MouseEvent} event mouse event
-   * @returns {void}
+   * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
-    if (
-      !this.disabled &&
-      event.target.closest('mg-popover') !== this.element &&
-      !((event.target.closest(`[data-mg-popover-guard]`) as HTMLElement)?.dataset.mgPopoverGuard === this.identifier)
-    ) {
+    const closestElement: HTMLElement = event.target.closest(`[data-mg-popover-guard]`);
+    if (!this.disabled && event.target.closest('mg-popover') !== this.element && closestElement?.dataset.mgPopoverGuard !== this.identifier) {
       this.display = false;
     }
   };
 
   /**
    * Show popover
-   *
-   * @returns {void}
    */
   private show = (): void => {
     // Make the popover visible
-    this.popover.dataset.show = '';
+    this.mgPopover.dataset.show = '';
     // Enable the event listeners
     this.popper.setOptions(options => ({
       ...options,
       modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
     }));
-    // Update its position
-    this.popper.update();
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
       this.windows.forEach((localWindow: Window) => {
         localWindow.addEventListener('click', this.clickOutside, false);
       });
-    }, 0);
+    });
   };
 
   /**
    * Hide popover
-   *
-   * @returns {void}
    */
   private hide = (): void => {
     // Hide the popover
-    this.popover.removeAttribute('data-show');
+    this.mgPopover.removeAttribute('data-show');
     // Disable the event listeners
     this.popper.setOptions(options => ({
       ...options,
@@ -149,12 +134,38 @@ export class MgPopover {
   };
 
   /**
-   * Handle action for close button
-   *
-   * @returns {void}
+   * Handle content hide event
    */
-  private handleCloseButton = (): void => {
+  private handleHideContent = (): void => {
     this.display = false;
+  };
+
+  /**
+   * Render popover content element
+   */
+  private renderPopoverContent = (): void => {
+    const mgPopoverContent = this.element.querySelector('mg-popover-content');
+    if (mgPopoverContent === null) {
+      this.mgPopoverContent = document.createElement('mg-popover-content');
+      this.mgPopoverContent.setAttribute('slot', 'content');
+      this.mgPopoverContent.setAttribute('id', this.identifier);
+      this.mgPopoverContent.addEventListener('hide-content', this.handleHideContent);
+
+      const arrow = document.createElement('div');
+      arrow.setAttribute('slot', 'arrow');
+      arrow.dataset.popperArrow = '';
+      this.mgPopoverContent.appendChild(arrow);
+
+      // insert elements in DOM
+      ['[slot="title"]', '[slot="content"]:not(mg-popover-content)'].forEach(slotType => {
+        Array.from(this.element.querySelectorAll(slotType)).forEach(slot => {
+          this.mgPopoverContent.appendChild(slot);
+        });
+      });
+      this.element.appendChild(this.mgPopoverContent);
+    } else {
+      mgPopoverContent.setAttribute('id', this.identifier);
+    }
   };
 
   /*************
@@ -162,47 +173,40 @@ export class MgPopover {
    *************/
 
   /**
+   * update popper position after props change on component did update hook to benefit from render ended
+   */
+  componentDidUpdate(): void {
+    this.popper.update();
+  }
+
+  /**
    * Check if component props are well configured on init
-   *
-   * @returns {void} timeout
    */
   componentWillLoad(): void {
     // Get windows to attach events
     this.windows = getWindows(window);
-    // Get locales
-    this.messages = initLocales(this.element).messages;
+    // render mg-popover-content slot
+    this.renderPopoverContent();
+    this.validateCloseButton(this.closeButton);
+    this.validateIdentifier();
     this.validateArrowHide(this.arrowHide);
   }
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {void}
    */
   componentDidLoad(): void {
-    const headingTags = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-
-    const slottedTitleElement = this.element.querySelector('[slot="title"]');
-    if (slottedTitleElement && !isTagName(slottedTitleElement, headingTags)) {
-      throw new Error(`<mg-popover> Slotted title must be a heading: ${headingTags.join(', ')}`);
-    }
-
-    // Set close button id
-    if (this.closeButton) {
-      this.closeButtonId = `${this.identifier}-close-button`;
-    }
-
     // Get popover content
-    this.popover = this.element.shadowRoot.getElementById(this.identifier);
+    this.mgPopover = this.element.querySelector(`#${this.identifier}`);
 
     //Get interactive element (first element without slot attribute)
-    const interactiveElement = this.element.querySelector(':not([slot])') as HTMLElement;
+    const interactiveElement: HTMLElement = this.element.querySelector(':not([slot])');
     // Add aria attributes
     interactiveElement.setAttribute('aria-controls', this.identifier);
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
 
     // Create popperjs popover
-    this.popper = createPopper(interactiveElement, this.popover, {
+    this.popper = createPopper(interactiveElement, this.mgPopover, {
       placement: this.placement,
       strategy: 'fixed',
       modifiers: [
@@ -212,20 +216,19 @@ export class MgPopover {
             offset: [0, 0],
           },
         },
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['auto'],
+          },
+        },
       ],
     });
 
-    if (this.resizeObserver === undefined) {
-      // add resize observer
-      this.resizeObserver = new ResizeObserver(entries => {
-        if (entries.some(entrie => entrie.target.getAttribute('slot') !== null)) {
-          this.popper.update();
-        }
-      });
-      Array.from(this.element.querySelectorAll('[slot]')).forEach(element => {
-        this.resizeObserver.observe(element);
-      });
-    }
+    // add resize observer
+    new ResizeObserver(() => {
+      this.popper.update();
+    }).observe(this.element.querySelector('mg-popover-content'));
 
     // Add events to toggle display
     interactiveElement.addEventListener('click', () => {
@@ -234,7 +237,10 @@ export class MgPopover {
 
     // Add events to hide popover
     this.element.addEventListener('keydown', e => {
-      if (!this.disabled && e.code === 'Escape') this.display = false;
+      if (!this.disabled && e.code === 'Escape') {
+        this.display = false;
+        interactiveElement.focus();
+      }
     });
 
     this.handleDisplay(this.display);
@@ -242,28 +248,13 @@ export class MgPopover {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <Host>
         <slot></slot>
-        <div id={this.identifier} class={this.classList.join()}>
-          <mg-card>
-            {this.closeButton && (
-              <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.general.close} onClick={this.handleCloseButton}>
-                <mg-icon icon="cross"></mg-icon>
-              </mg-button>
-            )}
-            <div class="mg-popover__title">
-              <slot name="title"></slot>
-            </div>
-            <slot name="content"></slot>
-          </mg-card>
-
-          {!this.arrowHide && <div class="mg-popover__arrow" data-popper-arrow></div>}
-        </div>
+        <slot name="content"></slot>
       </Host>
     );
   }

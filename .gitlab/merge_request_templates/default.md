@@ -8,8 +8,4 @@
 - [ ] Add link to the Jira
 - [ ] Create changeset
 
-## Reviewers
-
-@duhem-s @core/core-ui
-
 /label ~core-ui

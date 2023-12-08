@@ -5,6 +5,11 @@ export default {
   component: 'mg-action-more',
   title: 'Molecules/mg-action-more',
   parameters: { actions: { handles: ['click'] } },
+  argTypes: {
+    button: {
+      control: { type: 'object' },
+    },
+  },
 };
 
 const mouseEventHandler = () => {
@@ -13,52 +18,83 @@ const mouseEventHandler = () => {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-action-more {...filterArgs(args)} style={{ 'margin-left': '1rem' }}></mg-action-more>;
 
-export const MgActionMore = Template.bind({});
-
-MgActionMore.args = {
-  items: [
-    {
-      label: 'element 1',
-      mouseEventHandler,
-    },
-    {
-      label: 'element 2',
-      mouseEventHandler,
-      badge: {
-        value: 2,
-        label: 'badge',
+export const MgActionMoreIcon = {
+  render: Template,
+  args: {
+    items: [
+      {
+        label: 'element 1',
+        mouseEventHandler,
       },
-    },
-    {
-      label: 'element 3',
-      mouseEventHandler,
-      icon: 'user',
-    },
-    {
-      label: 'element 4',
-      mouseEventHandler,
-      href: '#',
-    },
-  ],
+      {
+        label: 'element 2',
+        mouseEventHandler,
+        badge: {
+          value: 2,
+          label: 'badge',
+        },
+      },
+      {
+        label: 'element 3',
+        mouseEventHandler,
+        icon: 'user',
+      },
+      {
+        label: 'element 4',
+        mouseEventHandler,
+        href: '#',
+      },
+    ],
+    displayChevron: false,
+  },
 };
 
-export const MgActionMoreCustom = Template.bind({});
-
-MgActionMoreCustom.args = {
-  ...MgActionMore.args,
-  button: {
-    variant: 'flat',
-    isIcon: false,
-    label: 'mon user',
+export const MgActionMoreIconCustomAndLabel = {
+  render: Template,
+  args: {
+    ...MgActionMoreIcon.args,
+    button: {
+      variant: 'flat',
+      isIcon: false,
+      label: 'mon user',
+    },
+    icon: {
+      icon: 'user',
+    },
   },
-  icon: {
-    icon: 'user',
+};
+
+export const MgActionMoreIconCustomAndLabelAndChevron = {
+  render: Template,
+  args: {
+    ...MgActionMoreIcon.args,
+    button: {
+      variant: 'flat',
+      isIcon: false,
+      label: 'mon user',
+    },
+    icon: {
+      icon: 'user',
+    },
+    displayChevron: true,
+  },
+};
+
+export const MgActionMoreLabelAndChevron = {
+  render: Template,
+  args: {
+    ...MgActionMoreIcon.args,
+    button: {
+      variant: 'flat',
+      isIcon: false,
+      label: 'mon user',
+    },
+    displayChevron: true,
   },
 };

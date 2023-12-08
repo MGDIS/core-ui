@@ -1,175 +1,330 @@
-import { createPage } from '../../../../../utils/e2e.test.utils';
+import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
+import { CheckboxType, checkboxTypes } from '../mg-input-checkbox.conf';
+
+const TIMEOUT = 1000;
+
+const baseArgs = {
+  label: 'legend',
+  value: [
+    { title: 'Batman', value: false },
+    { title: 'Robin', value: false },
+    { title: 'Joker', value: false },
+    { title: 'Bane', value: false },
+  ],
+};
+
+const createHTML = (args, identifier = 'identifier') =>
+  `<mg-input-checkbox ${renderAttributes({ ...args, identifier })}></mg-input-checkbox><script>${renderProperties(args, `[identifier="${identifier}"]`)}</script>`;
+
+const waitForInteractiveElement = async (page: PageType, type: CheckboxType) => {
+  // wait few seconds to insure to have the interactive element rendered
+  const interactiveElement = page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
+  return interactiveElement.waitFor({ timeout: 3000 });
+};
 
 describe('mg-input-checkbox', () => {
-  describe.each([
-    `<mg-input-checkbox identifier="identifier" label="legend"></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" label-on-top></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" label-hide></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text="HelpText Message"></mg-input-checkbox>`,
-  ])('without tooltip', html => {
-    test('render', async () => {
-      const page = await createPage(`${html}
-      <script>
-      const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-      mgInputCheckbox.value = [{title: 'Batman', value: false}, {title: 'Robin', value: false}, {title: 'Joker', value: false}, {title: 'Bane', value: false}];
-      </script>`);
+  describeEach(checkboxTypes)('type %s', (type: CheckboxType) => {
+    testEach([
+      { ...baseArgs, readonly: true },
+      { ...baseArgs, readonly: true, labelOnTop: true },
+      { ...baseArgs, disabled: true },
+      { ...baseArgs, inputVerticalList: true, helpText: 'HelpText Message' },
+      { ...baseArgs, inputVerticalList: true, helpText: 'HelpText Message', labelOnTop: true },
+      { ...baseArgs, helpText: `<mg-icon icon='user' size='small'></mg-icon> Welcome batman` },
+      { ...baseArgs, helpText: 'HelpText Message', required: true },
+      { ...baseArgs, helpText: 'HelpText Message', required: true, readonly: true },
+      { ...baseArgs, helpText: 'HelpText Message', required: true, disabled: true },
+    ])('Should render with template %s', async (page: PageType, args: object) => {
+      await setPageContent(
+        page,
+        createHTML({
+          ...args,
+          type,
+          value: [
+            { title: 'Batman', value: true },
+            { title: 'Robin', value: false },
+            { title: 'Joker', value: null },
+            { title: 'Bane', value: true, disabled: true },
+          ],
+        }),
+      );
 
-      const element = await page.find('mg-input-checkbox');
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+    testEach([true, false])(`render with tooltip, case label-on-top %s`, async (page: PageType, labelOnTop: boolean) => {
+      await setPageContent(
+        page,
+        createHTML({
+          ...baseArgs,
+          tooltip: 'Tooltip message',
+          labelOnTop,
+          type,
+        }),
+      );
 
-      expect(element).toHaveClass('hydrated');
+      const KEY_TAB = 'Tab';
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
+
+      // wait few seconds to insure to have the interactive element rendered
+      await waitForInteractiveElement(page, type);
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      let actions = [KEY_TAB];
+
+      // when label on top tooltip is on first tab (next to label)
+      if (!labelOnTop) {
+        await updateScreenshotClass(page, { height: '65px', width: '500px' });
+
+        // when type is 'multi' the tooltip is on second tab
+        actions = type !== 'multi' ? [...actions, KEY_TAB, KEY_TAB, KEY_TAB, KEY_TAB] : [...actions, KEY_TAB];
+      }
+
+      for (const key of actions) {
+        await page.keyboard.down(key);
+      }
+
+      await page.locator('mg-tooltip-content').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+
+    testEach([
+      { ...baseArgs, type },
+      { ...baseArgs, type, labelOnTop: true },
+      { ...baseArgs, type, labelHide: true },
+      { ...baseArgs, type, helpText: 'HelpText Message' },
+    ])('Should render without tooltip %s', async (page: PageType, args) => {
+      await setPageContent(page, createHTML(args), type === 'multi' ? { width: 300, height: 200 } : undefined);
+
+      await page.waitForSelector('mg-input-checkbox.hydrated');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // when multi open checkbox in popover
+      if (type === 'multi') {
+        // wait few seconds to insure to have the interactive element rendered
+        await waitForInteractiveElement(page, type);
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Enter');
+        await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
+      }
 
       await page.keyboard.down('Tab');
 
-      await page.waitForChanges();
+      await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
 
-      const screenshotFocus = await page.screenshot();
-      expect(screenshotFocus).toMatchImageSnapshot();
-
-      let checkbox = await page.find('mg-input-checkbox >>> .mg-input__input-group input');
-      await checkbox.press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:first-of-type input').press('Space');
 
       await page.keyboard.down('Tab');
-      checkbox = await page.find('mg-input-checkbox >>> .mg-input__input-group:nth-of-type(2) input');
-      await checkbox.press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(2) input').press('Space');
 
       await page.keyboard.down('Tab');
-      checkbox = await page.find('mg-input-checkbox >>> .mg-input__input-group:nth-of-type(3) input');
-      await checkbox.press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(3) input').press('Space');
 
       await page.keyboard.down('Tab');
-      checkbox = await page.find('mg-input-checkbox >>> .mg-input__input-group:nth-of-type(4) input');
-      await checkbox.press('Space');
+      await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(4) input').press('Space');
 
-      await page.waitForChanges();
+      await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
+    });
 
-      const screenshotChecked = await page.screenshot();
-      expect(screenshotChecked).toMatchImageSnapshot();
+    testEach([
+      { ...baseArgs, helpText: 'HelpText Message', required: true, type },
+      { ...baseArgs, helpText: "Message d'aide", lang: 'fr', required: true, type },
+    ])('Should render error when leaving an empty required input %s', async (page: PageType, args) => {
+      await setPageContent(page, createHTML(args), type === 'multi' ? { width: 390, height: 200 } : undefined);
+
+      await page.waitForSelector('mg-input-checkbox.hydrated');
+
+      // when multi open checkbox in popover
+      if (type === 'multi') {
+        // wait few seconds to insure to have the interactive element rendered
+        await waitForInteractiveElement(page, type);
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Enter');
+        await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
+      }
+
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+
+      if (type === 'multi') {
+        await page.keyboard.down('Escape');
+      }
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+
+    testEach([
+      { label: 'long label long label long label long label long label long label long label long label long label long label long label', type, tooltip: 'tooltip message' },
+      {
+        label: 'long label long label long label long label long label long label long label long label long label long label long label',
+        type,
+        tooltip: 'tooltip message',
+        labelOnTop: true,
+      },
+    ])('render long label in .mg-form-group, %s', async (page: PageType, args: object) => {
+      await setPageContent(
+        page,
+        `<div class="mg-form-group">${createHTML({
+          ...baseArgs,
+          ...args,
+          value: [
+            { title: 'Batman', value: true },
+            { title: 'Robin', value: false },
+            { title: 'Joker', value: null },
+            { title: 'Bane', value: true, disabled: true },
+          ],
+        })}</div>`,
+      );
+
+      await page.waitForSelector('mg-input-checkbox.hydrated');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+
+    testEach([false, true])('Ensure component fit in width 200px with label-on-top: %s', async (page: PageType, labelOnTop) => {
+      await setPageContent(page, createHTML({ ...baseArgs, labelOnTop, type }));
+
+      await page.waitForSelector('mg-input-checkbox.hydrated');
+
+      await page.setViewportSize({ width: 200, height: 100 });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  test.each([true, false])('render with tooltip, case label-on-top %s', async labelOnTop => {
-    const page = await createPage(`<mg-input-checkbox identifier="identifier" label="legend" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-checkbox>
-      <script>
-      const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-      mgInputCheckbox.value = [{title: 'Batman', value: false}, {title: 'Robin', value: false}, {title: 'Joker', value: false}, {title: 'Bane', value: false}];
-      </script>`);
+  describe('type multi', () => {
+    const selectedValues = baseArgs.value.map(argValue => ({ ...argValue, value: true }));
+    const smallValues = baseArgs.value.map((argValue, index) => ({ ...argValue, title: index.toString(), value: true }));
+    testEach([
+      { disable: true, value: selectedValues },
+      { disable: true, value: smallValues },
+    ])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, args: object) => {
+      await setPageContent(page, createHTML({ ...baseArgs, ...args, type: 'multi', displaySelectedValues: true }));
 
-    const element = await page.find('mg-input-checkbox');
+      await page.locator('mg-input-checkbox.hydrated').waitFor({ timeout: TIMEOUT });
 
-    expect(element).toHaveClass('hydrated');
+      // wait few seconds to insure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
-
-    await page.keyboard.down('Tab');
-    if (!labelOnTop) {
-      // Ensure to display tooltip
-      await page.setViewport({ width: 600, height: 65 });
-      // when label on top tooltip is on fist tab (next to label)
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-    }
-
-    await page.waitForChanges();
-
-    const screenshotTooltip = await page.screenshot();
-    expect(screenshotTooltip).toMatchImageSnapshot();
-  });
-
-  describe.each([
-    `<mg-input-checkbox identifier="identifier" label="legend" readonly></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" readonly label-on-top></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" disabled></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" input-vertical-list help-text="HelpText Message"></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" input-vertical-list help-text="HelpText Message" label-on-top></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text='<mg-icon icon="user" size="small"></mg-icon> Welcome batman'></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text='HelpText Message' required></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text='HelpText Message' required readonly></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text='HelpText Message' required disabled></mg-input-checkbox>`,
-  ])('Should render with template', html => {
-    test('render', async () => {
-      const page = await createPage(`${html}
-      <script>
-      const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-      mgInputCheckbox.value = [{title: 'Batman', value: true}, {title: 'Robin', value: false}, {title: 'Joker', value: null}, {title: 'Bane', value: true, disabled: true}];
-      </script>`);
-
-      const element = await page.find('mg-input-checkbox');
-
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-  });
+    testEach([false, true])('Ensure component fit in width 200px with display-values: %s', async (page: PageType, displaySelectedValues) => {
+      await setPageContent(page, createHTML({ ...baseArgs, type: 'multi', value: selectedValues, displaySelectedValues }));
 
-  describe.each([
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text="HelpText Message" required></mg-input-checkbox>`,
-    `<mg-input-checkbox identifier="identifier" label="legend" help-text="Message d'aide" lang="fr" required></mg-input-checkbox>`,
-  ])('%s', html => {
-    test('Should render error when leaving an empty required input', async () => {
-      const page = await createPage(`${html}
-      <script>
-      const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-      mgInputCheckbox.value = [{title: 'Batman', value: false}, {title: 'Robin', value: false}, {title: 'Joker', value: false}, {title: 'Bane', value: false}];
-      </script>`);
+      await page.locator('mg-input-checkbox.hydrated').waitFor({ timeout: TIMEOUT });
 
-      const element = await page.find('mg-input-checkbox');
+      // wait few seconds to insure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
 
-      expect(element).toHaveClass('hydrated');
+      await page.setViewportSize({ width: 200, height: 100 });
 
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-      await page.keyboard.down('Tab');
-
-      await page.waitForChanges();
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-  });
 
-  describe.each([
-    '<mg-input-checkbox identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-checkbox>',
-    '<mg-input-checkbox identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-checkbox>',
-  ])('inside a div.mg-form-group', html => {
-    test('render', async () => {
-      const page = await createPage(`<div class="mg-form-group">${html}</div>
-        <script>
-        const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-        mgInputCheckbox.value = [{title: 'Batman', value: true}, {title: 'Robin', value: false}, {title: 'Joker', value: null}, {title: 'Bane', value: true, disabled: true}];
-        </script>`);
+    test('Should render "multi" with search', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
+        title: index === 9 ? `my super long title item ${item} is very super long and finaly it could not be shorter so what can I do with it` : `${item}`,
+        value: false,
+      }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }), { width: 450, height: 470 });
 
-      const element = await page.find('mg-input-checkbox');
+      // wait few seconds to insure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
 
-      expect(element).toHaveClass('hydrated');
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      // open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // take focus in search input
+      await page.keyboard.down('Tab');
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // got to navigation after 10th input
+      for (const index of value.map((_item, index) => index)) {
+        if (index < 10) await page.keyboard.down('Tab');
+      }
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // use navigatio to go to last page
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      await page.getByPlaceholder(/value/).fill('2');
+
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // update search with an unmatchable value
+      await page.getByPlaceholder(/value/).fill('batman');
+
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // close popover
+      await page.keyboard.down('Escape');
+      await updateScreenshotClass(page, { width: '285px', height: '35px' });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-  });
 
-  test.each([false, true])('Ensure component fit in width 200px with label-on-top: %s', async labelOnTop => {
-    const page = await createPage(`<mg-input-checkbox identifier="identifier" label="legend" label-on-top="${labelOnTop}"></mg-input-checkbox>
-    <script>
-    const mgInputCheckbox = document.querySelector('mg-input-checkbox');
-    mgInputCheckbox.value = [{title: 'Batman', value: false}, {title: 'Robin', value: false}, {title: 'Joker', value: false}, {title: 'Bane', value: false}];
-    </script>`);
+    test('Should render "multi" with 2 sections', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
+        title: `item ${item}`,
+        value: [5, 12, 13, 17].some(item => item === index),
+      }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }), { width: 450, height: 570 });
 
-    const element = await page.find('mg-input-checkbox');
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    expect(element).toHaveClass('hydrated');
+      // wait few seconds to insure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
 
-    await page.setViewport({ width: 200, height: 100 });
+      // open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
+
+    test('Should render "multi" with 2 sections and a closed selected section', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
+        title: `item ${item}`,
+        value: [5, 12, 13, 17].some(item => item === index),
+      }));
+      await setPageContent(page, createHTML({ ...baseArgs, value }), { width: 450, height: 570 });
+
+      // wait few seconds to insure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      // open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
+
+      // close section
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
   });
 });

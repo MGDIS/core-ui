@@ -1,12 +1,21 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
+import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { createID } from '../../../../utils/components.utils';
 import { sizes } from '../mg-tabs.conf';
+import { MgTabs } from '../mg-tabs';
+import { renderAttributes, renderProperties } from '../../../../utils/e2e.test.utils';
 
-const defaultSlotContents = [
-  "Le héros peut être en chacun, même en celui qui fait une chose aussi simple et rassurante que mettre un manteau sur les épaules d'un garçon et ainsi lui faire comprendre que le monde ne s'est pas écroulé.",
-  "La seule façon raisonnable de vivre en ce bas monde, c'est en dehors des règles.",
-  'Bane have an hidden content',
-];
-const createSlot = (contents: string[]) => contents.map((content, i) => `<div slot="tab_content-${i + 1}">${content}</div>`).join('');
+const defaultArgs = {
+  label: 'label',
+};
+
+const createSlot = (items: unknown[]) => {
+  const defaultSlotContents = [
+    "Le héros peut être en chacun, même en celui qui fait une chose aussi simple et rassurante que mettre un manteau sur les épaules d'un garçon et ainsi lui faire comprendre que le monde ne s'est pas écroulé.",
+    "La seule façon raisonnable de vivre en ce bas monde, c'est en dehors des règles.",
+    'Bane have an hidden content',
+  ];
+  return items.map((_, i) => `<div slot="tab_content-${i + 1}">${i + 1 <= defaultSlotContents.length ? defaultSlotContents[i] : defaultSlotContents[0]}</div>`).join('');
+};
 
 enum Key {
   NEXT = 'ArrowRight',
@@ -15,9 +24,14 @@ enum Key {
   ENTER = 'Enter',
 }
 
+const createHTML = args => {
+  const id = createID();
+  return `<mg-tabs id="${id}" ${renderAttributes({ ...args })}">${createSlot(args.items)}</mg-tabs><script>${renderProperties(args, `#${id}`)}</script>`;
+};
+
 describe('mg-tabs', () => {
-  describe.each(sizes)('template', size => {
-    test.each([
+  describeEach(sizes)('size %s', async size => {
+    testEach([
       { items: ['Batman', 'Joker', 'Bane'] },
       {
         items: [
@@ -47,42 +61,37 @@ describe('mg-tabs', () => {
           { label: 'Bane', icon: 'cross', status: 'hidden' },
         ],
       },
-    ])(`render size=${size}`, async ({ items }) => {
-      const page = await createPage(`<mg-tabs label="label" size=${size}>${createSlot(defaultSlotContents)}</mg-tabs>
-      <script>
-      const mgTabs = document.querySelector('mg-tabs');
-      mgTabs.items = ${JSON.stringify(items)};
-      </script>
-      `);
+    ])(`render %s`, async (page: PageType, args: Partial<MgTabs>) => {
+      await setPageContent(
+        page,
+        createHTML({
+          ...defaultArgs,
+          ...args,
+          size,
+        }),
+      );
 
-      const element = await page.find('mg-tabs');
-
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   describe('navigation', () => {
-    test('should go to next tab on click event', async () => {
-      const page = await createPage(`<mg-tabs label="label">${createSlot(defaultSlotContents)}</mg-tabs>
-      <script>
-      const mgTabs = document.querySelector('mg-tabs');
-      mgTabs.items = ['Batman', 'Joker', 'Bane'];
-      </script>
-      `);
+    test('should go to next tab on click event', async ({ page }) => {
+      await setPageContent(
+        page,
+        createHTML({
+          ...defaultArgs,
+          items: ['Batman', 'Joker', 'Bane'],
+        }),
+      );
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
       await page.keyboard.down('Tab');
-      await page.waitForChanges();
 
-      let screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
-
-      for await (const key of [Key.NEXT, Key.NEXT, Key.PREV, Key.ENTER, Key.TAB]) {
+      for (const key of [Key.NEXT, Key.NEXT, Key.PREV, Key.ENTER, Key.TAB]) {
         await page.keyboard.down(key);
-        await page.waitForChanges();
-        screenshot = await page.screenshot();
-        expect(screenshot).toMatchImageSnapshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
     });
   });

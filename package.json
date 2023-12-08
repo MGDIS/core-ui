@@ -1,67 +1,70 @@
 {
-	"name": "core-ui",
-	"license": "BSD-3-Clause",
-	"packageManager": "pnpm@7.30.0",
-	"engineStrict": true,
-	"engines": {
-		"pnpm": ">=7",
-		"node": ">=18"
-	},
-	"repository": {
-		"type": "git",
-		"url": "gitlab@gitlab.mgdis.fr:core/core-ui/core-ui.git"
-	},
-	"maintainers": [
-		"Simon Duhem <duhem-s@mgdis.fr>",
-		"Nicolas Jouanno <jouanno-n@mgdis.fr>"
-	],
-	"scripts": {
-		"postinstall": "manypkg check",
-		"prepare": "husky install",
-		"test": "run-s -l test:unit test:e2e",
-		"test:unit": "turbo test:unit",
-		"test:e2e": "turbo test:e2e",
-		"test:e2e:playwright": "turbo test:e2e:playwright",
-		"test:watch": "turbo test:watch",
-		"coverage": "run-s -l turbo:coverage report:merge junit:merge",
-		"turbo:coverage": "turbo coverage --concurrency=1",
-		"junit:merge": "jrm ./coverage/junit.xml ./packages/**/junit.xml",
-		"report:merge": "monomerge && nyc report",
-		"lint": "turbo lint",
-		"lint:fix": "turbo lint:fix",
-		"prettier:fix": "prettier --write --ignore-unknown **",
-		"build": "turbo build",
-		"change": "changeset",
-		"change:empty": "changeset --empty",
-		"release": "./utils/release.sh",
-		"release:status": "changeset status",
-		"prerelease": "./utils/prerelease.sh",
-		"apps:notification-center": "cd apps/notification-center && pnpm dev --port 3210"
-	},
-	"manypkg": {
-		"ignoredRules": [
-			"INTERNAL_MISMATCH"
-		]
-	},
-	"dependencies": {
-		"@changesets/cli": "^2.26.0",
-		"@manypkg/cli": "latest",
-		"@swc/jest": "^0.2.24",
-		"@typescript-eslint/eslint-plugin": "^4.33.0",
-		"@typescript-eslint/parser": "^4.33.0",
-		"codename": "^0.0.6",
-		"cross-env": "^7.0.3",
-		"eslint": "^7.32.0",
-		"eslint-plugin-tsdoc": "^0.2.17",
-		"husky": "^8.0.3",
-		"jest-junit": "^15.0.0",
-		"junit-report-merger": "^4.0.1",
-		"lint-staged": "^13.2.0",
-		"monomerge": "latest",
-		"npm-run-all": "^4.1.5",
-		"nyc": "^15.1.0",
-		"prettier": "^2.8.4",
-		"turbo": "latest",
-		"typescript": "^4.9.5"
-	}
+  "name": "core-ui",
+  "license": "BSD-3-Clause",
+  "packageManager": "pnpm@8.11.0",
+  "engineStrict": true,
+  "engines": {
+    "pnpm": ">=8",
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "gitlab@gitlab.mgdis.fr:core/core-ui/core-ui.git"
+  },
+  "maintainers": [
+    "Simon Duhem <duhem-s@mgdis.fr>",
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>"
+  ],
+  "scripts": {
+    "postinstall": "manypkg check",
+    "prepare": "husky install",
+    "test": "pnpm test:unit && pnpm test:e2e",
+    "test:unit": "turbo test:unit",
+    "test:e2e": "turbo test:e2e --force --concurrency=1",
+    "test:e2e:docker": "./scripts/run-e2e.sh",
+    "test:watch": "turbo test:watch",
+    "coverage": "pnpm turbo:coverage && pnpm report:merge && pnpm junit:merge",
+    "turbo:coverage": "turbo coverage --force",
+    "junit:merge": "jrm ./coverage/junit.xml ./packages/**/junit.xml",
+    "report:merge": "monomerge && nyc report",
+    "lint": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint",
+    "lint:fix": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint:fix",
+    "build": "turbo build --force",
+    "build:apps": "turbo build --filter='./apps/*' --force",
+    "build:configs": "turbo build --filter='./configs/*' --force",
+    "build:packages": "turbo build --filter='./packages/*' --force",
+    "change": "changeset",
+    "change:empty": "changeset --empty",
+    "release": "./scripts/release.sh",
+    "release:status": "changeset status",
+    "release:preview": "./scripts/release-preview.sh",
+    "apps:notification-center": "pnpm --filter notification-center dev",
+    "clean": "pnpm /^clean:.*/",
+    "clean:lock-file": "rm -f pnpm-lock.yaml",
+    "clean:node_modules": "pnpm -r exec rm -rf node_modules && rm -rf node_modules",
+    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist"
+  },
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --fix --ignore-path .gitignore",
+    "*.{json,yaml,yml,md,mdx}": "prettier --write"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.26.2",
+    "@manypkg/cli": "latest",
+    "codename": "^0.0.6",
+    "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.3",
+    "jest-junit": "^16.0.0",
+    "junit-report-merger": "^6.0.0",
+    "lint-staged": "^15.0.0",
+    "monomerge": "latest",
+    "nyc": "^15.1.0",
+    "prettier-config": "workspace:*",
+    "turbo": "latest"
+  }
 }

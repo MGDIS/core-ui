@@ -1,27 +1,22 @@
-![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)
-
 # MG Components
 
-This project centralize MGDIS standalone Web Components using [Stencil](https://stenciljs.com/).
+## Introduction
 
-## Stencil
+MG Components is a reusable component library that aims to help MGDIS developers build UIs faster. It provides a collection of UI components that are designed to be productive, framework-agnostic, and satisfying to use. The library follows the principles of the Atomic Design methodology, which divides UI components into small, reusable parts.
 
-Stencil is a compiler for building fast web apps using Web Components.
+Components in MG Components are written using [StencilJS](https://stenciljs.com/), a compiler for building fast web apps using Web Components. The library utilizes [StorybookJS](https://storybook.js.org/) for component development and documentation.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+### Atomic Design
 
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
+Atomic Design is an interface design method that takes into account the constraints of development. It emphasizes the need to consider technical design constraints when creating web designs. You can learn more about Atomic Design in this [introduction to Atomic Design](https://openclassrooms.com/fr/courses/5249021-initiez-vous-a-la-methode-atomic-design/5630171-decouvrez-l-atomic-design) (in French).
 
-## Getting Started
+### Stencil
 
-To run MG Components, clone this repository, go to your new directory and run:
+MG Components is built using Stencil, a compiler for building fast web apps using Web Components. Stencil combines the best concepts from popular frontend frameworks and generates 100% standards-based Web Components that can run in any modern browser. Stencil components can be used with any major framework or even without a framework.
 
-```bash
-# This repository uses pnpm as package manager
-corepack enable
-pnpm i
-pnpm start
-```
+## Developer
+
+### Scripts
 
 To build for production, run:
 
@@ -49,7 +44,7 @@ pnpm test:unit -- mg-icon
 
 To regenerate snapshot you must add the `--updateSnapshot` parameter.
 
-For E2E tests you **must** use [WSL](https://docs.microsoft.com/fr-fr/windows/wsl/install) or a Linux OS to get the same screenshots as the GitLab CI.
+For e2e tests you **must** use [WSL](https://docs.microsoft.com/fr-fr/windows/wsl/install) or a Linux OS to get the same screenshots as the GitLab CI.
 
 To add a component, run:
 
@@ -63,57 +58,26 @@ pnpm generate atoms/mg-icon
 pnpm generate molecules/mg-message
 ```
 
-## Naming Components
+### Naming Components
 
 All of the MGDIS generated web components must use the prefix `mg`.
 
-## Using this library
+### Using this library
 
-You will find how to use the library instructions in the [Getting Started section](src/stories/1-getting-started.stories.mdx).
+You will find how to use the library instructions in the [Getting Started section](./getting-started.md).
 
-## Style
-
-### Naming methodology
-
-MG Components is using [BEM](https://en.bem.info/) (Block, Element, Modifier) methodology with the [two dashes style](https://en.bem.info/methodology/naming-convention/#two-dashes-style) naming scheme.
-
-### Declaration organisation
-
-When a selector contains too many declaration it is recommended to organize them by theme : Display, Decoration, Font, Others.
-
-```CSS
-.mg-button {
-  // Display
-  display: inline-block;
-  vertical-align: middle;
-  min-height: 3.5rem;
-  padding: 0.6rem 1.2rem;
-  // Decoration
-  background-image: none;
-  border-radius: 0.3rem;
-  border: 0.1rem solid transparent;
-  cursor: pointer;
-  // Font
-  font-weight: normal;
-  text-align: center;
-  white-space: nowrap;
-  // Others
-  touch-action: manipulation;
-}
-```
-
-## Storybook
+### Storybook
 
 The plugin [storybook-addon-docs-stencil
 ](https://github.com/pixtron/storybook-addon-docs-stencil) is used to generate the doc. **To be up to date on local it needs a fresh build**.
 
-### run
+#### run
 
 ```bash
 pnpm storybook
 ```
 
-### Notes
+#### Notes
 
 To display components in our `stories`, we use the `filterArgs` method to only show the necessary arguments in the code example. It takes in the first parameter an object containing the arguments to be used, and in the second parameter, an object containing the component default values.
 

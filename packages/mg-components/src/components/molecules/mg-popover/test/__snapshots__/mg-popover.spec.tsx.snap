@@ -4,32 +4,36 @@ exports[`mg-popover Should render with element 1`] = `
 <mg-popover>
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -37,32 +41,36 @@ exports[`mg-popover Should render with element 2`] = `
 <mg-popover>
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="top" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -70,32 +78,36 @@ exports[`mg-popover Should render with element 3`] = `
 <mg-popover>
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -103,42 +115,46 @@ exports[`mg-popover Should render with element 4`] = `
 <mg-popover>
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
-          <mock:shadow-root>
-            <div class="mg-button mg-button--flat mg-button--icon">
-              <div class="mg-button__content">
-                <slot></slot>
-              </div>
-            </div>
-          </mock:shadow-root>
-          <mg-icon icon="cross"></mg-icon>
-        </mg-button>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
+          <mock:shadow-root>
+            <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+              <div class="mg-c-button__content">
+                <slot></slot>
+              </div>
+            </div>
+          </mock:shadow-root>
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -146,32 +162,36 @@ exports[`mg-popover Should render with element 5`] = `
 <mg-popover>
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -179,42 +199,46 @@ exports[`mg-popover Should render with element 6`] = `
 <mg-popover lang="fr">
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <mg-button aria-label="Fermer" is-icon="" role="button" tabindex="0">
-          <mock:shadow-root>
-            <div class="mg-button mg-button--flat mg-button--icon">
-              <div class="mg-button__content">
-                <slot></slot>
-              </div>
-            </div>
-          </mock:shadow-root>
-          <mg-icon icon="cross"></mg-icon>
-        </mg-button>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <mg-button aria-label="Fermer" is-icon="" role="button" tabindex="0">
+          <mock:shadow-root>
+            <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+              <div class="mg-c-button__content">
+                <slot></slot>
+              </div>
+            </div>
+          </mock:shadow-root>
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -222,42 +246,46 @@ exports[`mg-popover Should render with element 7`] = `
 <mg-popover lang="xx">
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover" id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
-          <mock:shadow-root>
-            <div class="mg-button mg-button--flat mg-button--icon">
-              <div class="mg-button__content">
-                <slot></slot>
-              </div>
-            </div>
-          </mock:shadow-root>
-          <mg-icon icon="cross"></mg-icon>
-        </mg-button>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
+          <mock:shadow-root>
+            <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+              <div class="mg-c-button__content">
+                <slot></slot>
+              </div>
+            </div>
+          </mock:shadow-root>
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;
 
@@ -265,228 +293,183 @@ exports[`mg-popover Should render with element 8`] = `
 <mg-popover>
   <mock:shadow-root>
     <slot></slot>
-    <div class="mg-popover mg-popover--arrow-hide" id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-    </div>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
-</mg-popover>
-`;
-
-exports[`mg-popover should update popper instance when slot content update 1`] = `
-<mg-popover>
-  <mock:shadow-root>
-    <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
+  <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover should update mg-popover-content id when identifier is updated 1`] = `
+<mg-popover>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
+  <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
-</mg-popover>
-`;
-
-exports[`mg-popover should update popper instance when slot content update 2`] = `
-<mg-popover>
-  <mock:shadow-root>
-    <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover should update mg-popover-content id when identifier is updated 2`] = `
+<mg-popover>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
+  <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
-</mg-popover>
-`;
-
-exports[`mg-popover should update popper instance when slot null update 1`] = `
-<mg-popover>
-  <mock:shadow-root>
-    <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="new-identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover should update popper instance when slot %s update 1`] = `
+<mg-popover>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
-</mg-popover>
-`;
-
-exports[`mg-popover should update popper instance when slot null update 2`] = `
-<mg-popover>
-  <mock:shadow-root>
-    <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
+exports[`mg-popover should update popper instance when slot %s update 2`] = `
+<mg-popover>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
   </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
     <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
+      <div class="mg-c-button mg-c-button--primary" id="identifier-btn">
+        <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
     </mock:shadow-root>
     mg-button
   </mg-button>
-</mg-popover>
-`;
-
-exports[`mg-popover should update popper instance when slot title update 1`] = `
-<mg-popover>
-  <mock:shadow-root>
-    <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
-  </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
-          <slot></slot>
-        </div>
-      </div>
+      <slot name="arrow"></slot>
     </mock:shadow-root>
-    mg-button
-  </mg-button>
-</mg-popover>
-`;
-
-exports[`mg-popover should update popper instance when slot title update 2`] = `
-<mg-popover>
-  <mock:shadow-root>
-    <slot></slot>
-    <div class="mg-popover" data-show id="identifier" style="position: fixed; left: 0; top: 0; margin: 0;">
-      <mg-card>
-        <div class="mg-popover__title">
-          <slot name="title"></slot>
-        </div>
-        <slot name="content"></slot>
-      </mg-card>
-      <div class="mg-popover__arrow" data-popper-arrow style="position: absolute;"></div>
-    </div>
-  </mock:shadow-root>
-  <h2 slot="title">
-    Blu bli blo bla
-  </h2>
-  <p slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <mock:shadow-root>
-      <div class="mg-button mg-button--primary" id="identifier-btn">
-        <div class="mg-button__content">
-          <slot></slot>
-        </div>
-      </div>
-    </mock:shadow-root>
-    mg-button
-  </mg-button>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
 </mg-popover>
 `;

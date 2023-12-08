@@ -1,21 +1,20 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Component, Event, h, Prop, EventEmitter, State, Watch, Element } from '@stencil/core';
+import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, allItemsAreString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
 import { ToggleValue } from './mg-input-toggle.conf';
 
 /**
  * type Option validation function
- *
- * @param {ToggleValue} option radio option
- * @returns {boolean} toggle option type is valid
+ * @param option - radio option
+ * @returns toggle option type is valid
  */
 const isOption = (option: ToggleValue): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
 
 @Component({
   tag: 'mg-input-toggle',
-  styleUrl: 'mg-input-toggle.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-toggle.css',
   shadow: true,
 })
 export class MgInputToggle {
@@ -24,11 +23,11 @@ export class MgInputToggle {
    ************/
 
   // Classes
-  private classReadonly = 'mg-input--toggle-readonly';
-  private classDisabled = 'mg-input--toggle-disabled';
-  private classIsActive = 'mg-input--toggle-is-active';
-  private classOnOff = 'mg-input--toggle-on-off';
-  private classIcon = 'mg-input--toggle-icon';
+  private classReadonly = 'mg-c-input--toggle-readonly';
+  private classDisabled = 'mg-c-input--toggle-disabled';
+  private classIsActive = 'mg-c-input--toggle-is-active';
+  private classOnOff = 'mg-c-input--toggle-on-off';
+  private classIcon = 'mg-c-input--toggle-icon';
 
   /**************
    * Decorators *
@@ -53,8 +52,6 @@ export class MgInputToggle {
 
   /**
    * Items are the possible options to select
-   *
-   * @returns {void}
    */
   @Prop() items!: string[] | ToggleValue[];
   @Watch('items')
@@ -106,8 +103,8 @@ export class MgInputToggle {
   @Prop() isOnOff = false;
   @Watch('isOnOff')
   handleIsOnOff(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classOnOff);
-    else this.classList.delete(this.classOnOff);
+    if (newValue) this.classCollection.add(this.classOnOff);
+    else this.classCollection.delete(this.classOnOff);
   }
 
   /**
@@ -116,8 +113,8 @@ export class MgInputToggle {
   @Prop() isIcon = false;
   @Watch('isIcon')
   handleIsIcon(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classIcon);
-    else this.classList.delete(this.classIcon);
+    if (newValue) this.classCollection.add(this.classIcon);
+    else this.classCollection.delete(this.classIcon);
   }
 
   /**
@@ -126,8 +123,8 @@ export class MgInputToggle {
   @Prop() readonly = false;
   @Watch('readonly')
   handleReadonly(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classReadonly);
-    else this.classList.delete(this.classReadonly);
+    if (newValue) this.classCollection.add(this.classReadonly);
+    else this.classCollection.delete(this.classReadonly);
   }
 
   /**
@@ -136,8 +133,8 @@ export class MgInputToggle {
   @Prop() disabled = false;
   @Watch('disabled')
   handleDisabled(newValue: boolean): void {
-    if (newValue) this.classList.add(this.classDisabled);
-    else this.classList.delete(this.classDisabled);
+    if (newValue) this.classCollection.add(this.classDisabled);
+    else this.classCollection.delete(this.classDisabled);
   }
 
   /**
@@ -153,12 +150,22 @@ export class MgInputToggle {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--toggle']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--toggle']);
 
   /**
    * Formated items for display
    */
   @State() options: ToggleValue[];
+
+  /**
+   * Error message to display
+   */
+  @State() errorMessage: string;
+
+  /**
+   * Define input valid state
+   */
+  @State() valid: boolean;
 
   /**
    * Checked internal value
@@ -167,8 +174,8 @@ export class MgInputToggle {
   @Watch('checked')
   handleChecked(newValue: boolean): void {
     // style
-    if (newValue) this.classList.add(this.classIsActive);
-    else this.classList.delete(this.classIsActive);
+    if (newValue) this.classCollection.add(this.classIsActive);
+    else this.classCollection.delete(this.classIsActive);
 
     // update value
     this.value = this.options[newValue ? 1 : 0].value;
@@ -177,7 +184,7 @@ export class MgInputToggle {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<any>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputToggleElement['value']>;
 
   /**
    * Emited event when checking validity
@@ -185,9 +192,41 @@ export class MgInputToggle {
   @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
 
   /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: boolean, errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.valid = valid;
+      this.inputValid.emit(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+    }
+  }
+
+  /**
+   * Set input error message
+   * @param errorMessage - errorMessage override
+   */
+  private setErrorMessage = (errorMessage?: string): void => {
+    // Set error message
+    this.errorMessage = undefined;
+    // Does have a custom error message
+    if (!this.valid && errorMessage !== undefined) {
+      this.errorMessage = errorMessage;
+    }
+  };
+
+  /**
    * Change checked value
-   *
-   * @returns {void}
    */
   private toggleChecked = (): void => {
     this.checked = !this.checked;
@@ -195,8 +234,6 @@ export class MgInputToggle {
 
   /**
    * Slots validation
-   *
-   * @returns {void}
    */
   private validateSlots = (): void => {
     const slots = Array.from(this.element.children);
@@ -211,8 +248,6 @@ export class MgInputToggle {
 
   /**
    * set checked state
-   *
-   * @returns {void}
    */
   private setChecked(): void {
     const optionTrueValueIndex = this.options.map(option => option.value).findIndex(value => value === true);
@@ -258,14 +293,13 @@ export class MgInputToggle {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -278,7 +312,7 @@ export class MgInputToggle {
         readonlyValue={undefined}
         tooltip={!this.readonly && this.tooltip}
         helpText={this.helpText}
-        errorMessage={undefined}
+        errorMessage={this.errorMessage}
         isFieldset={false}
       >
         <button
@@ -287,14 +321,14 @@ export class MgInputToggle {
           aria-checked={this.checked.toString()}
           aria-readonly={this.disabled || this.readonly}
           id={this.identifier}
-          class="mg-input__button-toggle"
+          class="mg-c-input__button-toggle"
           disabled={this.disabled || this.readonly}
           onClick={this.toggleChecked}
         >
-          <span aria-hidden="true" class="mg-input__toggle-item-container">
+          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-1"></slot>
           </span>
-          <span aria-hidden="true" class="mg-input__toggle-item-container">
+          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
             <slot name="item-2"></slot>
           </span>
         </button>

@@ -1,0 +1,14 @@
+.mg-form-group {
+  --mg-inputs-title-width: var(--mg-form-inputs-title-width, 15rem);
+  --mg-inputs-margin-bottom: 1.5rem;
+  --mg-inputs-title-horizontal-space: 3rem;
+  --mg-inputs-shrink: 0;
+
+  &.mg-c-form--all-required {
+    --mg-input-title-display: none;
+  }
+
+  & > p {
+    font-size: 1.2rem;
+  }
+}

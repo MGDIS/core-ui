@@ -1,33 +1,133 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mg-input-title Should render label with args { isLegend: true, identifier: 'identifier' } 1`] = `
+exports[`mg-input-title Should render label with args {
+  isLegend: false,
+  required: false,
+  readonly: false,
+  identifier: 'identifier'
+} 1`] = `
 <mg-input-title>
   <!---->
-  <legend class="mg-input-title">
+  <label class="mg-c-input-title" htmlfor="identifier">
+    mg-input-title
+  </label>
+</mg-input-title>
+`;
+
+exports[`mg-input-title Should render label with args {
+  isLegend: false,
+  required: false,
+  readonly: true,
+  identifier: 'identifier'
+} 1`] = `
+<mg-input-title>
+  <!---->
+  <span class="mg-c-input-title" htmlfor="identifier">
+    mg-input-title
+  </span>
+</mg-input-title>
+`;
+
+exports[`mg-input-title Should render label with args {
+  isLegend: false,
+  required: true,
+  readonly: false,
+  identifier: 'identifier'
+} 1`] = `
+<mg-input-title>
+  <!---->
+  <label class="mg-c-input-title" htmlfor="identifier">
+    mg-input-title
+    <span class="mg-c-input-title__required">
+      <span class="mg-u-is-asterisk">
+        *
+      </span>
+    </span>
+  </label>
+</mg-input-title>
+`;
+
+exports[`mg-input-title Should render label with args {
+  isLegend: false,
+  required: true,
+  readonly: true,
+  identifier: 'identifier'
+} 1`] = `
+<mg-input-title>
+  <!---->
+  <span class="mg-c-input-title" htmlfor="identifier">
+    mg-input-title
+    <span class="mg-c-input-title__required">
+      <span class="mg-u-is-asterisk">
+        *
+      </span>
+    </span>
+  </span>
+</mg-input-title>
+`;
+
+exports[`mg-input-title Should render label with args {
+  isLegend: true,
+  required: false,
+  readonly: false,
+  identifier: 'identifier'
+} 1`] = `
+<mg-input-title>
+  <!---->
+  <legend class="mg-c-input-title">
     mg-input-title
   </legend>
 </mg-input-title>
 `;
 
-exports[`mg-input-title Should render label with args { required: false, identifier: 'identifier' } 1`] = `
+exports[`mg-input-title Should render label with args {
+  isLegend: true,
+  required: false,
+  readonly: true,
+  identifier: 'identifier'
+} 1`] = `
 <mg-input-title>
   <!---->
-  <label class="mg-input-title" htmlfor="identifier">
+  <span class="mg-c-input-title">
     mg-input-title
-  </label>
+  </span>
 </mg-input-title>
 `;
 
-exports[`mg-input-title Should render label with args { required: true, identifier: 'identifier' } 1`] = `
+exports[`mg-input-title Should render label with args {
+  isLegend: true,
+  required: true,
+  readonly: false,
+  identifier: 'identifier'
+} 1`] = `
 <mg-input-title>
   <!---->
-  <label class="mg-input-title" htmlfor="identifier">
+  <legend class="mg-c-input-title">
     mg-input-title
-    <span class="mg-input-title__required">
-      <span class="is-asterisk">
+    <span class="mg-c-input-title__required">
+      <span class="mg-u-is-asterisk">
         *
       </span>
     </span>
-  </label>
+  </legend>
+</mg-input-title>
+`;
+
+exports[`mg-input-title Should render label with args {
+  isLegend: true,
+  required: true,
+  readonly: true,
+  identifier: 'identifier'
+} 1`] = `
+<mg-input-title>
+  <!---->
+  <span class="mg-c-input-title">
+    mg-input-title
+    <span class="mg-c-input-title__required">
+      <span class="mg-u-is-asterisk">
+        *
+      </span>
+    </span>
+  </span>
 </mg-input-title>
 `;

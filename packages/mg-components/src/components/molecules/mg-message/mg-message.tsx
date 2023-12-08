@@ -1,11 +1,12 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
 import { createID, ClassList } from '../../../utils/components.utils';
-import { variants } from './mg-message.conf';
+import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
+import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
 @Component({
   tag: 'mg-message',
-  styleUrl: 'mg-message.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-message.css',
   shadow: true,
 })
 export class MgMessage {
@@ -14,7 +15,7 @@ export class MgMessage {
    ************/
 
   // Classes
-  private readonly classHide = 'mg-message--hide';
+  private readonly classHide = 'mg-c-message--hide';
 
   // IDs
   private closeButtonId = '';
@@ -50,8 +51,8 @@ export class MgMessage {
    */
   @Prop() delay: number;
   @Watch('delay')
-  validateDelay(newValue: number): void {
-    if (newValue && newValue < 2) {
+  validateDelay(newValue: MgMessage['delay']): void {
+    if (newValue !== undefined && newValue < 2) {
       throw new Error(`<mg-message> prop "delay" must be greater than 2 seconds.`);
     }
   }
@@ -59,16 +60,16 @@ export class MgMessage {
   /**
    * Message variant
    */
-  @Prop() variant: string = variants[0]; // info
+  @Prop() variant: VariantType = variants[0]; // info
   @Watch('variant')
-  validateVariant(newValue: string, oldValue?: string): void {
+  validateVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
     if (!variants.includes(newValue)) {
       throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
       if (oldValue !== undefined) {
-        this.classList.delete(`mg-message--${oldValue}`);
+        this.classCollection.delete(`mg-c-message--${oldValue}`);
       }
-      this.classList.add(`mg-message--${newValue}`);
+      this.classCollection.add(`mg-c-message--${newValue}`);
     }
   }
 
@@ -78,7 +79,7 @@ export class MgMessage {
    */
   @Prop({ mutable: true }) closeButton = false;
   @Watch('closeButton')
-  validateCloseButton(newValue: boolean): void {
+  validateCloseButton(newValue: MgMessage['closeButton']): void {
     if (newValue && this.hasActions) {
       this.closeButton = false;
       throw new Error('<mg-message> prop "close-button" can\'t be used with the actions slot.');
@@ -90,10 +91,10 @@ export class MgMessage {
    */
   @Prop({ mutable: true }) hide = false;
   @Watch('hide')
-  validateHide(newValue: boolean): void {
+  validateHide(newValue: MgMessage['hide']): void {
     if (newValue) {
       this.componentHide.emit();
-      this.classList.add(this.classHide);
+      this.classCollection.add(this.classHide);
       // Remove event Listener
       ['focusin', 'mouseenter'].forEach(event => {
         this.element.removeEventListener(event, this.timerEvents);
@@ -102,7 +103,7 @@ export class MgMessage {
       this.clearTimer();
     } else {
       this.componentShow.emit();
-      this.classList.delete(this.classHide);
+      this.classCollection.delete(this.classHide);
       // If delay is set
       if (this.delay > 1) {
         // Start timer
@@ -118,7 +119,7 @@ export class MgMessage {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-message']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-message']);
 
   /**
    * Define if component is using actions slot
@@ -128,17 +129,15 @@ export class MgMessage {
   /**
    * Emited event when message is diplayed
    */
-  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<string>;
+  @Event({ eventName: 'component-show' }) componentShow: EventEmitter<void>;
 
   /**
    * Emited event when message is hidden
    */
-  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<string>;
+  @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
 
   /**
    * Set timer
-   *
-   * @returns {void}
    */
   private setTimer = (): void => {
     this.storedTimer = setTimeout(() => (this.hide = true), this.delay * 1000);
@@ -146,8 +145,6 @@ export class MgMessage {
 
   /**
    * Clear timer
-   *
-   * @returns {void}
    */
   private clearTimer = (): void => {
     clearTimeout(this.storedTimer);
@@ -155,9 +152,7 @@ export class MgMessage {
 
   /**
    * Event to add on element
-   *
-   * @param {MouseEvent | FocusEvent} event  event
-   * @returns {void}
+   * @param event - event
    */
   private timerEvents = (event: MouseEvent | FocusEvent): void => {
     this.clearTimer();
@@ -186,10 +181,9 @@ export class MgMessage {
 
   /**
    * Get icon corresponding to variant
-   *
-   * @returns {string} icon
+   * @returns icon
    */
-  private getIcon = (): string => {
+  private getIcon = (): MgIcon['icon'] => {
     switch (this.variant) {
       case 'info':
         return 'info-circle';
@@ -220,7 +214,7 @@ export class MgMessage {
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
     this.validateCloseButton(this.closeButton);
     if (this.closeButton) {
-      this.classList.add('mg-message--close-button');
+      this.classCollection.add('mg-c-message--close-button');
       this.closeButtonId = `${this.identifier}-close-button`;
     }
     this.validateDelay(this.delay);
@@ -229,30 +223,28 @@ export class MgMessage {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
-      <div id={this.identifier} class={this.classList.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
-        <mg-card>
-          <span class="mg-message__bar"></span>
-          <span class="mg-message__icon">
+      <div id={this.identifier} class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
+        <mg-card variant={this.variant} variant-style="bar-left">
+          <span class="mg-c-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>
-          <div class="mg-message__content">
-            <span class="mg-message__content-slot">
+          <div class="mg-c-message__content">
+            <span class="mg-c-message__content-slot">
               <slot></slot>
             </span>
-            {this.hasActions && <span class="mg-message__content-separator"></span>}
+            {this.hasActions && <span class="mg-c-message__content-separator"></span>}
             {this.hasActions && (
-              <span class="mg-message__content-actions-slot">
+              <span class="mg-c-message__content-actions-slot">
                 <slot name="actions"></slot>
               </span>
             )}
           </div>
           {this.closeButton && (
-            <span class="mg-message__close-button">
+            <span class="mg-c-message__close-button">
               <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.message.closeButton} onClick={this.handleClose}>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>

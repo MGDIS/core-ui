@@ -16,9 +16,8 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => (
@@ -27,21 +26,21 @@ const Template = (args: any): HTMLElement => (
   </mg-tooltip>
 );
 
-export const MgTooltip = Template.bind({});
-
-MgTooltip.args = {
-  identifier: 'identifier',
-  message: 'This is a tooltip message',
-  placement: undefined,
-  display: false,
-  disabled: false,
+export const MgTooltip = {
+  render: Template,
+  args: {
+    identifier: 'identifier',
+    message: 'This is a tooltip message',
+    placement: undefined,
+    display: false,
+    disabled: false,
+  },
 };
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TemplateButton = (args: any): HTMLElement => (
@@ -50,17 +49,18 @@ const TemplateButton = (args: any): HTMLElement => (
   </mg-tooltip>
 );
 
-export const MgTooltipOnButton = TemplateButton.bind({});
+export const MgTooltipOnButton = {
+  render: TemplateButton,
 
-MgTooltipOnButton.args = {
-  ...MgTooltip.args,
+  args: {
+    ...MgTooltip.args,
+  },
 };
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TemplateSpan = (args: any): HTMLElement => (
@@ -69,8 +69,10 @@ const TemplateSpan = (args: any): HTMLElement => (
   </mg-tooltip>
 );
 
-export const MgTooltipOnSpan = TemplateSpan.bind({});
+export const MgTooltipOnSpan = {
+  render: TemplateSpan,
 
-MgTooltipOnSpan.args = {
-  ...MgTooltip.args,
+  args: {
+    ...MgTooltip.args,
+  },
 };

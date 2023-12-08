@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { variants, buttonTypes } from '../mg-button.conf';
-import { icons } from '../../mg-icon/mg-icon.conf';
+import iconList from '@mgdis/img/dist/icons/index.json';
 import { filterArgs } from '../../../../../.storybook/utils';
 
 export default {
@@ -17,38 +17,40 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })}>{args.slot}</mg-button>;
+const Template = (args: any): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-button>;
 
-export const MgButton = Template.bind({});
-
-MgButton.args = {
-  slot: 'Text button',
-  variant: variants[0],
-  label: 'Explicit aria label',
-  identifier: undefined,
-  disabled: false,
-  disableOnClick: false,
-  isIcon: false,
-  type: undefined,
-  fullWidth: undefined,
+export const MgButton = {
+  render: Template,
+  args: {
+    slot: 'Text button',
+    variant: variants[0],
+    label: 'Explicit aria label',
+    identifier: undefined,
+    disabled: false,
+    disableOnClick: false,
+    isIcon: false,
+    type: undefined,
+    fullWidth: undefined,
+  },
 };
 
-export const IsIcon = Template.bind({});
-
-IsIcon.args = {
-  ...MgButton.args,
-  isIcon: true,
-  slot: <mg-icon icon={Object.keys(icons)[0]}></mg-icon>,
+export const IsIcon = {
+  render: Template,
+  args: {
+    ...MgButton.args,
+    isIcon: true,
+    slot: `<mg-icon icon="${iconList[0]}"></mg-icon>`,
+  },
 };
 
-export const DisableOnClick = Template.bind({});
-
-DisableOnClick.args = {
-  ...MgButton.args,
-  disableOnClick: true,
+export const DisableOnClick = {
+  render: Template,
+  args: {
+    ...MgButton.args,
+    disableOnClick: true,
+  },
 };

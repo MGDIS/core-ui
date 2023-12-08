@@ -1,0 +1,52 @@
+@import 'mg-input';
+@import 'mg-input-box';
+@import 'mg-input-width';
+@import 'mg-input-character-left';
+@import '../utils/a11y';
+
+/**
+* Character left
+*/
+.mg-c-input__with-character-left {
+  position: relative;
+  display: inline-flex;
+
+  .mg-c-input--width-full & {
+    width: 100%;
+  }
+
+  .mg-c-input.mg-u-is-focused & .mg-c-input__box {
+    padding-right: calc(var(--mg-character-left-message-length) * 1ch + 0.8rem);
+  }
+
+  mg-character-left {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    display: none;
+    font-size: 1.1rem;
+    opacity: 0.6;
+    transform: translateY(-50%);
+
+    .mg-c-input.mg-u-is-focused & {
+      display: block;
+    }
+  }
+}
+
+/**
+* Icon in input
+*/
+.mg-c-input.mg-c-input--has-icon .mg-c-input__with-character-left {
+  & > mg-icon {
+    position: absolute;
+    top: 50%;
+    left: var(--mg-inputs-spacer);
+    color: var(--mg-inputs-color);
+    transform: translateY(-50%);
+  }
+
+  .mg-c-input__box {
+    padding-left: calc(var(--mg-icon-regular-size) + var(--mg-inputs-spacer) * 2);
+  }
+}

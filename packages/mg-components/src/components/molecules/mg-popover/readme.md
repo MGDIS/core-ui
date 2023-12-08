@@ -23,43 +23,48 @@ The title and the close button are optional.
 
 ### Fonts
 
-![](./mg-popover/doc/img/mg-popover-fonts.png)
+![](./doc/img/mg-popover-fonts.png)
 
 ### Spacing
 
-![](./mg-popover/doc/img/mg-popover-spacing.png)
+![](./doc/img/mg-popover-spacing.png)
 
 ### Sizing
 
-![](./mg-popover/doc/img/mg-popover-sizing.png)
+![](./doc/img/mg-popover-sizing.png)
+
+Default max-width : 400px
+The value of the max-width can be modified according to the case via the CSS variable.
 
 ### Alignments
 
-![](./mg-popover/doc/img/mg-popover-align.png)
+![](./doc/img/mg-popover-align.png)
 
 ### Positioning
 
 #### Item
 
-![](./mg-popover/doc/img/mg-popover-position.png)
+![](./doc/img/mg-popover-position.png)
 
 #### Screen
 
-![](./mg-popover/doc/img/mg-popover-position-screen.png)
+![](./doc/img/mg-popover-position-screen.png)
 
 ### Style
 
-![](./mg-popover/doc/img/mg-popover-style.png)
+![](./doc/img/mg-popover-style.png)
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`
 - `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`
 - `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`
 - `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`
 - `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`
+- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;
+- `--mg-popover-min-width`: Define the popover min-width. Default: `unset`;
 
 Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.
 
@@ -90,22 +95,23 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 ### Used by
 
  - [mg-action-more](../mg-action-more)
+ - [mg-input-checkbox](../inputs/mg-input-checkbox)
  - [mg-menu-item](../menu/mg-menu-item)
 
 ### Depends on
 
-- [mg-card](../../atoms/mg-card)
-- [mg-button](../../atoms/mg-button)
-- [mg-icon](../../atoms/mg-icon)
+- [mg-popover-content](mg-popover-content)
 
 ### Graph
 ```mermaid
 graph TD;
-  mg-popover --> mg-card
-  mg-popover --> mg-button
-  mg-popover --> mg-icon
+  mg-popover --> mg-popover-content
+  mg-popover-content --> mg-card
+  mg-popover-content --> mg-button
+  mg-popover-content --> mg-icon
   mg-button --> mg-icon
   mg-action-more --> mg-popover
+  mg-input-checkbox --> mg-popover
   mg-menu-item --> mg-popover
   style mg-popover fill:#f9f,stroke:#333,stroke-width:4px
 ```

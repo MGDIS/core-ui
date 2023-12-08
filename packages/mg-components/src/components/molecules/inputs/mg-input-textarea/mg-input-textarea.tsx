@@ -1,12 +1,12 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { Handler, Width } from '../MgInput.conf';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-input-textarea',
-  styleUrl: 'mg-input-textarea.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-textarea.css',
   shadow: true,
 })
 export class MgInputTextarea {
@@ -15,8 +15,8 @@ export class MgInputTextarea {
    ************/
 
   // Classes
-  private classFocus = 'is-focused';
-  private classHasDisplayCharacterLeft = 'mg-input--has-display-character-left';
+  private classFocus = 'mg-u-is-focused';
+  private classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
 
   // IDs
   private characterLeftId;
@@ -29,6 +29,7 @@ export class MgInputTextarea {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -128,6 +129,13 @@ export class MgInputTextarea {
    * Define input pattern error message
    */
   @Prop() patternErrorMessage: string;
+  @Watch('pattern')
+  @Watch('patternErrorMessage')
+  validatePattern(newValue: string): void {
+    if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
+      throw new Error('<mg-input-textarea> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+    }
+  }
 
   /**
    * Define the number of visible text lines for the control
@@ -146,9 +154,9 @@ export class MgInputTextarea {
   @Watch('displayCharacterLeft')
   validateDisplayCharacterLeft(newValue: boolean): void {
     if (newValue) {
-      this.classList.add(this.classHasDisplayCharacterLeft);
+      this.classCollection.add(this.classHasDisplayCharacterLeft);
     } else {
-      this.classList.delete(this.classHasDisplayCharacterLeft);
+      this.classCollection.delete(this.classHasDisplayCharacterLeft);
     }
   }
 
@@ -175,7 +183,7 @@ export class MgInputTextarea {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--textarea']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--textarea']);
 
   /**
    * Error message to display
@@ -185,17 +193,15 @@ export class MgInputTextarea {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputTextareaElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputTextareaElement['valid']>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -204,6 +210,38 @@ export class MgInputTextarea {
     this.hasDisplayedError = this.invalid;
   }
 
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputTextarea['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputTextarea['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+  }
   /**
    * Handle input event
    */
@@ -219,8 +257,8 @@ export class MgInputTextarea {
    * Handle focus event
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
   };
 
   /**
@@ -228,17 +266,20 @@ export class MgInputTextarea {
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**
    * Get pattern validity
    * Pattern is not defined on textarea field: https://developer.mozilla.org/fr/docs/Web/HTML/Element/Textarea
-   *
-   * @returns {boolean} is pattern valid
+   * @returns is pattern valid
    */
   private getPatternValidity = (): boolean => this.pattern === undefined || new RegExp(`^${this.pattern}$`, 'u').test(this.value);
 
@@ -246,39 +287,27 @@ export class MgInputTextarea {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined && this.input.checkValidity() && this.getPatternValidity());
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined && this.input.checkValidity() && this.getPatternValidity()));
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
     // Does not match pattern
-    if (!this.valid && !this.getPatternValidity()) {
-      this.errorMessage = this.patternErrorMessage;
-    }
-    // required
-    else if (!this.valid && this.input.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
-    }
-  };
-
-  /**
-   * Validate pattern configuration
-   */
-  private validatePattern = (): void => {
-    if (
-      this.pattern &&
-      typeof this.pattern === 'string' &&
-      this.pattern !== '' &&
-      (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
-    ) {
-      throw new Error('<mg-input-textarea> prop "pattern" must be paired with the prop "patternErrorMessage"');
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (!this.getPatternValidity()) {
+        this.errorMessage = this.patternErrorMessage;
+      }
+      // required
+      else if (this.input.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 
@@ -288,8 +317,7 @@ export class MgInputTextarea {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -297,7 +325,8 @@ export class MgInputTextarea {
     this.characterLeftId = `${this.identifier}-character-left`;
     // Validate
     this.validateDisplayCharacterLeft(this.displayCharacterLeft);
-    this.validatePattern();
+    this.validatePattern(this.pattern);
+    this.validatePattern(this.patternErrorMessage);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -308,14 +337,13 @@ export class MgInputTextarea {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -331,13 +359,13 @@ export class MgInputTextarea {
         errorMessage={this.errorMessage}
         isFieldset={false}
       >
-        <div class="mg-input__with-character-left">
+        <div class="mg-c-input__with-character-left">
           <textarea
             class={{
-              'mg-input__box': true,
-              'mg-input__box--resizable': this.resizable === 'both',
-              'mg-input__box--resizable-horizontal': this.resizable === 'horizontal',
-              'mg-input__box--resizable-vertical': this.resizable === 'vertical',
+              'mg-c-input__box': true,
+              'mg-c-input__box--resizable': this.resizable === 'both',
+              'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
+              'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
             }}
             value={this.value}
             id={this.identifier}
@@ -348,11 +376,12 @@ export class MgInputTextarea {
             maxlength={this.maxlength}
             disabled={this.disabled}
             required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
             onInput={this.handleInput}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            ref={el => {
-              if (el !== null) this.input = el as HTMLTextAreaElement;
+            ref={(el: HTMLTextAreaElement) => {
+              if (el !== null) this.input = el;
             }}
           ></textarea>
           {this.displayCharacterLeft && this.maxlength > 0 && (

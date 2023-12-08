@@ -1,149 +1,81 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
-
-const getSlots = ({ content, actions }: { content?: boolean; actions?: boolean }): string => {
-  let slots = '';
-  if (content) {
-    slots += `
-    <p slot="content">
-      <strong>Strong</strong> content!
-    </p>`;
-  }
-  if (actions) {
-    slots += `
-   <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
-     <mg-button identifier="identifier">Primary</mg-button>
-     <mg-button variant="secondary" identifier="identifier">
-       Secondary
-     </mg-button>
-   </div>`;
-  }
-
-  return slots;
-};
+import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { MgModalType, actions, contents, createHTML } from './mg-modal.e2e.template';
 
 describe('mg-modal', () => {
-  describe.each([
-    { content: false, actions: false },
-    { content: true, actions: false },
-    { content: false, actions: true },
-    { content: true, actions: true },
-  ])('render whith slots %s', slots => {
-    test.each([
+  const slotsToTests = actions.flatMap(action => contents.map(content => ({ action, content })));
+  describeEach(slotsToTests)('render with slots %s', slots => {
+    testEach([
       { closeButton: false, hide: false },
       { closeButton: true, hide: false },
-      { closeButton: true, hide: true },
-    ])('Should render', async ({ closeButton, hide }) => {
-      const page = await createPage(
-        `<mg-button id="modal-button">Open modal</mg-button><mg-modal modal-title="Modal title" close-button="${closeButton}" ${hide === true ? 'hide="true"' : ''}">${getSlots(
-          slots,
-        )}</mg-modal>`,
-      );
+      {
+        closeButton: true,
+        modalTitle:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
+      },
+    ])('Should render %s', async (page: PageType, args: MgModalType) => {
+      await setPageContent(page, createHTML(args, slots));
 
-      await page.setViewport({ width: 800, height: 500 });
-
-      const element = await page.find('mg-modal');
-
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
-    });
-
-    test('Should render with long title', async () => {
-      const page = await createPage(
-        `<mg-button id="modal-button">Open modal</mg-button>
-        <mg-modal modal-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat " close-button="true">${getSlots(
-          slots,
-        )}</mg-modal>`,
-      );
-
-      await page.setViewport({ width: 800, height: 500 });
-
-      const element = await page.find('mg-modal');
-
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
-    });
-
-    test('Should render with long content', async () => {
-      const page = await createPage(
-        `<mg-button id="modal-button">Open modal</mg-button>
-          <mg-modal modal-title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat " close-button="true">${getSlots(
-            slots,
-          )}
-          <p slot="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia dLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia d</p>
-        </mg-modal>`,
-      );
-
-      await page.setViewport({ width: 800, height: 500 });
-
-      const element = await page.find('mg-modal');
-
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator(args.hide ? 'body' : '.mg-c-modal')).toHaveScreenshot();
     });
   });
 
+  test('Should render hidden modal', async ({ page }) => {
+    await setPageContent(page, createHTML({ hide: true }));
+
+    await expect(page.locator('body')).toHaveScreenshot();
+  });
+
   describe('style', () => {
-    test('Should render with child mg-card', async () => {
-      const page = await createPage(
+    test('Should render with child mg-card', async ({ page }) => {
+      await setPageContent(
+        page,
         `<mg-modal modal-title="child mg-card" class="custom-modal-card">
-        <mg-card slot="content">child card</mg-card>
-        </mg-modal>
-        <style>.custom-modal-card {--mg-card-background: hsl(var(--color-danger));}</style>`,
+          <mg-card slot="content">child card</mg-card>
+          </mg-modal>
+          <style>.custom-modal-card {--mg-card-background: hsl(var(--color-danger));}</style>
+        `,
       );
 
-      await page.setViewport({ width: 800, height: 500 });
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
     });
   });
 
   describe('navigation', () => {
-    test('Should trigger modal and close modal.', async () => {
-      const page = await createPage(`
-        <mg-button id="modal-button">Open modal</mg-button>
-        <mg-modal modal-title="Modal Title" close-button hide>${getSlots({ content: true, actions: true })}</mg-modal>
-      `);
+    test('Should trigger modal and close modal.', async ({ page }) => {
+      await setPageContent(page, createHTML({ closeButton: true, hide: true }, { action: true, content: 'short' }));
 
-      await page.setViewport({ width: 800, height: 500 });
+      await expect(page.locator('body')).toHaveScreenshot();
 
-      await page.evaluate(() => {
-        document.querySelector('#modal-button').addEventListener('click', () => {
-          const mgModal = document.querySelector('mg-modal');
-          const isHide = mgModal.hide === true;
-          if (isHide) {
-            mgModal.removeAttribute('hide');
-            mgModal.hide = false;
-          } else {
-            mgModal.hide = true;
-          }
-        });
-      });
+      // open modal
+      await page.locator('#modal-button').click();
 
-      const mgButton = await page.find('mg-button');
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      // close modal
+      await page.locator('.mg-c-modal mg-button').click();
 
-      mgButton.triggerEvent('click');
-      await page.waitForChanges();
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
 
-      const screenshot2 = await page.screenshot();
-      expect(screenshot2).toMatchImageSnapshot();
+    test('should navigate with keyboard', async ({ page }) => {
+      await setPageContent(page, createHTML({ closeButton: true, hide: true }, { action: true, content: 'short' }));
+      await expect(page.locator('body')).toHaveScreenshot();
 
-      const closeButton = await page.find('mg-modal >>> mg-button');
+      // open modal
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Enter');
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
-      closeButton.triggerEvent('click');
-      await page.waitForChanges();
+      // loop in modal
+      await page.keyboard.press('Tab');
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
+      await page.keyboard.press('Tab');
+      await page.keyboard.press('Tab');
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
-      const screenshot3 = await page.screenshot();
-      expect(screenshot3).toMatchImageSnapshot();
+      // close modal
+      await page.keyboard.press('Enter');
+      await expect(page.locator('body')).toHaveScreenshot();
     });
   });
 });

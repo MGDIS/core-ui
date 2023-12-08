@@ -1,12 +1,12 @@
 ## Specs
 
-![](./mg-tag/doc/img/mg-tag-specs.png)
+![](./doc/img/mg-tag-specs.png)
 
 ### Fill / Outline tags
 
 #### Colors
 
-![](./mg-tag/doc/img/mg-tag-colors.png)
+![](./doc/img/mg-tag-colors.png)
 
 Icons take the color of the label.
 
@@ -14,35 +14,35 @@ Icons take the color of the label.
 
 #### Font
 
-![](./mg-tag/doc/img/mg-tag-font.png)
+![](./doc/img/mg-tag-font.png)
 
 They are not on SemiBold but **Regular**.
 
 #### Colors
 
-![](./mg-tag/doc/img/mg-tag-icons-colors.png)
+![](./doc/img/mg-tag-icons-colors.png)
 
 1. Icons takes the color of the tag variant.
-2. Labels are [**@color-dark**](./?path=/docs/style-colors--page) for all.
-3. Color background is **90% lightness** of the tag variant.
+2. Labels are [**@color-dark**](./?path=/docs/style-colors--docs) for all.
+3. Color background is **[**soft color**](./?path=/docs/style-colors--docs)** of the tag variant.
 
 #### Rules
 
-![](./mg-tag/doc/img/mg-tag-use.png)
+![](./doc/img/mg-tag-use.png)
 
 For accessibility, soft variant tags cannot use an icon on its own.
 
 ## Theming
 
-![](./mg-tag/doc/img/mg-tag-variants.png)
+![](./doc/img/mg-tag-variants.png)
 
 ### With Icons
 
-![](./mg-tag/doc/img/mg-tag-icons.png)
+![](./doc/img/mg-tag-icons.png)
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 ### Global
 
@@ -52,7 +52,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ### Variant
 
-Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--page).
+Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).
 
 <!-- Auto Generated Below -->
 

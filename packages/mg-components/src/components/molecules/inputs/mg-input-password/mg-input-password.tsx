@@ -1,12 +1,12 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { Handler, Width } from '../MgInput.conf';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-input-password',
-  styleUrl: 'mg-input-password.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-password.css',
   shadow: true,
 })
 export class MgInputPassword {
@@ -22,6 +22,7 @@ export class MgInputPassword {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -129,7 +130,7 @@ export class MgInputPassword {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--password']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--password']);
 
   /**
    * Error message to display
@@ -139,23 +140,54 @@ export class MgInputPassword {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputPasswordElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputPasswordElement['valid']>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
     this.checkValidity();
     this.setErrorMessage();
     this.hasDisplayedError = this.invalid;
+  }
+
+  /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputPassword['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-password> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-password> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputPassword['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -173,28 +205,35 @@ export class MgInputPassword {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
   };
 
   /**
    * Set input error message
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
-    // required
-    if (!this.valid && this.input.validity.valueMissing) {
-      this.errorMessage = this.messages.errors.required;
+    if (!this.valid) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      }
+      // required
+      else if (this.input.validity.valueMissing) {
+        this.errorMessage = this.messages.errors.required;
+      }
     }
   };
 
@@ -204,8 +243,7 @@ export class MgInputPassword {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
@@ -220,14 +258,13 @@ export class MgInputPassword {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -245,7 +282,7 @@ export class MgInputPassword {
       >
         <input
           type="password"
-          class="mg-input__box"
+          class="mg-c-input__box"
           value={this.value}
           id={this.identifier}
           name={this.name}
@@ -253,10 +290,11 @@ export class MgInputPassword {
           title={this.placeholder}
           disabled={this.disabled}
           required={this.required}
+          aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLInputElement;
+          ref={(el: HTMLInputElement) => {
+            if (el !== null) this.input = el;
           }}
         />
       </MgInput>

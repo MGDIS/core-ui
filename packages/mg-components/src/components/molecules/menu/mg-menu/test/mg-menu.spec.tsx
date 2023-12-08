@@ -6,6 +6,7 @@ import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
 import { MgItemMore } from '../../../mg-item-more/mg-item-more';
+import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockConsoleError();
 mockWindowFrames();
@@ -13,14 +14,13 @@ mockWindowFrames();
 let id;
 /**
  * set id if param is true
- *
- * @param {boolean} hasId true if need a generated id
- * @returns {string} genereted id
+ * @param hasId - true if need a generated id
+ * @returns genereted id
  */
 const setId = (hasId: boolean): string => (hasId ? `test-${id++}` : undefined);
 
 const getPage = async (args, options = { submenu: true, itemMore: false }) => {
-  const components: unknown[] = [MgMenu, MgMenuItem, MgPopover];
+  const components: unknown[] = [MgMenu, MgMenuItem, MgPopover, MgPopoverContent];
   if (!options.submenu && options.itemMore) components.push(MgItemMore);
   const page = await newSpecPage({
     components,
@@ -78,7 +78,7 @@ describe('mg-menu', () => {
   let fireMo;
   beforeEach(() => {
     id = 1;
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: function () {
         return null;

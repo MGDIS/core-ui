@@ -11,17 +11,15 @@ A button with undefined type in a form will natively have a [submit type](https:
 
 ## Specs
 
-![](./mg-button/doc/img/mg-button-specs.png)
+![](./doc/img/mg-button-specs.png)
 
 ## Placement
 
-![](./mg-button/doc/img/mg-button-placement.png)
-
-To manage the space between two buttons you can use the helper [.mg-group-elements](/?path=/docs/style-buttons--buttons)
+![](./doc/img/mg-button-placement.png)
 
 ## Theming
 
-![](./mg-button/doc/img/mg-button-styles.png)
+![](./doc/img/mg-button-styles.png)
 
 Focused `mg-button` style is the one from the browser (outline).
 
@@ -35,7 +33,7 @@ To reset the loader after the process has completed, you need to set the `disabl
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 ### Global
 
@@ -47,7 +45,7 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 
 ### Variant
 
-Variants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--page).
+Variants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).
 
 #### Primary
 
@@ -93,11 +91,13 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
 ### Used by
 
  - [mg-action-more](../../molecules/mg-action-more)
+ - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+ - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover](../../molecules/mg-popover)
+ - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
 
 ### Depends on
 
@@ -108,11 +108,13 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
 graph TD;
   mg-button --> mg-icon
   mg-action-more --> mg-button
+  mg-input-checkbox --> mg-button
+  mg-input-checkbox-paginated --> mg-button
   mg-message --> mg-button
   mg-modal --> mg-button
   mg-pagination --> mg-button
   mg-panel --> mg-button
-  mg-popover --> mg-button
+  mg-popover-content --> mg-button
   style mg-button fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

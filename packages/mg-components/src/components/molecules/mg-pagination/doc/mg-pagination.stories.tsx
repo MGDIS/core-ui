@@ -9,16 +9,16 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-pagination {...filterArgs(args)}></mg-pagination>;
 
-export const MgPagination = Template.bind({});
-
-MgPagination.args = {
-  totalPages: 5,
-  currentPage: 1,
+export const MgPagination = {
+  render: Template,
+  args: {
+    totalPages: 5,
+    currentPage: 1,
+  },
 };

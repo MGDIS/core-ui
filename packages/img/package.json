@@ -1,0 +1,34 @@
+{
+  "name": "@mgdis/img",
+  "version": "1.4.0",
+  "description": "Image used in MGDIS products",
+  "author": "Simon Duhem <duhem-s@mgdis.fr>",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "svgo": "svgo --multipass -rf src -o dist",
+    "svgo:src": "svgo --multipass --pretty -rf src",
+    "sharp": "sharp -i 'dist/**/*.svg' -o {dir} -f png -c 0 --adaptiveFiltering false",
+    "list:all": "pnpm list:icons && pnpm list:illustrations",
+    "list:folder": "ls $FOLDER_PATH/*.svg | xargs -I{} basename {} | rev | cut -f 2- -d '.' | uniq | rev | sort | jq -R . | jq -s . > $FOLDER_PATH/index.json",
+    "list:icons": "export FOLDER_PATH=dist/icons && pnpm list:folder",
+    "list:illustrations": "export FOLDER_PATH=dist/illustrations && pnpm list:folder",
+    "build": "rm -rf dist && pnpm svgo && pnpm sharp && pnpm list:all",
+    "import:figma": "ts-node src/tools/import-figma.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "devDependencies": {
+    "@types/jsdom": "^21.1.5",
+    "@types/node": "^20.9.0",
+    "axios": "^1.6.2",
+    "dotenv": "^16.3.1",
+    "jsdom": "^23.0.0",
+    "sharp": "^0.33.0",
+    "sharp-cli": "^4.1.1",
+    "svgo": "^3.0.3",
+    "ts-node": "^10.9.1",
+    "tsconfig": "workspace:*",
+    "typescript": "^5.2.2"
+  }
+}

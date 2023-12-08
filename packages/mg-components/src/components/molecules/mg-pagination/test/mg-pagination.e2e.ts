@@ -1,94 +1,76 @@
-import { createPage, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '../../../../utils/e2e.test.utils';
+import { MgPagination } from '../mg-pagination';
+
+const createHTML = args => `<mg-pagination ${renderAttributes(args)}></mg-pagination>`;
 
 describe('mg-pagination', () => {
   describe('template', () => {
-    test('render', async () => {
-      const template = [1, 2, 3, 10]
-        .map(totalPages => [true, false].map(hideNavigationLabels => `<mg-pagination ${renderAttributes({ totalPages, hideNavigationLabels })}></mg-pagination>`).join(''))
-        .join('');
-      const page = await createPage(template);
+    testEach(
+      [1, 2, 3].flatMap(totalPages => [true, false].flatMap(hidePageCount => [true, false].map(hideNavigationLabels => ({ totalPages, hideNavigationLabels, hidePageCount })))),
+    )('render %s', async (page: PageType, args: Partial<MgPagination>) => {
+      await setPageContent(page, createHTML(args));
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      else expect(await page.locator('mg-pagination').isVisible()).toBe(false);
     });
   });
 
   describe('navigation', () => {
-    test.each([1, 2, 3, 10])('should success mouse navigation', async totalPages => {
-      const page = await createPage(`<mg-pagination ${renderAttributes({ totalPages })}"></mg-pagination>`);
+    testEach([2, 3, 10])('should success mouse navigation %s', async (page: PageType, totalPages: number) => {
+      await setPageContent(page, createHTML({ totalPages }));
 
-      const element = await page.find('mg-pagination');
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       const actions = [...Array(totalPages - 1).keys()];
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       for (const _ of actions) {
-        const nextButton = await page.find('mg-pagination >>> mg-button:last-of-type');
+        const nextButton = page.locator('mg-pagination mg-button:last-of-type');
         await nextButton.click();
-        await page.waitForChanges();
-
-        const screenshotAction = await page.screenshot();
-        expect(screenshotAction).toMatchImageSnapshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
     });
 
-    test('should success keyboard navigation', async () => {
-      const page = await createPage(`<mg-pagination ${renderAttributes({ totalPages: 5 })}></mg-pagination>`);
+    test('should success keyboard navigation', async ({ page }) => {
+      await setPageContent(page, createHTML({ totalPages: 5 }));
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // take focus on mg-input-select
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
-      await page.waitForChanges();
 
-      const screenshotTab = await page.screenshot();
-      expect(screenshotTab).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // change mg-input-select to value 3
       await page.keyboard.down('ArrowDown');
       await page.keyboard.down('ArrowDown');
-      await page.waitForChanges();
 
-      const screenshotArrowDown = await page.screenshot();
-      expect(screenshotArrowDown).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // take focus on previous button
       await page.keyboard.down('Shift');
       await page.keyboard.press('Tab');
       await page.keyboard.up('Shift');
       await page.keyboard.down('Enter');
-      await page.waitForChanges();
 
-      const screenshotShiftTabShift = await page.screenshot();
-      expect(screenshotShiftTabShift).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       // take focus on next
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
-      await page.waitForChanges();
 
-      const screenshotTabTab = await page.screenshot();
-      expect(screenshotTabTab).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   describe('locales', () => {
-    test.each(['fr'])('render with locale: %s', async lang => {
-      const page = await createPage(`<mg-pagination ${renderAttributes({ totalPages: 5, lang })}"></mg-pagination>`);
+    test('render with locale: %s', async ({ page }) => {
+      await setPageContent(page, createHTML({ totalPages: 5, lang: 'fr' }));
 
-      const element = await page.find('mg-pagination');
-
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 });

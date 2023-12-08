@@ -38,17 +38,30 @@ The width of the component is defined by the largest option of the options.
 
 ## Events
 
-| Event          | Description                         | Type                   |
-| -------------- | ----------------------------------- | ---------------------- |
-| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>` |
-| `value-change` | Emited event when value change      | `CustomEvent<any>`     |
+| Event          | Description                         | Type                           |
+| -------------- | ----------------------------------- | ------------------------------ |
+| `input-valid`  | Emited event when checking validity | `CustomEvent<boolean>`         |
+| `value-change` | Emited event when value change      | `CustomEvent<CheckboxValue[]>` |
 
 
 ## Methods
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setError(valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
 #### Returns
 
@@ -75,6 +88,7 @@ graph TD;
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   mg-pagination --> mg-input-select
   style mg-input-select fill:#f9f,stroke:#333,stroke-width:4px
 ```

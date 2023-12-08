@@ -8,7 +8,7 @@ The component manages :
 
 ## Anatomy
 
-![](./mg-form/doc/img/mg-form-anatomy.png)
+![](./doc/img/mg-form-anatomy.png)
 
 1. Required field(s) message
 2. Inputs zone
@@ -18,10 +18,10 @@ The component manages :
 
 ### Required field(s) message
 
-![](./mg-form/doc/img/mg-form-style-required-message.png)
+![](./doc/img/mg-form-style-required-message.png)
 
-Text is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--page)  
-The "\*" is in [@color-danger](./?path=/docs/style-colors--page)
+Text is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--docs)  
+The "\*" is in [@color-danger](./?path=/docs/style-colors--docs)
 
 ## Spacing
 
@@ -30,7 +30,7 @@ The "\*" is in [@color-danger](./?path=/docs/style-colors--page)
 Form adds a 15px margin to the bottom of inputs.  
 The gap between the label and the input zone is rising to 30px.
 
-![](./mg-form/doc/img/mg-form-spacing-inputs.png)
+![](./doc/img/mg-form-spacing-inputs.png)
 
 ## Behavior
 
@@ -67,7 +67,7 @@ For this, use "valid/invalid" options.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-form-inputs-title-width`: Define slotted input label width, default: `15rem`
 
@@ -105,7 +105,7 @@ The "Display errors" button use the `mg-form` `displayError()` method.
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
 
 #### Returns
 

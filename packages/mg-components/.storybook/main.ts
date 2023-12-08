@@ -1,69 +1,71 @@
-const fs = require('fs');
-
-type Path = string;
+import type { StorybookConfig } from '@storybook/html-vite';
+import { readdirSync, statSync } from 'fs';
+import { join, dirname } from 'path';
 
 /**
  * List folders from a given path
- * @param {Path} path path we will parse to get childs
- * @param {Path[]} folders previsous folders list
- * @returns {Path[]} updated folders list
+ * @param folderPath - path we will parse to get childs
+ * @param folderName - folder we are looking for
+ * @returns folders list ending with `folderName`
  */
-const listFoldersFrom = (path: Path, folders: Path[] = []): Path[] => {
-  // get path child
-  const pathChild = fs.readdirSync(path);
-
-  pathChild
-    .map(dirent => `${path}/${dirent}`)
-    // exclude files from results
-    .filter(dirent => fs.statSync(dirent).isDirectory())
-    .forEach(dirent => {
-      folders.push(dirent);
-      // recursively parse folders
-      folders = listFoldersFrom(dirent, folders);
-    });
-
-  return folders;
+const getFilePathsEndingWith = (folderPath: string, folderName: string): string[] => {
+  const filePaths: string[] = [];
+  const pathChild = readdirSync(folderPath);
+  pathChild.forEach(file => {
+    const filePath = join(folderPath, file);
+    if (statSync(filePath).isDirectory() && !filePath.endsWith('node_modules') && !filePath.endsWith('storybook-static')) {
+      filePaths.push(...getFilePathsEndingWith(filePath, folderName));
+      if (filePath.endsWith(folderName)) {
+        filePaths.push(filePath);
+      }
+    }
+  });
+  return filePaths;
 };
 
 /**
- * Create a new path from given path and offset
- * @param {Path} path set the origin folder
- * @param {number} offset set the folder offset
- * @returns {Path} get the working folder
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ * @param value - module to resolve
+ * @returns module with absolute path
  */
-const getPathFromOffset = (path: Path, offset: number): Path => {
-  // pathElements start after ./src, then we get a array of elements from the path
-  const pathElements = path.replace('./src', '').split('/');
-  if (pathElements.length >= offset) {
-    // we return a string with only the given offset
-    return pathElements.slice(pathElements.length - offset, pathElements.length).join('/');
-  } else {
-    return path;
-  }
-};
+const getAbsolutePath = (value: string): any => dirname(require.resolve(join(value, 'package.json')));
 
-module.exports = {
-  stories: ['../src/**/*.stories.@(tsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@pxtrn/storybook-addon-docs-stencil', '@storybook/addon-a11y'],
-  core: {
-    disableTelemetry: true,
+const config: StorybookConfig = {
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(tsx)'],
+  addons: [
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@pxtrn/storybook-addon-docs-stencil'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-mdx-gfm'),
+    getAbsolutePath('@storybook/addon-links'),
+    getAbsolutePath('@storybook/addon-interactions'),
+  ],
+  framework: {
+    name: getAbsolutePath('@storybook/html-vite'),
+    options: {},
   },
-  staticDirs: () => {
-    // to keep doc images in components folders we need to dynamically set static dir path, as storybook can't get a wilcard path like **/img/** for assets
-    // as webpack do a "cp" command to dublicate 'from' folder, we need a uniq 'to' folder name
-    const imgFolders = listFoldersFrom('./src')
-      .filter(path => path.endsWith('/img'))
-      .map(path => ({ from: `.${path}`, to: `/${getPathFromOffset(path, 3)}` }));
-    return ['../www/build', ...imgFolders];
+  docs: {
+    autodocs: true,
   },
+  staticDirs: getFilePathsEndingWith(join(__dirname, '../src/'), '/img').reduce((acc: any[], from) => {
+    acc.push(
+      {
+        from,
+        to: '/doc/img',
+      },
+      {
+        from,
+        to: '/img',
+      },
+    );
+    return acc;
+  }, []),
   refs: {
-    'chromatic-published-Storybook': {
-      'package-name': { disable: true },
-      // The title of your Storybook
-      'title': 'MG Components',
-      // The url provided by Chromatic when it was published
-      'url': 'https://master--626149b307606d003ada26b4.chromatic.com',
-      'versions': {
+    'design-system': {
+      title: 'MG Components',
+      url: 'https://master--626149b307606d003ada26b4.chromatic.com',
+      versions: {
         'v3.2.0': 'https://626149b307606d003ada26b4-kvttxoumtg.chromatic.com',
         'v3.3.0': 'https://626149b307606d003ada26b4-vvlmkghgfa.chromatic.com',
         'v4.0.0': 'https://626149b307606d003ada26b4-ghzolkevxw.chromatic.com',
@@ -79,9 +81,29 @@ module.exports = {
         'v5.4.0': 'https://626149b307606d003ada26b4-ritpfsldui.chromatic.com',
         'v5.5.0': 'https://626149b307606d003ada26b4-bidcqvzbyy.chromatic.com',
         'v5.6.0': 'https://626149b307606d003ada26b4-mfqwykjipt.chromatic.com',
-        'v5.7.0': 'https://626149b307606d003ada26b4-yejrgaetka.chromatic.com/',
-        'v5.8.0': 'https://626149b307606d003ada26b4-pcrpbesovl.chromatic.com/',
+        'v5.7.0': 'https://626149b307606d003ada26b4-yejrgaetka.chromatic.com',
+        'v5.8.0': 'https://626149b307606d003ada26b4-pcrpbesovl.chromatic.com',
+        'v5.9.0': 'https://626149b307606d003ada26b4-dedncomorf.chromatic.com',
+        'v5.9.1': 'https://626149b307606d003ada26b4-jausjqzwui.chromatic.com',
+        'v5.10.0': 'https://626149b307606d003ada26b4-eidtudwvjn.chromatic.com',
+        'v5.10.1': 'https://626149b307606d003ada26b4-rpkktdqmad.chromatic.com',
+        'v5.11.0': 'https://626149b307606d003ada26b4-ujajrvujgj.chromatic.com',
+        'v5.11.1': 'https://626149b307606d003ada26b4-dchaczbhrl.chromatic.com',
+        'v5.12.0': 'https://626149b307606d003ada26b4-flbkczbwjs.chromatic.com',
+        'v5.12.1': 'https://626149b307606d003ada26b4-cqhhmkwykv.chromatic.com',
+        'v5.13.0': 'https://626149b307606d003ada26b4-irorwpapfk.chromatic.com',
+        'v5.13.1': 'https://626149b307606d003ada26b4-atpwyeuops.chromatic.com',
+        'v5.14.0': 'https://626149b307606d003ada26b4-wdzpusywea.chromatic.com',
+        'v5.15.0': 'https://626149b307606d003ada26b4-visofofaay.chromatic.com',
+        'v5.16.0': 'https://626149b307606d003ada26b4-yvdqsmhnyr.chromatic.com',
+        'v5.17.0': 'https://626149b307606d003ada26b4-iahrqajazh.chromatic.com',
+        'v5.18.0': 'https://626149b307606d003ada26b4-rlxvhvwgkl.chromatic.com',
+        'v5.19.0': 'https://626149b307606d003ada26b4-qeybxyxqyt.chromatic.com',
+        'v5.19.1': 'https://626149b307606d003ada26b4-imczvwdggp.chromatic.com',
+        'v5.19.2': 'https://626149b307606d003ada26b4-haqbulhpwe.chromatic.com',
+        'v5.19.3': 'https://626149b307606d003ada26b4-lcftaxdtha.chromatic.com',
       },
     },
   },
 };
+export default config;

@@ -1,12 +1,15 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { Handler, Width } from '../MgInput.conf';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
+import { TextType } from './mg-input-text.conf';
+
+const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
 @Component({
   tag: 'mg-input-text',
-  styleUrl: 'mg-input-text.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-text.css',
   shadow: true,
 })
 export class MgInputText {
@@ -15,12 +18,13 @@ export class MgInputText {
    ************/
 
   // Classes
-  private classFocus = 'is-focused';
-  private classIsInputGroupAppend = 'mg-input--is-input-group-append';
-  private classHasIcon = 'mg-input--has-icon';
+  private classFocus = 'mg-u-is-focused';
+  private classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
+  private classHasIcon = 'mg-c-input--has-icon';
 
   // IDs
   private characterLeftId;
+  private datalistId;
 
   // HTML selector
   private input: HTMLInputElement;
@@ -30,6 +34,8 @@ export class MgInputText {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -68,7 +74,7 @@ export class MgInputText {
   /**
    * Input type
    */
-  @Prop() type: 'text' | 'search' = 'text';
+  @Prop() type: TextType = 'text';
 
   /**
    * Input icon
@@ -77,9 +83,9 @@ export class MgInputText {
   @Watch('icon')
   validateIcon(newValue: string): void {
     if (newValue !== undefined) {
-      this.classList.add(this.classHasIcon);
+      this.classCollection.add(this.classHasIcon);
     } else {
-      this.classList.delete(this.classHasIcon);
+      this.classCollection.delete(this.classHasIcon);
     }
   }
 
@@ -98,6 +104,17 @@ export class MgInputText {
    * It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
    */
   @Prop() placeholder: string;
+
+  /**
+   * Define datalist options
+   */
+  @Prop() datalistoptions: string[];
+  @Watch('datalistoptions')
+  validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
+    if (Boolean(newValue) && !isDatalistOption(newValue)) {
+      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string.');
+    }
+  }
 
   /**
    * Input max length
@@ -146,6 +163,13 @@ export class MgInputText {
    * Define input pattern error message
    */
   @Prop() patternErrorMessage: string;
+  @Watch('pattern')
+  @Watch('patternErrorMessage')
+  validatePattern(newValue: string): void {
+    if (newValue !== undefined && !(isValidString(this.pattern) && isValidString(this.patternErrorMessage))) {
+      throw new Error('<mg-input-text> props "pattern" and "patternErrorMessage" must be non-empty string and paired.');
+    }
+  }
 
   /**
    * Add a tooltip message next to the input
@@ -175,7 +199,7 @@ export class MgInputText {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--text']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--text']);
 
   /**
    * Error message to display
@@ -185,17 +209,15 @@ export class MgInputText {
   /**
    * Emited event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<string>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputTextElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputTextElement['valid']>;
 
   /**
    * Public method to play input focus
-   *
-   * @returns {Promise<void>}
    */
   @Method()
   async setFocus(): Promise<void> {
@@ -203,9 +225,7 @@ export class MgInputText {
   }
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -215,9 +235,40 @@ export class MgInputText {
   }
 
   /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputText['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-text> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-text> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputText['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+  }
+
+  /**
    * Handle input event
-   *
-   * @returns {void}
    */
   private handleInput = (): void => {
     this.checkValidity();
@@ -229,49 +280,47 @@ export class MgInputText {
 
   /**
    * Handle focus event
-   *
-   * @returns {void}
    */
   private handleFocus = (): void => {
-    this.classList.add(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.add(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
   };
 
   /**
    * Handle blur event
-   *
-   * @returns {void}
    */
   private handleBlur = (): void => {
     // Manage focus
-    this.classList.delete(this.classFocus);
-    this.classList = new ClassList(this.classList.classes);
+    this.classCollection.delete(this.classFocus);
+    this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
-    this.displayError();
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+    });
   };
 
   /**
    * Check if input is valid
-   *
-   * @returns {void}
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true);
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
   };
 
   /**
    * Set input error message
-   *
-   * @returns {void}
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
+    // Does have a custom error message
+    if (!this.valid && errorMessage !== undefined) {
+      this.errorMessage = errorMessage;
+    }
     // Does not match pattern
-    if (!this.valid && this.input.validity.patternMismatch) {
+    else if (!this.valid && this.input.validity.patternMismatch) {
       this.errorMessage = this.patternErrorMessage;
     }
     // required
@@ -281,36 +330,24 @@ export class MgInputText {
   };
 
   /**
-   * Validate pattern configuration
-   *
-   * @returns {void}
-   */
-  private validatePattern = (): void => {
-    if (
-      this.pattern &&
-      typeof this.pattern === 'string' &&
-      this.pattern !== '' &&
-      (this.patternErrorMessage === undefined || typeof this.patternErrorMessage !== 'string' || this.patternErrorMessage === '')
-    ) {
-      throw new Error('<mg-input-text> prop "pattern" must be paired with the prop "patternErrorMessage"');
-    }
-  };
-
-  /**
    * Validate append slot
-   *
-   * @returns {void}
    */
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
 
     if (slotAppendInput.length === 1) {
-      this.classList.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-c-input--is-append-input-slot-content');
     } else if (slotAppendInput.filter(slot => slot.nodeName === 'MG-BUTTON').length > 1) {
-      this.classList.add(this.classIsInputGroupAppend);
-      this.classList.add('mg-input--has-buttons-group-append');
+      this.classCollection.add(this.classIsInputGroupAppend);
+      this.classCollection.add('mg-c-input--has-buttons-group-append');
     }
   };
+
+  /**
+   * Methode to control datalist display condition
+   * @returns true if display condition success
+   */
+  private hasDatalist = (): boolean => isDatalistOption(this.datalistoptions) && this.datalistoptions.length > 0;
 
   /*************
    * Lifecycle *
@@ -318,16 +355,18 @@ export class MgInputText {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
     this.characterLeftId = `${this.identifier}-character-left`;
+    this.datalistId = `${this.identifier}-datalist`;
     // Validate
     this.validateIcon(this.icon);
-    this.validatePattern();
+    this.validateDatalistoptions(this.datalistoptions);
+    this.validatePattern(this.pattern);
+    this.validatePattern(this.patternErrorMessage);
     this.validateAppendSlot();
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
@@ -339,14 +378,13 @@ export class MgInputText {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -363,7 +401,7 @@ export class MgInputText {
         isFieldset={false}
       >
         <div
-          class="mg-input__with-character-left"
+          class="mg-c-input__with-character-left"
           style={{
             '--mg-character-left-message-length': (this.displayCharacterLeft
               ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
@@ -374,23 +412,33 @@ export class MgInputText {
           {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
           <input
             type={this.type}
-            class="mg-input__box"
+            class="mg-c-input__box"
             value={this.value}
             id={this.identifier}
+            list={this.hasDatalist() ? this.datalistId : undefined}
+            autocomplete={this.hasDatalist() ? 'off' : undefined}
             name={this.name}
             placeholder={this.placeholder}
             title={this.placeholder}
             maxlength={this.maxlength}
             disabled={this.disabled}
             required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
             pattern={this.pattern}
             onInput={this.handleInput}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
-            ref={el => {
-              if (el !== null) this.input = el as HTMLInputElement;
+            ref={(el: HTMLInputElement) => {
+              if (el !== null) this.input = el;
             }}
           />
+          {this.hasDatalist() && (
+            <datalist id={this.datalistId}>
+              {this.datalistoptions.map(option => (
+                <option value={option} key={option}></option>
+              ))}
+            </datalist>
+          )}
           {this.displayCharacterLeft && this.maxlength > 0 && (
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}

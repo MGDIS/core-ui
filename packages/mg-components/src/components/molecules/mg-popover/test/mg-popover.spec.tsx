@@ -3,6 +3,7 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgPopover } from '../mg-popover';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
+import { MgPopoverContent } from '../mg-popover-content/mg-popover-content';
 
 mockConsoleError();
 mockWindowFrames();
@@ -10,17 +11,18 @@ mockWindowFrames();
 const getPage = (args, slot, parent?: boolean) => {
   const popover = () => <mg-popover {...args}>{slot}</mg-popover>;
   return newSpecPage({
-    components: [MgPopover, MgButton],
+    components: [MgPopover, MgPopoverContent, MgButton],
     template: () => (parent ? <span data-mg-popover-guard={args.identifier}>{popover()}</span> : popover()),
   });
 };
 
 describe('mg-popover', () => {
+  let fireRo;
   beforeEach(() => {
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: function () {
-        return null;
+        fireRo = this.cb;
       },
       disconnect: function () {
         return null;
@@ -75,16 +77,17 @@ describe('mg-popover', () => {
     );
 
     const mgPopover = page.doc.querySelector('mg-popover');
-    const interactiveElement = mgPopover.querySelector(`[aria-controls*='${args.identifier}']`);
-    const popover = mgPopover.shadowRoot.querySelector(`#${args.identifier}`);
-    const popoverButton = popover.querySelector(`mg-button`);
+    const interactiveElement = mgPopover.querySelector(`[aria-controls*='${args.identifier}']`) as HTMLElement;
+    const popover = mgPopover.querySelector(`#${args.identifier}`);
+    const popoverButton = popover.shadowRoot.querySelector(`mg-button`);
     const dataGuard = page.doc.querySelector('[data-mg-popover-guard]');
 
+    const focusSpy = jest.spyOn(interactiveElement, 'focus');
     const displayChangeSpy = jest.spyOn(page.rootInstance.displayChange, 'emit');
 
     interactiveElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
     await page.waitForChanges();
-    jest.runAllTimers();
+    jest.runOnlyPendingTimers();
 
     expect(popover).toHaveAttribute('data-show');
 
@@ -102,6 +105,7 @@ describe('mg-popover', () => {
       }
     } else {
       mgPopover.dispatchEvent(new KeyboardEvent('keydown', { code: eventOut.code }));
+      expect(focusSpy).toHaveBeenCalled();
     }
     await page.waitForChanges();
 
@@ -132,7 +136,7 @@ describe('mg-popover', () => {
     }
   });
 
-  test.each(['content', 'title', null])('should update popper instance when slot %s update', async slot => {
+  test('should update popper instance when slot %s update', async () => {
     const page = await getPage({ identifier: 'identifier', display: true }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">
@@ -146,12 +150,28 @@ describe('mg-popover', () => {
 
     const spy = jest.spyOn(page.rootInstance.popper, 'update');
 
-    const target = page.doc.querySelector(slot === null ? 'mg-button' : `[slot="${slot}"]`);
+    fireRo([]);
 
-    page.rootInstance.resizeObserver.cb([{ target }]);
+    expect(spy).toHaveBeenCalled();
+    expect(page.root).toMatchSnapshot();
+  });
 
-    if (slot === null) expect(spy).not.toHaveBeenCalled();
-    else expect(spy).toHaveBeenCalled();
+  test('should update mg-popover-content id when identifier is updated', async () => {
+    const page = await getPage({ identifier: 'identifier' }, [
+      <h2 slot="title">Blu bli blo bla</h2>,
+      <p slot="content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      </p>,
+      <mg-button identifier="identifier-btn">mg-button</mg-button>,
+    ]);
+    expect(page.root).toMatchSnapshot();
+
+    fireRo([]);
+    page.doc.querySelector('mg-popover').identifier = 'new-identifier';
+
+    await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
   });

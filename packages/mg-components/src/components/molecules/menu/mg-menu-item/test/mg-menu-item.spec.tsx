@@ -8,6 +8,7 @@ import { Status } from '../mg-menu-item.conf';
 import { Direction } from '../../mg-menu/mg-menu.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
+import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockConsoleError();
 mockWindowFrames();
@@ -29,7 +30,7 @@ const templateTwoMenuItems = (args, slots?) => menu({ label: 'menu', slots: [men
 
 const getPage = async template => {
   const page = await newSpecPage({
-    components: [MgMenuItem, MgMenu, MgIcon, MgBadge, MgPopover],
+    components: [MgMenuItem, MgMenu, MgIcon, MgBadge, MgPopover, MgPopoverContent],
     template: () => template,
   });
 
@@ -51,7 +52,7 @@ describe('mg-menu-item', () => {
   let fireMo = [];
   beforeEach(() => {
     fireMo = [];
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupMutationObserverMock({
       observe: function () {
         fireMo.push(this.cb);
@@ -344,7 +345,7 @@ describe('mg-menu-item', () => {
     test.each([true, false])('should update notification badge with args %s', async badge => {
       const page = await getPage(menuItem({ label: 'Batman' }, childMenu({ label: 'child menu', badge })));
 
-      spyOn(page.rootInstance, 'updateDisplayNotificationBadge');
+      jest.spyOn(page.rootInstance, 'updateDisplayNotificationBadge');
 
       expect(page.rootInstance.updateDisplayNotificationBadge).not.toHaveBeenCalled();
 

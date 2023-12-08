@@ -1,13 +1,14 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../.storybook/utils';
-import { icons, sizes, variants } from '../mg-icon.conf';
+import { sizes, variantStyles, variants } from '../mg-icon.conf';
+import iconList from '@mgdis/img/dist/icons/index.json';
 
 export default {
   component: 'mg-icon',
   title: 'Atoms/mg-icon',
   argTypes: {
     icon: {
-      options: Object.keys(icons),
+      options: iconList,
       control: { type: 'select' },
     },
     size: {
@@ -18,14 +19,17 @@ export default {
       options: [undefined, ...variants],
       control: { type: 'select' },
     },
+    variantStyle: {
+      options: [undefined, ...variantStyles],
+      control: { type: 'select' },
+    },
   },
 };
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => {
@@ -39,10 +43,12 @@ const Template = (args: any): HTMLElement => {
   );
 };
 
-export const MgIcon = Template.bind({});
-MgIcon.args = {
-  color: '',
-  icon: Object.keys(icons)[0],
-  size: undefined,
-  spin: false,
+export const MgIcon = {
+  render: Template,
+  args: {
+    color: '',
+    icon: iconList[0],
+    size: undefined,
+    spin: false,
+  },
 };

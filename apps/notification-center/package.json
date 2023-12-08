@@ -1,19 +1,27 @@
 {
-	"name": "notification-center",
-	"private": true,
-	"version": "1.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "vite",
-		"build": "tsc && vite build",
-		"preview": "vite preview"
-	},
-	"devDependencies": {
-		"typescript": "^4.9.5",
-		"vite": "^3.2.3"
-	},
-	"dependencies": {
-		"@mgdis/mg-components": "workspace:*",
-		"@mgdis/notification-center": "workspace:*"
-	}
+  "name": "notification-center",
+  "private": true,
+  "version": "1.0.20",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --port 3210",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint 'src/**/*.{ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint 'src/**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{js,ts,tsx,html,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{js,ts,tsx,html,json}' --ignore-path ../../.gitignore"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "prettier-config": "workspace:*",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@mgdis/mg-components": "workspace:*",
+    "@mgdis/notification-center": "workspace:*"
+  }
 }

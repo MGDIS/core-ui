@@ -41,47 +41,47 @@ Ex: if I put a check in front of the term "Delete" which is the validation butto
 
 ### Shapes
 
-![](./mg-modal/doc/img/mg-modal-shapes.png)
+![](./doc/img/mg-modal-shapes.png)
 
 ### Fonts
 
-![](./mg-modal/doc/img/mg-modal-fonts.png)
+![](./doc/img/mg-modal-fonts.png)
 
 ### Spacing
 
 #### Spacing between edges and content
 
-![](./mg-modal/doc/img/mg-modal-spaces-borders.png)
+![](./doc/img/mg-modal-spaces-borders.png)
 
 #### Spacing between title, text and buttons
 
-![](./mg-modal/doc/img/mg-modal-spaces-slot.png)
-![](./mg-modal/doc/img/mg-modal-spaces-slot-title.png)
+![](./doc/img/mg-modal-spaces-slot.png)
+![](./doc/img/mg-modal-spaces-slot-title.png)
 
 #### Spacing between the title and the cross button
 
-![](./mg-modal/doc/img/mg-modal-spaces-title.png)
-![](./mg-modal/doc/img/mg-modal-spaces-title-multiline.png)
+![](./doc/img/mg-modal-spaces-title.png)
+![](./doc/img/mg-modal-spaces-title-multiline.png)
 
 ### Alignments
 
-![](./mg-modal/doc/img/mg-modal-alignments.png)
+![](./doc/img/mg-modal-alignments.png)
 
 ### Sizes
 
-![](./mg-modal/doc/img/mg-modal-sizes.png)
+![](./doc/img/mg-modal-sizes.png)
 
 ### Colors
 
-![](./mg-modal/doc/img/mg-modal-colors.png)
+![](./doc/img/mg-modal-colors.png)
 
 ### Backdrop
 
-Color: [@color-light](./?path=/docs/style-colors--page) with an opacity set to 85%.
+Color: [@color-light](./?path=/docs/style-colors--docs) with an opacity set to 85%.
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-modal-border-radius`: Define border radius modal, default: `0.5rem`
 - `--mg-modal-title-font-size`: Define modal title font size, default: `1.8rem`
@@ -94,20 +94,21 @@ Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-m
 
 ## Properties
 
-| Property                  | Attribute      | Description                                                                                                 | Type      | Default                |
-| ------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------- | --------- | ---------------------- |
-| `closeButton`             | `close-button` | Define if modal has a cross button                                                                          | `boolean` | `false`                |
-| `hide`                    | `hide`         | Define if modal is hidden                                                                                   | `boolean` | `false`                |
-| `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`  | `createID('mg-modal')` |
-| `modalTitle` _(required)_ | `modal-title`  | Displayed modal title required                                                                              | `string`  | `undefined`            |
+| Property                  | Attribute      | Description                                                                                                 | Type                        | Default                |
+| ------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------- | ---------------------- |
+| `closeButton`             | `close-button` | Define if modal has a cross button                                                                          | `boolean`                   | `false`                |
+| `dialogRole`              | `dialog-role`  | Modal dialog role.                                                                                          | `"alertdialog" \| "dialog"` | `dialogRoles[0]`       |
+| `hide`                    | `hide`         | Define if modal is hidden                                                                                   | `boolean`                   | `undefined`            |
+| `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                    | `createID('mg-modal')` |
+| `modalTitle` _(required)_ | `modal-title`  | Displayed modal title                                                                                       | `string`                    | `undefined`            |
 
 
 ## Events
 
-| Event            | Description                          | Type                  |
-| ---------------- | ------------------------------------ | --------------------- |
-| `component-hide` | Emmited event when modal is hidden   | `CustomEvent<string>` |
-| `component-show` | Emmited event when modal is diplayed | `CustomEvent<string>` |
+| Event            | Description                          | Type                |
+| ---------------- | ------------------------------------ | ------------------- |
+| `component-hide` | Emmited event when modal is hidden   | `CustomEvent<void>` |
+| `component-show` | Emmited event when modal is diplayed | `CustomEvent<void>` |
 
 
 ## Dependencies

@@ -3,25 +3,15 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgTooltip } from '../mg-tooltip';
 import { MgButton } from '../../mg-button/mg-button';
 import { MgIcon } from '../../mg-icon/mg-icon';
-import { setupMutationObserverMock } from '../../../../utils/unit.test.utils';
+import { setupMutationObserverMock, mockWindowFrames, mockConsoleError } from '../../../../utils/unit.test.utils';
+import { MgTooltipContent } from '../mg-tooltip-content/mg-tooltip-content';
 
-// fix popper console.error in test
-// it is generated in @popperjs/core/dist/cjs/popper.js l.1859
-// this is due to internal function isHTMLElement(), so we can not mock it directly.
-// this function check if test DOM element mockHTMLElement instance is 'instanceof HTMLElement'
-// so we only override the console.error side effect for this error
-const errorFunction = console.error;
-const mock = jest.spyOn(console, 'error');
-mock.mockImplementation(error => {
-  const compareWith = 'Popper: "arrow" element must be an HTMLElement (not an SVGElement). To use an SVG arrow, wrap it in an HTMLElement that will be used as the arrow.';
-  if (error !== compareWith) {
-    errorFunction(error);
-  }
-});
+mockWindowFrames();
+mockConsoleError();
 
 const getPage = (args, element) =>
   newSpecPage({
-    components: [MgTooltip, MgButton, MgIcon],
+    components: [MgTooltip, MgTooltipContent, MgButton, MgIcon],
     template: () => <mg-tooltip {...args}>{element}</mg-tooltip>,
   });
 
@@ -29,7 +19,7 @@ describe('mg-tooltip', () => {
   let fireMo;
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupMutationObserverMock({
       observe: function () {
         fireMo = this.cb;
@@ -43,18 +33,32 @@ describe('mg-tooltip', () => {
 
   afterEach(() => jest.runOnlyPendingTimers());
 
-  test.each([
-    <span>span</span>,
-    <button aria-describedby="blu">button</button>,
-    <mg-icon icon="check-circle"></mg-icon>,
-    <mg-button identifier="identifier">mg-button</mg-button>,
-    <mg-button identifier="identifier" disabled>
-      mg-button.disabled
-    </mg-button>,
-  ])('Should render with element', async element => {
-    const args = { identifier: 'identifier', message: 'My tooltip message' };
-    const { root } = await getPage(args, element);
-    expect(root).toMatchSnapshot();
+  describe.each([
+    () => <span>span</span>,
+    () => <button aria-describedby="blu">button</button>,
+    () => <mg-icon icon="check-circle"></mg-icon>,
+    () => <mg-button identifier="identifier">mg-button</mg-button>,
+    () => (
+      <mg-button identifier="identifier" disabled>
+        mg-button.disabled
+      </mg-button>
+    ),
+  ])('render', element => {
+    test.each([true, false])('Should render with tooltip', async disabled => {
+      const page = await getPage({ identifier: 'identifier', message: 'My tooltip message', disabled }, element());
+      expect(page.root).toMatchSnapshot();
+
+      const mgTooltip = page.doc.querySelector('mg-tooltip');
+      mgTooltip.disabled = !disabled;
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      mgTooltip.disabled = disabled;
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   test('Should render with element with given placement', async () => {
@@ -75,6 +79,7 @@ describe('mg-tooltip', () => {
   describe.each([
     { eventIn: 'mouseenter', eventOut: 'mouseleave' },
     { eventIn: 'focus', eventOut: 'blur' },
+    { eventIn: 'mouseenter', eventOut: 'clickDocument' },
   ])('Should manage display on events enter with %s, leave with %s', ({ eventIn, eventOut }) => {
     test.each([
       <span>span</span>,
@@ -86,19 +91,21 @@ describe('mg-tooltip', () => {
       const page = await getPage(args, element);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
       const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-      const tooltip = mgTooltip.shadowRoot.querySelector(`#${args.identifier}`);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
       linkedTooltipElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
+
+      // flush windows addEventListener timeout
+      jest.runOnlyPendingTimers();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
       expect(tooltip).toHaveAttribute('data-show');
 
-      linkedTooltipElement.dispatchEvent(new CustomEvent(eventOut, { bubbles: true }));
+      if (eventOut !== 'clickDocument') linkedTooltipElement.dispatchEvent(new CustomEvent(eventOut, { bubbles: true }));
+      else page.doc.dispatchEvent(new Event('click', { bubbles: true }));
 
-      if (eventOut === 'mouseleave') {
-        jest.runOnlyPendingTimers();
-      }
+      if (eventOut !== 'blur') jest.runOnlyPendingTimers();
 
       await page.waitForChanges();
 
@@ -110,7 +117,7 @@ describe('mg-tooltip', () => {
       const page = await getPage(args, <span>span</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
       const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-      const tooltip = mgTooltip.shadowRoot.querySelector(`#${args.identifier}`);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
       [eventIn, eventOut].forEach(async event => {
         linkedTooltipElement.dispatchEvent(new CustomEvent(event, { bubbles: true }));
@@ -124,11 +131,43 @@ describe('mg-tooltip', () => {
     });
   });
 
-  test.each([true, false])('Should toogle tooltip from prop display, case display %s', async display => {
+  test.each([
+    <span>span</span>,
+    <button aria-describedby="blu">button</button>,
+    <mg-icon icon="check-circle"></mg-icon>,
+    <mg-button identifier="identifier-mg-button">mg-button</mg-button>,
+  ])('should manage cross mouse and keyboard navigation', async element => {
+    const args = { identifier: 'identifier', message: 'blu' };
+    const page = await getPage(args, element);
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+
+    linkedTooltipElement.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+    expect(tooltip).toHaveAttribute('data-show');
+
+    page.doc.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+    await page.waitForChanges();
+    expect(tooltip).not.toHaveAttribute('data-show');
+
+    linkedTooltipElement.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
+    await page.waitForChanges();
+    expect(tooltip).toHaveAttribute('data-show');
+
+    linkedTooltipElement.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
+    // flush windows addEventListener timeout
+    jest.runOnlyPendingTimers();
+
+    await page.waitForChanges();
+    expect(tooltip).not.toHaveAttribute('data-show');
+  });
+
+  test.each([true, false])('Should toggle tooltip from prop display, case display %s', async display => {
     const args = { identifier: 'identifier', message: 'batman', display };
     const page = await getPage(args, <span>batman</span>);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
-    const tooltip = mgTooltip.shadowRoot.querySelector(`#${args.identifier}`);
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
     expect(page.root).toMatchSnapshot();
     if (display) {
@@ -149,19 +188,19 @@ describe('mg-tooltip', () => {
   });
 
   describe('hide method', () => {
-    test.each(['Tab', 'Space', 'Enter', 'i'])('should prevent keyboardEvent, case not "Escape" code', async key => {
+    test.each(['Tab', 'Space', 'Enter', 'i'])('should prevent keyboardEvent, case not "Escape" code', async code => {
       const args = { identifier: 'identifier', message: 'batman' };
       const page = await getPage(args, <span id="batman">batman</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
-      const tooltip = mgTooltip.shadowRoot.querySelector(`#${args.identifier}`);
-      const element = page.doc.querySelector('#batman');
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+      const element = page.doc.getElementById('batman');
 
       element.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
 
       expect(tooltip).toHaveAttribute('data-show');
 
-      document.dispatchEvent(new KeyboardEvent('keydown', { code: key }));
+      page.doc.dispatchEvent(new KeyboardEvent('keydown', { code }));
       await page.waitForChanges();
 
       expect(tooltip).toHaveAttribute('data-show');
@@ -171,15 +210,15 @@ describe('mg-tooltip', () => {
       const args = { identifier: 'identifier', message: 'batman' };
       const page = await getPage(args, <span id="batman">batman</span>);
       const mgTooltip = page.doc.querySelector('mg-tooltip');
-      const tooltip = mgTooltip.shadowRoot.querySelector(`#${args.identifier}`);
-      const element = page.doc.querySelector('#batman');
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+      const element = page.doc.getElementById('batman');
 
       element.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
       await page.waitForChanges();
 
       expect(tooltip).toHaveAttribute('data-show');
 
-      document.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+      page.doc.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
       await page.waitForChanges();
 
       expect(tooltip).not.toHaveAttribute('data-show');
@@ -194,7 +233,7 @@ describe('mg-tooltip', () => {
     const page = await getPage(args, element);
     const mgTooltip = page.doc.querySelector('mg-tooltip');
     const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-    const tooltip = mgTooltip.shadowRoot.querySelector(`#${args.identifier}`);
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
     // 1. hover tooltipedElement and display tooltip
     linkedTooltipElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
@@ -226,6 +265,34 @@ describe('mg-tooltip', () => {
     // 3.2 flush promise to pass tooltip guard and hide it
     jest.advanceTimersByTime(200);
     await page.waitForChanges();
+
+    expect(tooltip).not.toHaveAttribute('data-show');
+  });
+
+  test('Should prevent focus guard with click event', async () => {
+    const args = { identifier: 'identifier', message: 'batman' };
+    const page = await getPage(args, <mg-button>batman</mg-button>);
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+    const element = page.doc.querySelector('mg-button');
+
+    element.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(tooltip).toHaveAttribute('data-show');
+
+    // recompose a click event as click event is not properly mock by jest `mousedown` + `focus` + `mouseup`
+    for (const event of ['mousedown', 'focus', 'mouseup']) {
+      const Constructor = event === 'focus' ? FocusEvent : MouseEvent;
+      element.dispatchEvent(new Constructor(event, { bubbles: true }));
+      await page.waitForChanges();
+    }
+
+    expect(tooltip).toHaveAttribute('data-show');
+
+    element.dispatchEvent(new MouseEvent('mouseleave', { bubbles: true }));
+    await page.waitForChanges();
+    jest.runOnlyPendingTimers();
 
     expect(tooltip).not.toHaveAttribute('data-show');
   });
@@ -269,5 +336,23 @@ describe('mg-tooltip', () => {
     await page.waitForChanges();
 
     expect(spy).toHaveBeenCalled();
+  });
+
+  test('should update mg-popover-content id when "identifier" is updated', async () => {
+    const page = await getPage(
+      { identifier: 'identifier', message: 'My tooltip message' },
+      <mg-button identifier="identifier" disabled>
+        mg-button.disabled
+      </mg-button>,
+    );
+
+    expect(page.root).toMatchSnapshot();
+
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    mgTooltip.identifier = 'new-identifier';
+
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
   });
 });

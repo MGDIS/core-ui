@@ -1,14 +1,14 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Width } from '../MgInput.conf';
+import { Handler, Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
-import { ClassList } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales/';
 import { localeCurrency, localeNumber } from '../../../../utils/locale.utils';
 
 @Component({
   tag: 'mg-input-numeric',
-  styleUrl: 'mg-input-numeric.scss',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-numeric.css',
   shadow: true,
 })
 export class MgInputNumeric {
@@ -30,6 +30,7 @@ export class MgInputNumeric {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
+  private handlerInProgress: Handler;
 
   /**************
    * Decorators *
@@ -45,28 +46,21 @@ export class MgInputNumeric {
    */
   @Prop({ mutable: true, reflect: true }) value: string;
   @Watch('value')
-  validateValue(newValue: string): void {
-    if (newValue !== undefined && newValue !== null) {
+  validateValue(newValue: MgInputNumeric['value']): void {
+    // has input value is always render as string we get a stringified value or a '' for nullish value, so we test string type
+    if (typeof newValue === 'string') {
       // Split number and decimal
-      const [integer, decimal = ''] = newValue.replace('-', '').split(/[\.,]/);
+      const [integer, decimal = ''] = newValue.replace('-', '').split(/[.,]/);
       // Regex
-      const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+[.,]?\d*$/;
+      const regex = this.type === 'integer' ? /^-?\d+$/ : /^-?\d+(?:[.,]\d*)?$/;
       // Filter input
-      if (newValue === '' || (newValue.match(regex) && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))) {
+      if (this.isValidValue(newValue, regex, integer, decimal)) {
         this.storedValue = newValue;
-      } else if (this.storedValue !== undefined) {
-        newValue = this.storedValue;
       } else {
-        newValue = null;
+        newValue = this.handleInvalidValue();
       }
       // Set value and input value
-      this.value = newValue;
-      if (this.input !== undefined) this.input.value = this.value;
-      // emit numeric value
-      this.numericValue = this.value !== '' && this.value !== null ? parseFloat(this.value.replace(',', '.')) : null;
-      this.valueChange.emit(this.numericValue);
-      // Set readonlyValue
-      this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
+      this.updateValues(newValue);
     }
   }
 
@@ -150,7 +144,7 @@ export class MgInputNumeric {
    */
   @Prop() type: string = types[0];
   @Watch('type')
-  validateType(newValue: string): void {
+  validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
       throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
     }
@@ -177,7 +171,7 @@ export class MgInputNumeric {
    */
   @Prop() integerLength = 13;
   @Watch('integerLength')
-  validateIntegerLength(newValue: number): void {
+  validateIntegerLength(newValue: MgInputNumeric['integerLength']): void {
     if (newValue < 1) {
       throw new Error(`<mg-input-numeric> prop "integer-length" must be a positive number.`);
     }
@@ -189,7 +183,7 @@ export class MgInputNumeric {
    */
   @Prop() decimalLength = 2;
   @Watch('decimalLength')
-  validateDecimalLength(newValue: number): void {
+  validateDecimalLength(newValue: MgInputNumeric['decimalLength']): void {
     if (newValue < 1) {
       throw new Error(`<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead.`);
     }
@@ -208,7 +202,7 @@ export class MgInputNumeric {
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-input--numeric']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--numeric']);
 
   /**
    * Error message to display
@@ -218,7 +212,7 @@ export class MgInputNumeric {
   /**
    * Define if input has focus
    */
-  @State() hasFocus = false;
+  @State() hasFocus: boolean;
 
   /**
    * Emited event when value change
@@ -228,12 +222,10 @@ export class MgInputNumeric {
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<boolean>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputNumericElement['valid']>;
 
   /**
-   * Public method to display errors
-   *
-   * @returns {Promise<void>}
+   * Display input error if it exists.
    */
   @Method()
   async displayError(): Promise<void> {
@@ -243,19 +235,85 @@ export class MgInputNumeric {
   }
 
   /**
+   * Set an error and display a custom error message.
+   * This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+   * It must be paired with an error message to display for the given context.
+   * When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+   * @param valid - value indicating the validity
+   * @param errorMessage - the error message to display
+   */
+  @Method()
+  async setError(valid: MgInputNumeric['valid'], errorMessage: string): Promise<void> {
+    if (typeof valid !== 'boolean') {
+      throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean');
+    } else if (!isValidString(errorMessage)) {
+      throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string');
+    } else {
+      this.setValidity(valid);
+      this.setErrorMessage(valid ? undefined : errorMessage);
+      this.hasDisplayedError = this.invalid;
+    }
+  }
+
+  /**
+   * Method to set validity values
+   * @param newValue - valid new value
+   */
+  private setValidity(newValue: MgInputNumeric['valid']) {
+    const oldValidValue = this.valid;
+    this.valid = newValue;
+    this.invalid = !this.valid;
+    // We need to send valid event even if it is the same value
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+  }
+
+  /**
+   * Checks if the given value is valid according to the defined rules.
+   * @param value - The input value to validate.
+   * @param regex - The regular expression for validation.
+   * @param integer - The integer part of the value.
+   * @param decimal - The decimal part of the value.
+   * @returns Returns true if the value is valid, otherwise false.
+   */
+  private isValidValue(value: string, regex: RegExp, integer: string, decimal: string): boolean {
+    return (
+      ['', '-'].includes(value) || (regex.exec(value) !== null && integer.length <= this.integerLength && decimal.length <= (this.type === 'integer' ? 0 : this.decimalLength))
+    );
+  }
+
+  /**
+   * Handles invalid input values and returns a corrected value.
+   * @returns The corrected value.
+   */
+  private handleInvalidValue(): string | null {
+    return this.storedValue ?? null;
+  }
+
+  /**
+   * Updates the component values based on the validated input value.
+   * @param newValue - The validated input value.
+   */
+  private updateValues(newValue: string | null): void {
+    this.value = newValue;
+    if (this.input !== undefined) this.input.value = this.value;
+
+    this.numericValue = !['', null].includes(this.value) ? parseFloat(this.value.replace(',', '.')) : null;
+    this.valueChange.emit(this.numericValue);
+
+    this.readonlyValue = this.numericValue !== null ? this.formatValue(this.numericValue) : '';
+  }
+
+  /**
    * Displayed value in input
    * Change on focus/blur
-   *
-   * @returns {string} display value
+   * @returns display value
    */
-  private displayValue(): string {
+  private displayValue(): MgInputNumeric['value'] | MgInputNumeric['readonlyValue'] {
     return this.hasFocus ? this.value : this.readonlyValue;
   }
 
   /**
    * Handle input event
-   *
-   * @returns {void}
    */
   private handleInput = (): void => {
     // Check validity
@@ -268,8 +326,6 @@ export class MgInputNumeric {
 
   /**
    * Handle focus event
-   *
-   * @returns {void}
    */
   private handleFocus = (): void => {
     this.hasFocus = true;
@@ -277,38 +333,37 @@ export class MgInputNumeric {
 
   /**
    * Handle blur event
-   *
-   * @returns {void}
    */
   private handleBlur = (): void => {
+    if (this.value === '-') this.value = '';
     // Display Error
-    this.displayError();
-    this.hasFocus = false;
+    this.handlerInProgress = Handler.BLUR;
+    this.displayError().finally(() => {
+      // reset guard
+      this.handlerInProgress = undefined;
+      this.hasFocus = false;
+    });
   };
 
   /**
    * Check if input is valid
-   *
-   * @returns {void}
    */
   private checkValidity = (): void => {
-    this.valid = this.readonly || this.disabled || this.getInputError() === null;
-    this.invalid = !this.valid;
-    // We need to send valid event even if it is the same value
-    this.inputValid.emit(this.valid);
+    this.setValidity(this.readonly || this.disabled || this.getInputError() === null);
   };
 
   /**
    * Set input error message
-   *
-   * @returns {void}
+   * @param errorMessage - errorMessage override
    */
-  private setErrorMessage = (): void => {
+  private setErrorMessage = (errorMessage?: string): void => {
     // Set error message
     this.errorMessage = undefined;
     if (!this.valid) {
       const inputError = this.getInputError();
-      if (inputError === InputError.REQUIRED) {
+      if (errorMessage !== undefined) {
+        this.errorMessage = errorMessage;
+      } else if (inputError === InputError.REQUIRED) {
         this.errorMessage = this.messages.errors[inputError];
       } else {
         this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', `${this.formatValue(this.min)}`).replace('{max}', `${this.formatValue(this.max)}`);
@@ -318,25 +373,26 @@ export class MgInputNumeric {
 
   /**
    * Get input error code
-   *
-   * @returns {null | InputError} error code
+   * @returns error code
    */
   private getInputError = (): null | InputError => {
     let inputError = null;
-    if (this.input === undefined || this.input === null) return inputError;
+    const hasNotEmptyValues = (toControl: unknown[]) => !toControl.some(value => [null, undefined].includes(value));
+
+    if (!hasNotEmptyValues([this.input])) return inputError;
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {
       inputError = InputError.REQUIRED;
     }
     // Min & Max
-    else if (this.min !== undefined && this.numericValue < this.min && this.max === undefined) {
+    else if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
       // Only a min value is set
       inputError = InputError.MIN;
-    } else if (this.max !== undefined && this.numericValue > this.max && this.min === undefined) {
+    } else if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
       // Only a max value is set
       inputError = InputError.MAX;
-    } else if ((this.min !== undefined && this.numericValue < this.min) || (this.max !== undefined && this.numericValue > this.max)) {
+    } else if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
       // both min and max values are set
       inputError = InputError.MINMAX;
     }
@@ -345,21 +401,18 @@ export class MgInputNumeric {
 
   /**
    * Format value based on type
-   *
-   * @param {number} value value to format
-   * @returns {string} formated local value
+   * @param value - value to format
+   * @returns formated local value
    */
   private formatValue = (value: number): string => (this.type === 'currency' ? localeCurrency(value, this.locale, this.currency) : localeNumber(value, this.locale));
 
   /**
    * Validate append slot
-   *
-   * @returns {void}
    */
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
     if (slotAppendInput !== null) {
-      this.classList.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-input--is-input-group-append' : 'mg-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-c-input--is-input-group-append' : 'mg-c-input--is-append-input-slot-content');
     }
   };
 
@@ -369,19 +422,19 @@ export class MgInputNumeric {
 
   /**
    * Check if component props are well configured on init
-   *
-   * @returns {ReturnType<typeof setTimeout>} timeout
+   * @returns timeout
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     const locales = initLocales(this.element);
     this.locale = locales.locale;
     this.messages = locales.messages;
-    // Validate
-    this.validateValue(this.value);
+    // Validate component config
     this.validateType(this.type);
     this.validateIntegerLength(this.integerLength);
     this.validateDecimalLength(this.decimalLength);
+    // validate value
+    this.validateValue(this.value);
     this.validateAppendSlot();
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
@@ -393,14 +446,13 @@ export class MgInputNumeric {
 
   /**
    * Render
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
       <MgInput
         identifier={this.identifier}
-        classList={this.classList}
+        classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
         label={this.label}
         labelOnTop={this.labelOnTop}
@@ -418,7 +470,7 @@ export class MgInputNumeric {
       >
         <input
           type="text"
-          class="mg-input__box"
+          class="mg-c-input__box"
           value={this.displayValue()}
           id={this.identifier}
           name={this.name}
@@ -426,11 +478,12 @@ export class MgInputNumeric {
           title={this.placeholder}
           disabled={this.disabled}
           required={this.required}
+          aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
-          ref={el => {
-            if (el !== null) this.input = el as HTMLInputElement;
+          ref={(el: HTMLInputElement) => {
+            if (el !== null) this.input = el;
           }}
         />
         <slot name="append-input"></slot>

@@ -1,15 +1,36 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../mg-button';
+import { MgForm } from '../../../molecules/mg-form/mg-form';
 import { variants, buttonTypes } from '../mg-button.conf';
+import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
 
-const getPage = (args, content = 'Text button') =>
+const getPage = async (args, content = 'Text button') =>
   newSpecPage({
-    components: [MgButton],
-    template: () => <mg-button {...args}>{content}</mg-button>,
+    components: [MgButton, MgForm],
+    template: () => {
+      const TagName = args.formTag;
+      delete args.formTag;
+      const button = () => <mg-button {...args}>{content}</mg-button>;
+      if (!TagName) return button();
+      else return <TagName identifier="identifier">{button()}</TagName>;
+    },
   });
 
 describe('mg-button', () => {
+  beforeEach(() => {
+    setupMutationObserverMock({
+      observe: function () {
+        return null;
+      },
+      disconnect: function () {
+        return null;
+      },
+      takeRecords: () => [],
+    });
+    setupSubmitEventMock();
+  });
+
   test('Should render a button with an id', async () => {
     const { root } = await getPage({ identifier: 'identifier', label: 'label' });
     expect(root).toMatchSnapshot();
@@ -35,7 +56,7 @@ describe('mg-button', () => {
   test('Should replace classes on variant changes', async () => {
     const page = await getPage({ variant: 'primary', label: 'label' });
     const element = page.doc.querySelector('mg-button');
-    let classPrimary = element.shadowRoot.querySelector('.mg-button--primary');
+    let classPrimary = element.shadowRoot.querySelector('.mg-c-button--primary');
 
     expect(classPrimary).not.toBeNull();
 
@@ -43,8 +64,8 @@ describe('mg-button', () => {
     element.variant = 'danger';
     await page.waitForChanges();
 
-    classPrimary = element.shadowRoot.querySelector('.mg-button--primary');
-    const classDanger = element.shadowRoot.querySelector('.mg-button--danger');
+    classPrimary = element.shadowRoot.querySelector('.mg-c-button--primary');
+    const classDanger = element.shadowRoot.querySelector('.mg-c-button--danger');
 
     expect(classPrimary).toBeNull();
     expect(classDanger).not.toBeNull();
@@ -171,6 +192,33 @@ describe('mg-button', () => {
       await page.waitForChanges();
 
       expect(spy).not.lastCalledWith(expect.objectContaining({ type: 'click' }));
+    });
+  });
+
+  describe.each(['form', 'mg-form'])('form <%s/>', form => {
+    test.each([undefined, 'submit', 'button'])('Should emit "submit" event, case type is %s', async type => {
+      const args = { identifier: 'identifier', type, formTag: form };
+      const page = await getPage(args);
+
+      const mgForm = page.doc.querySelector('mg-form')?.shadowRoot.querySelector('form') || page.doc.querySelector('form');
+      const mgButton = page.doc.querySelector('mg-button');
+
+      const formSpy = jest.spyOn(mgForm, 'dispatchEvent');
+
+      mgButton.dispatchEvent(new Event('click', { bubbles: true }));
+
+      await page.waitForChanges();
+
+      if ([undefined, 'submit'].includes(type)) {
+        expect(formSpy).toHaveBeenCalledWith(
+          expect.objectContaining({
+            type: 'submit',
+            cancelable: true,
+          }),
+        );
+      } else {
+        expect(formSpy).not.toHaveBeenCalled();
+      }
     });
   });
 });

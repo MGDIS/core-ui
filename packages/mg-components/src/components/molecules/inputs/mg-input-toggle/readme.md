@@ -10,19 +10,19 @@ The values must be transcribed by texts or icons.
 
 ### Types
 
-![](./mg-input-toggle/doc/img/mg-input-toggle-use.png)
+![](./doc/img/mg-input-toggle-use.png)
 
 ### Specs
 
-![](./mg-input-toggle/doc/img/mg-input-toggle-specs.png)
+![](./doc/img/mg-input-toggle-specs.png)
 
 ### Readonly
 
-![](./mg-input-toggle/doc/img/mg-input-toggle-readonly.png)
+![](./doc/img/mg-input-toggle-readonly.png)
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`
 
@@ -56,6 +56,22 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `value-change` | Emited event when value change      | `CustomEvent<any>`     |
 
 
+## Methods
+
+### `setError(valid: boolean, errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
@@ -70,6 +86,7 @@ graph TD;
   mg-input-toggle --> mg-tooltip
   mg-input-toggle --> mg-icon
   mg-input-toggle --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-toggle fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

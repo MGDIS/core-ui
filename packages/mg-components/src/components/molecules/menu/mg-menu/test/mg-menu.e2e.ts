@@ -1,5 +1,5 @@
-import { KeyInput } from 'puppeteer';
-import { createPage, DesignSystemE2EPage, renderAttributes } from '../../../../../utils/e2e.test.utils';
+import { renderAttributes } from '../../../../../utils/e2e.test.utils';
+import { setPageContent, expect, describe, describeEach, testEach, test, PageType, updateScreenshotClass } from '../../../../../utils/playwright.e2e.test.utils';
 import { Direction, MenuSizeType, sizes } from '../mg-menu.conf';
 
 enum Position {
@@ -13,25 +13,22 @@ enum Key {
   ENTER = 'Enter',
 }
 
-const expectImageSnapshot = async (page: DesignSystemE2EPage) => {
-  await page.waitForChanges();
-  await page.waitForTimeout(200);
-  const screenshot = await page.screenshot();
-  expect(screenshot).toMatchImageSnapshot();
-};
+const TIMEOUT = 1000;
 
-const getSubMenuSize = (size: MenuSizeType) => {
+const getSubMenuSize = (size: MenuSizeType): MenuSizeType => {
   if (size === 'large') return 'medium';
   else if (size === 'medium') return 'regular';
   else return 'regular';
 };
 
-const getFrameSize = (direction, size?) =>
+const numberToPx = (value: number): string => `${value}px`;
+
+const getFrameSize = (direction: Direction, size?: MenuSizeType): { width: number; height: number } =>
   direction === Direction.VERTICAL
     ? { width: 400, height: ['medium', 'large'].includes(size) ? 400 : 250 }
-    : { width: ['medium', 'large'].includes(size) ? 1100 : 800, height: 200 };
+    : { width: ['medium', 'large'].includes(size) ? 1200 : 800, height: 200 };
 
-const createHTML = (args, containerSize?) => `
+const createHTML = (args, containerSize?): string => `
   <header class="menu-container menu-container--${containerSize}">
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
       <mg-menu-item status="active">
@@ -68,50 +65,43 @@ const createHTML = (args, containerSize?) => `
   `;
 
 describe('mg-menu', () => {
-  describe.each([Direction.HORIZONTAL, Direction.VERTICAL])('direction %s', direction => {
-    test.each(sizes)(`should renders, case direction ${direction} size %s with large screen`, async size => {
-      const page = await createPage(createHTML({ direction, size, badge: true }), getFrameSize(direction, size));
+  describeEach([Direction.HORIZONTAL, Direction.VERTICAL])('direction %s', (direction: Direction) => {
+    testEach(sizes)(`should renders, case direction ${direction} size %s with large screen`, async (page: PageType, size: MenuSizeType) => {
+      await setPageContent(page, createHTML({ direction, size, badge: true }), getFrameSize(direction, size));
 
-      const element = await page.find('mg-menu');
-      expect(element).toHaveClass('hydrated');
+      await updateScreenshotClass(page, { width: numberToPx(getFrameSize(direction, size).width) });
 
-      await expectImageSnapshot(page);
+      await page.locator('mg-menu.hydrated').first().waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   describe('navigation horizontal', () => {
-    test(`should success mouse navigation, case direction ${Direction.HORIZONTAL}`, async () => {
-      const page = await createPage(createHTML({ direction: Direction.HORIZONTAL }), getFrameSize(Direction.HORIZONTAL));
-      await expectImageSnapshot(page);
-
+    test(`should success mouse navigation, case direction ${Direction.HORIZONTAL}`, async ({ page }) => {
+      await setPageContent(page, createHTML({ direction: Direction.HORIZONTAL }), { width: 800, height: 80 });
+      await page.locator('mg-menu.hydrated').first().waitFor({ timeout: TIMEOUT });
       const actions = [
-        { position: 1, expanded: true },
-        { position: 5, expanded: true },
-        { position: 5, expanded: false },
-        { position: 1, expanded: true },
+        { position: 0, expanded: 'true' },
+        { position: 5, expanded: 'true' },
+        { position: 0, expanded: 'true' },
       ];
-      for await (const action of actions) {
-        let item = await page.find(`header > mg-menu > mg-menu-item:nth-of-type(${action.position}) >>> button`);
+      for (const { position, expanded } of actions) {
+        const item = page.locator('mg-menu').first().locator('mg-menu-item').nth(position);
         await item.click();
-        await page.waitForChanges();
-
-        expect(item.getAttribute('aria-expanded')).toBe(`${action.expanded}`);
-        item = await page.find(`header > mg-menu > mg-menu-item:not(:nth-of-type(${action.position})) >>> button[aria-expanded="true"]`);
-        expect(item).toBe(null);
+        await page.locator('mg-popover-content[data-show]').waitFor({ timeout: TIMEOUT });
+        expect(await item.locator('button').first().getAttribute('aria-expanded')).toEqual(expanded);
       }
-
       // menu-item close
       await page.$eval('body', elm => {
         elm.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       });
-      await page.waitForChanges();
-      await expectImageSnapshot(page);
+      await expect(page.locator('body')).toHaveScreenshot();
     });
-
-    test(`should success keyboard navigation, case direction ${Direction.HORIZONTAL}`, async () => {
-      const page = await createPage(createHTML({ direction: Direction.HORIZONTAL }), getFrameSize(Direction.HORIZONTAL));
-      await expectImageSnapshot(page);
-
+    test(`should success keyboard navigation, case direction ${Direction.HORIZONTAL}`, async ({ page }) => {
+      await setPageContent(page, createHTML({ direction: Direction.HORIZONTAL }), getFrameSize(Direction.HORIZONTAL));
+      await page.locator('mg-menu.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       const actions = [
         { position: Position.PRESS, key: Key.TAB, openeItem: null },
         { position: Position.PRESS, key: Key.TAB, openeItem: null },
@@ -123,51 +113,50 @@ describe('mg-menu', () => {
         { position: Position.PRESS, key: Key.ENTER, openeItem: null },
         { position: Position.PRESS, key: Key.TAB, openeItem: null },
       ];
-
       for await (const action of actions) {
         if (action.key === Key.SHIFT) {
           await page.keyboard.down(Key.SHIFT);
           await page.keyboard.press(Key.TAB);
           await page.keyboard.up(Key.SHIFT);
         } else {
-          await page.keyboard[action.position](action.key as unknown as KeyInput);
+          await page.keyboard[action.position](action.key);
         }
-        await page.waitForChanges();
         let item;
         if (action.openeItem > 0) {
-          item = await page.find(`header > mg-menu > mg-menu-item:nth-of-type(${action.openeItem}) >>> button[aria-expanded="true"]`);
-          expect(item).not.toBe(null);
-          item = await page.find(`header > mg-menu > mg-menu-item:not(:nth-of-type(${action.openeItem})) >>> button[aria-expanded="true"]`);
+          item = page.locator('mg-menu').first().locator('mg-menu-item').nth(action.openeItem).locator('button[aria-expanded="true"]');
+          expect(await item.getAttribute('aria-expanded')).toEqual('true');
         } else {
-          item = await page.find(`header > mg-menu > mg-menu-item >>> button[aria-expanded="true"]`);
+          item = page.locator('mg-menu').first().locator('mg-menu-item').first().locator('button').first();
+          expect(await item.getAttribute('aria-expanded')).toEqual('false');
         }
-        expect(item).toBe(null);
       }
     });
   });
 
   describe('navigation vertical', () => {
-    test(`should success mouse navigation, case direction ${Direction.VERTICAL}`, async () => {
-      const page = await createPage(createHTML({ direction: Direction.VERTICAL }), getFrameSize(Direction.VERTICAL));
-      await expectImageSnapshot(page);
+    test(`should success mouse navigation, case direction ${Direction.VERTICAL}`, async ({ page }) => {
+      await setPageContent(page, createHTML({ direction: Direction.VERTICAL }), getFrameSize(Direction.VERTICAL));
+      await page.locator('mg-menu.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-      const positions = [1, 5, 5, 1];
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      const positions = [0, 4, 5, 0];
       for await (const position of positions) {
-        const item = await page.find(`header > mg-menu > mg-menu-item:nth-of-type(${position}) >>> button`);
+        const item = page.locator('mg-menu').first().locator('mg-menu-item').nth(position);
         await item.click();
-        await page.waitForChanges();
-        await expectImageSnapshot(page);
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
 
       await page.$eval('body', elm => {
         elm.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       });
-      await page.waitForChanges();
-      await expectImageSnapshot(page);
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
-    test(`should success keyboard navigation, case direction ${Direction.VERTICAL}`, async () => {
-      const page = await createPage(createHTML({ direction: Direction.VERTICAL }), getFrameSize(Direction.VERTICAL));
-      await expectImageSnapshot(page);
+
+    test(`should success keyboard navigation, case direction ${Direction.VERTICAL}`, async ({ page }) => {
+      await setPageContent(page, createHTML({ direction: Direction.VERTICAL }), getFrameSize(Direction.VERTICAL));
+      await page.locator('mg-menu.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       const actions = [
         { position: Position.PRESS, key: Key.TAB },
@@ -187,10 +176,9 @@ describe('mg-menu', () => {
           await page.keyboard.press(Key.TAB);
           await page.keyboard.up(Key.SHIFT);
         } else {
-          await page.keyboard[action.position](action.key as unknown as KeyInput);
+          await page.keyboard[action.position](action.key);
         }
-        await page.waitForChanges();
-        await expectImageSnapshot(page);
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
     });
   });

@@ -1,50 +1,42 @@
-import { createPage, darkBackground } from '../../../../utils/e2e.test.utils';
+import { darkBackground, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { PageType, describe, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
 import { variants } from '../mg-tag.conf';
 
 describe('mg-tag', () => {
-  test('Should render', async () => {
-    const html = variants
-      .map(variant => {
-        const template = [true, false]
-          .map(icon =>
-            [
-              { outline: false, soft: false },
-              { outline: true, soft: false },
-              { outline: false, soft: true },
-            ]
-              .map(({ outline, soft }) =>
-                darkBackground(
-                  variant === 'secondary',
-                  `<mg-tag style="margin: 0.2rem;" variant="${variant}" outline="${outline}" soft="${soft}">${icon ? '<mg-icon icon="user"></mg-icon>' : ''}${variant}</mg-tag>`,
-                ),
-              )
-              .join(''),
-          )
-          .join('');
-        return `<h2>${variant}<h2/><div>${template}<div>`;
-      })
-      .join('');
+  testEach(
+    variants.flatMap(variant =>
+      [true, false].flatMap(icon =>
+        [
+          { outline: false, soft: false },
+          { outline: true, soft: false },
+          { outline: false, soft: true },
+        ].map(({ outline, soft }) =>
+          darkBackground(
+            variant === 'secondary',
+            `<mg-tag style="margin: 0.2rem;" ${renderAttributes({ variant, outline, soft })}>${
+              icon ? `<mg-icon ${renderAttributes({ icon: 'user', size: 'small' })}></mg-icon>` : ''
+            }${variant}</mg-tag>`,
+          ),
+        ),
+      ),
+    ),
+  )('Should render %s', async (page: PageType, html: string) => {
+    await setPageContent(page, html);
 
-    const page = await createPage(html);
+    await page.locator('mg-tag.hydrated').waitFor({ timeout: 1000 });
 
-    const element = await page.find('mg-tag');
-    expect(element).toHaveClass('hydrated');
-
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('Should render a 2 lines tag', async () => {
-    const page = await createPage(`<mg-tag>Tag with a<br> two lines text</mg-tag>`);
+  test('Should render a 2 lines tag', async ({ page }) => {
+    await setPageContent(page, `<mg-tag>Tag with a<br> two lines text</mg-tag>`);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('Should render a tag in a paragraph', async () => {
-    const page = await createPage(`<p>This is a <mg-tag>tag</mg-tag> in a paragraph.</p>`);
+  test('Should render a tag in a paragraph', async ({ page }) => {
+    await setPageContent(page, `<p>This is a <mg-tag>tag</mg-tag> in a paragraph.</p>`);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 });

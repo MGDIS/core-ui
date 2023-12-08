@@ -1,3 +1,3 @@
 # Release bot
 
-MG Components release bot.
+Core UI release bot.

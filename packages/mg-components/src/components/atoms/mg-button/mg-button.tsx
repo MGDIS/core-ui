@@ -1,10 +1,10 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassList, isValidString, nextTick } from '../../../utils/components.utils';
 
 @Component({
   tag: 'mg-button',
-  styleUrl: 'mg-button.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-button.css',
   shadow: true,
 })
 export class MgButton {
@@ -13,9 +13,9 @@ export class MgButton {
    ************/
 
   private onClickElementFn = null;
-  private readonly classDisabled = 'mg-button--disabled';
-  private readonly classLoading = 'mg-button--loading';
-  private readonly classFullWidth = 'mg-button--full-width';
+  private readonly classDisabled = 'mg-c-button--disabled';
+  private readonly classLoading = 'mg-c-button--loading';
+  private readonly classFullWidth = 'mg-c-button--full-width';
 
   /**************
    * Decorators *
@@ -36,9 +36,9 @@ export class MgButton {
       throw new Error(`<mg-button> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
       if (oldValue !== undefined) {
-        this.classList.delete(`mg-button--${oldValue}`);
+        this.classCollection.delete(`mg-c-button--${oldValue}`);
       }
-      this.classList.add(`mg-button--${newValue}`);
+      this.classCollection.add(`mg-c-button--${newValue}`);
     }
   }
 
@@ -61,15 +61,15 @@ export class MgButton {
   /**
    * Set button to full-width
    */
-  @Prop({ mutable: true }) fullWidth = false;
+  @Prop() fullWidth = false;
   @Watch('fullWidth')
   validateFullWidth(newValue: MgButton['fullWidth']): void {
     if (newValue && this.isIcon) {
       throw new Error('<mg-button> prop "fullWidth" cannot be used with prop "isIcon".');
     } else if (newValue) {
-      this.classList.add(this.classFullWidth);
+      this.classCollection.add(this.classFullWidth);
     } else {
-      this.classList.delete(this.classFullWidth);
+      this.classCollection.delete(this.classFullWidth);
     }
   }
 
@@ -77,7 +77,7 @@ export class MgButton {
    * Define form id to attach button with.
    * If this attribute is not set, the <button> is associated with its ancestor <form> element.
    */
-  @Prop({ mutable: true }) form: string;
+  @Prop() form: string;
 
   /**
    * Disable button
@@ -95,9 +95,9 @@ export class MgButton {
 
     // apply style
     if (isDisabled) {
-      this.classList.add(this.classDisabled);
+      this.classCollection.add(this.classDisabled);
     } else {
-      this.classList.delete(this.classDisabled);
+      this.classCollection.delete(this.classDisabled);
     }
 
     // emit value update
@@ -125,27 +125,25 @@ export class MgButton {
   loadingHandler(newValue: MgButton['loading']): void {
     // we add loading style if it newvalue is true else we remove it
     if (newValue) {
-      this.classList.add(this.classLoading);
+      this.classCollection.add(this.classLoading);
     } else {
-      this.classList.delete(this.classLoading);
+      this.classCollection.delete(this.classLoading);
     }
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-button']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-button']);
 
   /**
    * Emmited event when disabled change
    */
-  @Event({ eventName: 'disabled-change' }) disabledChange: EventEmitter<MgButton['disabled']>;
+  @Event({ eventName: 'disabled-change' }) disabledChange: EventEmitter<HTMLMgButtonElement['disabled']>;
 
   /**
    * Trigger actions onClick event
-   *
-   * @param {MouseEvent} event click event
-   * @returns {void}
+   * @param event - click event
    */
   private handleClick = (event: MouseEvent): void => {
     if (this.disabled) event.stopPropagation();
@@ -158,9 +156,7 @@ export class MgButton {
 
   /**
    * Handle onKeydown event
-   *
-   * @param {KeyboardEvent} event keyboard event
-   * @returns {void}
+   * @param event - keyboard event
    */
   private handleKeydown = (event: KeyboardEvent): void => {
     if (!this.disabled && event.key === ' ') {
@@ -173,9 +169,7 @@ export class MgButton {
 
   /**
    * Handle onKeyup event
-   *
-   * @param {KeyboardEvent} event keyboard event
-   * @returns {void}
+   * @param event - keyboard event
    */
   private handleKeyup = (event: KeyboardEvent): void => {
     if (!this.disabled && event.key === ' ') {
@@ -186,15 +180,13 @@ export class MgButton {
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateVariant(this.variant);
     this.validateFullWidth(this.fullWidth);
     if (this.isIcon) {
-      this.classList.add(`mg-button--icon`);
-      if (typeof this.label !== 'string' || this.label.trim() === '') {
+      this.classCollection.add(`mg-c-button--icon`);
+      if (!isValidString(this.label)) {
         throw new Error(`<mg-button> prop "label" is mandatory when prop "isIcon" is set to true.`);
       }
     }
@@ -204,9 +196,23 @@ export class MgButton {
   }
 
   /**
+   * Add listners
+   */
+  componentDidLoad(): void {
+    nextTick(() => {
+      const closestForm = this.element.closest('form') || this.element.closest('mg-form')?.shadowRoot.querySelector('form');
+      // submit buttons should trigger form submition;
+      if (!!closestForm && ['submit', undefined].includes(this.type)) {
+        this.element.addEventListener('click', () => {
+          closestForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
+        });
+      }
+    });
+  }
+
+  /**
    * Render component
-   *
-   * @returns {HTMLElement} html element
+   * @returns html element
    */
   render(): HTMLElement {
     return (
@@ -217,14 +223,14 @@ export class MgButton {
         form={this.form}
         full-width={this.fullWidth}
         aria-label={this.label}
-        aria-disabled={this.disabled !== undefined && this.disabled.toString()}
+        aria-disabled={this.disabled?.toString()}
         onClick={this.handleClick}
         onKeyup={this.handleKeyup}
         onKeydown={this.handleKeydown}
       >
-        <div class={this.classList.join()} id={this.identifier}>
+        <div class={this.classCollection.join()} id={this.identifier}>
           {this.loading && <mg-icon icon="loader" spin></mg-icon>}
-          <div class="mg-button__content">
+          <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>

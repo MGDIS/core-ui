@@ -1,0 +1,30 @@
+{
+  "name": "@mgdis/linting-vue2",
+  "version": "3.11.3",
+  "description": "VueJS 2 Linting MGDIS rules",
+  "main": "index.js",
+  "bin": {
+    "linting-vue2-prepare": "./bin/linting-vue2-prepare.js"
+  },
+  "maintainers": [
+    "Simon Duhem <duhem-s@mgdis.fr>",
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>"
+  ],
+  "dependencies": {
+    "@babel/eslint-parser": "^7.23.3",
+    "@mgdis/eslint-plugin-vue": "workspace:*",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "eslint": "^8.53.0",
+    "eslint-plugin-jsdoc": "^46.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-vue": "^9.18.1",
+    "eslint-plugin-vuejs-accessibility": "^2.0.0",
+    "prettier": "^3.0.0"
+  },
+  "devDependencies": {
+    "jest-config": "workspace:*",
+    "tsconfig": "workspace:*"
+  }
+}

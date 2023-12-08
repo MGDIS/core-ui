@@ -251,8 +251,8 @@ describe('mg-input-toggle', () => {
     const args = { label: 'label', items, identifier: 'identifier', helpText: 'My help text', value };
     const page = await getPage(args, defaultSlots);
 
-    const mgInputToogle = page.doc.querySelector('mg-input-toggle');
-    const button = mgInputToogle.shadowRoot.querySelector('button');
+    const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+    const button = mgInputToggle.shadowRoot.querySelector('button');
 
     jest.spyOn(page.rootInstance.valueChange, 'emit');
 
@@ -266,5 +266,58 @@ describe('mg-input-toggle', () => {
 
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(expected);
     expect(page.rootInstance.valueChange.emit).toHaveBeenCalledTimes(1);
+  });
+
+  describe('setError', () => {
+    test.each([true, false])("should display override error with setError component's public method", async valid => {
+      const page = await getPage({ ...defaultProps }, defaultSlots);
+
+      const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+
+      const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
+
+      await mgInputToggle.setError(valid, 'error batman');
+
+      await page.waitForChanges();
+
+      expect(spyInputValid).toHaveBeenCalledTimes(1);
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test.each([
+      {
+        valid: '',
+        errorMessage: 'Override error',
+        error: '<mg-input-toggle> method "setError()" param "valid" must be a boolean',
+      },
+      {
+        valid: undefined,
+        errorMessage: 'Override error',
+        error: '<mg-input-toggle> method "setError()" param "valid" must be a boolean',
+      },
+      {
+        valid: true,
+        errorMessage: ' ',
+        error: '<mg-input-toggle> method "setError()" param "errorMessage" must be a string',
+      },
+      {
+        valid: true,
+        errorMessage: true,
+        error: '<mg-input-toggle> method "setError()" param "errorMessage" must be a string',
+      },
+    ])("shloud throw error with setError component's public method invalid params", async params => {
+      expect.assertions(1);
+      try {
+        const page = await getPage({ ...defaultProps }, defaultSlots);
+
+        const mgInputToggle = page.doc.querySelector('mg-input-toggle');
+        await mgInputToggle.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
+
+        await page.waitForChanges();
+      } catch (err) {
+        expect(err.message).toMatch(params.error);
+      }
+    });
   });
 });

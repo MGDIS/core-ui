@@ -34,9 +34,8 @@ const args = {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => (
@@ -46,14 +45,15 @@ const Template = (args: any): HTMLElement => (
   </mg-input-toggle>
 );
 
-export const MgInputToggle = Template.bind({});
-MgInputToggle.args = { ...args };
+export const MgInputToggle = {
+  render: Template,
+  args: { ...args },
+};
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const TemplateIcon = (args: any): HTMLElement => (
@@ -67,9 +67,12 @@ const TemplateIcon = (args: any): HTMLElement => (
   </mg-input-toggle>
 );
 
-export const MgInputToggleWithIcon = TemplateIcon.bind({});
-MgInputToggleWithIcon.args = {
-  ...args,
-  isIcon: true,
-  isOnOff: true,
+export const MgInputToggleWithIcon = {
+  render: TemplateIcon,
+
+  args: {
+    ...args,
+    isIcon: true,
+    isOnOff: true,
+  },
 };

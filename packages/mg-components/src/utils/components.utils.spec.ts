@@ -1,4 +1,4 @@
-import { createID, ClassList, allItemsAreString, isTagName, getWindows } from './components.utils';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './components.utils';
 import { mockConsoleError } from './unit.test.utils';
 
 mockConsoleError();
@@ -13,39 +13,44 @@ describe('components.utils', () => {
       }
       expect(id).toMatch(regexp);
     });
+    test('Should generate a unique ID when both are created at the same time', () => {
+      const id1 = createID();
+      const id2 = createID();
+      expect(id1).not.toEqual(id2);
+    });
   });
 
   describe('ClassList', () => {
     test('Should add classes to list', () => {
-      const classList = new ClassList();
-      expect(classList.classes).toEqual([]);
-      classList.add('blu');
-      expect(classList.classes).toEqual(['blu']);
-      classList.add('bli');
-      expect(classList.classes).toEqual(['blu', 'bli']);
+      const classCollection = new ClassList();
+      expect(classCollection.classes).toEqual([]);
+      classCollection.add('blu');
+      expect(classCollection.classes).toEqual(['blu']);
+      classCollection.add('bli');
+      expect(classCollection.classes).toEqual(['blu', 'bli']);
       // Should not add classes if already in list
-      classList.add('blu');
-      expect(classList.classes).toEqual(['blu', 'bli']);
+      classCollection.add('blu');
+      expect(classCollection.classes).toEqual(['blu', 'bli']);
     });
 
     test('Should delete classes from list', () => {
-      const classList = new ClassList(['blu', 'bli']);
-      classList.delete('blu');
-      expect(classList.classes).toEqual(['bli']);
+      const classCollection = new ClassList(['blu', 'bli']);
+      classCollection.delete('blu');
+      expect(classCollection.classes).toEqual(['bli']);
       // List doesn't change if class name doesn't existe in list
-      classList.delete('bla');
-      expect(classList.classes).toEqual(['bli']);
+      classCollection.delete('bla');
+      expect(classCollection.classes).toEqual(['bli']);
     });
 
     test('Should check if class already in list', () => {
-      const classList = new ClassList(['blu']);
-      expect(classList.has('blu')).toEqual(true);
-      expect(classList.has('bli')).toEqual(false);
+      const classCollection = new ClassList(['blu']);
+      expect(classCollection.has('blu')).toEqual(true);
+      expect(classCollection.has('bli')).toEqual(false);
     });
 
     test('Should return seperated space classes list', () => {
-      const classList = new ClassList(['blu', 'bli']);
-      expect(classList.join()).toEqual('blu bli');
+      const classCollection = new ClassList(['blu', 'bli']);
+      expect(classCollection.join()).toEqual('blu bli');
     });
   });
 
@@ -129,6 +134,42 @@ describe('components.utils', () => {
       expect(spyConsole).toBeCalledTimes(1);
       expect(spyWindowSelf).toBeCalledTimes(1);
       expect(spyWindowParent).toBeCalledTimes(1);
+    });
+  });
+
+  describe('isValidString', () => {
+    test.each(['', ' ', null, undefined, 1, {}, []])('Should return "false" for invalid values', value => {
+      expect(isValidString(value)).toEqual(false);
+    });
+
+    test.each(['batman', 'batman '])('Should return "true" for valid value', value => {
+      expect(isValidString(value)).toEqual(true);
+    });
+  });
+
+  describe('cleanString', () => {
+    test.each([
+      { string: 'batman', expected: 'batman' },
+      { string: 'BATMAN', expected: 'batman' },
+      { string: 'Batman', expected: 'batman' },
+      { string: ' batman ', expected: ' batman ' },
+      { string: ' batman', expected: ' batman' },
+      { string: 'batman ', expected: 'batman ' },
+      { string: 'âäàçéèêñù', expected: 'aaaceeenu' },
+    ])('Should format string properly', ({ string, expected }) => {
+      expect(cleanString(string)).toEqual(expected);
+    });
+  });
+
+  describe('nextTick', () => {
+    test('should wrapp and execute a callback in a promise', async () => {
+      const fn = jest.fn();
+      const job = nextTick(fn);
+      expect(job.then).toBeDefined();
+
+      const res = await job;
+      expect(fn).toHaveBeenCalled();
+      expect(res).toBeUndefined();
     });
   });
 });

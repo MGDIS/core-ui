@@ -8,17 +8,17 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-character-left {...filterArgs(args)}></mg-character-left>;
 
-export const MgCharacterLeft = Template.bind({});
-
-MgCharacterLeft.args = {
-  identifier: 'identifier',
-  characters: '',
-  maxlength: 400,
+export const MgCharacterLeft = {
+  render: Template,
+  args: {
+    identifier: 'identifier',
+    characters: '',
+    maxlength: 400,
+  },
 };

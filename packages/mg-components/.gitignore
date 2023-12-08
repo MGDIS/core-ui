@@ -1,8 +1,7 @@
 dist/
-www/
-loader/
 storybook-static/
 coverage/
+assets/
 __diff_output__/
 mgdis-mg-components-*.tgz
 
@@ -16,7 +15,6 @@ log.txt
 *.sublime-project
 *.sublime-workspace
 
-.stencil/
 .idea/
 .vscode/
 .sass-cache/
@@ -29,4 +27,7 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 .env
 package-lock.json
-.turbo
+/test-results/
+/playwright-report/
+/playwright/.cache/
+results.xml

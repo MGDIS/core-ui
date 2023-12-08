@@ -1,19 +1,23 @@
 import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
-import { createPage, DesignSystemE2EPage, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { setPageContent, expect, describe, testEach, PageType } from '../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '../../../../utils/e2e.test.utils';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
 
-const expectImageSnapshot = async (page: DesignSystemE2EPage) => {
-  await page.waitForChanges();
-  await page.waitForTimeout(200);
-  const screenshot = await page.screenshot();
-  expect(screenshot).toMatchImageSnapshot();
+const verticalFrameSizes = {
+  regular: {
+    height: 200,
+    width: 180,
+  },
+  medium: {
+    height: 300,
+    width: 180,
+  },
+  large: {
+    height: 400,
+    width: 180,
+  },
 };
-
-const getFrameSize = (direction, size?) =>
-  direction === Direction.VERTICAL
-    ? { width: 400, height: ['medium', 'large'].includes(size) ? 400 : 250 }
-    : { width: ['medium', 'large'].includes(size) ? 1100 : 800, height: 200 };
 
 const getSubMenuSize = (size: MenuSizeType) => {
   if (size === 'large') return 'medium';
@@ -21,8 +25,8 @@ const getSubMenuSize = (size: MenuSizeType) => {
   else return 'regular';
 };
 
-const createHTML = (args, containerSize?) => `
-  <header class="menu-container menu-container--${containerSize}">
+const createHTML = args => `
+  <header class="menu-container menu-container--${args.direction}-small">
     <mg-menu ${renderAttributes({ label: 'menu', ...args })}>
       <mg-menu-item status="active">
         <span slot="label">1 - head-1</span>
@@ -54,23 +58,24 @@ const createHTML = (args, containerSize?) => `
     .menu-container.menu-container--vertical-small {
       width: 180px;
     }
+    .menu-container.menu-container--horizontal-small {
+      width: 200px;
+    }
   </style>
   `;
 
 describe('mg-item-more', () => {
   describe('mg-menu', () => {
-    test.each(sizes)(`should renders, case direction ${Direction.VERTICAL} size %s with small screen`, async size => {
-      const page = await createPage(createHTML({ direction: Direction.VERTICAL, size }, `${Direction.VERTICAL}-${'small'}`));
+    testEach(sizes)(`should renders, case direction ${Direction.VERTICAL} size %s with small screen`, async (page: PageType, size: string) => {
+      await setPageContent(page, createHTML({ direction: Direction.VERTICAL, size }), verticalFrameSizes[size]);
 
-      await expectImageSnapshot(page);
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test.each([true, false])('should renders with overflow, case badge %s', async badge => {
-      const page = await createPage(createHTML({ direction: Direction.HORIZONTAL, badge }), getFrameSize(Direction.HORIZONTAL));
+    testEach([true, false])('should renders with overflow, case badge %s', async (page: PageType, badge) => {
+      await setPageContent(page, createHTML({ direction: Direction.HORIZONTAL, badge }), { width: 400, height: 250 });
 
-      await page.setViewport({ width: 450, height: 200 });
-
-      await expectImageSnapshot(page);
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.$eval(
         `[${OverflowBehaviorElements.BASE_INDEX}="0"]`,
@@ -88,7 +93,7 @@ describe('mg-item-more', () => {
         Status.ACTIVE,
       );
 
-      await expectImageSnapshot(page);
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 });

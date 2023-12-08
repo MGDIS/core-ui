@@ -1,7 +1,9 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
+import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
 import { variants } from '../mg-message.conf';
 
-const getContent = (contentSize, withAction) => {
+const TIMEOUT = 1000;
+
+const getContent = (contentSize: string, withAction: boolean) => {
   let content = '<strong>Strong</strong> content!';
   let actions = '';
   if (contentSize === 'long') {
@@ -15,60 +17,55 @@ const getContent = (contentSize, withAction) => {
 };
 
 describe('mg-message', () => {
-  test('Should render', async () => {
-    const html = variants
-      .map(variant => {
-        const props = [
-          { contentSize: 'short', withAction: false, closeButton: false },
-          { contentSize: 'long', withAction: false, closeButton: false },
-          { contentSize: 'short', withAction: true, closeButton: false },
-          { contentSize: 'long', withAction: true, closeButton: false },
-          { contentSize: 'short', withAction: false, closeButton: true },
-          { contentSize: 'long', withAction: false, closeButton: true },
-        ];
-        return props
-          .map(({ contentSize, withAction, closeButton }) => `<mg-message variant="${variant}" close-button="${closeButton}">${getContent(contentSize, withAction)}</mg-message>`)
-          .join('');
-      })
-      .join('');
-    const page = await createPage(html);
+  describeEach(variants)('Should render with variant %s', async variant => {
+    testEach([
+      { contentSize: 'short', withAction: false, closeButton: false },
+      { contentSize: 'long', withAction: false, closeButton: false },
+      { contentSize: 'short', withAction: true, closeButton: false },
+      { contentSize: 'long', withAction: true, closeButton: false },
+      { contentSize: 'short', withAction: false, closeButton: true },
+      { contentSize: 'long', withAction: false, closeButton: true },
+    ])('with props %s', async (page: PageType, { contentSize, withAction, closeButton }: { contentSize: string; withAction: boolean; closeButton: boolean }) => {
+      await setPageContent(page, `<mg-message variant="${variant}" close-button="${closeButton}">${getContent(contentSize, withAction)}</mg-message>`);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+      await page.locator('mg-message.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 
-  test('Should render with child mg-card', async () => {
-    const page = await createPage(`
-      <mg-message class="custom-message-card">
+  test('Should render with child mg-card', async ({ page }) => {
+    await setPageContent(
+      page,
+      `<mg-message class="custom-message-card">
         <mg-card>child card</mg-card>
       </mg-message>
       <style>
         .custom-message-card {
           --mg-card-background: hsl(var(--color-danger));
         }
-      </style>
-    `);
+      </style>`,
+    );
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await page.locator('mg-message.hydrated').waitFor({ timeout: TIMEOUT });
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('Should hide message on close button click', async () => {
-    const page = await createPage(`<mg-message close-button><p>Blu</p></mg-message>`);
+  test('Should hide message on close button click', async ({ page }) => {
+    await setPageContent(page, `<mg-message close-button><p>Blu</p></mg-message>`);
 
-    const mgMessage = await page.find('mg-message');
-    expect(mgMessage).not.toHaveAttribute('hide');
+    const mgMessage = page.locator('mg-message.hydrated');
 
-    const mgButton = await page.find('mg-message >>> mg-button');
-    mgButton.triggerEvent('click');
-    await page.waitForChanges();
+    expect(await mgMessage.getAttribute('hide')).toBeNull();
 
-    const mgMessageHideProp = await mgMessage.getProperty('hide');
+    const mgButton = mgMessage.locator('mg-button');
+    await mgButton.click();
+
+    const mgMessageHideProp = await mgMessage.evaluate(e => (e as HTMLMgMessageElement).hide);
+
     expect(mgMessageHideProp).toEqual(true);
 
-    await page.setViewport({ width: 600, height: 100 });
-
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
+    await expect(mgMessage).not.toBeVisible();
   });
 });

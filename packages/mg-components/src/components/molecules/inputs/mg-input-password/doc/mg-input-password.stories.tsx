@@ -15,37 +15,33 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => <mg-input-password {...filterArgs(args)}></mg-input-password>;
 
-/**
- * Global use
- */
-
-export const MgInputPassword = Template.bind({});
-
-MgInputPassword.args = {
-  // Global
-  value: '',
-  identifier: 'identifier',
-  name: 'input-name',
-  // Label
-  label: 'Label',
-  labelOnTop: false,
-  labelHide: false,
-  // Input
-  placeholder: 'placeholder',
-  maxlength: 400,
-  required: true,
-  disabled: false,
-  readonly: false,
-  mgWidth: 'full',
-  // Tooltip
-  tooltip: 'This is a tooltip',
-  // Help Text
-  helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+export const MgInputPassword = {
+  render: Template,
+  args: {
+    // Global
+    value: '',
+    identifier: 'identifier',
+    name: 'input-name',
+    // Label
+    label: 'Label',
+    labelOnTop: false,
+    labelHide: false,
+    // Input
+    placeholder: 'placeholder',
+    maxlength: 400,
+    required: true,
+    disabled: false,
+    readonly: false,
+    mgWidth: 'full',
+    // Tooltip
+    tooltip: 'This is a tooltip',
+    // Help Text
+    helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+  },
 };

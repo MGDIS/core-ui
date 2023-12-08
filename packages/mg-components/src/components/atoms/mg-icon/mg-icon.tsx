@@ -1,26 +1,33 @@
-import { Component, h, Prop, Watch, State } from '@stencil/core';
-import { icons, sizes, variants, IconVariantType, IconSizeType } from './mg-icon.conf';
+import { Component, Prop, Watch, State, Element } from '@stencil/core';
+import { sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
 import { ClassList } from '../../../utils/components.utils';
+import iconList from '@mgdis/img/dist/icons/index.json';
+import { icons } from '../../../assets/icons';
 
 @Component({
   tag: 'mg-icon',
-  styleUrl: 'mg-icon.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-icon.css',
   shadow: true,
 })
 export class MgIcon {
+  private svg: SVGSVGElement;
+
   /**
-   * Icon to display
+   * Icon HTML Element
    */
-  @Prop() icon: string;
+  @Element() element: HTMLMgIconElement;
+
+  /**
+   * Icon to display.
+   */
+  @Prop() icon!: string;
   @Watch('icon')
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
-    if (!Object.keys(icons).includes(newValue)) {
-      throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}`);
-    } else {
-      if (oldValue !== undefined) {
-        this.classList.delete(`mg-icon--${oldValue}`);
-      }
-      this.classList.add(`mg-icon--${newValue}`);
+    if (!iconList.includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}`);
+    else {
+      if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--${oldValue}`);
+      this.classCollection.add(`mg-c-icon--${newValue}`);
+      this.renderIcon(newValue);
     }
   }
 
@@ -30,30 +37,45 @@ export class MgIcon {
   @Prop() size: IconSizeType = 'regular';
   @Watch('size')
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
-    if (!sizes.includes(newValue)) {
-      throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}`);
-    } else {
-      if (oldValue !== undefined) {
-        this.classList.delete(`mg-icon--size-${oldValue}`);
-      }
-      this.classList.add(`mg-icon--size-${newValue}`);
+    if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}`);
+    else {
+      if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--size-${oldValue}`);
+      this.classCollection.add(`mg-c-icon--size-${newValue}`);
     }
   }
 
   /**
-   * Define icon variant
-   * Add a background to the icon based on variant color
+   * Define icon variant color
    */
-  @Prop() variant?: IconVariantType;
+  @Prop() variant: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
-    if (newValue !== undefined && !variants.includes(newValue)) {
-      throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
-    } else if (newValue !== undefined) {
-      if (oldValue !== undefined) {
-        this.classList.delete(`mg-icon--variant-${oldValue}`);
+    if (newValue) {
+      if (!variants.includes(newValue)) throw new Error(`<mg-icon> prop "variant" must be one of: ${variants.join(', ')}`);
+      else {
+        this.setDefaultVariantStyle();
+        if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-${oldValue}`);
+        this.classCollection.add(`mg-c-icon--variant-${newValue}`);
       }
-      this.classList.add(`mg-icon--variant-${newValue}`);
+    }
+  }
+
+  /**
+   * Define icon color variant style
+   * Add a color to the icon based on variant color with given style
+   * 'full': Used to set a circular background with variant soft color and icon variant color
+   * 'background': Used to set a circular background with variant soft color
+   * 'icon': Used to set a color only to the icon
+   */
+  @Prop({ mutable: true }) variantStyle: IconVariantStyleType;
+  @Watch('variantStyle')
+  validateVariantStyle(newValue: MgIcon['variantStyle'], oldValue?: MgIcon['variantStyle']): void {
+    if (newValue) {
+      if (!variantStyles.includes(newValue)) throw new Error(`<mg-icon> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
+      else {
+        if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--variant-style-${oldValue}`);
+        this.classCollection.add(`mg-c-icon--variant-style-${newValue}`);
+      }
     }
   }
 
@@ -64,48 +86,55 @@ export class MgIcon {
   @Watch('spin')
   handleSpin(newValue: MgIcon['spin']): void {
     if (newValue) {
-      this.classList.add('mg-icon--spin');
-      this.classList.add('mg-a11y-animation');
+      this.classCollection.add('mg-c-icon--spin');
     } else {
-      this.classList.delete('mg-icon--spin');
-      this.classList.delete('mg-a11y-animation');
+      this.classCollection.delete('mg-c-icon--spin');
     }
   }
 
   /**
    * Component classes
    */
-  @State() classList: ClassList = new ClassList(['mg-icon']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-icon']);
 
   /**
-   * getIcon
-   *
-   * @returns {HTMLElement} icon html
+   * Method to set default varianStyle props
+   * needeed has stencil doesn't know that props is mutated when updated in prop watcher
    */
-  private getIcon = (): HTMLElement => icons[this.icon]();
+  private setDefaultVariantStyle = (): void => {
+    if (this.variantStyle === undefined) this.variantStyle = 'background';
+  };
+
+  /**
+   * Render icon in shadowroot
+   * @param icon - icon to render
+   */
+  private renderIcon = icon => {
+    this.element.shadowRoot.innerHTML = icons[icon];
+    this.svg = this.element.shadowRoot.querySelector('svg');
+    // update svg attributes
+    this.svg.setAttribute('aria-hidden', 'true');
+    this.svg.setAttribute('focusable', 'false');
+    this.svg.setAttribute('class', this.classCollection.join());
+  };
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateIcon(this.icon);
     this.validateSize(this.size);
     this.validateVariant(this.variant);
+    this.validateVariantStyle(this.variantStyle);
     this.handleSpin(this.spin);
+    // render icon
+    this.renderIcon(this.icon);
   }
 
   /**
-   * Render component
-   *
-   * @returns {HTMLElement} HTML Element
+   * update html when component trigger changes
    */
-  render(): HTMLElement {
-    return (
-      <svg class={this.classList.join()} aria-hidden="true" focusable="false" viewBox="0 0 16 16">
-        {this.getIcon()}
-      </svg>
-    );
+  componentWillUpdate() {
+    this.svg.setAttribute('class', this.classCollection.join());
   }
 }

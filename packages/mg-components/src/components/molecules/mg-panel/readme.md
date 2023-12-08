@@ -8,31 +8,31 @@ The right area of the header can accommodate any component.
 
 ## Anatomy
 
-![](./mg-panel/doc/img/mg-panel-anatomy.png)
+![](./doc/img/mg-panel-anatomy.png)
 
 ## Specs
 
 ### Sizing
 
-![](./mg-panel/doc/img/mg-panel-sizing.png)
+![](./doc/img/mg-panel-sizing.png)
 
 ### Spacing
 
-![](./mg-panel/doc/img/mg-panel-spacing.png)
+![](./doc/img/mg-panel-spacing.png)
 
 Slot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.
 
 ### Alignments
 
-![](./mg-panel/doc/img/mg-panel-align.png)
+![](./doc/img/mg-panel-align.png)
 
 ### Styles
 
-![](./mg-panel/doc/img/mg-panel-style.png)
+![](./doc/img/mg-panel-style.png)
 
 ## CSS Variables
 
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
 - `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`
 - `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`
@@ -46,15 +46,17 @@ Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-m
 
 ## Properties
 
-| Property                   | Attribute                     | Description                                                                                                 | Type      | Default                |
-| -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- | --------- | ---------------------- |
-| `expandToggleDisabled`     | `expand-toggle-disabled`      | Disable possibility to toggle expand                                                                        | `boolean` | `undefined`            |
-| `expanded`                 | `expanded`                    | Panel is opened                                                                                             | `boolean` | `false`                |
-| `identifier`               | `identifier`                  | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`  | `createID('mg-panel')` |
-| `panelTitle` _(required)_  | `panel-title`                 | Panel title                                                                                                 | `string`  | `undefined`            |
-| `titleEditable`            | `title-editable`              | Panel title is editabled                                                                                    | `boolean` | `false`                |
-| `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`  | `undefined`            |
-| `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`  | `undefined`            |
+| Property                   | Attribute                     | Description                                                                                                 | Type                | Default                   |
+| -------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------- | ------------------------- |
+| `expandToggleDisabled`     | `expand-toggle-disabled`      | Disable possibility to toggle expand                                                                        | `boolean`           | `undefined`               |
+| `expandToggleDisplay`      | `expand-toggle-display`       | Define expand toggle button display                                                                         | `"icon" \| "text"`  | `expandToggleDisplays[0]` |
+| `expanded`                 | `expanded`                    | Panel is opened                                                                                             | `boolean`           | `false`                   |
+| `identifier`               | `identifier`                  | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`            | `createID('mg-panel')`    |
+| `panelTitle` _(required)_  | `panel-title`                 | Panel title                                                                                                 | `string`            | `undefined`               |
+| `titleEditable`            | `title-editable`              | Define if panel title is editable                                                                           | `boolean`           | `false`                   |
+| `titlePattern`             | `title-pattern`               | Panel title pattern                                                                                         | `string`            | `undefined`               |
+| `titlePatternErrorMessage` | `title-pattern-error-message` | Panel title pattern error message                                                                           | `string`            | `undefined`               |
+| `titlePosition`            | `title-position`              | Define title position                                                                                       | `"left" \| "right"` | `titlePositions[0]`       |
 
 
 ## Events
@@ -86,6 +88,7 @@ graph TD;
   mg-input-text --> mg-character-left
   mg-input-text --> mg-tooltip
   mg-input-text --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-panel fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

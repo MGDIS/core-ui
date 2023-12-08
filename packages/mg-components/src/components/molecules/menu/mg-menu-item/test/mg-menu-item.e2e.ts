@@ -1,8 +1,9 @@
-import { KeyInput } from 'puppeteer';
-import { createPage, renderAttributes } from '../../../../../utils/e2e.test.utils';
+import { renderAttributes } from '../../../../../utils/e2e.test.utils';
 import { Direction, sizes } from '../../mg-menu/mg-menu.conf';
 import { Status } from '../mg-menu-item.conf';
+import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../../utils/playwright.e2e.test.utils';
 
+const TIMEOUT = 1000;
 const slotContent = '<div><h3>Demo title</h3><p>some content</p></div>';
 const slotMenuItem = '<mg-menu label="submenu"><mg-menu-item><span slot="label">Batman begins</span></mg-menu-item></mg-menu>';
 const slotImage = '<mg-icon icon="user" slot="image"></mg-icon>';
@@ -12,105 +13,86 @@ const slotMetadata = '<span slot="metadata">is a hero</span>';
 const createHTML = (args, slot = '', direction = Direction.HORIZONTAL) => `
 <mg-menu ${renderAttributes({ label: 'batmenu', direction, ...args })}">
   <mg-menu-item ${renderAttributes(args)}>
-    <span slot="label">${args.href ? 'batman link' : 'batman'}</span>
+    <span slot="label">${args.label ? args.label : 'batman'} ${args.href ? 'link' : ''}</span>
     ${slot}
   </mg-menu-item>
 </mg-menu>
 `;
 
 describe('mg-menu-item', () => {
-  describe.each([Direction.HORIZONTAL, Direction.VERTICAL])('render', direction => {
-    test('should render whith status', async () => {
-      const html = [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED]
-        .map(status => {
-          const template = [undefined, '#link']
-            .map(href => [true, false].map(submenu => (submenu && href !== undefined ? '' : createHTML({ status, href }, submenu && slotMenuItem, direction))).join(''))
-            .join('');
-          return `<h2>${status}<h2/><div>${template}<div>`;
-        })
-        .join('');
+  describeEach([Direction.HORIZONTAL, Direction.VERTICAL])('render %s', (direction: Direction) => {
+    testEach(
+      [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED].flatMap(status =>
+        [undefined, '#link'].flatMap(href => [true, false].map(submenu => createHTML({ status, href }, submenu && slotMenuItem, direction))),
+      ),
+    )('should render with status %s', async (page: PageType, html: string) => {
+      await setPageContent(page, html, { width: 100, height: 38 });
 
-      const page = await createPage(`<h1>${direction} mg-menu - Status</h1>${html}`);
-
-      const element = await page.find('mg-menu-item');
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      if (!html.includes('status="hidden"')) {
+        await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      } else {
+        await expect(page.locator('body')).toHaveScreenshot();
+      }
     });
 
-    test('should render whith slots', async () => {
-      const html = [
+    testEach(
+      [
         { label: 'submenu', slot: slotMenuItem },
         { label: 'image', slot: slotImage },
         { label: 'information', slot: slotInformation },
         { label: 'information AND image', slot: slotInformation + slotImage },
-      ]
-        .map(({ label, slot }) => {
-          const template = [true, false]
-            .map(submenu =>
-              [true, false]
-                .map(metadata =>
-                  sizes
-                    .map(size => (submenu && label === 'submenu' ? '' : createHTML({ size }, `${metadata ? slotMetadata : ''} ${submenu ? slot + slotMenuItem : slot}`, direction)))
-                    .join(''),
-                )
-                .join(''),
-            )
-            .join('');
-          return `<h2>${label}<h2/><div>${template}<div>`;
-        })
-        .join('');
+      ].flatMap(({ label, slot }) =>
+        [slotMenuItem, ''].flatMap(submenu =>
+          [slotMetadata, ''].map(metadata => createHTML({ label, size: metadata !== '' ? 'medium' : 'regular' }, [slot, metadata, submenu].join(''), direction)),
+        ),
+      ),
+    )('should render with slots %s', async (page: PageType, html: string) => {
+      await setPageContent(page, html, { width: 130, height: 60 });
 
-      const page = await createPage(`<h1>${direction} mg-menu - Slots</h1>${html}`);
+      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-      const element = await page.find('mg-menu-item');
-      expect(element).toHaveClass('hydrated');
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test.each([true, false])(`should renders direction=${direction}, props expanded=%s`, async expanded => {
-      const page = await createPage(createHTML({ expanded }, slotMenuItem, direction));
+    testEach(sizes)(`should renders direction=${direction}, props size=%s`, async (page: PageType, size) => {
+      await setPageContent(page, createHTML({ size }, [slotInformation, slotImage, slotMenuItem].join(''), direction), { width: 130, height: 110 });
 
-      const element = await page.find('mg-menu-item');
-      expect(element).toHaveClass('hydrated');
+      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-      await page.setViewport({ width: 300, height: 200 });
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test('should render content slot', async () => {
-      const page = await createPage(createHTML({ expanded: true }, slotContent, direction));
+    testEach([true, false])(`should renders direction=${direction}, props expanded=%s`, async (page: PageType, expanded: boolean) => {
+      await setPageContent(page, createHTML({ expanded }, slotMenuItem, direction), { width: 130, height: 110 });
 
-      const element = await page.find('mg-menu-item');
-      expect(element).toHaveClass('hydrated');
+      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-      await page.setViewport({ width: 300, height: 200 });
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator(expanded ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test.each([[Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED]])('shoud manage keyboard navigation', async status => {
-      const page = await createPage(createHTML({ status }, slotMenuItem, direction));
-      let screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+    test('should render content slot', async ({ page }) => {
+      await setPageContent(page, createHTML({ expanded: true }, slotContent, direction), { width: 100, height: 150 });
 
-      const element = await page.find('mg-menu-item');
-      expect(element).toHaveClass('hydrated');
+      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
 
-      await page.setViewport({ width: 300, height: 200 });
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
+
+    testEach([Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED])('shoud manage keyboard navigation %s', async (page: PageType, status) => {
+      await setPageContent(page, createHTML({ status }, slotMenuItem, direction), { width: 120, height: 200 });
+
+      if (status !== Status.HIDDEN) {
+        await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      } else {
+        await expect(page.locator('body')).toHaveScreenshot();
+      }
 
       for await (const key of ['Tab', 'Enter']) {
-        await page.keyboard.press(key as unknown as KeyInput);
-        await page.waitForChanges();
+        await page.keyboard.press(key);
         await page.waitForTimeout(200);
-        screenshot = await page.screenshot();
-        expect(screenshot).toMatchImageSnapshot();
+        await expect(page.locator('body')).toHaveScreenshot();
       }
     });
   });

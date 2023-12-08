@@ -39,6 +39,11 @@ describe('mg-pagination', () => {
       expect(page.root).toMatchSnapshot();
     });
 
+    test.each([true, false])('Should hidde page select', async hidePageCount => {
+      const page = await getPage({ totalPages: 2, identifier: 'id', hidePageCount });
+      expect(page.root).toMatchSnapshot();
+    });
+
     test.each(['fr', 'xx'])('with locale: %s', async lang => {
       const totalPages = 2;
       const page = await getPage({ totalPages, identifier: 'id', lang });
@@ -111,7 +116,7 @@ describe('mg-pagination', () => {
 
       // no action with a disabled button clic
       const pageOneFirstClick = page.root.shadowRoot.querySelector('mg-button:first-of-type');
-      await pageOneFirstClick.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      pageOneFirstClick.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -119,7 +124,7 @@ describe('mg-pagination', () => {
 
       // action to go to page 2 with a next button clic
       const pageFive = page.root.shadowRoot.querySelector('mg-button:last-of-type');
-      await pageFive.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      pageFive.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
@@ -127,7 +132,7 @@ describe('mg-pagination', () => {
 
       // action to go to page 1 with a previous button clic
       const pageOne = page.root.shadowRoot.querySelector('mg-button:first-of-type');
-      await pageOne.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      pageOne.dispatchEvent(new CustomEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();

@@ -1,19 +1,19 @@
-import { createPage } from '../../../../utils/e2e.test.utils';
+import { renderAttributes } from '../../../../utils/e2e.test.utils';
+import { setPageContent, describe, testEach, expect, PageType } from '../../../../utils/playwright.e2e.test.utils';
+
+const createHtml = args => `<mg-input-title ${renderAttributes({ ...args, identifier: 'identifier' })}>Label</mg-input-title>`;
+
+const TIMEOUT = 1000;
 
 describe('mg-input-title', () => {
-  test('Should render', async () => {
-    const props = [
-      { isLegend: false, required: false },
-      { isLegend: false, required: true },
-      { isLegend: true, required: false },
-      { isLegend: true, required: true },
-    ];
-    const html = props
-      .map(({ isLegend, required }) => `<div><mg-input-title identifier="identifier" is-legend="${isLegend}" required=${required}>Label</mg-input-title></div>`)
-      .join('');
-    const page = await createPage(html, { width: 50, height: 75 });
+  testEach([true, false].flatMap(isLegend => [true, false].flatMap(required => [true, false].map(readonly => ({ isLegend, required, readonly })))))(
+    'Should render %s',
+    async (page: PageType, args) => {
+      await setPageContent(page, createHtml(args));
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchImageSnapshot();
-  });
+      await page.locator('mg-input-title.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    },
+  );
 });

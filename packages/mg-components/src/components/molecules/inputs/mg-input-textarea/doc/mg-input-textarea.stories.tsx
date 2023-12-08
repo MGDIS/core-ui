@@ -15,9 +15,8 @@ export default {
 
 /**
  * Template
- *
- * @param {any} args component arguments
- * @returns {HTMLElement} HTMLElement
+ * @param args - component arguments
+ * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const Template = (args: any): HTMLElement => {
@@ -27,31 +26,33 @@ const Template = (args: any): HTMLElement => {
   return <mg-input-textarea {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}></mg-input-textarea>;
 };
 
-export const MgInputTextarea = Template.bind({});
-MgInputTextarea.args = {
-  // Global
-  value: '',
-  identifier: 'identifier',
-  name: 'input-name',
-  // Label
-  label: 'Label',
-  labelOnTop: false,
-  labelHide: false,
-  // Input
-  placeholder: 'placeholder',
-  maxlength: 4000,
-  required: true,
-  disabled: false,
-  readonly: false,
-  pattern: undefined,
-  patternErrorMessage: undefined,
-  rows: 3,
-  mgWidth: 'full',
-  resizable: 'none',
-  // Tooltip
-  tooltip: 'This is a tooltip',
-  // Nb Char Left
-  displayCharacterLeft: true,
-  // Help Text
-  helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+export const MgInputTextarea = {
+  render: Template,
+  args: {
+    // Global
+    value: '',
+    identifier: 'identifier',
+    name: 'input-name',
+    // Label
+    label: 'Label',
+    labelOnTop: false,
+    labelHide: false,
+    // Input
+    placeholder: 'placeholder',
+    maxlength: 4000,
+    required: true,
+    disabled: false,
+    readonly: false,
+    pattern: undefined,
+    patternErrorMessage: undefined,
+    rows: 3,
+    mgWidth: 'full',
+    resizable: 'none',
+    // Tooltip
+    tooltip: 'This is a tooltip',
+    // Nb Char Left
+    displayCharacterLeft: true,
+    // Help Text
+    helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+  },
 };

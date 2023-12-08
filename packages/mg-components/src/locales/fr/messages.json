@@ -2,7 +2,7 @@
   "errors": {
     "required": "Ce champ est obligatoire.",
     "date": {
-      "badInput": "Le format de la date doit être du type <span aria-hidden=\"true\">jj/mm/aaaa</span><span class=\"sr-only\">j j / m m / a a a a</span> et la date supérieure au {min}",
+      "badInput": "Le format de la date doit être du type <span aria-hidden=\"true\">jj/mm/aaaa</span><span class=\"mg-u-visually-hidden\">j j / m m / a a a a</span> et la date supérieure au {min}",
       "min": "La date ne peut pas être antérieure au {min}",
       "max": "La date ne peut pas être postérieure au {max}",
       "minMax": "La date doit être comprise entre le {min} et le {max}"
@@ -17,11 +17,35 @@
   "input": {
     "select": {
       "placeholder": "Sélectionnez une valeur"
+    },
+    "checkbox": {
+      "selectedValues": "{nb} valeurs selectionnées",
+      "selectedValue": "{nb} valeur selectionnée",
+      "editButton": "Modifier",
+      "selectButton": "Sélectionner des valeurs",
+      "showButton": "Voir",
+      "label": "Saisissez une valeur",
+      "result": "résultat",
+      "results": "résultats",
+      "searchResults": "List de résultat(s) de la recherche.",
+      "noResult": "Aucun résultat.",
+      "sections": {
+        "selected": {
+          "title": "Sélectionné",
+          "titlePlurial": "Sélectionnés",
+          "action": "Tout désélectionner"
+        },
+        "notSelected": {
+          "title": "Non sélectionné",
+          "titlePlurial": "Non sélectionnés",
+          "action": "Tout sélectionner"
+        }
+      }
     }
   },
   "form": {
-    "required": "Les champs marqués d'un <strong class=\"is-asterisk\">*</strong> sont obligatoires",
-    "requiredSingle": "Le champ marqué d'un <strong class=\"is-asterisk\">*</strong> est obligatoire",
+    "required": "Les champs marqués d'un <strong class=\"mg-u-is-asterisk\">*</strong> sont obligatoires",
+    "requiredSingle": "Le champ marqué d'un <strong class=\"mg-u-is-asterisk\">*</strong> est obligatoire",
     "allRequired": "Tous les champs sont obligatoires",
     "allRequiredSingle": "Le champ est obligatoire"
   },

@@ -7,12 +7,13 @@ import { MgPopover } from '../../mg-popover/mg-popover';
 import { MgActionMore } from '../mg-action-more';
 import { MgMenu } from '../../menu/mg-menu/mg-menu';
 import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
+import { MgPopoverContent } from '../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockConsoleError();
 
 const getPage = async args => {
   const page = await newSpecPage({
-    components: [MgActionMore, MgPopover, MgButton, MgMenu, MgMenuItem],
+    components: [MgActionMore, MgPopover, MgPopoverContent, MgButton, MgMenu, MgMenuItem],
     template: () => <mg-action-more {...args}></mg-action-more>,
   });
 
@@ -82,6 +83,44 @@ describe('mg-action-more', () => {
       button: {
         variant: 'flat',
         isIcon: false,
+      },
+    },
+    {
+      items,
+      displayChevron: true,
+      icon: {
+        icon: 'ellipsis',
+      },
+      button: {
+        variant: 'flat',
+        isIcon: false,
+      },
+    },
+    {
+      items,
+      displayChevron: false,
+      icon: {
+        icon: 'ellipsis',
+      },
+      button: {
+        variant: 'flat',
+        isIcon: false,
+      },
+    },
+    {
+      items,
+      displayChevron: false,
+      button: {
+        variant: 'flat',
+        isIcon: false,
+      },
+    },
+    {
+      items,
+      button: {
+        variant: 'flat',
+        isIcon: false,
+        disabled: true,
       },
     },
   ])('render', args => {
@@ -155,6 +194,26 @@ describe('mg-action-more', () => {
       await page.waitForChanges();
 
       expect(mouseEventHandler).toHaveBeenCalled();
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test(`Should update expanded when popover display change`, async () => {
+      const page = await getPage({ items, displayChevron: true, button: { variant: 'flat', isIcon: false } });
+      expect(page.root).toMatchSnapshot();
+
+      const mgMoreAction = page.doc.querySelector('mg-action-more');
+      const mgButton = mgMoreAction.shadowRoot.querySelector('mg-button');
+      mgButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      const mgPopover = mgMoreAction.shadowRoot.querySelector('mg-popover');
+
+      mgPopover.dispatchEvent(new CustomEvent('display-change', { detail: false }));
+      await page.waitForChanges();
+
       expect(page.root).toMatchSnapshot();
     });
   });

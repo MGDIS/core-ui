@@ -9,11 +9,11 @@
 #### Font
 
 Open Sans, regular, 11px  
-Color: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6
+Color: [@color-dark](./?path=/docs/style-colors--docs), opacity : 0.6
 
 #### Spacing
 
-![](./mg-input-textarea/doc/img/mg-input-textarea-spacing.png)
+![](./doc/img/mg-input-textarea-spacing.png)
 
 ### Dimensions
 
@@ -62,7 +62,20 @@ Color: [@color-dark](./?path=/docs/style-colors--page), opacity : 0.6
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setError(valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
 #### Returns
 
@@ -87,6 +100,7 @@ graph TD;
   mg-input-textarea --> mg-tooltip
   mg-input-textarea --> mg-icon
   mg-input-textarea --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

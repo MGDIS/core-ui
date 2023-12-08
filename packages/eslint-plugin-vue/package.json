@@ -1,0 +1,32 @@
+{
+  "name": "@mgdis/eslint-plugin-vue",
+  "version": "3.11.3",
+  "description": "MGDIS VueJS Eslint plugin",
+  "maintainers": [
+    "Simon Duhem <duhem-s@mgdis.fr>",
+    "Nicolas Jouanno <jouanno-n@mgdis.fr>"
+  ],
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "eslint-plugin-vue": "^9.18.1",
+    "requireindex": "^1.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.53.0",
+    "eslint-plugin-eslint-plugin": "^4.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "jest-config": "workspace:*",
+    "mocha": "^10.2.0",
+    "tsconfig": "workspace:*",
+    "vue-eslint-parser": "^9.3.2"
+  },
+  "engines": {
+    "node": "12.x || 14.x || >= 16"
+  },
+  "peerDependencies": {
+    "eslint": ">=6"
+  }
+}

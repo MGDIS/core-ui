@@ -3,7 +3,7 @@ import { initLocales } from '../../../locales';
 
 @Component({
   tag: 'mg-character-left',
-  styleUrl: 'mg-character-left.scss',
+  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-character-left.css',
   scoped: true,
 })
 export class MgCharacterLeft {
@@ -50,8 +50,6 @@ export class MgCharacterLeft {
 
   /**
    * Check if props are well configured on init
-   *
-   * @returns {void}
    */
   componentWillLoad(): void {
     this.validateMaxlength(this.maxlength);
@@ -60,8 +58,7 @@ export class MgCharacterLeft {
 
   /**
    * Render component
-   *
-   * @returns {HTMLElement} HTML Element
+   * @returns HTML Element
    */
   render(): HTMLElement {
     return (
@@ -69,7 +66,7 @@ export class MgCharacterLeft {
         <span aria-hidden="true">
           {this.maxlength - this.characters.length}/{this.maxlength}
         </span>
-        <span class="sr-only">{this.messages.nbCharLeft.replace('{counter}', this.maxlength - this.characters.length)}</span>
+        <span class="mg-u-visually-hidden">{this.messages.nbCharLeft.replace('{counter}', this.maxlength - this.characters.length)}</span>
       </span>
     );
   }

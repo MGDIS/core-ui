@@ -1,7 +1,10 @@
-import { createPage, renderAttributes } from '../../../../utils/e2e.test.utils';
+import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '../../../../utils/e2e.test.utils';
+
+const TIMEOUT = 1000;
 
 describe('mg-popover', () => {
-  describe.each([
+  describeEach([
     'auto',
     'auto-start',
     'auto-end',
@@ -18,8 +21,9 @@ describe('mg-popover', () => {
     'left-start',
     'left-end',
   ])('placement %s', placement => {
-    test.each([true, false])('Should render, case hide arrow %s', async arrowHide => {
-      const page = await createPage(
+    testEach([true, false])('Should render, case hide arrow %s', async (page: PageType, arrowHide) => {
+      await setPageContent(
+        page,
         `<style>mg-button{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}</style>
         <mg-popover ${renderAttributes({ placement, arrowHide })}>
         <mg-button>Button</mg-button>
@@ -33,56 +37,51 @@ describe('mg-popover', () => {
           non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         </mg-popover>`,
+        { height: 900, width: 900 },
       );
 
-      const mgPopover = await page.find('mg-popover');
-      const mgButton = await page.find('mg-button');
-      const popover = await page.find('mg-popover >>> .mg-popover');
+      const mgPopover = page.locator('mg-popover');
+      const mgButton = page.locator('mg-button');
+      const mgPopoverContent = page.locator('mg-popover-content');
 
-      expect(mgPopover).toHaveClass('hydrated');
+      await mgPopover.waitFor({ timeout: TIMEOUT });
 
       // display popover on click on slotted element
-      mgButton.triggerEvent('click');
-      await page.waitForChanges();
-      await page.waitForNetworkIdle();
+      await mgButton.click();
 
-      expect(popover).toHaveAttribute('data-show');
+      await mgPopoverContent.waitFor({ timeout: TIMEOUT });
 
-      await page.setViewport({ width: 800, height: 350 });
+      expect(await mgPopoverContent.getAttribute('data-show')).toEqual('');
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // hide popover on click on slotted element
-      mgButton.triggerEvent('click');
-      await page.waitForChanges();
-      await page.waitForNetworkIdle();
+      await mgButton.click();
 
-      expect(popover).not.toHaveAttribute('data-show');
+      expect(await mgPopoverContent.getAttribute('data-show')).toEqual(null);
 
       // display popover on keyboad click event on slotted element
       await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
-      await page.waitForChanges();
-      await page.waitForNetworkIdle();
 
-      expect(popover).toHaveAttribute('data-show');
+      await mgPopoverContent.waitFor({ timeout: TIMEOUT });
+      expect(await mgPopoverContent.getAttribute('data-show')).toEqual('');
 
       // hide popover on keyboad escape key
       await page.keyboard.down('Escape');
-      await page.waitForChanges();
-      await page.waitForNetworkIdle();
 
-      expect(popover).not.toHaveAttribute('data-show');
+      expect(await mgPopoverContent.getAttribute('data-show')).toEqual(null);
     });
   });
 
-  describe.each([
+  describeEach([
     '',
     '<h2 slot="title">Titre un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long</h2>',
-  ])('with or without title', title => {
-    test('Should render with close button', async () => {
-      const page = await createPage(
+  ])('with or without title %s', title => {
+    test('Should render with close button', async ({ page }) => {
+      await setPageContent(
+        page,
         `<mg-popover display close-button>
         <mg-button>Button</mg-button>
         ${title}
@@ -95,23 +94,20 @@ describe('mg-popover', () => {
           non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         </mg-popover>`,
+        { width: 400, height: 350 },
       );
 
-      const mgPopover = await page.find('mg-popover');
+      await page.locator('mg-popover.hydrated').waitFor({ timeout: TIMEOUT });
 
-      expect(mgPopover).toHaveClass('hydrated');
-
-      await page.setViewport({ width: 500, height: 350 });
-
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('body')).toHaveScreenshot();
     });
   });
 
-  describe.each(['title', 'content'])('re-position %s slot', slot => {
-    test('should re-position when slot size change', async () => {
+  describeEach(['title', 'content'])('re-position %s slot', slot => {
+    test('should re-position when slot size change', async ({ page }) => {
       const tagName = slot === 'title' ? 'h2' : 'p';
-      const page = await createPage(
+      await setPageContent(
+        page,
         `<style>mg-button{position:fixed;left:50%;transform:translateX(-50%)}</style>
         <mg-popover ${renderAttributes({ placement: 'bottom-start', display: true })}>
         <mg-button>Button</mg-button>
@@ -119,26 +115,39 @@ describe('mg-popover', () => {
           Lorem ipsum
         </${tagName}>
         </mg-popover>`,
-        { width: 400, height: 100 },
+        { width: 400, height: 130 },
       );
 
-      let screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
-      await page.$eval('[slot]', el => {
+      await page.$eval(`mg-popover-content [slot="${slot}"]`, el => {
         el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
       });
 
-      await page.waitForChanges();
-
-      screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await expect(page.locator('body')).toHaveScreenshot();
     });
   });
 
+  test(`should position popover where it have enough place`, async ({ page }) => {
+    await setPageContent(
+      page,
+      `<style>mg-button{position:fixed;left:0;bottom:0}</style>
+      <mg-popover ${renderAttributes({ display: true })}>
+      <mg-button>Button</mg-button>
+      <p slot="content">
+        Lorem ipsum
+      </p>
+      </mg-popover>`,
+      { width: 400, height: 100 },
+    );
+
+    await expect(page.locator('body')).toHaveScreenshot();
+  });
+
   describe('style', () => {
-    test('Should render with child mg-card', async () => {
-      const page = await createPage(
+    test('Should render with child mg-card', async ({ page }) => {
+      await setPageContent(
+        page,
         `<mg-popover display close-button class="custom-popover-card">
         <mg-button>Button</mg-button>
         <mg-card slot="content">
@@ -151,16 +160,33 @@ describe('mg-popover', () => {
           }
         </style>
         `,
+        { width: 150, height: 180 },
       );
 
-      const mgPopover = await page.find('mg-popover');
+      await page.locator('mg-popover.hydrated').waitFor({ timeout: TIMEOUT });
 
-      expect(mgPopover).toHaveClass('hydrated');
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
 
-      await page.setViewport({ width: 500, height: 300 });
+    testEach(['content', 'title'])('Should render with --mg-popover-max-width %s', async (page: PageType, slot) => {
+      await setPageContent(
+        page,
+        `<mg-popover display close-button class="custom-popover">
+        <mg-button>Button</mg-button>
+        <h2 slot="${slot}">Titre un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long</h2>
+        </mg-popover>
+        <style>
+          .custom-popover {
+            --mg-popover-max-width: 10rem;
+          }
+        </style>
+        `,
+        { width: 300, height: 300 },
+      );
 
-      const screenshot = await page.screenshot();
-      expect(screenshot).toMatchImageSnapshot();
+      await page.locator('mg-popover.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('body')).toHaveScreenshot();
     });
   });
 });

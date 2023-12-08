@@ -16,11 +16,11 @@ It is possible to specify a unit after the field for integers and decimals. For 
 
 By default, the value is right aligned.
 
-![](./mg-input-numeric/doc/img/mg-input-numeric-positioning-default.png)
+![](./doc/img/mg-input-numeric-positioning-default.png)
 
 You can change the CSS variable `--mg-inputs-text-align` to left align.
 
-![](./mg-input-numeric/doc/img/mg-input-numeric-positioning-custom.png)
+![](./doc/img/mg-input-numeric-positioning-custom.png)
 
 ## Slot
 
@@ -28,7 +28,7 @@ The spacing between the field and the slot content is not managed by the compone
 
 ### Unit positioning
 
-![](./mg-input-numeric/doc/img/mg-input-numeric-unit.png)
+![](./doc/img/mg-input-numeric-unit.png)
 
 Unit term must be placed into the field slot using a "space" character before the unit term.
 
@@ -74,7 +74,20 @@ Unit term must be placed into the field slot using a "space" character before th
 
 ### `displayError() => Promise<void>`
 
-Public method to display errors
+Display input error if it exists.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `setError(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>`
+
+Set an error and display a custom error message.
+This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.
+It must be paired with an error message to display for the given context.
+When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
 #### Returns
 
@@ -97,6 +110,7 @@ graph TD;
   mg-input-numeric --> mg-tooltip
   mg-input-numeric --> mg-icon
   mg-input-numeric --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
   style mg-input-numeric fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

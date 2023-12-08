@@ -1,6 +1,6 @@
 ## Anatomy
 
-![](./mg-tabs/doc/img/mg-tabs-anatomy.png)
+![](./doc/img/mg-tabs-anatomy.png)
 
 ## Specs
 
@@ -13,7 +13,7 @@
   - X = 30px;
   - Y = 15px;
 
-![](./mg-tabs/doc/img/mg-tabs-spacing.png)
+![](./doc/img/mg-tabs-spacing.png)
 
 - if only text, no extra spacing,
 - if no badge : no extra spacing on the right
@@ -21,17 +21,27 @@
 
 ### Sizing
 
-![](./mg-tabs/doc/img/mg-tabs-sizing.png)
+![](./doc/img/mg-tabs-sizing.png)
+
+The header bottom border is 100% wide, 1px sizing and its color is @color-dark-soft. You can override it with [CSS variable](./?path=/docs/molecules-mg-tabs--docs#css-variables).
+
+![](./doc/img/mg-tabs-header-border.png)
 
 ### States
 
-![](./mg-tabs/doc/img/mg-tabs-states.png)
+![](./doc/img/mg-tabs-states.png)
 
 ### Responsive
 
 #### Line breaks (current management)
 
-![](./mg-tabs/doc/img/mg-tabs-responsive.png)
+![](./doc/img/mg-tabs-responsive.png)
+
+## CSS variables
+
+If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
+
+- `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.
 
 <!-- Auto Generated Below -->
 
@@ -42,7 +52,7 @@
 | -------------------- | ------------ | ----------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------- |
 | `activeTab`          | `active-tab` | Active tab number                                                                                           | `number`                | `undefined`           |
 | `identifier`         | `identifier` | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                | `createID('mg-tabs')` |
-| `items` _(required)_ | --           | Tabs items Required                                                                                         | `TabItem[] \| string[]` | `undefined`           |
+| `items` _(required)_ | --           | Tabs items                                                                                                  | `TabItem[] \| string[]` | `undefined`           |
 | `label` _(required)_ | `label`      | Tabs label. Include short tabs description. Required for accessibility                                      | `string`                | `undefined`           |
 | `size`               | `size`       | Define tabs size                                                                                            | `"large" \| "regular"`  | `'regular'`           |
 

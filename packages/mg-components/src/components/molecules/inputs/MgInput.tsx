@@ -1,14 +1,14 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { Width } from './MgInput.conf';
-import { ClassList } from '../../../utils/components.utils';
+import { widths, Width } from './MgInput.conf';
+import { ClassList, isValidString } from '../../../utils/components.utils';
+import { MgInputTitle } from '../../atoms/mg-input-title/mg-input-title';
 
 /**
  * Apply in all input child node the aria-describedby attribute
- *
- * @param {VNode[]} children Represent scoped elements
- * @param {Set<string>} ariaDescribedbyIDs List of IDs
- * @param {FunctionalUtilities} utils Stencil.js utils
- * @returns {VNode[]} Children with aria-describedby attribute
+ * @param children - Represent scoped elements
+ * @param ariaDescribedbyIDs - List of IDs
+ * @param utils - Stencil.js utils
+ * @returns Children with aria-describedby attribute
  */
 const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>, utils: FunctionalUtilities): VNode[] =>
   utils.map(children, child => {
@@ -32,26 +32,29 @@ const applyAriadescribedBy = (children: VNode[], ariaDescribedbyIDs: Set<string>
 
 /**
  * Add classes based on props
- *
- * @param {MgInputProps} props MgInput Interface Props
+ * @param props - MgInput Interface Props
  */
 const manageClasses = (props: MgInputProps): void => {
-  props.classList.add('mg-input');
+  props.classCollection.add('mg-c-input');
 
-  if (props.labelOnTop) props.classList.add('mg-input--label-on-top');
+  if (props.labelOnTop) props.classCollection.add('mg-c-input--label-on-top');
+  else props.classCollection.delete('mg-c-input--label-on-top');
 
-  if (props.readonly) props.classList.add('mg-input--readonly');
+  if (props.readonly) props.classCollection.add('mg-c-input--readonly');
+  else props.classCollection.delete('mg-c-input--readonly');
 
-  if (props.mgWidth !== undefined) props.classList.add(`mg-input--width-${props.mgWidth}`);
+  widths.forEach(width => {
+    props.classCollection.delete(`mg-c-input--width-${width}`);
+  });
+  if (props.mgWidth !== undefined) props.classCollection.add(`mg-c-input--width-${props.mgWidth}`);
 };
 
 /**
  * Get tagname
- *
- * @param {boolean} isFieldset is fieldset
- * @returns {string} tag name
+ * @param isFieldset - is fieldset
+ * @returns tag name
  */
-const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : 'div');
+const getTagName = (isFieldset: MgInputProps['isFieldset'], readOnly: MgInputProps['readonly']): string => (!isFieldset || readOnly ? 'div' : 'fieldset');
 
 /**
  * MgInput Interface
@@ -59,12 +62,12 @@ const getTagName = (isFieldset: boolean): string => (isFieldset ? 'fieldset' : '
 interface MgInputProps {
   // Global
   identifier: string;
-  classList: ClassList;
+  classCollection: ClassList;
   // Label
   label: string;
   labelOnTop: boolean;
   labelHide: boolean;
-  isFieldset: boolean;
+  isFieldset: MgInputTitle['isLegend'];
   // Input
   value: string;
   readonlyValue: string;
@@ -84,20 +87,19 @@ interface MgInputProps {
 
 /**
  * Get input template
- *
- * @param {MgInputProps} props MgInput Interface Props
- * @param {VNode[]} children Represent scoped elements
- * @param {FunctionalUtilities} utils Stencil.js utils
- * @returns {VNode[]} input template
+ * @param props - MgInput Interface Props
+ * @param children - Represent scoped elements
+ * @param utils - Stencil.js utils
+ * @returns input template
  */
 export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, children: VNode[], utils: FunctionalUtilities): VNode[] => {
   /**
    * Check required properties
    */
-  if (typeof props.identifier !== 'string' || props.identifier.trim() === '') {
+  if (!isValidString(props.identifier)) {
     throw new Error('<mg-input> prop "identifier" is required.');
   }
-  if (typeof props.label !== 'string' || props.label.trim() === '') {
+  if (!isValidString(props.label)) {
     throw new Error('<mg-input> prop "label" is required.');
   }
   if (props.labelOnTop && props.labelHide) {
@@ -147,12 +149,11 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
    * Error message is based on this aria method: https://www.w3.org/WAI/tutorials/forms/notifications/#on-focus-change
    */
 
-  const TagName: string = getTagName(props.isFieldset);
+  const TagName = getTagName(props.isFieldset, props.readonly);
 
   /**
    * Get tooltip node
-   *
-   * @returns {VNode[]} mg-tooltip
+   * @returns mg-tooltip
    */
   const getTooltip = (): VNode[] => (
     <mg-tooltip identifier={`${props.identifier}-tooltip`} message={props.tooltip}>
@@ -163,13 +164,13 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Get input title (label) node
    * Display asterisk only if not disabled and not readonly
-   *
-   * @returns {VNode[]} mg-input-title
+   * @returns mg-input-title
    */
   const getInputTitle = (): VNode[] => (
     <mg-input-title
       identifier={props.identifier}
-      class={props.labelHide ? 'sr-only' : undefined}
+      readonly={props.readonly}
+      class={props.labelHide ? 'mg-u-visually-hidden' : undefined}
       required={props.required && !props.disabled && !props.readonly}
       is-legend={props.isFieldset}
     >
@@ -178,9 +179,9 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   );
 
   return (
-    <TagName class={props.classList.join()}>
+    <TagName class={props.classCollection.join()}>
       {props.labelOnTop ? (
-        <div class="mg-input__title">
+        <div class="mg-c-input__title">
           {getInputTitle()}
           {!props.readonly && props.tooltip && getTooltip()}
         </div>
@@ -188,19 +189,19 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
         getInputTitle()
       )}
       {props.readonly ? (
-        <div class="mg-input__input-container">
+        <div class="mg-c-input__input-container">
           <strong>{props.readonlyValue}</strong>
-          {children.filter(child => child.$name$ === 'append-input')}
+          {children.filter(child => Object.values(child).includes('append-input'))}
         </div>
       ) : (
-        <div class="mg-input__input-container">
-          <div class={{ 'mg-input__input': true, 'mg-input__input--has-error': props.errorMessage !== undefined }}>
+        <div class="mg-c-input__input-container">
+          <div class={{ 'mg-c-input__input': true, 'mg-c-input__input--has-error': props.errorMessage !== undefined }}>
             {applyAriadescribedBy(children, ariaDescribedbyIDs, utils)}
             {!props.labelOnTop && props.tooltip && getTooltip()}
           </div>
-          {props.helpText && <div id={helpTextId} class="mg-input__help-text" innerHTML={props.helpText}></div>}
+          {props.helpText && <div id={helpTextId} class="mg-c-input__help-text" innerHTML={props.helpText}></div>}
           {props.errorMessage && !props.readonly && !props.disabled && (
-            <div id={helpTextErrorId} class="mg-input__error" innerHTML={props.errorMessage} aria-live="assertive"></div>
+            <div id={helpTextErrorId} class="mg-c-input__error" innerHTML={props.errorMessage} aria-live="assertive"></div>
           )}
         </div>
       )}
