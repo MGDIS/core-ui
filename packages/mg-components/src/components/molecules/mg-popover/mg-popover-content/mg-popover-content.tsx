@@ -37,7 +37,7 @@ export class MgPopoverContent {
   /**
    * Emited event when close button is clicked
    */
-  @Event({ eventName: 'hide-content' }) hideContent: EventEmitter<string>;
+  @Event({ eventName: 'hide-content' }) hideContent: EventEmitter<void>;
 
   /**
    * Handle action for close button

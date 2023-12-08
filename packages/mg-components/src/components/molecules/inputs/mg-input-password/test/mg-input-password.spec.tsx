@@ -13,7 +13,7 @@ const getPage = args => {
 };
 
 describe('mg-input-password', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   test.each([
     { label: 'label', identifier: 'identifier' },

@@ -17,7 +17,7 @@ const getPage = (args, slot?) => {
 };
 
 describe('mg-input-numeric', () => {
-  beforeEach(() => jest.useFakeTimers());
+  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => jest.runOnlyPendingTimers());
   describe.each(types)('type %s', type => {
     test.each([

@@ -275,7 +275,6 @@ describe('mg-tabs', () => {
 
       activeTab.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab' }));
       await page.waitForChanges();
-      jest.runOnlyPendingTimers();
 
       expect(spys[0]).toHaveBeenCalledTimes(2);
       expect(spys[0]).toHaveBeenLastCalledWith('tabindex', '0');
@@ -304,7 +303,6 @@ describe('mg-tabs', () => {
 
       document.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
-      jest.runOnlyPendingTimers();
 
       expect(spys[0]).toHaveBeenCalledTimes(2);
       expect(spys[0]).toHaveBeenLastCalledWith('tabindex', '0');

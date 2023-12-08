@@ -1377,7 +1377,18 @@ declare global {
         prototype: HTMLMgBadgeElement;
         new (): HTMLMgBadgeElement;
     };
+    interface HTMLMgButtonElementEventMap {
+        "disabled-change": HTMLMgButtonElement['disabled'];
+    }
     interface HTMLMgButtonElement extends Components.MgButton, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgButtonElementEventMap>(type: K, listener: (this: HTMLMgButtonElement, ev: MgButtonCustomEvent<HTMLMgButtonElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgButtonElementEventMap>(type: K, listener: (this: HTMLMgButtonElement, ev: MgButtonCustomEvent<HTMLMgButtonElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgButtonElement: {
         prototype: HTMLMgButtonElement;
@@ -1395,7 +1406,18 @@ declare global {
         prototype: HTMLMgCharacterLeftElement;
         new (): HTMLMgCharacterLeftElement;
     };
+    interface HTMLMgDetailsElementEventMap {
+        "expanded-change": HTMLMgDetailsElement['expanded'];
+    }
     interface HTMLMgDetailsElement extends Components.MgDetails, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgDetailsElementEventMap>(type: K, listener: (this: HTMLMgDetailsElement, ev: MgDetailsCustomEvent<HTMLMgDetailsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgDetailsElementEventMap>(type: K, listener: (this: HTMLMgDetailsElement, ev: MgDetailsCustomEvent<HTMLMgDetailsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgDetailsElement: {
         prototype: HTMLMgDetailsElement;
@@ -1407,7 +1429,19 @@ declare global {
         prototype: HTMLMgDividerElement;
         new (): HTMLMgDividerElement;
     };
+    interface HTMLMgFormElementEventMap {
+        "form-valid": HTMLMgFormElement['valid'];
+        "form-submit": boolean;
+    }
     interface HTMLMgFormElement extends Components.MgForm, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgFormElementEventMap>(type: K, listener: (this: HTMLMgFormElement, ev: MgFormCustomEvent<HTMLMgFormElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgFormElementEventMap>(type: K, listener: (this: HTMLMgFormElement, ev: MgFormCustomEvent<HTMLMgFormElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgFormElement: {
         prototype: HTMLMgFormElement;
@@ -1425,58 +1459,165 @@ declare global {
         prototype: HTMLMgIllustratedMessageElement;
         new (): HTMLMgIllustratedMessageElement;
     };
+    interface HTMLMgInputCheckboxElementEventMap {
+        "value-change": HTMLMgInputCheckboxElement['value'];
+        "input-valid": HTMLMgInputCheckboxElement['valid'];
+    }
     interface HTMLMgInputCheckboxElement extends Components.MgInputCheckbox, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputCheckboxElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxElement, ev: MgInputCheckboxCustomEvent<HTMLMgInputCheckboxElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputCheckboxElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxElement, ev: MgInputCheckboxCustomEvent<HTMLMgInputCheckboxElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputCheckboxElement: {
         prototype: HTMLMgInputCheckboxElement;
         new (): HTMLMgInputCheckboxElement;
     };
+    interface HTMLMgInputCheckboxPaginatedElementEventMap {
+        "mass-action": HTMLMgInputCheckboxPaginatedElement['sectionKind'];
+    }
     /**
      * Internal component use to manage sections instances
      */
     interface HTMLMgInputCheckboxPaginatedElement extends Components.MgInputCheckboxPaginated, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputCheckboxPaginatedElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxPaginatedElement, ev: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputCheckboxPaginatedElementEventMap>(type: K, listener: (this: HTMLMgInputCheckboxPaginatedElement, ev: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputCheckboxPaginatedElement: {
         prototype: HTMLMgInputCheckboxPaginatedElement;
         new (): HTMLMgInputCheckboxPaginatedElement;
     };
+    interface HTMLMgInputDateElementEventMap {
+        "value-change": HTMLMgInputDateElement['value'];
+        "input-valid": HTMLMgInputDateElement['valid'];
+    }
     interface HTMLMgInputDateElement extends Components.MgInputDate, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputDateElementEventMap>(type: K, listener: (this: HTMLMgInputDateElement, ev: MgInputDateCustomEvent<HTMLMgInputDateElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputDateElementEventMap>(type: K, listener: (this: HTMLMgInputDateElement, ev: MgInputDateCustomEvent<HTMLMgInputDateElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputDateElement: {
         prototype: HTMLMgInputDateElement;
         new (): HTMLMgInputDateElement;
     };
+    interface HTMLMgInputNumericElementEventMap {
+        "value-change": number;
+        "input-valid": HTMLMgInputNumericElement['valid'];
+    }
     interface HTMLMgInputNumericElement extends Components.MgInputNumeric, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputNumericElementEventMap>(type: K, listener: (this: HTMLMgInputNumericElement, ev: MgInputNumericCustomEvent<HTMLMgInputNumericElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputNumericElementEventMap>(type: K, listener: (this: HTMLMgInputNumericElement, ev: MgInputNumericCustomEvent<HTMLMgInputNumericElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputNumericElement: {
         prototype: HTMLMgInputNumericElement;
         new (): HTMLMgInputNumericElement;
     };
+    interface HTMLMgInputPasswordElementEventMap {
+        "value-change": HTMLMgInputPasswordElement['value'];
+        "input-valid": HTMLMgInputPasswordElement['valid'];
+    }
     interface HTMLMgInputPasswordElement extends Components.MgInputPassword, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputPasswordElementEventMap>(type: K, listener: (this: HTMLMgInputPasswordElement, ev: MgInputPasswordCustomEvent<HTMLMgInputPasswordElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputPasswordElementEventMap>(type: K, listener: (this: HTMLMgInputPasswordElement, ev: MgInputPasswordCustomEvent<HTMLMgInputPasswordElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputPasswordElement: {
         prototype: HTMLMgInputPasswordElement;
         new (): HTMLMgInputPasswordElement;
     };
+    interface HTMLMgInputRadioElementEventMap {
+        "value-change": HTMLMgInputRadioElement['value'];
+        "input-valid": HTMLMgInputRadioElement['valid'];
+    }
     interface HTMLMgInputRadioElement extends Components.MgInputRadio, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputRadioElementEventMap>(type: K, listener: (this: HTMLMgInputRadioElement, ev: MgInputRadioCustomEvent<HTMLMgInputRadioElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputRadioElementEventMap>(type: K, listener: (this: HTMLMgInputRadioElement, ev: MgInputRadioCustomEvent<HTMLMgInputRadioElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputRadioElement: {
         prototype: HTMLMgInputRadioElement;
         new (): HTMLMgInputRadioElement;
     };
+    interface HTMLMgInputSelectElementEventMap {
+        "value-change": HTMLMgInputCheckboxElement['value'];
+        "input-valid": HTMLMgInputCheckboxElement['valid'];
+    }
     interface HTMLMgInputSelectElement extends Components.MgInputSelect, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputSelectElementEventMap>(type: K, listener: (this: HTMLMgInputSelectElement, ev: MgInputSelectCustomEvent<HTMLMgInputSelectElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputSelectElementEventMap>(type: K, listener: (this: HTMLMgInputSelectElement, ev: MgInputSelectCustomEvent<HTMLMgInputSelectElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputSelectElement: {
         prototype: HTMLMgInputSelectElement;
         new (): HTMLMgInputSelectElement;
     };
+    interface HTMLMgInputTextElementEventMap {
+        "value-change": HTMLMgInputTextElement['value'];
+        "input-valid": HTMLMgInputTextElement['valid'];
+    }
     interface HTMLMgInputTextElement extends Components.MgInputText, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputTextElementEventMap>(type: K, listener: (this: HTMLMgInputTextElement, ev: MgInputTextCustomEvent<HTMLMgInputTextElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputTextElementEventMap>(type: K, listener: (this: HTMLMgInputTextElement, ev: MgInputTextCustomEvent<HTMLMgInputTextElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputTextElement: {
         prototype: HTMLMgInputTextElement;
         new (): HTMLMgInputTextElement;
     };
+    interface HTMLMgInputTextareaElementEventMap {
+        "value-change": HTMLMgInputTextareaElement['value'];
+        "input-valid": HTMLMgInputTextareaElement['valid'];
+    }
     interface HTMLMgInputTextareaElement extends Components.MgInputTextarea, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputTextareaElementEventMap>(type: K, listener: (this: HTMLMgInputTextareaElement, ev: MgInputTextareaCustomEvent<HTMLMgInputTextareaElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputTextareaElementEventMap>(type: K, listener: (this: HTMLMgInputTextareaElement, ev: MgInputTextareaCustomEvent<HTMLMgInputTextareaElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputTextareaElement: {
         prototype: HTMLMgInputTextareaElement;
@@ -1488,7 +1629,19 @@ declare global {
         prototype: HTMLMgInputTitleElement;
         new (): HTMLMgInputTitleElement;
     };
+    interface HTMLMgInputToggleElementEventMap {
+        "value-change": HTMLMgInputToggleElement['value'];
+        "input-valid": boolean;
+    }
     interface HTMLMgInputToggleElement extends Components.MgInputToggle, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgInputToggleElementEventMap>(type: K, listener: (this: HTMLMgInputToggleElement, ev: MgInputToggleCustomEvent<HTMLMgInputToggleElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgInputToggleElementEventMap>(type: K, listener: (this: HTMLMgInputToggleElement, ev: MgInputToggleCustomEvent<HTMLMgInputToggleElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgInputToggleElement: {
         prototype: HTMLMgInputToggleElement;
@@ -1506,55 +1659,158 @@ declare global {
         prototype: HTMLMgMenuElement;
         new (): HTMLMgMenuElement;
     };
+    interface HTMLMgMenuItemElementEventMap {
+        "status-change": HTMLMgMenuItemElement['status'];
+        "item-loaded": void;
+    }
     interface HTMLMgMenuItemElement extends Components.MgMenuItem, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgMenuItemElementEventMap>(type: K, listener: (this: HTMLMgMenuItemElement, ev: MgMenuItemCustomEvent<HTMLMgMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgMenuItemElementEventMap>(type: K, listener: (this: HTMLMgMenuItemElement, ev: MgMenuItemCustomEvent<HTMLMgMenuItemElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgMenuItemElement: {
         prototype: HTMLMgMenuItemElement;
         new (): HTMLMgMenuItemElement;
     };
+    interface HTMLMgMessageElementEventMap {
+        "component-show": void;
+        "component-hide": void;
+    }
     interface HTMLMgMessageElement extends Components.MgMessage, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgMessageElementEventMap>(type: K, listener: (this: HTMLMgMessageElement, ev: MgMessageCustomEvent<HTMLMgMessageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgMessageElementEventMap>(type: K, listener: (this: HTMLMgMessageElement, ev: MgMessageCustomEvent<HTMLMgMessageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgMessageElement: {
         prototype: HTMLMgMessageElement;
         new (): HTMLMgMessageElement;
     };
+    interface HTMLMgModalElementEventMap {
+        "component-show": void;
+        "component-hide": void;
+    }
     interface HTMLMgModalElement extends Components.MgModal, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgModalElementEventMap>(type: K, listener: (this: HTMLMgModalElement, ev: MgModalCustomEvent<HTMLMgModalElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgModalElementEventMap>(type: K, listener: (this: HTMLMgModalElement, ev: MgModalCustomEvent<HTMLMgModalElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgModalElement: {
         prototype: HTMLMgModalElement;
         new (): HTMLMgModalElement;
     };
+    interface HTMLMgPaginationElementEventMap {
+        "current-page-change": number;
+    }
     interface HTMLMgPaginationElement extends Components.MgPagination, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgPaginationElementEventMap>(type: K, listener: (this: HTMLMgPaginationElement, ev: MgPaginationCustomEvent<HTMLMgPaginationElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgPaginationElementEventMap>(type: K, listener: (this: HTMLMgPaginationElement, ev: MgPaginationCustomEvent<HTMLMgPaginationElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgPaginationElement: {
         prototype: HTMLMgPaginationElement;
         new (): HTMLMgPaginationElement;
     };
+    interface HTMLMgPanelElementEventMap {
+        "title-change": HTMLMgPanelElement['panelTitle'];
+        "expanded-change": HTMLMgPanelElement['expanded'];
+    }
     interface HTMLMgPanelElement extends Components.MgPanel, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgPanelElementEventMap>(type: K, listener: (this: HTMLMgPanelElement, ev: MgPanelCustomEvent<HTMLMgPanelElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgPanelElementEventMap>(type: K, listener: (this: HTMLMgPanelElement, ev: MgPanelCustomEvent<HTMLMgPanelElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgPanelElement: {
         prototype: HTMLMgPanelElement;
         new (): HTMLMgPanelElement;
     };
+    interface HTMLMgPopoverElementEventMap {
+        "display-change": HTMLMgPopoverElement['display'];
+    }
     interface HTMLMgPopoverElement extends Components.MgPopover, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgPopoverElementEventMap>(type: K, listener: (this: HTMLMgPopoverElement, ev: MgPopoverCustomEvent<HTMLMgPopoverElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgPopoverElementEventMap>(type: K, listener: (this: HTMLMgPopoverElement, ev: MgPopoverCustomEvent<HTMLMgPopoverElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgPopoverElement: {
         prototype: HTMLMgPopoverElement;
         new (): HTMLMgPopoverElement;
     };
+    interface HTMLMgPopoverContentElementEventMap {
+        "hide-content": void;
+    }
     interface HTMLMgPopoverContentElement extends Components.MgPopoverContent, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgPopoverContentElementEventMap>(type: K, listener: (this: HTMLMgPopoverContentElement, ev: MgPopoverContentCustomEvent<HTMLMgPopoverContentElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgPopoverContentElementEventMap>(type: K, listener: (this: HTMLMgPopoverContentElement, ev: MgPopoverContentCustomEvent<HTMLMgPopoverContentElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgPopoverContentElement: {
         prototype: HTMLMgPopoverContentElement;
         new (): HTMLMgPopoverContentElement;
     };
+    interface HTMLMgSkipLinksElementEventMap {
+        "go-to-anchor": string;
+    }
     interface HTMLMgSkipLinksElement extends Components.MgSkipLinks, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgSkipLinksElementEventMap>(type: K, listener: (this: HTMLMgSkipLinksElement, ev: MgSkipLinksCustomEvent<HTMLMgSkipLinksElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgSkipLinksElementEventMap>(type: K, listener: (this: HTMLMgSkipLinksElement, ev: MgSkipLinksCustomEvent<HTMLMgSkipLinksElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgSkipLinksElement: {
         prototype: HTMLMgSkipLinksElement;
         new (): HTMLMgSkipLinksElement;
     };
+    interface HTMLMgTabsElementEventMap {
+        "active-tab-change": HTMLMgTabsElement['activeTab'];
+    }
     interface HTMLMgTabsElement extends Components.MgTabs, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgTabsElementEventMap>(type: K, listener: (this: HTMLMgTabsElement, ev: MgTabsCustomEvent<HTMLMgTabsElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgTabsElementEventMap>(type: K, listener: (this: HTMLMgTabsElement, ev: MgTabsCustomEvent<HTMLMgTabsElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgTabsElement: {
         prototype: HTMLMgTabsElement;
@@ -1685,7 +1941,7 @@ declare namespace LocalJSX {
         /**
           * Emmited event when disabled change
          */
-        "onDisabled-change"?: (event: MgButtonCustomEvent<MgButton['disabled']>) => void;
+        "onDisabled-change"?: (event: MgButtonCustomEvent<HTMLMgButtonElement['disabled']>) => void;
         /**
           * Define button type
          */
@@ -1731,7 +1987,7 @@ declare namespace LocalJSX {
         /**
           * Emmited event when expanded change
          */
-        "onExpanded-change"?: (event: MgDetailsCustomEvent<boolean>) => void;
+        "onExpanded-change"?: (event: MgDetailsCustomEvent<HTMLMgDetailsElement['expanded']>) => void;
         /**
           * Displayed title when details are closed
          */
@@ -1771,7 +2027,7 @@ declare namespace LocalJSX {
         /**
           * Emitted event on form validity check Tells if form is valid or not
          */
-        "onForm-valid"?: (event: MgFormCustomEvent<boolean>) => void;
+        "onForm-valid"?: (event: MgFormCustomEvent<HTMLMgFormElement['valid']>) => void;
         /**
           * Define if form is readonly
          */
@@ -1857,11 +2113,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputCheckboxCustomEvent<MgInputCheckbox['valid']>) => void;
+        "onInput-valid"?: (event: MgInputCheckboxCustomEvent<HTMLMgInputCheckboxElement['valid']>) => void;
         /**
           * Emitted event when value change
          */
-        "onValue-change"?: (event: MgInputCheckboxCustomEvent<MgInputCheckbox['value']>) => void;
+        "onValue-change"?: (event: MgInputCheckboxCustomEvent<HTMLMgInputCheckboxElement['value']>) => void;
         /**
           * Define if mg-input-checkbox is readonly
          */
@@ -1914,7 +2170,7 @@ declare namespace LocalJSX {
         /**
           * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
          */
-        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<MgInputCheckboxPaginated['sectionKind']>) => void;
+        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElement['sectionKind']>) => void;
         /**
           * Define if mg-input-checkbox-list is readonly
          */
@@ -1968,11 +2224,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputDateCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputDateCustomEvent<HTMLMgInputDateElement['valid']>) => void;
         /**
           * Emited event when value change
          */
-        "onValue-change"?: (event: MgInputDateCustomEvent<string>) => void;
+        "onValue-change"?: (event: MgInputDateCustomEvent<HTMLMgInputDateElement['value']>) => void;
         /**
           * Define if input is readonly
          */
@@ -2054,7 +2310,7 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputNumericCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputNumericCustomEvent<HTMLMgInputNumericElement['valid']>) => void;
         /**
           * Emited event when value change
          */
@@ -2128,11 +2384,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputPasswordCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputPasswordCustomEvent<HTMLMgInputPasswordElement['valid']>) => void;
         /**
           * Emited event when value change
          */
-        "onValue-change"?: (event: MgInputPasswordCustomEvent<string>) => void;
+        "onValue-change"?: (event: MgInputPasswordCustomEvent<HTMLMgInputPasswordElement['value']>) => void;
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
@@ -2202,11 +2458,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputRadioCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputRadioCustomEvent<HTMLMgInputRadioElement['valid']>) => void;
         /**
           * Emitted event when value change
          */
-        "onValue-change"?: (event: MgInputRadioCustomEvent<any>) => void;
+        "onValue-change"?: (event: MgInputRadioCustomEvent<HTMLMgInputRadioElement['value']>) => void;
         /**
           * Define if input is readonly
          */
@@ -2272,11 +2528,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputSelectCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputSelectCustomEvent<HTMLMgInputCheckboxElement['valid']>) => void;
         /**
           * Emited event when value change
          */
-        "onValue-change"?: (event: MgInputSelectCustomEvent<MgInputSelect['value']>) => void;
+        "onValue-change"?: (event: MgInputSelectCustomEvent<HTMLMgInputCheckboxElement['value']>) => void;
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
@@ -2366,11 +2622,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputTextCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputTextCustomEvent<HTMLMgInputTextElement['valid']>) => void;
         /**
           * Emited event when value change
          */
-        "onValue-change"?: (event: MgInputTextCustomEvent<string>) => void;
+        "onValue-change"?: (event: MgInputTextCustomEvent<HTMLMgInputTextElement['value']>) => void;
         /**
           * Define input pattern to validate
          */
@@ -2456,11 +2712,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when checking validity
          */
-        "onInput-valid"?: (event: MgInputTextareaCustomEvent<boolean>) => void;
+        "onInput-valid"?: (event: MgInputTextareaCustomEvent<HTMLMgInputTextareaElement['valid']>) => void;
         /**
           * Emited event when value change
          */
-        "onValue-change"?: (event: MgInputTextareaCustomEvent<string>) => void;
+        "onValue-change"?: (event: MgInputTextareaCustomEvent<HTMLMgInputTextareaElement['value']>) => void;
         /**
           * Define input pattern to validate
          */
@@ -2568,7 +2824,7 @@ declare namespace LocalJSX {
         /**
           * Emited event when value change
          */
-        "onValue-change"?: (event: MgInputToggleCustomEvent<any>) => void;
+        "onValue-change"?: (event: MgInputToggleCustomEvent<HTMLMgInputToggleElement['value']>) => void;
         /**
           * Define if input is readonly
          */
@@ -2634,7 +2890,7 @@ declare namespace LocalJSX {
         /**
           * Emited event when status change
          */
-        "onStatus-change"?: (event: MgMenuItemCustomEvent<MgMenuItem['status']>) => void;
+        "onStatus-change"?: (event: MgMenuItemCustomEvent<HTMLMgMenuItemElement['status']>) => void;
         /**
           * Define menu-item status.
          */
@@ -2660,11 +2916,11 @@ declare namespace LocalJSX {
         /**
           * Emited event when message is hidden
          */
-        "onComponent-hide"?: (event: MgMessageCustomEvent<string>) => void;
+        "onComponent-hide"?: (event: MgMessageCustomEvent<void>) => void;
         /**
           * Emited event when message is diplayed
          */
-        "onComponent-show"?: (event: MgMessageCustomEvent<string>) => void;
+        "onComponent-show"?: (event: MgMessageCustomEvent<void>) => void;
         /**
           * Message variant
          */
@@ -2694,11 +2950,11 @@ declare namespace LocalJSX {
         /**
           * Emmited event when modal is hidden
          */
-        "onComponent-hide"?: (event: MgModalCustomEvent<string>) => void;
+        "onComponent-hide"?: (event: MgModalCustomEvent<void>) => void;
         /**
           * Emmited event when modal is diplayed
          */
-        "onComponent-show"?: (event: MgModalCustomEvent<string>) => void;
+        "onComponent-show"?: (event: MgModalCustomEvent<void>) => void;
     }
     interface MgPagination {
         /**
@@ -2750,11 +3006,11 @@ declare namespace LocalJSX {
         /**
           * Emmited event when expanded change
          */
-        "onExpanded-change"?: (event: MgPanelCustomEvent<boolean>) => void;
+        "onExpanded-change"?: (event: MgPanelCustomEvent<HTMLMgPanelElement['expanded']>) => void;
         /**
           * Emmited event when title change
          */
-        "onTitle-change"?: (event: MgPanelCustomEvent<string>) => void;
+        "onTitle-change"?: (event: MgPanelCustomEvent<HTMLMgPanelElement['panelTitle']>) => void;
         /**
           * Panel title
          */
@@ -2800,7 +3056,7 @@ declare namespace LocalJSX {
         /**
           * Emited event when display value change
          */
-        "onDisplay-change"?: (event: MgPopoverCustomEvent<boolean>) => void;
+        "onDisplay-change"?: (event: MgPopoverCustomEvent<HTMLMgPopoverElement['display']>) => void;
         /**
           * Popover placement
          */
@@ -2814,7 +3070,7 @@ declare namespace LocalJSX {
         /**
           * Emited event when close button is clicked
          */
-        "onHide-content"?: (event: MgPopoverContentCustomEvent<string>) => void;
+        "onHide-content"?: (event: MgPopoverContentCustomEvent<void>) => void;
     }
     interface MgSkipLinks {
         /**
@@ -2846,7 +3102,7 @@ declare namespace LocalJSX {
         /**
           * Emited event when active tab change
          */
-        "onActive-tab-change"?: (event: MgTabsCustomEvent<number>) => void;
+        "onActive-tab-change"?: (event: MgTabsCustomEvent<HTMLMgTabsElement['activeTab']>) => void;
         /**
           * Define tabs size
          */

@@ -27,12 +27,12 @@
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint src/**/*.{ts,tsx} --ignore-path ./.gitignore",
     "lint:es:fix": "eslint --fix src/**/*.{ts,tsx} --ignore-path ./.gitignore",
-    "lint:prettier": "prettier --check **/*.{ts,tsx,html,json} --ignore-path ./.gitignore",
-    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,html,json} --ignore-path ./.gitignore"
+    "lint:prettier": "prettier --check **/*.{ts,tsx,html,json}",
+    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,html,json}"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",
-    "@stencil/core": "4.4.1"
+    "@stencil/core": "4.8.0"
   },
   "devDependencies": {
     "@mgdis/linting-stencil": "workspace:*",

@@ -93,7 +93,7 @@ export class MgMenuItem {
   /**
    * Emited event when status change
    */
-  @Event({ eventName: 'status-change' }) statusChange: EventEmitter<MgMenuItem['status']>;
+  @Event({ eventName: 'status-change' }) statusChange: EventEmitter<HTMLMgMenuItemElement['status']>;
 
   /**
    * Emited event when item is loaded

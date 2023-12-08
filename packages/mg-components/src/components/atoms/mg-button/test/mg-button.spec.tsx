@@ -5,8 +5,8 @@ import { MgForm } from '../../../molecules/mg-form/mg-form';
 import { variants, buttonTypes } from '../mg-button.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
 
-const getPage = async (args, content = 'Text button') => {
-  const page = await newSpecPage({
+const getPage = async (args, content = 'Text button') =>
+  newSpecPage({
     components: [MgButton, MgForm],
     template: () => {
       const TagName = args.formTag;
@@ -17,17 +17,8 @@ const getPage = async (args, content = 'Text button') => {
     },
   });
 
-  jest.runOnlyPendingTimers();
-
-  await page.waitForChanges();
-
-  return page;
-};
-
 describe('mg-button', () => {
   beforeEach(() => {
-    jest.useFakeTimers();
-
     setupMutationObserverMock({
       observe: function () {
         return null;
@@ -39,8 +30,6 @@ describe('mg-button', () => {
     });
     setupSubmitEventMock();
   });
-
-  afterEach(() => jest.runOnlyPendingTimers());
 
   test('Should render a button with an id', async () => {
     const { root } = await getPage({ identifier: 'identifier', label: 'label' });

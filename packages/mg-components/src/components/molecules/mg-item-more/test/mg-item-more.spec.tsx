@@ -56,7 +56,7 @@ const getPage = async args => {
 describe('mg-item-more', () => {
   beforeEach(() => {
     id = 1;
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: () => null,
       disconnect: () => null,

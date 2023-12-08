@@ -9,7 +9,7 @@ const { join } = require('path');
 const iconsList = require('@mgdis/img/dist/icons/index.json');
 
 const scriptName = 'build-icons';
-const distfileName = 'index.js';
+const distfileName = 'index.ts';
 const assetsDir = 'src/assets';
 const iconsDir = `${assetsDir}/icons`;
 

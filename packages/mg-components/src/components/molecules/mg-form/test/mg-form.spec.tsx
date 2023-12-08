@@ -35,7 +35,7 @@ const getPage = async (args, content?) => {
     template: () => <mg-form {...args}>{content}</mg-form>,
   });
 
-  jest.runAllTimers();
+  jest.runOnlyPendingTimers();
 
   await page.waitForChanges();
 
@@ -95,7 +95,7 @@ describe('mg-form', () => {
   let fireMo;
 
   beforeEach(() => {
-    jest.useFakeTimers();
+    jest.useFakeTimers({ legacyFakeTimers: true });
 
     setupMutationObserverMock({
       observe: function () {
@@ -206,7 +206,7 @@ describe('mg-form', () => {
     const slot = getSlottedContent();
     const page = await getPage(args, slot);
 
-    spyOn(page.rootInstance, 'setMgInputs');
+    jest.spyOn(page.rootInstance, 'setMgInputs');
 
     expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
 
@@ -222,8 +222,8 @@ describe('mg-form', () => {
     const page = await getPage(args, slot);
     const mgForm = page.doc.querySelector('mg-form');
 
-    spyOn(page.rootInstance, 'setMgInputs');
-    spyOn(page.rootInstance, 'setRequiredMessage');
+    jest.spyOn(page.rootInstance, 'setMgInputs');
+    jest.spyOn(page.rootInstance, 'setRequiredMessage');
 
     expect(page.rootInstance.setMgInputs).not.toHaveBeenCalled();
     expect(page.rootInstance.setRequiredMessage).not.toHaveBeenCalled();

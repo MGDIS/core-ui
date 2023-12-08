@@ -16,9 +16,9 @@ The `mg-popover-content` component is appended to the `mg-popover` component as 
 
 ## Events
 
-| Event          | Description                               | Type                  |
-| -------------- | ----------------------------------------- | --------------------- |
-| `hide-content` | Emited event when close button is clicked | `CustomEvent<string>` |
+| Event          | Description                               | Type                |
+| -------------- | ----------------------------------------- | ------------------- |
+| `hide-content` | Emited event when close button is clicked | `CustomEvent<void>` |
 
 
 ## Dependencies

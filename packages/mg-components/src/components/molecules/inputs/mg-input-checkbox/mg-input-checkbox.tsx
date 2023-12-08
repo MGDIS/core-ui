@@ -239,12 +239,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Emitted event when value change
    */
-  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<MgInputCheckbox['value']>;
+  @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputCheckboxElement['value']>;
 
   /**
    * Emited event when checking validity
    */
-  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<MgInputCheckbox['valid']>;
+  @Event({ eventName: 'input-valid' }) inputValid: EventEmitter<HTMLMgInputCheckboxElement['valid']>;
 
   /**
    * Display input error if it exists.
@@ -393,13 +393,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
-   * get invalid element
-   * @returns element
+   * has invalid input
+   * @returns true if at least one input is invalid
    */
-  private getInvalidElement = (): HTMLInputElement => {
-    const items: HTMLInputElement[] = Array.from(this.element.shadowRoot.querySelectorAll('input[type="checkbox"]'));
-    return items.find(input => input !== null && !input.disabled && !input.checkValidity());
-  };
+  private hasInvalidInput = (): boolean =>
+    Array.from(this.element.shadowRoot.querySelectorAll('input[type="checkbox"]')).some((input: HTMLInputElement) => !input.disabled && !input.checkValidity());
 
   /**
    * Method to update searchResults
@@ -418,7 +416,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.getInvalidElement() === undefined && this.validateRequired()));
+    this.setValidity(this.readonly || this.disabled || (!this.hasInvalidInput() && this.validateRequired()));
   };
 
   /**
