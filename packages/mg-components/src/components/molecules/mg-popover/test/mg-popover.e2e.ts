@@ -3,6 +3,8 @@ import { renderAttributes } from '../../../../utils/e2e.test.utils';
 
 const TIMEOUT = 1000;
 
+const mgButtonVerticalCenter = '<style>mg-button{position:fixed;left:50%;transform:translateX(-50%)}</style>';
+
 describe('mg-popover', () => {
   describeEach([
     'auto',
@@ -103,12 +105,12 @@ describe('mg-popover', () => {
     });
   });
 
-  describeEach(['title', 'content'])('re-position %s slot', slot => {
-    test('should re-position when slot size change', async ({ page }) => {
+  describe('re-position', () => {
+    testEach(['title', 'content'])('should re-position when slot %s size change', async (page: PageType, slot) => {
       const tagName = slot === 'title' ? 'h2' : 'p';
       await setPageContent(
         page,
-        `<style>mg-button{position:fixed;left:50%;transform:translateX(-50%)}</style>
+        `${mgButtonVerticalCenter}
         <mg-popover ${renderAttributes({ placement: 'bottom-start', display: true })}>
         <mg-button>Button</mg-button>
         <${tagName} slot="${slot}">
@@ -121,6 +123,28 @@ describe('mg-popover', () => {
       await expect(page.locator('body')).toHaveScreenshot();
 
       await page.$eval(`mg-popover-content [slot="${slot}"]`, el => {
+        el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
+      });
+
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
+
+    test('should re-position when interactive element size change', async ({ page }) => {
+      await setPageContent(
+        page,
+        `${mgButtonVerticalCenter}
+        <mg-popover ${renderAttributes({ placement: 'bottom-start', display: true })}>
+        <mg-button>Button</mg-button>
+        <p slot="content">
+          Lorem ipsum
+        <p>
+        </mg-popover>`,
+        { width: 400, height: 130 },
+      );
+
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      await page.$eval(`mg-button`, el => {
         el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
       });
 

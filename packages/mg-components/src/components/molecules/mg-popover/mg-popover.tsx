@@ -226,9 +226,11 @@ export class MgPopover {
     });
 
     // add resize observer
-    new ResizeObserver(() => {
-      this.popper.update();
-    }).observe(this.element.querySelector('mg-popover-content'));
+    [interactiveElement, this.element.querySelector('mg-popover-content')].forEach(element => {
+      new ResizeObserver(() => {
+        this.popper.update();
+      }).observe(element);
+    });
 
     // Add events to toggle display
     interactiveElement.addEventListener('click', () => {
