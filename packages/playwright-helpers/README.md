@@ -1,6 +1,6 @@
 # @mgdis/playwright-helpers
 
-This package provides [Playwright](https://playwright.dev/) configuration file for your project.
+This package provides a [Playwright](https://playwright.dev/) configuration file for your projects and methods tu build your test HTML.
 
 ## Installation
 
@@ -28,4 +28,50 @@ export default defineConfig({
   },
 });
 
+```
+
+### methods
+
+#### renderAttributes
+
+Render attributes from props objects.
+
+#### Parameters:
+
+- `args`: Argument to render as a string. Example: `{ status: 'visible' }`
+
+#### Returns:
+
+Formatted inline attributes. Example: `'status="visible"'`
+
+#### Usage:
+
+```TS
+import { renderAttributes } from '@mgdis/playwright-helpers';
+
+const attributes = renderAttributes({ status: 'visible', color: 'red' });
+console.log(attributes); // Output: 'status="visible" color="red"'
+```
+
+### renderProperties
+
+Render properties from props objects. Insert the return value in a <script></script> element.
+
+#### Parameters:
+
+- `args`: Argument to render as a script. Example: `{ status: 'visible' }`
+- `selector`: querySelector to get the targeted element and bind properties on it.
+
+#### Returns:
+
+Stringified properties script.
+
+#### Usage:
+
+```TS
+import { renderProperties } from '@mgdis/playwright-helpers';
+
+const propertiesScript = renderProperties({ status: 'visible', color: 'red' }, '.targetElement');
+console.log(propertiesScript);
+// Output: 'document.querySelector(".targetElement").status="visible"; document.querySelector(".targetElement").color="red";'
 ```
