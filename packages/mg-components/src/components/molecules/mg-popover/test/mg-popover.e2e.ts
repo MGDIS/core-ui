@@ -3,6 +3,8 @@ import { renderAttributes } from '../../../../utils/e2e.test.utils';
 
 const TIMEOUT = 1000;
 
+const mgButtonVerticalCenter = 'mg-button{position:fixed;left:50%;transform:translateX(-50%)}';
+
 describe('mg-popover', () => {
   describeEach([
     'auto',
@@ -24,8 +26,7 @@ describe('mg-popover', () => {
     testEach([true, false])('Should render, case hide arrow %s', async (page: PageType, arrowHide) => {
       await setPageContent(
         page,
-        `<style>mg-button{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}</style>
-        <mg-popover ${renderAttributes({ placement, arrowHide })}>
+        `<mg-popover ${renderAttributes({ placement, arrowHide })}>
         <mg-button>Button</mg-button>
         <h2 slot="title">Blu bli blo bla</h2>
         <p slot="content">
@@ -39,6 +40,8 @@ describe('mg-popover', () => {
         </mg-popover>`,
         { height: 900, width: 900 },
       );
+
+      await page.addStyleTag({ content: 'mg-button{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}</style>' });
 
       const mgPopover = page.locator('mg-popover');
       const mgButton = page.locator('mg-button');
@@ -103,13 +106,12 @@ describe('mg-popover', () => {
     });
   });
 
-  describeEach(['title', 'content'])('re-position %s slot', slot => {
-    test('should re-position when slot size change', async ({ page }) => {
+  describe('re-position', () => {
+    testEach(['title', 'content'])('should re-position when slot %s size change', async (page: PageType, slot) => {
       const tagName = slot === 'title' ? 'h2' : 'p';
       await setPageContent(
         page,
-        `<style>mg-button{position:fixed;left:50%;transform:translateX(-50%)}</style>
-        <mg-popover ${renderAttributes({ placement: 'bottom-start', display: true })}>
+        `<mg-popover ${renderAttributes({ placement: 'bottom-start' })}>
         <mg-button>Button</mg-button>
         <${tagName} slot="${slot}">
           Lorem ipsum
@@ -118,9 +120,41 @@ describe('mg-popover', () => {
         { width: 400, height: 130 },
       );
 
+      await page.addStyleTag({ content: mgButtonVerticalCenter });
+
+      await page.locator('mg-button').click();
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
+
       await expect(page.locator('body')).toHaveScreenshot();
 
       await page.$eval(`mg-popover-content [slot="${slot}"]`, el => {
+        el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
+      });
+
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
+
+    test('should re-position when interactive element size change', async ({ page }) => {
+      await setPageContent(
+        page,
+        `<mg-popover ${renderAttributes({ placement: 'bottom-start' })}>
+        <mg-button>Button</mg-button>
+        <p slot="content">
+          Lorem ipsum
+        <p>
+        </mg-popover>`,
+        { width: 400, height: 130 },
+      );
+
+      await page.addStyleTag({ content: mgButtonVerticalCenter });
+
+      await page.locator('mg-button').click();
+
+      await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      await page.$eval(`mg-button`, el => {
         el.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
       });
 
@@ -131,8 +165,7 @@ describe('mg-popover', () => {
   test(`should position popover where it have enough place`, async ({ page }) => {
     await setPageContent(
       page,
-      `<style>mg-button{position:fixed;left:0;bottom:0}</style>
-      <mg-popover ${renderAttributes({ display: true })}>
+      `<mg-popover>
       <mg-button>Button</mg-button>
       <p slot="content">
         Lorem ipsum
@@ -140,6 +173,11 @@ describe('mg-popover', () => {
       </mg-popover>`,
       { width: 400, height: 100 },
     );
+
+    await page.addStyleTag({ content: 'mg-button{position:fixed;left:0;bottom:0}' });
+
+    await page.locator('mg-button').click();
+    await page.locator('mg-popover-content').waitFor({ timeout: TIMEOUT });
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
@@ -154,14 +192,16 @@ describe('mg-popover', () => {
           My custom card
         </mg-card>
         </mg-popover>
-        <style>
-          .custom-popover-card {
-            --mg-popover-background-color: var(--color-danger);
-          }
-        </style>
         `,
         { width: 150, height: 180 },
       );
+
+      await page.addStyleTag({
+        content: `
+    .custom-popover-card {
+      --mg-popover-background-color: var(--color-danger);
+    }`,
+      });
 
       await page.locator('mg-popover.hydrated').waitFor({ timeout: TIMEOUT });
 
@@ -175,14 +215,16 @@ describe('mg-popover', () => {
         <mg-button>Button</mg-button>
         <h2 slot="${slot}">Titre un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long un peu plus long</h2>
         </mg-popover>
-        <style>
-          .custom-popover {
-            --mg-popover-max-width: 10rem;
-          }
-        </style>
         `,
         { width: 300, height: 300 },
       );
+
+      await page.addStyleTag({
+        content: `
+      .custom-popover {
+        --mg-popover-max-width: 10rem;
+      }`,
+      });
 
       await page.locator('mg-popover.hydrated').waitFor({ timeout: TIMEOUT });
 
