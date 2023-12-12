@@ -29,14 +29,14 @@ export class MyComponent {
 
   /**
    * Get formatted text
-   * @returns formated text
+   * @returns formatted text
    */
   private getText(): string {
     return format(this.first, this.middle, this.last);
   }
 
   /**
-   * Add count on click
+   * Handle click
    */
   private handleClick = () => {
     this.count++;
