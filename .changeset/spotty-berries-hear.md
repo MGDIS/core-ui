@@ -2,4 +2,4 @@
 '@mgdis/mg-components': minor
 ---
 
-[**`<mg-message>`**](./?path=/docs/molecules-mg-message--docs) add "unset-role" prop
+[**`<mg-message>`**](./?path=/docs/molecules-mg-message--docs) add "no-aria-role" prop

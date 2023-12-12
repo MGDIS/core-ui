@@ -117,12 +117,12 @@ export class MgMessage {
   }
 
   /**
-   * Define if role is unset
+   * Define if aria role is unset
    * For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`.
    * By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role.
    * Be careful to set the mode according to the context needs.
    */
-  @Prop() unsetRole: boolean;
+  @Prop() noAriaRole: boolean;
 
   /**
    * Component classes
@@ -236,7 +236,7 @@ export class MgMessage {
   render(): HTMLElement {
     let role;
 
-    if (!this.unsetRole) role = this.variant === 'info' ? 'status' : 'alert';
+    if (!this.noAriaRole) role = this.variant === 'info' ? 'status' : 'alert';
 
     return (
       <div id={this.identifier} class={this.classCollection.join()} role={role}>

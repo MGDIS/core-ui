@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-12T14:08:00",
+  "timestamp": "2023-12-12T15:30:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.8.2",
@@ -7437,7 +7437,7 @@
           "required": false
         },
         {
-          "name": "unsetRole",
+          "name": "noAriaRole",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -7445,9 +7445,9 @@
             "references": {}
           },
           "mutable": false,
-          "attr": "unset-role",
+          "attr": "no-aria-role",
           "reflectToAttr": false,
-          "docs": "Define if role is unset\nFor a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`.\nBy toggle this props to `true`, you can unset the role to benefit from the template without any semantic role.\nBe careful to set the mode according to the context needs.",
+          "docs": "Define if aria role is unset\nFor a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`.\nBy toggle this props to `true`, you can unset the role to benefit from the template without any semantic role.\nBe careful to set the mode according to the context needs.",
           "docsTags": [],
           "values": [
             {
