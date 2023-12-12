@@ -1083,6 +1083,10 @@ export namespace Components {
          */
         "identifier": string;
         /**
+          * Define if role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
+         */
+        "unsetRole": boolean;
+        /**
           * Message variant
          */
         "variant": VariantType2;
@@ -2921,6 +2925,10 @@ declare namespace LocalJSX {
           * Emited event when message is diplayed
          */
         "onComponent-show"?: (event: MgMessageCustomEvent<void>) => void;
+        /**
+          * Define if role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
+         */
+        "unsetRole"?: boolean;
         /**
           * Message variant
          */

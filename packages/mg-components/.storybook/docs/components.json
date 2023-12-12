@@ -1,8 +1,8 @@
 {
-  "timestamp": "2023-12-08T15:18:14",
+  "timestamp": "2023-12-12T14:08:00",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.8.0",
+    "version": "4.8.2",
     "typescriptVersion": "5.2.2"
   },
   "components": [
@@ -7431,6 +7431,27 @@
           "values": [
             {
               "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "unsetRole",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "unset-role",
+          "reflectToAttr": false,
+          "docs": "Define if role is unset\nFor a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`.\nBy toggle this props to `true`, you can unset the role to benefit from the template without any semantic role.\nBe careful to set the mode according to the context needs.",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
             }
           ],
           "optional": false,
