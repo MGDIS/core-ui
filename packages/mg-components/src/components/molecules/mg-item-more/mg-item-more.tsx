@@ -16,8 +16,10 @@ export class MgItemMore {
    ************/
   private readonly name = 'mg-item-more';
   private messages: MessageType;
-  private menuItems: HTMLMgMenuItemElement[];
+  private parentMenuItems: HTMLMgMenuItemElement[];
+  private moreElementMenuItem: HTMLMgMenuItemElement;
   private overflowBehavior: OverflowBehavior;
+  private canRenderMgMenuItemOverflowElement = true;
 
   /**************
    * Decorators *
@@ -73,14 +75,13 @@ export class MgItemMore {
    */
   private renderMgMenuItemOverflowElement = (): HTMLMgItemMoreElement => {
     // create menu items proxy element from item clones
-    const moreElementMenuItem = this.element.shadowRoot.querySelector('mg-menu-item');
-    this.menuItems.forEach((child: HTMLMgMenuItemElement) => {
-      moreElementMenuItem.querySelector('mg-menu').appendChild(child.cloneNode(true));
+    this.parentMenuItems.forEach((child: HTMLMgMenuItemElement) => {
+      this.moreElementMenuItem.querySelector('mg-menu').appendChild(child.cloneNode(true));
     });
 
     const allMenuItem = Array.from(this.parentMenu.querySelectorAll('mg-menu-item:not([data-overflow-more])'));
 
-    Array.from(moreElementMenuItem.querySelectorAll('mg-menu-item:not([data-overflow-more])')).forEach((proxy, index) => {
+    (Array.from(this.moreElementMenuItem.querySelectorAll('mg-menu-item:not([data-overflow-more])')) as HTMLMgMenuItemElement[]).forEach((proxy, index) => {
       // manage click on proxy to mirror it on initial element
       proxy.addEventListener('click', () => {
         // be carefull to use element.click() method instead of dispatchEvent to ensure bubbles outside shadowDom
@@ -105,20 +106,11 @@ export class MgItemMore {
    *************/
 
   /**
-   * Disconnect overflow ResizeObserver
-   */
-  disconnectedCallback(): void {
-    this.overflowBehavior.disconnect();
-  }
-
-  /**
    * Set variables and validate props
    */
   componentWillLoad(): void {
     // init variables
     this.messages = (initLocales(this.element).messages as { plusMenu: MessageType }).plusMenu;
-    this.parentMenu = this.element.closest('mg-menu');
-    this.menuItems = Array.from(this.parentMenu.children).filter(item => item.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
 
     // validate props
     this.validateIcon(this.icon);
@@ -127,10 +119,31 @@ export class MgItemMore {
   }
 
   /**
-   * Add overflow behavior
+   * Ensure parent DOM is fully rendered with timeout method before parse elements
    */
-  componentDidLoad(): void {
-    this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.renderMgMenuItemOverflowElement);
+  componentDidLoad(): ReturnType<typeof setTimeout> {
+    // ensure parent menu is fully rendered
+    return setTimeout(() => {
+      this.parentMenu = this.element.closest('mg-menu');
+    });
+  }
+
+  /**
+   * Set OverflowBehavior when parentMenu state is upate AND defined
+   */
+  componentDidUpdate(): void {
+    if (this.parentMenu && this.canRenderMgMenuItemOverflowElement) {
+      this.parentMenuItems = Array.from(this.parentMenu.children).filter(item => item.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
+      this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.renderMgMenuItemOverflowElement);
+      this.canRenderMgMenuItemOverflowElement = false;
+    }
+  }
+
+  /**
+   * Disconnect overflow ResizeObserver
+   */
+  disconnectedCallback(): void {
+    this.overflowBehavior?.disconnect();
   }
 
   /**
@@ -140,13 +153,21 @@ export class MgItemMore {
   render(): HTMLElement {
     return (
       <Host role="listitem">
-        <mg-menu-item data-overflow-more data-size={this.parentMenu.size}>
-          <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
-          <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
-            {this.slotlabel.label}
-          </span>
-          <mg-menu direction={Direction.VERTICAL} label={this.messages.moreLabel} size={this.size}></mg-menu>
-        </mg-menu-item>
+        {this.parentMenu && (
+          <mg-menu-item
+            data-overflow-more
+            data-size={this.parentMenu.size}
+            ref={el => {
+              if (el) this.moreElementMenuItem = el;
+            }}
+          >
+            <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
+            <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
+              {this.slotlabel.label}
+            </span>
+            <mg-menu direction={Direction.VERTICAL} label={this.messages.moreLabel} size={this.size}></mg-menu>
+          </mg-menu-item>
+        )}
       </Host>
     );
   }
