@@ -28,7 +28,7 @@ export class MyComponent {
   @State() count = 0;
 
   /**
-   * Get formated text
+   * Get formatted text
    * @returns formated text
    */
   private getText(): string {
