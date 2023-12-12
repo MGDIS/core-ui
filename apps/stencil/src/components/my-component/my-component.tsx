@@ -29,7 +29,7 @@ export class MyComponent {
 
   /**
    * Get formatted text
-   * @returns formated text
+   * @returns formatted text
    */
   private getText(): string {
     return format(this.first, this.middle, this.last);
