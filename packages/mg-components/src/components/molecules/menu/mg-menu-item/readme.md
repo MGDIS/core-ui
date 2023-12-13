@@ -1,6 +1,6 @@
 ## Use
 
-Item menu is used with horizontal, vertical or mobile menus.
+Item menu is used with horizontal or vertical menus.
 
 ## Anatomy
 
@@ -13,7 +13,7 @@ When a submenu is available, a chevron is displayed (in horizontal and vertical 
 
 ## Specs
 
-Item's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical, mobile).
+Item's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical).
 
 ### Spacing
 
@@ -37,12 +37,6 @@ If a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate th
 
 Width of the item is 100% width of the menu.
 
-#### Mobile
-
-![](./doc/img/mg-menu-item-sizing-mobile.png)
-
-Width of the item is equal to the width of the menu divided by number of items displayed.
-
 ### Alignment
 
 #### Horizontal and vertical menus
@@ -58,22 +52,14 @@ All contents are aligned vertically.
 All items are aligned to left.
 The chevron is aligned to the right of the item.
 
-#### Mobile
-
-![](./doc/img/mg-menu-item-alignment-mobile.png)
-
-Content of the item is centered
-
-![](./doc/img/mg-menu-item-alignment-mobile-badge.png)
-
-Badge is positionned to 20px right and -15px up from the center of the item.
-
 ### Styling
 
-![](./doc/img/mg-menu-item-styling.png)
+![](./doc/img/mg-menu-item-horizontal-menu-styling.png)
+
+![](./doc/img/mg-menu-item-vertical-menu-styling.png)
 
 Hover item: the background is colored
-Active item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal and mobile menus), at the left of the item for vertical menus.
+Active item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal, at the left of the item for vertical menus.
 
 #### Colors
 
@@ -87,12 +73,10 @@ Disabled item's opacity is set to 40%.
 Family: Open Sans
 Regular size: 13px
 Medium/Large size: 15px
-Mobile: 12px
 
 #### Icons
 
 Regular/Medium/Large menus: regular size
-Mobile menu: large size
 
 ## Behavior
 
@@ -165,12 +149,6 @@ Items below are pushed to bottom.
 ##### Spacing
 
 Sub-items add to their left spacing the spacing between left border and content of their parent's item.
-
-### Mobile menu
-
-Child content is displayed via an **mg-tray** component.
-
-![](./doc/img/mg-menu-submenu-tray.png)
 
 ## Slots
 

@@ -28,14 +28,15 @@ export class MyComponent {
   @State() count = 0;
 
   /**
-   *
+   * Get formatted text
+   * @returns formatted text
    */
   private getText(): string {
     return format(this.first, this.middle, this.last);
   }
 
   /**
-   *
+   * Handle click
    */
   private handleClick = () => {
     this.count++;

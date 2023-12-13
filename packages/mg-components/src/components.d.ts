@@ -1083,6 +1083,10 @@ export namespace Components {
          */
         "identifier": string;
         /**
+          * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
+         */
+        "noAriaRole": boolean;
+        /**
           * Message variant
          */
         "variant": VariantType2;
@@ -2913,6 +2917,10 @@ declare namespace LocalJSX {
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier"?: string;
+        /**
+          * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
+         */
+        "noAriaRole"?: boolean;
         /**
           * Emited event when message is hidden
          */

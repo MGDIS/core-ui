@@ -40,6 +40,7 @@ export const MgMessage = {
     closeButton: false,
     hide: false,
     delay: undefined,
+    noAriaRole: undefined,
   },
 };
 
