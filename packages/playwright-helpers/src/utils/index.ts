@@ -27,16 +27,15 @@ export const renderProperties = (args: { [x: string]: any }, selector: string): 
   if (query === 'getElementById') selector = selector.replace('#', '');
 
   return typeof args === 'object'
-    ? `
-    ${
-      Object.keys(args)
-        .filter(key => typeof args[key] === 'object')
-        .map(key => `document.${query}('${selector}').${key}=${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
-        .join(';\n') // create string
-        .split('"<fn>') // remove fn start decorator
-        .join('')
-        .split('</fn>"')
-        .join('') // remove fn end decorator
-    }`
+    ? `${
+        Object.keys(args)
+          .filter(key => typeof args[key] === 'object')
+          .map(key => `document.${query}('${selector}').${key}=${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
+          .join(';\n') // create string
+          .split('"<fn>') // remove fn start decorator
+          .join('')
+          .split('</fn>"')
+          .join('') // remove fn end decorator
+      }`
     : '';
 };

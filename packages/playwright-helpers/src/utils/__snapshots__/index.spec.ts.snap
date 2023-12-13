@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`args { onclick: { blu: [Function blu] } } > renderAttributes 1`] = `""`;
+
+exports[`args { onclick: { blu: [Function blu] } } > renderProperties > renderProperties 1`] = `"document.querySelector('.your-select').onclick={"blu":() => {\\n      }}"`;
+
+exports[`args { onclick: { blu: [Function blu] } } > renderProperties > renderProperties 2`] = `"document.getElementById('your-select').onclick={"blu":() => {\\n      }}"`;
+
+exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' } } > renderAttributes 1`] = `"status="visible" count="10""`;
+
+exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' } } > renderProperties > renderProperties 1`] = `"document.querySelector('.your-select').icon={"icon":"blu"}"`;
+
+exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' } } > renderProperties > renderProperties 2`] = `"document.getElementById('your-select').icon={"icon":"blu"}"`;
+
+exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' }, nullValue: null, undefinedValue: undefined } > renderAttributes 1`] = `"status="visible" count="10""`;
+
+exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' }, nullValue: null, undefinedValue: undefined } > renderProperties > renderProperties 1`] = `
+"document.querySelector('.your-select').icon={"icon":"blu"};
+document.querySelector('.your-select').nullValue=null"
+`;
+
+exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' }, nullValue: null, undefinedValue: undefined } > renderProperties > renderProperties 2`] = `
+"document.getElementById('your-select').icon={"icon":"blu"};
+document.getElementById('your-select').nullValue=null"
+`;
+
+exports[`args {} > renderAttributes 1`] = `""`;
+
+exports[`args {} > renderProperties > renderProperties 1`] = `""`;
+
+exports[`args {} > renderProperties > renderProperties 2`] = `""`;
+
+exports[`args undefined > renderAttributes 1`] = `""`;
+
+exports[`args undefined > renderProperties > renderProperties 1`] = `""`;
+
+exports[`args undefined > renderProperties > renderProperties 2`] = `""`;
