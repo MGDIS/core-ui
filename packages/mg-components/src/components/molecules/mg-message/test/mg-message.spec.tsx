@@ -21,6 +21,7 @@ describe('mg-message', () => {
   describe.each(variants)('Should render a %s message', variant => {
     test.each([
       { identifier: 'identifier' },
+      { identifier: 'identifier', noAriaRole: true },
       { identifier: 'identifier', closeButton: true },
       { identifier: 'identifier', closeButton: true, lang: 'fr' },
       { identifier: 'identifier', closeButton: true, lang: 'xx' },
