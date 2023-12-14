@@ -15,15 +15,15 @@
     "lint": "stylelint 'scss/**/*.{css,scss}'",
     "lint:fix": "stylelint 'scss/**/*.{css,scss}' --fix",
     "lint:dist": "stylelint 'dist/**/*.css' --config .stylelintrc.dist.json",
-    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
-    "test:e2e:playwright:docker": "pnpm dlx @playwright/test test"
+    "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
+    "test:e2e:docker": "pnpm dlx @playwright/test test"
   },
   "files": [
     "dist"
   ],
   "devDependencies": {
+    "@mgdis/playwright-helpers": "workspace:*",
     "@playwright/test": "1.40.1",
-    "playwright-config": "workspace:*",
     "sass": "^1.69.5",
     "stylelint": "^16.0.0",
     "stylelint-config-idiomatic-order": "^10.0.0",

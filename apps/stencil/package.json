@@ -1,6 +1,6 @@
 {
   "name": "stencil",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Stencil Component Starter",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -25,10 +25,10 @@
     "generate": "stencil generate",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
-    "lint:es": "eslint src/**/*.{ts,tsx} --ignore-path ./.gitignore",
-    "lint:es:fix": "eslint --fix src/**/*.{ts,tsx} --ignore-path ./.gitignore",
-    "lint:prettier": "prettier --check **/*.{ts,tsx,html,json}",
-    "lint:prettier:fix": "prettier --write **/*.{ts,tsx,html,json}"
+    "lint:es": "eslint 'src/**/*.{ts,tsx}'",
+    "lint:es:fix": "eslint --fix 'src/**/*.{ts,tsx}'",
+    "lint:prettier": "prettier --check '**/*.{ts,tsx,html,json}'",
+    "lint:prettier:fix": "prettier --write '**/*.{ts,tsx,html,json}'"
   },
   "dependencies": {
     "@mgdis/mg-components": "workspace:*",

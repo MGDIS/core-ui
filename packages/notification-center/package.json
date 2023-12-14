@@ -8,8 +8,8 @@
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "test:unit": "jest --coverage",
-    "test:e2e:playwright": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
-    "test:e2e:playwright:docker": "pnpm dlx @playwright/test test",
+    "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
+    "test:e2e:docker": "pnpm dlx @playwright/test test",
     "test:watch": "jest --watch",
     "coverage": "jest --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@mgdis/mg-components": "workspace:*",
+    "@mgdis/playwright-helpers": "workspace:*",
     "@playwright/test": "1.40.1",
     "@types/jest": "^29.5.8",
     "@types/sanitize-html": "^2.9.4",
@@ -41,12 +42,11 @@
     "jest-config": "workspace:*",
     "jest-environment-jsdom": "^29.7.0",
     "jest-serializer-html": "^7.1.0",
-    "playwright-config": "workspace:*",
     "prettier": "^3.0.0",
     "prettier-config": "workspace:*",
     "ts-jest": "^29.1.1",
     "tsconfig": "workspace:*",
-    "typescript": "^5.2.2",
+    "typescript": "5.2.2",
     "vite": "^5.0.0",
     "vite-plugin-dts": "^2.3.0"
   },

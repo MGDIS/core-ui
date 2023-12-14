@@ -1,9 +1,16 @@
 {
-  "name": "playwright-config",
-  "private": true,
+  "name": "@mgdis/playwright-helpers",
   "version": "1.0.0",
   "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
@@ -16,7 +23,11 @@
   },
   "devDependencies": {
     "@types/node": "^20.9.0",
+    "@vitest/coverage-v8": "^1.0.4",
     "eslint-config-custom": "workspace:*",
-    "prettier-config": "workspace:*"
+    "prettier-config": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "5.2.2",
+    "vitest": "^1.0.4"
   }
 }

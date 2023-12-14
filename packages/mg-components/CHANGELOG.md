@@ -1,5 +1,23 @@
 # @mgdis/mg-components
 
+## 5.20.0
+
+### Minor Changes
+
+- b72c283: [**`<mg-menu>`**](./?path=/docs/beta-menus-mg-menu--mg-menu) remove beta status
+- 0a6a144: [**`<mg-message>`**](./?path=/docs/molecules-mg-message--docs) add "no-aria-role" prop
+- d4f6545: [**`<mg-input-checkbox>`**](./?path=/docs/molecules-inputs-mg-input-checkbox--mg-input-checkbox) reverse button and display values positions
+
+### Patch Changes
+
+- 109d113: [#423](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/423) apps: missing stencil demo app
+- 4eb2690: [#424](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/424) mg-components: test error with components.utils createID
+- 8bfae84: [421](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/421) mg-components: when upgrade stencil >=4.5.0 build is broken
+- c4a9df3: [#431](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/431) mg-input-checkbox : in multi when no result on search, missing accent on e
+- Updated dependencies [ebdeb20]
+  - @mgdis/img@1.5.0
+  - @mgdis/styles@1.0.0
+
 ## 5.19.3
 
 ### Patch Changes
