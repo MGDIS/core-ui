@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-13T16:12:24",
+  "timestamp": "2023-12-14T10:44:03",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.8.2",
@@ -1157,6 +1157,27 @@
           "docs": "Define if form is readonly",
           "docsTags": [],
           "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "requiredMessageHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required-message-hide",
+          "reflectToAttr": false,
+          "docs": "Define if required message is hidden.\nWhen you toggle the prop to true, it will not render the message element in component DOM.\nAs **this element is an accessibility requirement in the view**,\nyou must re-implement this message by your own and display it when you form contain required inputs.",
+          "docsTags": [],
           "values": [
             {
               "type": "boolean"

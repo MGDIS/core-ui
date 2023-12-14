@@ -2129,6 +2129,244 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
 </mg-form>
 `;
 
+exports[`mg-form Should render with args { args: { identifier: 'identifier', requiredMessageHide: true } }: 1`] = `
+<mg-form>
+  <mock:shadow-root>
+    <form class="mg-c-form" id="identifier" name="identifier">
+      <slot></slot>
+      <slot name="actions"></slot>
+    </form>
+  </mock:shadow-root>
+  <mg-input-checkbox>
+    <mock:shadow-root>
+      <fieldset class="mg-c-input mg-c-input--checkbox">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            mg-input-checkbox label
+          </legend>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+              <li class="mg-c-input__input-group">
+                <input aria-describedby="" aria-invalid="false" checked="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
+                <label htmlfor="mg-input-checkbox_0">
+                  oui
+                </label>
+              </li>
+              <li class="mg-c-input__input-group">
+                <input aria-describedby="" aria-invalid="false" id="mg-input-checkbox_1" name="mg-input-checkbox" type="checkbox" value="false">
+                <label htmlfor="mg-input-checkbox_1">
+                  non
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </fieldset>
+    </mock:shadow-root>
+  </mg-input-checkbox>
+  <mg-input-date>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--date">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-date">
+            mg-input-date label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </mg-input-date>
+  <mg-input-numeric>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--numeric">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-numeric">
+            mg-input-numeric label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-numeric" name="mg-input-numeric" type="text">
+            <slot name="append-input"></slot>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </mg-input-numeric>
+  <mg-input-password>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--password mg-c-input--width-full">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-password">
+            mg-input-password label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-password" name="mg-input-password" type="password">
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </mg-input-password>
+  <mg-input-radio>
+    <mock:shadow-root>
+      <fieldset class="mg-c-input mg-c-input--radio">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title">
+            mg-input-radio label
+          </legend>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <ul class="mg-c-input__input-group-container" role="list">
+              <li class="mg-c-input__input-group">
+                <input aria-describedby="" id="mg-input-radio_0" name="mg-input-radio" type="radio" value="0">
+                <label htmlfor="mg-input-radio_0">
+                  blu
+                </label>
+              </li>
+              <li class="mg-c-input__input-group">
+                <input aria-describedby="" id="mg-input-radio_1" name="mg-input-radio" type="radio" value="1">
+                <label htmlfor="mg-input-radio_1">
+                  bli
+                </label>
+              </li>
+              <li class="mg-c-input__input-group">
+                <input aria-describedby="" id="mg-input-radio_2" name="mg-input-radio" type="radio" value="2">
+                <label htmlfor="mg-input-radio_2">
+                  bla
+                </label>
+              </li>
+              <li class="mg-c-input__input-group">
+                <input aria-describedby="" id="mg-input-radio_3" name="mg-input-radio" type="radio" value="3">
+                <label htmlfor="mg-input-radio_3">
+                  blo
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </fieldset>
+    </mock:shadow-root>
+  </mg-input-radio>
+  <mg-input-select>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--select">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-select">
+            mg-input-select label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-select" name="mg-input-select" title="Select a value">
+              <option value="">
+                Select a value
+              </option>
+              <option value="blu">
+                blu
+              </option>
+              <option value="bli">
+                bli
+              </option>
+              <option value="bla">
+                bla
+              </option>
+              <option value="blo">
+                blo
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </mg-input-select>
+  <mg-input-text>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-text">
+            mg-input-text label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
+              <input aria-describedby="mg-input-text-character-left" aria-invalid="false" class="mg-c-input__box" id="mg-input-text" maxlength="400" name="mg-input-text" type="text">
+              <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
+            </div>
+            <slot name="append-input"></slot>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </mg-input-text>
+  <mg-input-textarea>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-textarea">
+            mg-input-textarea label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left" aria-invalid="true" class="mg-c-input__box" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" rows="3"></textarea>
+              <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+  </mg-input-textarea>
+  <mg-input-toggle>
+    <mock:shadow-root>
+      <div class="mg-c-input mg-c-input--toggle">
+        <mg-input-title>
+          <!---->
+          <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            mg-input-toggle label
+          </label>
+        </mg-input-title>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <button aria-checked="false" class="mg-c-input__button-toggle" id="mg-input-toggle" role="switch" type="button">
+              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+                <slot name="item-1"></slot>
+              </span>
+              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+                <slot name="item-2"></slot>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mock:shadow-root>
+    <span slot="item-1" title="non">
+      non
+    </span>
+    <span slot="item-2" title="oui">
+      oui
+    </span>
+  </mg-input-toggle>
+</mg-form>
+`;
+
 exports[`mg-form display error message with locale: fr 1`] = `
 <mg-form lang="fr">
   <mock:shadow-root>

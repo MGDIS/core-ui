@@ -115,6 +115,7 @@ describe('mg-form', () => {
     { args: { identifier: 'identifier' } },
     { args: { identifier: 'identifier', readonly: true } },
     { args: { identifier: 'identifier', disabled: true } },
+    { args: { identifier: 'identifier', requiredMessageHide: true } },
     { args: { identifier: 'identifier' }, required: 'one' },
     { args: { identifier: 'identifier' }, required: 'all' },
     { args: { identifier: 'identifier' }, required: 'multiple' },

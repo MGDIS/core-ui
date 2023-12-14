@@ -196,6 +196,10 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
+          * Define if required message is hidden. When you toggle the prop to true, it will not render the message element in component DOM. As **this element is an accessibility requirement in the view**, you must re-implement this message by your own and display it when you form contain required inputs.
+         */
+        "requiredMessageHide": boolean;
+        /**
           * Define form valid state
          */
         "valid": boolean;
@@ -2036,6 +2040,10 @@ declare namespace LocalJSX {
           * Define if form is readonly
          */
         "readonly"?: boolean;
+        /**
+          * Define if required message is hidden. When you toggle the prop to true, it will not render the message element in component DOM. As **this element is an accessibility requirement in the view**, you must re-implement this message by your own and display it when you form contain required inputs.
+         */
+        "requiredMessageHide"?: boolean;
         /**
           * Define form valid state
          */

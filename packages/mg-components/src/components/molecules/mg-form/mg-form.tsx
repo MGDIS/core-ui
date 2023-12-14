@@ -49,6 +49,14 @@ export class MgForm {
   @Prop() readonly = false;
 
   /**
+   * Define if required message is hidden.
+   * When you toggle the prop to true, it will not render the message element in component DOM.
+   * As **this element is an accessibility requirement in the view**,
+   * you must re-implement this message by your own and display it when you form contain required inputs.
+   */
+  @Prop() requiredMessageHide: boolean;
+
+  /**
    * Define if form is disabled
    */
   @Prop() disabled = false;
@@ -109,6 +117,7 @@ export class MgForm {
   private setRequiredMessage = (): void => {
     // init required message
     this.requiredMessage = null;
+    if (this.requiredMessageHide) return;
     this.classCollection.delete(this.classAllRequired);
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)

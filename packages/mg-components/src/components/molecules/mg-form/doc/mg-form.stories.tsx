@@ -12,6 +12,7 @@ const args = {
   name: 'input-name',
   readonly: false,
   disabled: false,
+  requiredMessageHide: undefined,
 };
 
 /**
