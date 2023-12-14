@@ -1,16 +1,6 @@
-/* eslint-disable turbo/no-undeclared-env-vars */
-import { devices, type PlaywrightTestConfig } from '@playwright/test';
+import { devices, defineConfig } from '@playwright/test';
 
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// require('dotenv').config();
-
-/**
- * See https://playwright.dev/docs/test-configuration.
- */
-const config: PlaywrightTestConfig = {
+export default defineConfig({
   testMatch: '*.e2e.ts',
   snapshotPathTemplate: '{testFileDir}/__screenshots__/{arg}-{projectName}{ext}',
   /* Maximum time one test can run for. */
@@ -67,20 +57,5 @@ const config: PlaywrightTestConfig = {
         ...devices['Desktop Safari'],
       },
     },
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: {
-    //     ...devices['Pixel 5'],
-    //   },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: {
-    //     ...devices['iPhone 12'],
-    //   },
-    // },
   ],
-};
-
-export default config;
+});
