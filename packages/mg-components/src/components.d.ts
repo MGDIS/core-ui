@@ -9,6 +9,7 @@ import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } fr
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
+import { AriaRoleType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
@@ -30,6 +31,7 @@ export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } fr
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
+export { AriaRoleType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Width } from "./components/molecules/inputs/MgInput.conf";
@@ -171,6 +173,10 @@ export namespace Components {
         "size": 'regular' | 'full';
     }
     interface MgForm {
+        /**
+          * Define `<form/>` element aria role see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+         */
+        "ariaRole": AriaRoleType;
         /**
           * Define if form is disabled
          */
@@ -2008,6 +2014,10 @@ declare namespace LocalJSX {
         "size"?: 'regular' | 'full';
     }
     interface MgForm {
+        /**
+          * Define `<form/>` element aria role see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+         */
+        "ariaRole"?: AriaRoleType;
         /**
           * Define if form is disabled
          */
