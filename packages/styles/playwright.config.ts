@@ -1,8 +1,8 @@
-import base from 'playwright-config/base';
-import { devices, type PlaywrightTestConfig } from '@playwright/test';
+import { playwrightBaseConfig } from '@mgdis/playwright-helpers';
+import { devices, defineConfig } from '@playwright/test';
 
-const config: PlaywrightTestConfig = {
-  ...base,
+export default defineConfig({
+  ...playwrightBaseConfig,
   /**
    * Configure projects for major browsers
    * removing webkit
@@ -21,6 +21,4 @@ const config: PlaywrightTestConfig = {
       },
     },
   ],
-};
-
-export default config;
+});

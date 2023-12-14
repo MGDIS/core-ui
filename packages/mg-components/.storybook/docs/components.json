@@ -9345,20 +9345,10 @@
       "docstring": "mg-input-checkbox-paginated section kind",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
-    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
-      "declaration": "export type TextType = 'text' | 'search';",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
-    },
     "src/components/molecules/inputs/MgInput.conf.ts::Width": {
       "declaration": "2 | 4 | 16 | \"full\"",
       "docstring": "",
       "path": "src/components/molecules/inputs/MgInput.conf.ts"
-    },
-    "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
-      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
-      "docstring": "",
-      "path": "src/components/molecules/mg-message/mg-message.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts::RadioOption": {
       "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n}",
@@ -9369,6 +9359,11 @@
       "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n  group?: string;\n}",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-select/mg-input-select.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
+      "declaration": "export type TextType = 'text' | 'search';",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts::ToggleValue": {
       "declaration": "{\n  title: string;\n  value: unknown;\n}",
@@ -9389,6 +9384,11 @@
       "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-message/mg-message.conf.ts"
     },
     "src/components/molecules/mg-modal/mg-modal.conf.ts::DialogRoleType": {
       "declaration": "\"dialog\" | \"alertdialog\"",

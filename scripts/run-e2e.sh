@@ -30,7 +30,7 @@ prepare_package "package.json" '{
   name, 
   "scripts": {
     "apps:notification-center": .scripts."apps:notification-center",
-    "test:e2e:playwright": .scripts."test:e2e:playwright"
+    "test:e2e": .scripts."test:e2e"
   }, 
   "dependencies": { "turbo": .dependencies.turbo } 
 }'
@@ -44,9 +44,10 @@ prepare_package "packages/mg-components/package.json" '{
   "scripts": { 
     prebuild: .scripts.prebuild,
     start: .scripts.start,
-    "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
+    "test:e2e": .scripts."test:e2e:docker"
   }, 
-  "dependencies": { "@stencil/core": .dependencies."@stencil/core" }
+  "dependencies": { "@stencil/core": .dependencies."@stencil/core" },
+  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
 }'
 
 # Prepare packages/notification-center/package.json
@@ -57,14 +58,16 @@ prepare_package "packages/notification-center/package.json" '{
   "files": .files, 
   "exports": .exports, 
   "scripts": { 
-    "test:e2e:playwright": .scripts."test:e2e:playwright:docker"
-  }
+    "test:e2e": .scripts."test:e2e:docker"
+  },
+  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
 }'
 
 # Prepare packages/styles/package.json
 prepare_package "packages/styles/package.json" '{
   name, 
-  "scripts": { "test:e2e:playwright": .scripts."test:e2e:playwright:docker" }
+  "scripts": { "test:e2e": .scripts."test:e2e:docker" },
+  "devDependencies": { "@mgdis/playwright-helpers": .devDependencies."@mgdis/playwright-helpers" }
 }'
 
 # Prepare apps/notification-center/package.json
@@ -81,11 +84,18 @@ prepare_package "apps/notification-center/package.json" '{
   }
 }'
 
+# Prepare packages/playwright-helpers/package.json
+prepare_package "packages/playwright-helpers/package.json" '{
+  name, 
+  main,
+  types
+}'
+
 # Create turbo.json
 echo '{
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
-    "test:e2e:playwright": {}
+    "test:e2e": {}
   }
 }' > "$temp_dir/turbo.json"
 echo "[$script_name] turbo.json added to your project."
