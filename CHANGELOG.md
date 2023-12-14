@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2023-12-14-10-30_Late-Laser-Lemon-Locust)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2023-11-21-11-14_Tender-Timberwolf-Termite)
 
 ### Packages released
