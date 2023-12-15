@@ -1,4 +1,6 @@
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
+import { requiredMessageStatus } from '../mg-form.conf';
 
 const TIMEOUT = 1000;
 
@@ -99,12 +101,14 @@ const inputsScriptDisabledAll = `<script>
   mgInputToggle.disabled = true;
 </script>`;
 
+const requiredMessageDefault = 'you need <strong>batman</strong>';
+
 describe('mg-form', () => {
   test.beforeEach(async ({ page }) => {
     page.setViewportSize({ width: 800, height: 800 });
   });
 
-  describeEach([`<mg-form>`, `<mg-form disabled>`, `<mg-form readonly>`, `<mg-form required-message-hide>`])('startTag %s', (startTag: string) => {
+  describeEach([`<mg-form>`, `<mg-form disabled>`, `<mg-form readonly>`])('startTag %s', (startTag: string) => {
     test(`Should render`, async ({ page }) => {
       await setPageContent(
         page,
@@ -135,6 +139,28 @@ describe('mg-form', () => {
       elementHandle.evaluate(el => {
         el.setAttribute('style', '--mg-form-inputs-title-width: 25rem;');
       });
+
+      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  describeEach([true, false])('required %s', required => {
+    testEach([
+      { requiredMessageDefault },
+      ...requiredMessageStatus.map(requiredMessage => ({ requiredMessage })),
+      ...requiredMessageStatus.map(requiredMessage => ({ requiredMessage, requiredMessageDefault })),
+    ])(`Should render with props %s`, async (page: PageType, args) => {
+      await setPageContent(
+        page,
+        `<mg-form ${renderAttributes(args)}>
+        ${inputs}
+        </mg-form>
+        ${inputsScript}
+        ${inputsScriptSetValues}
+        ${required ? inputsScriptRequiredSome : ''}`,
+      );
 
       await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
 

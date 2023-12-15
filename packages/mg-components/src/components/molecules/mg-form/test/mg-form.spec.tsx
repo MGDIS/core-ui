@@ -15,7 +15,7 @@ import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/MgInput.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
 import { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title';
-import { roles } from '../mg-form.conf';
+import { requiredMessageStatus, roles } from '../mg-form.conf';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
@@ -92,6 +92,8 @@ const setMgInputChecboxeInvalid = (input: HTMLMgInputCheckboxElement): void => {
   ];
 };
 
+const requiredFields = [undefined, 'one', 'all', 'multiple', 'single'];
+
 describe('mg-form', () => {
   let fireMo;
 
@@ -116,13 +118,10 @@ describe('mg-form', () => {
     { args: { identifier: 'identifier' } },
     { args: { identifier: 'identifier', readonly: true } },
     { args: { identifier: 'identifier', disabled: true } },
-    { args: { identifier: 'identifier', requiredMessageHide: true } },
-    { args: { identifier: 'identifier' }, required: 'one' },
-    { args: { identifier: 'identifier' }, required: 'all' },
-    { args: { identifier: 'identifier' }, required: 'multiple' },
-    { args: { identifier: 'identifier' }, required: 'single' },
     { args: { identifier: 'identifier' }, readonly: true },
-  ])('Should render with args %o:', async ({ args, required, readonly }) => {
+    ...requiredFields.flatMap(required => [undefined, 'you need batman'].map(requiredMessageDefault => ({ args: { identifier: 'identifier', requiredMessageDefault }, required }))),
+    ...requiredFields.flatMap(required => [undefined, ...requiredMessageStatus].map(requiredMessage => ({ args: { identifier: 'identifier', requiredMessage }, required }))),
+  ])('Should render with args %o:', async ({ args, required, readonly }: Partial<{ args; required; readonly }>) => {
     const slot = required === 'single' ? getSlottedContent()[0] : getSlottedContent();
     if (required === 'one') slot[0].$attrs$.required = true;
     else if (required === 'all')
@@ -181,12 +180,30 @@ describe('mg-form', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test.each(['toto'])('Should throw error, case "ariaRole" prop', async ariaRole => {
+  test.each([' ', 'batman'])('Should throw error, case "ariaRole" prop value %s', async ariaRole => {
     expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', ariaRole }, getSlottedContent());
     } catch (err) {
       expect(err.message).toEqual('<mg-form> prop "ariaRole" must be one of: form, search, none, presentation.');
+    }
+  });
+
+  test.each([' ', 'batman'])('Should throw error, case "requiredMessage" prop value %s', async requiredMessage => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', requiredMessage }, getSlottedContent());
+    } catch (err) {
+      expect(err.message).toEqual('<mg-form> prop "requiredMessage" must be one of: default, hide.');
+    }
+  });
+
+  test.each([' ', {}])('Should throw error, case "requiredMessageDefault" prop value %s', async requiredMessageDefault => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', requiredMessageDefault }, getSlottedContent());
+    } catch (err) {
+      expect(err.message).toEqual('<mg-form> prop "requiredMessageDefault" must be a valid string.');
     }
   });
 
@@ -256,7 +273,7 @@ describe('mg-form', () => {
   test.each([
     {
       slot: () => [<mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
-      message: null,
+      message: undefined,
     },
     {
       slot: () => [
@@ -273,7 +290,7 @@ describe('mg-form', () => {
           <span slot="item-2">oui</span>
         </mg-input-toggle>,
       ],
-      message: null,
+      message: undefined,
     },
     {
       slot: () => [<mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
@@ -357,7 +374,7 @@ describe('mg-form', () => {
   ])('Should display needeed required message', async ({ slot, message }) => {
     const page = await getPage({ identifier: 'identifier' }, slot());
 
-    expect(page.rootInstance.requiredMessage).toBe(message);
+    expect(page.rootInstance.requiredMessageText).toBe(message);
   });
 
   test.each([undefined, ...buttonTypes])('Should only emit "submit" event for <mg-button type="submit">, case type is %s', async type => {

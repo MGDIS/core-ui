@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-15T07:51:05",
+  "timestamp": "2023-12-15T11:39:24",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.8.2",
@@ -1206,21 +1206,54 @@
           "required": false
         },
         {
-          "name": "requiredMessageHide",
-          "type": "boolean",
+          "name": "requiredMessage",
+          "type": "\"default\" | \"hide\"",
           "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
+            "original": "RequiredMessageStatusType",
+            "resolved": "\"default\" | \"hide\"",
+            "references": {
+              "RequiredMessageStatusType": {
+                "location": "import",
+                "path": "./mg-form.conf",
+                "id": "src/components/molecules/mg-form/mg-form.conf.ts::RequiredMessageStatusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "required-message",
+          "reflectToAttr": false,
+          "docs": "Define when required message is display.\nWhen you set the prop to `default`, component internal logique manage if \"required message\" help text will be displaied.\nWhen you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM.\nAs **this element is an accessibility requirement in the view**,\nyou **MUST*** re-implement this message on your own and display it when your form contains required inputs.",
+          "docsTags": [],
+          "default": "'default'",
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "hide",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "requiredMessageDefault",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
             "references": {}
           },
           "mutable": false,
-          "attr": "required-message-hide",
+          "attr": "required-message-default",
           "reflectToAttr": false,
-          "docs": "Define if required message is hidden.\nWhen you set the prop to `true`, it will prevent the rendering of the message in the component's DOM.\nAs **this element is an accessibility requirement in the view**,\nyou **MUST*** re-implement this message on your own and display it when your form contains required inputs.",
+          "docs": "Override default required message",
           "docsTags": [],
           "values": [
             {
-              "type": "boolean"
+              "type": "string"
             }
           ],
           "optional": false,
@@ -9400,6 +9433,11 @@
       "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-form/mg-form.conf.ts::RequiredMessageStatusType": {
+      "declaration": "\"default\" | \"hide\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-form/mg-form.conf.ts"
     },
     "src/components/molecules/mg-form/mg-form.conf.ts::AriaRoleType": {
       "declaration": "\"none\" | \"form\" | \"search\" | \"presentation\"",
