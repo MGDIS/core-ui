@@ -1,5 +1,13 @@
 # Changelog
 
+## Release (2023-12-15-15-32_Ashamed-Atomic-Tangerine-Anteater)
+
+### Packages released
+
+- [img changelog](packages/img/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2023-12-14-10-30_Late-Laser-Lemon-Locust)
 
 ### Packages released

@@ -1,5 +1,20 @@
 # @mgdis/mg-components
 
+## 5.21.0
+
+### Minor Changes
+
+- 61e9536: [#436](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/436) mg-form: add props `requiredMessage` to manage the "required message" display
+- 255c878: [#438](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/438) mg-form: add role on `<form />` element
+
+### Patch Changes
+
+- 71d4e98: [#434](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/434) mg-item-more: console errors
+- Updated dependencies [1cc5669]
+- Updated dependencies [71d4e98]
+  - @mgdis/img@1.6.0
+  - @mgdis/styles@1.0.1
+
 ## 5.20.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.6.0
+
+### Minor Changes
+
+- 1cc5669: Add illustrations
+
 ## 1.5.0
 
 ### Minor Changes

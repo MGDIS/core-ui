@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.0.1
+
+### Patch Changes
+
+- 71d4e98: [#434](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/434) mg-item-more: console errors
+
 ## 1.0.0
 
 ### Major Changes
