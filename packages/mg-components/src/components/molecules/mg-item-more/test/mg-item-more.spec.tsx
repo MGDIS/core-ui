@@ -42,10 +42,19 @@ const getPage = async args => {
     ),
   });
 
+  // flush main menu [componentDidLoad setTimeout]
   jest.runAllTimers();
 
+  // render mg-item-more element
   await page.waitForChanges();
 
+  // flush mg-item-more [componentDidLoad setTimeout]
+  jest.runOnlyPendingTimers();
+
+  // render mg-item-more [componentDidUpdate] state update
+  await page.waitForChanges();
+
+  // flush data-overflow-more > mg-menu mg-menu-item[componentDidLoad setTimeout]
   jest.runOnlyPendingTimers();
 
   udpateItemMorePopoverId(page);

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-14T10:44:03",
+  "timestamp": "2023-12-15T07:51:05",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.8.2",
@@ -1057,6 +1057,46 @@
       "usage": {},
       "props": [
         {
+          "name": "ariaRole",
+          "type": "\"form\" | \"none\" | \"presentation\" | \"search\"",
+          "complexType": {
+            "original": "AriaRoleType",
+            "resolved": "\"form\" | \"none\" | \"presentation\" | \"search\"",
+            "references": {
+              "AriaRoleType": {
+                "location": "import",
+                "path": "./mg-form.conf",
+                "id": "src/components/molecules/mg-form/mg-form.conf.ts::AriaRoleType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "aria-role",
+          "reflectToAttr": false,
+          "docs": "Define `<form/>` element aria role\nsee more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "form",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "presentation",
+              "type": "string"
+            },
+            {
+              "value": "search",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -1176,7 +1216,7 @@
           "mutable": false,
           "attr": "required-message-hide",
           "reflectToAttr": false,
-          "docs": "Define if required message is hidden.\nWhen you toggle the prop to true, it will not render the message element in component DOM.\nAs **this element is an accessibility requirement in the view**,\nyou must re-implement this message by your own and display it when you form contain required inputs.",
+          "docs": "Define if required message is hidden.\nWhen you set the prop to `true`, it will prevent the rendering of the message in the component's DOM.\nAs **this element is an accessibility requirement in the view**,\nyou **MUST*** re-implement this message on your own and display it when your form contains required inputs.",
           "docsTags": [],
           "values": [
             {
@@ -9360,6 +9400,11 @@
       "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-form/mg-form.conf.ts::AriaRoleType": {
+      "declaration": "\"none\" | \"form\" | \"search\" | \"presentation\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-form/mg-form.conf.ts"
     },
     "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
       "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",

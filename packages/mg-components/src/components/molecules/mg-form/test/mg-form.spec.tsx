@@ -15,6 +15,7 @@ import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/MgInput.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
 import { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title';
+import { roles } from '../mg-form.conf';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
@@ -171,6 +172,22 @@ describe('mg-form', () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
+  });
+
+  test.each([undefined, null, ...roles])('Should set form element role from "ariaRole" prop', async ariaRole => {
+    const page = await getPage({ identifier: 'identifier', ariaRole }, getSlottedContent());
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test.each(['toto'])('Should throw error, case "ariaRole" prop', async ariaRole => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', ariaRole }, getSlottedContent());
+    } catch (err) {
+      expect(err.message).toEqual('<mg-form> prop "ariaRole" must be one of: form, search, none, presentation.');
+    }
   });
 
   test.each(['fr', 'xx'])('display error message with locale: %s', async lang => {

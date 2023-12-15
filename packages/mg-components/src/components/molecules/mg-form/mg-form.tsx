@@ -2,6 +2,7 @@ import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch 
 import { createID, ClassList } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
+import { AriaRoleType, roles } from './mg-form.conf';
 
 @Component({
   tag: 'mg-form',
@@ -55,6 +56,16 @@ export class MgForm {
    * you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
    */
   @Prop() requiredMessageHide: boolean;
+
+  /**
+   * Define `<form/>` element aria role
+   * see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
+   */
+  @Prop() ariaRole: AriaRoleType;
+  @Watch('ariaRole')
+  validateAriaRole(newValue: MgForm['ariaRole']) {
+    if (newValue && !roles.includes(newValue)) throw new Error(`<mg-form> prop "ariaRole" must be one of: ${roles.join(', ')}.`);
+  }
 
   /**
    * Define if form is disabled
@@ -202,6 +213,8 @@ export class MgForm {
     // Get locales
     this.messages = initLocales(this.element).messages;
 
+    this.validateAriaRole(this.ariaRole);
+
     // Get slotted mgButtons
     this.mgButtons = Array.from(this.element.querySelectorAll('mg-button'));
 
@@ -244,7 +257,7 @@ export class MgForm {
    */
   render(): HTMLElement {
     return (
-      <form class={this.classCollection.join()} id={this.identifier} name={this.name} onSubmit={this.handleFormSubmit}>
+      <form class={this.classCollection.join()} id={this.identifier} name={this.name} onSubmit={this.handleFormSubmit} role={this.ariaRole}>
         {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}

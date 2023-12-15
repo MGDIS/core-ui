@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.5.0
+
+### Minor Changes
+
+- ebdeb20: add circle icon
+
 ## 1.4.0
 
 ### Minor Changes
