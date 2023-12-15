@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassList, isValidString } from '../../../utils/components.utils';
+import { createID, ClassList } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
@@ -51,23 +51,16 @@ export class MgForm {
 
   /**
    * Define when required message is display.
-   * When you set the prop to `default`, component internal logique manage if "required message" help text will be displaied.
+   * When it is unset, component use it internal logic to manage "required message" help text display.
+   * When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text.
    * When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM.
    * As **this element is an accessibility requirement in the view**,
    * you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
    */
-  @Prop() requiredMessage: RequiredMessageStatusType = 'default';
+  @Prop() requiredMessage: RequiredMessageStatusType;
   @Watch('requiredMessage')
   validateRequiredMessage(newValue): void {
     if (newValue && !requiredMessageStatus.includes(newValue)) throw new Error(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}.`);
-  }
-
-  /**
-   * Override default required message
-   */
-  @Prop() requiredMessageDefault: string;
-  validateRequiredMessageDefault(newValue): void {
-    if (newValue && !isValidString(newValue)) throw new Error(`<mg-form> prop "requiredMessageDefault" must be a valid string.`);
   }
 
   /**
@@ -87,7 +80,6 @@ export class MgForm {
   @Watch('readonly')
   @Watch('disabled')
   @Watch('requiredMessage')
-  @Watch('requiredMessageDefault')
   handleAttributeChange(): void {
     this.setMgInputs();
     this.setRequiredMessage();
@@ -142,11 +134,14 @@ export class MgForm {
    */
   private setRequiredMessage = (): void => {
     // init required message
-    this.requiredMessageText = this.requiredMessageDefault;
+    this.requiredMessageText = null;
     this.classCollection.delete(this.classAllRequired);
 
-    // exit process when `requiredMessageDefault` is defined
-    if (this.requiredMessageDefault) return;
+    if (this.requiredMessage === 'hide') return;
+    else if (this.requiredMessage === 'default') {
+      this.requiredMessageText = this.messages.form.required;
+      return;
+    }
 
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)
@@ -233,7 +228,6 @@ export class MgForm {
 
     this.validateAriaRole(this.ariaRole);
     this.validateRequiredMessage(this.requiredMessage);
-    this.validateRequiredMessageDefault(this.requiredMessageDefault);
 
     // Get slotted mgButtons
     this.mgButtons = Array.from(this.element.querySelectorAll('mg-button'));
@@ -276,7 +270,7 @@ export class MgForm {
   render(): HTMLElement {
     return (
       <form class={this.classCollection.join()} id={this.identifier} name={this.name} onSubmit={this.handleFormSubmit} role={this.ariaRole}>
-        {this.requiredMessageText && this.requiredMessage !== 'hide' && <p innerHTML={this.requiredMessageText}></p>}
+        {this.requiredMessageText && <p innerHTML={this.requiredMessageText}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}
       </form>

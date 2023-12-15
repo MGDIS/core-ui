@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../.storybook/utils';
-import { roles } from '../mg-form.conf';
+import { requiredMessageStatus, roles } from '../mg-form.conf';
 
 export default {
   component: 'mg-form',
@@ -9,6 +9,10 @@ export default {
   argTypes: {
     type: {
       options: [undefined, ...roles],
+      control: { type: 'select' },
+    },
+    requiredMessage: {
+      options: [undefined, ...requiredMessageStatus],
       control: { type: 'select' },
     },
   },
@@ -21,7 +25,6 @@ const args = {
   disabled: false,
   ariaRole: undefined,
   requiredMessage: undefined,
-  requiredMessageDefault: undefined,
 };
 
 /**

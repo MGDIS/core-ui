@@ -101,8 +101,6 @@ const inputsScriptDisabledAll = `<script>
   mgInputToggle.disabled = true;
 </script>`;
 
-const requiredMessageDefault = 'you need <strong>batman</strong>';
-
 describe('mg-form', () => {
   test.beforeEach(async ({ page }) => {
     page.setViewportSize({ width: 800, height: 800 });
@@ -147,11 +145,7 @@ describe('mg-form', () => {
   });
 
   describeEach([true, false])('required %s', required => {
-    testEach([
-      { requiredMessageDefault },
-      ...requiredMessageStatus.map(requiredMessage => ({ requiredMessage })),
-      ...requiredMessageStatus.map(requiredMessage => ({ requiredMessage, requiredMessageDefault })),
-    ])(`Should render with props %s`, async (page: PageType, args) => {
+    testEach([...requiredMessageStatus.map(requiredMessage => ({ requiredMessage }))])(`Should render with props %s`, async (page: PageType, args) => {
       await setPageContent(
         page,
         `<mg-form ${renderAttributes(args)}>

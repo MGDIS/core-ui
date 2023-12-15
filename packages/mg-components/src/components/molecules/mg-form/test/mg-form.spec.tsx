@@ -119,7 +119,6 @@ describe('mg-form', () => {
     { args: { identifier: 'identifier', readonly: true } },
     { args: { identifier: 'identifier', disabled: true } },
     { args: { identifier: 'identifier' }, readonly: true },
-    ...requiredFields.flatMap(required => [undefined, 'you need batman'].map(requiredMessageDefault => ({ args: { identifier: 'identifier', requiredMessageDefault }, required }))),
     ...requiredFields.flatMap(required => [undefined, ...requiredMessageStatus].map(requiredMessage => ({ args: { identifier: 'identifier', requiredMessage }, required }))),
   ])('Should render with args %o:', async ({ args, required, readonly }: Partial<{ args; required; readonly }>) => {
     const slot = required === 'single' ? getSlottedContent()[0] : getSlottedContent();
@@ -198,15 +197,6 @@ describe('mg-form', () => {
     }
   });
 
-  test.each([' ', {}])('Should throw error, case "requiredMessageDefault" prop value %s', async requiredMessageDefault => {
-    expect.assertions(1);
-    try {
-      await getPage({ identifier: 'identifier', requiredMessageDefault }, getSlottedContent());
-    } catch (err) {
-      expect(err.message).toEqual('<mg-form> prop "requiredMessageDefault" must be a valid string.');
-    }
-  });
-
   test.each(['fr', 'xx'])('display error message with locale: %s', async lang => {
     const args = { identifier: 'identifier', lang };
 
@@ -273,7 +263,7 @@ describe('mg-form', () => {
   test.each([
     {
       slot: () => [<mg-input-text identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],
-      message: undefined,
+      message: null,
     },
     {
       slot: () => [
@@ -290,7 +280,7 @@ describe('mg-form', () => {
           <span slot="item-2">oui</span>
         </mg-input-toggle>,
       ],
-      message: undefined,
+      message: null,
     },
     {
       slot: () => [<mg-input-text required identifier="mg-input-text" label="mg-input-text label"></mg-input-text>],

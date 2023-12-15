@@ -202,13 +202,9 @@ export namespace Components {
          */
         "readonly": boolean;
         /**
-          * Define when required message is display. When you set the prop to `default`, component internal logique manage if "required message" help text will be displaied. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
+          * Define when required message is display. When it is unset, component use it internal logic to manage "required message" help text display. When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
          */
         "requiredMessage": RequiredMessageStatusType;
-        /**
-          * Override default required message
-         */
-        "requiredMessageDefault": string;
         /**
           * Define form valid state
          */
@@ -2055,13 +2051,9 @@ declare namespace LocalJSX {
          */
         "readonly"?: boolean;
         /**
-          * Define when required message is display. When you set the prop to `default`, component internal logique manage if "required message" help text will be displaied. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
+          * Define when required message is display. When it is unset, component use it internal logic to manage "required message" help text display. When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
          */
         "requiredMessage"?: RequiredMessageStatusType;
-        /**
-          * Override default required message
-         */
-        "requiredMessageDefault"?: string;
         /**
           * Define form valid state
          */
