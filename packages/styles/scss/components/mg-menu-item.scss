@@ -26,7 +26,7 @@ $navigation-button-sizes: (
   @each $name, $size in $button-sizes {
     // Building level from 1 to 6
     @for $i from 1 through 6 {
-      :host([data-style-direction-vertical][data-level='#{$i}']) {
+      :host([data-style-direction='vertical'][data-level='#{$i}']) {
         .mg-c-menu-item__navigation-button.mg-c-menu-item__navigation-button--size-#{$name} {
           padding-left: calc(#{$i} * #{map.get($size, 'horizontal')} - 0.3rem);
         }
@@ -86,7 +86,7 @@ $navigation-button-sizes: (
 }
 
 // vertical item style
-:host([data-style-direction-vertical]) {
+:host([data-style-direction='vertical']) {
   flex-direction: column;
 
   .mg-c-menu-item {
@@ -127,7 +127,7 @@ $navigation-button-sizes: (
 }
 
 // horizontal item style
-:host([data-style-direction-horizontal]),
+:host([data-style-direction='horizontal']),
 :host([data-overflow-more]) {
   .mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
     background-color: hsl(var(--color-light));
