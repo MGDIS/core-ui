@@ -1,10 +1,17 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '../../../../../.storybook/utils';
+import { roles } from '../mg-form.conf';
 
 export default {
   component: 'mg-form',
   title: 'Molecules/mg-form',
   parameters: { actions: { handles: ['form-valid', 'form-submit'] } },
+  argTypes: {
+    type: {
+      options: [undefined, ...roles],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const args = {
@@ -12,6 +19,7 @@ const args = {
   name: 'input-name',
   readonly: false,
   disabled: false,
+  ariaRole: undefined,
 };
 
 /**

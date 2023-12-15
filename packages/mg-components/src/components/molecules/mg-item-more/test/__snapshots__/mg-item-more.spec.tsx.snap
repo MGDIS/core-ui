@@ -5,7 +5,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -24,7 +24,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -43,7 +43,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -64,7 +64,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <mg-popover>
             <mock:shadow-root>
@@ -108,7 +108,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -127,7 +127,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -146,7 +146,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -177,7 +177,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="#">
         <slot name="image"></slot>
@@ -196,7 +196,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -215,7 +215,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -236,7 +236,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <mg-popover>
             <mock:shadow-root>
@@ -280,7 +280,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -299,7 +299,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -318,7 +318,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -349,7 +349,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -368,7 +368,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -387,7 +387,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -408,7 +408,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -434,7 +434,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -453,7 +453,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -472,7 +472,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -503,7 +503,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -522,7 +522,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -541,7 +541,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -562,7 +562,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="active">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="active">
         <mock:shadow-root>
           <mg-popover>
             <mock:shadow-root>
@@ -606,7 +606,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="active">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="active">
             <mock:shadow-root>
               <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical">
                 <slot name="image"></slot>
@@ -625,7 +625,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -644,7 +644,7 @@ exports[`mg-item-more events should update proxy status when base item status-ch
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -675,7 +675,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal id="my-id-1" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" id="my-id-1" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -694,7 +694,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal id="my-id-2" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" id="my-id-2" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -713,7 +713,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal id="my-id-3" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" id="my-id-3" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -734,7 +734,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -760,7 +760,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical id="my-id-1-proxy" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" id="my-id-1-proxy" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -779,7 +779,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical id="my-id-2-proxy" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" id="my-id-2-proxy" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -798,7 +798,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical id="my-id-3-proxy" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" id="my-id-3-proxy" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -829,7 +829,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -848,7 +848,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -867,7 +867,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -888,7 +888,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -914,7 +914,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -933,7 +933,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -952,7 +952,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -983,7 +983,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1003,7 +1003,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1023,7 +1023,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1045,7 +1045,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="large" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="large" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -1071,7 +1071,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1090,7 +1090,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1109,7 +1109,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1140,7 +1140,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1159,7 +1159,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1178,7 +1178,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1199,7 +1199,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -1225,7 +1225,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1244,7 +1244,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1263,7 +1263,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1294,7 +1294,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1313,7 +1313,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1332,7 +1332,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1353,7 +1353,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -1379,7 +1379,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1398,7 +1398,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1417,7 +1417,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1448,7 +1448,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1467,7 +1467,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1486,7 +1486,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1507,7 +1507,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" data-style-direction-horizontal role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
           <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
@@ -1533,7 +1533,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1552,7 +1552,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1571,7 +1571,7 @@ exports[`mg-item-more should fire disconnect callback 1`] = `
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction-horizontal data-style-direction-vertical role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" role="listitem" status="visible">
             <mock:shadow-root>
               <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
@@ -1602,7 +1602,7 @@ exports[`mg-item-more should fire disconnect callback 2`] = `
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1621,7 +1621,7 @@ exports[`mg-item-more should fire disconnect callback 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -1640,7 +1640,7 @@ exports[`mg-item-more should fire disconnect callback 2`] = `
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction-horizontal role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
