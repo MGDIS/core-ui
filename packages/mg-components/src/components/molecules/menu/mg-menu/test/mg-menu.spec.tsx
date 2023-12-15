@@ -62,6 +62,11 @@ const getPage = async (args, options = { submenu: true, itemMore: false }) => {
     ),
   });
 
+  // flush mg-menu timeout and render
+  jest.runOnlyPendingTimers();
+  await page.waitForChanges();
+
+  // flush mg-item-more timeout and render
   jest.runOnlyPendingTimers();
   await page.waitForChanges();
 
