@@ -844,6 +844,30 @@ importers:
         specifier: ^1.0.4
         version: 1.0.4(@types/node@20.10.4)
 
+  packages/stencil-helpers:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.9.0
+        version: 20.10.4
+      '@vitest/coverage-v8':
+        specifier: ^1.0.4
+        version: 1.0.4(vitest@1.0.4)
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../../configs/eslint-config-custom
+      prettier-config:
+        specifier: workspace:*
+        version: link:../../configs/prettier-config
+      tsconfig:
+        specifier: workspace:*
+        version: link:../../configs/tsconfig
+      typescript:
+        specifier: 5.3.3
+        version: 5.3.3
+      vitest:
+        specifier: ^1.0.4
+        version: 1.0.4(@types/node@20.10.4)
+
   packages/styles:
     dependencies:
       modern-normalize:

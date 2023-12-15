@@ -1,0 +1,30 @@
+{
+  "name": "@mgdis/stencil-helpers",
+  "version": "0.0.0",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.{ts,tsx}' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{js,ts,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "@vitest/coverage-v8": "^1.0.4",
+    "eslint-config-custom": "workspace:*",
+    "prettier-config": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "5.3.3",
+    "vitest": "^1.0.4"
+  }
+}
