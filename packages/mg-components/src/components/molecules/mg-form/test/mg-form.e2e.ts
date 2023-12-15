@@ -1,4 +1,6 @@
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
+import { requiredMessageStatus } from '../mg-form.conf';
 
 const TIMEOUT = 1000;
 
@@ -135,6 +137,24 @@ describe('mg-form', () => {
       elementHandle.evaluate(el => {
         el.setAttribute('style', '--mg-form-inputs-title-width: 25rem;');
       });
+
+      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  describeEach([true, false])('required %s', required => {
+    testEach([...requiredMessageStatus.map(requiredMessage => ({ requiredMessage }))])(`Should render with props %s`, async (page: PageType, args) => {
+      await setPageContent(
+        page,
+        `<mg-form ${renderAttributes(args)}>
+        ${inputs}
+        </mg-form>
+        ${inputsScript}
+        ${inputsScriptSetValues}
+        ${required ? inputsScriptRequiredSome : ''}`,
+      );
 
       await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
 

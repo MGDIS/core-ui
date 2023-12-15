@@ -9,7 +9,7 @@ import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } fr
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
-import { AriaRoleType } from "./components/molecules/mg-form/mg-form.conf";
+import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Width } from "./components/molecules/inputs/MgInput.conf";
@@ -31,7 +31,7 @@ export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } fr
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
-export { AriaRoleType } from "./components/molecules/mg-form/mg-form.conf";
+export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Width } from "./components/molecules/inputs/MgInput.conf";
@@ -201,6 +201,10 @@ export namespace Components {
           * Define if form is readonly
          */
         "readonly": boolean;
+        /**
+          * Define when required message is display. When it is unset, component use it internal logic to manage "required message" help text display. When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
+         */
+        "requiredMessage": RequiredMessageStatusType;
         /**
           * Define form valid state
          */
@@ -2046,6 +2050,10 @@ declare namespace LocalJSX {
           * Define if form is readonly
          */
         "readonly"?: boolean;
+        /**
+          * Define when required message is display. When it is unset, component use it internal logic to manage "required message" help text display. When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
+         */
+        "requiredMessage"?: RequiredMessageStatusType;
         /**
           * Define form valid state
          */

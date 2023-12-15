@@ -2,7 +2,7 @@ import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch 
 import { createID, ClassList } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
-import { AriaRoleType, roles } from './mg-form.conf';
+import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
 
 @Component({
   tag: 'mg-form',
@@ -50,6 +50,20 @@ export class MgForm {
   @Prop() readonly = false;
 
   /**
+   * Define when required message is display.
+   * When it is unset, component use it internal logic to manage "required message" help text display.
+   * When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text.
+   * When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM.
+   * As **this element is an accessibility requirement in the view**,
+   * you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
+   */
+  @Prop() requiredMessage: RequiredMessageStatusType;
+  @Watch('requiredMessage')
+  validateRequiredMessage(newValue): void {
+    if (newValue && !requiredMessageStatus.includes(newValue)) throw new Error(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}.`);
+  }
+
+  /**
    * Define `<form/>` element aria role
    * see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
    */
@@ -65,6 +79,7 @@ export class MgForm {
   @Prop() disabled = false;
   @Watch('readonly')
   @Watch('disabled')
+  @Watch('requiredMessage')
   handleAttributeChange(): void {
     this.setMgInputs();
     this.setRequiredMessage();
@@ -88,7 +103,7 @@ export class MgForm {
   /**
    * Required message
    */
-  @State() requiredMessage: string;
+  @State() requiredMessageText: string;
 
   /**
    * Emitted event on form validity check
@@ -119,8 +134,15 @@ export class MgForm {
    */
   private setRequiredMessage = (): void => {
     // init required message
-    this.requiredMessage = null;
+    this.requiredMessageText = null;
     this.classCollection.delete(this.classAllRequired);
+
+    if (this.requiredMessage === 'hide') return;
+    else if (this.requiredMessage === 'default') {
+      this.requiredMessageText = this.messages.form.required;
+      return;
+    }
+
     // If the form is disabled or readonly none of them are required
     // Check if all fields are not editable (readonly or disabled)
     const isEditable = input => !(input.disabled || input.readonly);
@@ -136,12 +158,12 @@ export class MgForm {
         [requiredInputs.length, editableInputs.length].every(length => length === 1) ||
         (requiredInputs.length > 1 && requiredInputs.length === editableInputs.filter(input => !isMgInputToggle(input)).length)
       ) {
-        this.requiredMessage = this.getRequiredMessageBasedOnCount(requiredInputs, 'allRequiredSingle', 'allRequired');
+        this.requiredMessageText = this.getRequiredMessageBasedOnCount(requiredInputs, 'allRequiredSingle', 'allRequired');
         this.classCollection.add(this.classAllRequired);
       }
       // Some fields are required
       else if (requiredInputs.length > 0) {
-        this.requiredMessage = this.getRequiredMessageBasedOnCount(requiredInputs, 'requiredSingle', 'required');
+        this.requiredMessageText = this.getRequiredMessageBasedOnCount(requiredInputs, 'requiredSingle', 'required');
       }
     }
   };
@@ -205,6 +227,7 @@ export class MgForm {
     this.messages = initLocales(this.element).messages;
 
     this.validateAriaRole(this.ariaRole);
+    this.validateRequiredMessage(this.requiredMessage);
 
     // Get slotted mgButtons
     this.mgButtons = Array.from(this.element.querySelectorAll('mg-button'));
@@ -217,9 +240,6 @@ export class MgForm {
     // Set mgInputs
     this.setMgInputs();
 
-    // Define required message
-    this.setRequiredMessage();
-
     // Check validity when slotted mgInputs are ready
     Promise.all(
       this.mgInputs.map(async input => {
@@ -228,6 +248,7 @@ export class MgForm {
         } catch {} // prevent error with VueJS first render
       }),
     ).then(() => {
+      // Define required message and check validity
       this.checkValidity();
     });
   }
@@ -249,7 +270,7 @@ export class MgForm {
   render(): HTMLElement {
     return (
       <form class={this.classCollection.join()} id={this.identifier} name={this.name} onSubmit={this.handleFormSubmit} role={this.ariaRole}>
-        {this.requiredMessage && <p innerHTML={this.requiredMessage}></p>}
+        {this.requiredMessageText && <p innerHTML={this.requiredMessageText}></p>}
         <slot></slot>
         {!this.readonly && !this.disabled && <slot name="actions"></slot>}
       </form>

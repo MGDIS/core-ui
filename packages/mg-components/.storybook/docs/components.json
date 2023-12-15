@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-14T08:04:06",
+  "timestamp": "2023-12-15T13:20:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.8.2",
@@ -1200,6 +1200,38 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "requiredMessage",
+          "type": "\"default\" | \"hide\"",
+          "complexType": {
+            "original": "RequiredMessageStatusType",
+            "resolved": "\"default\" | \"hide\"",
+            "references": {
+              "RequiredMessageStatusType": {
+                "location": "import",
+                "path": "./mg-form.conf",
+                "id": "src/components/molecules/mg-form/mg-form.conf.ts::RequiredMessageStatusType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "required-message",
+          "reflectToAttr": false,
+          "docs": "Define when required message is display.\nWhen it is unset, component use it internal logic to manage \"required message\" help text display.\nWhen you set the prop to `default`, you override the component internal logique to torce it display \"required message\" help text.\nWhen you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM.\nAs **this element is an accessibility requirement in the view**,\nyou **MUST*** re-implement this message on your own and display it when your form contains required inputs.",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "default",
+              "type": "string"
+            },
+            {
+              "value": "hide",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -9305,11 +9337,6 @@
       "docstring": "Available menu item status",
       "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
     },
-    "src/components/molecules/mg-form/mg-form.conf.ts::AriaRoleType": {
-      "declaration": "\"none\" | \"form\" | \"search\" | \"presentation\"",
-      "docstring": "",
-      "path": "src/components/molecules/mg-form/mg-form.conf.ts"
-    },
     "src/components/atoms/mg-card/mg-card.conf.ts::VariantType": {
       "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\" | \"app\"",
       "docstring": "",
@@ -9384,6 +9411,16 @@
       "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-form/mg-form.conf.ts::RequiredMessageStatusType": {
+      "declaration": "\"default\" | \"hide\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-form/mg-form.conf.ts"
+    },
+    "src/components/molecules/mg-form/mg-form.conf.ts::AriaRoleType": {
+      "declaration": "\"none\" | \"form\" | \"search\" | \"presentation\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-form/mg-form.conf.ts"
     },
     "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
       "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
