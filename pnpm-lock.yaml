@@ -472,8 +472,8 @@ importers:
         specifier: ^4.1.1
         version: 4.2.0
       svgo:
-        specifier: 3.0.3
-        version: 3.0.3
+        specifier: 3.1.0
+        version: 3.1.0
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.10.4)(typescript@5.3.3)
@@ -17081,8 +17081,8 @@ packages:
       stable: 0.1.8
     dev: false
 
-  /svgo@3.0.3:
-    resolution: { integrity: sha512-X4UZvLhOglD5Xrp834HzGHf8RKUW0Ahigg/08yRO1no9t2NxffOkMiQ0WmaMIbaGlVTlSst2zWANsdhz5ybXgA== }
+  /svgo@3.1.0:
+    resolution: { integrity: sha512-R5SnNA89w1dYgNv570591F66v34b3eQShpIBcQtZtM5trJwm1VvxbIoMpRYY3ybTAutcKTLEmTsdnaknOHbiQA== }
     engines: { node: '>=14.0.0' }
     hasBin: true
     dependencies:
@@ -17090,6 +17090,7 @@ packages:
       commander: 7.2.0
       css-select: 5.1.0
       css-tree: 2.3.1
+      css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.0.0
     dev: true
