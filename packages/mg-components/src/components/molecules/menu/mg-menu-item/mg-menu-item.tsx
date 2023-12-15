@@ -126,7 +126,7 @@ export class MgMenuItem {
   @Watch('direction')
   validateDirection(newValue: MgMenuItem['direction']): void {
     // manage menu items style depending to parent menu horientation
-    this.element.setAttribute(`data-style-direction-${newValue}`, '');
+    this.element.setAttribute('data-style-direction', newValue);
     this.navigationButtonClassList.add(`${this.navigationButton}--${newValue}`);
     // manage all sub levels child menu-items level with data-level attribut
     if (this.isDirection(Direction.VERTICAL, newValue)) {

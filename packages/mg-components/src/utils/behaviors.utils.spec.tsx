@@ -48,8 +48,12 @@ describe('behavior.utils', () => {
           </mg-menu>,
         );
 
+        // initial menu render
         jest.runAllTimers();
+        await page.waitForChanges();
 
+        // more-item render
+        jest.runAllTimers();
         await page.waitForChanges();
 
         const items = Array.from(page.doc.querySelectorAll('mg-menu-item'));
