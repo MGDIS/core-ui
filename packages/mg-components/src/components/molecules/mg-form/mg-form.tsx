@@ -50,9 +50,9 @@ export class MgForm {
 
   /**
    * Define if required message is hidden.
-   * When you toggle the prop to true, it will not render the message element in component DOM.
+   * When you set the prop to `true`, it will prevent the rendering of the message in the component's DOM.
    * As **this element is an accessibility requirement in the view**,
-   * you must re-implement this message by your own and display it when you form contain required inputs.
+   * you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
    */
   @Prop() requiredMessageHide: boolean;
 
