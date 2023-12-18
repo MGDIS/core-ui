@@ -2,8 +2,6 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { variants } from '../mg-button.conf';
 
-const TIMEOUT = 1000;
-
 test.describe('mg-button', () => {
   variants.forEach(variant => {
     test.describe(`${variant}`, () => {
@@ -52,7 +50,6 @@ test.describe('mg-button', () => {
       page.setContent(template);
 
       const button = page.locator('mg-button.hydrated');
-      await button.waitFor({ timeout: TIMEOUT });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
