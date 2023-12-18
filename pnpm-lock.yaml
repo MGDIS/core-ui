@@ -104,15 +104,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.8.2
-        version: 4.8.2
+        specifier: 4.9.0
+        version: 4.9.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: ^3.0.0
-        version: 3.0.7(@stencil/core@4.8.2)
+        version: 3.0.7(@stencil/core@4.9.0)
       '@types/jest':
         specifier: ^29.5.8
         version: 29.5.11
@@ -607,8 +607,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.8.2
-        version: 4.8.2
+        specifier: 4.9.0
+        version: 4.9.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
@@ -4479,18 +4479,18 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@stencil/core@4.8.2:
-    resolution: {integrity: sha512-KdZEAtz9VnqMtXOkf51+8mphyRt0fN/LYgtj5M8gnveGspG8KzoyTDzlWt0wsstWIsJJ21RA1yd3AgMMZiu3MA==}
+  /@stencil/core@4.9.0:
+    resolution: {integrity: sha512-aWSkhBmk3yPwRAkUwBbzRwmdhb8hKiQ/JMr9m5jthpBZLjtppYbzz6PN2MhSMDfRp6K93eQw5WogSEH4HHuB6w==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
-  /@stencil/sass@3.0.7(@stencil/core@4.8.2):
+  /@stencil/sass@3.0.7(@stencil/core@4.9.0):
     resolution: {integrity: sha512-HcBjrh2CJ6aJnkOrBNSVyf1+x3FnUneYFk44rcx/jDK6Lx7R4w0dXMEsIR5MXqtROYWonZt7WtR8wsM1vcD+6w==}
     engines: {node: '>=12.0.0', npm: '>=6.0.0'}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.8.2
+      '@stencil/core': 4.9.0
     dev: true
 
   /@storybook/addon-a11y@7.6.4:
@@ -18576,6 +18576,7 @@ packages:
   /webpack-chain@6.5.1:
     resolution: {integrity: sha512-7doO/SRtLu8q5WM0s7vPKPWX580qhi0/yBHkOxNkv50f6qB76Zy9o2wRTrrPULqYTvQlVHuvbA8v+G5ayuUDsA==}
     engines: {node: '>=8'}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     dependencies:
       deepmerge: 1.5.2
       javascript-stringify: 2.1.0
