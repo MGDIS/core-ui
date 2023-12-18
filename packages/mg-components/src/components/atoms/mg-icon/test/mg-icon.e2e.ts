@@ -1,39 +1,38 @@
-import { PageType, describe, expect, setPageContent, testEach, test } from '../../../../utils/playwright.e2e.test.utils';
-import { renderAttributes } from '../../../../utils/e2e.test.utils';
+import { expect } from '@playwright/test';
+import { renderAttributes } from '@mgdis/playwright-helpers';
+import { test } from '../../../../utils/playwright.fixture';
 import { sizes, variantStyles, variants } from '../mg-icon.conf';
 import icons from '@mgdis/img/dist/icons/index.json';
 
-const TIMEOUT = 1000;
+const createHTML = args => `<mg-icon ${renderAttributes(args)}></mg-icon>`;
 
-const style = `<style>[variant='app']{ --mg-color-app-h: 250; }</style>`;
+test.describe('mg-icon', () => {
+  icons.forEach((icon: string) => {
+    test(`render icon ${icon}`, async ({ page }) => {
+      const html = createHTML({ icon, size: 'extra-large' });
 
-describe('mg-icon', () => {
-  testEach(icons)('renders icon %s', async (page: PageType, icon) => {
-    await setPageContent(page, `<mg-icon icon="${icon}" size="extra-large"></mg-icon>`);
+      page.setContent(html);
 
-    await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  test('render sizes', async ({ page }) => {
+    const html = sizes.map(size => createHTML({ icon: 'thumb-up', size })).join('');
+
+    page.setContent(html);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test('renders sizes', async ({ page }) => {
-    const html = sizes.map(size => `<mg-icon ${renderAttributes({ icon: 'thumb-up', size })}></mg-icon>`).join('');
-    await setPageContent(page, html);
+  variantStyles.forEach(variantStyle => {
+    test(`render variants, with variantStyle ${variantStyle}`, async ({ page }) => {
+      const html = variants.map(variant => sizes.map(size => createHTML({ icon: 'check-circle', variant, variantStyle, size })).join('')).join('');
 
-    await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
+      page.addStyleTag({ content: 'mg-icon[variant="app"]{--mg-color-app-h:250}' });
+      page.setContent(html);
 
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
-
-  testEach(variantStyles)('renders variants, with variantStyle %s', async (page: PageType, variantStyle) => {
-    const html = variants
-      .map(variant => sizes.map(size => `<mg-icon ${renderAttributes({ icon: 'check-circle', variant: variant, variantStyle, size })}></mg-icon>`).join(''))
-      .join('');
-
-    await setPageContent(page, html + style);
-
-    await page.locator('mg-icon.hydrated').first().waitFor({ timeout: TIMEOUT });
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
   });
 });
