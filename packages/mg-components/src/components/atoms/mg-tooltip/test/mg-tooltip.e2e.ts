@@ -150,7 +150,13 @@ test.describe('mg-tooltip', () => {
 
   test('Should position tooltip where it have enough place', async ({ page }) => {
     page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
-    const html = createHTML({ message: 'Batman tooltip', display: true }, '<mg-icon icon="user"></mg-icon>');
+    const html = createHTML(
+      {
+        message: 'Batman tooltip',
+        display: true,
+      },
+      '<mg-icon icon="user"></mg-icon>',
+    );
     await page.setContent(html);
 
     await page.addStyleTag({ content: 'mg-icon{position:fixed;left:0;bottom:0}' });
@@ -161,20 +167,27 @@ test.describe('mg-tooltip', () => {
 
   test('Should display long tooltip with max width', async ({ page }) => {
     const html = createHTML(
-      { message: 'my very long content should return to line because of the max-width set to 400px in the design specification' },
+      {
+        message: 'my very long content should return to line because of the max-width set to 400px in the design specification',
+        display: true,
+      },
       '<mg-icon icon="user"></mg-icon>',
     );
     await page.setContent(html);
     await page.setViewportSize({ width: 500, height: 100 });
-
-    await page.locator('mg-icon').focus();
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
 
   test('Should keep tooltip center when update "message" prop', async ({ page }) => {
     page.addStyleTag({ content: '.e2e-screenshot{display:block}mg-icon{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}' });
-    const html = createHTML({ message: 'short tooltip', display: true }, '<mg-icon icon="user"></mg-icon>');
+    const html = createHTML(
+      {
+        message: 'short tooltip',
+        display: true,
+      },
+      '<mg-icon icon="user"></mg-icon>',
+    );
     await page.setContent(html);
     await page.setViewportSize({ width: 400, height: 400 });
 
