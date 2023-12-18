@@ -1,14 +1,26 @@
-import { PageType, describe, expect, setPageContent, testEach, updateScreenshotClass } from '../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
+import { renderAttributes } from '@mgdis/playwright-helpers';
+import { test } from '../../../../utils/playwright.fixture';
 
-const TIMEOUT = 1000;
+const createHTML = args => `<mg-divider ${renderAttributes(args)}></mg-divider>`;
 
-describe('mg-divider', () => {
-  testEach(['regular', 'full'])('Should render with size %s', async (page: PageType, size: string) => {
-    await setPageContent(page, `<mg-divider size="${size}"></mg-divider>`);
+test.describe('mg-divider', () => {
+  test(`Should render with size regular`, async ({ page }) => {
+    const html = createHTML({ size: 'regular' });
 
-    if (size === 'full') await updateScreenshotClass(page, { width: '800px', height: '81px' });
+    page.setContent(html);
 
-    await page.locator('mg-divider.hydrated').waitFor({ timeout: TIMEOUT });
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test(`Should render with size full`, async ({ page }) => {
+    const html = createHTML({ size: 'full' });
+
+    page.setContent(html);
+
+    await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
+    await page.setViewportSize({ width: 800, height: 81 });
+
+    await expect(page.locator('html')).toHaveScreenshot();
   });
 });
