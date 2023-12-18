@@ -1,19 +1,19 @@
-import { renderAttributes } from '../../../../utils/e2e.test.utils';
-import { setPageContent, describe, testEach, expect, PageType } from '../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
+import { renderAttributes } from '@mgdis/playwright-helpers';
+import { test } from '../../../../utils/playwright.fixture';
 
-const createHtml = args => `<mg-input-title ${renderAttributes({ ...args, identifier: 'identifier' })}>Label</mg-input-title>`;
+const createHTML = args => `<mg-input-title ${renderAttributes({ ...args })}>${args.isLegend ? 'Legend' : 'Label'}</mg-input-title>`;
 
-const TIMEOUT = 1000;
+test.describe('mg-input-title', () => {
+  [true, false]
+    .flatMap(isLegend => [true, false].flatMap(required => [true, false].map(readonly => ({ isLegend, required, readonly, identifier: 'identifier' }))))
+    .forEach((args, index) => {
+      test(`Should render ${index + 1}`, async ({ page }) => {
+        const html = createHTML(args);
 
-describe('mg-input-title', () => {
-  testEach([true, false].flatMap(isLegend => [true, false].flatMap(required => [true, false].map(readonly => ({ isLegend, required, readonly })))))(
-    'Should render %s',
-    async (page: PageType, args) => {
-      await setPageContent(page, createHtml(args));
+        page.setContent(html);
 
-      await page.locator('mg-input-title.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    },
-  );
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
 });
