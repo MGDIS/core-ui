@@ -73,7 +73,7 @@ describe('behavior.utils', () => {
       });
     });
 
-    test('should fire disconnect callback', () => {
+    test('Should fire disconnect callback', () => {
       const behavior = new OverflowBehavior(<div></div>, () => <span></span>);
       const spy = jest.spyOn((behavior as unknown as { _resizeObserver: never })._resizeObserver, 'disconnect');
       behavior.disconnect();

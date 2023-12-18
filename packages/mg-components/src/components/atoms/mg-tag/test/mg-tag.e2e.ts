@@ -21,7 +21,7 @@ test.describe('mg-tag', () => {
             args.icon ? `<mg-icon ${renderAttributes({ icon: 'user', size: 'small' })}></mg-icon>` : ''
           }${variant}</mg-tag>`;
 
-          page.setContent(html);
+          await page.setContent(html);
           page.addStyleTag({ content: '.e2e-screenshot{padding:.1rem}' });
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -31,13 +31,13 @@ test.describe('mg-tag', () => {
   });
 
   test('Should render a 2 lines tag', async ({ page }) => {
-    page.setContent(`<mg-tag>Tag with a<br> two lines text</mg-tag>`);
+    await page.setContent(`<mg-tag>Tag with a<br> two lines text</mg-tag>`);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should render a tag in a paragraph', async ({ page }) => {
-    page.setContent(`<p>This is a <mg-tag>tag</mg-tag> in a paragraph.</p>`);
+    await page.setContent(`<p>This is a <mg-tag>tag</mg-tag> in a paragraph.</p>`);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

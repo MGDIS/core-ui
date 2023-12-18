@@ -136,7 +136,7 @@ describe('mg-popover', () => {
     }
   });
 
-  test('should update popper instance when slot %s update', async () => {
+  test('Should update popper instance when slot %s update', async () => {
     const page = await getPage({ identifier: 'identifier', display: true }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">
@@ -156,7 +156,7 @@ describe('mg-popover', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('should update mg-popover-content id when identifier is updated', async () => {
+  test('Should update mg-popover-content id when identifier is updated', async () => {
     const page = await getPage({ identifier: 'identifier' }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">

@@ -11,7 +11,7 @@ test.describe('mg-input-title', () => {
       test(`Should render ${index + 1}`, async ({ page }) => {
         const html = createHTML(args);
 
-        page.setContent(html);
+        await page.setContent(html);
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
