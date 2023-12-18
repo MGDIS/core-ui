@@ -22,8 +22,7 @@ test.describe('mg-button', () => {
 
         await page.keyboard.down('Tab');
 
-        const button = page.locator('mg-button.hover');
-        button.hover();
+        await page.locator('mg-button.hover').hover();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
@@ -49,11 +48,9 @@ test.describe('mg-button', () => {
     test(`Should disable button after keyUp "Space" with template ${template}`, async ({ page }) => {
       page.setContent(template);
 
-      const button = page.locator('mg-button.hydrated');
-
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await button.press('Space');
+      await page.locator('mg-button.hydrated').press('Space');
 
       // Remove spinner annimation for screenshot
       const svg = page.locator('svg').first();
