@@ -11,7 +11,7 @@ test.describe('mg-icon', () => {
     test(`render icon ${icon}`, async ({ page }) => {
       const html = createHTML({ icon, size: 'extra-large' });
 
-      page.setContent(html);
+      await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -20,7 +20,7 @@ test.describe('mg-icon', () => {
   test('render sizes', async ({ page }) => {
     const html = sizes.map(size => createHTML({ icon: 'thumb-up', size })).join('');
 
-    page.setContent(html);
+    await page.setContent(html);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -30,7 +30,7 @@ test.describe('mg-icon', () => {
       const html = variants.map(variant => sizes.map(size => createHTML({ icon: 'check-circle', variant, variantStyle, size })).join('')).join('');
 
       page.addStyleTag({ content: 'mg-icon[variant="app"]{--mg-color-app-h:250}' });
-      page.setContent(html);
+      await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });

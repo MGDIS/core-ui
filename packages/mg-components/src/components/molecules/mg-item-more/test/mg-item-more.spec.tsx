@@ -109,7 +109,7 @@ describe('mg-item-more', () => {
   });
 
   describe('events', () => {
-    test('should update proxy status when base item status-change event was trigger', async () => {
+    test('Should update proxy status when base item status-change event was trigger', async () => {
       const page = await getPage({ label: 'batman' });
 
       expect(page.root).toMatchSnapshot();
@@ -143,7 +143,7 @@ describe('mg-item-more', () => {
     });
   });
 
-  test('should fire disconnect callback', async () => {
+  test('Should fire disconnect callback', async () => {
     const page = await getPage({ label: 'batman' });
 
     expect(page.root).toMatchSnapshot();

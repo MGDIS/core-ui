@@ -37,7 +37,7 @@ describe('mg-skip-links', () => {
     }
   });
 
-  test('should emit event when link is clicked', async () => {
+  test('Should emit event when link is clicked', async () => {
     const page = await getPage({
       links: [
         { href: '#content', label: 'Content' },

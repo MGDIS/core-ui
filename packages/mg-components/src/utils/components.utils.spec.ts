@@ -162,7 +162,7 @@ describe('components.utils', () => {
   });
 
   describe('nextTick', () => {
-    test('should wrapp and execute a callback in a promise', async () => {
+    test('Should wrapp and execute a callback in a promise', async () => {
       const fn = jest.fn();
       const job = nextTick(fn);
       expect(job.then).toBeDefined();

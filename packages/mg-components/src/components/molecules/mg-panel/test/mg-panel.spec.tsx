@@ -175,7 +175,7 @@ describe('mg-panel', () => {
       }
     });
 
-    test('should NOT update panel title, case no enter in input', async () => {
+    test('Should NOT update panel title, case no enter in input', async () => {
       const updatedPanelTitle = 'Updated panel title';
       const args = { identifier: 'identifier', panelTitle: 'panel title', titleEditable: true };
       const page = await getPage(args);

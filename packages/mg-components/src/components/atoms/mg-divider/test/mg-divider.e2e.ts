@@ -8,7 +8,7 @@ test.describe('mg-divider', () => {
   test(`Should render with size regular`, async ({ page }) => {
     const html = createHTML({ size: 'regular' });
 
-    page.setContent(html);
+    await page.setContent(html);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -16,7 +16,7 @@ test.describe('mg-divider', () => {
   test(`Should render with size full`, async ({ page }) => {
     const html = createHTML({ size: 'full' });
 
-    page.setContent(html);
+    await page.setContent(html);
 
     await page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
     await page.setViewportSize({ width: 800, height: 81 });

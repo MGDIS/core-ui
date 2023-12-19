@@ -9,7 +9,7 @@ test.describe('mg-character-left', () => {
     { characters: 'blu blu blu blu', maxlength: 1000 },
   ].forEach((args, index) => {
     test(`Should render ${index + 1}`, async ({ page }) => {
-      page.setContent(`<mg-character-left ${renderAttributes(args)}></mg-character-left>`);
+      await page.setContent(`<mg-character-left ${renderAttributes(args)}></mg-character-left>`);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
