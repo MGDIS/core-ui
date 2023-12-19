@@ -1,9 +1,9 @@
 name: GitHub Pages Storybook Publish
 
 on:
-  push:
-    branches:
-      - master
+  create:
+    tags:
+      - '*'
 
 jobs:
   build:
