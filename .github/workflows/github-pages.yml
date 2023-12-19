@@ -1,0 +1,27 @@
+name: GitHub Pages Storybook Publish
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v2
+
+      - run: pnpm i
+      - run: pnpm build --filter=@mgdis/mg-components
+      - run: pnpm -C packages/mg-components storybook:build
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: ./packages/mg-components/storybook-static
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
