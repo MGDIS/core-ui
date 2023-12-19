@@ -158,7 +158,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    */
   render(): HTMLElement {
     const getText = (checkboxes: CheckboxItem[]): HTMLElement => <em>{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>;
-    const [from, toIndex] = this.getFromToIndexes();
+    const [from, to] = this.getFromToIndexes();
     const itemsContainerId = `items-${this.sectionKind}-container`;
 
     return (
@@ -191,7 +191,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
         </div>
         <div hidden={!this.expanded} id={itemsContainerId} class="mg-c-input__input-checkbox-multi-section-content">
           <MgInputCheckboxList
-            checkboxes={this.getArrayRange(this.checkboxes, from, toIndex)}
+            checkboxes={this.getArrayRange(this.checkboxes, from, to)}
             inputVerticalList={true}
             type={'multi'}
             displaySearchInput={true}
