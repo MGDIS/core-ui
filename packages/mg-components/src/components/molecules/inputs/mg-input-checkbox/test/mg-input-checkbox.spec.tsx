@@ -531,6 +531,37 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
+    test('Should reset pagination when popover is closed', async () => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+        title: `item ${item}`,
+        value: false,
+      }));
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+      expect(page.root).toMatchSnapshot();
+
+      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
+      const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
+      const mgPagination = mgInputCheckbox.shadowRoot.querySelector('mg-pagination');
+      const mgPaginationNext = mgPagination.shadowRoot.querySelector('mg-button:last-of-type');
+
+      mgPopover.display = true;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      expect(page.root).toMatchSnapshot();
+
+      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      mgPopover.display = false;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
     test('Should search and update values', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
         title: `item ${item}`,

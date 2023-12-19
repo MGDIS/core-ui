@@ -350,9 +350,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param event - mg-popover display-change custom event
    */
   private handleMgPopoverDisplayChange = (event: CustomEvent): void => {
-    // reset search value
     if (!event.detail) {
+      // reset search value
       this.searchValue = '';
+      // reset pagintated section current page
+      Array.from(this.element.shadowRoot.querySelectorAll('mg-input-checkbox-paginated')).forEach(element => {
+        element.currentPage = 1;
+      });
       this.checkValidity();
     }
   };
@@ -551,7 +555,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       },
     ];
 
-    return sections.map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction}></mg-input-checkbox-paginated>);
+    return sections.map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction} key={section.sectionKind}></mg-input-checkbox-paginated>);
   }
 
   /**
