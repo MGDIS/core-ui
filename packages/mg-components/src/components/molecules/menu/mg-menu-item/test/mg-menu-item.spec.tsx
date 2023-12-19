@@ -274,7 +274,7 @@ describe('mg-menu-item', () => {
         expect(element.expanded).toBe(display);
       });
 
-      test('should prevent "expanded" to be update to "false" when click inside content slot', async () => {
+      test('Should prevent "expanded" to be update to "false" when click inside content slot', async () => {
         const page = await getPage(
           menu({
             label: 'main menu',
@@ -302,7 +302,7 @@ describe('mg-menu-item', () => {
     });
 
     describe('status-change', () => {
-      test('should emit new status, when prop status change', async () => {
+      test('Should emit new status, when prop status change', async () => {
         const { rootInstance, doc } = await getPage(menuItem({ label: 'Batman' }));
 
         const item = doc.querySelector('mg-menu-item');

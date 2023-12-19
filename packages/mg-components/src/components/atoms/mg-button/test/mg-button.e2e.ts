@@ -6,7 +6,7 @@ test.describe('mg-button', () => {
   variants.forEach(variant => {
     test.describe(`${variant}`, () => {
       test(`Should render`, async ({ page }) => {
-        page.setContent(`<div>
+        await page.setContent(`<div>
   <mg-button variant="${variant}">${variant}</mg-button>
   <mg-button variant="${variant}" is-icon><mg-icon icon="check-circle"></mg-icon></mg-button>
   <mg-button variant="${variant}" disabled>disabled</mg-button>
@@ -18,7 +18,7 @@ test.describe('mg-button', () => {
 
       test(`Should render focused and hover button`, async ({ page }) => {
         const html = [`<mg-button variant="${variant}">${variant}:focus</mg-button>`, `<mg-button variant="${variant}" class="hover">${variant}:hover</mg-button>`].join('');
-        page.setContent(html);
+        await page.setContent(html);
 
         await page.keyboard.down('Tab');
 
@@ -34,8 +34,8 @@ test.describe('mg-button', () => {
 
     const html = ['batman', '<mg-icon icon="check-circle"></mg-icon>batman'].map(slot => `<mg-button full-width>${slot}</mg-button>`).join('');
 
-    page.setViewportSize({ width: 600, height: 100 });
-    page.setContent(html);
+    await page.setViewportSize({ width: 600, height: 100 });
+    await page.setContent(html);
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
@@ -46,7 +46,7 @@ test.describe('mg-button', () => {
     '<mg-button disable-on-click><mg-icon icon="info-circle"></mg-icon> Message action</mg-button>',
   ].forEach(template => {
     test(`Should disable button after keyUp "Space" with template ${template}`, async ({ page }) => {
-      page.setContent(template);
+      await page.setContent(template);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -67,13 +67,13 @@ test.describe('mg-button', () => {
       .map(slot => `<div><mg-button>${slot}</mg-button></div>`)
       .join('');
 
-    page.setContent(html);
+    await page.setContent(html);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('Should render a 2 lines button', async ({ page }) => {
-    page.setContent(`<mg-button>Button with a<br> two lines text</mg-button>`);
+    await page.setContent(`<mg-button>Button with a<br> two lines text</mg-button>`);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -81,7 +81,7 @@ test.describe('mg-button', () => {
   test('Should render a button in a paragraph', async ({ page }) => {
     const html = [`<p>This is a <mg-button>button</mg-button> in a paragraph.</p>`, `<p>This is a <mg-button variant="link">button</mg-button> in a paragraph.</p>`].join('');
 
-    page.setContent(html);
+    await page.setContent(html);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

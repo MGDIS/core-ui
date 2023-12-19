@@ -20,7 +20,7 @@ test.describe('mg-card', () => {
               if (variant === 'app') {
                 page.addStyleTag({ content: 'mg-card{--mg-color-app-h:250}' });
               }
-              page.setContent(`<mg-card ${renderAttributes({ variant, variantStyle })}>${slot}</mg-card>`);
+              await page.setContent(`<mg-card ${renderAttributes({ variant, variantStyle })}>${slot}</mg-card>`);
 
               await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
             });
@@ -40,7 +40,7 @@ test.describe('mg-card', () => {
       if (slot.includes('</mg-card>')) {
         await page.addStyleTag({ content: 'mg-card:has(> mg-card){--mg-card-background:hsl(var(--color-danger))}.custom-card--info{--mg-card-background:hsl(var(--color-info))}' });
       }
-      page.setContent(`<mg-card>${slot}</mg-card>`);
+      await page.setContent(`<mg-card>${slot}</mg-card>`);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
