@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>@storybook/cli - Storybook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="prefetch"
+      href="./sb-common-assets/nunito-sans-bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="./sb-common-assets/fonts.css" />
+
+    <link href="./sb-manager/runtime.js" rel="modulepreload" />
+
+    
+    <link href="./sb-addons/essentials-controls-0/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-actions-1/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-backgrounds-2/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-viewport-3/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-toolbars-4/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-measure-5/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/essentials-outline-6/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/a11y-7/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/links-8/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/interactions-9/manager-bundle.js" rel="modulepreload" />
+    
+    <link href="./sb-addons/storybook-10/manager-bundle.js" rel="modulepreload" />
+       
+
+    <style>
+      #storybook-root[hidden] {
+        display: none !important;
+      }
+    </style>
+
+    
+  </head>
+  <body>
+    <div id="root"></div>
+
+    
+    <script>
+      
+        
+          window['FEATURES'] = {
+  "warnOnLegacyHierarchySeparator": true,
+  "buildStoriesJson": false,
+  "storyStoreV7": true,
+  "argTypeTargetsV7": true,
+  "legacyDecoratorFileOrder": false,
+  "disallowImplicitActionsInRenderV8": false
+};
+        
+      
+        
+          window['REFS'] = {
+  "design-system": {
+    "title": "MG Components",
+    "url": "https://master--626149b307606d003ada26b4.chromatic.com",
+    "versions": {
+      "v3.2.0": "https://626149b307606d003ada26b4-kvttxoumtg.chromatic.com",
+      "v3.3.0": "https://626149b307606d003ada26b4-vvlmkghgfa.chromatic.com",
+      "v4.0.0": "https://626149b307606d003ada26b4-ghzolkevxw.chromatic.com",
+      "v4.0.1": "https://626149b307606d003ada26b4-quqsveahqo.chromatic.com",
+      "v4.1.0": "https://626149b307606d003ada26b4-wupvrtxgvq.chromatic.com",
+      "v4.1.1": "https://626149b307606d003ada26b4-zzczrlgoyf.chromatic.com",
+      "v4.2.0": "https://626149b307606d003ada26b4-pmuucitqlx.chromatic.com",
+      "v4.2.1": "https://626149b307606d003ada26b4-uviwigafgy.chromatic.com",
+      "v5.0.0": "https://626149b307606d003ada26b4-gxmtkxctlr.chromatic.com",
+      "v5.1.0": "https://626149b307606d003ada26b4-jdnrfohxpk.chromatic.com",
+      "v5.2.0": "https://626149b307606d003ada26b4-bjtukelpkg.chromatic.com",
+      "v5.3.0": "https://626149b307606d003ada26b4-bmsfvhtany.chromatic.com",
+      "v5.4.0": "https://626149b307606d003ada26b4-ritpfsldui.chromatic.com",
+      "v5.5.0": "https://626149b307606d003ada26b4-bidcqvzbyy.chromatic.com",
+      "v5.6.0": "https://626149b307606d003ada26b4-mfqwykjipt.chromatic.com",
+      "v5.7.0": "https://626149b307606d003ada26b4-yejrgaetka.chromatic.com",
+      "v5.8.0": "https://626149b307606d003ada26b4-pcrpbesovl.chromatic.com",
+      "v5.9.0": "https://626149b307606d003ada26b4-dedncomorf.chromatic.com",
+      "v5.9.1": "https://626149b307606d003ada26b4-jausjqzwui.chromatic.com",
+      "v5.10.0": "https://626149b307606d003ada26b4-eidtudwvjn.chromatic.com",
+      "v5.10.1": "https://626149b307606d003ada26b4-rpkktdqmad.chromatic.com",
+      "v5.11.0": "https://626149b307606d003ada26b4-ujajrvujgj.chromatic.com",
+      "v5.11.1": "https://626149b307606d003ada26b4-dchaczbhrl.chromatic.com",
+      "v5.12.0": "https://626149b307606d003ada26b4-flbkczbwjs.chromatic.com",
+      "v5.12.1": "https://626149b307606d003ada26b4-cqhhmkwykv.chromatic.com",
+      "v5.13.0": "https://626149b307606d003ada26b4-irorwpapfk.chromatic.com",
+      "v5.13.1": "https://626149b307606d003ada26b4-atpwyeuops.chromatic.com",
+      "v5.14.0": "https://626149b307606d003ada26b4-wdzpusywea.chromatic.com",
+      "v5.15.0": "https://626149b307606d003ada26b4-visofofaay.chromatic.com",
+      "v5.16.0": "https://626149b307606d003ada26b4-yvdqsmhnyr.chromatic.com",
+      "v5.17.0": "https://626149b307606d003ada26b4-iahrqajazh.chromatic.com",
+      "v5.18.0": "https://626149b307606d003ada26b4-rlxvhvwgkl.chromatic.com",
+      "v5.19.0": "https://626149b307606d003ada26b4-qeybxyxqyt.chromatic.com",
+      "v5.19.1": "https://626149b307606d003ada26b4-imczvwdggp.chromatic.com",
+      "v5.19.2": "https://626149b307606d003ada26b4-haqbulhpwe.chromatic.com",
+      "v5.19.3": "https://626149b307606d003ada26b4-lcftaxdtha.chromatic.com",
+      "v5.20.0": "https://626149b307606d003ada26b4-onrrmkqdnu.chromatic.com",
+      "v5.21.0": "https://626149b307606d003ada26b4-ulnjtobwhi.chromatic.com"
+    },
+    "id": "design-system",
+    "type": "server-checked"
+  }
+};
+        
+      
+        
+          window['LOGLEVEL'] = "info";
+        
+      
+        
+          window['DOCS_OPTIONS'] = {
+  "defaultName": "Docs",
+  "autodocs": true
+};
+        
+      
+        
+          window['CONFIG_TYPE'] = "PRODUCTION";
+        
+      
+        
+      
+        
+      
+    </script>
+    
+
+    <script type="module">
+      import './sb-manager/runtime.js';
+
+      
+      import './sb-addons/essentials-controls-0/manager-bundle.js';
+      
+      import './sb-addons/essentials-actions-1/manager-bundle.js';
+      
+      import './sb-addons/essentials-backgrounds-2/manager-bundle.js';
+      
+      import './sb-addons/essentials-viewport-3/manager-bundle.js';
+      
+      import './sb-addons/essentials-toolbars-4/manager-bundle.js';
+      
+      import './sb-addons/essentials-measure-5/manager-bundle.js';
+      
+      import './sb-addons/essentials-outline-6/manager-bundle.js';
+      
+      import './sb-addons/a11y-7/manager-bundle.js';
+      
+      import './sb-addons/links-8/manager-bundle.js';
+      
+      import './sb-addons/interactions-9/manager-bundle.js';
+      
+      import './sb-addons/storybook-10/manager-bundle.js';
+      
+    </script>
+
+    <link href="./sb-preview/runtime.js" rel="prefetch" as="script" />
+  </body>
+</html>
