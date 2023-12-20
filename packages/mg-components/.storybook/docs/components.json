@@ -2837,6 +2837,51 @@
           "docsTags": []
         },
         {
+          "name": "getDatePatternConfig",
+          "returns": {
+            "type": "Promise<{ pattern: string; date: string; dateMessage: string; }>",
+            "docs": "date pattern object config"
+          },
+          "complexType": {
+            "signature": "(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>",
+            "parameters": [
+              {
+                "tags": [
+                  {
+                    "name": "param",
+                    "text": "date to get formated config from. Default: new Date('2023-12-24')."
+                  }
+                ],
+                "text": "to get formated config from. Default: new Date('2023-12-24')."
+              }
+            ],
+            "references": {
+              "Promise": {
+                "location": "global",
+                "id": "global::Promise"
+              },
+              "Date": {
+                "location": "global",
+                "id": "global::Date"
+              }
+            },
+            "return": "Promise<{ pattern: string; date: string; dateMessage: string; }>"
+          },
+          "signature": "getDatePatternConfig(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>",
+          "parameters": [],
+          "docs": "Get date pattern config.\nWhen you set the helpText prop you lose the date pattern in help text.\nThis methode allow you to get all date pattern needeed informations to set your custom help text message.",
+          "docsTags": [
+            {
+              "name": "param",
+              "text": "date to get formated config from. Default: new Date('2023-12-24')."
+            },
+            {
+              "name": "returns",
+              "text": "date pattern object config"
+            }
+          ]
+        },
+        {
           "name": "setError",
           "returns": {
             "type": "Promise<void>",

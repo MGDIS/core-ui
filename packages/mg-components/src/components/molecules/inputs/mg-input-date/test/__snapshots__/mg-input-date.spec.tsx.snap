@@ -181,10 +181,13 @@ exports[`mg-input-date Should render with args {
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon icon="info-circle"></mg-icon>
           </mg-tooltip>
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -211,7 +214,10 @@ exports[`mg-input-date Should render with args {
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -228,7 +234,10 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -245,7 +254,10 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -264,7 +276,10 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
       </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -316,7 +331,10 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Format attendu : MM/DD/YYYY (ex : 12/24/2023)
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           Ce champ est obligatoire.
@@ -336,7 +354,10 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
@@ -356,7 +377,10 @@ exports[`mg-input-date display error with displayError component's public method
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -373,7 +397,10 @@ exports[`mg-input-date display error with displayError component's public method
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
@@ -393,7 +420,10 @@ exports[`mg-input-date should display override error with setError component's p
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -410,7 +440,10 @@ exports[`mg-input-date should display override error with setError component's p
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -427,7 +460,10 @@ exports[`mg-input-date should display override error with setError component's p
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -444,7 +480,10 @@ exports[`mg-input-date should display override error with setError component's p
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" required="" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           Override error
@@ -464,7 +503,10 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
@@ -484,7 +526,10 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
       </div>
     </div>
@@ -501,7 +546,10 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
-          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format : MM/DD/YYYY (ex : 12/24/2023)
         </div>
         <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
           This field is required.
