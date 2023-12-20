@@ -302,6 +302,35 @@ describe('mg-input-date', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test.each([undefined, new Date('2023-12-20')])("Should get date pattern config from getDatePatternConfig component's public method", async date => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+
+    const element = page.doc.querySelector('mg-input-date');
+    const expectedDate = date ? '12/20/2023' : '12/24/2023';
+
+    const res = await element.getDatePatternConfig(date as unknown as Date);
+    expect(res).toEqual(
+      expect.objectContaining({
+        pattern: 'MM/DD/YYYY',
+        date: expectedDate,
+        dateMessage: `Expected format : MM/DD/YYYY (ex : ${expectedDate})`,
+      }),
+    );
+  });
+
+  test.each([{}, '2023-12-20'])("Should thow error from getDatePatternConfig component's public method, case param type mismatch", async date => {
+    expect.assertions(1);
+    try {
+      const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
+
+      const element = page.doc.querySelector('mg-input-date');
+  
+      await element.getDatePatternConfig(date as unknown as Date);
+    } catch (err) {
+      expect(err.message).toBe('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
+    }
+  });
+
   test.each([
     {
       valid: '',

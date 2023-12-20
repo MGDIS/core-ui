@@ -50,6 +50,18 @@ Type: `Promise<void>`
 
 
 
+### `getDatePatternConfig(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>`
+
+Get date pattern config.
+When you set the helpText prop you lose the date pattern in help text.
+This methode allow you to get all date pattern needeed informations to set your custom help text message.
+
+#### Returns
+
+Type: `Promise<{ pattern: string; date: string; dateMessage: string; }>`
+
+date pattern object config
+
 ### `setError(valid: MgInputDate['valid'], errorMessage: string) => Promise<void>`
 
 Set an error and display a custom error message.
