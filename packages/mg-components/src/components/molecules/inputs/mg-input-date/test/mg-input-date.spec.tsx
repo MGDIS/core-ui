@@ -324,7 +324,7 @@ describe('mg-input-date', () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
 
       const element = page.doc.querySelector('mg-input-date');
-  
+
       await element.getDatePatternConfig(date as unknown as Date);
     } catch (err) {
       expect(err.message).toBe('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
