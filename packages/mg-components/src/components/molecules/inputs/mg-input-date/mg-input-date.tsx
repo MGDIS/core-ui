@@ -205,7 +205,7 @@ export class MgInputDate {
    */
   @Method()
   async getDatePatternConfig(date: Date = new Date('2023-12-24')): Promise<{ pattern: string; date: string; dateMessage: string }> {
-    if (!(date instanceof Date)) throw new Error('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".')
+    if (!(date instanceof Date)) throw new Error('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
     return {
       pattern: getLocaleDatePattern(this.systemLocale),
       date: localeDate(dateToString(date), this.systemLocale),

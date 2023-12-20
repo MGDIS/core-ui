@@ -65,7 +65,10 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-date-error">
             This field is required.
@@ -545,7 +548,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -833,7 +839,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -1086,7 +1095,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -1390,7 +1402,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -1641,7 +1656,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -1922,7 +1940,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -2168,7 +2189,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -2458,7 +2482,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -2712,7 +2739,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -3000,7 +3030,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -3253,7 +3286,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -3546,7 +3582,10 @@ exports[`mg-form Should render with args {
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -3784,7 +3823,10 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -4193,7 +4235,10 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -4602,7 +4647,10 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -4840,7 +4888,10 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -5078,7 +5129,10 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -5316,7 +5370,10 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -5554,7 +5611,10 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -5792,7 +5852,10 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
-            <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+            <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
         </div>
       </div>
@@ -6046,7 +6109,10 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Format attendu : MM/DD/YYYY (ex : 12/24/2023)
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-date-error">
             Ce champ est obligatoire.
@@ -6351,7 +6417,10 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mg-input-title>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input mg-c-input__input--has-error">
-            <input aria-describedby="mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+            <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+          </div>
+          <div class="mg-c-input__help-text" id="mg-input-date-help-text">
+            Expected format : MM/DD/YYYY (ex : 12/24/2023)
           </div>
           <div aria-live="assertive" class="mg-c-input__error" id="mg-input-date-error">
             This field is required.
