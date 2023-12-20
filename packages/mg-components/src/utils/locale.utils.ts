@@ -26,7 +26,7 @@ export const dateRegExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
 /**
  * Get date pattern base on locale
- * @param locale to tefer
+ * @param locale to refer
  * @returns date pattern
  */
 export const getLocaleDatePattern = (locale: string) => {
