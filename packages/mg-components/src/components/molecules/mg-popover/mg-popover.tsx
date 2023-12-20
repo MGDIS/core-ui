@@ -90,10 +90,7 @@ export class MgPopover {
    * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
-    const closestElement: HTMLElement = event.target.closest(`[data-mg-popover-guard]`);
-    if (!this.disabled && event.target.closest('mg-popover') !== this.element && closestElement?.dataset.mgPopoverGuard !== this.identifier) {
-      this.display = false;
-    }
+    if (!this.disabled && event.target.closest('mg-popover') !== this.element && !event.target.closest(`[data-mg-popover-guard="${this.identifier}"]`)) this.display = false;
   };
 
   /**
@@ -103,16 +100,11 @@ export class MgPopover {
     // Make the popover visible
     this.mgPopover.dataset.show = '';
     // Enable the event listeners
-    this.popper.setOptions(options => ({
-      ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: true }],
-    }));
+    this.setPopperListeners(true);
     // hide when click outside
     // setTimeout is used to prevent event to trigger after creation
     setTimeout(() => {
-      this.windows.forEach((localWindow: Window) => {
-        localWindow.addEventListener('click', this.clickOutside, false);
-      });
+      this.manageClickOutsideListeners('addEventListener');
     });
   };
 
@@ -123,13 +115,35 @@ export class MgPopover {
     // Hide the popover
     this.mgPopover.removeAttribute('data-show');
     // Disable the event listeners
+    this.setPopperListeners(false);
+    // Remove event listener
+    this.manageClickOutsideListeners('removeEventListener');
+  };
+
+  /**
+   * Set popper listeners
+   * @param newValue - if true enable popper listners
+   */
+  private setPopperListeners = (newValue: boolean): void => {
     this.popper.setOptions(options => ({
       ...options,
-      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: false }],
+      modifiers: [...options.modifiers, { name: 'eventListeners', enabled: newValue }],
     }));
-    // Remove event listener
-    this.windows.forEach((localWindow: Window) => {
-      localWindow.removeEventListener('click', this.clickOutside, false);
+  };
+
+  /**
+   * Manage all clickOustside listeners
+   * @param action top process on elements listeners
+   */
+  private manageClickOutsideListeners = (action: 'removeEventListener' | 'addEventListener'): void => {
+    // clickOutside listeners need to bind windows
+    // AND as shawdowDom content is not include on windows listeners `event.target` we need to include popover guard content DOM if it's a web-component
+    // by doing this we can get and parse all needeed document DOM elements in clickOutside callback event.details.
+    // This result in the givern junction :
+    // Windows > document > [data-mg-popover-guard] + [data-mg-popover-guard] > shadowRoot =  Windows > document > [data-mg-popover-guard] > shadowRoot
+    const guardChildren = Array.from(document.querySelector(`[data-mg-popover-guard="${this.identifier}"]`)?.shadowRoot?.children || new Set());
+    [...guardChildren, ...this.windows].forEach((element: Window | HTMLElement) => {
+      element[action]('click', this.clickOutside, false);
     });
   };
 

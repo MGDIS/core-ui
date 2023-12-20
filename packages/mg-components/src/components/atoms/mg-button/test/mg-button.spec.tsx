@@ -89,7 +89,7 @@ describe('mg-button', () => {
     }
   });
 
-  test('should throw error when using prop "isIcon" without a good prop "fullWidth"', async () => {
+  test('Should throw error when using prop "isIcon" without a good prop "fullWidth"', async () => {
     expect.assertions(1);
     try {
       await getPage({ isIcon: true, label: 'batman', fullWidth: true });
@@ -99,7 +99,7 @@ describe('mg-button', () => {
   });
 
   describe('prevent double click', () => {
-    test('should NOT disable button after click', async () => {
+    test('Should NOT disable button after click', async () => {
       const page = await getPage({ identifier: 'identifier' });
       const button = page.doc.querySelector('mg-button');
       const spy = jest.spyOn(page.rootInstance.disabledChange, 'emit');
@@ -119,7 +119,7 @@ describe('mg-button', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should disable button after click', async () => {
+    test('Should disable button after click', async () => {
       const page = await getPage({ disableOnClick: true });
       const button = page.doc.querySelector('mg-button');
       const spy = jest.spyOn(page.rootInstance.disabledChange, 'emit');
@@ -139,7 +139,7 @@ describe('mg-button', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should not trigger disableOnClick when disabled', async () => {
+    test('Should not trigger disableOnClick when disabled', async () => {
       const page = await getPage({
         disabled: true,
         disableOnCLick: true,
@@ -156,7 +156,7 @@ describe('mg-button', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should not have fn when disabled', async () => {
+    test('Should not have fn when disabled', async () => {
       const page = await getPage({
         disabled: true,
         onClick: () => false,

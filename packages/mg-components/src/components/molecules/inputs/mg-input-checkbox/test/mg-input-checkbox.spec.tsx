@@ -382,7 +382,7 @@ describe('mg-input-checkbox', () => {
       expect(page.rootInstance.errorMessage).toBeUndefined();
     });
 
-    test('should enable "displaySearchInput" when value list is greater than 10', async () => {
+    test('Should enable "displaySearchInput" when value list is greater than 10', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(item => ({
         title: `item ${item}`,
         value: false,
@@ -393,7 +393,7 @@ describe('mg-input-checkbox', () => {
   });
 
   describe('navigation', () => {
-    test('should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
+    test('Should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
       const page = await getPage({ label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'checkbox', tooltip: 'Tooltip message' });
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
@@ -441,7 +441,7 @@ describe('mg-input-checkbox', () => {
       expect(popover.display).toEqual(false);
     });
 
-    test('should manage keyboard "shift+tab" navigation on "multi" type', async () => {
+    test('Should manage keyboard "shift+tab" navigation on "multi" type', async () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
@@ -481,7 +481,7 @@ describe('mg-input-checkbox', () => {
   });
 
   describe('multi search', () => {
-    test('should enable return search result and update pagination', async () => {
+    test('Should enable return search result and update pagination', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
         title: `item ${item}`,
         value: false,
@@ -531,7 +531,38 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should search and update values', async () => {
+    test('Should reset pagination when popover is closed', async () => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+        title: `item ${item}`,
+        value: false,
+      }));
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+      expect(page.root).toMatchSnapshot();
+
+      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
+      const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
+      const mgPagination = mgInputCheckbox.shadowRoot.querySelector('mg-pagination');
+      const mgPaginationNext = mgPagination.shadowRoot.querySelector('mg-button:last-of-type');
+
+      mgPopover.display = true;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      expect(page.root).toMatchSnapshot();
+
+      mgPaginationNext.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      mgPopover.display = false;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should search and update values', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
         title: `item ${item}`,
         value: false,
@@ -567,7 +598,7 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should navigate across paginated list with mg-pagination', async () => {
+    test('Should navigate across paginated list with mg-pagination', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
         title: `item ${item}`,
         value: false,
@@ -604,7 +635,7 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should update all values with mass actions', async () => {
+    test('Should update all values with mass actions', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
         title: `item ${item}`,
         value: false,
@@ -647,7 +678,7 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should toggle selected items section', async () => {
+    test('Should toggle selected items section', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
         title: `item ${item}`,
         value: [5, 12, 13, 17].some(item => item === index),
@@ -682,7 +713,7 @@ describe('mg-input-checkbox', () => {
       }
     });
 
-    test('should go to previous page when last item is checked', async () => {
+    test('Should go to previous page when last item is checked', async () => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
         title: `item ${item}`,
         value: false,

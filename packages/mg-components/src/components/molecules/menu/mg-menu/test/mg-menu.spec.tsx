@@ -130,7 +130,7 @@ describe('mg-menu', () => {
   });
 
   describe.each(['horizontal', 'vertical'])('events', direction => {
-    test(`should manage outside click, case direction ${direction}`, async () => {
+    test(`Should manage outside click, case direction ${direction}`, async () => {
       const page = await getPage({ label: 'batman menu', direction });
 
       const firstItem: HTMLMgMenuItemElement = page.root.querySelector('[title="batman"]').closest('mg-menu-item');

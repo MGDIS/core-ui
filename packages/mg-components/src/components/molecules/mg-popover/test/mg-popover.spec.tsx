@@ -4,6 +4,7 @@ import { MgPopover } from '../mg-popover';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
 import { MgPopoverContent } from '../mg-popover-content/mg-popover-content';
+import { MgCard } from '../../../atoms/mg-card/mg-card';
 
 mockConsoleError();
 mockWindowFrames();
@@ -11,8 +12,8 @@ mockWindowFrames();
 const getPage = (args, slot, parent?: boolean) => {
   const popover = () => <mg-popover {...args}>{slot}</mg-popover>;
   return newSpecPage({
-    components: [MgPopover, MgPopoverContent, MgButton],
-    template: () => (parent ? <span data-mg-popover-guard={args.identifier}>{popover()}</span> : popover()),
+    components: [MgPopover, MgPopoverContent, MgButton, MgCard],
+    template: () => (parent ? <mg-card data-mg-popover-guard={args.identifier}>{popover()}</mg-card> : popover()),
   });
 };
 
@@ -60,6 +61,7 @@ describe('mg-popover', () => {
     { eventIn: 'click', eventOut: 'clickDocument' },
     { eventIn: 'click', eventOut: 'clickPopover' },
     { eventIn: 'click', eventOut: 'clickGuard' },
+    { eventIn: 'click', eventOut: 'clickShadowGuard' },
   ])('Should manage display on events %s', async ({ eventIn, eventOut }) => {
     const args = { identifier: 'identifier', closeButton: true };
     const page = await getPage(
@@ -73,7 +75,7 @@ describe('mg-popover', () => {
         </p>,
         <mg-button identifier="identifier-btn">mg-button</mg-button>,
       ],
-      eventOut === 'clickGuard',
+      typeof eventOut === 'string' && ['clickGuard', 'clickShadowGuard'].includes(eventOut),
     );
 
     const mgPopover = page.doc.querySelector('mg-popover');
@@ -81,9 +83,15 @@ describe('mg-popover', () => {
     const popover = mgPopover.querySelector(`#${args.identifier}`);
     const popoverButton = popover.shadowRoot.querySelector(`mg-button`);
     const dataGuard = page.doc.querySelector('[data-mg-popover-guard]');
+    const dataGuardInnerHTML = page.doc.createElement('span');
+
+    if (eventOut === 'clickShadowGuard') {
+      dataGuard.shadowRoot.appendChild(mgPopover);
+      dataGuard.shadowRoot.appendChild(dataGuardInnerHTML);
+    }
 
     const focusSpy = jest.spyOn(interactiveElement, 'focus');
-    const displayChangeSpy = jest.spyOn(page.rootInstance.displayChange, 'emit');
+    const displayChangeSpy = jest.spyOn(mgPopover, 'dispatchEvent');
 
     interactiveElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
     await page.waitForChanges();
@@ -102,6 +110,8 @@ describe('mg-popover', () => {
         popover.dispatchEvent(new Event('click', { bubbles: true }));
       } else if (eventOut === 'clickGuard') {
         dataGuard.dispatchEvent(new Event('click', { bubbles: true }));
+      } else if (eventOut === 'clickShadowGuard') {
+        dataGuardInnerHTML.dispatchEvent(new Event('click', { bubbles: true }));
       }
     } else {
       mgPopover.dispatchEvent(new KeyboardEvent('keydown', { code: eventOut.code }));
@@ -111,10 +121,10 @@ describe('mg-popover', () => {
 
     if (typeof eventOut === 'string' && ['clickPopover', 'clickGuard'].includes(eventOut)) {
       expect(popover).toHaveAttribute('data-show');
-      expect(displayChangeSpy).toHaveBeenCalledWith(true);
+      expect(displayChangeSpy).toHaveBeenCalledWith(expect.objectContaining({ detail: true, type: 'display-change' }));
     } else {
       expect(popover).not.toHaveAttribute('data-show');
-      expect(displayChangeSpy).toHaveBeenCalledWith(false);
+      expect(displayChangeSpy).toHaveBeenCalledWith(expect.objectContaining({ detail: false, type: 'display-change' }));
     }
   });
 
@@ -136,7 +146,7 @@ describe('mg-popover', () => {
     }
   });
 
-  test('should update popper instance when slot %s update', async () => {
+  test('Should update popper instance when slot %s update', async () => {
     const page = await getPage({ identifier: 'identifier', display: true }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">
@@ -156,7 +166,7 @@ describe('mg-popover', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('should update mg-popover-content id when identifier is updated', async () => {
+  test('Should update mg-popover-content id when identifier is updated', async () => {
     const page = await getPage({ identifier: 'identifier' }, [
       <h2 slot="title">Blu bli blo bla</h2>,
       <p slot="content">

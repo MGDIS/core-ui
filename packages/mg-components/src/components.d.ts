@@ -327,6 +327,10 @@ export namespace Components {
          */
         "checkboxes": CheckboxItem[];
         /**
+          * Current page
+         */
+        "currentPage": number;
+        /**
           * Define if mg-input-checkbox-list is disabled
          */
         "disabled": boolean;
@@ -2179,6 +2183,10 @@ declare namespace LocalJSX {
           * Define checkboxes to paginate
          */
         "checkboxes"?: CheckboxItem[];
+        /**
+          * Current page
+         */
+        "currentPage"?: number;
         /**
           * Define if mg-input-checkbox-list is disabled
          */
