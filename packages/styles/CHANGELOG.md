@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.0.2
+
+### Patch Changes
+
+- 223455f: [#442](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/442) mg-input-checkbox: after close of the popover should go back to first page
+
 ## 1.0.1
 
 ### Patch Changes

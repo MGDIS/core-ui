@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2023-12-21-10-26_Clean-Cerulean-Cat)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2023-12-15-15-32_Ashamed-Atomic-Tangerine-Anteater)
 
 ### Packages released
