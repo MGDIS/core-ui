@@ -56,6 +56,12 @@ Get date pattern config.
 When you set the helpText prop you lose the date pattern in help text.
 This methode allow you to get all date pattern needeed informations to set your custom help text message.
 
+#### Parameters
+
+| Name   | Type   | Description                                                   |
+| ------ | ------ | ------------------------------------------------------------- |
+| `date` | `Date` | to get formated config from. Default: new Date('2023-12-24'). |
+
 #### Returns
 
 Type: `Promise<{ pattern: string; date: string; dateMessage: string; }>`
