@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
-import { localeDate } from '../../../../../utils/locale.utils';
+import { localeDate } from '@mgdis/stencil-helpers';
 
 const getPage = args => {
   const page = newSpecPage({

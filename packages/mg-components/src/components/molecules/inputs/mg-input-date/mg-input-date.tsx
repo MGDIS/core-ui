@@ -2,7 +2,7 @@ import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
-import { localeDate, dateRegExp } from '../../../../utils/locale.utils';
+import { localeDate, dateRegExp } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { Handler } from '../MgInput.conf';
 

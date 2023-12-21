@@ -4,7 +4,7 @@ import { Handler, Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales/';
-import { localeCurrency, localeNumber } from '../../../../utils/locale.utils';
+import { localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-input-numeric',

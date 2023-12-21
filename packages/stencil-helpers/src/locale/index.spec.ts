@@ -1,9 +1,13 @@
-import { localeCurrency, localeNumber, localeDate, getLocaleMessages } from './locale.utils';
-import messagesEn from '../locales/en/messages.json';
-import messagesFr from '../locales/fr/messages.json';
+import { describe, expect, test } from 'vitest';
 
-describe('locale.utils', () => {
-  describe.each(['en', 'fr'])('locale.utils: %s', locale => {
+import { localeCurrency, localeNumber, localeDate, getLocaleMessages, defineLocales } from './';
+
+const messagesFr = { lang: 'fr' };
+const messagesEn = { lang: 'en' };
+const messages = { en: messagesEn, fr: messagesFr };
+
+describe('locale', () => {
+  describe.each(['en', 'fr'])('locale: %s', locale => {
     describe('localeCurrency', () => {
       test('Should Format number to the locale currency', () => {
         const formatedCurrency = localeCurrency(1234567890.12, locale, 'EUR');
@@ -31,10 +35,9 @@ describe('locale.utils', () => {
     });
 
     describe('getLocaleMessages', () => {
-      const messages = { en: messagesEn, fr: messagesFr };
       test('Should return default locale', () => {
         const locales = getLocaleMessages(document.createElement('div'), messages, 'en');
-        expect(locales.locale).toEqual('en');
+        expect(locales.locale).toEqual('en-US');
         expect(locales.messages).toMatchObject(messagesEn);
       });
 
@@ -53,6 +56,30 @@ describe('locale.utils', () => {
         expect(locales.locale).toEqual(div.lang);
         expect(locales.messages).toMatchObject(messagesEn);
       });
+    });
+  });
+
+  describe('defineLocales', () => {
+    test('Should return default locale', () => {
+      const locales = defineLocales(messages, 'en')(document.createElement('div'));
+      expect(locales.locale).toEqual('en-US');
+      expect(locales.messages).toMatchObject(messagesEn);
+    });
+
+    test('Should return matching locale', () => {
+      const div = document.createElement('div');
+      div.lang = 'fr-FR';
+      const locales = defineLocales(messages, 'en')(div);
+      expect(locales.locale).toEqual(div.lang);
+      expect(locales.messages).toMatchObject(messagesFr);
+    });
+
+    test('Should return default locale messages when requested does not exist', () => {
+      const div = document.createElement('div');
+      div.lang = 'ca';
+      const locales = defineLocales(messages, 'en')(div);
+      expect(locales.locale).toEqual(div.lang);
+      expect(locales.messages).toMatchObject(messagesEn);
     });
   });
 });

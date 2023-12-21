@@ -1,6 +1,6 @@
 import { renderVdom } from '@stencil/core/internal/client';
 import type { VNode } from '@stencil/core';
-import type { ArgsType } from './conf.ts';
+import type { ArgsType } from './index.conf';
 
 /**
  * Render attribute on the given element

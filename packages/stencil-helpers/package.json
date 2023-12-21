@@ -2,26 +2,26 @@
   "name": "@mgdis/stencil-helpers",
   "version": "0.0.0",
   "license": "ISC",
-  "main": "dist/esm/index.js",
-  "types": "dist/types/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "author": "Nicolas Jouanno <jouanno-n@mgdis.fr>",
   "maintainers": [
     "Simon Duhem <duhem-s@mgdis.fr>",
     "Nicolas Jouanno <jouanno-n@mgdis.fr>"
   ],
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "require": "./dist/cjs/index.js",
-      "import": "./dist/esm/index.js",
-      "default": "./dist/esm/index.js"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
     }
   },
   "scripts": {
-    "build": "tsc -b ./tsconfig.json ./tsconfig.esm.json ./tsconfig.types.json",
+    "build": "tsc --noEmit && vite build",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
@@ -41,6 +41,8 @@
     "prettier-config": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "5.3.3",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^2.3.0",
     "vitest": "^1.0.4"
   }
 }
