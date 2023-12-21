@@ -1,4 +1,13 @@
-import{j as e}from"./jsx-runtime-GlBiejeo.js";import{M as n,e as i}from"./index-HhBvOnMr.js";import{u as r}from"./index-U98WDXby.js";import"./iframe-8H_PUiP0.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const c=`# @mgdis/mg-components
+import{j as e}from"./jsx-runtime-O4NbsBXg.js";import{M as n,e as i}from"./index-muN52VbF.js";import{u as r}from"./index-29wDK255.js";import"./iframe-bFFI7vhi.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const c=`# @mgdis/mg-components
+
+## 5.21.1
+
+### Patch Changes
+
+- 223455f: [#442](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/442) mg-input-checkbox: after close of the popover should go back to first page
+- cfc3767: [#441](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/441) mg-input-checkbox: mg-popover does not close when click outside popover content and on mg-input-checkbox element (ex: label)
+- Updated dependencies [223455f]
+  - @mgdis/styles@1.0.2
 
 ## 5.21.0
 
