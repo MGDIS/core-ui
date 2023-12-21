@@ -2,8 +2,8 @@ import { extractArgTypes, extractComponentDescription, setStencilDocJson } from 
 import { StencilJsonDocs } from '@pxtrn/storybook-addon-docs-stencil/dist/types';
 import { Preview } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions/decorator';
+import { stencilWrapper, getStoryHTML } from '@mgdis/stencil-helpers';
 import docJson from './docs/components.json';
-import { stencilWrapper, getStoryHTML } from './utils';
 
 // import mg-components
 import { defineCustomElements } from '../loader';

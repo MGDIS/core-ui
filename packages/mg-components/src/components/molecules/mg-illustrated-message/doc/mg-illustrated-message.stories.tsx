@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgIllustratedMessage as MgIllustratedMessageType } from '../mg-illustrated-message';
 
 export default {
   component: 'mg-illustrated-message',
@@ -11,8 +12,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgIllustratedMessageType): HTMLElement => (
   <mg-illustrated-message {...filterArgs(args, { size: 'regular', direction: 'vertical' })}>
     <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
       <path

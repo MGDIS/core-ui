@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { variants } from '../mg-message.conf';
+import type { MgMessage as MgMessageType } from '../mg-message';
 
 export default {
   component: 'mg-message',
@@ -22,8 +23,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgMessageType & { slotContent: string; slotActions: string }): HTMLElement => (
   <mg-message {...filterArgs(args, { variant: variants[0] })}>
     {args.slotContent && <span innerHTML={args.slotContent}></span>}
     {args.slotActions && <span slot="actions" innerHTML={args.slotActions}></span>}

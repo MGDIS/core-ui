@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgSkipLinks as MgSkipLinksType } from '../../mg-skip-links/mg-skip-links';
 
 export default {
   component: 'mg-popover',
@@ -21,8 +22,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgSkipLinksType & { slotTitle: string; slotContent: string }): HTMLElement => (
   <mg-popover {...filterArgs(args, { placement: 'bottom' })}>
     <mg-button>Button</mg-button>
     {args.slotTitle && <h2 slot="title">{args.slotTitle}</h2>}

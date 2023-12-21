@@ -599,6 +599,9 @@ importers:
       '@mgdis/img':
         specifier: workspace:*
         version: link:../img
+      '@mgdis/stencil-helpers':
+        specifier: workspace:*
+        version: link:../stencil-helpers
       '@mgdis/styles':
         specifier: workspace:*
         version: link:../styles
@@ -845,6 +848,10 @@ importers:
         version: 1.0.4(@types/node@20.10.4)
 
   packages/stencil-helpers:
+    dependencies:
+      '@stencil/core':
+        specifier: 4.8.2
+        version: 4.8.2
     devDependencies:
       '@types/node':
         specifier: ^20.9.0
@@ -18598,6 +18605,7 @@ packages:
   /webpack-chain@6.5.1:
     resolution: { integrity: sha512-7doO/SRtLu8q5WM0s7vPKPWX580qhi0/yBHkOxNkv50f6qB76Zy9o2wRTrrPULqYTvQlVHuvbA8v+G5ayuUDsA== }
     engines: { node: '>=8' }
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
     dependencies:
       deepmerge: 1.5.2
       javascript-stringify: 2.1.0

@@ -1,10 +1,12 @@
 {
   "extends": "tsconfig/base.node20.json",
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "dist/cjs",
+    "module": "Node16",
     "rootDir": "src",
-    "lib": ["dom"]
+    "lib": ["dom"],
+    "resolveJsonModule": false
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src"],
   "exclude": ["src/**/*.spec.ts"]
 }
