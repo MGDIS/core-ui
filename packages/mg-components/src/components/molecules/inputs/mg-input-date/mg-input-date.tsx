@@ -196,13 +196,13 @@ export class MgInputDate {
     }
   }
 
-  /**
-   * Get date pattern config.
-   * When you set the helpText prop you lose the date pattern in help text.
-   * This methode allow you to get all date pattern needeed informations to set your custom help text message.
-   * @param date to get formated config from. Default: new Date('2023-12-24').
-   * @returns date pattern object config
-   */
+   /**
+ * Retrieves the date pattern configuration.
+ * When you set the helpText prop, the date pattern in the help text is lost.
+ * This method allows you to obtain all necessary date pattern information to set your custom help text message.
+ * @param {Date} date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24').
+ * @returns {object} - Date pattern object configuration.
+ */
   @Method()
   async getDatePatternConfig(date: Date = new Date('2023-12-24')): Promise<{ pattern: string; date: string; dateMessage: string }> {
     if (!(date instanceof Date)) throw new Error('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
