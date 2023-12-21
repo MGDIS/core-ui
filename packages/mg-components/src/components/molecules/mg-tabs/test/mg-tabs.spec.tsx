@@ -113,7 +113,7 @@ describe('mg-tabs', () => {
       }
     });
 
-    test('should trown an error with invalid tabItem props', async () => {
+    test('Should trown an error with invalid tabItem props', async () => {
       expect.assertions(1);
       try {
         await getPage({ label: 'Sample label', items: ['Tab 1', 'Tab 2'], size: 'batman' }, createSlots());
@@ -166,7 +166,7 @@ describe('mg-tabs', () => {
       expect(activeTab).toHaveProperty('id', 'id-1');
     });
 
-    test('should go to next tab on keyboard event', async () => {
+    test('Should go to next tab on keyboard event', async () => {
       const page = await getPage({ label: 'Sample label', items: ['batman', 'joker'], identifier: 'id' }, createSlots());
       const activeTabChangeSpy = jest.spyOn(page.rootInstance.activeTabChange, 'emit');
       expect(page.root).toMatchSnapshot();
@@ -256,7 +256,7 @@ describe('mg-tabs', () => {
       }
     });
 
-    test('should manage Tab key', async () => {
+    test('Should manage Tab key', async () => {
       const page = await getPage({ label: 'Sample label', items: ['batman', 'joker'], identifier: 'id' }, createSlots());
       expect(page.root).toMatchSnapshot();
 
@@ -284,7 +284,7 @@ describe('mg-tabs', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test('should manage mixed navigation', async () => {
+    test('Should manage mixed navigation', async () => {
       const page = await getPage({ label: 'Sample label', items: ['batman', 'joker'], identifier: 'id' }, createSlots());
       expect(page.root).toMatchSnapshot();
 

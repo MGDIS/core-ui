@@ -1,5 +1,5 @@
 {
-  "timestamp": "2023-12-21T09:35:49",
+  "timestamp": "2023-12-21T10:31:58",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -106,7 +106,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Define displaied icon",
+          "docs": "Define displayed icon",
           "docsTags": [],
           "values": [
             {
@@ -2255,6 +2255,28 @@
           "values": [
             {
               "type": "CheckboxItem[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "currentPage",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "current-page",
+          "reflectToAttr": false,
+          "docs": "Current page",
+          "docsTags": [],
+          "default": "1",
+          "values": [
+            {
+              "type": "number"
             }
           ],
           "optional": false,

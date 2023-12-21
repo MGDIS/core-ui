@@ -60,7 +60,7 @@ export class MgActionMore {
   @Element() element: HTMLMgActionMoreElement;
 
   /**
-   * Define displaied icon
+   * Define displayed icon
    */
   @Prop({ mutable: true }) icon: MgActionMoreIconType;
   @Watch('icon')

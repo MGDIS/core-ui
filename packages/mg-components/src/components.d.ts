@@ -60,7 +60,7 @@ export namespace Components {
          */
         "displayChevron": boolean;
         /**
-          * Define displaied icon
+          * Define displayed icon
          */
         "icon": MgActionMoreIconType;
         /**
@@ -326,6 +326,10 @@ export namespace Components {
           * Define checkboxes to paginate
          */
         "checkboxes": CheckboxItem[];
+        /**
+          * Current page
+         */
+        "currentPage": number;
         /**
           * Define if mg-input-checkbox-list is disabled
          */
@@ -1897,7 +1901,7 @@ declare namespace LocalJSX {
          */
         "displayChevron"?: boolean;
         /**
-          * Define displaied icon
+          * Define displayed icon
          */
         "icon"?: MgActionMoreIconType;
         /**
@@ -2173,6 +2177,10 @@ declare namespace LocalJSX {
           * Define checkboxes to paginate
          */
         "checkboxes"?: CheckboxItem[];
+        /**
+          * Current page
+         */
+        "currentPage"?: number;
         /**
           * Define if mg-input-checkbox-list is disabled
          */
