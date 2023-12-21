@@ -53,6 +53,13 @@ This method can be used to set the component's error state from its context by p
 It must be paired with an error message to display for the given context.
 When used to set validity to `false`, you should use this method again to reset the validity to `true`.
 
+#### Parameters
+
+| Name           | Type      | Description                     |
+| -------------- | --------- | ------------------------------- |
+| `valid`        | `boolean` | - value indicating the validity |
+| `errorMessage` | `string`  | - the error message to display  |
+
 #### Returns
 
 Type: `Promise<void>`
