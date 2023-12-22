@@ -1,6 +1,6 @@
 import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
 import { setPageContent, expect, describe, testEach, PageType } from '../../../../utils/playwright.e2e.test.utils';
-import { renderAttributes } from '../../../../utils/e2e.test.utils';
+import { renderAttributes } from '@mgdis/stencil-helpers';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
 

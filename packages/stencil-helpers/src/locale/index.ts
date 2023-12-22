@@ -1,6 +1,28 @@
 import type { ObjectType } from './index.conf';
 
 /**
+ * Get locale and messages
+ * We load the defined locale but for now we only support the first subtag for messages
+ * @param element - element we need to get the language
+ * @param messages - messages to use
+ * @param defaultLocale - default messages locale
+ * @returns messages object
+ */
+const getLocaleMessages = (element: HTMLElement, messages: ObjectType, defaultLocale: string): { locale: string; messages: ObjectType } => {
+  // Get local
+  const closestLangAttribute: HTMLElement | null = element.closest('[lang]');
+  const closestLang: string[] = Intl.NumberFormat.supportedLocalesOf(closestLangAttribute?.lang as string);
+  const locale = closestLang.length > 0 && typeof closestLang[0] === 'string' ? closestLang[0] : navigator.language || defaultLocale;
+  // Only keep first subtag
+  const localeSubtag = locale.split('-').shift() as string;
+  // Return
+  return {
+    locale,
+    messages: (messages[localeSubtag] || messages[defaultLocale]) as ObjectType,
+  };
+};
+
+/**
  * Format number to the locale currency
  * @param number - number to format
  * @param locale - locale to apply
@@ -36,31 +58,9 @@ export const localeDate = (date: string | undefined, locale: string): string => 
 };
 
 /**
- * Get locale and messages
- * We load the defined locale but for now we only support the first subtag for messages
- * @param element - element we need to get the language
- * @param messages - messages to use
- * @param defaultLocale - default messages locale
- * @returns messages object
- */
-export const getLocaleMessages = (element: HTMLElement, messages: ObjectType, defaultLocale: string): { locale: string; messages: ObjectType } => {
-  // Get local
-  const closestLangAttribute: HTMLElement | null = element.closest('[lang]');
-  const closestLang: string[] = Intl.NumberFormat.supportedLocalesOf(closestLangAttribute?.lang as string);
-  const locale = closestLang.length > 0 && typeof closestLang[0] === 'string' ? closestLang[0] : navigator.language || defaultLocale;
-  // Only keep first subtag
-  const localeSubtag = locale.split('-').shift() as string;
-  // Return
-  return {
-    locale,
-    messages: (messages[localeSubtag] || messages[defaultLocale]) as ObjectType,
-  };
-};
-
-/**
  * Get Intl object
- * @param messages - locales to render in object format. ex: { en: { porp: "test" }, fr: { porp: "test" }}.
- * @param defaultLocale - fallback locale to render. ex: 'en'.
+ * @param messages - locales to render in object format. `ex: { en: { porp: "test" }, fr: { porp: "test" }}`.
+ * @param defaultLocale - fallback locale to render. `ex: 'en'`.
  * @returns from the element passed in return function you will get the matching messages object
  */
 export const defineLocales =

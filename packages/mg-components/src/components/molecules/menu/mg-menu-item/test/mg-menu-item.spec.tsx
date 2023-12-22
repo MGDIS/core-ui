@@ -7,7 +7,8 @@ import { MgMenu } from '../../mg-menu/mg-menu';
 import { Status } from '../mg-menu-item.conf';
 import { Direction } from '../../mg-menu/mg-menu.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
-import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { forcePopoverId, mockConsoleError, mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 
 mockConsoleError();

@@ -1,4 +1,4 @@
-import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
+import { renderAttributes, renderProperties } from '@mgdis/stencil-helpers';
 import { setPageContent, expect, describe, test, testEach, PageType, updateScreenshotClass, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputText } from '../mg-input-text';
 

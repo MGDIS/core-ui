@@ -14,10 +14,11 @@ export const darkBackground = (condition: boolean, html: string): string =>
  * @returns formated inline attributed. ex: 'status="visible"'
  */
 export const renderAttributes = (args: unknown): string =>
-  (typeof args === 'object' &&
+  (args !== null &&
+    typeof args === 'object' &&
     Object.keys(args)
-      .filter(key => ![null, undefined, false].includes(args[key]) && typeof args[key] !== 'object')
-      .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${args[key]}"`)
+      .filter(key => ![null, undefined, false].includes((args as Record<string, never>)[key]) && typeof (args as Record<string, never>)[key] !== 'object')
+      .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${(args as Record<string, never>)[key]}"`)
       .join(' ')) ||
   '';
 
@@ -34,12 +35,15 @@ export const renderProperties = (args: unknown, selector: string): string => {
   const query: 'querySelector' | 'getElementById' = selector.startsWith('#') ? 'getElementById' : 'querySelector';
   if (query === 'getElementById') selector = selector.replace('#', '');
 
-  return typeof args === 'object'
+  return args !== null && typeof args === 'object'
     ? `
   ${
     Object.keys(args)
-      .filter(key => typeof args[key] === 'object')
-      .map(key => `document.${query}('${selector}').${key}=${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
+      .filter(key => typeof (args as Record<string, never>)[key] === 'object')
+      .map(
+        key =>
+          `document.${query}('${selector}').${key}=${JSON.stringify((args as Record<string, never>)[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`,
+      ) // stringify json AND keep function values
       .join(';\n') // create string
       .split('"<fn>') // remove fn start decorator
       .join('')

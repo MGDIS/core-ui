@@ -1,7 +1,5 @@
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './components.utils';
-import { mockConsoleError } from './unit.test.utils';
-
-mockConsoleError();
+import { describe, expect, test, afterEach, vi } from 'vitest';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './';
 
 describe('components.utils', () => {
   describe('createID', () => {
@@ -77,8 +75,8 @@ describe('components.utils', () => {
   });
 
   describe('getWindows', () => {
-    const mockWindowFramesLength = jest.fn();
-    const mockWindowIndexZero = jest.fn();
+    const mockWindowFramesLength = vi.fn();
+    const mockWindowIndexZero = vi.fn();
     Object.defineProperty(window, 'frames', {
       value: {
         get length() {
@@ -91,7 +89,7 @@ describe('components.utils', () => {
     });
 
     afterEach(() => {
-      jest.clearAllMocks();
+      vi.clearAllMocks();
     });
 
     test('Should return the window in an array', () => {
@@ -104,13 +102,13 @@ describe('components.utils', () => {
 
     test('Should return the window with a parent', () => {
       mockWindowFramesLength.mockReturnValue(0);
-      const spyWindowSelf = jest.spyOn(window, 'self', 'get').mockImplementationOnce(jest.fn());
-      const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => window);
+      const spyWindowSelf = vi.spyOn(window, 'self', 'get').mockImplementationOnce(() => ({}) as Window & typeof globalThis);
+      const spyWindowParent = vi.spyOn(window, 'parent', 'get').mockImplementationOnce(() => window);
 
       const windows = getWindows(window);
       expect(windows).toHaveLength(2);
       expect(spyWindowSelf).toBeCalledTimes(2);
-      expect(spyWindowParent).toBeCalledTimes(1);
+      expect(spyWindowParent).toBeCalledTimes(2);
     });
 
     test('Should return the window with a child', () => {
@@ -122,9 +120,9 @@ describe('components.utils', () => {
 
     test('Should throw an error when cannot access top parent window', () => {
       mockWindowFramesLength.mockReturnValue(0);
-      const spyConsole = jest.spyOn(console, 'error');
-      const spyWindowSelf = jest.spyOn(window, 'self', 'get').mockImplementationOnce(jest.fn());
-      const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementationOnce(() => {
+      const spyConsole = vi.spyOn(console, 'error');
+      const spyWindowSelf = vi.spyOn(window, 'self', 'get').mockImplementationOnce(() => ({}) as Window & typeof globalThis);
+      const spyWindowParent = vi.spyOn(window, 'parent', 'get').mockImplementationOnce(() => {
         throw new Error('non');
       });
       const localWindow: Window = window;
@@ -163,7 +161,7 @@ describe('components.utils', () => {
 
   describe('nextTick', () => {
     test('Should wrapp and execute a callback in a promise', async () => {
-      const fn = jest.fn();
+      const fn = vi.fn();
       const job = nextTick(fn);
       expect(job.then).toBeDefined();
 

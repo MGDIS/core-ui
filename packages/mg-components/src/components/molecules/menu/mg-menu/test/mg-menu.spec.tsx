@@ -4,7 +4,8 @@ import { MgMenu } from '../mg-menu';
 import { Direction } from '../mg-menu.conf';
 import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 import { MgPopover } from '../../../mg-popover/mg-popover';
-import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { forcePopoverId, mockConsoleError, mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgItemMore } from '../../../mg-item-more/mg-item-more';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 

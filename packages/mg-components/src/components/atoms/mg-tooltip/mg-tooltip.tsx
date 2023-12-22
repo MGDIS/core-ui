@@ -1,5 +1,5 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
-import { createID, focusableElements, getWindows, isValidString, nextTick } from '../../../utils/components.utils';
+import { createID, focusableElements, getWindows, isValidString, nextTick } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 

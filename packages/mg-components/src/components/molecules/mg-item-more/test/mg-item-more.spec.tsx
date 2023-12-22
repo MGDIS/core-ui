@@ -1,6 +1,7 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
-import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { forcePopoverId, mockConsoleError, mockWindowFrames } from '../../../../utils/unit.test.utils';
 import { MgItemMore } from '../mg-item-more';
 import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../../menu/mg-menu/mg-menu';

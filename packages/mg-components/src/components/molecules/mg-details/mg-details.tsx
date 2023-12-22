@@ -1,5 +1,5 @@
 import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
-import { isValidString } from '../../../utils/components.utils';
+import { isValidString } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-details',

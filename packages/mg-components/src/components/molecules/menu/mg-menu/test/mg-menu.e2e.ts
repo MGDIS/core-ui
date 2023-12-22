@@ -1,4 +1,4 @@
-import { renderAttributes } from '../../../../../utils/e2e.test.utils';
+import { renderAttributes } from '@mgdis/stencil-helpers';
 import { setPageContent, expect, describe, describeEach, testEach, test, PageType, updateScreenshotClass } from '../../../../../utils/playwright.e2e.test.utils';
 import { Direction, MenuSizeType, sizes } from '../mg-menu.conf';
 

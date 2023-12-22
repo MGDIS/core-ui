@@ -1,6 +1,5 @@
 import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
-import { renderAttributes, renderProperties } from '../../../../utils/e2e.test.utils';
-import { createID } from '../../../../utils/components.utils';
+import { createID, renderAttributes, renderProperties } from '@mgdis/stencil-helpers';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { MgActionMore } from '../mg-action-more';
 
