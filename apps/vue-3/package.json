@@ -9,6 +9,8 @@
     "build-only": "vite build",
     "build": "pnpm \"/^(type-check|build-only)$/\"",
     "preview": "vite preview",
+    "test": "pnpm /^test:.*/",
+    "test:unit": "vitest",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint 'src/**/*.{vue,ts,tsx}' --ignore-path ../../.gitignore",
