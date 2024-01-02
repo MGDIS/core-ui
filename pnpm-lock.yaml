@@ -246,8 +246,8 @@ importers:
         specifier: ^1.10.16
         version: 1.11.1(eslint@8.55.0)
       eslint-plugin-jsdoc:
-        specifier: ^46.0.0
-        version: 46.9.0(eslint@8.55.0)
+        specifier: ^48.0.0
+        version: 48.0.2(eslint@8.55.0)
       eslint-plugin-tsdoc:
         specifier: ^0.2.17
         version: 0.2.17
@@ -506,8 +506,8 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       eslint-plugin-jsdoc:
-        specifier: ^46.0.0
-        version: 46.9.0(eslint@8.55.0)
+        specifier: ^48.0.0
+        version: 48.0.2(eslint@8.55.0)
       eslint-plugin-prettier:
         specifier: ^5.0.0
         version: 5.0.1(eslint-config-prettier@8.10.0)(eslint@8.55.0)(prettier@3.1.0)
@@ -573,8 +573,8 @@ importers:
         specifier: ^8.53.0
         version: 8.55.0
       eslint-plugin-jsdoc:
-        specifier: ^46.0.0
-        version: 46.9.0(eslint@8.55.0)
+        specifier: ^48.0.0
+        version: 48.0.2(eslint@8.55.0)
       eslint-plugin-prettier:
         specifier: ^5.0.0
         version: 5.0.1(eslint-config-prettier@8.10.0)(eslint@8.55.0)(prettier@3.1.0)
@@ -10159,11 +10159,11 @@ packages:
       - eslint-import-resolver-webpack
       - supports-color
 
-  /eslint-plugin-jsdoc@46.9.0(eslint@8.55.0):
-    resolution: {integrity: sha512-UQuEtbqLNkPf5Nr/6PPRCtr9xypXY+g8y/Q7gPa0YK7eDhh0y2lWprXRnaYbW7ACgIUvpDKy9X2bZqxtGzBG9Q==}
-    engines: {node: '>=16'}
+  /eslint-plugin-jsdoc@48.0.2(eslint@8.55.0):
+    resolution: {integrity: sha512-CBFl5Jc7+jlV36RwDm+PQ8Uw5r28pn2/uW/OaB+Gw5bFwn4Py/1eYMZ3hGf9S4meUFZ/sRvS+hVif2mRAp6WqQ==}
+    engines: {node: '>=18'}
     peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
     dependencies:
       '@es-joy/jsdoccomment': 0.41.0
       are-docs-informative: 0.0.2
@@ -10174,7 +10174,7 @@ packages:
       esquery: 1.5.0
       is-builtin-module: 3.2.1
       semver: 7.5.4
-      spdx-expression-parse: 3.0.1
+      spdx-expression-parse: 4.0.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -16611,6 +16611,13 @@ packages:
     dependencies:
       spdx-exceptions: 2.3.0
       spdx-license-ids: 3.0.16
+
+  /spdx-expression-parse@4.0.0:
+    resolution: {integrity: sha512-Clya5JIij/7C6bRR22+tnGXbc4VKlibKSVj2iHvVeX5iMW7s1SIQlqu699JkODJJIhh/pUu8L0/VLh8xflD+LQ==}
+    dependencies:
+      spdx-exceptions: 2.3.0
+      spdx-license-ids: 3.0.16
+    dev: false
 
   /spdx-license-ids@3.0.16:
     resolution: {integrity: sha512-eWN+LnM3GR6gPu35WxNgbGl8rmY1AEmoMDvL/QD6zYmPWgywxWqJWNdLGT+ke8dKNWrcYgYjPpG5gbTfghP8rw==}
