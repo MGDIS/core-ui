@@ -56,7 +56,7 @@ describe('mg-input-numeric', () => {
     });
 
     test.each([
-      <mg-button slot="append-input" label="search" identifier="button-identifier">
+      <mg-button slot="append-input" label="search">
         <mg-icon icon="calculator"></mg-icon> Calculate
       </mg-button>,
       <span slot="append-input">km</span>,

@@ -3,7 +3,7 @@
 exports[`mg-button Should render a button with an id 1`] = `
 <mg-button aria-label="label" role="button" tabindex="0">
   <mock:shadow-root>
-    <div class="mg-c-button mg-c-button--primary" id="identifier">
+    <div class="mg-c-button mg-c-button--primary">
       <div class="mg-c-button__content">
         <slot></slot>
       </div>
@@ -302,7 +302,7 @@ exports[`mg-button Should render an success button isIcon true 1`] = `
 exports[`mg-button prevent double click Should NOT disable button after click 1`] = `
 <mg-button role="button" tabindex="0">
   <mock:shadow-root>
-    <div class="mg-c-button mg-c-button--primary" id="identifier">
+    <div class="mg-c-button mg-c-button--primary">
       <div class="mg-c-button__content">
         <slot></slot>
       </div>
@@ -315,7 +315,7 @@ exports[`mg-button prevent double click Should NOT disable button after click 1`
 exports[`mg-button prevent double click Should NOT disable button after click 2`] = `
 <mg-button role="button" tabindex="0">
   <mock:shadow-root>
-    <div class="mg-c-button mg-c-button--primary" id="identifier">
+    <div class="mg-c-button mg-c-button--primary">
       <div class="mg-c-button__content">
         <slot></slot>
       </div>
@@ -328,7 +328,7 @@ exports[`mg-button prevent double click Should NOT disable button after click 2`
 exports[`mg-button prevent double click Should NOT disable button after click 3`] = `
 <mg-button aria-disabled="true" role="button" tabindex="0">
   <mock:shadow-root>
-    <div class="mg-c-button mg-c-button--disabled mg-c-button--primary" id="identifier">
+    <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
       <div class="mg-c-button__content">
         <slot></slot>
       </div>

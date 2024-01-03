@@ -24,7 +24,7 @@ export const createSlots = ({ content, action }: SlotType): string => {
   if (action) {
     slots += `
    <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
-     <mg-button identifier="identifier">Primary</mg-button>
+     <mg-button>Primary</mg-button>
      <mg-button variant="secondary" identifier="identifier">
        Secondary
      </mg-button>

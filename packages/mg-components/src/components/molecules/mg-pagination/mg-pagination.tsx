@@ -157,7 +157,6 @@ export class MgPagination {
   render(): HTMLElement {
     const navigationActionButton = (disabled: boolean, action: string) => (
       <mg-button
-        identifier={`${this.identifier}-button-${action}`}
         label={this.messages.pagination[`${action}Page`]}
         // eslint-disable-next-line react/jsx-no-bind
         onClick={() => this.handleGoToPage(action, disabled)}

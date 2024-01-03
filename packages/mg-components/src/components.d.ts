@@ -60,7 +60,7 @@ export namespace Components {
          */
         "displayChevron": boolean;
         /**
-          * Define displaied icon
+          * Define displayed icon
          */
         "icon": MgActionMoreIconType;
         /**
@@ -103,10 +103,6 @@ export namespace Components {
           * Set button to full-width
          */
         "fullWidth": boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-         */
-        "identifier": string;
         /**
           * Define if button is round. Used for icon button.
          */
@@ -1901,7 +1897,7 @@ declare namespace LocalJSX {
          */
         "displayChevron"?: boolean;
         /**
-          * Define displaied icon
+          * Define displayed icon
          */
         "icon"?: MgActionMoreIconType;
         /**
@@ -1944,10 +1940,6 @@ declare namespace LocalJSX {
           * Set button to full-width
          */
         "fullWidth"?: boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-         */
-        "identifier"?: string;
         /**
           * Define if button is round. Used for icon button.
          */

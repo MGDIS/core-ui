@@ -34,12 +34,12 @@ describe('mg-pagination', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([true, false])('Should hidde navigation labels', async hideNavigationLabels => {
+    test.each([true, false])('Should hide navigation labels', async hideNavigationLabels => {
       const page = await getPage({ totalPages: 2, identifier: 'id', hideNavigationLabels });
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([true, false])('Should hidde page select', async hidePageCount => {
+    test.each([true, false])('Should hide page select', async hidePageCount => {
       const page = await getPage({ totalPages: 2, identifier: 'id', hidePageCount });
       expect(page.root).toMatchSnapshot();
     });

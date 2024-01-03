@@ -43,11 +43,6 @@ export class MgButton {
   }
 
   /**
-   * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-   */
-  @Prop() identifier: string;
-
-  /**
    * aria-label
    * In case button text is not explicit enough
    */
@@ -202,7 +197,7 @@ export class MgButton {
     nextTick(() => {
       const closestForm = this.element.closest('form') || this.element.closest('mg-form')?.shadowRoot.querySelector('form');
       // submit buttons should trigger form submition;
-      if (!!closestForm && ['submit', undefined].includes(this.type)) {
+      if (closestForm && ['submit', undefined].includes(this.type)) {
         this.element.addEventListener('click', () => {
           closestForm.dispatchEvent(new SubmitEvent('submit', { bubbles: true, cancelable: true }));
         });
@@ -228,7 +223,7 @@ export class MgButton {
         onKeyup={this.handleKeyup}
         onKeydown={this.handleKeydown}
       >
-        <div class={this.classCollection.join()} id={this.identifier}>
+        <div class={this.classCollection.join()}>
           {this.loading && <mg-icon icon="loader" spin></mg-icon>}
           <div class="mg-c-button__content">
             <slot></slot>
