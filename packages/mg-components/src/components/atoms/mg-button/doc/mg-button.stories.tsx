@@ -29,7 +29,6 @@ export const MgButton = {
     slot: 'Text button',
     variant: variants[0],
     label: 'Explicit aria label',
-    identifier: undefined,
     disabled: false,
     disableOnClick: false,
     isIcon: false,
