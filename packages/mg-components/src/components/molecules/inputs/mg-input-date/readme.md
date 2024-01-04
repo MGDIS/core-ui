@@ -11,23 +11,23 @@ Calendar and trigger: The style is the browser's native style.
 
 ## Properties
 
-| Property                  | Attribute      | Description                                                                 | Type      | Default           |
-| ------------------------- | -------------- | --------------------------------------------------------------------------- | --------- | ----------------- |
-| `disabled`                | `disabled`     | Define if input is disabled                                                 | `boolean` | `false`           |
-| `helpText`                | `help-text`    | Add a help text under the input, usually expected data format and example   | `string`  | `undefined`       |
-| `identifier` _(required)_ | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`  | `undefined`       |
-| `invalid`                 | `invalid`      | Define input invalid state                                                  | `boolean` | `undefined`       |
-| `label` _(required)_      | `label`        | Input label                                                                 | `string`  | `undefined`       |
-| `labelHide`               | `label-hide`   | Define if label is visible                                                  | `boolean` | `false`           |
-| `labelOnTop`              | `label-on-top` | Define if label is displayed on top                                         | `boolean` | `undefined`       |
-| `max`                     | `max`          | Define input maximum date format: yyyy-mm-dd                                | `string`  | `undefined`       |
-| `min`                     | `min`          | Define input minimum date format: yyyy-mm-dd                                | `string`  | `undefined`       |
-| `name`                    | `name`         | Input name If not set the value equals the identifier                       | `string`  | `this.identifier` |
-| `readonly`                | `readonly`     | Define if input is readonly                                                 | `boolean` | `false`           |
-| `required`                | `required`     | Define if input is required                                                 | `boolean` | `false`           |
-| `tooltip`                 | `tooltip`      | Add a tooltip message next to the input                                     | `string`  | `undefined`       |
-| `valid`                   | `valid`        | Define input valid state                                                    | `boolean` | `undefined`       |
-| `value`                   | `value`        | Component value                                                             | `string`  | `undefined`       |
+| Property                  | Attribute      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                         | Type      | Default           |
+| ------------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------- |
+| `disabled`                | `disabled`     | Define if input is disabled                                                                                                                                                                                                                                                                                                                                                                                                                         | `boolean` | `false`           |
+| `helpText`                | `help-text`    | Add a help text under the input, usually expected data format and example Available string variables:  - `{pattern}`: render innerHTML pattern based on system  - `{date}`: render innerText date with a pattern base format.  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text. ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern` | `string`  | `undefined`       |
+| `identifier` _(required)_ | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js)                                                                                                                                                                                                                                                                                                                                                                         | `string`  | `undefined`       |
+| `invalid`                 | `invalid`      | Define input invalid state                                                                                                                                                                                                                                                                                                                                                                                                                          | `boolean` | `undefined`       |
+| `label` _(required)_      | `label`        | Input label                                                                                                                                                                                                                                                                                                                                                                                                                                         | `string`  | `undefined`       |
+| `labelHide`               | `label-hide`   | Define if label is visible                                                                                                                                                                                                                                                                                                                                                                                                                          | `boolean` | `false`           |
+| `labelOnTop`              | `label-on-top` | Define if label is displayed on top                                                                                                                                                                                                                                                                                                                                                                                                                 | `boolean` | `undefined`       |
+| `max`                     | `max`          | Define input maximum date format: yyyy-mm-dd                                                                                                                                                                                                                                                                                                                                                                                                        | `string`  | `undefined`       |
+| `min`                     | `min`          | Define input minimum date format: yyyy-mm-dd                                                                                                                                                                                                                                                                                                                                                                                                        | `string`  | `undefined`       |
+| `name`                    | `name`         | Input name If not set the value equals the identifier                                                                                                                                                                                                                                                                                                                                                                                               | `string`  | `this.identifier` |
+| `readonly`                | `readonly`     | Define if input is readonly                                                                                                                                                                                                                                                                                                                                                                                                                         | `boolean` | `false`           |
+| `required`                | `required`     | Define if input is required                                                                                                                                                                                                                                                                                                                                                                                                                         | `boolean` | `false`           |
+| `tooltip`                 | `tooltip`      | Add a tooltip message next to the input                                                                                                                                                                                                                                                                                                                                                                                                             | `string`  | `undefined`       |
+| `valid`                   | `valid`        | Define input valid state                                                                                                                                                                                                                                                                                                                                                                                                                            | `boolean` | `undefined`       |
+| `value`                   | `value`        | Component value                                                                                                                                                                                                                                                                                                                                                                                                                                     | `string`  | `undefined`       |
 
 
 ## Events
@@ -49,24 +49,6 @@ Display input error if it exists.
 Type: `Promise<void>`
 
 
-
-### `getDatePatternConfig(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>`
-
-Retrieves the date pattern configuration.
-When you set the helpText prop, the date pattern in the help text is lost.
-This method allows you to obtain all necessary date pattern information to set your custom help text message.
-
-#### Parameters
-
-| Name   | Type   | Description                                                                           |
-| ------ | ------ | ------------------------------------------------------------------------------------- |
-| `date` | `Date` | - The date to retrieve formatted configuration from. Default: new Date('2023-12-24'). |
-
-#### Returns
-
-Type: `Promise<{ pattern: string; date: string; dateMessage: string; }>`
-
-- Date pattern object configuration.
 
 ### `setError(valid: MgInputDate['valid'], errorMessage: string) => Promise<void>`
 

@@ -2504,7 +2504,7 @@
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
-          "docs": "Add a help text under the input, usually expected data format and example",
+          "docs": "Add a help text under the input, usually expected data format and example\nAvailable string variables:\n - `{pattern}`: render innerHTML pattern based on system\n - `{date}`: render innerText date with a pattern base format.\n - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.\nex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`",
           "docsTags": [],
           "values": [
             {
@@ -2814,53 +2814,6 @@
           "parameters": [],
           "docs": "Display input error if it exists.",
           "docsTags": []
-        },
-        {
-          "name": "getDatePatternConfig",
-          "returns": {
-            "type": "Promise<{ pattern: string; date: string; dateMessage: string; }>",
-            "docs": "- Date pattern object configuration."
-          },
-          "complexType": {
-            "signature": "(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>",
-            "parameters": [
-              {
-                "name": "date",
-                "type": "Date",
-                "docs": "- The date to retrieve formatted configuration from. Default: new Date('2023-12-24')."
-              }
-            ],
-            "references": {
-              "Promise": {
-                "location": "global",
-                "id": "global::Promise"
-              },
-              "Date": {
-                "location": "global",
-                "id": "global::Date"
-              }
-            },
-            "return": "Promise<{ pattern: string; date: string; dateMessage: string; }>"
-          },
-          "signature": "getDatePatternConfig(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>",
-          "parameters": [
-            {
-              "name": "date",
-              "type": "Date",
-              "docs": "- The date to retrieve formatted configuration from. Default: new Date('2023-12-24')."
-            }
-          ],
-          "docs": "Retrieves the date pattern configuration.\nWhen you set the helpText prop, the date pattern in the help text is lost.\nThis method allows you to obtain all necessary date pattern information to set your custom help text message.",
-          "docsTags": [
-            {
-              "name": "param",
-              "text": "date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24')."
-            },
-            {
-              "name": "returns",
-              "text": "- Date pattern object configuration."
-            }
-          ]
         },
         {
           "name": "setError",

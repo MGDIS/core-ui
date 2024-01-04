@@ -113,6 +113,11 @@ export class MgInputDate {
 
   /**
    * Add a help text under the input, usually expected data format and example
+   * Available string variables:
+   *  - `{pattern}`: render innerHTML pattern based on system
+   *  - `{date}`: render innerText date with a pattern base format.
+   *  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.
+   * ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
    */
   @Prop() helpText: string;
 
@@ -197,29 +202,17 @@ export class MgInputDate {
   }
 
   /**
-   * Retrieves the date pattern configuration.
-   * When you set the helpText prop, the date pattern in the help text is lost.
-   * This method allows you to obtain all necessary date pattern information to set your custom help text message.
-   * @param {Date} date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24').
-   * @returns {object} - Date pattern object configuration.
-   */
-  @Method()
-  async getDatePatternConfig(date: Date = new Date('2023-12-24')): Promise<{ pattern: string; date: string; dateMessage: string }> {
-    if (!(date instanceof Date)) throw new Error('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
-    return {
-      pattern: getLocaleDatePattern(this.systemLocale),
-      date: localeDate(dateToString(date), this.systemLocale),
-      dateMessage: this.getHelpTextDatePatternMessage(date),
-    };
-  }
-
-  /**
-   * Get help text to display based on date pattern message
-   * @param date - to parse
+   * Format help text to display
+   * @param helpText - help text format
    * @returns formated pattern help text. Ex: Format attendu : jj/mm/aaaa (ex : 20/12/2020)
    */
-  private getHelpTextDatePatternMessage = (date: Date = new Date('2023-12-24')): string =>
-    this.messages.input.date.helpText.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(date), this.systemLocale));
+  private formatHelpText = (helpText: string): string => {
+    const defaultHelpTextVariable = '{defaultHelpText}';
+    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText;
+    if (text.includes(defaultHelpTextVariable)) text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText));
+
+    return text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2023-12-24')), this.systemLocale));
+  };
 
   /**
    * Method to set validity values
@@ -384,7 +377,7 @@ export class MgInputDate {
         value={this.value}
         readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
-        helpText={isValidString(this.helpText) ? this.helpText : this.getHelpTextDatePatternMessage()}
+        helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
         isFieldset={false}
       >

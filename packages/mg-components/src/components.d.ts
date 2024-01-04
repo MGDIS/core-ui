@@ -361,13 +361,7 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Retrieves the date pattern configuration. When you set the helpText prop, the date pattern in the help text is lost. This method allows you to obtain all necessary date pattern information to set your custom help text message.
-          * @param date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24').
-          * @returns - Date pattern object configuration.
-         */
-        "getDatePatternConfig": (date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>;
-        /**
-          * Add a help text under the input, usually expected data format and example
+          * Add a help text under the input, usually expected data format and example Available string variables:  - `{pattern}`: render innerHTML pattern based on system  - `{date}`: render innerText date with a pattern base format.  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text. ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
          */
         "helpText": string;
         /**
@@ -2206,7 +2200,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Add a help text under the input, usually expected data format and example
+          * Add a help text under the input, usually expected data format and example Available string variables:  - `{pattern}`: render innerHTML pattern based on system  - `{date}`: render innerText date with a pattern base format.  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text. ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
          */
         "helpText"?: string;
         /**
