@@ -60,7 +60,7 @@ export namespace Components {
          */
         "displayChevron": boolean;
         /**
-          * Define displaied icon
+          * Define displayed icon
          */
         "icon": MgActionMoreIconType;
         /**
@@ -1901,7 +1901,7 @@ declare namespace LocalJSX {
          */
         "displayChevron"?: boolean;
         /**
-          * Define displaied icon
+          * Define displayed icon
          */
         "icon"?: MgActionMoreIconType;
         /**
