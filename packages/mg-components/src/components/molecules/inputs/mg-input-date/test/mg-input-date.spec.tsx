@@ -35,6 +35,7 @@ describe('mg-input-date', () => {
     { label: 'label', identifier: 'identifier', required: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', required: true, readonly: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', required: true, disabled: true, value: '2022-06-02', helpText: 'My help text' },
+    { label: 'label', identifier: 'identifier', helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
@@ -304,35 +305,6 @@ describe('mg-input-date', () => {
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
-  });
-
-  test.each([undefined, new Date('2023-12-20')])("Should get date pattern config from getDatePatternConfig component's public method", async date => {
-    const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
-
-    const element = page.doc.querySelector('mg-input-date');
-    const expectedDate = date ? '12/20/2023' : '12/24/2023';
-
-    const res = await element.getDatePatternConfig(date as unknown as Date);
-    expect(res).toEqual(
-      expect.objectContaining({
-        pattern: 'mm/dd/yyyy',
-        date: expectedDate,
-        dateMessage: `Expected format: <span aria-hidden=\"true\">mm/dd/yyyy</span><span class=\"mg-u-visually-hidden\">m m / d d / y y y y</span> (ex: ${expectedDate})`,
-      }),
-    );
-  });
-
-  test.each([{}, '2023-12-20'])("Should thow error from getDatePatternConfig component's public method, case param type mismatch", async date => {
-    expect.assertions(1);
-    try {
-      const page = await getPage({ label: 'label', identifier: 'identifier', required: true });
-
-      const element = page.doc.querySelector('mg-input-date');
-
-      await element.getDatePatternConfig(date as unknown as Date);
-    } catch (err) {
-      expect(err.message).toBe('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
-    }
   });
 
   test.each([
