@@ -1,3 +1,4 @@
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
 
 const TIMEOUT = 1000;
@@ -93,22 +94,25 @@ describe('mg-input-date', () => {
     });
   });
 
-  test('Should render error when leaving input with a wrong date', async ({ page }) => {
-    await setPageContent(page, `<mg-input-date identifier="identifier" label="label"></mg-input-date>`);
+  testEach(['', 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}'])(
+    'Should render error when leaving input with a wrong date %s',
+    async (page, helpText) => {
+      await setPageContent(page, `<mg-input-date ${renderAttributes({ label: 'label', identifier: 'identifier', helpText })}></mg-input-date>`);
 
-    await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
 
-    await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
 
-    await page.keyboard.down('0');
-    await page.keyboard.down('2');
-    await page.keyboard.down('0');
-    await page.keyboard.down('6');
+      await page.keyboard.down('0');
+      await page.keyboard.down('2');
+      await page.keyboard.down('0');
+      await page.keyboard.down('6');
 
-    await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
 
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    },
+  );
 
   describeEach([
     '<mg-input-date identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-date>',
@@ -136,21 +140,24 @@ describe('mg-input-date', () => {
       locale: 'fr-FR',
     });
 
-    test('Should render error when leaving input with a wrong date', async ({ page }) => {
-      await setPageContent(page, `<mg-input-date identifier="identifier" label="label"></mg-input-date>`);
+    testEach(['', 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}'])(
+      'Should render error when leaving input with a wrong date %s',
+      async (page, helpText) => {
+        await setPageContent(page, `<mg-input-date ${renderAttributes({ label: 'label', identifier: 'identifier', helpText })}></mg-input-date>`);
 
-      await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+        await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
 
-      await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
 
-      await page.keyboard.down('0');
-      await page.keyboard.down('2');
-      await page.keyboard.down('0');
-      await page.keyboard.down('6');
+        await page.keyboard.down('0');
+        await page.keyboard.down('2');
+        await page.keyboard.down('0');
+        await page.keyboard.down('6');
 
-      await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      },
+    );
   });
 });
