@@ -2840,7 +2840,7 @@
           "name": "getDatePatternConfig",
           "returns": {
             "type": "Promise<{ pattern: string; date: string; dateMessage: string; }>",
-            "docs": "date pattern object config"
+            "docs": "- Date pattern object configuration."
           },
           "complexType": {
             "signature": "(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>",
@@ -2848,7 +2848,7 @@
               {
                 "name": "date",
                 "type": "Date",
-                "docs": "to get formated config from. Default: new Date('2023-12-24')."
+                "docs": "- The date to retrieve formatted configuration from. Default: new Date('2023-12-24')."
               }
             ],
             "references": {
@@ -2868,18 +2868,18 @@
             {
               "name": "date",
               "type": "Date",
-              "docs": "to get formated config from. Default: new Date('2023-12-24')."
+              "docs": "- The date to retrieve formatted configuration from. Default: new Date('2023-12-24')."
             }
           ],
-          "docs": "Get date pattern config.\nWhen you set the helpText prop you lose the date pattern in help text.\nThis methode allow you to get all date pattern needeed informations to set your custom help text message.",
+          "docs": "Retrieves the date pattern configuration.\nWhen you set the helpText prop, the date pattern in the help text is lost.\nThis method allows you to obtain all necessary date pattern information to set your custom help text message.",
           "docsTags": [
             {
               "name": "param",
-              "text": "date to get formated config from. Default: new Date('2023-12-24')."
+              "text": "date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24')."
             },
             {
               "name": "returns",
-              "text": "date pattern object config"
+              "text": "- Date pattern object configuration."
             }
           ]
         },

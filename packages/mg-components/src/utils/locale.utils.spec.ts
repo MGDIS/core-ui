@@ -20,8 +20,8 @@ describe('locale.utils', () => {
 
     describe('getLocaleDatePattern', () => {
       test.each([
-        { locale: 'fr', expected: 'DD/MM/YYYY' },
-        { locale: 'en', expected: 'MM/DD/YYYY' },
+        { locale: 'fr', expected: 'dd/mm/yyyy' },
+        { locale: 'en', expected: 'mm/dd/yyyy' },
       ])('Should get date pattern', ({ locale, expected }) => {
         const pattern = getLocaleDatePattern(locale);
         expect(pattern).toEqual(expected);

@@ -17,6 +17,11 @@ export const filterArgs = (args, defaultValues?) => {
 
 export const stencilWrapper = (storyFn, context): Element => {
   const host = document.getElementById('storybook-root');
+
+  // update local switcher based on context variable
+  document.querySelector('[lang]').setAttribute('lang', context.globals.locale || 'en');
+
+  // render story virtual DOM
   renderVdom(
     {
       $ancestorComponent$: undefined,

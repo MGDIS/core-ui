@@ -130,4 +130,27 @@ describe('mg-input-date', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  describe('fr', () => {
+    test.use({
+      locale: 'fr-FR',
+    });
+
+    test('Should render error when leaving input with a wrong date', async ({ page }) => {
+      await setPageContent(page, `<mg-input-date identifier="identifier" label="label"></mg-input-date>`);
+
+      await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await page.keyboard.down('Tab');
+
+      await page.keyboard.down('0');
+      await page.keyboard.down('2');
+      await page.keyboard.down('0');
+      await page.keyboard.down('6');
+
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 });
