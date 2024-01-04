@@ -196,13 +196,13 @@ export class MgInputDate {
     }
   }
 
-   /**
- * Retrieves the date pattern configuration.
- * When you set the helpText prop, the date pattern in the help text is lost.
- * This method allows you to obtain all necessary date pattern information to set your custom help text message.
- * @param {Date} date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24').
- * @returns {object} - Date pattern object configuration.
- */
+  /**
+   * Retrieves the date pattern configuration.
+   * When you set the helpText prop, the date pattern in the help text is lost.
+   * This method allows you to obtain all necessary date pattern information to set your custom help text message.
+   * @param {Date} date - The date to retrieve formatted configuration from. Default: new Date('2023-12-24').
+   * @returns {object} - Date pattern object configuration.
+   */
   @Method()
   async getDatePatternConfig(date: Date = new Date('2023-12-24')): Promise<{ pattern: string; date: string; dateMessage: string }> {
     if (!(date instanceof Date)) throw new Error('<mg-input-date> method "getDatePatternConfig()" param "date" must be a "Date".');
@@ -219,7 +219,7 @@ export class MgInputDate {
    * @returns formated pattern help text. Ex: Format attendu : jj/mm/aaaa (ex : 20/12/2020)
    */
   private getHelpTextDatePatternMessage = (date: Date = new Date('2023-12-24')): string =>
-    this.messages.input.date.helpText.replace('{{pattern}}', getLocaleDatePattern(this.systemLocale)).replace('{{date}}', localeDate(dateToString(date), this.systemLocale));
+    this.messages.input.date.helpText.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(date), this.systemLocale));
 
   /**
    * Method to set validity values
@@ -307,12 +307,16 @@ export class MgInputDate {
       }
       // min, max & minMax
       else if ([InputError.MIN, InputError.MAX, InputError.MINMAX].includes(inputError)) {
-        this.errorMessage = this.messages.errors.date[inputError].replace('{min}', localeDate(this.min, this.locale)).replace('{max}', localeDate(this.max, this.locale));
+        this.errorMessage = this.messages.errors.date[inputError]
+          .replace('{min}', localeDate(this.min, this.systemLocale))
+          .replace('{max}', localeDate(this.max, this.systemLocale));
       }
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.errors.date.badInput.replace('{min}', this.min?.length > 0 ? localeDate(this.min, this.locale) : localeDate('1900-01-01', this.locale));
+        this.errorMessage = this.messages.errors.date.badInput
+          .replace('{min}', this.min?.length > 0 ? localeDate(this.min, this.systemLocale) : localeDate('1900-01-01', this.systemLocale))
+          .replace('{pattern}', this.renderPattern());
       }
     }
   };
@@ -348,6 +352,19 @@ export class MgInputDate {
   }
 
   /**
+   * Render pattern
+   * @returns translated html pattern
+   */
+  private renderPattern = (): string => {
+    let patternLocal = getLocaleDatePattern(this.systemLocale);
+    for (const key in this.messages.input.date.pattern) {
+      patternLocal = patternLocal.replace(key, this.messages.input.date.pattern[key]);
+    }
+
+    return `<span aria-hidden=\"true\">${patternLocal}</span><span class=\"mg-u-visually-hidden\">${[...patternLocal].join(' ')}</span>`;
+  };
+
+  /**
    * Render
    * @returns HTML Element
    */
@@ -367,7 +384,7 @@ export class MgInputDate {
         value={this.value}
         readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
-        helpText={this.helpText ?? this.getHelpTextDatePatternMessage()}
+        helpText={isValidString(this.helpText) ? this.helpText : this.getHelpTextDatePatternMessage()}
         errorMessage={this.errorMessage}
         isFieldset={false}
       >
