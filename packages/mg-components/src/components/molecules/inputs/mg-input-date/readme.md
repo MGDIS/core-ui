@@ -52,21 +52,21 @@ Type: `Promise<void>`
 
 ### `getDatePatternConfig(date?: Date) => Promise<{ pattern: string; date: string; dateMessage: string; }>`
 
-Get date pattern config.
-When you set the helpText prop you lose the date pattern in help text.
-This methode allow you to get all date pattern needeed informations to set your custom help text message.
+Retrieves the date pattern configuration.
+When you set the helpText prop, the date pattern in the help text is lost.
+This method allows you to obtain all necessary date pattern information to set your custom help text message.
 
 #### Parameters
 
-| Name   | Type   | Description                                                   |
-| ------ | ------ | ------------------------------------------------------------- |
-| `date` | `Date` | to get formated config from. Default: new Date('2023-12-24'). |
+| Name   | Type   | Description                                                                           |
+| ------ | ------ | ------------------------------------------------------------------------------------- |
+| `date` | `Date` | - The date to retrieve formatted configuration from. Default: new Date('2023-12-24'). |
 
 #### Returns
 
 Type: `Promise<{ pattern: string; date: string; dateMessage: string; }>`
 
-date pattern object config
+- Date pattern object configuration.
 
 ### `setError(valid: MgInputDate['valid'], errorMessage: string) => Promise<void>`
 
