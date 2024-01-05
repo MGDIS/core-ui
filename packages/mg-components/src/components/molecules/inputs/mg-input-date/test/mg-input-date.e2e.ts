@@ -1,47 +1,41 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
+import { MgInputDate } from '../mg-input-date';
 
-const TIMEOUT = 1000;
+const baseProps = { identifier: 'identifier', label: 'label' };
+
+const createHTML = (args: Partial<MgInputDate & { lang: string }>) => `<mg-input-date ${renderAttributes(args)}></mg-input-date>`;
 
 test.describe('mg-input-date', () => {
-  test.describe('without tooltip', () => {
-    [
-      `<mg-input-date identifier="identifier" label="label"></mg-input-date>`,
-      `<mg-input-date identifier="identifier" label="label" label-on-top></mg-input-date>`,
-      `<mg-input-date identifier="identifier" label="label" label-hide></mg-input-date>`,
-      `<mg-input-date identifier="identifier" label="label" placeholder="placeholder" help-text="HelpText Message"></mg-input-date>`,
-    ].forEach(html => {
-      test(`render ${html}`, async ({ page }) => {
-        await page.setContent(html);
+  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(props => {
+    test(`render props ${renderAttributes(props)} without tooltip`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseProps, ...props }));
+      await page.locator('mg-input-date.hydrated').waitFor();
 
-        await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await page.keyboard.down('Tab');
 
-        await page.keyboard.down('Tab');
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await page.keyboard.down('0');
+      await page.keyboard.down('2');
+      await page.keyboard.down('0');
+      await page.keyboard.down('6');
+      await page.keyboard.down('1');
+      await page.keyboard.down('9');
+      await page.keyboard.down('8');
+      await page.keyboard.down('2');
 
-        await page.keyboard.down('0');
-        await page.keyboard.down('2');
-        await page.keyboard.down('0');
-        await page.keyboard.down('6');
-        await page.keyboard.down('1');
-        await page.keyboard.down('9');
-        await page.keyboard.down('8');
-        await page.keyboard.down('2');
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   [true, false].forEach(labelOnTop => {
-    test(`render with tooltip, case label-on-top ${labelOnTop}`, async ({ page }) => {
-      await page.setContent(`<mg-input-date identifier="identifier" label="label" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-date>`);
-
-      await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+    test(`render with tooltip, label-on-top="${labelOnTop}"`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseProps, tooltip: 'Tooltip message', labelOnTop }));
+      await page.locator('mg-input-date.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -61,53 +55,43 @@ test.describe('mg-input-date', () => {
   });
 
   [
-    `<mg-input-date identifier="identifier" label="label" readonly></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02"></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02" readonly></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" disabled></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02" disabled></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02" readonly lang="fr"></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" help-text='<mg-icon icon="user" size="small"></mg-icon> Welcome batman'></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02" help-text='My help text' required></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02" help-text='My help text' required readonly></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" value="1982-06-02" help-text='My help text' required disabled></mg-input-date>`,
-  ].forEach(html => {
-    test.describe('Should render with template', () => {
-      test(`render ${html}`, async ({ page }) => {
-        await page.setContent(html);
+    { readonly: true },
+    { value: '1982-06-02' },
+    { value: '1982-06-02', readonly: true },
+    { disabled: true },
+    { value: '1982-06-02', disabled: true },
+    { value: '1982-06-02', readonly: true, lang: 'fr' },
+    { helpText: `<mg-icon icon='user' size='small'></mg-icon> Welcome batman` },
+    { value: '1982-06-02', helpText: 'My help text', required: true },
+    { value: '1982-06-02', helpText: 'My help text', required: true, readonly: true },
+    { value: '1982-06-02', helpText: 'My help text', required: true, disabled: true },
+  ].forEach(props => {
+    test(`render with template, ${renderAttributes(props)}`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseProps, ...props }));
+      await page.locator('mg-input-date.hydrated').waitFor();
 
-        await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  [
-    `<mg-input-date identifier="identifier" label="label" required></mg-input-date>`,
-    `<mg-input-date identifier="identifier" label="label" lang="fr" required></mg-input-date>`,
-  ].forEach(html => {
-    test.describe(html, () => {
-      test('Should render error when leaving an empty required input', async ({ page }) => {
-        await page.setContent(html);
+  [undefined, 'fr'].forEach(lang => {
+    test(`render error when leaving an empty required input, lang=${lang}`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseProps, lang, required: true }));
+      await page.locator('mg-input-date.hydrated').waitFor();
 
-        await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
 
-        await page.keyboard.down('Tab');
-        await page.keyboard.down('Tab');
-        await page.keyboard.down('Tab');
-        await page.keyboard.down('Tab');
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   ['', 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}'].forEach(helpText => {
-    test(`Should render error when leaving input with a wrong date ${helpText}`, async ({ page }) => {
-      await page.setContent(`<mg-input-date ${renderAttributes({ label: 'label', identifier: 'identifier', helpText })}></mg-input-date>`);
-
-      await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+    test(`Should render error when leaving input with a wrong date, help-text="${helpText}"`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseProps, helpText }));
+      await page.locator('mg-input-date.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
 
@@ -122,27 +106,27 @@ test.describe('mg-input-date', () => {
     });
   });
 
-  [
-    '<mg-input-date identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-date>',
-    '<mg-input-date identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-date>',
-  ].forEach(html => {
-    test.describe('inside a div.mg-form-group', () => {
-      test(`render ${html}`, async ({ page }) => {
-        await page.setContent(`<div class="mg-form-group">${html}</div>`);
+  [true, false].forEach(labelOnTop => {
+    test(`render inside a div.mg-form-group, label-on-top="${labelOnTop}"`, async ({ page }) => {
+      await page.setContent(
+        `<div class="mg-form-group">${createHTML({
+          ...baseProps,
+          labelOnTop,
+          label: 'long label long label long label long label long label long label long label long label long label long label long label',
+          tooltip: 'tooltip message',
+        })}</div>`,
+      );
+      await page.locator('mg-input-date.hydrated').waitFor();
 
-        await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   [false, true].forEach(labelOnTop => {
-    test(`Ensure component fit in width 200px with label-on-top: ${labelOnTop}`, async ({ page }) => {
-      await page.setContent(`<mg-input-date identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-date>`);
+    test(`Ensure component fit in width 200px, label-on-top="${labelOnTop}"`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseProps, labelOnTop }));
       page.setViewportSize({ width: 200, height: 100 });
-
-      await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-input-date.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -154,10 +138,9 @@ test.describe('mg-input-date', () => {
     });
 
     ['', 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}'].forEach(helpText => {
-      test(`Should render error when leaving input with a wrong date ${helpText}`, async ({ page }) => {
-        await page.setContent(`<mg-input-date ${renderAttributes({ label: 'label', identifier: 'identifier', helpText })}></mg-input-date>`);
-
-        await page.locator('mg-input-date.hydrated').waitFor({ timeout: TIMEOUT });
+      test(`Should render error when leaving input with a wrong date, help-text="${helpText}"`, async ({ page }) => {
+        await page.setContent(createHTML({ ...baseProps, helpText }));
+        await page.locator('mg-input-date.hydrated').waitFor();
 
         await page.keyboard.down('Tab');
 
