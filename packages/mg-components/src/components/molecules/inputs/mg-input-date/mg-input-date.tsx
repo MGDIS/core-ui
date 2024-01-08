@@ -354,7 +354,7 @@ export class MgInputDate {
       patternLocal = patternLocal.replace(key, this.messages.input.date.pattern[key]);
     }
 
-    return `<span aria-hidden=\"true\">${patternLocal}</span><span class=\"mg-u-visually-hidden\">${[...patternLocal].join(' ')}</span>`;
+    return `<span aria-hidden="true">${patternLocal}</span><span class="mg-u-visually-hidden">${[...patternLocal].join(' ')}</span>`;
   };
 
   /**
