@@ -1091,7 +1091,7 @@ export namespace Components {
         /**
           * Define if message is hidden
          */
-        "hide": boolean;
+        "hidden": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -2938,7 +2938,7 @@ declare namespace LocalJSX {
         /**
           * Define if message is hidden
          */
-        "hide"?: boolean;
+        "hidden"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */

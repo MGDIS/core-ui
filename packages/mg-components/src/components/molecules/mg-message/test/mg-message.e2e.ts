@@ -57,12 +57,12 @@ describe('mg-message', () => {
 
     const mgMessage = page.locator('mg-message.hydrated');
 
-    expect(await mgMessage.getAttribute('hide')).toBeNull();
+    expect(await mgMessage.getAttribute('hidden')).toBeNull();
 
     const mgButton = mgMessage.locator('mg-button');
     await mgButton.click();
 
-    const mgMessageHideProp = await mgMessage.evaluate(e => (e as HTMLMgMessageElement).hide);
+    const mgMessageHideProp = await mgMessage.evaluate(e => (e as HTMLMgMessageElement).hidden);
 
     expect(mgMessageHideProp).toEqual(true);
 

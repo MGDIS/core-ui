@@ -14,9 +14,6 @@ export class MgMessage {
    * Internal *
    ************/
 
-  // Classes
-  private readonly classHide = 'mg-c-message--hide';
-
   // IDs
   private closeButtonId = '';
 
@@ -89,12 +86,12 @@ export class MgMessage {
   /**
    * Define if message is hidden
    */
-  @Prop({ mutable: true }) hide = false;
-  @Watch('hide')
-  validateHide(newValue: MgMessage['hide']): void {
+  // eslint-disable-next-line @stencil-community/reserved-member-names
+  @Prop({ mutable: true, reflect: true }) hidden = false;
+  @Watch('hidden')
+  validateHidden(newValue: MgMessage['hidden']): void {
     if (newValue) {
       this.componentHide.emit();
-      this.classCollection.add(this.classHide);
       // Remove event Listener
       ['focusin', 'mouseenter'].forEach(event => {
         this.element.removeEventListener(event, this.timerEvents);
@@ -103,7 +100,7 @@ export class MgMessage {
       this.clearTimer();
     } else {
       this.componentShow.emit();
-      this.classCollection.delete(this.classHide);
+
       // If delay is set
       if (this.delay > 1) {
         // Start timer
@@ -148,7 +145,7 @@ export class MgMessage {
    * Set timer
    */
   private setTimer = (): void => {
-    this.storedTimer = setTimeout(() => (this.hide = true), this.delay * 1000);
+    this.storedTimer = setTimeout(() => (this.hidden = true), this.delay * 1000);
   };
 
   /**
@@ -184,7 +181,7 @@ export class MgMessage {
    * Handle close button
    */
   private handleClose = (): void => {
-    this.hide = true;
+    this.hidden = true;
   };
 
   /**
@@ -226,7 +223,7 @@ export class MgMessage {
       this.closeButtonId = `${this.identifier}-close-button`;
     }
     this.validateDelay(this.delay);
-    this.validateHide(this.hide);
+    this.validateHidden(this.hidden);
   }
 
   /**
@@ -234,7 +231,7 @@ export class MgMessage {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    let role;
+    let role: string;
 
     if (!this.noAriaRole) role = this.variant === 'info' ? 'status' : 'alert';
 

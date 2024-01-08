@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-04T08:01:25",
+  "timestamp": "2024-01-08T09:21:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.0",
@@ -7514,7 +7514,7 @@
           "required": false
         },
         {
-          "name": "hide",
+          "name": "hidden",
           "type": "boolean",
           "complexType": {
             "original": "boolean",
@@ -7522,8 +7522,8 @@
             "references": {}
           },
           "mutable": true,
-          "attr": "hide",
-          "reflectToAttr": false,
+          "attr": "hidden",
+          "reflectToAttr": true,
           "docs": "Define if message is hidden",
           "docsTags": [],
           "default": "false",
