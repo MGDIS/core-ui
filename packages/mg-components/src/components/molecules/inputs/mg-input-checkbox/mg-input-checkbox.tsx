@@ -3,7 +3,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { ClassList, cleanString, isValidString } from '../../../../utils/components.utils';
 import { initLocales } from '../../../../locales';
-import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps } from './mg-input-checkbox.conf';
+import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
 import { Handler } from '../MgInput.conf';
 
@@ -46,6 +46,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   // "multi" setup
   private readonly multiStart = 5;
   private readonly searchStart = 10;
+
+  // popover variables
+  private hasOpenedPopover = false;
 
   /**************
    * Decorators *
@@ -163,6 +166,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       this.hasDisplayedError = prop !== 'required';
       this.setErrorMessage(this.hasDisplayedError);
     }
+    this.setButtonText();
   }
 
   @Watch('disabled')
@@ -214,6 +218,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       // refresh search values
       this.updateSearchResults();
     }
+    this.setButtonText();
   }
 
   /**
@@ -235,6 +240,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Search current page
    */
   @State() searchResults: CheckboxItem[] = [];
+
+  /**
+   * Select values button text local key
+   */
+  @State() selectValuesButtonKey: SelectValuesButtonKey = SelectValuesButtonKey.EDIT;
 
   /**
    * Emitted event when value change
@@ -350,6 +360,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param event - mg-popover display-change custom event
    */
   private handleMgPopoverDisplayChange = (event: CustomEvent): void => {
+    // 1. update hasOpenedPopover guard with event value
+    this.hasOpenedPopover = event.detail;
+
+    // 2. update selected valued button text
+    this.setButtonText();
+
+    // 3. when popover display change to hide, update reset needeed props and run checkValidity
     if (!event.detail) {
       // reset search value
       this.searchValue = '';
@@ -424,16 +441,16 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   };
 
   /**
-   * Render button text
-   * @param selectedValuesNb - nb of selected values
-   * @returns translated message
+   * Set button text locale key
    */
-  private renderButtonText = (selectedValuesNb: number): string => {
-    let messageKey = 'editButton';
-    if (this.disabled) messageKey = 'showButton';
-    else if (selectedValuesNb < 1) messageKey = 'selectButton';
+  private setButtonText = (): void => {
+    // prevent key update while popover is openned
+    if (this.hasOpenedPopover) return;
+    let messageKey = SelectValuesButtonKey.EDIT;
+    if (this.disabled) messageKey = SelectValuesButtonKey.SHOW;
+    else if (this.getSelectedItems().length < 1) messageKey = SelectValuesButtonKey.SELECT;
 
-    return this.messages.input.checkbox[messageKey];
+    this.selectValuesButtonKey = messageKey;
   };
 
   /**
@@ -461,6 +478,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @returns items to display
    */
   private getDisplayItems = (): CheckboxItem[] => (this.searchValue.length > 0 ? this.searchResults : this.checkboxItems);
+
+  /**
+   * get list of selected checkboxItems
+   * @returns selected checkboxItems
+   */
+  private getSelectedItems = (): CheckboxItem[] => this.checkboxItems.filter(({ value }) => value);
 
   /*************
    * Lifecycle *
@@ -493,31 +516,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId);
     this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
     this.searchInput?.addEventListener('keydown', this.handleKeydown);
-  }
-
-  /**
-   * Render checkbox multi display values
-   * @param selectedValuesNb - selected values length
-   * @returns display selected values
-   */
-  private renderCheckboxMultiDisplaySelectedValues(selectedValuesNb: number): HTMLElement {
-    if (this.displaySelectedValues) {
-      return (
-        selectedValuesNb > 0 && (
-          <ul role="list" class="mg-c-input__input-checkbox-multi-values-container">
-            {this.checkboxItems
-              .filter(({ value }) => value)
-              .map(({ title }) => (
-                <li class="mg-c-input__input-checkbox-multi-value" key={title}>
-                  {title}
-                </li>
-              ))}
-          </ul>
-        )
-      );
-    } else {
-      return <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>;
-    }
   }
 
   /**
@@ -563,14 +561,22 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @returns html element
    */
   private renderCheckboxMulti(): HTMLElement[] {
-    const selectedValuesNb = this.checkboxItems.filter(({ value }) => value).length;
+    const selectedValuesNb = this.getSelectedItems().length;
     const checkboxes = this.getDisplayItems();
 
     return (
-      <div class={{ 'mg-c-input__input-container': true, 'mg-c-input__input-checkbox-multi': true, 'mg-c-input__input-checkbox-multi--with-values': this.displaySelectedValues }}>
+      <div
+        class={{
+          'mg-c-input__input-container': true,
+          'mg-c-input__input-checkbox-multi': true,
+          'mg-c-input__input-checkbox-multi--with-values': this.displaySelectedValues,
+          'mg-c-input__input-checkbox-multi--search-mode': this.displaySearchInput,
+        }}
+      >
         <mg-popover
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
+          display={this.hasOpenedPopover}
           onDisplay-change={this.handleMgPopoverDisplayChange}
           ref={(el: HTMLMgPopoverElement) => {
             if (el) this.mgPopover = el;
@@ -578,7 +584,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         >
           <mg-button variant="secondary" aria-describedby={this.legendId}>
             <mg-icon icon="list"></mg-icon>
-            {this.renderButtonText(selectedValuesNb)}
+            {this.messages.input.checkbox[this.selectValuesButtonKey]}
           </mg-button>
           <div slot="content">
             {this.displaySearchInput && [
@@ -620,7 +626,19 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-c-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
           </div>
         </mg-popover>
-        {this.renderCheckboxMultiDisplaySelectedValues(selectedValuesNb)}
+        {this.displaySelectedValues ? (
+          selectedValuesNb > 0 && (
+            <ul role="list" class="mg-c-input__input-checkbox-multi-values-container">
+              {this.getSelectedItems().map(({ title }) => (
+                <li class="mg-c-input__input-checkbox-multi-value" key={title}>
+                  {title}
+                </li>
+              ))}
+            </ul>
+          )
+        ) : (
+          <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>
+        )}
       </div>
     );
   }

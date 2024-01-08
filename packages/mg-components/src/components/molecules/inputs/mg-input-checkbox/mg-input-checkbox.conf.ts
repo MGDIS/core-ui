@@ -67,3 +67,12 @@ export interface MgInputCheckboxListProps extends IMgInputCheckboxBase {
   checkboxes: CheckboxItem[];
   id: string;
 }
+
+/**
+ * Define select values button key
+ */
+export enum SelectValuesButtonKey {
+  EDIT = 'editButton',
+  SHOW = 'showButton',
+  SELECT = 'selectButton',
+}
