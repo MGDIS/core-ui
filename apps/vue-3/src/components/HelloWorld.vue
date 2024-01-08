@@ -17,14 +17,14 @@ export default defineComponent({
         modalTitle: 'Modal title',
         identifier: 'identifier',
         closeButton: true,
-        hide: true,
+        hidden: true,
       },
     };
   },
   methods: {
     handleClick() {
       this.count++;
-      this.modal.hide = !this.modal.hide;
+      this.modal.hidden = !this.modal.hidden;
       (window as unknown as NotificationCenterWindowType).NotificationCenter.postMessage({
         content: 'Counter value change',
         variant: 'info',
@@ -41,10 +41,10 @@ export default defineComponent({
           </mg-button>
           <mg-modal
             modal-title={this.modal.modalTitle}
-            hide={this.modal.hide}
+            hidden={this.modal.hidden}
             close-button
             onComponentHide={() => {
-              this.modal.hide = true;
+              this.modal.hidden = true;
             }}
           >
             <div slot="content">
