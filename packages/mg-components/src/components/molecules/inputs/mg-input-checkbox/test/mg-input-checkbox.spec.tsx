@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { cloneDeep, mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
+import { cloneDeep, mockConsoleError, mockWindowFrames } from '../../../../../utils/unit.test.utils';
+import { setupResizeObserverMock } from '@mgdis/stencil-helpers';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';

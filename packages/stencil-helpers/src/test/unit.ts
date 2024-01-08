@@ -1,8 +1,5 @@
 import type { SetupMutationObserverMockParams, setupResizeObserverMockParams } from './unit.conf';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { MockCustomEvent } = require('@stencil/core/mock-doc');
-
 /**
  * Utility function that mocks the `MutationObserver` API. Recommended to execute inside `beforeEach`.
  * @param mutationObserverMock - Parameter that is sent to the `Object.defineProperty`
@@ -116,6 +113,17 @@ export const setupResizeObserverMock = ({ disconnect, observe }: setupResizeObse
 
   return MockResizeObserver;
 };
+
+class MockCustomEvent extends Event {
+  /**
+   *
+   */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  detail: any;
+  constructor(type: string, customEventInitDic?: CustomEventInit) {
+    super(type, customEventInitDic);
+  }
+}
 
 /**
  * Utility function that mocks the `SubmitEvent` API. Recommended to execute inside `beforeEach`.
