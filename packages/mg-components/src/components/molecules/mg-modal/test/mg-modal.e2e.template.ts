@@ -41,7 +41,7 @@ export const createHTML = (args: MgModalType, slots: SlotType = {}): string => {
   <script>
     document.getElementById('${triggerModalId}').addEventListener('click', () => {
       const mgModal = document.querySelector('mg-modal');
-      mgModal.hide = !mgModal.hide;
+      mgModal.hidden = !mgModal.hidden;
     });
   </script>
   `;

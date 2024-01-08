@@ -72,9 +72,10 @@ export class MgModal {
   /**
    * Define if modal is hidden
    */
-  @Prop({ mutable: true }) hide: boolean;
-  @Watch('hide')
-  validateHide(newValue: MgModal['hide']): void {
+  // eslint-disable-next-line @stencil-community/reserved-member-names
+  @Prop({ mutable: true, reflect: true }) hidden: boolean;
+  @Watch('hidden')
+  validateHidden(newValue: MgModal['hidden']): void {
     if (newValue) {
       this.componentHide.emit();
       this.classCollection.add(this.classHide);
@@ -125,7 +126,7 @@ export class MgModal {
   handleKeyDown(event: KeyboardEvent): void {
     // we can use 'Escape button" when this not a blocking modal, induced by closeButton value.
     if (this.closeButton && event.key === 'Escape') {
-      this.hide = true;
+      this.hidden = true;
     }
   }
 
@@ -188,7 +189,7 @@ export class MgModal {
    * Handle close button
    */
   private handleClose = (): void => {
-    this.hide = true;
+    this.hidden = true;
   };
 
   /*************
@@ -208,7 +209,7 @@ export class MgModal {
     this.hasContent = this.element.querySelector('[slot="content"]') !== null;
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
-    this.validateHide(this.hide);
+    this.validateHidden(this.hidden);
     this.validateDialogRole(this.dialogRole);
   }
 
@@ -231,7 +232,7 @@ export class MgModal {
    */
   render(): HTMLElement {
     return (
-      <div role={this.dialogRole} id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
+      <div role={this.dialogRole} id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hidden}>
         <mg-card>
           <div class="mg-c-modal__dialog">
             <header class="mg-c-modal__header">
