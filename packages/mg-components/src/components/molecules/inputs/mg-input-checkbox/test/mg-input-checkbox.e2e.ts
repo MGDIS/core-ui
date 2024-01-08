@@ -128,6 +128,10 @@ describe('mg-input-checkbox', () => {
       await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(4) input').press('Space');
 
       await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
     });
 
     testEach([
