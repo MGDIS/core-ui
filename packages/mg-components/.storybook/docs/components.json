@@ -2169,10 +2169,14 @@
         "mg-input-checkbox-paginated": [
           "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-pagination"
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-button",
@@ -2183,9 +2187,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ],
         "mg-popover": [
           "mg-popover-content"
@@ -2433,16 +2434,21 @@
       "dependencies": [
         "mg-button",
         "mg-icon",
+        "mg-tooltip",
         "mg-pagination"
       ],
       "dependencyGraph": {
         "mg-input-checkbox-paginated": [
           "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-pagination"
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-button",
@@ -2453,9 +2459,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
           "mg-input-checkbox-paginated"
@@ -9158,6 +9161,7 @@
       "parts": [],
       "dependents": [
         "mg-input-checkbox",
+        "mg-input-checkbox-paginated",
         "mg-input-date",
         "mg-input-numeric",
         "mg-input-password",
@@ -9175,6 +9179,9 @@
           "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
+          "mg-tooltip"
+        ],
+        "mg-input-checkbox-paginated": [
           "mg-tooltip"
         ],
         "mg-input-date": [

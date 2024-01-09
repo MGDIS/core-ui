@@ -1,6 +1,6 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValidString, nextTick } from '../../../utils/components.utils';
-import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
+import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
 import { Guard } from './mg-tooltip.conf';
 
 /**
@@ -226,10 +226,13 @@ export class MgTooltip {
       slotElement.setAttribute('aria-describedby', `${[...new Set([...ariaDescribedby.split(' '), this.identifier])].join(' ')}`);
     }
 
+    // use element data attribute: `data-popper-strategy`, in order to get popper strategy configuration
+    const strategy = (this.element.dataset.popperStrategy || 'fixed') as PositioningStrategy;
+
     // Create popperjs tooltip
     this.popper = createPopper(this.tooltipedElement, this.mgTooltipContent, {
       placement: this.placement,
-      strategy: 'fixed',
+      strategy,
       modifiers: [
         {
           name: 'offset',
