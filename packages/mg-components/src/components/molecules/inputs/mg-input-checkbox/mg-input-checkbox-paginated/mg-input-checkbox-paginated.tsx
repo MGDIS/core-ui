@@ -175,9 +175,11 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             <p class="mg-c-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.expanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
-            <mg-button variant="link" onClick={this.massActionHandler}>
-              {this.messages.action}
-            </mg-button>
+            <mg-tooltip class="mg-c-input__input-checkbox-multi-section-header-tootlip" message={this.messages.tooltip} display={false} data-popper-strategy="absolute">
+              <mg-button variant="link" onClick={this.massActionHandler}>
+                {this.messages.action}
+              </mg-button>
+            </mg-tooltip>
           )}
           {this.expanded && this.getPageCount(this.checkboxes) > 1 && (
             <mg-pagination

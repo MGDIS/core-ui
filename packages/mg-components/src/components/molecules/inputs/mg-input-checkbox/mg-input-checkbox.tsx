@@ -383,7 +383,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @param event - mass action event trigger a global select/unselect on values
    */
   private handleMassAction = (event: CustomEvent): void => {
-    this.updateCheckboxItems('value', event.detail !== 'selected');
+    const displayItems = this.getDisplayItems();
+    // update only displaied items
+    displayItems.forEach(item => {
+      item.value = event.detail !== 'selected';
+    });
     this.updateValues();
   };
 
@@ -586,7 +590,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             <mg-icon icon="list"></mg-icon>
             {this.messages.input.checkbox[this.selectValuesButtonKey]}
           </mg-button>
-          <div slot="content">
+          <div slot="content" class="mg-c-input__input-checkbox-multi-content">
             {this.displaySearchInput && [
               <mg-input-text
                 key="input-search"

@@ -157,15 +157,16 @@ graph TD;
   mg-input-checkbox --> mg-input-title
   mg-input-checkbox-paginated --> mg-button
   mg-input-checkbox-paginated --> mg-icon
+  mg-input-checkbox-paginated --> mg-tooltip
   mg-input-checkbox-paginated --> mg-pagination
   mg-button --> mg-icon
+  mg-tooltip --> mg-tooltip-content
   mg-pagination --> mg-button
   mg-pagination --> mg-icon
   mg-pagination --> mg-input-select
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
-  mg-tooltip --> mg-tooltip-content
   mg-popover --> mg-popover-content
   mg-popover-content --> mg-card
   mg-popover-content --> mg-button
