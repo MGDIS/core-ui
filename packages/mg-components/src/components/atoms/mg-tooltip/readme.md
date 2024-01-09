@@ -90,6 +90,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 ### Used by
 
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
+ - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
  - [mg-input-date](../../molecules/inputs/mg-input-date)
  - [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
@@ -108,6 +109,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 graph TD;
   mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-tooltip
+  mg-input-checkbox-paginated --> mg-tooltip
   mg-input-date --> mg-tooltip
   mg-input-numeric --> mg-tooltip
   mg-input-password --> mg-tooltip
