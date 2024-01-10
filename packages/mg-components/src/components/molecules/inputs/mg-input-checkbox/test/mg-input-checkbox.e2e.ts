@@ -17,7 +17,7 @@ const baseArgs = {
 const createHTML = args => `<mg-input-checkbox ${renderAttributes(args)}></mg-input-checkbox>`;
 
 const waitForInteractiveElement = (page, type: CheckboxType) => {
-  // wait few seconds to insure to have the interactive element rendered
+  // wait to ensure to have the interactive element rendered
   const interactiveElement = page.locator(type === 'multi' ? 'mg-button[tabindex="0"].hydrated' : 'mg-icon[tabindex="0"].hydrated').first();
   return interactiveElement.waitFor();
 };
@@ -73,7 +73,7 @@ test.describe.only('mg-input-checkbox', () => {
 
           expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
 
-          // wait few seconds to insure to have the interactive element rendered
+          // wait to ensure to have the interactive element rendered
           await waitForInteractiveElement(page, type);
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -118,7 +118,7 @@ test.describe.only('mg-input-checkbox', () => {
 
           // when multi open checkbox in popover
           if (type === 'multi') {
-            // wait few seconds to insure to have the interactive element rendered
+            // wait to ensure to have the interactive element rendered
             await waitForInteractiveElement(page, type);
             await page.keyboard.down('Tab');
             await page.keyboard.down('Enter');
@@ -165,7 +165,7 @@ test.describe.only('mg-input-checkbox', () => {
 
           // when multi open checkbox in popover
           if (type === 'multi') {
-            // wait few seconds to insure to have the interactive element rendered
+            // wait to ensure to have the interactive element rendered
             await waitForInteractiveElement(page, type);
             await page.keyboard.down('Tab');
             await page.keyboard.down('Enter');
@@ -249,7 +249,7 @@ test.describe.only('mg-input-checkbox', () => {
 
         await page.locator('mg-input-checkbox.hydrated').waitFor();
 
-        // wait few seconds to insure to have the interactive element rendered
+        // wait to ensure to have the interactive element rendered
         await waitForInteractiveElement(page, 'multi');
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -265,7 +265,7 @@ test.describe.only('mg-input-checkbox', () => {
 
         await page.locator('mg-input-checkbox.hydrated').waitFor();
 
-        // wait few seconds to insure to have the interactive element rendered
+        // wait to ensure to have the interactive element rendered
         await waitForInteractiveElement(page, 'multi');
 
         await page.setViewportSize({ width: 200, height: 100 });
@@ -285,7 +285,7 @@ test.describe.only('mg-input-checkbox', () => {
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
       page.setViewportSize({ width: 450, height: 470 });
 
-      // wait few seconds to insure to have the interactive element rendered
+      // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -345,7 +345,7 @@ test.describe.only('mg-input-checkbox', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      // wait few seconds to insure to have the interactive element rendered
+      // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
       // open popover
@@ -367,7 +367,7 @@ test.describe.only('mg-input-checkbox', () => {
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
       await page.setViewportSize({ width: 450, height: 570 });
 
-      // wait few seconds to insure to have the interactive element rendered
+      // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -382,6 +382,52 @@ test.describe.only('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
 
+      await expect(page.locator('body')).toHaveScreenshot();
+    });
+
+    test.only('Should select all filtered values', async ({ page }) => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
+        title: index === 9 ? `my super long title item ${item} is very super long and finaly it could not be shorter so what can I do with it` : `${item}`,
+        value: false,
+      }));
+      const componentArgs = { ...baseArgs, value };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+      page.setViewportSize({ width: 450, height: 470 });
+
+      // wait to ensure to have the interactive element rendered
+      await waitForInteractiveElement(page, 'multi');
+
+      // open popover
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Enter');
+      await page.locator('mg-popover-content').waitFor();
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // filter content
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('2');
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // display tooltip
+      await page.keyboard.down('Tab');
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // select all
+      await page.keyboard.down('Enter');
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // remove filter
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Delete');
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      // display tooltip
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
       await expect(page.locator('body')).toHaveScreenshot();
     });
   });
