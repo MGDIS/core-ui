@@ -22,7 +22,7 @@ const waitForInteractiveElement = (page, type: CheckboxType) => {
   return interactiveElement.waitFor();
 };
 
-test.describe.only('mg-input-checkbox', () => {
+test.describe('mg-input-checkbox', () => {
   checkboxTypes.forEach((type: CheckboxType) => {
     test.describe(type, () => {
       [
@@ -385,7 +385,7 @@ test.describe.only('mg-input-checkbox', () => {
       await expect(page.locator('body')).toHaveScreenshot();
     });
 
-    test.only('Should select all filtered values', async ({ page }) => {
+    test('Should select all filtered values', async ({ page }) => {
       const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map((item, index) => ({
         title: index === 9 ? `my super long title item ${item} is very super long and finaly it could not be shorter so what can I do with it` : `${item}`,
         value: false,
