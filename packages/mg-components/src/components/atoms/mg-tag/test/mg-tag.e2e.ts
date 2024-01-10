@@ -5,7 +5,7 @@ import { variants } from '../mg-tag.conf';
 
 test.describe('mg-tag', () => {
   variants.forEach(variant => {
-    test.describe(`${variant}`, () => {
+    test.describe(variant, () => {
       [
         // { icon: true, outline: true, soft: true },
         { icon: true, outline: true, soft: false },
