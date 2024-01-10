@@ -94,7 +94,7 @@ describe('mg-message', () => {
     await page.waitForChanges();
 
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
-    expect(page.rootInstance.hidden).toBe(true);
+    expect(page.rootInstance.element.hidden).toBe(true);
   });
 
   test('Should hide message on delay', async () => {
@@ -104,21 +104,21 @@ describe('mg-message', () => {
     jest.spyOn(page.rootInstance.componentHide, 'emit');
     jest.spyOn(page.rootInstance.componentShow, 'emit');
 
-    expect(page.rootInstance.hidden).toBe(false);
+    expect(page.rootInstance.element.hidden).toBe(false);
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.hidden).toBe(true);
+    expect(page.rootInstance.element.hidden).toBe(true);
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
 
-    page.rootInstance.hidden = false;
+    page.rootInstance.element.hidden = false;
     await page.waitForChanges();
 
     expect(page.rootInstance.componentShow.emit).toHaveBeenCalledTimes(1);
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.hidden).toBe(true);
+    expect(page.rootInstance.element.hidden).toBe(true);
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(2);
   });
 
@@ -131,7 +131,7 @@ describe('mg-message', () => {
 
     const element = page.doc.querySelector('mg-message');
 
-    expect(page.rootInstance.hidden).toBe(false);
+    expect(page.rootInstance.element.hidden).toBe(false);
 
     jest.advanceTimersByTime((args.delay / 2) * 1000);
 
@@ -139,13 +139,13 @@ describe('mg-message', () => {
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.hidden).toBe(false);
+    expect(page.rootInstance.element.hidden).toBe(false);
 
     element.dispatchEvent(eventType === 'focus' ? new FocusEvent('focusout') : new MouseEvent('mouseleave'));
 
     jest.advanceTimersByTime(args.delay * 1000);
 
-    expect(page.rootInstance.hidden).toBe(true);
+    expect(page.rootInstance.element.hidden).toBe(true);
     expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
   });
 });

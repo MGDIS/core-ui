@@ -1089,10 +1089,6 @@ export namespace Components {
          */
         "delay": number;
         /**
-          * Define if message is hidden
-         */
-        "hidden": boolean;
-        /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier": string;
@@ -2935,10 +2931,6 @@ declare namespace LocalJSX {
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
          */
         "delay"?: number;
-        /**
-          * Define if message is hidden
-         */
-        "hidden"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */

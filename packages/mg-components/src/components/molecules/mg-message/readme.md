@@ -23,6 +23,10 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-message. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-message to your design.
 
+## Hide component
+
+To hide the component, you must use the native `hidden` attribute.
+
 <!-- Auto Generated Below -->
 
 
@@ -32,7 +36,6 @@ Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms
 | ------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ------------------------ |
 | `closeButton` | `close-button` | Define if message has a cross button RG 01: https://jira.mgdis.fr/browse/PDA9-140                                                                                                                                                                                                                                      | `boolean`                                      | `false`                  |
 | `delay`       | `delay`        | Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)                                                                                                                                                                                          | `number`                                       | `undefined`              |
-| `hidden`      | `hidden`       | Define if message is hidden                                                                                                                                                                                                                                                                                            | `boolean`                                      | `false`                  |
 | `identifier`  | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.                                                                                                                                                                                                            | `string`                                       | `createID('mg-message')` |
 | `noAriaRole`  | `no-aria-role` | Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs. | `boolean`                                      | `undefined`              |
 | `variant`     | `variant`      | Message variant                                                                                                                                                                                                                                                                                                        | `"danger" \| "info" \| "success" \| "warning"` | `variants[0]`            |

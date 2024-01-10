@@ -84,12 +84,15 @@ export class MgMessage {
   }
 
   /**
-   * Define if message is hidden
+   * Watch hidden prop
    */
-  // eslint-disable-next-line @stencil-community/reserved-member-names
-  @Prop({ mutable: true, reflect: true }) hidden = false;
+  // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('hidden')
-  validateHidden(newValue: MgMessage['hidden']): void {
+  validateHidden(newValue: boolean): void {
+    if (typeof newValue === 'string' && newValue === '') {
+      newValue = true;
+    }
+
     if (newValue) {
       this.componentHide.emit();
       // Remove event Listener
@@ -100,7 +103,6 @@ export class MgMessage {
       this.clearTimer();
     } else {
       this.componentShow.emit();
-
       // If delay is set
       if (this.delay > 1) {
         // Start timer
@@ -111,6 +113,7 @@ export class MgMessage {
         });
       }
     }
+    // forceUpdate(this);
   }
 
   /**
@@ -145,7 +148,7 @@ export class MgMessage {
    * Set timer
    */
   private setTimer = (): void => {
-    this.storedTimer = setTimeout(() => (this.hidden = true), this.delay * 1000);
+    this.storedTimer = setTimeout(() => (this.element.hidden = true), this.delay * 1000);
   };
 
   /**
@@ -181,7 +184,7 @@ export class MgMessage {
    * Handle close button
    */
   private handleClose = (): void => {
-    this.hidden = true;
+    this.element.hidden = true;
   };
 
   /**
@@ -223,7 +226,7 @@ export class MgMessage {
       this.closeButtonId = `${this.identifier}-close-button`;
     }
     this.validateDelay(this.delay);
-    this.validateHidden(this.hidden);
+    this.validateHidden(this.element.hidden);
   }
 
   /**
