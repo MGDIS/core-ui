@@ -612,7 +612,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 <p key="search-results" role="status" class="mg-u-visually-hidden" id="search-results">
                   {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
                 </p>,
-                <div class="mg-c-input__input-checkbox-multi-sections-container">{this.renderCheckboxBySection(checkboxes)}</div>,
+                <div key="sections-container" class="mg-c-input__input-checkbox-multi-sections-container">
+                  {this.renderCheckboxBySection(checkboxes)}
+                </div>,
               ]
             ) : (
               <MgInputCheckboxList
