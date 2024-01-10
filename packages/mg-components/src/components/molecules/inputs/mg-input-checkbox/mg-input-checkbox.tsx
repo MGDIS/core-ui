@@ -311,7 +311,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   /**
    * Keyboard handler
-   * @param event - to trak "tab" key
+   * @param event - to track "tab" key
    */
   private handleKeydown = (event: KeyboardEvent & { target: HTMLElement }): void => {
     // track "Tab" key event when popover display (is "multi" type selected)
@@ -384,7 +384,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private handleMassAction = (event: CustomEvent): void => {
     const displayItems = this.getDisplayItems();
-    // update only displaied items
+
+    // update only displayed items
     displayItems.forEach(item => {
       item.value = event.detail !== 'selected';
     });
@@ -591,28 +592,28 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             {this.messages.input.checkbox[this.selectValuesButtonKey]}
           </mg-button>
           <div slot="content" class="mg-c-input__input-checkbox-multi-content">
-            {this.displaySearchInput && [
-              <mg-input-text
-                key="input-search"
-                identifier={`${this.identifier}-input-search`}
-                icon="magnifying-glass"
-                type="search"
-                placeholder={this.messages.input.checkbox.label}
-                label={this.messages.input.checkbox.label}
-                mgWidth="full"
-                value={this.searchValue}
-                labelHide={true}
-                displayCharacterLeft={false}
-                name="q"
-                onValue-change={this.handleSearchChange}
-                aria-controls="search-results items-list"
-              ></mg-input-text>,
-              <p key="search-results" role="status" class="mg-u-visually-hidden" id="search-results">
-                {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
-              </p>,
-            ]}
             {this.displaySearchInput ? (
-              <div class="mg-c-input__input-checkbox-multi-sections-container">{this.renderCheckboxBySection(checkboxes)}</div>
+              [
+                <mg-input-text
+                  key="input-search"
+                  identifier={`${this.identifier}-input-search`}
+                  icon="magnifying-glass"
+                  type="search"
+                  placeholder={this.messages.input.checkbox.label}
+                  label={this.messages.input.checkbox.label}
+                  mgWidth="full"
+                  value={this.searchValue}
+                  labelHide={true}
+                  displayCharacterLeft={false}
+                  name="q"
+                  onValue-change={this.handleSearchChange}
+                  aria-controls="search-results items-list"
+                ></mg-input-text>,
+                <p key="search-results" role="status" class="mg-u-visually-hidden" id="search-results">
+                  {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
+                </p>,
+                <div class="mg-c-input__input-checkbox-multi-sections-container">{this.renderCheckboxBySection(checkboxes)}</div>,
+              ]
             ) : (
               <MgInputCheckboxList
                 checkboxes={checkboxes}
