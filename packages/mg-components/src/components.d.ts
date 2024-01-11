@@ -365,7 +365,7 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Add a help text under the input, usually expected data format and example
+          * Add a help text under the input, usually expected data format and example Available string variables:  - `{pattern}`: render innerHTML pattern based on system  - `{date}`: render innerText date with a pattern base format.  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text. ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
          */
         "helpText": string;
         /**
@@ -2216,7 +2216,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Add a help text under the input, usually expected data format and example
+          * Add a help text under the input, usually expected data format and example Available string variables:  - `{pattern}`: render innerHTML pattern based on system  - `{date}`: render innerText date with a pattern base format.  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text. ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
          */
         "helpText"?: string;
         /**

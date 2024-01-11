@@ -2,7 +2,7 @@ import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString } from '../../../../utils/components.utils';
-import { localeDate, dateRegExp } from '../../../../utils/locale.utils';
+import { localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '../../../../utils/locale.utils';
 import { initLocales } from '../../../../locales';
 import { Handler } from '../MgInput.conf';
 
@@ -22,6 +22,7 @@ export class MgInputDate {
   // Locales
   private messages;
   private locale: string;
+  private systemLocale: string;
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
@@ -112,6 +113,11 @@ export class MgInputDate {
 
   /**
    * Add a help text under the input, usually expected data format and example
+   * Available string variables:
+   *  - `{pattern}`: render innerHTML pattern based on system
+   *  - `{date}`: render innerText date with a pattern base format.
+   *  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.
+   * ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
    */
   @Prop() helpText: string;
 
@@ -194,6 +200,19 @@ export class MgInputDate {
       this.hasDisplayedError = this.invalid;
     }
   }
+
+  /**
+   * Format help text to display
+   * @param helpText - help text format
+   * @returns formated pattern help text. Ex: Format attendu : jj/mm/aaaa (ex : 20/12/2020)
+   */
+  private formatHelpText = (helpText: string): string => {
+    const defaultHelpTextVariable = '{defaultHelpText}';
+    let text = isValidString(helpText) ? helpText : this.messages.input.date.helpText;
+    if (text.includes(defaultHelpTextVariable)) text = text.replace(defaultHelpTextVariable, this.formatHelpText(this.messages.input.date.helpText));
+
+    return text.replace('{pattern}', this.renderPattern()).replace('{date}', localeDate(dateToString(new Date('2023-12-24')), this.systemLocale));
+  };
 
   /**
    * Method to set validity values
@@ -281,12 +300,16 @@ export class MgInputDate {
       }
       // min, max & minMax
       else if ([InputError.MIN, InputError.MAX, InputError.MINMAX].includes(inputError)) {
-        this.errorMessage = this.messages.errors.date[inputError].replace('{min}', localeDate(this.min, this.locale)).replace('{max}', localeDate(this.max, this.locale));
+        this.errorMessage = this.messages.errors.date[inputError]
+          .replace('{min}', localeDate(this.min, this.systemLocale))
+          .replace('{max}', localeDate(this.max, this.systemLocale));
       }
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.errors.date.badInput.replace('{min}', this.min?.length > 0 ? localeDate(this.min, this.locale) : localeDate('1900-01-01', this.locale));
+        this.errorMessage = this.messages.errors.date.badInput
+          .replace('{min}', this.min?.length > 0 ? localeDate(this.min, this.systemLocale) : localeDate('1900-01-01', this.systemLocale))
+          .replace('{pattern}', this.renderPattern());
       }
     }
   };
@@ -304,6 +327,11 @@ export class MgInputDate {
     const locales = initLocales(this.element);
     this.locale = locales.locale;
     this.messages = locales.messages;
+
+    // as a native input use the OS locale to define the date pattern
+    // we need to get this locale to define the displayed pattern
+    this.systemLocale = Intl.DateTimeFormat().resolvedOptions().locale;
+
     // Validate
     this.validateValue(this.value);
     this.validateMinMax(this.min);
@@ -315,6 +343,19 @@ export class MgInputDate {
       this.checkValidity();
     }, 0);
   }
+
+  /**
+   * Render pattern
+   * @returns translated html pattern
+   */
+  private renderPattern = (): string => {
+    let patternLocal = getLocaleDatePattern(this.systemLocale);
+    for (const key in this.messages.input.date.pattern) {
+      patternLocal = patternLocal.replace(key, this.messages.input.date.pattern[key]);
+    }
+
+    return `<span aria-hidden="true">${patternLocal}</span><span class="mg-u-visually-hidden">${[...patternLocal].join(' ')}</span>`;
+  };
 
   /**
    * Render
@@ -336,7 +377,7 @@ export class MgInputDate {
         value={this.value}
         readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
-        helpText={this.helpText}
+        helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
         isFieldset={false}
       >

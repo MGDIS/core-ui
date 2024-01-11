@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-01-09T15:35:42",
+  "timestamp": "2024-01-04T11:28:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.9.1",
@@ -2528,7 +2528,7 @@
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
-          "docs": "Add a help text under the input, usually expected data format and example",
+          "docs": "Add a help text under the input, usually expected data format and example\nAvailable string variables:\n - `{pattern}`: render innerHTML pattern based on system\n - `{date}`: render innerText date with a pattern base format.\n - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.\nex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`",
           "docsTags": [],
           "values": [
             {
