@@ -4,7 +4,7 @@ import { variants } from '../mg-button.conf';
 
 test.describe('mg-button', () => {
   variants.forEach(variant => {
-    test.describe(`${variant}`, () => {
+    test.describe(variant, () => {
       test(`Should render`, async ({ page }) => {
         await page.setContent(`<div>
   <mg-button variant="${variant}">${variant}</mg-button>
