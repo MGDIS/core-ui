@@ -40,6 +40,7 @@ Internal component use to manage sections instances
 
 - [mg-button](../../../../atoms/mg-button)
 - [mg-icon](../../../../atoms/mg-icon)
+- [mg-tooltip](../../../../atoms/mg-tooltip)
 - [mg-pagination](../../../mg-pagination)
 
 ### Graph
@@ -47,15 +48,16 @@ Internal component use to manage sections instances
 graph TD;
   mg-input-checkbox-paginated --> mg-button
   mg-input-checkbox-paginated --> mg-icon
+  mg-input-checkbox-paginated --> mg-tooltip
   mg-input-checkbox-paginated --> mg-pagination
   mg-button --> mg-icon
+  mg-tooltip --> mg-tooltip-content
   mg-pagination --> mg-button
   mg-pagination --> mg-icon
   mg-pagination --> mg-input-select
   mg-input-select --> mg-tooltip
   mg-input-select --> mg-icon
   mg-input-select --> mg-input-title
-  mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-input-checkbox-paginated
   style mg-input-checkbox-paginated fill:#f9f,stroke:#333,stroke-width:4px
 ```

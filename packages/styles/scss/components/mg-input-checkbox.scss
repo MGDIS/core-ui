@@ -23,7 +23,15 @@ $checkbox-multi-spacer: 0.4rem;
       gap: $checkbox-multi-spacer;
     }
 
-    &--search-mode.mg-c-input__input-checkbox-multi mg-popover-content [slot="content"] {
+    .mg-c-input__input-checkbox-multi-content {
+      @include flex-container(2, column, nowrap);
+
+      .mg-c-input__input-group {
+        margin-left: calc(#{$checkbox-multi-spacer} * 2);
+      }
+    }
+
+    &--search-mode.mg-c-input__input-checkbox-multi .mg-c-input__input-checkbox-multi-content {
       width: 37rem;
       height: 40rem;
     }
@@ -84,6 +92,13 @@ $checkbox-multi-spacer: 0.4rem;
       align-items: center;
       text-wrap: nowrap;
 
+      &-tootlip {
+        display: inline-block;
+        width: auto;
+        height: auto;
+        margin: 0;
+      }
+
       &-label {
         font-size: var(--font-size);
       }
@@ -95,21 +110,13 @@ $checkbox-multi-spacer: 0.4rem;
     }
   }
 
-  &:not(.mg-c-input--label-on-top) mg-tooltip {
+  &:not(.mg-c-input--label-on-top) mg-tooltip:not(.mg-c-input__input-checkbox-multi-section-header-tootlip) {
     margin-left: var(--mg-inputs-spacer);
   }
 
   mg-popover {
     --mg-popover-min-width: 7rem;
     --mg-card-padding: calc(#{$checkbox-multi-spacer} * 2);
-
-    &-content [slot='content'] {
-      @include flex-container(2, column, nowrap);
-
-      .mg-c-input__input-group {
-        margin-left: calc(#{$checkbox-multi-spacer} * 2);
-      }
-    }
   }
 
   mg-input-text {
