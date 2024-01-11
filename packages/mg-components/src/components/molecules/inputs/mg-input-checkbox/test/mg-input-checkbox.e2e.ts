@@ -327,7 +327,6 @@ test.describe('mg-input-checkbox', () => {
 
       // close popover
       await page.keyboard.down('Escape');
-      // await updateScreenshotClass(page, { width: '285px', height: '35px' });
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
