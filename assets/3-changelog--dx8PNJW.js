@@ -1,4 +1,17 @@
-import{j as e}from"./jsx-runtime-O4NbsBXg.js";import{M as n,e as i}from"./index-muN52VbF.js";import{u as r}from"./index-29wDK255.js";import"./iframe-bFFI7vhi.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const c=`# @mgdis/mg-components
+import{j as e}from"./jsx-runtime-T2dl02MW.js";import{M as n,e as i}from"./index-JL8aY05U.js";import{u as c}from"./index-yS6On9Hx.js";import"./iframe-ZJUUKc-N.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const r=`# @mgdis/mg-components
+
+## 5.22.0
+
+### Minor Changes
+
+- bb1cca4: [**\`<mg-input-checkbox>\`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) update "select all" action to only apply select/unselect on filtered results
+
+### Patch Changes
+
+- 4cdca06: [#445](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/445) popover should not move when update values
+- Updated dependencies [bb1cca4]
+- Updated dependencies [4cdca06]
+  - @mgdis/styles@1.1.0
 
 ## 5.21.1
 
@@ -741,4 +754,4 @@ The stylesheet to make native elements look like our design system expectations.
 - [\`.mg-message\`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-messages--docs)
 - [\`.mg-tag\`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-tags--docs)
 `;function t(o){return e.jsxs(e.Fragment,{children:[e.jsx(n,{title:"Changelog"}),`
-`,e.jsx(i,{children:c})]})}function f(o={}){const{wrapper:s}=Object.assign({},r(),o.components);return s?e.jsx(s,Object.assign({},o,{children:e.jsx(t,o)})):t()}export{f as default};
+`,e.jsx(i,{children:r})]})}function f(o={}){const{wrapper:s}=Object.assign({},c(),o.components);return s?e.jsx(s,Object.assign({},o,{children:e.jsx(t,o)})):t()}export{f as default};
