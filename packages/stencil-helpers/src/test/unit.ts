@@ -120,9 +120,6 @@ class MockCustomEvent extends Event {
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   detail: any;
-  constructor(type: string, customEventInitDic?: CustomEventInit) {
-    super(type, customEventInitDic);
-  }
 }
 
 /**
