@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen, forceUpdate } from '@stencil/core';
 import { createID, ClassList, focusableElements, isValidString } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
@@ -86,6 +86,7 @@ export class MgModal {
       document.body.style.overflow = 'hidden';
       this.setFocus();
     }
+    forceUpdate(this);
   }
 
   /**

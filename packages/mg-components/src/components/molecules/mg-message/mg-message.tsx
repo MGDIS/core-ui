@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, forceUpdate, h, Prop, State, Watch } from '@stencil/core';
 import { createID, ClassList } from '../../../utils/components.utils';
 import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
@@ -112,7 +112,7 @@ export class MgMessage {
         });
       }
     }
-    // forceUpdate(this);
+    forceUpdate(this);
   }
 
   /**
