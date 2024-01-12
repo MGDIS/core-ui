@@ -20,21 +20,6 @@ export const forcePopoverId = (component: Element, id: string, interactiveElemen
 };
 
 /**
- * fix popper console.error in test
- * it is generated in `@popperjs/core/dist/cjs/popper.js l.1859`
- * this is due to internal function isHTMLElement(), so we can not mock it directly.
- * this function check if test DOM element mockHTMLElement instance is 'instanceof HTMLElement'
- * so we only override the console.error side effect for this error
- */
-export const mockConsoleError = (): void => {
-  const errorFunction = console.error;
-  const mock = jest.spyOn(console, 'error');
-  mock.mockImplementation(error => {
-    if (!error.includes('Popper')) errorFunction(error);
-  });
-};
-
-/**
  * Add missing window.frames property to test context
  * usefull for component with iframe listeners, ex: mg-popover
  */

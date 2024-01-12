@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { cloneDeep, mockConsoleError, mockWindowFrames } from '../../../../../utils/unit.test.utils';
+import { cloneDeep, mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { setupResizeObserverMock } from '@mgdis/stencil-helpers';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
@@ -15,7 +15,6 @@ import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popo
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 mockWindowFrames();
-mockConsoleError();
 
 const getPage = args => {
   const page = newSpecPage({

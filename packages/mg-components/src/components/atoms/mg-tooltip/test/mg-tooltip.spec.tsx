@@ -4,11 +4,10 @@ import { MgTooltip } from '../mg-tooltip';
 import { MgButton } from '../../mg-button/mg-button';
 import { MgIcon } from '../../mg-icon/mg-icon';
 import { setupMutationObserverMock } from '@mgdis/stencil-helpers';
-import { mockWindowFrames, mockConsoleError } from '../../../../utils/unit.test.utils';
+import { mockWindowFrames } from '../../../../utils/unit.test.utils';
 import { MgTooltipContent } from '../mg-tooltip-content/mg-tooltip-content';
 
 mockWindowFrames();
-mockConsoleError();
 
 const getPage = (args, element) =>
   newSpecPage({

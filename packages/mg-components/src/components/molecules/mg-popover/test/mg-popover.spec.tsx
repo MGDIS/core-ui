@@ -2,12 +2,11 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgPopover } from '../mg-popover';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
-import { mockConsoleError, mockWindowFrames } from '../../../../utils/unit.test.utils';
+import { mockWindowFrames } from '../../../../utils/unit.test.utils';
 import { setupResizeObserverMock } from '@mgdis/stencil-helpers';
 import { MgPopoverContent } from '../mg-popover-content/mg-popover-content';
 import { MgCard } from '../../../atoms/mg-card/mg-card';
 
-mockConsoleError();
 mockWindowFrames();
 
 const getPage = (args, slot, parent?: boolean) => {
