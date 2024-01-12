@@ -157,6 +157,10 @@ describe('components.utils', () => {
     ])('Should format string properly', ({ string, expected }) => {
       expect(cleanString(string)).toEqual(expected);
     });
+
+    test('Should return orignal value when param is NOT a string', () => {
+      expect(cleanString(undefined)).toEqual(undefined);
+    });
   });
 
   describe('nextTick', () => {

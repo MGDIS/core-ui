@@ -1,5 +1,30 @@
 import { describe, expect, test } from 'vitest';
-import { dateRegExp, defineLocales, filterArgs, getStoryHTML, localeCurrency, localeDate, localeNumber, stencilWrapper } from '.';
+import {
+  dateRegExp,
+  defineLocales,
+  filterArgs,
+  getStoryHTML,
+  localeCurrency,
+  localeDate,
+  localeNumber,
+  stencilWrapper,
+  createID,
+  ClassList,
+  allItemsAreString,
+  isTagName,
+  focusableElements,
+  getWindows,
+  getParentWindows,
+  isValidString,
+  cleanString,
+  nextTick,
+  darkBackground,
+  renderAttributes,
+  renderProperties,
+  setupMutationObserverMock,
+  setupResizeObserverMock,
+  setupSubmitEventMock,
+} from '.';
 
 describe('stencil-helpers', () => {
   describe('storybook', () => {
@@ -20,12 +45,26 @@ describe('stencil-helpers', () => {
   });
   describe('components', () => {
     test('import', () => {
-      // TODO
+      expect(createID).toBeDefined();
+      expect(ClassList).toBeDefined();
+      expect(allItemsAreString).toBeDefined();
+      expect(isTagName).toBeDefined();
+      expect(focusableElements).toBeDefined();
+      expect(getWindows).toBeDefined();
+      expect(getParentWindows).toBeDefined();
+      expect(isValidString).toBeDefined();
+      expect(cleanString).toBeDefined();
+      expect(nextTick).toBeDefined();
     });
   });
   describe('test', () => {
     test('import', () => {
-      // TODO
+      expect(darkBackground).toBeDefined();
+      expect(renderAttributes).toBeDefined();
+      expect(renderProperties).toBeDefined();
+      expect(setupMutationObserverMock).toBeDefined();
+      expect(setupResizeObserverMock).toBeDefined();
+      expect(setupSubmitEventMock).toBeDefined();
     });
   });
 });

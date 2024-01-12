@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test - e2e > renderProperties > Should render properties, case id selector 1`] = `
+"
+  document.querySelector('div').object={};
+document.querySelector('div').array=[]"
+`;
+
+exports[`test - e2e > renderProperties > Should render properties, case id selector 2`] = `
+"
+  document.querySelector('div').object={};
+document.querySelector('div').array=[];
+document.querySelector('div').fn=() => {\\n    }"
+`;

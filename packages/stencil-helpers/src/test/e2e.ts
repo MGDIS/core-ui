@@ -17,7 +17,7 @@ export const renderAttributes = (args: unknown): string =>
   (args !== null &&
     typeof args === 'object' &&
     Object.keys(args)
-      .filter(key => ![null, undefined, false].includes((args as Record<string, never>)[key]) && typeof (args as Record<string, never>)[key] !== 'object')
+      .filter(key => ![null, undefined, false].includes((args as Record<string, never>)[key]) && !['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
       .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${(args as Record<string, never>)[key]}"`)
       .join(' ')) ||
   '';
@@ -35,11 +35,11 @@ export const renderProperties = (args: unknown, selector: string): string => {
   const query: 'querySelector' | 'getElementById' = selector.startsWith('#') ? 'getElementById' : 'querySelector';
   if (query === 'getElementById') selector = selector.replace('#', '');
 
-  return args !== null && typeof args === 'object'
+  return args !== null && typeof args === 'object' && Object.keys(args).length > 0
     ? `
   ${
     Object.keys(args)
-      .filter(key => typeof (args as Record<string, never>)[key] === 'object')
+      .filter(key => ['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
       .map(
         key =>
           `document.${query}('${selector}').${key}=${JSON.stringify((args as Record<string, never>)[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`,

@@ -12,7 +12,7 @@ import type { ArgsType } from './index.conf';
 const renderAttribute = (element: HTMLElement, name: string, value: any): void => {
   if ([null, undefined, '', false].includes(value) || ['innerHTML', 'style'].includes(name)) return;
 
-  element.setAttribute(name, typeof value !== 'object' ? value : `/!\\ Object props are not rendered in the code example`);
+  element.setAttribute(name, !['object', 'function'].includes(typeof value) ? value : `/!\\ Object props are not rendered in the code example`);
 };
 
 /**
@@ -24,22 +24,25 @@ const renderAttribute = (element: HTMLElement, name: string, value: any): void =
  * @param text - of the new element
  */
 const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attributes: VNode['$attrs$'], children: VNode[], text: VNode['$text$']): void => {
+  // render HTML
+  if (tagName && typeof tagName === 'string') {
+    const element = document.createElement(tagName);
+    Object.keys(attributes || {}).forEach(attr => {
+      renderAttribute(element, attr, attributes[attr]);
+    });
+
+    children?.forEach(child => {
+      renderElement(element, child.$tag$, child.$attrs$, child.$children$, child.$text$);
+    });
+
+    if (attributes?.innerHTML) element.innerHTML = attributes.innerHTML;
+
+    parentNode.appendChild(element);
+  }
+  // render text
   if (text) {
-    parentNode.innerText = text;
-    return;
-  } else if (!tagName || typeof tagName !== 'string') return;
-  const element = document.createElement(tagName);
-  Object.keys(attributes || {}).forEach(attr => {
-    renderAttribute(element, attr, attributes[attr]);
-  });
-
-  children?.forEach(child => {
-    renderElement(element, child.$tag$, child.$attrs$, child.$children$, child.$text$);
-  });
-
-  if (attributes?.innerHTML) element.innerHTML = attributes.innerHTML;
-
-  parentNode.appendChild(element);
+    parentNode.innerHTML = text;
+  }
 };
 
 /**

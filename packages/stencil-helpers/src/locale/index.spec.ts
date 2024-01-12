@@ -35,10 +35,21 @@ describe('locale', () => {
     });
 
     describe('defineLocales', () => {
-      test('Should return default locale', () => {
+      test('Should return navigator locale', () => {
         const locales = defineLocales(messages, locale)(document.createElement('div'));
         expect(locales.locale).toEqual('en-US');
         expect(locales.messages).toMatchObject(messagesEn);
+      });
+
+      test('Should return default locale', () => {
+        const navigatorBackup = window.navigator;
+        globalThis.window.navigator = [];
+        const locales = defineLocales(messages, locale)(document.createElement('div'));
+        expect(locales.locale).toEqual(locale);
+        expect(locales.messages).toMatchObject({ lang: locale });
+
+        // reset default navigator default value
+        globalThis.window.navigator = navigatorBackup;
       });
 
       test('Should return matching locale', () => {
