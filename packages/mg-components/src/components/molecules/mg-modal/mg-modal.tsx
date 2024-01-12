@@ -17,9 +17,6 @@ export class MgModal {
   private modalFocusableElements: HTMLElement[] = [];
   private closeButtonElement: HTMLMgButtonElement;
 
-  // Classes
-  private readonly classHide = 'mg-c-modal--hide';
-
   // IDs
   private titleId = '';
 
@@ -70,22 +67,22 @@ export class MgModal {
   @Prop() closeButton = false;
 
   /**
-   * Define if modal is hidden
+   * Watch hidden prop
    */
-  // eslint-disable-next-line @stencil-community/reserved-member-names
-  @Prop({ mutable: true, reflect: true }) hidden: boolean;
+  // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('hidden')
-  validateHidden(newValue: MgModal['hidden']): void {
+  validateHidden(newValue: boolean): void {
+    if (typeof newValue === 'string' && newValue === '') {
+      newValue = true;
+    }
     if (newValue) {
       this.componentHide.emit();
-      this.classCollection.add(this.classHide);
       document.body.style.overflow = this.bodyOverflow;
       // reset focus handlers
       this.getLastFocusableElement()?.removeEventListener('keydown', this.handleLastFocusableElement);
       if (this.modalFocusableElements.length > 0) this.modalFocusableElements[0].removeEventListener('keydown', this.handleFirstFocusableElement);
-    } else if (newValue === false) {
+    } else {
       this.componentShow.emit();
-      this.classCollection.delete(this.classHide);
       document.body.style.overflow = 'hidden';
       this.setFocus();
     }
@@ -126,7 +123,7 @@ export class MgModal {
   handleKeyDown(event: KeyboardEvent): void {
     // we can use 'Escape button" when this not a blocking modal, induced by closeButton value.
     if (this.closeButton && event.key === 'Escape') {
-      this.hidden = true;
+      this.element.hidden = true;
     }
   }
 
@@ -189,7 +186,7 @@ export class MgModal {
    * Handle close button
    */
   private handleClose = (): void => {
-    this.hidden = true;
+    this.element.hidden = true;
   };
 
   /*************
@@ -209,7 +206,7 @@ export class MgModal {
     this.hasContent = this.element.querySelector('[slot="content"]') !== null;
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
-    this.validateHidden(this.hidden);
+    this.validateHidden(this.element.hidden);
     this.validateDialogRole(this.dialogRole);
   }
 
@@ -232,7 +229,15 @@ export class MgModal {
    */
   render(): HTMLElement {
     return (
-      <div role={this.dialogRole} id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hidden}>
+      <div
+        role={this.dialogRole}
+        id={this.identifier}
+        class={this.classCollection.join()}
+        tabindex="-1"
+        aria-labelledby={this.titleId}
+        aria-modal="true"
+        aria-hidden={this.element.hidden}
+      >
         <mg-card>
           <div class="mg-c-modal__dialog">
             <header class="mg-c-modal__header">

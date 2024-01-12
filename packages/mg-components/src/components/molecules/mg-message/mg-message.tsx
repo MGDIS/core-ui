@@ -92,7 +92,6 @@ export class MgMessage {
     if (typeof newValue === 'string' && newValue === '') {
       newValue = true;
     }
-
     if (newValue) {
       this.componentHide.emit();
       // Remove event Listener

@@ -27,8 +27,8 @@ const Template = (args: any): HTMLElement => (
       aria-controls={args.identifier}
       aria-haspopup="dialog"
       onClick={() => {
-        const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal[identifier="${args.identifier}"]`);
-        mgModal.hide = !mgModal.hide;
+        const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal`);
+        mgModal.hidden = !mgModal.hidden;
       }}
     >
       Open modal
@@ -48,7 +48,7 @@ export const MgModal = {
     modalTitle: 'Modal title',
     identifier: 'identifier',
     closeButton: false,
-    hide: true,
+    hidden: true,
     dialogRole: dialogRoles[0],
   },
 };
