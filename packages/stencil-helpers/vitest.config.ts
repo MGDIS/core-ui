@@ -5,8 +5,8 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       reporter: ['text', 'html', 'lcov'],
-      include: ['src/**'],
-      exclude: [...coverageConfigDefaults.exclude, 'src/config'],
+      include: ['src'],
+      exclude: [...coverageConfigDefaults.exclude, 'src/**/*.conf.ts'],
     },
     reporters: ['default', 'junit'],
     outputFile: './coverage/junit.xml',

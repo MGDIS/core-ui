@@ -50,6 +50,12 @@ stages:
     - changes:
         - 'packages/playwright-helpers/**/*'
 
+# Rule to execute job only on stencil-helpers folder content changes
+.rules:changes:stencil-helpers:
+  rules:
+    - changes:
+        - 'packages/stencil-helpers/**/*'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -410,7 +416,7 @@ styles:npmjs:
     - pnpm publish --no-git-checks --access public
 
 #####################
-# Playwright Config #
+# Playwright helpers #
 #####################
 
 playwright-helpers:artifact:
@@ -421,6 +427,23 @@ playwright-helpers:artifact:
     - .install:dependencies
   script:
     - cd packages/playwright-helpers
+    - pnpm build
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+#####################
+# Stencil helpers #
+#####################
+
+stencil-helpers:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:stencil-helpers
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - cd packages/stencil-helpers
     - pnpm build
     - !reference [.artifact, script]
   needs:
