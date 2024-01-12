@@ -1,6 +1,7 @@
 import { describe, expect, test, vi } from 'vitest';
 import { filterArgs, stencilWrapper, getStoryHTML } from './index';
 import * as client from '@stencil/core/internal/client';
+import { VNode } from '@stencil/core';
 
 describe('storybook', () => {
   describe('filterArgs', () => {
@@ -9,7 +10,7 @@ describe('storybook', () => {
       expect(res).toEqual({ name: 'batman' });
     });
     test('Should get renderable args, case no default args', () => {
-      const res = filterArgs({ name: 'batman', default: true });
+      const res = filterArgs({ name: 'batman', default: true, slot: '' });
       expect(res).toEqual({ name: 'batman', default: true });
     });
     test.each([undefined, ''])('Should get renderable args, case no default args', val => {
@@ -105,7 +106,7 @@ describe('storybook', () => {
           '<mg-batman boolean="true" text="hello" object="/!\\ Object props are not rendered in the code example"><baby-batman>joker is behind you</baby-batman></mg-batman>',
       },
     ])('Should render story code exemple', ({ args, expected }) => {
-      const res = getStoryHTML(args);
+      const res = getStoryHTML(args as unknown as VNode);
       expect(res).toEqual(expected);
     });
   });

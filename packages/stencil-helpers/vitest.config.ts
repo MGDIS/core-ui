@@ -4,11 +4,15 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     coverage: {
+      provider: 'istanbul',
       reporter: ['text', 'html', 'lcov'],
       include: ['src'],
       exclude: [...coverageConfigDefaults.exclude, 'src/**/*.conf.ts'],
     },
-    reporters: ['default', 'junit'],
-    outputFile: './coverage/junit.xml',
+    reporters: ['default', 'junit', 'json'],
+    outputFile: {
+      junit: './coverage/junit.xml',
+      json: './coverage/coverage-final.json',
+    },
   },
 });
