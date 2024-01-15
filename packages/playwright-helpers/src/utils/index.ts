@@ -4,12 +4,19 @@
  * Render attributes from props objects
  * @param args - argument to render as string. ex: `{status: 'visible'}`
  * @returns formated inline attributed. ex: 'status="visible"'
+ * ```ts
+ * import { renderAttributes } from '@mgdis/playwright-helpers';
+ *
+ * const attributes = renderAttributes({ status: 'visible', color: 'red' });
+ * console.log(attributes); // Output: 'status="visible" color="red"'
+ * ```
  */
 export const renderAttributes = (args: { [x: string]: any }): string =>
-  (typeof args === 'object' &&
+  (args !== null &&
+    typeof args === 'object' &&
     Object.keys(args)
-      .filter(key => ![null, undefined, false].includes(args[key]) && typeof args[key] !== 'object')
-      .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${args[key]}"`)
+      .filter(key => ![null, undefined, false].includes((args as Record<string, never>)[key]) && !['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
+      .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${(args as Record<string, never>)[key]}"`)
       .join(' ')) ||
   '';
 
@@ -19,6 +26,13 @@ export const renderAttributes = (args: { [x: string]: any }): string =>
  * @param args - argument to render as script. ex: `{status: 'visible'}`
  * @param selector - querySelector get targetted element and bind properties on it
  * @returns stringified properties script
+ * ```ts
+ * import { renderProperties } from '@mgdis/playwright-helpers';
+ *
+ * const propertiesScript = renderProperties({ status: 'visible', color: 'red' }, '.targetElement');
+ * console.log(propertiesScript);
+ * // Output: 'document.querySelector(".targetElement").status="visible"; document.querySelector(".targetElement").color="red";'
+ * ```
  */
 export const renderProperties = (args: { [x: string]: any }, selector: string): string => {
   // has generated id selector starting with "#" create charcters (ex: '#0j3xzw4w7m') make test crashed sometime with "querySelector"
@@ -26,16 +40,20 @@ export const renderProperties = (args: { [x: string]: any }, selector: string): 
   const query: 'querySelector' | 'getElementById' = selector.startsWith('#') ? 'getElementById' : 'querySelector';
   if (query === 'getElementById') selector = selector.replace('#', '');
 
-  return typeof args === 'object'
-    ? `${
-        Object.keys(args)
-          .filter(key => typeof args[key] === 'object')
-          .map(key => `document.${query}('${selector}').${key}=${JSON.stringify(args[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`) // stringify json AND keep function values
-          .join(';\n') // create string
-          .split('"<fn>') // remove fn start decorator
-          .join('')
-          .split('</fn>"')
-          .join('') // remove fn end decorator
-      }`
+  return args !== null && typeof args === 'object' && Object.keys(args).length > 0
+    ? `
+  ${
+    Object.keys(args)
+      .filter(key => ['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
+      .map(
+        key =>
+          `document.${query}('${selector}').${key}=${JSON.stringify((args as Record<string, never>)[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`,
+      ) // stringify json AND keep function values
+      .join(';\n') // create string
+      .split('"<fn>') // remove fn start decorator
+      .join('')
+      .split('</fn>"')
+      .join('') // remove fn end decorator
+  }`
     : '';
 };

@@ -1,4 +1,4 @@
-import { renderAttributes } from '@mgdis/stencil-helpers';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { Direction, sizes } from '../../mg-menu/mg-menu.conf';
 import { Status } from '../mg-menu-item.conf';
 import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../../utils/playwright.e2e.test.utils';

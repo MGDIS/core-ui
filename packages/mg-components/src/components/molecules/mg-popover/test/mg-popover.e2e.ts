@@ -1,5 +1,5 @@
 import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
-import { renderAttributes } from '@mgdis/stencil-helpers';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 
 const TIMEOUT = 1000;
 

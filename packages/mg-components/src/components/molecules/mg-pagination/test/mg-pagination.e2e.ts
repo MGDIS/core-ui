@@ -1,5 +1,5 @@
 import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
-import { renderAttributes } from '@mgdis/stencil-helpers';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { MgPagination } from '../mg-pagination';
 
 const createHTML = args => `<mg-pagination ${renderAttributes(args)}></mg-pagination>`;

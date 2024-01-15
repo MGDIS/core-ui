@@ -2,7 +2,7 @@ import { setPageContent, expect, describe, describeEach, testEach, PageType, tes
 import { createID } from '@mgdis/stencil-helpers';
 import { sizes } from '../mg-tabs.conf';
 import { MgTabs } from '../mg-tabs';
-import { renderAttributes, renderProperties } from '@mgdis/stencil-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 
 const defaultArgs = {
   label: 'label',

@@ -18,9 +18,6 @@ import {
   isValidString,
   cleanString,
   nextTick,
-  darkBackground,
-  renderAttributes,
-  renderProperties,
   setupMutationObserverMock,
   setupResizeObserverMock,
   setupSubmitEventMock,
@@ -59,9 +56,6 @@ describe('stencil-helpers', () => {
   });
   describe('test', () => {
     test('import', () => {
-      expect(darkBackground).toBeDefined();
-      expect(renderAttributes).toBeDefined();
-      expect(renderProperties).toBeDefined();
       expect(setupMutationObserverMock).toBeDefined();
       expect(setupResizeObserverMock).toBeDefined();
       expect(setupSubmitEventMock).toBeDefined();

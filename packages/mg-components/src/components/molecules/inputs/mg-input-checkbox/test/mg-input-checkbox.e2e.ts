@@ -1,5 +1,5 @@
 import { setPageContent, expect, describe, describeEach, testEach, updateScreenshotClass, PageType, test } from '../../../../../utils/playwright.e2e.test.utils';
-import { renderAttributes, renderProperties } from '@mgdis/stencil-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 import { CheckboxType, checkboxTypes } from '../mg-input-checkbox.conf';
 
 const TIMEOUT = 1000;
