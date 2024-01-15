@@ -38,7 +38,7 @@ export const MgMessage = {
     identifier: 'identifier',
     variant: variants[0], // info
     closeButton: false,
-    hide: false,
+    hidden: false,
     delay: undefined,
     noAriaRole: undefined,
   },

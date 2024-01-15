@@ -15,13 +15,13 @@ export default {
         modalTitle: 'Modal title',
         identifier: 'identifier',
         closeButton: true,
-        hide: true,
+        hidden: true,
       };
     }
     handleClick() {
       this.counter++;
 
-      this.modal.hide = !this.modal.hide;
+      this.modal.hidden = !this.modal.hidden;
 
       this.$window.NotificationCenter.postMessage({
         content: 'Counter value change',
@@ -30,7 +30,7 @@ export default {
     }
 
     handleModalHide = (newValue) => {
-      this.modal.hide = newValue;
+      this.modal.hidden = newValue;
     };
   },
 };

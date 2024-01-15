@@ -1085,10 +1085,6 @@ export namespace Components {
          */
         "delay": number;
         /**
-          * Define if message is hidden
-         */
-        "hide": boolean;
-        /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier": string;
@@ -1110,10 +1106,6 @@ export namespace Components {
           * Modal dialog role.
          */
         "dialogRole": DialogRoleType;
-        /**
-          * Define if modal is hidden
-         */
-        "hide": boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -2928,10 +2920,6 @@ declare namespace LocalJSX {
          */
         "delay"?: number;
         /**
-          * Define if message is hidden
-         */
-        "hide"?: boolean;
-        /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
         "identifier"?: string;
@@ -2961,10 +2949,6 @@ declare namespace LocalJSX {
           * Modal dialog role.
          */
         "dialogRole"?: DialogRoleType;
-        /**
-          * Define if modal is hidden
-         */
-        "hide"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */

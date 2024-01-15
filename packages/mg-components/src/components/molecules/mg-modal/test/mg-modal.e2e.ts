@@ -5,8 +5,8 @@ describe('mg-modal', () => {
   const slotsToTests = actions.flatMap(action => contents.map(content => ({ action, content })));
   describeEach(slotsToTests)('render with slots %s', slots => {
     testEach([
-      { closeButton: false, hide: false },
-      { closeButton: true, hide: false },
+      { closeButton: false },
+      { closeButton: true },
       {
         closeButton: true,
         modalTitle:
@@ -15,12 +15,12 @@ describe('mg-modal', () => {
     ])('Should render %s', async (page: PageType, args: MgModalType) => {
       await setPageContent(page, createHTML(args, slots));
 
-      await expect(page.locator(args.hide ? 'body' : '.mg-c-modal')).toHaveScreenshot();
+      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
     });
   });
 
   test('Should render hidden modal', async ({ page }) => {
-    await setPageContent(page, createHTML({ hide: true }));
+    await setPageContent(page, createHTML({ hidden: true }));
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
@@ -30,10 +30,9 @@ describe('mg-modal', () => {
       await setPageContent(
         page,
         `<mg-modal modal-title="child mg-card" class="custom-modal-card">
-          <mg-card slot="content">child card</mg-card>
-          </mg-modal>
-          <style>.custom-modal-card {--mg-card-background: hsl(var(--color-danger));}</style>
-        `,
+  <mg-card slot="content">child card</mg-card>
+</mg-modal>
+<style>.custom-modal-card {--mg-card-background: hsl(var(--color-danger));}</style>`,
       );
 
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
@@ -42,7 +41,7 @@ describe('mg-modal', () => {
 
   describe('navigation', () => {
     test('Should trigger modal and close modal.', async ({ page }) => {
-      await setPageContent(page, createHTML({ closeButton: true, hide: true }, { action: true, content: 'short' }));
+      await setPageContent(page, createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
 
       await expect(page.locator('body')).toHaveScreenshot();
 
@@ -58,7 +57,8 @@ describe('mg-modal', () => {
     });
 
     test('should navigate with keyboard', async ({ page }) => {
-      await setPageContent(page, createHTML({ closeButton: true, hide: true }, { action: true, content: 'short' }));
+      await setPageContent(page, createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
+
       await expect(page.locator('body')).toHaveScreenshot();
 
       // open modal

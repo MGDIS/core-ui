@@ -12,7 +12,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -78,7 +78,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -101,7 +101,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -240,7 +240,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -306,7 +306,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -329,7 +329,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (4)
                           </em>
                         </p>
@@ -400,7 +400,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -466,7 +466,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -489,7 +489,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (1)
                           </em>
                         </p>
@@ -542,7 +542,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -608,7 +608,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -631,7 +631,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-input-checkbox-paginated hidden="" identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (0)
                           </em>
                         </p>
@@ -680,7 +680,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -746,7 +746,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -769,7 +769,7 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -908,7 +908,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -974,7 +974,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -997,7 +997,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -1082,7 +1082,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -1097,7 +1097,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                   </div>
                 </mock:shadow-root>
                 <mg-icon icon="list"></mg-icon>
-                Edit
+                Select values
               </mg-button>
               <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
                 <mock:shadow-root>
@@ -1148,7 +1148,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (1)
                             </em>
                           </span>
@@ -1178,7 +1178,7 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (20)
                           </em>
                         </p>
@@ -1317,7 +1317,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -1383,7 +1383,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -1406,7 +1406,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -1545,7 +1545,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -1611,7 +1611,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -1634,7 +1634,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -1773,7 +1773,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -1839,7 +1839,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -1862,7 +1862,7 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -1947,7 +1947,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -2013,7 +2013,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -2036,7 +2036,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -2175,7 +2175,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -2241,7 +2241,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -2264,7 +2264,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -2403,7 +2403,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -2469,7 +2469,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -2492,7 +2492,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -2631,7 +2631,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -2697,7 +2697,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -2720,7 +2720,7 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -2859,7 +2859,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -2925,7 +2925,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -2948,7 +2948,7 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -3087,7 +3087,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -3102,7 +3102,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                   </div>
                 </mock:shadow-root>
                 <mg-icon icon="list"></mg-icon>
-                Edit
+                Select values
               </mg-button>
               <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
                 <mock:shadow-root>
@@ -3153,7 +3153,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (1)
                             </em>
                           </span>
@@ -3183,7 +3183,7 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (3)
                           </em>
                         </p>
@@ -3248,7 +3248,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -3314,7 +3314,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (1)
                             </em>
                           </span>
@@ -3344,7 +3344,7 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (20)
                           </em>
                         </p>
@@ -3483,7 +3483,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -3549,7 +3549,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
                           </mock:shadow-root>
                           <mg-icon icon="chevron-down" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (4)
                             </em>
                           </span>
@@ -3587,7 +3587,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (17)
                           </em>
                         </p>
@@ -3726,7 +3726,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -3792,7 +3792,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
                           </mock:shadow-root>
                           <mg-icon icon="chevron-down" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (21)
                             </em>
                           </span>
@@ -3866,7 +3866,7 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
                     <mg-input-checkbox-paginated hidden="" identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (0)
                           </em>
                         </p>
@@ -3912,7 +3912,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -3978,7 +3978,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -4001,7 +4001,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -4140,7 +4140,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -4206,7 +4206,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -4229,7 +4229,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -4368,7 +4368,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -4383,7 +4383,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   </div>
                 </mock:shadow-root>
                 <mg-icon icon="list"></mg-icon>
-                Edit
+                Select values
               </mg-button>
               <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
                 <mock:shadow-root>
@@ -4434,7 +4434,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (21)
                             </em>
                           </span>
@@ -4550,7 +4550,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-input-checkbox-paginated hidden="" identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (0)
                           </em>
                         </p>
@@ -4596,7 +4596,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -4662,7 +4662,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -4685,7 +4685,7 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (21)
                           </em>
                         </p>
@@ -5119,7 +5119,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -5185,7 +5185,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Sélectionnés (11)
                             </em>
                           </span>
@@ -5301,7 +5301,7 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Non sélectionnés (11)
                           </em>
                         </p>
@@ -6740,7 +6740,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -6806,7 +6806,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -6829,7 +6829,7 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (11)
                           </em>
                         </p>
@@ -7152,7 +7152,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -7218,7 +7218,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Sélectionnés (11)
                             </em>
                           </span>
@@ -7334,7 +7334,7 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Non sélectionnés (11)
                           </em>
                         </p>
@@ -10179,7 +10179,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -10245,7 +10245,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Selected (0)
                             </em>
                           </span>
@@ -10268,7 +10268,7 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Not selected (11)
                           </em>
                         </p>
@@ -10519,7 +10519,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
       </mg-input-title>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
-          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
+          <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
             <mg-popover>
               <mock:shadow-root>
                 <slot></slot>
@@ -10585,7 +10585,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                           </mock:shadow-root>
                           <mg-icon icon="chevron-up" size="small"></mg-icon>
                           <span class="mg-c-input__input-checkbox-multi-text">
-                            <em>
+                            <em class="mg-c-input__input-checkbox-multi-section-header-label">
                               Sélectionnés (11)
                             </em>
                           </span>
@@ -10701,7 +10701,7 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                     <mg-input-checkbox-paginated identifier="identifier">
                       <div class="mg-c-input__input-checkbox-multi-section-header">
                         <p class="mg-c-input__input-checkbox-multi-title">
-                          <em>
+                          <em class="mg-c-input__input-checkbox-multi-section-header-label">
                             Non sélectionnés (11)
                           </em>
                         </p>

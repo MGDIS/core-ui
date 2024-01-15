@@ -48,7 +48,7 @@ describe('mg-modal', () => {
       { modalTitle: 'Modal Title', identifier: 'identifier' },
       { modalTitle: 'Modal Title', identifier: 'identifier', dialogRole: 'alertdialog' },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true },
-      { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, hide: true },
+      { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, hidden: true },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, lang: 'fr' },
       { modalTitle: 'Modal Title', identifier: 'identifier', closeButton: true, lang: 'xx' },
     ])('with args %s', async args => {
@@ -114,7 +114,7 @@ describe('mg-modal', () => {
       { attributeName: 'aria-hidden', target: { ariaHidden: undefined } },
     ])('mutationObserver', mutation => {
       test.each([true, false])('should keep focus inside modal, closeButton %s', async closeButton => {
-        const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hide: true }, { content: true, actions: true });
+        const page = await getPage({ modalTitle: 'Modal Title', identifier: 'identifier', closeButton, hidden: true }, { content: true, actions: true });
         const element = page.doc.querySelector('mg-modal');
         // Get all focusable elements
         const modalFocusableElements = Array.from(element.querySelectorAll(focusableElements)).reduce((acc, focusableElement) => {
@@ -130,7 +130,7 @@ describe('mg-modal', () => {
         const spyLast = jest.spyOn(lastFocusableElement, 'focus');
 
         // Display modal
-        element.hide = false;
+        element.hidden = false;
         await page.waitForChanges();
         expect(spyFirst).toHaveBeenCalledTimes(0);
         fireMo([mutation]);

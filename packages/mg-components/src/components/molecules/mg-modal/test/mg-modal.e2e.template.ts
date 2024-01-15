@@ -34,14 +34,19 @@ export const createSlots = ({ content, action }: SlotType): string => {
   return slots;
 };
 
-export const createHTML = (args: MgModalType, slots: SlotType = {}): string => {
+export const createHTML = (
+  args: MgModalType & {
+    hidden?: boolean;
+  },
+  slots: SlotType = {},
+): string => {
   const triggerModalId = 'modal-button';
   return `<mg-button id="${triggerModalId}">Open modal</mg-button>
   <mg-modal ${renderAttributes({ modalTitle: 'Modal title', ...args })}>${createSlots(slots)}</mg-modal>
   <script>
     document.getElementById('${triggerModalId}').addEventListener('click', () => {
       const mgModal = document.querySelector('mg-modal');
-      mgModal.hide = !mgModal.hide;
+      mgModal.hidden = !mgModal.hidden;
     });
   </script>
   `;

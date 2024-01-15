@@ -23,6 +23,11 @@ $checkbox-multi-spacer: 0.4rem;
       gap: $checkbox-multi-spacer;
     }
 
+    &--search-mode.mg-c-input__input-checkbox-multi mg-popover-content [slot="content"] {
+      width: 37rem;
+      height: 40rem;
+    }
+
     &-values-container {
       @include flex-container;
 
@@ -78,6 +83,10 @@ $checkbox-multi-spacer: 0.4rem;
       flex-wrap: nowrap;
       align-items: center;
       text-wrap: nowrap;
+
+      &-label {
+        font-size: var(--font-size);
+      }
     }
 
     &-inputs {
@@ -95,7 +104,7 @@ $checkbox-multi-spacer: 0.4rem;
     --mg-card-padding: calc(#{$checkbox-multi-spacer} * 2);
 
     &-content [slot='content'] {
-      @include flex-container(2, column);
+      @include flex-container(2, column, nowrap);
 
       .mg-c-input__input-group {
         margin-left: calc(#{$checkbox-multi-spacer} * 2);

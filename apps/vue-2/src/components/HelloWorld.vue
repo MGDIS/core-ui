@@ -14,21 +14,21 @@ export default {
         modalTitle: 'Modal title',
         identifier: 'identifier',
         closeButton: true,
-        hide: true,
+        hidden: true,
       },
     };
   },
   methods: {
     handleClick() {
       this.count++;
-      this.modal.hide = !this.modal.hide;
+      this.modal.hidden = !this.modal.hidden;
       window.NotificationCenter.postMessage({
         content: 'Counter value change',
         variant: 'info',
       });
     },
     handleComponentHide(newValue) {
-      this.modal.hide = newValue;
+      this.modal.hidden = newValue;
     },
   },
 };
@@ -42,7 +42,7 @@ export default {
       <mg-button type="button" variant="secondary" @click="handleClick"> count is {{ count }} </mg-button>
       <mg-modal
         :modal-title="modal.modalTitle"
-        :hide.prop="modal.hide"
+        :hidden="modal.hidden"
         close-button
         @component-hide="handleComponentHide(true)"
         @component-show="handleComponentHide(false)"
