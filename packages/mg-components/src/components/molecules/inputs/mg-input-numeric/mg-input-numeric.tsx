@@ -2,9 +2,8 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { MgInput } from '../MgInput';
 import { Handler, Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales/';
-import { localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-input-numeric',

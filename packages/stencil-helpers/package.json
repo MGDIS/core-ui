@@ -21,7 +21,7 @@
     }
   },
   "scripts": {
-    "build": "tsc --noEmit && vite build",
+    "build": "tsc --noEmit && vite build && typedoc",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
@@ -41,6 +41,8 @@
     "eslint-config-custom": "workspace:*",
     "prettier-config": "workspace:*",
     "tsconfig": "workspace:*",
+    "typedoc": "^0.25.7",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "5.3.3",
     "vite": "^5.0.0",
     "vite-plugin-dts": "^2.3.0",

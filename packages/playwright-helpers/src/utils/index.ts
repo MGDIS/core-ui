@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 /**
  * Render attributes from props objects
  * @param args - argument to render as string. ex: `{status: 'visible'}`
  * @returns formated inline attributed. ex: 'status="visible"'
+ * @example
  * ```ts
  * import { renderAttributes } from '@mgdis/playwright-helpers';
  *
@@ -11,7 +10,7 @@
  * console.log(attributes); // Output: 'status="visible" color="red"'
  * ```
  */
-export const renderAttributes = (args: { [x: string]: any }): string =>
+export const renderAttributes = (args: Record<string, unknown>): string =>
   (args !== null &&
     typeof args === 'object' &&
     Object.keys(args)
@@ -26,6 +25,7 @@ export const renderAttributes = (args: { [x: string]: any }): string =>
  * @param args - argument to render as script. ex: `{status: 'visible'}`
  * @param selector - querySelector get targetted element and bind properties on it
  * @returns stringified properties script
+ * @example
  * ```ts
  * import { renderProperties } from '@mgdis/playwright-helpers';
  *
@@ -34,7 +34,7 @@ export const renderAttributes = (args: { [x: string]: any }): string =>
  * // Output: 'document.querySelector(".targetElement").status="visible"; document.querySelector(".targetElement").color="red";'
  * ```
  */
-export const renderProperties = (args: { [x: string]: any }, selector: string): string => {
+export const renderProperties = (args: Record<string, unknown>, selector: string): string => {
   // has generated id selector starting with "#" create charcters (ex: '#0j3xzw4w7m') make test crashed sometime with "querySelector"
   // we use "getElementById" document query
   const query: 'querySelector' | 'getElementById' = selector.startsWith('#') ? 'getElementById' : 'querySelector';

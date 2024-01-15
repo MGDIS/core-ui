@@ -51,7 +51,7 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * @param defaultValues - component default args values
  * @returns filtres args
  */
-export const filterArgs = <T>(args: ArgsType<T>, defaultValues?: ArgsType<T>): ArgsType<T> => {
+export const filterArgs = (args: ArgsType, defaultValues?: ArgsType): ArgsType => {
   const filteredArgs: typeof args = {};
   if (typeof args !== 'object') {
     throw new Error("filterArgs - args isn't an object.");
@@ -76,7 +76,7 @@ export const filterArgs = <T>(args: ArgsType<T>, defaultValues?: ArgsType<T>): A
  * @returns rendered element
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType<Record<string, unknown>>): Element | undefined => {
+export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): Element | undefined => {
   const host = document.getElementById('storybook-root');
   if (!host) return;
   renderVdom(

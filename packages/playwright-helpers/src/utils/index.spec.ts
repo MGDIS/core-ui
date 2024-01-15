@@ -4,14 +4,14 @@ import { renderAttributes, renderProperties } from '.';
 describe('utils', () => {
   describe('renderAttributes', () => {
     test.each([
-      { args: undefined, expected: '' },
-      { args: null, expected: '' },
-      { args: {}, expected: '' },
-      { args: { name: 'batman' }, expected: 'name="batman"' },
-      { args: { name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], function: () => {} }, expected: 'name="batman" user="bruce" active="true" id="1"' },
-    ])('Should render attributes', ({ args, expected }) => {
-      const res = renderAttributes(args);
-      expect(res).toEqual(expected);
+      undefined,
+      null,
+      {},
+      { name: 'batman' },
+      { name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], function: () => {} },
+    ])('Should render attributes', (args) => {
+      const res = renderAttributes(args as Record<string, unknown>);
+      expect(res).toMatchSnapshot();
     });
   });
 
@@ -21,13 +21,13 @@ describe('utils', () => {
       expect(res).toEqual("\n  document.getElementById('id').object={}");
     });
     test.each([
-      { args: undefined, expected: '' },
-      { args: null, expected: '' },
-      { args: {}, expected: '' },
-      { args: { name: 'batman' }, expected: '\n  ' },
-    ])('Should not render attributes as properties', ({ args, expected }) => {
-      const res = renderProperties(args, 'div');
-      expect(res).toEqual(expected);
+      undefined,
+      null,
+      {},
+      { name: 'batman' },
+    ])('Should not render attributes as properties', (args) => {
+      const res = renderProperties(args as Record<string, unknown>, 'div');
+      expect(res).toMatchSnapshot();
     });
     test.each([undefined, () => {}].map(fn => ({ name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], fn })))(
       'Should render properties, case id selector',

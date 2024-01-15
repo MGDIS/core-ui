@@ -1,6 +1,11 @@
 # @mgdis/stencil-helpers
 
-This package provides a [Stencil](https://stenciljs.com/) configuration file for your projects and centralize helpers functions.
+This package centralize [Stencil](https://stenciljs.com/) helpers function for your projects. It is divided in 4 thematics:
+
+- **Components**: to centralize all components utils.
+- **Locale**: to centralize all needeed locale utils to manage content translation.
+- **Storybook**: to centralize all storybook helpers usefull to build your own storybook.
+- **Test**: to centralize all test utils to test more simplier your components.
 
 ## Installation
 
@@ -8,10 +13,6 @@ This package provides a [Stencil](https://stenciljs.com/) configuration file for
 pnpm i -D @mgdis/stencil-helpers
 ```
 
-## Configuration
+## Documentation
 
-TODO
-
-### methods
-
-TODO
+Read the full [documentation](./doc/README.md)
