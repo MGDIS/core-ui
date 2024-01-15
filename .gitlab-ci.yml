@@ -123,13 +123,13 @@ test:unit:
     when: always
     expire_in: 1 day
     paths:
-      - coverage
+      - packages/**/coverage
     reports:
       junit:
-        - coverage/junit.xml
+        - packages/**/junit.xml
       coverage_report:
         coverage_format: cobertura
-        path: coverage/cobertura-coverage.xml
+        path: packages/**/cobertura-coverage.xml
 
 test:e2e:
   stage: tests
