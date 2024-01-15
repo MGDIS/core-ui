@@ -90,7 +90,7 @@ export const isTagName = (element: Element, tagNames: string[]): boolean => {
 /**
  * Focusable elements query selector
  */
-export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier]';
+export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier], mg-button';
 
 /**
  * Get windows
