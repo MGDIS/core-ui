@@ -89,6 +89,10 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.
 
+## Hide component
+
+To hide the component, you must use the native `hidden` attribute.
+
 <!-- Auto Generated Below -->
 
 
@@ -98,7 +102,6 @@ Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-m
 | ------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------- | ---------------------- |
 | `closeButton`             | `close-button` | Define if modal has a cross button                                                                          | `boolean`                   | `false`                |
 | `dialogRole`              | `dialog-role`  | Modal dialog role.                                                                                          | `"alertdialog" \| "dialog"` | `dialogRoles[0]`       |
-| `hide`                    | `hide`         | Define if modal is hidden                                                                                   | `boolean`                   | `undefined`            |
 | `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                    | `createID('mg-modal')` |
 | `modalTitle` _(required)_ | `modal-title`  | Displayed modal title                                                                                       | `string`                    | `undefined`            |
 

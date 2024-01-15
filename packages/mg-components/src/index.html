@@ -563,7 +563,7 @@
           const messageWithDelay = document.querySelector('[identifier="message-with-delay"]');
           const buttonWithDelay = document.getElementById('button-with-delay');
           buttonWithDelay.addEventListener('click', event => {
-            messageWithDelay.hide = !messageWithDelay.hide;
+            messageWithDelay.hidden = !messageWithDelay.hidden;
           });
         </script>
       </section>
@@ -761,7 +761,7 @@
         <h4>Tooltips</h4>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-tooltip message="Blu">
-            <mg-input-checkbox id="blo" label="bli" identifier="bla" label-hide></mg-input-checkbox>
+            <mg-input-checkbox id="blo" label="bli" identifier="bla" label-hidden></mg-input-checkbox>
             <script>
               const mgInputCheckboxWithTooltip = document.querySelector('mg-input-checkbox#blo');
               mgInputCheckboxWithTooltip.value = [{ title: '', value: true }];
@@ -797,7 +797,7 @@
 
         <h4>Modal</h4>
         <mg-button id="modal-button">Open modal</mg-button>
-        <mg-modal modal-title="Modal title" close-button hide>
+        <mg-modal modal-title="Modal title" close-button hidden>
           <p slot="content">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
@@ -820,16 +820,16 @@
         <script>
           document.querySelector('#modal-button').addEventListener('click', () => {
             const mgModal = document.querySelector('mg-modal');
-            const isHide = mgModal.hide === true || mgModal.getAttribute('hide') !== null;
-            if (isHide) {
-              mgModal.removeAttribute('hide');
-              mgModal.hide = false;
+            const isHidden = mgModal.hidden === true || mgModal.getAttribute('hidden') !== null;
+            if (isHidden) {
+              mgModal.removeAttribute('hidden');
+              mgModal.hidden = false;
             } else {
-              mgModal.hide = true;
+              mgModal.hidden = true;
             }
           });
           const closeModal = () => {
-            document.querySelector('mg-modal').hide = true;
+            document.querySelector('mg-modal').hidden = true;
           };
         </script>
         <h4>Popover</h4>

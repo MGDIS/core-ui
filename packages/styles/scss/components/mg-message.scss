@@ -16,10 +16,6 @@
   --mg-card-overflow: hidden;
 }
 
-:host([hide]) {
-  display: none;
-}
-
 .mg-c-message {
   display: inline-block;
   min-height: var(--default-size);
@@ -28,10 +24,6 @@
 
   &.mg-c-message--close-button {
     --mg-card-padding: 0 3.4rem 0 0;
-  }
-
-  &.mg-c-message--hide {
-    display: none;
   }
 
   ::slotted(*) {

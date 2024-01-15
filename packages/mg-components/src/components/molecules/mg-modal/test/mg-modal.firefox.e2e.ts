@@ -6,7 +6,7 @@ test.use({ ...devices['Desktop Firefox'] });
 describe('mg-modal, firefox', () => {
   describe('navigation', () => {
     test('should navigate with keyboard', async ({ page }) => {
-      await setPageContent(page, createHTML({ closeButton: true, hide: true }, { action: true, content: 'short' }));
+      await setPageContent(page, createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
       await expect(page.locator('body')).toHaveScreenshot();
 
       // open modal

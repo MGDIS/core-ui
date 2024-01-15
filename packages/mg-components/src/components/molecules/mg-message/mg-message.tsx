@@ -1,4 +1,4 @@
-import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, forceUpdate, h, Prop, State, Watch } from '@stencil/core';
 import { createID, ClassList } from '../../../utils/components.utils';
 import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
@@ -13,9 +13,6 @@ export class MgMessage {
   /************
    * Internal *
    ************/
-
-  // Classes
-  private readonly classHide = 'mg-c-message--hide';
 
   // IDs
   private closeButtonId = '';
@@ -87,14 +84,16 @@ export class MgMessage {
   }
 
   /**
-   * Define if message is hidden
+   * Watch hidden prop
    */
-  @Prop({ mutable: true }) hide = false;
-  @Watch('hide')
-  validateHide(newValue: MgMessage['hide']): void {
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('hidden')
+  validateHidden(newValue: boolean): void {
+    if (typeof newValue === 'string' && newValue === '') {
+      newValue = true;
+    }
     if (newValue) {
       this.componentHide.emit();
-      this.classCollection.add(this.classHide);
       // Remove event Listener
       ['focusin', 'mouseenter'].forEach(event => {
         this.element.removeEventListener(event, this.timerEvents);
@@ -103,7 +102,6 @@ export class MgMessage {
       this.clearTimer();
     } else {
       this.componentShow.emit();
-      this.classCollection.delete(this.classHide);
       // If delay is set
       if (this.delay > 1) {
         // Start timer
@@ -114,6 +112,7 @@ export class MgMessage {
         });
       }
     }
+    forceUpdate(this);
   }
 
   /**
@@ -148,7 +147,7 @@ export class MgMessage {
    * Set timer
    */
   private setTimer = (): void => {
-    this.storedTimer = setTimeout(() => (this.hide = true), this.delay * 1000);
+    this.storedTimer = setTimeout(() => (this.element.hidden = true), this.delay * 1000);
   };
 
   /**
@@ -184,7 +183,7 @@ export class MgMessage {
    * Handle close button
    */
   private handleClose = (): void => {
-    this.hide = true;
+    this.element.hidden = true;
   };
 
   /**
@@ -226,7 +225,7 @@ export class MgMessage {
       this.closeButtonId = `${this.identifier}-close-button`;
     }
     this.validateDelay(this.delay);
-    this.validateHide(this.hide);
+    this.validateHidden(this.element.hidden);
   }
 
   /**
@@ -234,7 +233,7 @@ export class MgMessage {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    let role;
+    let role: string;
 
     if (!this.noAriaRole) role = this.variant === 'info' ? 'status' : 'alert';
 

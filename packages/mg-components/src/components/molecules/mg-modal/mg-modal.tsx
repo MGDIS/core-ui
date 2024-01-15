@@ -1,4 +1,4 @@
-import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen } from '@stencil/core';
+import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen, forceUpdate } from '@stencil/core';
 import { createID, ClassList, focusableElements, isValidString } from '../../../utils/components.utils';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
@@ -16,9 +16,6 @@ export class MgModal {
   // Modal focusable elements
   private modalFocusableElements: HTMLElement[] = [];
   private closeButtonElement: HTMLMgButtonElement;
-
-  // Classes
-  private readonly classHide = 'mg-c-modal--hide';
 
   // IDs
   private titleId = '';
@@ -70,24 +67,26 @@ export class MgModal {
   @Prop() closeButton = false;
 
   /**
-   * Define if modal is hidden
+   * Watch hidden prop
    */
-  @Prop({ mutable: true }) hide: boolean;
-  @Watch('hide')
-  validateHide(newValue: MgModal['hide']): void {
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('hidden')
+  validateHidden(newValue: boolean): void {
+    if (typeof newValue === 'string' && newValue === '') {
+      newValue = true;
+    }
     if (newValue) {
       this.componentHide.emit();
-      this.classCollection.add(this.classHide);
       document.body.style.overflow = this.bodyOverflow;
       // reset focus handlers
       this.getLastFocusableElement()?.removeEventListener('keydown', this.handleLastFocusableElement);
       if (this.modalFocusableElements.length > 0) this.modalFocusableElements[0].removeEventListener('keydown', this.handleFirstFocusableElement);
-    } else if (newValue === false) {
+    } else {
       this.componentShow.emit();
-      this.classCollection.delete(this.classHide);
       document.body.style.overflow = 'hidden';
       this.setFocus();
     }
+    forceUpdate(this);
   }
 
   /**
@@ -125,7 +124,7 @@ export class MgModal {
   handleKeyDown(event: KeyboardEvent): void {
     // we can use 'Escape button" when this not a blocking modal, induced by closeButton value.
     if (this.closeButton && event.key === 'Escape') {
-      this.hide = true;
+      this.element.hidden = true;
     }
   }
 
@@ -188,7 +187,7 @@ export class MgModal {
    * Handle close button
    */
   private handleClose = (): void => {
-    this.hide = true;
+    this.element.hidden = true;
   };
 
   /*************
@@ -208,7 +207,7 @@ export class MgModal {
     this.hasContent = this.element.querySelector('[slot="content"]') !== null;
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
-    this.validateHide(this.hide);
+    this.validateHidden(this.element.hidden);
     this.validateDialogRole(this.dialogRole);
   }
 
@@ -231,7 +230,15 @@ export class MgModal {
    */
   render(): HTMLElement {
     return (
-      <div role={this.dialogRole} id={this.identifier} class={this.classCollection.join()} tabindex="-1" aria-labelledby={this.titleId} aria-modal="true" aria-hidden={this.hide}>
+      <div
+        role={this.dialogRole}
+        id={this.identifier}
+        class={this.classCollection.join()}
+        tabindex="-1"
+        aria-labelledby={this.titleId}
+        aria-modal="true"
+        aria-hidden={this.element.hidden}
+      >
         <mg-card>
           <div class="mg-c-modal__dialog">
             <header class="mg-c-modal__header">
