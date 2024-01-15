@@ -5,7 +5,7 @@ export default defineConfig({
     environment: 'jsdom',
     coverage: {
       provider: 'istanbul',
-      reporter: ['html', 'lcov', 'cobertura'],
+      reporter: ['html', 'lcov', 'cobertura', 'text'],
       include: ['src'],
       exclude: [...coverageConfigDefaults.exclude, 'src/**/*.conf.ts'],
     },
