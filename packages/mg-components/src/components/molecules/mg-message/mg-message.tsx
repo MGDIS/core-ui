@@ -14,9 +14,6 @@ export class MgMessage {
    * Internal *
    ************/
 
-  // IDs
-  private closeButtonId = '';
-
   // Stored timer setted when hide action is run from setTimeOut
   private storedTimer: ReturnType<typeof setTimeout> = null;
 
