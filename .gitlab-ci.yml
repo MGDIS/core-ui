@@ -436,6 +436,11 @@ playwright-helpers:artifact:
 # Stencil helpers #
 #####################
 
+.stencil-helpers:
+  script:
+    - cd packages/stencil-helpers
+    - pnpm build
+
 stencil-helpers:artifact:
   stage: artifacts
   extends:
@@ -443,8 +448,16 @@ stencil-helpers:artifact:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - cd packages/stencil-helpers
-    - pnpm build
+    - !reference [.stencil-helpers, script]
     - !reference [.artifact, script]
   needs:
     - lint
+
+stencil-helpers:npmjs:
+  extends:
+    - .rules:changes:stencil-helpers
+    - .npmjs
+  script:
+    - !reference [.stencil-helpers, script]
+    - cd packages/stencil-helpers
+    - pnpm publish --no-git-checks --access public

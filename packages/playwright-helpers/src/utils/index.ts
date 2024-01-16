@@ -49,7 +49,7 @@ export const renderProperties = (args: Record<string, unknown>, selector: string
         key =>
           `document.${query}('${selector}').${key}=${JSON.stringify((args as Record<string, never>)[key], (_key, val) => (typeof val === 'function' ? `<fn>${val}</fn>` : val))}`,
       ) // stringify json AND keep function values
-      .join(';\n') // create string
+      .join(';') // create string
       .split('"<fn>') // remove fn start decorator
       .join('')
       .split('</fn>"')
