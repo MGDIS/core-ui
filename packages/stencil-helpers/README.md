@@ -1,11 +1,11 @@
 # @mgdis/stencil-helpers
 
-This package centralize [Stencil](https://stenciljs.com/) helpers function for your projects. It is divided in 4 thematics:
+This package centralizes helper functions for your [Stencil](https://stenciljs.com/) projects. It is divided into four thematic sections:
 
-- **Components**: to centralize all components utils.
-- **Locale**: to centralize all needeed locale utils to manage content translation.
-- **Storybook**: to centralize all storybook helpers usefull to build your own storybook.
-- **Test**: to centralize all test utils to test more simplier your components.
+- **Components**: Centralizes all component utilities.
+- **Locale**: Centralizes all necessary locale utilities for managing content translation.
+- **Storybook**: Centralizes all Storybook helpers useful for building your own Storybook.
+- **Test**: Centralizes all test utilities to simplify testing your components.
 
 ## Installation
 

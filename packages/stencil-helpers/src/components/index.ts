@@ -70,17 +70,17 @@ export class ClassList {
 }
 
 /**
- * Check if all items are string
+ * Typeguard function to check if all array items are string
  * @param items - items to check
- * @returns all items are string
+ * @returns `true` if all items are string
  */
 export const allItemsAreString = (items: unknown): items is string[] => Array.isArray(items) && items.every(item => typeof item === 'string');
 
 /**
- * Check if element is a heading
- * @param element - slotted element
+ * Check if element belong to the given tagNames list
+ * @param element - element to check
  * @param tagNames - allowed tag names list
- * @returns element is a heading
+ * @returns `true` if element tagName is in the tagNames list
  */
 export const isTagName = (element: Element, tagNames: string[]): boolean => {
   return tagNames.includes(element?.tagName.toLowerCase());
@@ -88,6 +88,10 @@ export const isTagName = (element: Element, tagNames: string[]): boolean => {
 
 /**
  * Focusable elements query selector
+ * @example
+ * ```ts
+ * const allFocusableElements: HTMLElement[] = Array.from(this.element.querySelectorAll(focusableElements));
+ * ```
  */
 export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier]';
 
@@ -145,14 +149,19 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
 /**
  * Validate string
  * @param value - value to check
- * @returns if string is valid
+ * @returns `true` if string is valid
  */
 export const isValidString = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';
 
 /**
- * Clean string caraters
+ * Clean string caracters remove special string caraters and lowercase string
  * @param text - text to clean
  * @returns cleanded string
+ * @example
+ * ```ts
+ * cleanString('âäàçéèêñù') // 'aaaceeenu'
+ * cleanString('BATMAN') // 'batman'
+ * ```
  */
 export const cleanString = (text: string): string =>
   typeof text === 'string'

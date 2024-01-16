@@ -4,6 +4,10 @@ import type { ObjectType } from './index.conf';
  * Get date pattern base on locale
  * @param locale - to refer
  * @returns date pattern
+ * @example
+ * ```ts
+ * getLocaleDatePattern('fr') // 'dd/mm/yyyy'
+ * ```
  */
 export const getLocaleDatePattern = (locale: string) => {
   const year = { value: '2023', pattern: 'yyyy' };
@@ -16,6 +20,10 @@ export const getLocaleDatePattern = (locale: string) => {
  * Format a date object to string
  * @param date - to parse
  * @returns string date with pattern 'YYYY-MM-DD'
+ * @example
+ * ```ts
+ * dateToString(new Date('2023-12-24')) // '2023-12-24'
+ * ```
  */
 export const dateToString = (date: Date): string | undefined => date.toISOString().split('T')[0];
 
@@ -47,6 +55,10 @@ const getLocaleMessages = (element: HTMLElement, messages: ObjectType, defaultLo
  * @param locale - locale to apply
  * @param currency - currency to apply
  * @returns formatted currency
+ * @example
+ * ```ts
+ * localeCurrency(1234567890.12, 'fr', 'EUR') // '1 234 567 890,12\xa0€'
+ * ```
  */
 export const localeCurrency = (number: number, locale: string, currency: string): string => new Intl.NumberFormat(locale, { style: 'currency', currency }).format(number);
 
@@ -55,11 +67,20 @@ export const localeCurrency = (number: number, locale: string, currency: string)
  * @param number - number to format
  * @param locale - locale to apply
  * @returns formatted number
+ * @example
+ * ```ts
+ * localeNumber(1234567890.12, 'fr') // 1 234 567 890,12
+ * ```
  */
 export const localeNumber = (number: number, locale: string): string => new Intl.NumberFormat(locale).format(number);
 
 /**
- * Date RegExp
+ * Date RegExp, usefull to test if string is a follow the date pattern
+ * @example
+ * ```ts
+ * dateRegExp.test('mystring') // false
+ * dateRegExp.test('2020-12-31') // true
+ * ```
  */
 export const dateRegExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
 
@@ -68,6 +89,10 @@ export const dateRegExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
  * @param date - date to format
  * @param locale - locale to apply
  * @returns formatted date
+ * @example
+ * ```ts
+ * localeDate('2022-06-02', 'fr') // '02/06/2022'
+ * ```
  */
 export const localeDate = (date: string | undefined, locale: string): string => {
   if (typeof date !== 'string' || date === '' || !dateRegExp.test(date)) {

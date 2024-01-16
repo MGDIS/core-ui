@@ -42,11 +42,18 @@
 
 • `Const` **dateRegExp**: `RegExp`
 
-Date RegExp
+Date RegExp, usefull to test if string is a follow the date pattern
+
+**`Example`**
+
+```ts
+dateRegExp.test('mystring'); // false
+dateRegExp.test('2020-12-31'); // true
+```
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:64
+packages/stencil-helpers/src/locale/index.ts:85
 
 ---
 
@@ -56,9 +63,15 @@ packages/stencil-helpers/src/locale/index.ts:64
 
 Focusable elements query selector
 
+**`Example`**
+
+```ts
+const allFocusableElements: HTMLElement[] = Array.from(this.element.querySelectorAll(focusableElements));
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:92
+packages/stencil-helpers/src/components/index.ts:96
 
 ## Functions
 
@@ -66,7 +79,7 @@ packages/stencil-helpers/src/components/index.ts:92
 
 ▸ **allItemsAreString**(`items`): items is string[]
 
-Check if all items are string
+Typeguard function to check if all array items are string
 
 #### Parameters
 
@@ -78,7 +91,7 @@ Check if all items are string
 
 items is string[]
 
-all items are string
+`true` if all items are string
 
 #### Defined in
 
@@ -90,7 +103,7 @@ packages/stencil-helpers/src/components/index.ts:77
 
 ▸ **cleanString**(`text`): `string`
 
-Clean string caraters
+Clean string caracters remove special string caraters and lowercase string
 
 #### Parameters
 
@@ -104,9 +117,16 @@ Clean string caraters
 
 cleanded string
 
+**`Example`**
+
+```ts
+cleanString('âäàçéèêñù'); // 'aaaceeenu'
+cleanString('BATMAN'); // 'batman'
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:157
+packages/stencil-helpers/src/components/index.ts:166
 
 ---
 
@@ -153,9 +173,15 @@ Format a date object to string
 
 string date with pattern 'YYYY-MM-DD'
 
+**`Example`**
+
+```ts
+dateToString(new Date('2023-12-24')); // '2023-12-24'
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:20
+packages/stencil-helpers/src/locale/index.ts:28
 
 ---
 
@@ -210,7 +236,7 @@ export const initLocales = defineLocales(messages, defaultLocale);
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:97
+packages/stencil-helpers/src/locale/index.ts:122
 
 ---
 
@@ -264,9 +290,15 @@ Get date pattern base on locale
 
 date pattern
 
+**`Example`**
+
+```ts
+getLocaleDatePattern('fr'); // 'dd/mm/yyyy'
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:8
+packages/stencil-helpers/src/locale/index.ts:12
 
 ---
 
@@ -291,7 +323,7 @@ The list of windows found
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:111
+packages/stencil-helpers/src/components/index.ts:115
 
 ---
 
@@ -355,7 +387,7 @@ The list of windows found
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:99
+packages/stencil-helpers/src/components/index.ts:103
 
 ---
 
@@ -363,20 +395,20 @@ packages/stencil-helpers/src/components/index.ts:99
 
 ▸ **isTagName**(`element`, `tagNames`): `boolean`
 
-Check if element is a heading
+Check if element belong to the given tagNames list
 
 #### Parameters
 
 | Name       | Type       | Description            |
 | :--------- | :--------- | :--------------------- |
-| `element`  | `Element`  | slotted element        |
+| `element`  | `Element`  | element to check       |
 | `tagNames` | `string`[] | allowed tag names list |
 
 #### Returns
 
 `boolean`
 
-element is a heading
+`true` if element tagName is in the tagNames list
 
 #### Defined in
 
@@ -400,11 +432,11 @@ Validate string
 
 `boolean`
 
-if string is valid
+`true` if string is valid
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:150
+packages/stencil-helpers/src/components/index.ts:154
 
 ---
 
@@ -428,9 +460,15 @@ Format number to the locale currency
 
 formatted currency
 
+**`Example`**
+
+```ts
+localeCurrency(1234567890.12, 'fr', 'EUR'); // '1 234 567 890,12\xa0€'
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:51
+packages/stencil-helpers/src/locale/index.ts:63
 
 ---
 
@@ -453,9 +491,15 @@ Locale date format
 
 formatted date
 
+**`Example`**
+
+```ts
+localeDate('2022-06-02', 'fr'); // '02/06/2022'
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:72
+packages/stencil-helpers/src/locale/index.ts:97
 
 ---
 
@@ -478,9 +522,15 @@ Format number to locale
 
 formatted number
 
+**`Example`**
+
+```ts
+localeNumber(1234567890.12, 'fr'); // 1 234 567 890,12
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:59
+packages/stencil-helpers/src/locale/index.ts:75
 
 ---
 
@@ -504,7 +554,7 @@ differed code excution
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:170
+packages/stencil-helpers/src/components/index.ts:179
 
 ---
 
