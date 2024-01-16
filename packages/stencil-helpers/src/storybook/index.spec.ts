@@ -30,7 +30,7 @@ describe('storybook', () => {
       expect(storyFn).not.toHaveBeenCalled();
       expect(res).toEqual(undefined);
     });
-    test.each([{}, {globals: {locale: 'fr'}}])('should render element from VDOM', args => {
+    test.each([{}, { globals: { locale: 'fr' } }])('should render element from VDOM', args => {
       const stencilClientMock = vi.spyOn(client, 'renderVdom');
       const storyFn = vi.fn();
 

@@ -94,9 +94,9 @@ Clean string caraters
 
 #### Parameters
 
-| Name   | Type     | Description    |
-| :----- | :------- | :------------- |
-| `text` | `string` | text to cliean |
+| Name   | Type     | Description   |
+| :----- | :------- | :------------ |
+| `text` | `string` | text to clean |
 
 #### Returns
 
@@ -195,9 +195,22 @@ from the element passed in return function you will get the matching messages ob
 | `locale`   | `string`     |
 | `messages` | `ObjectType` |
 
+**`Example`**
+
+```ts
+import en from './en/messages.json';
+import fr from './fr/messages.json';
+import { defineLocales } from '@mgdis/stencil-helpers';
+
+const defaultLocale = 'en';
+const messages = { en, fr };
+
+export const initLocales = defineLocales(messages, defaultLocale);
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:86
+packages/stencil-helpers/src/locale/index.ts:97
 
 ---
 
@@ -220,9 +233,16 @@ Filter default argument on component argument to prevent them to be rendered
 
 filtres args
 
+**`Example`**
+
+```ts
+import { filterArgs } from '@mgdis/stencil-helpers';
+const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs<MgBadgeType>(args, { variant: variants[0] })}></mg-badge>;
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/storybook/index.ts:54
+packages/stencil-helpers/src/storybook/index.ts:59
 
 ---
 
@@ -294,9 +314,24 @@ Mainly used to render, component code exemple in stories.
 
 stringified rendered HTML
 
+**`Example`**
+
+```ts
+// .storybook/preview.ts
+import { getStoryHTML } from '@mgdis/stencil-helpers';
+
+export const parameters: Preview['parameters'] = {
+  docs: {
+    extractArgTypes,
+    extractComponentDescription,
+    transformSource: (_, ctx) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
+  },
+};
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/storybook/index.ts:108
+packages/stencil-helpers/src/storybook/index.ts:132
 
 ---
 
@@ -628,6 +663,14 @@ Storybook stencil wrapper. Used to target element with `storybook-root` id and r
 
 rendered element
 
+**`Example`**
+
+```ts
+// .storybook/preview.ts
+import { stencilWrapper } from '@mgdis/stencil-helpers';
+export const decorators: Preview['decorators'] = [stencilWrapper];
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/storybook/index.ts:79
+packages/stencil-helpers/src/storybook/index.ts:90

@@ -50,6 +50,11 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * @param args - all possible args with custom values
  * @param defaultValues - component default args values
  * @returns filtres args
+ * @example
+ * ```ts
+ * import { filterArgs } from '@mgdis/stencil-helpers';
+ * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs<MgBadgeType>(args, { variant: variants[0] })}></mg-badge>;
+ * ```
  */
 export const filterArgs = (args: ArgsType, defaultValues?: ArgsType): ArgsType => {
   const filteredArgs: typeof args = {};
@@ -74,6 +79,12 @@ export const filterArgs = (args: ArgsType, defaultValues?: ArgsType): ArgsType =
  * @param storyFn - storybook render function
  * @param context - storybook context
  * @returns rendered element
+ * @example
+ * ```ts
+ * // .storybook/preview.ts
+ * import { stencilWrapper } from '@mgdis/stencil-helpers';
+ * export const decorators: Preview['decorators'] = [stencilWrapper];
+ * ```
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): Element | undefined => {
@@ -81,7 +92,7 @@ export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): 
   if (!host) return;
 
   // update local switcher based on context variable
-  document.querySelector('[lang]')?.setAttribute('lang', (context.globals as {locale: string})?.locale || 'en');
+  document.querySelector('[lang]')?.setAttribute('lang', (context.globals as { locale: string })?.locale || 'en');
 
   renderVdom(
     {
@@ -104,6 +115,19 @@ export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): 
  * Mainly used to render, component code exemple in stories.
  * @param vitualNode - story virtual DOM
  * @returns stringified rendered HTML
+ * @example
+ * ```ts
+ * // .storybook/preview.ts
+ * import { getStoryHTML } from '@mgdis/stencil-helpers';
+ *
+ * export const parameters: Preview['parameters'] = {
+ *   docs: {
+ *     extractArgTypes,
+ *     extractComponentDescription,
+ *     transformSource: (_, ctx) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
+ *   },
+ * };
+ * ```
  */
 export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }: VNode): string => {
   const host = document.createElement('div');

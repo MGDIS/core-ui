@@ -2,7 +2,7 @@ import type { ObjectType } from './index.conf';
 
 /**
  * Get date pattern base on locale
- * @param locale to refer
+ * @param locale - to refer
  * @returns date pattern
  */
 export const getLocaleDatePattern = (locale: string) => {
@@ -14,7 +14,7 @@ export const getLocaleDatePattern = (locale: string) => {
 
 /**
  * Format a date object to string
- * @param date to parse
+ * @param date - to parse
  * @returns string date with pattern 'YYYY-MM-DD'
  */
 export const dateToString = (date: Date): string | undefined => date.toISOString().split('T')[0];
@@ -81,6 +81,17 @@ export const localeDate = (date: string | undefined, locale: string): string => 
  * @param messages - locales to render in object format. `ex: { en: { porp: "test" }, fr: { porp: "test" }}`.
  * @param defaultLocale - fallback locale to render. `ex: 'en'`.
  * @returns from the element passed in return function you will get the matching messages object
+ * @example
+ * ```ts
+ * import en from './en/messages.json';
+ * import fr from './fr/messages.json';
+ * import { defineLocales } from '@mgdis/stencil-helpers';
+ *
+ * const defaultLocale = 'en';
+ * const messages = { en, fr };
+ *
+ * export const initLocales = defineLocales(messages, defaultLocale);
+ * ```
  */
 export const defineLocales =
   (messages: ObjectType, defaultLocale: 'fr' | 'en' | string) =>

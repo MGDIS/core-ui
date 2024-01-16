@@ -152,7 +152,7 @@ export const isValidString = (value: unknown): boolean => typeof value === 'stri
 
 /**
  * Clean string caraters
- * @param text - text to cliean
+ * @param text - text to clean
  * @returns cleanded string
  */
 export const cleanString = (text: string): string =>
