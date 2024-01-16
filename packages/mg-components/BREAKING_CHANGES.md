@@ -1,0 +1,73 @@
+# Breaking Changes
+
+This document provides an overview of the breaking changes introduced in major version releases of mg-components.
+
+## Versions
+
+- [mg-components 2.x](#mg-components-v200)
+- [mg-components 3.x](#mg-components-v300)
+- [mg-components 4.x](#mg-components-v400)
+- [mg-components 5.x](#mg-components-v500)
+- [mg-components 6.x](#mg-components-v600)
+
+## mg-components v2.0.0
+
+### mg-icon
+
+- Icon names have been updated following the naming convention described in [PDA9-744](https://jira.mgdis.fr/browse/PDA9-744).
+- Icon sizes are now `regular` (default), `large`, and `extra-large`.
+
+### Custom Event Names
+
+Custom event names are now in kebab-case: `valueChange` changed to `value-change`.
+
+## mg-components v3.0.0
+
+### Component Properties
+
+Component properties are no longer reflected to prevent errors with boolean values.  
+For example, to change the `disabled` property of a component in Vue.js, use `disabled.prop="maVarDisabled"`.
+
+## mg-components v4.0.0
+
+**Drop IE Support 🍾**
+
+### Default Language and Currency
+
+Library default language is now `en`, with matching currency `USD`.
+
+### mg-input
+
+Rename `width` property to `mg-width` to prevent a11y audit feedback.
+
+### mg-character-left
+
+Removed `template` attribute, as the new design (e.g., 400/400) does not require it anymore.
+
+Matching attributes `character-left-template` in `<mg-input-text>` and `<mg-input-textarea>` are also removed.
+
+### mg-icon
+
+Icon `arrows-rotate` renamed to `arrows-rotate-backward`.
+
+## mg-components v5.0.0
+
+### Shadow DOM
+
+`mg-button`, `mg-tooltip`, and `mg-popover` components now use [Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM). This may introduce a11y issues but resolves AngularJS issues.
+
+Following this change the [mg-text-content AngularJS directive](http://core.pages.mgdis.fr/core-documentation/docs/core-ui/packages/mg-components-helpers/) is no longer necessary.
+
+### mg-button
+
+Accessibility properties (expanded, controls, haspopup) have been removed. Set them directly on the component (aria-expanded, aria-controls, aria-haspopup) as you would on a regular button.
+
+### Mandatory Props
+
+Components with missing mandatory props won't render and will throw an error.
+
+### variables.scss
+
+No more `variables.scss` export, only `variables.css`.
+
+<!-- ## mg-components v6.0.0 -->
