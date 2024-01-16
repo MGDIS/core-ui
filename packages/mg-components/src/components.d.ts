@@ -104,10 +104,6 @@ export namespace Components {
          */
         "fullWidth": boolean;
         /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-         */
-        "identifier": string;
-        /**
           * Define if button is round. Used for icon button.
          */
         "isIcon": boolean;
@@ -1936,10 +1932,6 @@ declare namespace LocalJSX {
           * Set button to full-width
          */
         "fullWidth"?: boolean;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
-         */
-        "identifier"?: string;
         /**
           * Define if button is round. Used for icon button.
          */

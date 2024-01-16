@@ -14,9 +14,6 @@ export class MgMessage {
    * Internal *
    ************/
 
-  // IDs
-  private closeButtonId = '';
-
   // Stored timer setted when hide action is run from setTimeOut
   private storedTimer: ReturnType<typeof setTimeout> = null;
 
@@ -222,7 +219,6 @@ export class MgMessage {
     this.validateCloseButton(this.closeButton);
     if (this.closeButton) {
       this.classCollection.add('mg-c-message--close-button');
-      this.closeButtonId = `${this.identifier}-close-button`;
     }
     this.validateDelay(this.delay);
     this.validateHidden(this.element.hidden);
@@ -256,7 +252,7 @@ export class MgMessage {
           </div>
           {this.closeButton && (
             <span class="mg-c-message__close-button">
-              <mg-button identifier={this.closeButtonId} is-icon variant="flat" label={this.messages.message.closeButton} onClick={this.handleClose}>
+              <mg-button is-icon variant="flat" label={this.messages.message.closeButton} onClick={this.handleClose}>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>

@@ -245,7 +245,6 @@ export class MgModal {
               {this.closeButton && (
                 <span class="mg-c-modal__close-button">
                   <mg-button
-                    identifier={`${this.identifier}-close-button`}
                     is-icon
                     variant="flat"
                     label={this.messages.modal.closeButton}

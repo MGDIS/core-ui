@@ -130,7 +130,7 @@ export class MgTooltip {
   };
 
   /**
-   * Check if clicked outside of component and hidde tooltip
+   * Check if clicked outside of component and hide tooltip
    * @param event - mouse event
    */
   private clickOutside = (event: MouseEvent & { target: HTMLElement }): void => {
@@ -138,7 +138,7 @@ export class MgTooltip {
   };
 
   /**
-   * Check if 'Escape' key is pressed of component and hidde tooltip
+   * Check if 'Escape' key is pressed of component and hide tooltip
    * @param event - keyboard event
    */
   private pressEscape = (event: KeyboardEvent): void => {

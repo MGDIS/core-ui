@@ -31,11 +31,6 @@ describe('mg-button', () => {
     setupSubmitEventMock();
   });
 
-  test('Should render a button with an id', async () => {
-    const { root } = await getPage({ identifier: 'identifier', label: 'label' });
-    expect(root).toMatchSnapshot();
-  });
-
   describe.each(variants)('Should render an %s button', variant => {
     test.each([false, true])('isIcon %s', async isIcon => {
       const { root } = await getPage({ variant, isIcon, label: 'label' });
@@ -100,7 +95,7 @@ describe('mg-button', () => {
 
   describe('prevent double click', () => {
     test('Should NOT disable button after click', async () => {
-      const page = await getPage({ identifier: 'identifier' });
+      const page = await getPage({});
       const button = page.doc.querySelector('mg-button');
       const spy = jest.spyOn(page.rootInstance.disabledChange, 'emit');
 
@@ -166,7 +161,7 @@ describe('mg-button', () => {
     });
   });
 
-  describe.each([{ identifier: 'identifier' }, { identifier: 'identifier', disabled: true }])('keyboard', props => {
+  describe.each([{}, { disabled: true }])('keyboard', props => {
     test.each([' ', 'Enter', 'NumpadEnter'])('Should trigger click event on keydown', async key => {
       const page = await getPage(props);
       const button = page.doc.querySelector('mg-button');
@@ -197,7 +192,7 @@ describe('mg-button', () => {
 
   describe.each(['form', 'mg-form'])('form <%s/>', form => {
     test.each([undefined, 'submit', 'button'])('Should emit "submit" event, case type is %s', async type => {
-      const args = { identifier: 'identifier', type, formTag: form };
+      const args = { type, formTag: form };
       const page = await getPage(args);
 
       const mgForm = page.doc.querySelector('mg-form')?.shadowRoot.querySelector('form') || page.doc.querySelector('form');

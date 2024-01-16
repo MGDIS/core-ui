@@ -214,7 +214,6 @@ export class MgPanel {
     <mg-button
       onClick={this.handleCollapseButton}
       variant="flat"
-      identifier={`${this.identifier}-collapse-button`}
       aria-expanded={this.expanded.toString()}
       aria-controls={`${this.identifier}-content`}
       disabled={this.expandToggleDisabled}
@@ -233,7 +232,7 @@ export class MgPanel {
    * @returns edit Button
    */
   private renderEditButton = (): HTMLMgButtonElement => (
-    <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton} identifier={`${this.identifier}-edit-button`}>
+    <mg-button key="edit-button" is-icon variant="flat" label={this.messages.panel.editLabel} onClick={this.handleEditButton}>
       <mg-icon icon="pen"></mg-icon>
     </mg-button>
   );
@@ -255,24 +254,10 @@ export class MgPanel {
       identifier={`${this.identifier}-edition-input`}
       ref={(el: HTMLMgInputTextElement) => (this.editInputElement = el)}
     >
-      <mg-button
-        slot="append-input"
-        label={this.messages.general.cancel}
-        is-icon
-        variant="secondary"
-        onClick={this.handleCancelEditButton}
-        identifier={`${this.identifier}-edition-button-cancel`}
-      >
+      <mg-button slot="append-input" label={this.messages.general.cancel} is-icon variant="secondary" onClick={this.handleCancelEditButton}>
         <mg-icon icon="cross"></mg-icon>
       </mg-button>
-      <mg-button
-        slot="append-input"
-        label={this.messages.general.confirm}
-        is-icon
-        variant="secondary"
-        onClick={this.handleValidateEditButton}
-        identifier={`${this.identifier}-edition-button-validate`}
-      >
+      <mg-button slot="append-input" label={this.messages.general.confirm} is-icon variant="secondary" onClick={this.handleValidateEditButton}>
         <mg-icon icon="check"></mg-icon>
       </mg-button>
     </mg-input-text>

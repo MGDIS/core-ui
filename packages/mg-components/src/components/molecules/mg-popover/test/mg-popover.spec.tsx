@@ -49,7 +49,7 @@ describe('mg-popover', () => {
         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>,
-      <mg-button identifier="identifier-btn">mg-button</mg-button>,
+      <mg-button>mg-button</mg-button>,
     ]);
     expect(root).toMatchSnapshot();
   });
@@ -73,7 +73,7 @@ describe('mg-popover', () => {
           exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>,
-        <mg-button identifier="identifier-btn">mg-button</mg-button>,
+        <mg-button>mg-button</mg-button>,
       ],
       typeof eventOut === 'string' && ['clickGuard', 'clickShadowGuard'].includes(eventOut),
     );
@@ -139,7 +139,7 @@ describe('mg-popover', () => {
           exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>,
-        <mg-button identifier="identifier-btn">mg-button</mg-button>,
+        <mg-button>mg-button</mg-button>,
       ]);
     } catch (err) {
       expect(err.message).toContain('<mg-popover> Slotted title must be a heading: ');
@@ -154,7 +154,7 @@ describe('mg-popover', () => {
         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>,
-      <mg-button identifier="identifier-btn">mg-button</mg-button>,
+      <mg-button>mg-button</mg-button>,
     ]);
     expect(page.root).toMatchSnapshot();
 
@@ -174,7 +174,7 @@ describe('mg-popover', () => {
         exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
       </p>,
-      <mg-button identifier="identifier-btn">mg-button</mg-button>,
+      <mg-button>mg-button</mg-button>,
     ]);
     expect(page.root).toMatchSnapshot();
 

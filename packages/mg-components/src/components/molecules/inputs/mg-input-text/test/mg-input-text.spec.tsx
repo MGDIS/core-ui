@@ -41,15 +41,15 @@ describe('mg-input-text', () => {
   });
 
   test.each([
-    <mg-button slot="append-input" label="search" identifier="identifier">
+    <mg-button slot="append-input" label="search">
       <mg-icon icon="magnifying-glass"></mg-icon> Search
     </mg-button>,
     <span slot="append-input">test</span>,
     [
-      <mg-button is-icon slot="append-input" label="cancel" identifier="identifier-cancel">
+      <mg-button is-icon slot="append-input" label="cancel">
         <mg-icon icon="cross"></mg-icon>
       </mg-button>,
-      <mg-button is-icon slot="append-input" label="validate" identifier="identifier-validate">
+      <mg-button is-icon slot="append-input" label="validate">
         <mg-icon icon="check"></mg-icon>
       </mg-button>,
     ],
