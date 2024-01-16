@@ -79,6 +79,10 @@ export const filterArgs = (args: ArgsType, defaultValues?: ArgsType): ArgsType =
 export const stencilWrapper = (storyFn: (ctx: any) => void, context: ArgsType): Element | undefined => {
   const host = document.getElementById('storybook-root');
   if (!host) return;
+
+  // update local switcher based on context variable
+  document.querySelector('[lang]')?.setAttribute('lang', (context.globals as {locale: string})?.locale || 'en');
+
   renderVdom(
     {
       $ancestorComponent$: undefined,

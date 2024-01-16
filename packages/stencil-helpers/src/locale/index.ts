@@ -1,6 +1,25 @@
 import type { ObjectType } from './index.conf';
 
 /**
+ * Get date pattern base on locale
+ * @param locale to refer
+ * @returns date pattern
+ */
+export const getLocaleDatePattern = (locale: string) => {
+  const year = { value: '2023', pattern: 'yyyy' };
+  const month = { value: '12', pattern: 'mm' };
+  const day = { value: '24', pattern: 'dd' };
+  return localeDate([year.value, month.value, day.value].join('-'), locale).replace(year.value, year.pattern).replace(month.value, month.pattern).replace(day.value, day.pattern);
+};
+
+/**
+ * Format a date object to string
+ * @param date to parse
+ * @returns string date with pattern 'YYYY-MM-DD'
+ */
+export const dateToString = (date: Date): string | undefined => date.toISOString().split('T')[0];
+
+/**
  * Get locale and messages
  * We load the defined locale but for now we only support the first subtag for messages
  * @param element - element we need to get the language

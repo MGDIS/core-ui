@@ -18,8 +18,10 @@
 - [allItemsAreString](README.md#allitemsarestring)
 - [cleanString](README.md#cleanstring)
 - [createID](README.md#createid)
+- [dateToString](README.md#datetostring)
 - [defineLocales](README.md#definelocales)
 - [filterArgs](README.md#filterargs)
+- [getLocaleDatePattern](README.md#getlocaledatepattern)
 - [getParentWindows](README.md#getparentwindows)
 - [getStoryHTML](README.md#getstoryhtml)
 - [getWindows](README.md#getwindows)
@@ -44,7 +46,7 @@ Date RegExp
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:45
+packages/stencil-helpers/src/locale/index.ts:64
 
 ---
 
@@ -133,6 +135,30 @@ packages/stencil-helpers/src/components/index.ts:7
 
 ---
 
+### dateToString
+
+▸ **dateToString**(`date`): `undefined` \| `string`
+
+Format a date object to string
+
+#### Parameters
+
+| Name   | Type   | Description |
+| :----- | :----- | :---------- |
+| `date` | `Date` | to parse    |
+
+#### Returns
+
+`undefined` \| `string`
+
+string date with pattern 'YYYY-MM-DD'
+
+#### Defined in
+
+packages/stencil-helpers/src/locale/index.ts:20
+
+---
+
 ### defineLocales
 
 ▸ **defineLocales**(`messages`, `defaultLocale`): (`element`: `HTMLElement`) => \{ `locale`: `string` ; `messages`: `ObjectType` }
@@ -171,7 +197,7 @@ from the element passed in return function you will get the matching messages ob
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:67
+packages/stencil-helpers/src/locale/index.ts:86
 
 ---
 
@@ -197,6 +223,30 @@ filtres args
 #### Defined in
 
 packages/stencil-helpers/src/storybook/index.ts:54
+
+---
+
+### getLocaleDatePattern
+
+▸ **getLocaleDatePattern**(`locale`): `string`
+
+Get date pattern base on locale
+
+#### Parameters
+
+| Name     | Type     | Description |
+| :------- | :------- | :---------- |
+| `locale` | `string` | to refer    |
+
+#### Returns
+
+`string`
+
+date pattern
+
+#### Defined in
+
+packages/stencil-helpers/src/locale/index.ts:8
 
 ---
 
@@ -246,7 +296,7 @@ stringified rendered HTML
 
 #### Defined in
 
-packages/stencil-helpers/src/storybook/index.ts:104
+packages/stencil-helpers/src/storybook/index.ts:108
 
 ---
 
@@ -345,7 +395,7 @@ formatted currency
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:32
+packages/stencil-helpers/src/locale/index.ts:51
 
 ---
 
@@ -370,7 +420,7 @@ formatted date
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:53
+packages/stencil-helpers/src/locale/index.ts:72
 
 ---
 
@@ -395,7 +445,7 @@ formatted number
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:40
+packages/stencil-helpers/src/locale/index.ts:59
 
 ---
 

@@ -35,6 +35,7 @@ describe('mg-input-date', () => {
     { label: 'label', identifier: 'identifier', required: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', required: true, readonly: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', required: true, disabled: true, value: '2022-06-02', helpText: 'My help text' },
+    { label: 'label', identifier: 'identifier', helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
@@ -176,7 +177,11 @@ describe('mg-input-date', () => {
       } else if (valueMissing) {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
-        expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.badInput.replace('{min}', localeDate(min !== undefined ? min : '1900-01-01', 'en')));
+        expect(page.rootInstance.errorMessage).toEqual(
+          messages.errors.date.badInput
+            .replace('{min}', localeDate(min !== undefined ? min : '1900-01-01', 'en'))
+            .replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+        );
       }
       expect(page.rootInstance.valid).toEqual(validity);
       expect(page.rootInstance.invalid).toEqual(!validity);

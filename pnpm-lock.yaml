@@ -91,15 +91,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.9.0
-        version: 4.9.0
+        specifier: 4.10.0
+        version: 4.10.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: ^3.0.0
-        version: 3.0.7(@stencil/core@4.9.0)
+        version: 3.0.7(@stencil/core@4.10.0)
       '@types/jest':
         specifier: ^29.5.8
         version: 29.5.11
@@ -194,8 +194,8 @@ importers:
         specifier: ^20.9.0
         version: 20.10.4
       '@vitejs/plugin-vue':
-        specifier: ^4.4.1
-        version: 4.5.2(vite@5.0.7)(vue@3.3.11)
+        specifier: ^5.0.0
+        version: 5.0.0(vite@5.0.7)(vue@3.3.11)
       '@vitejs/plugin-vue-jsx':
         specifier: ^3.0.2
         version: 3.1.0(vite@5.0.7)(vue@3.3.11)
@@ -233,8 +233,8 @@ importers:
         specifier: ^1.10.16
         version: 1.11.1(eslint@8.55.0)
       eslint-plugin-jsdoc:
-        specifier: ^46.0.0
-        version: 46.9.0(eslint@8.55.0)
+        specifier: ^48.0.0
+        version: 48.0.2(eslint@8.55.0)
       eslint-plugin-tsdoc:
         specifier: ^0.2.17
         version: 0.2.17
@@ -325,8 +325,8 @@ importers:
         specifier: ^6.0.0
         version: 6.13.2(eslint@8.55.0)(typescript@5.3.3)
       '@vue/eslint-config-prettier':
-        specifier: ^8.0.0
-        version: 8.0.0(eslint@8.55.0)(prettier@3.1.0)
+        specifier: ^9.0.0
+        version: 9.0.0(eslint@8.55.0)(prettier@3.1.0)
       '@vue/eslint-config-typescript':
         specifier: ^12.0.0
         version: 12.0.0(eslint-plugin-vue@9.19.2)(eslint@8.55.0)(typescript@5.3.3)
@@ -460,8 +460,8 @@ importers:
         specifier: ^4.1.1
         version: 4.2.0
       svgo:
-        specifier: 3.1.0
-        version: 3.1.0
+        specifier: 3.2.0
+        version: 3.2.0
       ts-node:
         specifier: ^10.9.1
         version: 10.9.2(@types/node@20.10.4)(typescript@5.3.3)
@@ -493,11 +493,11 @@ importers:
         specifier: ^4.1.0
         version: 4.1.0
       eslint-plugin-jsdoc:
-        specifier: ^46.0.0
-        version: 46.9.0(eslint@8.55.0)
+        specifier: ^48.0.0
+        version: 48.0.2(eslint@8.55.0)
       eslint-plugin-prettier:
         specifier: ^5.0.0
-        version: 5.0.1(eslint-config-prettier@8.10.0)(eslint@8.55.0)(prettier@3.1.0)
+        version: 5.0.1(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0)
       prettier:
         specifier: ^3.0.0
         version: 3.1.0
@@ -554,17 +554,17 @@ importers:
         specifier: ^5.0.8
         version: 5.0.8(@vue/cli-service@5.0.8)(eslint@8.55.0)
       '@vue/eslint-config-prettier':
-        specifier: ^8.0.0
-        version: 8.0.0(eslint@8.55.0)(prettier@3.1.0)
+        specifier: ^9.0.0
+        version: 9.0.0(eslint@8.55.0)(prettier@3.1.0)
       eslint:
         specifier: ^8.53.0
         version: 8.55.0
       eslint-plugin-jsdoc:
-        specifier: ^46.0.0
-        version: 46.9.0(eslint@8.55.0)
+        specifier: ^48.0.0
+        version: 48.0.2(eslint@8.55.0)
       eslint-plugin-prettier:
         specifier: ^5.0.0
-        version: 5.0.1(eslint-config-prettier@8.10.0)(eslint@8.55.0)(prettier@3.1.0)
+        version: 5.0.1(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0)
       eslint-plugin-vue:
         specifier: ^9.18.1
         version: 9.19.2(eslint@8.55.0)
@@ -597,8 +597,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.9.0
-        version: 4.9.0
+        specifier: 4.10.0
+        version: 4.10.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
@@ -841,8 +841,8 @@ importers:
   packages/stencil-helpers:
     dependencies:
       '@stencil/core':
-        specifier: 4.9.0
-        version: 4.9.0
+        specifier: 4.10.0
+        version: 4.10.0
     devDependencies:
       '@types/node':
         specifier: ^20.9.0
@@ -4486,18 +4486,18 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@stencil/core@4.9.0:
-    resolution: { integrity: sha512-aWSkhBmk3yPwRAkUwBbzRwmdhb8hKiQ/JMr9m5jthpBZLjtppYbzz6PN2MhSMDfRp6K93eQw5WogSEH4HHuB6w== }
+  /@stencil/core@4.10.0:
+    resolution: { integrity: sha512-7lDTPY1IxXN2/C+wQPHt3e/dYgY4YgelA8MxOsU3ZftXtpzWad/QNWhSAtKisJMrSjQh41jMDOgD0yLBwV6E7w== }
     engines: { node: '>=16.0.0', npm: '>=7.10.0' }
     hasBin: true
 
-  /@stencil/sass@3.0.7(@stencil/core@4.9.0):
+  /@stencil/sass@3.0.7(@stencil/core@4.10.0):
     resolution: { integrity: sha512-HcBjrh2CJ6aJnkOrBNSVyf1+x3FnUneYFk44rcx/jDK6Lx7R4w0dXMEsIR5MXqtROYWonZt7WtR8wsM1vcD+6w== }
     engines: { node: '>=12.0.0', npm: '>=6.0.0' }
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.9.0
+      '@stencil/core': 4.10.0
     dev: true
 
   /@storybook/addon-a11y@7.6.4:
@@ -6098,11 +6098,11 @@ packages:
       - supports-color
     dev: true
 
-  /@vitejs/plugin-vue@4.5.2(vite@5.0.7)(vue@3.3.11):
-    resolution: { integrity: sha512-UGR3DlzLi/SaVBPX0cnSyE37vqxU3O6chn8l0HJNzQzDia6/Au2A4xKv+iIJW8w2daf80G7TYHhi1pAUjdZ0bQ== }
-    engines: { node: ^14.18.0 || >=16.0.0 }
+  /@vitejs/plugin-vue@5.0.0(vite@5.0.7)(vue@3.3.11):
+    resolution: { integrity: sha512-7x5e8X4J1Wi4NxudGjJBd2OFerAi/0nzF80ojCzvfj347WVr0YSn82C8BSsgwSHzlk9Kw5xnZfj0/7RLnNwP5w== }
+    engines: { node: ^18.0.0 || >=20.0.0 }
     peerDependencies:
-      vite: ^4.0.0 || ^5.0.0
+      vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
       vite: 5.0.7(@types/node@20.10.4)(sass@1.69.5)
@@ -6702,15 +6702,15 @@ packages:
       - walrus
       - whiskers
 
-  /@vue/eslint-config-prettier@8.0.0(eslint@8.55.0)(prettier@3.1.0):
-    resolution: { integrity: sha512-55dPqtC4PM/yBjhAr+yEw6+7KzzdkBuLmnhBrDfp4I48+wy+Giqqj9yUr5T2uD/BkBROjjmqnLZmXRdOx/VtQg== }
+  /@vue/eslint-config-prettier@9.0.0(eslint@8.55.0)(prettier@3.1.0):
+    resolution: { integrity: sha512-z1ZIAAUS9pKzo/ANEfd2sO+v2IUalz7cM/cTLOZ7vRFOPk5/xuRKQteOu1DErFLAh/lYGXMVZ0IfYKlyInuDVg== }
     peerDependencies:
       eslint: '>= 8.0.0'
       prettier: '>= 3.0.0'
     dependencies:
       eslint: 8.55.0
-      eslint-config-prettier: 8.10.0(eslint@8.55.0)
-      eslint-plugin-prettier: 5.0.1(eslint-config-prettier@8.10.0)(eslint@8.55.0)(prettier@3.1.0)
+      eslint-config-prettier: 9.1.0(eslint@8.55.0)
+      eslint-plugin-prettier: 5.0.1(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0)
       prettier: 3.1.0
     transitivePeerDependencies:
       - '@types/eslint'
@@ -10014,15 +10014,6 @@ packages:
       eslint-plugin-import: 2.29.0(@typescript-eslint/parser@6.13.2)(eslint-import-resolver-typescript@3.6.1)(eslint@8.55.0)
     dev: false
 
-  /eslint-config-prettier@8.10.0(eslint@8.55.0):
-    resolution: { integrity: sha512-SM8AMJdeQqRYT9O9zguiruQZaN7+z+E4eAP9oiLNGKMtomwaB1E9dcgUD6ZAn/eQAb52USbvezbiljfZUhbJcg== }
-    hasBin: true
-    peerDependencies:
-      eslint: '>=7.0.0'
-    dependencies:
-      eslint: 8.55.0
-    dev: false
-
   /eslint-config-prettier@9.1.0(eslint@8.55.0):
     resolution: { integrity: sha512-NSWl5BFQWEPi1j4TjVNItzYV7dZXZ+wP6I6ZhrBGpChQhZRUaElihE9uRRkcbRnNb76UMKDF3r+WTmNcGPKsqw== }
     hasBin: true
@@ -10160,11 +10151,11 @@ packages:
       - eslint-import-resolver-webpack
       - supports-color
 
-  /eslint-plugin-jsdoc@46.9.0(eslint@8.55.0):
-    resolution: { integrity: sha512-UQuEtbqLNkPf5Nr/6PPRCtr9xypXY+g8y/Q7gPa0YK7eDhh0y2lWprXRnaYbW7ACgIUvpDKy9X2bZqxtGzBG9Q== }
-    engines: { node: '>=16' }
+  /eslint-plugin-jsdoc@48.0.2(eslint@8.55.0):
+    resolution: { integrity: sha512-CBFl5Jc7+jlV36RwDm+PQ8Uw5r28pn2/uW/OaB+Gw5bFwn4Py/1eYMZ3hGf9S4meUFZ/sRvS+hVif2mRAp6WqQ== }
+    engines: { node: '>=18' }
     peerDependencies:
-      eslint: ^7.0.0 || ^8.0.0
+      eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
     dependencies:
       '@es-joy/jsdoccomment': 0.41.0
       are-docs-informative: 0.0.2
@@ -10175,7 +10166,7 @@ packages:
       esquery: 1.5.0
       is-builtin-module: 3.2.1
       semver: 7.5.4
-      spdx-expression-parse: 3.0.1
+      spdx-expression-parse: 4.0.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -10220,27 +10211,6 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /eslint-plugin-prettier@5.0.1(eslint-config-prettier@8.10.0)(eslint@8.55.0)(prettier@3.1.0):
-    resolution: { integrity: sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg== }
-    engines: { node: ^14.18.0 || >=16.0.0 }
-    peerDependencies:
-      '@types/eslint': '>=8.0.0'
-      eslint: '>=8.0.0'
-      eslint-config-prettier: '*'
-      prettier: '>=3.0.0'
-    peerDependenciesMeta:
-      '@types/eslint':
-        optional: true
-      eslint-config-prettier:
-        optional: true
-    dependencies:
-      eslint: 8.55.0
-      eslint-config-prettier: 8.10.0(eslint@8.55.0)
-      prettier: 3.1.0
-      prettier-linter-helpers: 1.0.0
-      synckit: 0.8.6
-    dev: false
-
   /eslint-plugin-prettier@5.0.1(eslint-config-prettier@9.1.0)(eslint@8.55.0)(prettier@3.1.0):
     resolution: { integrity: sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg== }
     engines: { node: ^14.18.0 || >=16.0.0 }
@@ -10260,7 +10230,6 @@ packages:
       prettier: 3.1.0
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.6
-    dev: true
 
   /eslint-plugin-react@7.33.2(eslint@8.55.0):
     resolution: { integrity: sha512-73QQMKALArI8/7xGLNI/3LylrEYrlKZSb5C9+q3OtOewTnMQi5cT+aE9E41sLCmli3I9PGGmD1yiZydyo4FEPw== }
@@ -16467,6 +16436,13 @@ packages:
       spdx-exceptions: 2.3.0
       spdx-license-ids: 3.0.16
 
+  /spdx-expression-parse@4.0.0:
+    resolution: { integrity: sha512-Clya5JIij/7C6bRR22+tnGXbc4VKlibKSVj2iHvVeX5iMW7s1SIQlqu699JkODJJIhh/pUu8L0/VLh8xflD+LQ== }
+    dependencies:
+      spdx-exceptions: 2.3.0
+      spdx-license-ids: 3.0.16
+    dev: false
+
   /spdx-license-ids@3.0.16:
     resolution: { integrity: sha512-eWN+LnM3GR6gPu35WxNgbGl8rmY1AEmoMDvL/QD6zYmPWgywxWqJWNdLGT+ke8dKNWrcYgYjPpG5gbTfghP8rw== }
 
@@ -16938,8 +16914,8 @@ packages:
       stable: 0.1.8
     dev: false
 
-  /svgo@3.1.0:
-    resolution: { integrity: sha512-R5SnNA89w1dYgNv570591F66v34b3eQShpIBcQtZtM5trJwm1VvxbIoMpRYY3ybTAutcKTLEmTsdnaknOHbiQA== }
+  /svgo@3.2.0:
+    resolution: { integrity: sha512-4PP6CMW/V7l/GmKRKzsLR8xxjdHTV4IMvhTnpuHwwBazSIlw5W/5SmPjN8Dwyt7lKbSJrRDgp4t9ph0HgChFBQ== }
     engines: { node: '>=14.0.0' }
     hasBin: true
     dependencies:

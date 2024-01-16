@@ -32,4 +32,21 @@ export const parameters: Preview['parameters'] = {
   },
 };
 
+// Create a global variable called locale in storybook
+// and add a menu in the toolbar to change your locale
+export const globalTypes: Preview['globalTypes'] = {
+  locale: {
+    name: 'Locale',
+    description: 'Internationalization locale',
+    toolbar: {
+      icon: 'globe',
+      items: [
+        { value: 'en', title: 'English' },
+        { value: 'fr', title: 'Français' },
+      ],
+      showName: true,
+    },
+  },
+};
+
 export const decorators: Preview['decorators'] = [stencilWrapper, withActions];

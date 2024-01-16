@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-12-21T10:31:58",
+  "timestamp": "2024-01-16T08:44:41",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.9.0",
-    "typescriptVersion": "5.2.2"
+    "version": "4.10.0",
+    "typescriptVersion": "5.3.3"
   },
   "components": [
     {
@@ -2190,10 +2190,14 @@
         "mg-input-checkbox-paginated": [
           "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-pagination"
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-button",
@@ -2204,9 +2208,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ],
         "mg-popover": [
           "mg-popover-content"
@@ -2454,16 +2455,21 @@
       "dependencies": [
         "mg-button",
         "mg-icon",
+        "mg-tooltip",
         "mg-pagination"
       ],
       "dependencyGraph": {
         "mg-input-checkbox-paginated": [
           "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-pagination"
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-button",
@@ -2474,9 +2480,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
           "mg-input-checkbox-paginated"
@@ -2525,7 +2528,7 @@
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
-          "docs": "Add a help text under the input, usually expected data format and example",
+          "docs": "Add a help text under the input, usually expected data format and example\nAvailable string variables:\n - `{pattern}`: render innerHTML pattern based on system\n - `{date}`: render innerText date with a pattern base format.\n - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.\nex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`",
           "docsTags": [],
           "values": [
             {
@@ -9222,6 +9225,7 @@
       "parts": [],
       "dependents": [
         "mg-input-checkbox",
+        "mg-input-checkbox-paginated",
         "mg-input-date",
         "mg-input-numeric",
         "mg-input-password",
@@ -9239,6 +9243,9 @@
           "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
+          "mg-tooltip"
+        ],
+        "mg-input-checkbox-paginated": [
           "mg-tooltip"
         ],
         "mg-input-date": [

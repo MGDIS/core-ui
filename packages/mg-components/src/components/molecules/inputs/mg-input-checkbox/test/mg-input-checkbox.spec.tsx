@@ -758,5 +758,47 @@ describe('mg-input-checkbox', () => {
       expect(lastSectionInputs.length).toEqual(10);
       expect(page.root).toMatchSnapshot();
     });
+
+    test('Should select all filtered values', async () => {
+      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21].map(item => ({
+        title: `item ${item}`,
+        value: false,
+      }));
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+      const getResultList = (mgInputCheckbox: HTMLMgInputCheckboxElement) => Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('input'));
+
+      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
+      const mgPopover = mgInputCheckbox.shadowRoot.querySelector('mg-popover');
+      const searchInput = mgInputCheckbox.shadowRoot.querySelector('mg-input-text');
+      const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
+
+      mgPopover.display = true;
+      await page.waitForChanges();
+      jest.runOnlyPendingTimers();
+
+      let resultList = getResultList(mgInputCheckbox);
+
+      // Should not have any value selected
+      expect(resultList.filter(item => item.value === 'true').length).toEqual(0);
+      expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(0);
+      expect(page.root).toMatchSnapshot();
+
+      // Filter
+      searchInput.dispatchEvent(new CustomEvent('value-change', { detail: '2' }));
+      await page.waitForChanges();
+
+      resultList = getResultList(mgInputCheckbox);
+      expect(resultList).toHaveLength(4);
+      expect(resultList.filter(item => item.value === 'true').length).toEqual(0);
+
+      // Select All
+      selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      // Should have all value selected
+      resultList = getResultList(mgInputCheckbox);
+      expect(resultList.filter(item => item.value === 'true').length).toEqual(4);
+      expect(page.root).toMatchSnapshot();
+    });
   });
 });

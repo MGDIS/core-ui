@@ -7,6 +7,8 @@ import {
   localeCurrency,
   localeDate,
   localeNumber,
+  dateToString,
+  getLocaleDatePattern,
   stencilWrapper,
   createID,
   ClassList,
@@ -38,6 +40,8 @@ describe('stencil-helpers', () => {
       expect(dateRegExp).toBeDefined();
       expect(localeDate).toBeDefined();
       expect(defineLocales).toBeDefined();
+      expect(dateToString).toBeDefined();
+      expect(getLocaleDatePattern).toBeDefined();
     });
   });
   describe('components', () => {

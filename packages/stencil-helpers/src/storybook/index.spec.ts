@@ -30,13 +30,13 @@ describe('storybook', () => {
       expect(storyFn).not.toHaveBeenCalled();
       expect(res).toEqual(undefined);
     });
-    test('should render element from VDOM', () => {
-      const args = {};
+    test.each([{}, {globals: {locale: 'fr'}}])('should render element from VDOM', args => {
       const stencilClientMock = vi.spyOn(client, 'renderVdom');
       const storyFn = vi.fn();
 
       // insert storybook host div
       const storybookRoot = document.createElement('div');
+      storybookRoot.setAttribute('lang', 'fr');
       storybookRoot.setAttribute('id', 'storybook-root');
       document.querySelector('body').appendChild(storybookRoot);
 
