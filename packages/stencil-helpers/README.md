@@ -10,7 +10,7 @@ This package centralize [Stencil](https://stenciljs.com/) helpers function for y
 ## Installation
 
 ```bash
-pnpm i -D @mgdis/stencil-helpers
+pnpm i @mgdis/stencil-helpers
 ```
 
 ## Documentation

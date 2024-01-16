@@ -3,7 +3,6 @@
 # Class: ClassList
 
 Class to manage component classlist
-Set() are not working when imported in project
 
 ## Table of contents
 
@@ -40,7 +39,7 @@ Set() are not working when imported in project
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:30
+packages/stencil-helpers/src/components/index.ts:29
 
 ## Properties
 
@@ -52,7 +51,7 @@ Available classes
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:28
+packages/stencil-helpers/src/components/index.ts:27
 
 ## Methods
 
@@ -74,7 +73,7 @@ Add class
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:38
+packages/stencil-helpers/src/components/index.ts:37
 
 ---
 
@@ -96,7 +95,7 @@ Delete class
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:48
+packages/stencil-helpers/src/components/index.ts:47
 
 ---
 
@@ -120,7 +119,7 @@ class name is in the list
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:60
+packages/stencil-helpers/src/components/index.ts:59
 
 ---
 
@@ -138,4 +137,4 @@ joined values
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:68
+packages/stencil-helpers/src/components/index.ts:67

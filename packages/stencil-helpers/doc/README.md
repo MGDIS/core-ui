@@ -58,7 +58,7 @@ Focusable elements query selector
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:93
+packages/stencil-helpers/src/components/index.ts:92
 
 ## Functions
 
@@ -82,7 +82,7 @@ all items are string
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:78
+packages/stencil-helpers/src/components/index.ts:77
 
 ---
 
@@ -106,7 +106,7 @@ cleanded string
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:158
+packages/stencil-helpers/src/components/index.ts:157
 
 ---
 
@@ -291,7 +291,7 @@ The list of windows found
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:112
+packages/stencil-helpers/src/components/index.ts:111
 
 ---
 
@@ -355,7 +355,7 @@ The list of windows found
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:100
+packages/stencil-helpers/src/components/index.ts:99
 
 ---
 
@@ -380,7 +380,7 @@ element is a heading
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:86
+packages/stencil-helpers/src/components/index.ts:85
 
 ---
 
@@ -404,7 +404,7 @@ if string is valid
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:151
+packages/stencil-helpers/src/components/index.ts:150
 
 ---
 
@@ -504,7 +504,7 @@ differed code excution
 
 #### Defined in
 
-packages/stencil-helpers/src/components/index.ts:171
+packages/stencil-helpers/src/components/index.ts:170
 
 ---
 
