@@ -56,7 +56,7 @@ describe('Notification center', () => {
       expect(notifsCenter).toBeDefined();
     });
 
-    it.each([true, false])('Should init the lib', withEvent => {
+    it.each([true, false])('Should init the lib with event: %s', withEvent => {
       if (withEvent) {
         // Trigger DOM ready event
         window.dispatchEvent(new Event('DOMContentLoaded'));
