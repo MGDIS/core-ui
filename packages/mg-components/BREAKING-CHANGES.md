@@ -70,4 +70,43 @@ Components with missing mandatory props won't render and will throw an error.
 
 No more `variables.scss` export, only `variables.css`.
 
-<!-- ## mg-components v6.0.0 -->
+## mg-components v6.0.0
+
+- [Changes in `mg-icon`](#changes-in-mg-icon)
+- [Changes in `mg-button`](#changes-in-mg-button)
+- [Hide Components](#hide-components)
+
+### Changes in `mg-icon`
+
+- Removed `question-circle` icon. Use the existing `interrogation-circle` icon instead.
+
+  ```html
+  <!-- in v5 -->
+  <mg-icon icon="question-circle"></mg-icon>
+  <!-- in v6 -->
+  <mg-icon icon="interrogation-circle"></mg-icon>
+  ```
+
+### Changes in `mg-button`
+
+- Removed `identifier` prop. Use `id` directly if needed.
+
+  ```html
+  <!-- in v5 -->
+  <mg-button identifier="blu">Non</mg-button>
+  <!-- in v6 -->
+  <mg-button id="blu">Non</mg-button>
+  ```
+
+### Hide components
+
+- `mg-message` and `mg-modal` no longer use the `hide` prop for visibility. Use the native `hidden` attribute.
+
+  ```html
+  <!-- in v5 -->
+  <mg-message hide>Non</mg-message>
+  <mg-modal modal-title="Modal title" hide><p slot="content">non</p></mg-modal>
+  <!-- in v6 -->
+  <mg-message hidden>Non</mg-message>
+  <mg-modal modal-title="Modal title" hidden><p slot="content">non</p></mg-modal>
+  ```
