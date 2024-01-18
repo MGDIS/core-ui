@@ -1,8 +1,8 @@
 import type { ObjectType } from './index.conf';
 
 /**
- * Get date pattern base on locale
- * @param locale - to refer
+ * Gets the date pattern based on the specified locale.
+ * @param locale - the locale to refer to
  * @returns date pattern
  * @example
  * ```ts
@@ -18,7 +18,7 @@ export const getLocaleDatePattern = (locale: string) => {
 
 /**
  * Format a date object to string
- * @param date - to parse
+ * @param date - date to parse
  * @returns string date with pattern 'YYYY-MM-DD'
  * @example
  * ```ts
