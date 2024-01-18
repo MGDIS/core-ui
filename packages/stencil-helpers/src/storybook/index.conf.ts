@@ -1,4 +1,4 @@
 /**
  * Define compents default args type
  */
-export type ArgsType = Record<string, unknown>;
+export type ArgsType = { [x: string]: unknown };

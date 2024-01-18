@@ -263,7 +263,7 @@ filtres args
 
 ```ts
 import { filterArgs } from '@mgdis/stencil-helpers';
-const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs<MgBadgeType>(args, { variant: variants[0] })}></mg-badge>;
+const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
 ```
 
 #### Defined in

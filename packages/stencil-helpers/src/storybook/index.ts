@@ -1,6 +1,6 @@
 import { renderVdom } from '@stencil/core/internal/client';
 import type { VNode } from '@stencil/core';
-import type { ArgsType } from './index.conf';
+import { ArgsType } from './index.conf';
 
 /**
  * Render attribute on the given element
@@ -53,11 +53,11 @@ const renderElement = (parentNode: HTMLElement, tagName: VNode['$tag$'], attribu
  * @example
  * ```ts
  * import { filterArgs } from '@mgdis/stencil-helpers';
- * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs<MgBadgeType>(args, { variant: variants[0] })}></mg-badge>;
+ * const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
  * ```
  */
-export const filterArgs = (args: ArgsType, defaultValues?: ArgsType): ArgsType => {
-  const filteredArgs: typeof args = {};
+export const filterArgs = <T>(args: T, defaultValues?: T): T => {
+  const filteredArgs = {} as { [key: string]: unknown };
   if (typeof args !== 'object') {
     throw new Error("filterArgs - args isn't an object.");
   }
@@ -71,7 +71,7 @@ export const filterArgs = (args: ArgsType, defaultValues?: ArgsType): ArgsType =
       }
     }
   }
-  return filteredArgs;
+  return filteredArgs as T;
 };
 
 /**

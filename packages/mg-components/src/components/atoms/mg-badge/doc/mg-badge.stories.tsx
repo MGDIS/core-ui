@@ -18,7 +18,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs<MgBadgeType>(args, { variant: variants[0] })}></mg-badge>;
+const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
 
 export const MgBadge = {
   render: Template,
