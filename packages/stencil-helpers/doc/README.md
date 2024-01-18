@@ -61,7 +61,7 @@ packages/stencil-helpers/src/locale/index.ts:85
 
 • `Const` **focusableElements**: `"a[href], button, input, textarea, select, details, [tabindex]:not([tabindex=\"-1\"]), [identifier]"`
 
-Focusable elements query selector
+CSS selector to select focusable elements.
 
 **`Example`**
 
@@ -79,7 +79,7 @@ packages/stencil-helpers/src/components/index.ts:96
 
 ▸ **allItemsAreString**(`items`): items is string[]
 
-Typeguard function to check if all array items are string
+Typeguard function to check if all array items are strings.
 
 #### Parameters
 
@@ -91,7 +91,7 @@ Typeguard function to check if all array items are string
 
 items is string[]
 
-`true` if all items are string
+`true` if all items are strings
 
 #### Defined in
 
@@ -103,7 +103,7 @@ packages/stencil-helpers/src/components/index.ts:77
 
 ▸ **cleanString**(`text`): `string`
 
-Clean string caracters remove special string caraters and lowercase string
+Cleans string characters by removing special characters and converting to lowercase.
 
 #### Parameters
 
@@ -115,7 +115,7 @@ Clean string caracters remove special string caraters and lowercase string
 
 `string`
 
-cleanded string
+cleaned string
 
 **`Example`**
 
@@ -159,13 +159,13 @@ packages/stencil-helpers/src/components/index.ts:7
 
 ▸ **dateToString**(`date`): `undefined` \| `string`
 
-Format a date object to string
+Formats a date object to a string with the pattern 'YYYY-MM-DD'.
 
 #### Parameters
 
-| Name   | Type   | Description |
-| :----- | :----- | :---------- |
-| `date` | `Date` | to parse    |
+| Name   | Type   | Description   |
+| :----- | :----- | :------------ |
+| `date` | `Date` | date to parse |
 
 #### Returns
 
@@ -276,13 +276,13 @@ packages/stencil-helpers/src/storybook/index.ts:59
 
 ▸ **getLocaleDatePattern**(`locale`): `string`
 
-Get date pattern base on locale
+Gets the date pattern based on the specified locale.
 
 #### Parameters
 
-| Name     | Type     | Description |
-| :------- | :------- | :---------- |
-| `locale` | `string` | to refer    |
+| Name     | Type     | Description            |
+| :------- | :------- | :--------------------- |
+| `locale` | `string` | the locale to refer to |
 
 #### Returns
 
@@ -395,7 +395,7 @@ packages/stencil-helpers/src/components/index.ts:103
 
 ▸ **isTagName**(`element`, `tagNames`): `boolean`
 
-Check if element belong to the given tagNames list
+Check if element belongs to the given tagNames list
 
 #### Parameters
 
