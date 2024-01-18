@@ -59,7 +59,7 @@ packages/stencil-helpers/src/locale/index.ts:85
 
 ### focusableElements
 
-• `Const` **focusableElements**: `"a[href], button, input, textarea, select, details, [tabindex]:not([tabindex=\"-1\"]), [identifier]"`
+• `Const` **focusableElements**: `"a[href], button, input, textarea, select, details, [tabindex]:not([tabindex=\"-1\"]), [identifier], mg-button"`
 
 CSS selector to select focusable elements.
 
@@ -242,20 +242,26 @@ packages/stencil-helpers/src/locale/index.ts:122
 
 ### filterArgs
 
-▸ **filterArgs**(`args`, `defaultValues?`): `ArgsType`
+▸ **filterArgs**\<`T`\>(`args`, `defaultValues?`): `T`
 
 Filter default argument on component argument to prevent them to be rendered
 
+#### Type parameters
+
+| Name |
+| :--- |
+| `T`  |
+
 #### Parameters
 
-| Name             | Type       | Description                          |
-| :--------------- | :--------- | :----------------------------------- |
-| `args`           | `ArgsType` | all possible args with custom values |
-| `defaultValues?` | `ArgsType` | component default args values        |
+| Name             | Type | Description                          |
+| :--------------- | :--- | :----------------------------------- |
+| `args`           | `T`  | all possible args with custom values |
+| `defaultValues?` | `T`  | component default args values        |
 
 #### Returns
 
-`ArgsType`
+`T`
 
 filtres args
 

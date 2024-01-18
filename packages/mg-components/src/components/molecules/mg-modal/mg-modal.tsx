@@ -162,10 +162,11 @@ export class MgModal {
    */
   private setFocus = (): void => {
     // Get all focusable elements
-    const allFocusableElements = Array.from(this.element.querySelectorAll(focusableElements));
-    // If at least one
-    if (allFocusableElements.length > 0) {
-      this.modalFocusableElements = allFocusableElements.reduce((acc, focusableElement) => {
+    const slottedFocusableElements = Array.from(this.element.querySelectorAll(focusableElements));
+    // If close button is enabled or at least one of the slotted element is focusable
+    if (this.closeButton || slottedFocusableElements.length > 0) {
+      // Check if slotted focusable elements have shadowDom with focusable elements
+      this.modalFocusableElements = slottedFocusableElements.reduce((acc, focusableElement) => {
         acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
         return acc;
       }, []);

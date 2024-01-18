@@ -27,7 +27,7 @@ const Template = (args: MgModalType & { slotContent: string; slotActions: string
       aria-controls={args.identifier}
       aria-haspopup="dialog"
       onClick={() => {
-        const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal[identifier="${args.identifier}"]`);
+        const mgModal: HTMLMgModalElement = document.querySelector(`mg-modal`);
         mgModal.hide = !mgModal.hide;
       }}
     >
