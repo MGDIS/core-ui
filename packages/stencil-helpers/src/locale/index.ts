@@ -17,7 +17,7 @@ export const getLocaleDatePattern = (locale: string) => {
 };
 
 /**
- * Format a date object to string
+ * Formats a date object to a string with the pattern 'YYYY-MM-DD'.
  * @param date - date to parse
  * @returns string date with pattern 'YYYY-MM-DD'
  * @example
