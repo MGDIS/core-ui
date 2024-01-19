@@ -2,7 +2,7 @@
   "errors": {
     "required": "Ce champ est obligatoire.",
     "date": {
-      "badInput": "Le format de la date doit être du type <span aria-hidden=\"true\">jj/mm/aaaa</span><span class=\"mg-u-visually-hidden\">j j / m m / a a a a</span> et la date supérieure au {min}",
+      "badInput": "Le format de la date doit être du type {pattern} et la date supérieure au {min}",
       "min": "La date ne peut pas être antérieure au {min}",
       "max": "La date ne peut pas être postérieure au {max}",
       "minMax": "La date doit être comprise entre le {min} et le {max}"
@@ -42,6 +42,14 @@
           "action": "Tout sélectionner",
           "tooltip": "Sélectionne tous les résultats de la recherche en cours"
         }
+      }
+    },
+    "date": {
+      "helpText": "Format attendu&nbsp;: {pattern} (ex&nbsp;: {date})",
+      "pattern": {
+        "dd": "jj",
+        "mm": "mm",
+        "yyyy": "aaaa"
       }
     }
   },

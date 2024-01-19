@@ -56,9 +56,11 @@ describe('Notification center', () => {
       expect(notifsCenter).toBeDefined();
     });
 
-    it('Should init the lib', () => {
-      // Trigger DOM ready event
-      window.dispatchEvent(new Event('DOMContentLoaded'));
+    it.each([true, false])('Should init the lib with event: %s', withEvent => {
+      if (withEvent) {
+        // Trigger DOM ready event
+        window.dispatchEvent(new Event('DOMContentLoaded'));
+      }
       expect(document.head.innerHTML).toContain('<style>#mg-notification-center');
       expect(document.getElementById('mg-notification-center')).not.toBeNull();
     });
@@ -72,13 +74,11 @@ describe('Notification center', () => {
       { content: 'With context', context: 'blu' },
       { content: 'Success variant without delay', variant: 'success', delay: 0 },
     ])('Should display a notification %s', eventData => {
-      window.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(new MessageEvent('message', { data: { ...eventData, appId: 'mg-notification-center' } }));
       expect(document.body.innerHTML).toMatchSnapshot();
     });
 
     it('Should remove unsafe or unknown html', () => {
-      window.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(
         new MessageEvent('message', {
           data: {
@@ -100,7 +100,6 @@ describe('Notification center', () => {
     });
 
     it('Should remove previous message with same context', () => {
-      window.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(
         new MessageEvent('message', {
           data: {
@@ -124,7 +123,6 @@ describe('Notification center', () => {
     });
 
     it('Should remove message on close', () => {
-      window.dispatchEvent(new Event('DOMContentLoaded'));
       window.dispatchEvent(
         new MessageEvent('message', {
           data: {

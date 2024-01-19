@@ -1,4 +1,4 @@
-import { localeCurrency, localeNumber, localeDate, getLocaleMessages } from './locale.utils';
+import { localeCurrency, localeNumber, localeDate, getLocaleMessages, dateToString, getLocaleDatePattern } from './locale.utils';
 import messagesEn from '../locales/en/messages.json';
 import messagesFr from '../locales/fr/messages.json';
 
@@ -15,6 +15,24 @@ describe('locale.utils', () => {
       test('Should Format number to the locale', () => {
         const formatedCurrency = localeNumber(1234567890.12, locale);
         expect(formatedCurrency).toEqual(locale === 'en' ? '1,234,567,890.12' : '1 234 567 890,12');
+      });
+    });
+
+    describe('getLocaleDatePattern', () => {
+      test.each([
+        { locale: 'fr', expected: 'dd/mm/yyyy' },
+        { locale: 'en', expected: 'mm/dd/yyyy' },
+      ])('Should get date pattern', ({ locale, expected }) => {
+        const pattern = getLocaleDatePattern(locale);
+        expect(pattern).toEqual(expected);
+      });
+    });
+
+    describe('dateToString', () => {
+      test('Should Format date to string pattern', () => {
+        const stringDate = '2023-12-24';
+        const formatedtext = dateToString(new Date(stringDate));
+        expect(formatedtext).toEqual(stringDate);
       });
     });
 
