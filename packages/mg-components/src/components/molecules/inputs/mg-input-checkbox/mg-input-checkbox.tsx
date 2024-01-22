@@ -503,8 +503,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.messages = initLocales(this.element).messages;
 
     // Validate
-    // `validateType` must be done before `validateValue` because we we need to set mode['auto'|'custom'] from type
-    // and `validateValue` update `this.checkboxItems` watcher wich require a defined `this.type`
+    // `validateType` must be done before `validateValue` because we need to set mode['auto'|'custom'] from type
+    // and `validateValue` updates `this.checkboxItems` watcher which requires a defined `this.type`.
     this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
