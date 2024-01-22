@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { cloneDeep, mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
+import { mockConsoleError, mockWindowFrames, setupResizeObserverMock } from '../../../../../utils/unit.test.utils';
 import { MgInputCheckbox } from '../mg-input-checkbox';
 import messages from '../../../../../locales/en/messages.json';
 import { CheckboxValue, checkboxTypes } from '../mg-input-checkbox.conf';
@@ -26,6 +26,22 @@ const getPage = args => {
   return page;
 };
 
+const getDefaultValues = (): CheckboxValue[] =>
+  [
+    { title: 'batman', value: true },
+    { title: 'robin', value: false, disabled: true },
+    { title: 'joker', value: false },
+    { title: 'bane', value: null },
+  ].map(item => item);
+
+const getValues = (length?: number): CheckboxValue[] =>
+  length
+    ? Array.from({ length }, (_, index) => ({
+        title: `item ${index + 1}`,
+        value: false,
+      }))
+    : getDefaultValues();
+
 describe('mg-input-checkbox', () => {
   beforeEach(() => {
     jest.useFakeTimers({ legacyFakeTimers: true });
@@ -37,37 +53,30 @@ describe('mg-input-checkbox', () => {
 
   afterEach(() => jest.runOnlyPendingTimers());
 
-  const items: CheckboxValue[] = [
-    { title: 'batman', value: true },
-    { title: 'robin', value: false, disabled: true },
-    { title: 'joker', value: false },
-    { title: 'bane', value: null },
-  ];
-
   describe.each([...checkboxTypes, undefined])('render by type %s', type => {
     let testValues: unknown[] = [
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, readonly: true },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, labelOnTop: true },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, labelHide: true },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, inputVerticalList: true },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, required: true },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, required: true, readonly: true, helpText: 'Hello joker' },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, required: true, disabled: true, helpText: 'Hello joker' },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, disabled: true },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, helpText: 'Hello joker' },
-      { label: 'label', identifier: 'identifier', value: cloneDeep(items), type, tooltip: 'Batman is a DC Comics license' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, readonly: true },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, labelOnTop: true },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, labelHide: true },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, inputVerticalList: true },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, required: true },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, required: true, readonly: true, helpText: 'Hello joker' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, required: true, disabled: true, helpText: 'Hello joker' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, disabled: true },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, helpText: 'Hello joker' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license' },
     ];
     if (type === 'multi') {
       testValues = [
         ...testValues,
         ...[true, false].flatMap(displaySelectedValues =>
           [
-            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', readonly: true },
-            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', disabled: true },
-            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', helpText: 'Hello joker' },
-            { label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'multi', tooltip: 'Batman is a DC Comics license' },
+            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', readonly: true },
+            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', disabled: true },
+            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', helpText: 'Hello joker' },
+            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', tooltip: 'Batman is a DC Comics license' },
           ].map(args => ({ ...args, displaySelectedValues })),
         ),
       ];
@@ -80,7 +89,7 @@ describe('mg-input-checkbox', () => {
     test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
       expect.assertions(1);
       try {
-        await getPage({ identifier, type, value: cloneDeep(items) });
+        await getPage({ identifier, type, value: getValues() });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
       }
@@ -89,7 +98,7 @@ describe('mg-input-checkbox', () => {
     test.each(['', ' ', undefined])('Should not render with invalid label property: %s', async label => {
       expect.assertions(1);
       try {
-        await getPage({ identifier: 'identifier', type, label, value: cloneDeep(items) });
+        await getPage({ identifier: 'identifier', type, label, value: getValues() });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "label" is required.');
       }
@@ -98,7 +107,7 @@ describe('mg-input-checkbox', () => {
     test('Should not render when using labelOnTop and labelHide: %s', async () => {
       expect.assertions(1);
       try {
-        await getPage({ identifier: 'identifier', type, label: 'label', value: cloneDeep(items), labelOnTop: true, labelHide: true });
+        await getPage({ identifier: 'identifier', type, label: 'label', value: getValues(), labelOnTop: true, labelHide: true });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
       }
@@ -117,7 +126,7 @@ describe('mg-input-checkbox', () => {
     });
 
     test.each([true, false])('Should trigger events, case validity check %s', async validity => {
-      const value = items.map((item, index) => ({ ...item, value: false, id: index, required: item.required, disabled: item.disabled, hero: 'batman' }));
+      const value = getValues().map((item, index) => ({ ...item, value: false, id: index, required: item.required, disabled: item.disabled, hero: 'batman' }));
       value[0].value = !validity;
       const page = await getPage({ label: 'label', type, identifier: 'identifier', helpText: 'My help text', value, required: true });
       const element = page.doc.querySelector('mg-input-checkbox');
@@ -164,7 +173,7 @@ describe('mg-input-checkbox', () => {
         { validity: false, valueMissing: true },
         { validity: false, valueMissing: false },
       ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing }) => {
-        const value = items.map((item, index) => ({ ...item, value: !valueMissing && index === 1 }));
+        const value = getValues().map((item, index) => ({ ...item, value: !valueMissing && index === 1 }));
         const args = { label: 'label', identifier: 'identifier', type, value, helpText: 'My help text', required: true };
         const page = await getPage(args);
         const element = page.doc.querySelector('mg-input-checkbox');
@@ -210,7 +219,7 @@ describe('mg-input-checkbox', () => {
         errorMessage: 'Override error',
       },
     ])("should display override error with setError component's public method", async params => {
-      const page = await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), helpText: 'My help text', required: true });
+      const page = await getPage({ label: 'label', identifier: 'identifier', type, value: getValues(), helpText: 'My help text', required: true });
 
       expect(page.root).toMatchSnapshot();
 
@@ -255,7 +264,7 @@ describe('mg-input-checkbox', () => {
     ])("shloud throw error with setError component's public method invalid params", async params => {
       expect.assertions(1);
       try {
-        const page = await getPage({ label: 'label', identifier: 'identifier', type, value: cloneDeep(items), helpText: 'My help text', required: true });
+        const page = await getPage({ label: 'label', identifier: 'identifier', type, value: getValues(), helpText: 'My help text', required: true });
         const element = page.doc.querySelector('mg-input-checkbox');
 
         await element.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);
@@ -266,7 +275,7 @@ describe('mg-input-checkbox', () => {
     });
 
     test("display error with displayError component's public method", async () => {
-      const value = cloneDeep(items);
+      const value = getValues();
       value[0].value = false;
       const page = await getPage({ label: 'label', identifier: 'identifier', type, value, helpText: 'My help text', required: true });
 
@@ -292,7 +301,7 @@ describe('mg-input-checkbox', () => {
     });
 
     test.each(['fr', 'xx'])('Should render component error with locale: %s', async lang => {
-      const value = cloneDeep(items);
+      const value = getValues();
       value[0].value = false;
       const page = await getPage({ label: 'label', identifier: 'identifier', type, value, helpText: 'My help text', required: true, lang });
       const element = page.doc.querySelector('mg-input-checkbox');
@@ -314,14 +323,11 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([[[true, false].flatMap(value => [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(item => ({ title: item.toString(), value })))]])(
-      'Should render component with locale "fr"',
-      async value => {
-        const page = await getPage({ label: 'label', identifier: 'identifier', value, lang: 'fr' });
+    test.each([[[true, false].flatMap(value => getValues(11).map(item => ({ ...item, value })))]])('Should render component with locale "fr"', async value => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value, lang: 'fr' });
 
-        expect(page.root).toMatchSnapshot();
-      },
-    );
+      expect(page.root).toMatchSnapshot();
+    });
 
     test('Should remove error on input when required change dynamically', async () => {
       const page = await getPage({
@@ -383,18 +389,14 @@ describe('mg-input-checkbox', () => {
     });
 
     test('Should enable "displaySearchInput" when value list is greater than 10', async () => {
-      const value = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(item => ({
-        title: `item ${item}`,
-        value: false,
-      }));
-      const { root } = await getPage({ label: 'label', identifier: 'identifier', value, type });
+      const { root } = await getPage({ label: 'label', identifier: 'identifier', value: getValues(11), type });
       expect(root).toMatchSnapshot();
     });
   });
 
   describe('navigation', () => {
     test('Should NOT manage keyboard "tab" navigation on "checkbox" type', async () => {
-      const page = await getPage({ label: 'label', identifier: 'identifier', value: cloneDeep(items), type: 'checkbox', tooltip: 'Tooltip message' });
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message' });
       const element = page.doc.querySelector('mg-input-checkbox');
       const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
 
@@ -415,10 +417,7 @@ describe('mg-input-checkbox', () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        value: [1, 2, 3, 4, 5, 6, 7, 8, 9].map(item => ({
-          title: `item ${item}`,
-          value: false,
-        })),
+        value: getValues(9),
         type: 'multi',
         tooltip: 'Tooltip message',
       });
@@ -445,10 +444,7 @@ describe('mg-input-checkbox', () => {
       const page = await getPage({
         label: 'label',
         identifier: 'identifier',
-        value: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(item => ({
-          title: `item ${item}`,
-          value: false,
-        })),
+        value: getValues(11),
         type: 'multi',
         tooltip: 'Tooltip message',
       });
@@ -474,7 +470,7 @@ describe('mg-input-checkbox', () => {
   test.each([' ', 'batman'])('Should not render with invalid type property: %s', async type => {
     expect.assertions(1);
     try {
-      await getPage({ identifier: 'identifier', type, label: 'label', value: cloneDeep(items) });
+      await getPage({ identifier: 'identifier', type, label: 'label', value: getValues() });
     } catch (err) {
       expect(err.message).toMatch('<mg-input-checkbox> prop "type" must be a CheckboxType.');
     }
@@ -799,6 +795,24 @@ describe('mg-input-checkbox', () => {
       resultList = getResultList(mgInputCheckbox);
       expect(resultList.filter(item => item.value === 'true').length).toEqual(4);
       expect(page.root).toMatchSnapshot();
+    });
+  });
+
+  describe('mode auto', () => {
+    test('Should define the type and display search depending on the value length', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(3) });
+      expect(page.root).toMatchSnapshot();
+
+      const mgInputCheckbox = page.doc.querySelector('mg-input-checkbox');
+      jest.runOnlyPendingTimers();
+
+      for (const value of [6, 11, 7, 2]) {
+        mgInputCheckbox.value = getValues(value);
+        await page.waitForChanges();
+        jest.runOnlyPendingTimers();
+
+        expect(page.root).toMatchSnapshot();
+      }
     });
   });
 });
