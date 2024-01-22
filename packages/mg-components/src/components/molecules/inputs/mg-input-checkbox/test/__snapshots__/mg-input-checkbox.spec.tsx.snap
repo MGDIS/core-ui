@@ -4,12 +4,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -44,12 +46,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -236,12 +240,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -276,12 +282,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -400,12 +408,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -440,12 +450,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="11">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -546,12 +558,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -586,12 +600,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="111">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -688,12 +704,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -728,12 +746,14 @@ exports[`mg-input-checkbox multi search Should enable return search result and u
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -920,12 +940,14 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -960,12 +982,14 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1098,12 +1122,14 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -1138,12 +1164,14 @@ exports[`mg-input-checkbox multi search Should go to previous page when last ite
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1337,12 +1365,14 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -1377,12 +1407,14 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1569,12 +1601,14 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -1609,12 +1643,14 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1801,12 +1837,14 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -1841,12 +1879,14 @@ exports[`mg-input-checkbox multi search Should navigate across paginated list wi
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1979,12 +2019,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -2019,12 +2061,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -2211,12 +2255,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -2251,12 +2297,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -2443,12 +2491,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -2483,12 +2533,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -2675,12 +2727,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -2715,12 +2769,14 @@ exports[`mg-input-checkbox multi search Should reset pagination when popover is 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -2907,12 +2963,14 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -2947,12 +3005,14 @@ exports[`mg-input-checkbox multi search Should search and update values 1`] = `
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -3139,12 +3199,14 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -3179,12 +3241,14 @@ exports[`mg-input-checkbox multi search Should search and update values 2`] = `
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -3304,12 +3368,14 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -3344,12 +3410,14 @@ exports[`mg-input-checkbox multi search Should search and update values 3`] = `
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -3543,12 +3611,14 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -3583,12 +3653,14 @@ exports[`mg-input-checkbox multi search Should select all filtered values 1`] = 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -3775,12 +3847,14 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -3815,12 +3889,14 @@ exports[`mg-input-checkbox multi search Should select all filtered values 2`] = 
                   <mg-input-text aria-controls="search-results items-list" value="2">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -3939,12 +4015,14 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -3979,12 +4057,14 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 1`]
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -4184,12 +4264,14 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -4224,12 +4306,14 @@ exports[`mg-input-checkbox multi search Should toggle selected items section 2`]
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -4372,12 +4456,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -4412,12 +4498,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -4604,12 +4692,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -4644,12 +4734,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -4836,12 +4928,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -4876,12 +4970,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -5068,12 +5164,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -5108,12 +5206,14 @@ exports[`mg-input-checkbox multi search Should update all values with mass actio
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -5300,12 +5400,17 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -5334,9 +5439,6 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
               </label>
             </li>
           </ul>
-          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -5348,12 +5450,17 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -5382,9 +5489,6 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
               </label>
             </li>
           </ul>
-          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -5396,12 +5500,14 @@ exports[`mg-input-checkbox render by type checkbox Should enable "displaySearchI
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -5483,17 +5589,19 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
 <mg-input-checkbox lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -5539,17 +5647,19 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
 <mg-input-checkbox lang="xx">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -5595,12 +5705,14 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover" lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -5635,12 +5747,14 @@ exports[`mg-input-checkbox render by type checkbox Should render component with 
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Saisissez une valeur
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Saisissez une valeur
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -5925,12 +6039,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -5976,12 +6092,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6027,12 +6145,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6081,12 +6201,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container mg-c-input__input-group-container--vertical" id="checkboxes-list" role="list">
@@ -6132,12 +6254,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title class="mg-u-visually-hidden" is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6236,12 +6360,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6306,17 +6432,19 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6364,12 +6492,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6420,12 +6550,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6453,12 +6585,17 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6487,9 +6624,6 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
               </label>
             </li>
           </ul>
-          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -6501,17 +6635,19 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6554,17 +6690,19 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6610,17 +6748,19 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6663,17 +6803,19 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6716,17 +6858,19 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6769,17 +6913,19 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6825,17 +6971,19 @@ exports[`mg-input-checkbox render by type checkbox should display override error
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6878,17 +7026,19 @@ exports[`mg-input-checkbox render by type checkbox should display override error
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6931,17 +7081,19 @@ exports[`mg-input-checkbox render by type checkbox should display override error
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -6984,17 +7136,19 @@ exports[`mg-input-checkbox render by type checkbox should display override error
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -7040,17 +7194,19 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -7096,12 +7252,14 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -7144,17 +7302,19 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -7200,12 +7360,14 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list"></ul>
@@ -7220,12 +7382,14 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -7260,12 +7424,14 @@ exports[`mg-input-checkbox render by type multi Should enable "displaySearchInpu
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -7452,17 +7618,19 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover" lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -7544,17 +7712,19 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover" lang="xx">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -7636,12 +7806,14 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover" lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -7676,12 +7848,14 @@ exports[`mg-input-checkbox render by type multi Should render component with loc
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Saisissez une valeur
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Saisissez une valeur
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -7966,12 +8140,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8053,12 +8229,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--checkbox-multi-disabled">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8141,12 +8319,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--checkbox-multi-disabled">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8229,12 +8409,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--checkbox-multi-disabled">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--with-values mg-c-input__input-container">
@@ -8318,12 +8500,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8409,12 +8593,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8500,12 +8686,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--with-values mg-c-input__input-container">
@@ -8592,12 +8780,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8679,12 +8869,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title class="mg-u-visually-hidden" is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -8855,12 +9047,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -8889,12 +9083,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -8923,12 +9119,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -8993,17 +9191,19 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9087,12 +9287,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--checkbox-multi-disabled">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9179,12 +9381,14 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -9212,12 +9416,17 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9282,9 +9491,6 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               1 selected value
             </strong>
           </div>
-          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -9303,12 +9509,17 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9373,9 +9584,6 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               1 selected value
             </strong>
           </div>
-          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -9394,12 +9602,17 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--with-values mg-c-input__input-container">
@@ -9466,9 +9679,6 @@ exports[`mg-input-checkbox render by type multi Should render with args {
               </li>
             </ul>
           </div>
-          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -9480,17 +9690,19 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9569,17 +9781,19 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9661,17 +9875,19 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9750,17 +9966,19 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9839,17 +10057,19 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -9928,17 +10148,19 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10020,17 +10242,19 @@ exports[`mg-input-checkbox render by type multi should display override error wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10109,17 +10333,19 @@ exports[`mg-input-checkbox render by type multi should display override error wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10198,17 +10424,19 @@ exports[`mg-input-checkbox render by type multi should display override error wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10287,17 +10515,19 @@ exports[`mg-input-checkbox render by type multi should display override error wi
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10379,17 +10609,19 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10471,12 +10703,14 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--checkbox-multi-disabled">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10555,17 +10789,19 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -10647,12 +10883,14 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list"></ul>
@@ -10667,12 +10905,14 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -10707,12 +10947,14 @@ exports[`mg-input-checkbox render by type undefined Should enable "displaySearch
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -10899,17 +11141,19 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
 <mg-input-checkbox lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -10955,17 +11199,19 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
 <mg-input-checkbox lang="xx">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11011,12 +11257,14 @@ exports[`mg-input-checkbox render by type undefined Should render component with
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover" lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -11051,12 +11299,14 @@ exports[`mg-input-checkbox render by type undefined Should render component with
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Saisissez une valeur
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Saisissez une valeur
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -11341,12 +11591,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11392,12 +11644,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11443,12 +11697,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11497,12 +11753,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container mg-c-input__input-group-container--vertical" id="checkboxes-list" role="list">
@@ -11548,12 +11806,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title class="mg-u-visually-hidden" is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11652,12 +11912,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11722,17 +11984,19 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11780,12 +12044,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11836,12 +12102,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11869,12 +12137,17 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11903,9 +12176,6 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
               </label>
             </li>
           </ul>
-          <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </fieldset>
@@ -11917,17 +12187,19 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -11970,17 +12242,19 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12026,17 +12300,19 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12079,17 +12355,19 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12132,17 +12410,19 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12185,17 +12465,19 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12241,17 +12523,19 @@ exports[`mg-input-checkbox render by type undefined should display override erro
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12294,17 +12578,19 @@ exports[`mg-input-checkbox render by type undefined should display override erro
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12347,17 +12633,19 @@ exports[`mg-input-checkbox render by type undefined should display override erro
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12400,17 +12688,19 @@ exports[`mg-input-checkbox render by type undefined should display override erro
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12456,17 +12746,19 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12512,12 +12804,14 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12560,17 +12854,19 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+            <span class="mg-c-input-title__required">
+              <span class="mg-u-is-asterisk">
+                *
+              </span>
             </span>
-          </span>
-        </legend>
-      </mg-input-title>
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -12616,12 +12912,14 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list"></ul>

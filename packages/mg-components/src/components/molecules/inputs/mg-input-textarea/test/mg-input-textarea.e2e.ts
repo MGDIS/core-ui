@@ -43,10 +43,6 @@ describe('mg-input-textarea', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     await page.keyboard.down('Tab');
-    if (!labelOnTop) {
-      // when label on top tooltip is on fist tab (next to label)
-      await page.keyboard.down('Tab');
-    }
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

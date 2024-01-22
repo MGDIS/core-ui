@@ -4,9 +4,11 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -37,9 +39,11 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -70,9 +74,11 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -103,9 +109,11 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -136,9 +144,11 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -169,9 +179,11 @@ exports[`mg-input-toggle setError should display override error with setError co
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -199,9 +211,11 @@ exports[`mg-input-toggle setError should display override error with setError co
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -237,9 +251,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -272,9 +288,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -311,9 +329,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -360,9 +380,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -409,9 +431,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -461,9 +485,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -561,9 +587,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off mg-c-input--toggle-readonly">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -610,9 +638,20 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -623,15 +662,6 @@ exports[`mg-input-toggle template Should render with args {
               <slot name="item-2"></slot>
             </span>
           </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -727,9 +757,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -763,9 +795,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -799,9 +833,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -838,9 +874,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -912,9 +950,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -948,9 +988,20 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -961,15 +1012,6 @@ exports[`mg-input-toggle template Should render with args {
               <slot name="item-2"></slot>
             </span>
           </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -1040,9 +1082,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1112,9 +1156,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -1147,9 +1193,20 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1160,15 +1217,6 @@ exports[`mg-input-toggle template Should render with args {
               <slot name="item-2"></slot>
             </span>
           </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -1239,9 +1287,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -1275,9 +1325,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1314,9 +1366,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1388,9 +1442,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active mg-c-input--toggle-readonly">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -1424,9 +1480,20 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1437,15 +1504,6 @@ exports[`mg-input-toggle template Should render with args {
               <slot name="item-2"></slot>
             </span>
           </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -1516,9 +1574,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1552,9 +1612,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -1588,9 +1650,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1627,9 +1691,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1701,9 +1767,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active mg-c-input--toggle-readonly">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -1737,9 +1805,20 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1750,15 +1829,6 @@ exports[`mg-input-toggle template Should render with args {
               <slot name="item-2"></slot>
             </span>
           </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -1829,9 +1899,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1865,9 +1937,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -1901,9 +1975,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -1940,9 +2016,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -2014,9 +2092,11 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active mg-c-input--toggle-readonly">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
@@ -2050,9 +2130,20 @@ exports[`mg-input-toggle template Should render with args {
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -2063,15 +2154,6 @@ exports[`mg-input-toggle template Should render with args {
               <slot name="item-2"></slot>
             </span>
           </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -2137,9 +2219,11 @@ exports[`mg-input-toggle template Should render with args { label: 'label', iden
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
@@ -2167,9 +2251,11 @@ exports[`mg-input-toggle template Should render with args { label: 'label', iden
 <mg-input-toggle>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">

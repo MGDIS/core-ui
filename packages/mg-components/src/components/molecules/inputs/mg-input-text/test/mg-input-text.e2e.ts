@@ -1,5 +1,5 @@
 import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
-import { setPageContent, expect, describe, test, testEach, PageType, updateScreenshotClass, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
+import { setPageContent, expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputText } from '../mg-input-text';
 
 const creatHtml = (props: Partial<MgInputText & { slot: string }>) => {
@@ -50,13 +50,6 @@ describe('mg-input-text', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.down('Tab');
-      if (!labelOnTop) {
-        // Ensure to display tooltip
-        await page.setViewportSize({ height: 100, width: 500 });
-        await updateScreenshotClass(page, { height: '65px', width: '500px' });
-        // when label on top tooltip is on fist tab (next to label)
-        await page.keyboard.down('Tab');
-      }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });

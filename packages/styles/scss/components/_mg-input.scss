@@ -21,12 +21,47 @@ mg-icon {
   margin-bottom: var(--mg-inputs-margin-bottom, 0);
 
   /* Label */
-  mg-input-title {
-    width: var(--mg-inputs-title-width, auto);
-    flex-shrink: var(--mg-inputs-shrink, 1);
+  &__title {
+    display: flex;
+    align-items: baseline;
     margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
     margin-right: var(--mg-inputs-title-horizontal-space, var(--mg-inputs-spacer));
     text-align: right;
+
+    mg-input-title {
+      width: var(--mg-inputs-title-width, auto);
+      flex-shrink: var(--mg-inputs-shrink, 1);
+
+      & + mg-tooltip {
+        margin-left: 0.4rem;
+      }
+    }
+
+    mg-icon {
+      display: inline-flex;
+      vertical-align: text-bottom;
+    }
+  }
+
+  /* Label-on-top */
+  &.mg-c-input--label-on-top {
+    flex-direction: column;
+
+    .mg-c-input__title {
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 0.3rem;
+      text-align: left;
+
+      mg-input-title {
+        width: 100%;
+        flex-shrink: 1;
+      }
+    }
+
+    .mg-c-input__input-container {
+      width: 100%;
+    }
   }
 
   &__error {
@@ -59,39 +94,6 @@ mg-icon {
     .mg-c-input__error {
       font-size: 1.2rem;
       text-align: start;
-    }
-  }
-
-  /* Label-on-top */
-  &.mg-c-input--label-on-top {
-    flex-direction: column;
-
-    .mg-c-input__input-container {
-      width: 100%;
-    }
-  }
-
-  /* Label-on-top */
-  &__title {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 0.3rem;
-
-    mg-input-title {
-      width: auto;
-      flex-shrink: 1;
-      margin-top: 0;
-      margin-right: var(--mg-inputs-spacer);
-      text-align: left;
-    }
-
-    mg-tooltip {
-      margin-top: 0;
-    }
-
-    mg-icon {
-      display: inline-flex;
-      vertical-align: text-bottom;
     }
   }
 

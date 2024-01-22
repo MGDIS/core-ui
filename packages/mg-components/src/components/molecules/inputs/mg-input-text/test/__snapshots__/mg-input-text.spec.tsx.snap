@@ -8,9 +8,11 @@ exports[`mg-input-text Should render with args {
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -57,9 +59,11 @@ exports[`mg-input-text Should render with args {
 <mg-input-text value="blu">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong>
           blu
@@ -82,9 +86,11 @@ exports[`mg-input-text Should render with args {
 <mg-input-text value="blu">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -113,9 +119,11 @@ exports[`mg-input-text Should render with args {
 <mg-input-text value="blu">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong>
           blu
@@ -137,9 +145,11 @@ exports[`mg-input-text Should render with args {
 <mg-input-text value="blu">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -165,9 +175,20 @@ exports[`mg-input-text Should render with args {
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -175,15 +196,6 @@ exports[`mg-input-text Should render with args {
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
           </div>
           <slot name="append-input"></slot>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
         </div>
       </div>
     </div>
@@ -237,9 +249,11 @@ exports[`mg-input-text Should render with args {
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -265,9 +279,11 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -286,9 +302,11 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -312,9 +330,11 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -356,9 +376,11 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong></strong>
         <slot name="append-input"></slot>
@@ -372,9 +394,11 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -393,9 +417,11 @@ exports[`mg-input-text Should render with slot. 1`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -431,9 +457,11 @@ exports[`mg-input-text Should render with slot. 2`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -455,9 +483,11 @@ exports[`mg-input-text Should render with slot. 3`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -508,9 +538,11 @@ exports[`mg-input-text Should trigger events 1`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full mg-u-is-focused">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -532,9 +564,11 @@ exports[`mg-input-text Should update mg-width 1`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-2">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -553,9 +587,11 @@ exports[`mg-input-text Should update mg-width 2`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-4">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -574,9 +610,11 @@ exports[`mg-input-text Should update mg-width 3`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-16">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -595,9 +633,11 @@ exports[`mg-input-text display error message with locale: fr 1`] = `
 <mg-input-text lang="fr">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -619,9 +659,11 @@ exports[`mg-input-text display error message with locale: xx 1`] = `
 <mg-input-text lang="xx">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -643,9 +685,11 @@ exports[`mg-input-text display error with displayError component's public method
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -664,9 +708,11 @@ exports[`mg-input-text display error with displayError component's public method
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -688,9 +734,11 @@ exports[`mg-input-text should display override error with setError component's p
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -709,9 +757,11 @@ exports[`mg-input-text should display override error with setError component's p
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -730,9 +780,11 @@ exports[`mg-input-text should display override error with setError component's p
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -751,9 +803,11 @@ exports[`mg-input-text should display override error with setError component's p
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -775,9 +829,11 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -799,9 +855,11 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -820,9 +878,11 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
@@ -844,9 +904,11 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong></strong>
         <slot name="append-input"></slot>

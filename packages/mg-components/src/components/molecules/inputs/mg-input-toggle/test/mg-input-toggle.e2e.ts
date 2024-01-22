@@ -94,14 +94,8 @@ describe('mg-input-toggle', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     await page.keyboard.down('Tab');
-    if (!labelOnTop) {
-      // when label on top tooltip is on fist tab (next to label)
-      await page.keyboard.down('Tab');
-      await page.locator('mg-tooltip-content.hydrated').waitFor({ timeout: TIMEOUT });
-      await expect(page.locator('body')).toHaveScreenshot();
-    } else {
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    }
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   testEach(

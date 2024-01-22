@@ -161,33 +161,14 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
     </mg-tooltip>
   );
 
-  /**
-   * Get input title (label) node
-   * Display asterisk only if not disabled and not readonly
-   * @returns mg-input-title
-   */
-  const getInputTitle = (): VNode[] => (
-    <mg-input-title
-      identifier={props.identifier}
-      readonly={props.readonly}
-      class={props.labelHide ? 'mg-u-visually-hidden' : undefined}
-      required={props.required && !props.disabled && !props.readonly}
-      is-legend={props.isFieldset}
-    >
-      {props.label}
-    </mg-input-title>
-  );
-
   return (
     <TagName class={props.classCollection.join()}>
-      {props.labelOnTop ? (
-        <div class="mg-c-input__title">
-          {getInputTitle()}
-          {!props.readonly && props.tooltip && getTooltip()}
-        </div>
-      ) : (
-        getInputTitle()
-      )}
+      <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': props.labelHide }}>
+        <mg-input-title identifier={props.identifier} readonly={props.readonly} required={props.required && !props.disabled && !props.readonly} is-legend={props.isFieldset}>
+          {props.label}
+        </mg-input-title>
+        {props.tooltip && !props.readonly && !props.labelHide && getTooltip()}
+      </div>
       {props.readonly ? (
         <div class="mg-c-input__input-container">
           <strong>{props.readonlyValue}</strong>
@@ -197,7 +178,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
         <div class="mg-c-input__input-container">
           <div class={{ 'mg-c-input__input': true, 'mg-c-input__input--has-error': props.errorMessage !== undefined }}>
             {applyAriadescribedBy(children, ariaDescribedbyIDs, utils)}
-            {!props.labelOnTop && props.tooltip && getTooltip()}
+            {props.tooltip && !props.readonly && props.labelHide && getTooltip()}
           </div>
           {props.helpText && <div id={helpTextId} class="mg-c-input__help-text" innerHTML={props.helpText}></div>}
           {props.errorMessage && !props.readonly && !props.disabled && (
