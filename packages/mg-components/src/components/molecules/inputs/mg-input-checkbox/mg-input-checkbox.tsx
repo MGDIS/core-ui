@@ -212,12 +212,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @State() checkboxItems: CheckboxItem[] = [];
   @Watch('checkboxItems')
   validateCheckboxItems(newValue: MgInputCheckbox['checkboxItems']): void {
-    if (this.mode === 'auto' && newValue.length > this.multiStart) this.type = 'multi';
-    if (this.mode === 'auto' || (this.type === 'multi' && newValue.length > this.searchStart)) {
-      this.displaySearchInput = this.type === 'multi';
-      // refresh search values
-      this.updateSearchResults();
-    }
+    // for 'auto' mode we update the type depending of the new value length
+    if (this.mode === 'auto') this.type = newValue.length > this.multiStart ? 'multi' : 'checkbox';
+    // as displaySearch is a type multi feature we display it if type is multi and new value length is greater than search gauge
+    this.displaySearchInput = this.type === 'multi' && newValue.length > this.searchStart;
+    // refresh search values
+    if (this.displaySearchInput) this.updateSearchResults();
     this.setButtonText();
   }
 
@@ -501,7 +501,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+
     // Validate
+    // `validateType` must be done before `validateValue` because we we need to set mode['auto'|'custom'] from type
+    // and `validateValue` update `this.checkboxItems` watcher wich require a defined `this.type`
     this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
