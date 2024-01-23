@@ -2,13 +2,6 @@
 import { MockCustomEvent } from '@stencil/core/mock-doc';
 
 /**
- * Clone Deep function
- * @param obj - object to clone
- * @returns cloned json
- */
-export const cloneDeep = (obj: unknown): unknown => JSON.parse(JSON.stringify(obj));
-
-/**
  * Utility function that mocks the `MutationObserver` API. Recommended to execute inside `beforeEach`.
  * @param mutationObserverMock - Parameter that is sent to the `Object.defineProperty`
  * overwrite method. `jest.fn()` mock functions can be passed here if the goal is to not only
