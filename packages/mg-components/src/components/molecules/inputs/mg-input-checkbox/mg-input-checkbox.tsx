@@ -212,11 +212,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @State() checkboxItems: CheckboxItem[] = [];
   @Watch('checkboxItems')
   validateCheckboxItems(newValue: MgInputCheckbox['checkboxItems']): void {
-    // for 'auto' mode we update the type depending of the new value length
+    // For the 'auto' mode we update the type depending on the new value's length.
     if (this.mode === 'auto') this.type = newValue.length > this.multiStart ? 'multi' : 'checkbox';
     // If the type is multi and the new value's length is greater than the search gauge, display the search input.
-    this.displaySearchInput = this.type === 'multi' && newValue.length > this.searchStart;
-
     this.displaySearchInput = this.type === 'multi' && newValue.length > this.searchStart;
     // refresh search values
     if (this.displaySearchInput) this.updateSearchResults();
