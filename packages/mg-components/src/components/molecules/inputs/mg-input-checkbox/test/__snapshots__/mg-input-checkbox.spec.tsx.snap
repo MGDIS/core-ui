@@ -4,12 +4,14 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
 <mg-input-checkbox>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
@@ -43,12 +45,14 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -136,12 +140,14 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-checkbox-multi--search-mode mg-c-input__input-container">
@@ -176,12 +182,14 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
                   <mg-input-text aria-controls="search-results items-list" value="">
                     <mock:shadow-root>
                       <div class="mg-c-input mg-c-input--has-icon mg-c-input--text mg-c-input--width-full">
-                        <mg-input-title class="mg-u-visually-hidden">
-                          <!---->
-                          <label class="mg-c-input-title" htmlfor="identifier-input-search">
-                            Enter a value
-                          </label>
-                        </mg-input-title>
+                        <div class="mg-c-input__title mg-u-visually-hidden">
+                          <mg-input-title>
+                            <!---->
+                            <label class="mg-c-input-title" htmlfor="identifier-input-search">
+                              Enter a value
+                            </label>
+                          </mg-input-title>
+                        </div>
                         <div class="mg-c-input__input-container">
                           <div class="mg-c-input__input">
                             <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -368,12 +376,14 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <div class="mg-c-input__input-checkbox-multi mg-c-input__input-container">
@@ -467,12 +477,14 @@ exports[`mg-input-checkbox mode auto Should define the type and display search d
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--checkbox">
-      <mg-input-title is-legend="">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          label
-        </legend>
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <legend class="mg-c-input-title" id="identifier-title">
+            label
+          </legend>
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
