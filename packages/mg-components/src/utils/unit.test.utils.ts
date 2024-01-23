@@ -1,11 +1,4 @@
 /**
- * Clone Deep function
- * @param obj - object to clone
- * @returns cloned json
- */
-export const cloneDeep = (obj: unknown): unknown => JSON.parse(JSON.stringify(obj));
-
-/**
  * force popover id when component use randomed identifier
  * @param component - element wich include mg-popover
  * @param id - new fixed id

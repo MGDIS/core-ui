@@ -136,18 +136,15 @@ test:e2e:
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   parallel: 7
   extends:
-    - .rules:changes:notification-center
     - .rules:changes:mg-components
+    - .rules:changes:styles
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm test:e2e -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
+    - pnpm test:e2e --filter=\!@mgdis/notification-center -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   artifacts:
     when: always
     paths:
-      - packages/notification-center/playwright-report/
-      - packages/notification-center/test-results/
-      - packages/notification-center/results.xml
       - packages/mg-components/playwright-report/
       - packages/mg-components/test-results/
       - packages/mg-components/results.xml
@@ -156,9 +153,28 @@ test:e2e:
       - packages/styles/results.xml
     reports:
       junit:
-        - packages/notification-center/results.xml
         - packages/mg-components/results.xml
         - packages/styles/results.xml
+
+test:e2e:notification-center:
+  stage: tests
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  extends:
+    - .rules:changes:notification-center
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - pnpm test:e2e --filter=@mgdis/notification-center
+  retry: 2
+  artifacts:
+    when: always
+    paths:
+      - packages/notification-center/playwright-report/
+      - packages/notification-center/test-results/
+      - packages/notification-center/results.xml
+    reports:
+      junit:
+        - packages/notification-center/results.xml
 
 sonar:
   stage: tests
