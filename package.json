@@ -23,7 +23,7 @@
     "test:e2e": "turbo test:e2e --force --concurrency=1",
     "test:e2e:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
-    "coverage": "turbo coverage --force",
+    "coverage": "turbo coverage --force --filter='./packages/*'",
     "lint": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint",
     "lint:fix": "pnpm --filter @mgdis/linting-stencil build:config && turbo lint:fix",
     "build": "turbo build --force",

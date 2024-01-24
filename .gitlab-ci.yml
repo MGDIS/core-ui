@@ -141,7 +141,7 @@ test:e2e:
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm test:e2e --filter=\!@mgdis/notification-center -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
+    - pnpm test:e2e --filter='./packages/*' --filter=\!@mgdis/notification-center -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   artifacts:
     when: always
     paths:
