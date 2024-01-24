@@ -9,11 +9,9 @@ export default defineConfig({
       fileName: format => `notification-center.${format}.js`,
     },
     outDir: 'dist',
-    rollupOptions: {
-      output: {
-        exports: 'named',
-        sourcemap: true,
-      },
+    sourcemap: {
+      exports: 'named',
+      sourcemap: true,
     },
   },
   plugins: [dts()],
