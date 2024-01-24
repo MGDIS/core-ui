@@ -71,7 +71,7 @@ describe('mg-menu-item', () => {
       await expect(page.locator(expanded ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
     });
 
-    test('should render content slot', async ({ page }) => {
+    test('Should render content slot', async ({ page }) => {
       await setPageContent(page, createHTML({ expanded: true }, slotContent, direction), { width: 100, height: 150 });
 
       await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });

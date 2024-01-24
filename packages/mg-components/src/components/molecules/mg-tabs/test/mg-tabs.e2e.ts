@@ -76,7 +76,7 @@ describe('mg-tabs', () => {
   });
 
   describe('navigation', () => {
-    test('should go to next tab on click event', async ({ page }) => {
+    test('Should go to next tab on click event', async ({ page }) => {
       await setPageContent(
         page,
         createHTML({

@@ -129,7 +129,7 @@ describe('mg-action-more', () => {
       }
     });
 
-    test('should toggle button chevron menu', async ({ page }) => {
+    test('Should toggle button chevron menu', async ({ page }) => {
       await setPageContent(
         page,
         createHTML({

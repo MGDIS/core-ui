@@ -32,7 +32,7 @@ describe('mg-pagination', () => {
       }
     });
 
-    test('should success keyboard navigation', async ({ page }) => {
+    test('Should success keyboard navigation', async ({ page }) => {
       await setPageContent(page, createHTML({ totalPages: 5 }));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

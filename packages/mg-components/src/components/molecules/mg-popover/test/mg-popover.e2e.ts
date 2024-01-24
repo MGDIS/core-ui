@@ -134,7 +134,7 @@ describe('mg-popover', () => {
       await expect(page.locator('body')).toHaveScreenshot();
     });
 
-    test('should re-position when interactive element size change', async ({ page }) => {
+    test('Should re-position when interactive element size change', async ({ page }) => {
       await setPageContent(
         page,
         `<mg-popover ${renderAttributes({ placement: 'bottom-start' })}>
