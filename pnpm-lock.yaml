@@ -487,7 +487,7 @@ importers:
   packages/linting-angularjs:
     dependencies:
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: 7.23.3
         version: 7.23.3(@babel/core@7.23.7)(eslint@8.56.0)
       '@html-eslint/eslint-plugin':
         specifier: 0.23.0
@@ -502,7 +502,7 @@ importers:
         specifier: 8.56.0
         version: 8.56.0
       eslint-plugin-angular:
-        specifier: ^4.1.0
+        specifier: 4.1.0
         version: 4.1.0
       eslint-plugin-jsdoc:
         specifier: 48.0.2
@@ -554,7 +554,7 @@ importers:
   packages/linting-vue2:
     dependencies:
       '@babel/eslint-parser':
-        specifier: ^7.23.3
+        specifier: 7.23.3
         version: 7.23.3(@babel/core@7.23.7)(eslint@8.56.0)
       '@mgdis/eslint-plugin-vue':
         specifier: workspace:*
@@ -18071,6 +18071,10 @@ packages:
   /spdx-exceptions@2.3.0:
     resolution: { integrity: sha512-/tTrYOC7PPI1nUAgx34hUpqXuyJG+DTHJTnIULG4rDygi4xu/tfgmq1e1cIRwRzwZgo4NLySi+ricLkZkw4i5A== }
 
+  /spdx-exceptions@2.4.0:
+    resolution: { integrity: sha512-hcjppoJ68fhxA/cjbN4T8N6uCUejN8yFw69ttpqtBeCbF3u13n7mb31NB9jKwGTTWWnt9IbRA/mf1FprYS8wfw== }
+    dev: false
+
   /spdx-expression-parse@3.0.1:
     resolution: { integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q== }
     dependencies:
@@ -18080,7 +18084,7 @@ packages:
   /spdx-expression-parse@4.0.0:
     resolution: { integrity: sha512-Clya5JIij/7C6bRR22+tnGXbc4VKlibKSVj2iHvVeX5iMW7s1SIQlqu699JkODJJIhh/pUu8L0/VLh8xflD+LQ== }
     dependencies:
-      spdx-exceptions: 2.3.0
+      spdx-exceptions: 2.4.0
       spdx-license-ids: 3.0.16
     dev: false
 
