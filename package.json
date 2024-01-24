@@ -20,7 +20,7 @@
     "prepare": "husky install",
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "turbo test:unit",
-    "test:e2e": "turbo test:e2e --force --concurrency=1",
+    "test:e2e": "turbo test:e2e --filter='./packages/*' --force --concurrency=1",
     "test:e2e:docker": "./scripts/run-e2e.sh",
     "test:watch": "turbo test:watch",
     "coverage": "pnpm turbo:coverage && pnpm report:merge && pnpm junit:merge",
