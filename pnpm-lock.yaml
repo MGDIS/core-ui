@@ -57,8 +57,8 @@ importers:
         version: 1.8.3
     devDependencies:
       '@html-eslint/eslint-plugin':
-        specifier: ^0.22.0
-        version: 0.22.0
+        specifier: ^0.23.0
+        version: 0.23.0
       '@html-eslint/parser':
         specifier: ^0.23.0
         version: 0.23.0
@@ -490,8 +490,8 @@ importers:
         specifier: ^7.23.3
         version: 7.23.3(@babel/core@7.23.5)(eslint@8.55.0)
       '@html-eslint/eslint-plugin':
-        specifier: ^0.22.0
-        version: 0.22.0
+        specifier: ^0.23.0
+        version: 0.23.0
       '@html-eslint/parser':
         specifier: ^0.23.0
         version: 0.23.0
@@ -2901,8 +2901,8 @@ packages:
       '@hapi/hoek': 9.3.0
     dev: false
 
-  /@html-eslint/eslint-plugin@0.22.0:
-    resolution: { integrity: sha512-6Q3uW5XeVmUGwH2t5lmt0q51x7dNiaV1GuYReuHOPn01tSn9vJ5OKs71t+OsQzhg+hUqpVrmBizkBJZkcpX/sA== }
+  /@html-eslint/eslint-plugin@0.23.0:
+    resolution: { integrity: sha512-GGu3q/4mIQ6sjPEGFZoTVRIgQqN/et2nZKA/6dpTyW6TIePfWOyFw3k6oxnkX2ibPOsaWgftTJgksLAJn3Ps+Q== }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
 
   /@html-eslint/parser@0.23.0:
@@ -18645,7 +18645,7 @@ packages:
       spdy: 4.0.2
       webpack: 5.89.0
       webpack-dev-middleware: 5.3.3(webpack@5.89.0)
-      ws: 8.14.2
+      ws: 8.16.0
     transitivePeerDependencies:
       - bufferutil
       - debug
@@ -18989,6 +18989,7 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: true
 
   /ws@8.16.0:
     resolution: { integrity: sha512-HS0c//TP7Ina87TfiPUz1rQzMhHrl/SG2guqRcTOIUYD2q8uhUdNHZYJUaQ8aTGPzCh+c6oawMKW35nFl1dxyQ== }
@@ -19001,7 +19002,6 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
-    dev: true
 
   /xml-name-validator@4.0.0:
     resolution: { integrity: sha512-ICP2e+jsHvAj2E2lIHxa5tjXRlKDJo4IdvPvCXbXQGdzSfmSpNVyIKMvoZHjDY9DP0zV17iI85o90vRFXNccRw== }
