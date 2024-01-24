@@ -104,15 +104,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.10.0
-        version: 4.10.0
+        specifier: 4.11.0
+        version: 4.11.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: ^3.0.0
-        version: 3.0.7(@stencil/core@4.10.0)
+        version: 3.0.7(@stencil/core@4.11.0)
       '@types/jest':
         specifier: ^29.5.8
         version: 29.5.11
@@ -607,8 +607,8 @@ importers:
         specifier: ^2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.10.0
-        version: 4.10.0
+        specifier: 4.11.0
+        version: 4.11.0
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
@@ -4479,18 +4479,18 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@stencil/core@4.10.0:
-    resolution: {integrity: sha512-7lDTPY1IxXN2/C+wQPHt3e/dYgY4YgelA8MxOsU3ZftXtpzWad/QNWhSAtKisJMrSjQh41jMDOgD0yLBwV6E7w==}
+  /@stencil/core@4.11.0:
+    resolution: {integrity: sha512-zsKhgIkTGo+s7IthitxR/MKiMS3Ck1yIypOdXr0aE6ofboKqe9NdffTcxZ0vel0wD2bZYOb6WfPMzuhRKk6+FA==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
-  /@stencil/sass@3.0.7(@stencil/core@4.10.0):
+  /@stencil/sass@3.0.7(@stencil/core@4.11.0):
     resolution: {integrity: sha512-HcBjrh2CJ6aJnkOrBNSVyf1+x3FnUneYFk44rcx/jDK6Lx7R4w0dXMEsIR5MXqtROYWonZt7WtR8wsM1vcD+6w==}
     engines: {node: '>=12.0.0', npm: '>=6.0.0'}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.10.0
+      '@stencil/core': 4.11.0
     dev: true
 
   /@storybook/addon-a11y@7.6.4:
