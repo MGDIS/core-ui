@@ -162,17 +162,16 @@ export class MgModal {
   private setFocus = (): void => {
     // Get all focusable elements
     const slottedFocusableElements = Array.from(this.element.querySelectorAll(focusableElements));
-    // If close button is enabled or at least one of the slotted element is focusable
-    if (this.closeButton || slottedFocusableElements.length > 0) {
-      // Check if slotted focusable elements have shadowDom with focusable elements
-      this.modalFocusableElements = slottedFocusableElements.reduce((acc, focusableElement) => {
-        acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
-        return acc;
-      }, []);
-      // When close button is enabled it's the first focusable element.
-      if (this.closeButton && this.closeButtonElement !== undefined) {
-        this.modalFocusableElements.unshift(this.closeButtonElement);
-      }
+    // Check if slotted focusable elements have shadowDom with focusable elements
+    this.modalFocusableElements = slottedFocusableElements.reduce((acc, focusableElement) => {
+      acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
+      return acc;
+    }, []);
+    if (this.closeButton && this.closeButtonElement !== undefined) {
+      this.modalFocusableElements.unshift(this.closeButtonElement);
+    }
+    // If modal elements can receive focus, we attach events to enable cycling through the modal.
+    if (this.modalFocusableElements.length > 0) {
       // Add event listener on last element
       this.getLastFocusableElement().addEventListener('keydown', this.handleLastFocusableElement);
       // Add event listener on first element (case shift + tab)
