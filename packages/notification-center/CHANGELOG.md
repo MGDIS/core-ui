@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.4
+
+### Patch Changes
+
+- bad9447: [#450](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/450) notification-center: Notification center not displaying on angularJS app
+
 ## 1.1.3
 
 ### Patch Changes
