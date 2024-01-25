@@ -1,8 +1,9 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { Direction, MenuSizeType } from '../mg-menu.conf';
 import { Status } from '../../mg-menu-item/mg-menu-item.conf';
 import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
+import type { MgMenu as MgMenuType } from '../mg-menu';
 
 export default {
   component: 'mg-menu',
@@ -36,10 +37,7 @@ type ItemArgType = {
 
 type ItemFormatedArgs = Pick<ItemArgType, 'status'> & { slot: Pick<ItemArgType, 'label' | 'metadata' | 'icon' | 'badge' | 'content' | 'submenu'> };
 
-type MenuFormatedArgs = {
-  label: string;
-  size?: MenuSizeType;
-  direction: Direction;
+type MenuFormatedArgs = Partial<Pick<MgMenuType, 'label' | 'direction'>> & {
   itemmore: unknown;
   slot: {
     items: ItemFormatedArgs[];
@@ -164,8 +162,7 @@ const menu = (args: MenuFormatedArgs): HTMLMgMenuElement => (
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <div>{menu(args)}</div>;
+const Template = (args: MgMenuType & { slot: { items: ItemFormatedArgs[] } }): HTMLElement => <div>{menu(args)}</div>;
 
 export const MgMenuHorizontal = {
   render: Template,

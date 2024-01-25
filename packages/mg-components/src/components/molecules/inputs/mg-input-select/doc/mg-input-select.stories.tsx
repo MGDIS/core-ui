@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import messages from '../../../../../locales/en/messages.json';
+import type { MgInputSelect as MgInputSelectType } from '../mg-input-select';
 
 export default {
   component: 'mg-input-select',
@@ -27,8 +28,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-select {...filterArgs(args, { placeholder: messages.input.select.placeholder })}></mg-input-select>;
+const Template = (args: MgInputSelectType): HTMLElement => <mg-input-select {...filterArgs(args, { placeholder: messages.input.select.placeholder })}></mg-input-select>;
 
 export const MgInputSelect = {
   render: Template,

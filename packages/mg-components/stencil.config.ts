@@ -64,5 +64,6 @@ export const config: Config = {
   },
   testing: {
     setupFilesAfterEnv: ['./jest.setup.ts'],
+    coverageReporters: ['cobertura', 'lcov', 'html', 'text'],
   },
 };

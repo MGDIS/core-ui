@@ -1,10 +1,10 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
+import { localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { MgInputNumeric } from '../mg-input-numeric';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import messages from '../../../../../locales/en/messages.json';
-import { localeCurrency, localeNumber } from '../../../../../utils/locale.utils';
 import { types } from '../mg-input-numeric.conf';
 
 const getPage = (args, slot?) => {

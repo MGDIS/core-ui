@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
+import type { MgPanel as MgPanelType } from '../mg-panel';
 
 export default {
   component: 'mg-panel',
@@ -23,8 +24,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgPanelType): HTMLElement => (
   <mg-panel {...filterArgs(args)}>
     <div>Content</div>
     <div slot="header-right" style={{ width: '100%' }}>

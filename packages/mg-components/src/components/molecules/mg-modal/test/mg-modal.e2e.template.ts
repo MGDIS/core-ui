@@ -1,4 +1,4 @@
-import { renderAttributes } from '../../../../utils/e2e.test.utils';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { MgModal } from '../mg-modal';
 
 export const contents = [null, 'short', 'long'] as const;

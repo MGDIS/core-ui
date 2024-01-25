@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputDate as MgInputDateType } from '../mg-input-date';
 
 export default {
   component: 'mg-input-date',
@@ -12,8 +13,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-date {...filterArgs(args)}></mg-input-date>;
+const Template = (args: MgInputDateType): HTMLElement => <mg-input-date {...filterArgs(args)}></mg-input-date>;
 
 export const MgInputDate = {
   render: Template,

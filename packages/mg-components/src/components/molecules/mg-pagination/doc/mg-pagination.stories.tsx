@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgPagination as MgPaginationType } from '../mg-pagination';
 
 export default {
   component: 'mg-pagination',
@@ -12,8 +13,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-pagination {...filterArgs(args)}></mg-pagination>;
+const Template = (args: MgPaginationType): HTMLElement => <mg-pagination {...filterArgs(args)}></mg-pagination>;
 
 export const MgPagination = {
   render: Template,

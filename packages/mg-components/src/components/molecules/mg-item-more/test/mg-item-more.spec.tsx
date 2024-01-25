@@ -1,6 +1,7 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
-import { forcePopoverId, mockConsoleError, mockWindowFrames, setupMutationObserverMock, setupResizeObserverMock } from '../../../../utils/unit.test.utils';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { forcePopoverId, mockWindowFrames } from '../../../../utils/unit.test.utils';
 import { MgItemMore } from '../mg-item-more';
 import { MgMenuItem } from '../../menu/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../../menu/mg-menu/mg-menu';
@@ -8,7 +9,6 @@ import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { MgPopover } from '../../mg-popover/mg-popover';
 import { MgPopoverContent } from '../../mg-popover/mg-popover-content/mg-popover-content';
 
-mockConsoleError();
 mockWindowFrames();
 
 const udpateItemMorePopoverId = page => {
