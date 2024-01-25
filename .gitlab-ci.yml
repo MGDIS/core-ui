@@ -431,9 +431,9 @@ styles:npmjs:
     - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public
 
-#####################
+######################
 # Playwright helpers #
-#####################
+######################
 
 playwright-helpers:artifact:
   stage: artifacts
@@ -448,9 +448,9 @@ playwright-helpers:artifact:
   needs:
     - lint
 
-#####################
+###################
 # Stencil helpers #
-#####################
+###################
 
 .stencil-helpers:
   script:
@@ -475,5 +475,4 @@ stencil-helpers:npmjs:
     - .npmjs
   script:
     - !reference [.stencil-helpers, script]
-    - cd packages/stencil-helpers
     - pnpm publish --no-git-checks --access public
