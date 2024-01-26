@@ -136,4 +136,21 @@ describe('mg-input-toggle', () => {
     page.locator('.mg-c-input__input--has-error');
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test.describe('Responsive', () => {
+    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
+        const props = { identifier: 'identifier', label: 'label', tooltip };
+        await setPageContent(page, createHTML(props));
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
 });

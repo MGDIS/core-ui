@@ -179,4 +179,27 @@ describe('mg-input-radio', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test.describe('Responsive', () => {
+    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
+        await setPageContent(
+          page,
+          `<mg-input-radio identifier="identifier" label="label" ${tooltip ? `tooltip=${tooltip}` : ''}></mg-input-radio>
+        <script>
+        const mgInputRadio = document.querySelector('mg-input-radio');
+        mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
+        </script>`,
+        );
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
 });

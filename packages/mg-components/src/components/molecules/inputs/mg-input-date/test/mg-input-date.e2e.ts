@@ -146,4 +146,20 @@ test.describe('mg-input-date', () => {
       });
     });
   });
+
+  test.describe('Responsive', () => {
+    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
+        await page.setContent(createHTML({ ...baseProps, tooltip }));
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
 });

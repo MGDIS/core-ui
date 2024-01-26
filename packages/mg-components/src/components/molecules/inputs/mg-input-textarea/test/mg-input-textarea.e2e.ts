@@ -138,4 +138,20 @@ describe('mg-input-textarea', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test.describe('Responsive', () => {
+    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
+        await setPageContent(page, `<mg-input-textarea identifier="identifier" label="label" ${tooltip ? `tooltip=${tooltip}` : ''}></mg-input-textarea>`);
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
 });
