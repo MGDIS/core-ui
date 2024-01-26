@@ -21,6 +21,10 @@ export const config: Config = {
           dest: 'fonts', // export fonts
         },
         {
+          src: '../node_modules/@mgdis/styles/dist/mg-temp/*.css',
+          dest: 'styles', // export styles
+        },
+        {
           src: 'locales/en',
           dest: 'locales/en',
         },
