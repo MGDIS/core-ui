@@ -88,7 +88,7 @@ describe('mg-input-toggle', () => {
   });
 
   testEach([true, false])('render with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(page, createHTML({ tooltip: 'Tooltip message', labelOnTop }));
+    await setPageContent(page, createHTML({ tooltip: 'Tooltip message', labelOnTop }), { width: 250, height: 65 });
 
     await page.locator('mg-input-toggle.hydrated').waitFor({ timeout: TIMEOUT });
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
