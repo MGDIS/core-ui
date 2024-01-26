@@ -702,6 +702,12 @@ importers:
       typescript:
         specifier: 5.3.3
         version: 5.3.3
+      vite:
+        specifier: 5.0.12
+        version: 5.0.12(@types/node@20.11.6)(sass@1.70.0)
+      vite-plugin-turbosnap:
+        specifier: ^1.0.3
+        version: 1.0.3
 
   packages/mg-components-helpers:
     dependencies:
@@ -18027,6 +18033,10 @@ packages:
       - '@types/node'
       - rollup
       - supports-color
+    dev: true
+
+  /vite-plugin-turbosnap@1.0.3:
+    resolution: { integrity: sha512-p4D8CFVhZS412SyQX125qxyzOgIFouwOcvjZWk6bQbNPR1wtaEzFT6jZxAjf1dejlGqa6fqHcuCvQea6EWUkUA== }
     dev: true
 
   /vite-plugin-vue2@2.0.3(vite@5.0.12)(vue-template-compiler@2.7.16)(vue@2.7.16):

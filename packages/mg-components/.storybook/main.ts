@@ -1,6 +1,8 @@
 import type { StorybookConfig } from '@storybook/html-vite';
 import { readdirSync, statSync } from 'fs';
 import { join, dirname } from 'path';
+import turbosnap from 'vite-plugin-turbosnap';
+import { mergeConfig } from 'vite';
 
 /**
  * List folders from a given path
@@ -61,6 +63,19 @@ const config: StorybookConfig = {
     );
     return acc;
   }, []),
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      plugins:
+        configType === 'PRODUCTION'
+          ? [
+              turbosnap({
+                // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
+                rootDir: config.root ?? process.cwd(),
+              }),
+            ]
+          : [],
+    });
+  },
   refs: {
     'design-system': {
       title: 'MG Components',
