@@ -140,9 +140,7 @@ describe('mg-input-text', () => {
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
-      await page.setViewportSize({ height: 100, width: 500 });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, height: 100, width: 500 } });
     });
 
     describeEach([true, false])('using append-input slot, case readonly %s', (readonly: boolean) => {
