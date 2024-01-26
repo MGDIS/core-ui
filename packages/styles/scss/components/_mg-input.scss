@@ -1,7 +1,7 @@
 /**
  * Common style for MGDIS inputs
  */
-$mg-input-breakpoint: 768px;
+$mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
 
 :host {
   display: block;
@@ -130,7 +130,7 @@ mg-icon {
     @include label-on-top-styles;
   }
 
-  @media screen and (max-width: calc($mg-input-breakpoint - 1px)) {
+  @media screen and (max-width: ($mg-input-breakpoint - 1px)) {
     @include label-on-top-styles;
   }
 }
