@@ -1,6 +1,7 @@
 /**
  * Common style for MGDIS inputs
  */
+$mg-input-breakpoint: 768px;
 
 :host {
   display: block;
@@ -105,7 +106,7 @@ mg-icon {
   }
 
   /* Label-on-top */
-  &.mg-c-input--label-on-top {
+  @mixin label-on-top-styles {
     flex-direction: column;
 
     .mg-c-input__title {
@@ -123,5 +124,13 @@ mg-icon {
     .mg-c-input__input-container {
       width: 100%;
     }
+  }
+
+  &.mg-c-input--label-on-top {
+    @include label-on-top-styles;
+  }
+
+  @media screen and (max-width: calc($mg-input-breakpoint - 1px)) {
+    @include label-on-top-styles;
   }
 }
