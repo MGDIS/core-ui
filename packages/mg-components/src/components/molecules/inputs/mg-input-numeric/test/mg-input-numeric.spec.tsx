@@ -497,6 +497,58 @@ describe('mg-input-numeric', () => {
     }
   });
 
+  describe('validity, case update min/max prop value', () => {
+    test.each([
+      {
+        value: 3,
+        min: 2,
+        next: 1,
+      },
+      {
+        value: 1,
+        min: 2,
+        next: 1,
+      },
+      {
+        value: 1,
+        max: 2,
+        next: 3,
+      },
+      {
+        value: 3,
+        max: 2,
+        next: 3,
+      },
+    ])('value (%s), min (%s), max (%s)', async ({ min, max, value, next }) => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', min, max, value });
+
+      const element = page.doc.querySelector('mg-input-numeric');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      const rangeUnderflow = () => min === undefined || input.value >= input.min;
+      const rangeOverflow = () => max === undefined || input.value <= input.max;
+      input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          rangeUnderflow: rangeUnderflow(),
+          rangeOverflow: rangeOverflow(),
+        })),
+      });
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+
+      if (min) element.min = next;
+      if (max) element.max = next;
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+  });
+
   test('Should update mg-width', async () => {
     const page = await getPage({ label: 'label', identifier: 'identifier' });
     const element = page.doc.querySelector('mg-input-numeric');

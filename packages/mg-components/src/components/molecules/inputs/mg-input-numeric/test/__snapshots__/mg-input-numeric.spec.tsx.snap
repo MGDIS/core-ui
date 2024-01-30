@@ -2168,3 +2168,153 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
   </mock:shadow-root>
 </mg-input-numeric>
 `;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 1, max: 2, next: 3 }), min (%s), max (%s) 1`] = `
+<mg-input-numeric value="1">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 1, max: 2, next: 3 }), min (%s), max (%s) 2`] = `
+<mg-input-numeric value="1">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" max="3" name="identifier" type="text" value="1">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 1, min: 2, next: 1 }), min (%s), max (%s) 1`] = `
+<mg-input-numeric value="1">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
+          The value cannot be less than 2
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 1, min: 2, next: 1 }), min (%s), max (%s) 2`] = `
+<mg-input-numeric value="1">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" min="1" name="identifier" type="text" value="1">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 3, max: 2, next: 3 }), min (%s), max (%s) 1`] = `
+<mg-input-numeric value="3">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input mg-c-input__input--has-error">
+          <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="3">
+          <slot name="append-input"></slot>
+        </div>
+        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
+          The value cannot be greater than 2
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 3, max: 2, next: 3 }), min (%s), max (%s) 2`] = `
+<mg-input-numeric value="3">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" max="3" name="identifier" type="text" value="3">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 3, min: 2, next: 1 }), min (%s), max (%s) 1`] = `
+<mg-input-numeric value="3">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="3">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric validity, case update min/max prop value value ({ value: 3, min: 2, next: 1 }), min (%s), max (%s) 2`] = `
+<mg-input-numeric value="3">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" min="1" name="identifier" type="text" value="3">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
