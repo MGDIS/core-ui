@@ -1,8 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
-import { ClassList, isValidString } from '../../../../utils/components.utils';
-import { localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '../../../../utils/locale.utils';
+import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { Handler } from '../MgInput.conf';
 

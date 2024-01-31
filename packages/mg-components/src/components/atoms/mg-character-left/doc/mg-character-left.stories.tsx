@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgCharacterLeft as MgCharacterLeftType } from '../mg-character-left';
 
 export default {
   component: 'mg-character-left',
@@ -11,8 +12,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-character-left {...filterArgs(args)}></mg-character-left>;
+const Template = (args: MgCharacterLeftType): HTMLElement => <mg-character-left {...filterArgs(args)}></mg-character-left>;
 
 export const MgCharacterLeft = {
   render: Template,

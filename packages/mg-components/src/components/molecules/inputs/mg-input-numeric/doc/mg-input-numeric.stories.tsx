@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { types } from '../mg-input-numeric.conf';
+import type { MgInputNumeric as MgInputNumericType } from '../mg-input-numeric';
 
 export default {
   component: 'mg-input-numeric',
@@ -23,8 +24,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-numeric {...filterArgs(args)}></mg-input-numeric>;
+const Template = (args: MgInputNumericType): HTMLElement => <mg-input-numeric {...filterArgs(args)}></mg-input-numeric>;
 
 export const MgInputNumeric = {
   render: Template,

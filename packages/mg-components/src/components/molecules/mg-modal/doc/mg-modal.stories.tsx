@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-bind */
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { dialogRoles } from '../mg-modal.conf';
+import type { MgModal as MgModalType } from '../mg-modal';
 
 export default {
   component: 'mg-modal',
@@ -20,8 +21,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgModalType & { slotContent: string; slotActions: string }): HTMLElement => (
   <div>
     <mg-button
       aria-controls={args.identifier}

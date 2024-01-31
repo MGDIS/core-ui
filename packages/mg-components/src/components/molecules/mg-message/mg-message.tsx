@@ -1,5 +1,5 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch } from '@stencil/core';
-import { createID, ClassList } from '../../../utils/components.utils';
+import { createID, ClassList } from '@mgdis/stencil-helpers';
 import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';

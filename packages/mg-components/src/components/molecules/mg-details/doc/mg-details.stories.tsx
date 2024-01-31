@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgDetails as MgDetailsType } from '../mg-details';
 
 export default {
   component: 'mg-details',
@@ -12,8 +13,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgDetailsType & { slotSummary: string; slotDetails: string }): HTMLElement => (
   <mg-details {...filterArgs(args)}>
     {args.slotSummary && <span slot="summary" innerHTML={args.slotSummary}></span>}
     {args.slotDetails && <p slot="details" innerHTML={args.slotDetails}></p>}

@@ -1,6 +1,6 @@
 # @mgdis/playwright-helpers
 
-This package provides a [Playwright](https://playwright.dev/) configuration file for your projects and methods tu build your test HTML.
+This package provides a [Playwright](https://playwright.dev/) configuration file for your projects and methods to build your test HTML.
 
 ## Installation
 

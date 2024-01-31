@@ -1,36 +1,32 @@
 import { describe, expect, test } from 'vitest';
 import { renderAttributes, renderProperties } from '.';
 
-describe.each([
-  {},
-  {
-    status: 'visible',
-    count: 10,
-    icon: { icon: 'blu' },
-  },
-  {
-    status: 'visible',
-    count: 10,
-    icon: { icon: 'blu' },
-    nullValue: null,
-    undefinedValue: undefined,
-  },
-  undefined,
-  {
-    onclick: {
-      blu: () => {},
-    },
-  },
-])('args %s', args => {
-  test('renderAttributes', () => {
-    const result = renderAttributes(args);
-    expect(result).toMatchSnapshot();
+describe('utils', () => {
+  describe('renderAttributes', () => {
+    test.each([undefined, null, {}, { name: 'batman' }, { name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], function: () => {} }])(
+      'Should render attributes',
+      args => {
+        const res = renderAttributes(args as Record<string, unknown>);
+        expect(res).toMatchSnapshot();
+      },
+    );
   });
 
   describe('renderProperties', () => {
-    test.each(['.your-select', '#your-select'])('renderProperties', selector => {
-      const result = renderProperties(args, selector);
-      expect(result).toMatchSnapshot();
+    test('Should render properties, case id selector', () => {
+      const res = renderProperties({ object: {} }, '#id');
+      expect(res).toEqual("\n  document.getElementById('id').object={}");
     });
+    test.each([undefined, null, {}, { name: 'batman' }])('Should not render attributes as properties', args => {
+      const res = renderProperties(args as Record<string, unknown>, 'div');
+      expect(res).toMatchSnapshot();
+    });
+    test.each([undefined, () => {}].map(fn => ({ name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], fn })))(
+      'Should render properties, case id selector',
+      args => {
+        const res = renderProperties(args, 'div');
+        expect(res).toMatchSnapshot();
+      },
+    );
   });
 });

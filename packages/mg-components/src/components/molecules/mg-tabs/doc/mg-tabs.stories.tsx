@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 
 import { sizes, Status } from '../mg-tabs.conf';
+import type { MgTabs as MgTabsType } from '../mg-tabs';
 
 export default {
   component: 'mg-tabs',
@@ -20,8 +21,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgTabsType): HTMLElement => (
   <mg-tabs {...filterArgs(args, { size: sizes[0] })}>
     <div slot="tab_content-1">Content 1</div>
     <div slot="tab_content-2">Content 2</div>
