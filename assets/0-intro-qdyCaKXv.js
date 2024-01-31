@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-qfruwrPn.js";import{M as s,e as i}from"./index-KSZZ6BK_.js";import{u as r}from"./index-8a0IcQzj.js";import"./iframe-fkkxqoIi.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const a=`# MG Components
+import{j as n}from"./jsx-runtime-f0JEfp2n.js";import{M as s,e as i}from"./index-F6vvZEKt.js";import{u as r}from"./index-IDTZ4DW2.js";import"./iframe-YOp4NnM4.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const a=`# MG Components
 
 ## Introduction
 

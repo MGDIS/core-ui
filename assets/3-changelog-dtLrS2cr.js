@@ -1,4 +1,11 @@
-import{j as e}from"./jsx-runtime-qfruwrPn.js";import{M as n,e as i}from"./index-KSZZ6BK_.js";import{u as c}from"./index-8a0IcQzj.js";import"./iframe-fkkxqoIi.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const r=`# @mgdis/mg-components
+import{j as e}from"./jsx-runtime-f0JEfp2n.js";import{M as n,e as i}from"./index-F6vvZEKt.js";import{u as r}from"./index-IDTZ4DW2.js";import"./iframe-YOp4NnM4.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-4gQjN7DL.js";import"./index-ogXoivrg.js";import"./index-MVkJqIoJ.js";import"./index-PPLHz8o0.js";const c=`# @mgdis/mg-components
+
+## 5.23.1
+
+### Patch Changes
+
+- 9afcd05: [#457](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/457) mg-input-\\*\\* : update error messages after min or max change
+- 4052b52: [#458](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/458) mg-components: missing style files in dist
 
 ## 5.23.0
 
@@ -767,4 +774,4 @@ The stylesheet to make native elements look like our design system expectations.
 - [\`.mg-message\`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-messages--docs)
 - [\`.mg-tag\`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-tags--docs)
 `;function t(o){return e.jsxs(e.Fragment,{children:[e.jsx(n,{title:"Changelog"}),`
-`,e.jsx(i,{children:r})]})}function f(o={}){const{wrapper:s}=Object.assign({},c(),o.components);return s?e.jsx(s,Object.assign({},o,{children:e.jsx(t,o)})):t()}export{f as default};
+`,e.jsx(i,{children:c})]})}function f(o={}){const{wrapper:s}=Object.assign({},r(),o.components);return s?e.jsx(s,Object.assign({},o,{children:e.jsx(t,o)})):t()}export{f as default};
