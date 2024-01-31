@@ -1,5 +1,11 @@
 # Changelog
 
+## Release (2024-01-31-11-29_Unusual-Unmellow-Yellow-2)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+
 ## Release (2024-01-25-10-03_Angry-Atomic-Tangerine-Ant)
 
 ### Packages released

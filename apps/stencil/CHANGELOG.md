@@ -1,5 +1,13 @@
 # stencil
 
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [9afcd05]
+- Updated dependencies [4052b52]
+  - @mgdis/mg-components@5.23.1
+
 ## 0.0.6
 
 ### Patch Changes
