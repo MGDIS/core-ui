@@ -153,7 +153,7 @@ describe('mg-input-date', () => {
       { validity: false, valueMissing: true, badInput: false },
       { validity: false, valueMissing: false, badInput: true },
       { validity: false, valueMissing: false, badInput: true, min: date.first },
-    ])('validity (%s), valueMissing (%s), badInput (%s)', async ({ validity, valueMissing, badInput, min }) => {
+    ])('validity (%s)', async ({ validity, valueMissing, badInput, min }) => {
       const args = { label: 'label', identifier: 'identifier', min };
       const page = await getPage(args);
 
@@ -216,15 +216,15 @@ describe('mg-input-date', () => {
         max: '2024-02-01',
         next: '2024-03-01',
       },
-    ])('value (%s), min (%s), max (%s)', async ({ min, max, value, next }) => {
-      const page = await getPage({ label: 'label', identifier: 'identifier', min, max, value });
+    ])('value (%s)', async ({ min, max, value, next }) => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
 
       const element = page.doc.querySelector('mg-input-date');
       const input = element.shadowRoot.querySelector('input');
 
       //mock validity
-      const rangeUnderflow = () => min === undefined || new Date(input.value) >= new Date(input.min);
-      const rangeOverflow = () => max === undefined || new Date(input.value) <= new Date(input.max);
+      const rangeUnderflow = () => input.min === '' || new Date(input.value) >= new Date(input.min);
+      const rangeOverflow = () => input.max === '' || new Date(input.value) <= new Date(input.max);
       input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
       Object.defineProperty(input, 'validity', {
         get: jest.fn(() => ({
@@ -233,16 +233,31 @@ describe('mg-input-date', () => {
         })),
       });
 
+      jest.runOnlyPendingTimers();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      if (min) element.min = min;
+      if (max) element.max = max;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(input.checkValidity());
+      expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
 
       if (min) element.min = next;
       if (max) element.max = next;
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
     });
   });
 

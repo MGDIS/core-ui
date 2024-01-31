@@ -148,7 +148,7 @@ describe('mg-input-numeric', () => {
       test.each([
         { validity: true, valueMissing: false },
         { validity: false, valueMissing: true },
-      ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing }) => {
+      ])('validity (%s)', async ({ validity, valueMissing }) => {
         const args = { label: 'label', identifier: 'identifier', type };
         const page = await getPage(args);
 
@@ -519,15 +519,15 @@ describe('mg-input-numeric', () => {
         max: 2,
         next: 3,
       },
-    ])('value (%s), min (%s), max (%s)', async ({ min, max, value, next }) => {
-      const page = await getPage({ label: 'label', identifier: 'identifier', min, max, value });
+    ])('value %s', async ({ min, max, value, next }) => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
 
       const element = page.doc.querySelector('mg-input-numeric');
       const input = element.shadowRoot.querySelector('input');
 
       //mock validity
-      const rangeUnderflow = () => min === undefined || input.value >= input.min;
-      const rangeOverflow = () => max === undefined || input.value <= input.max;
+      const rangeUnderflow = () => min === undefined || Number(input.value) >= Number(element.min);
+      const rangeOverflow = () => max === undefined || Number(input.value) <= Number(element.max);
       input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
       Object.defineProperty(input, 'validity', {
         get: jest.fn(() => ({
@@ -536,16 +536,31 @@ describe('mg-input-numeric', () => {
         })),
       });
 
+      jest.runOnlyPendingTimers();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      if (min) element.min = min;
+      if (max) element.max = max;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(input.checkValidity());
+      expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
 
       if (min) element.min = next;
       if (max) element.max = next;
       await page.waitForChanges();
 
-      expect(page.root).toMatchSnapshot();
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
     });
   });
 
