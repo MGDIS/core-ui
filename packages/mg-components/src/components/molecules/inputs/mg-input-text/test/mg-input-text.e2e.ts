@@ -1,4 +1,4 @@
-import { renderAttributes, renderProperties } from '../../../../../utils/e2e.test.utils';
+import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 import { setPageContent, expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputText } from '../mg-input-text';
 

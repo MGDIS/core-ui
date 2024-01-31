@@ -1,37 +1,32 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`args { onclick: { blu: [Function blu] } } > renderAttributes 1`] = `""`;
+exports[`utils > renderAttributes > Should render attributes 1`] = `""`;
 
-exports[`args { onclick: { blu: [Function blu] } } > renderProperties > renderProperties 1`] = `"document.querySelector('.your-select').onclick={"blu":() => {\\n      }}"`;
+exports[`utils > renderAttributes > Should render attributes 2`] = `""`;
 
-exports[`args { onclick: { blu: [Function blu] } } > renderProperties > renderProperties 2`] = `"document.getElementById('your-select').onclick={"blu":() => {\\n      }}"`;
+exports[`utils > renderAttributes > Should render attributes 3`] = `""`;
 
-exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' } } > renderAttributes 1`] = `"status="visible" count="10""`;
+exports[`utils > renderAttributes > Should render attributes 4`] = `"name="batman""`;
 
-exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' } } > renderProperties > renderProperties 1`] = `"document.querySelector('.your-select').icon={"icon":"blu"}"`;
+exports[`utils > renderAttributes > Should render attributes 5`] = `"name="batman" user="bruce" active="true" id="1""`;
 
-exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' } } > renderProperties > renderProperties 2`] = `"document.getElementById('your-select').icon={"icon":"blu"}"`;
+exports[`utils > renderProperties > Should not render attributes as properties 1`] = `""`;
 
-exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' }, nullValue: null, undefinedValue: undefined } > renderAttributes 1`] = `"status="visible" count="10""`;
+exports[`utils > renderProperties > Should not render attributes as properties 2`] = `""`;
 
-exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' }, nullValue: null, undefinedValue: undefined } > renderProperties > renderProperties 1`] = `
-"document.querySelector('.your-select').icon={"icon":"blu"};
-document.querySelector('.your-select').nullValue=null"
+exports[`utils > renderProperties > Should not render attributes as properties 3`] = `""`;
+
+exports[`utils > renderProperties > Should not render attributes as properties 4`] = `
+"
+  "
 `;
 
-exports[`args { status: 'visible', count: 10, icon: { icon: 'blu' }, nullValue: null, undefinedValue: undefined } > renderProperties > renderProperties 2`] = `
-"document.getElementById('your-select').icon={"icon":"blu"};
-document.getElementById('your-select').nullValue=null"
+exports[`utils > renderProperties > Should render properties, case id selector 1`] = `
+"
+  document.querySelector('div').object={};document.querySelector('div').array=[]"
 `;
 
-exports[`args {} > renderAttributes 1`] = `""`;
-
-exports[`args {} > renderProperties > renderProperties 1`] = `""`;
-
-exports[`args {} > renderProperties > renderProperties 2`] = `""`;
-
-exports[`args undefined > renderAttributes 1`] = `""`;
-
-exports[`args undefined > renderProperties > renderProperties 1`] = `""`;
-
-exports[`args undefined > renderProperties > renderProperties 2`] = `""`;
+exports[`utils > renderProperties > Should render properties, case id selector 2`] = `
+"
+  document.querySelector('div').object={};document.querySelector('div').array=[];document.querySelector('div').fn=() => {\\n    }"
+`;

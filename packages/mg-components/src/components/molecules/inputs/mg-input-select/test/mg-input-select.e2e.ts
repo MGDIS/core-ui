@@ -1,4 +1,4 @@
-import { renderAttributes } from '../../../../../utils/e2e.test.utils';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
 
 const TIMEOUT = 1000;

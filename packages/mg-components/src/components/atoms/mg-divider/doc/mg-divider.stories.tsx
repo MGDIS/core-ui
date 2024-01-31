@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgDivider as MgDividerType } from '../mg-divider';
 
 export default {
   component: 'mg-divider',
@@ -11,8 +12,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-divider {...filterArgs(args, { size: 'regular' })}></mg-divider>;
+const Template = (args: MgDividerType): HTMLElement => <mg-divider {...filterArgs(args, { size: 'regular' })}></mg-divider>;
 
 export const MgDivider = {
   render: Template,

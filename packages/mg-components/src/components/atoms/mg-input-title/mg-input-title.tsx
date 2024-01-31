@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { isValidString } from '../../../utils/components.utils';
+import { isValidString } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-input-title',

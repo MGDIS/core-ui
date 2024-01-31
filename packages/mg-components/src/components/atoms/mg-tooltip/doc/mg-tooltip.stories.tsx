@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgTooltip as MgTooltipType } from '../mg-tooltip';
 
 export default {
   component: 'mg-tooltip',
@@ -19,8 +20,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgTooltipType): HTMLElement => (
   <mg-tooltip {...filterArgs(args, { placement: 'bottom' })}>
     <mg-icon icon="info-circle"></mg-icon>
   </mg-tooltip>
@@ -42,8 +42,7 @@ export const MgTooltip = {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateButton = (args: any): HTMLElement => (
+const TemplateButton = (args: MgTooltipType): HTMLElement => (
   <mg-tooltip {...filterArgs(args, { placement: 'bottom' })}>
     <mg-button>Action</mg-button>
   </mg-tooltip>
@@ -62,8 +61,7 @@ export const MgTooltipOnButton = {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateSpan = (args: any): HTMLElement => (
+const TemplateSpan = (args: MgTooltipType): HTMLElement => (
   <mg-tooltip {...filterArgs(args, { placement: 'bottom' })}>
     <span>any text</span>
   </mg-tooltip>

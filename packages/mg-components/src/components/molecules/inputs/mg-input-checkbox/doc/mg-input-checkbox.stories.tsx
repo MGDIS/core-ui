@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
+import type { MgInputCheckbox as MgInputCheckboxType } from '../mg-input-checkbox';
 
 export default {
   component: 'mg-input-checkbox',
@@ -19,8 +20,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-checkbox {...filterArgs(args)}></mg-input-checkbox>;
+const Template = (args: MgInputCheckboxType): HTMLElement => <mg-input-checkbox {...filterArgs(args)}></mg-input-checkbox>;
 
 export const MgInputCheckbox = {
   render: Template,

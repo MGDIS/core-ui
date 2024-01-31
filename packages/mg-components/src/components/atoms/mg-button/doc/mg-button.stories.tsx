@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
 import { variants, buttonTypes } from '../mg-button.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgButton as MgButtonType } from '../mg-button';
 
 export default {
   component: 'mg-button',
@@ -20,8 +21,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-button>;
+const Template = (args: MgButtonType & { slot: string }): HTMLElement => <mg-button {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-button>;
 
 export const MgButton = {
   render: Template,
