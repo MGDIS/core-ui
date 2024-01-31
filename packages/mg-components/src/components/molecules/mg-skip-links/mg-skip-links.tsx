@@ -2,7 +2,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { SkipLink } from './mg-skip-links.conf';
 import { initLocales } from '../../../locales';
-import { isValidString } from '../../../utils/components.utils';
+import { isValidString } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-skip-links',

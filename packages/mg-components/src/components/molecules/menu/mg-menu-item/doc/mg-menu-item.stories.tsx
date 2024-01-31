@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { Direction } from '../../mg-menu/mg-menu.conf';
+import type { MgMenuItem as MgMenuItemType } from '../mg-menu-item';
 
 export default {
   component: 'mg-menu-item',
@@ -13,8 +14,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>;
+const Template = (args: MgMenuItemType & { slot: string }): HTMLElement => <mg-menu-item {...filterArgs(args)} innerHTML={args.slot}></mg-menu-item>;
 
 export const MgMenuItem = {
   render: Template,

@@ -3,7 +3,7 @@ import { initLocales } from '../../../locales';
 import { OverflowBehavior } from '../../../utils/behaviors.utils';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import type { IconType, MessageType, SizeType, SlotLabelType } from './mg-item-more.conf';
-import { isValidString } from '../../../utils/components.utils';
+import { isValidString } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-item-more',

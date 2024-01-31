@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputRadio as MgInputRadioType } from '../mg-input-radio';
 
 export default {
   component: 'mg-input-radio',
@@ -18,8 +19,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-radio {...filterArgs(args)}></mg-input-radio>;
+const Template = (args: MgInputRadioType): HTMLElement => <mg-input-radio {...filterArgs(args)}></mg-input-radio>;
 
 export const MgInputRadio = {
   render: Template,

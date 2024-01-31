@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { variants } from '../mg-tag.conf';
+import type { MgTag as MgTagType } from '../mg-tag';
 
 export default {
   component: 'mg-tag',
@@ -12,8 +13,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-tag {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-tag>;
+const Template = (args: MgTagType & { slot: string }): HTMLElement => <mg-tag {...filterArgs(args, { variant: variants[0] })} innerHTML={args.slot}></mg-tag>;
 
 export const MgTag = {
   render: Template,

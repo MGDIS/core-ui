@@ -3,7 +3,7 @@ import { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType, MgA
 import { initLocales } from '../../../locales';
 import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
-import { createID } from '../../../utils/components.utils';
+import { createID } from '@mgdis/stencil-helpers';
 
 /**
  * MgActionMore['items'] type guard

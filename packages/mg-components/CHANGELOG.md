@@ -1,5 +1,18 @@
 # @mgdis/mg-components
 
+## 5.23.0
+
+### Minor Changes
+
+- e48bd9c: [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-date--docs) add default help-text with pattern based on user OS
+
+### Patch Changes
+
+- 71fd1ce: [#456](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/456) mg-input-checkbox: when type is undefined between 5 and 10 we still have the search bar
+- 32a99cf: [#452](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/452) mg-modal focus trap error
+- Updated dependencies [50174ed]
+  - @mgdis/stencil-helpers@1.0.0
+
 ## 5.22.0
 
 ### Minor Changes

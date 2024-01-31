@@ -1,6 +1,6 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
 import { widths, Width } from './MgInput.conf';
-import { ClassList, isValidString } from '../../../utils/components.utils';
+import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { MgInputTitle } from '../../atoms/mg-input-title/mg-input-title';
 
 /**

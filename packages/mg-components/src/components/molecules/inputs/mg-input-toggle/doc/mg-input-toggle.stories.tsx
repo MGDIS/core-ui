@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputToggle as MgInputToggleType } from '../mg-input-toggle';
 
 export default {
   component: 'mg-input-toggle',
@@ -37,8 +38,7 @@ const args = {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => (
+const Template = (args: MgInputToggleType): HTMLElement => (
   <mg-input-toggle {...filterArgs(args)}>
     <span slot="item-1">Non</span>
     <span slot="item-2">Oui</span>
@@ -56,7 +56,7 @@ export const MgInputToggle = {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateIcon = (args: any): HTMLElement => (
+const TemplateIcon = (args: MgInputToggleType): HTMLElement => (
   <mg-input-toggle {...filterArgs(args)}>
     <span slot="item-1">
       <mg-icon icon="cross"></mg-icon>

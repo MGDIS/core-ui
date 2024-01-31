@@ -1,6 +1,8 @@
 import type { StorybookConfig } from '@storybook/html-vite';
 import { readdirSync, statSync } from 'fs';
 import { join, dirname } from 'path';
+import turbosnap from 'vite-plugin-turbosnap';
+import { mergeConfig } from 'vite';
 
 /**
  * List folders from a given path
@@ -61,6 +63,19 @@ const config: StorybookConfig = {
     );
     return acc;
   }, []),
+  async viteFinal(config, { configType }) {
+    return mergeConfig(config, {
+      plugins:
+        configType === 'PRODUCTION'
+          ? [
+              turbosnap({
+                // This should be the base path of your storybook.  In monorepos, you may only need process.cwd().
+                rootDir: config.root ?? process.cwd(),
+              }),
+            ]
+          : [],
+    });
+  },
   refs: {
     'design-system': {
       title: 'MG Components',
@@ -105,7 +120,8 @@ const config: StorybookConfig = {
         'v5.20.0': 'https://626149b307606d003ada26b4-onrrmkqdnu.chromatic.com',
         'v5.21.0': 'https://626149b307606d003ada26b4-ulnjtobwhi.chromatic.com',
         'v5.21.1': 'https://626149b307606d003ada26b4-hpcnzgjpaq.chromatic.com',
-        'v5.22.0': 'https://626149b307606d003ada26b4-btqzaeatgv.chromatic.com/',
+        'v5.22.0': 'https://626149b307606d003ada26b4-btqzaeatgv.chromatic.com',
+        'v5.23.0': 'https://626149b307606d003ada26b4-czvwidyniq.chromatic.com',
       },
     },
   },

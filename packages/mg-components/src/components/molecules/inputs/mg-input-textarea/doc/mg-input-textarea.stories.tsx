@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputTextarea as MgInputTextareaType } from '../mg-input-textarea';
 
 export default {
   component: 'mg-input-textarea',
@@ -18,8 +19,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => {
+const Template = (args: MgInputTextareaType): HTMLElement => {
   const displayCharacterLeft = args.displayCharacterLeft;
   delete args.displayCharacterLeft;
   // return element

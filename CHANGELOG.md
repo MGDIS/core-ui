@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2024-01-25-10-03_Angry-Atomic-Tangerine-Ant)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+
 ## Release (2024-01-11-08-53_Jolly-Jazzberry-Jam-Jellyfish)
 
 ### Packages released

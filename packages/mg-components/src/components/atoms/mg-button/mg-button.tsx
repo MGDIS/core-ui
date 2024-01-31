@@ -1,6 +1,6 @@
 import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } from '@stencil/core';
 import { variants, VariantType, ButtonType } from './mg-button.conf';
-import { ClassList, isValidString, nextTick } from '../../../utils/components.utils';
+import { ClassList, isValidString, nextTick } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-button',

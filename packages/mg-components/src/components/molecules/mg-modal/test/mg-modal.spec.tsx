@@ -4,8 +4,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgModal } from '../mg-modal';
-import { focusableElements } from '../../../../utils/components.utils';
-import { setupMutationObserverMock } from '../../../../utils/unit.test.utils';
+import { focusableElements, setupMutationObserverMock } from '@mgdis/stencil-helpers';
 import { dialogRoles } from '../mg-modal.conf';
 
 const getPage = (args, slots?) =>
