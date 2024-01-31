@@ -1,8 +1,8 @@
 import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
-import { createID } from '../../../../utils/components.utils';
+import { createID } from '@mgdis/stencil-helpers';
 import { sizes } from '../mg-tabs.conf';
 import { MgTabs } from '../mg-tabs';
-import { renderAttributes, renderProperties } from '../../../../utils/e2e.test.utils';
+import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 
 const defaultArgs = {
   label: 'label',

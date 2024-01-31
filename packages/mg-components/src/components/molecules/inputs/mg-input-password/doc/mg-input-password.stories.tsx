@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputPassword as MgInputPasswordType } from '../mg-input-password';
 
 export default {
   component: 'mg-input-password',
@@ -18,8 +19,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-password {...filterArgs(args)}></mg-input-password>;
+const Template = (args: MgInputPasswordType): HTMLElement => <mg-input-password {...filterArgs(args)}></mg-input-password>;
 
 export const MgInputPassword = {
   render: Template,

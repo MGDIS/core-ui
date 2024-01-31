@@ -19,7 +19,6 @@ export const createID = (prefix = '', length = 10): string => {
 
 /**
  * Class to manage component classlist
- * Set() are not working when imported in project
  */
 export class ClassList {
   /**
@@ -71,24 +70,28 @@ export class ClassList {
 }
 
 /**
- * Check if all items are string
+ * Typeguard function to check if all array items are strings.
  * @param items - items to check
- * @returns all items are string
+ * @returns `true` if all items are strings
  */
 export const allItemsAreString = (items: unknown): items is string[] => Array.isArray(items) && items.every(item => typeof item === 'string');
 
 /**
- * Check if element is a heading
- * @param element - slotted element
+ * Check if element belongs to the given tagNames list
+ * @param element - element to check
  * @param tagNames - allowed tag names list
- * @returns element is a heading
+ * @returns `true` if element tagName is in the tagNames list
  */
 export const isTagName = (element: Element, tagNames: string[]): boolean => {
   return tagNames.includes(element?.tagName.toLowerCase());
 };
 
 /**
- * Focusable elements query selector
+ * CSS selector to select focusable elements.
+ * @example
+ * ```ts
+ * const allFocusableElements: HTMLElement[] = Array.from(this.element.querySelectorAll(focusableElements));
+ * ```
  */
 export const focusableElements = 'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier], mg-button';
 
@@ -115,8 +118,10 @@ export const getParentWindows = (localWindow: Window, windows: Window[] = []): W
     // Check if we have permission to access parent
     try {
       const parentWindow: Window = localWindow.parent;
-      windows.push(parentWindow);
-      return getParentWindows(parentWindow, windows);
+      if (parentWindow) {
+        windows.push(parentWindow);
+        return getParentWindows(parentWindow, windows);
+      } else return windows;
     } catch (err) {
       console.error('Different hosts between iframes:', err);
       return windows;
@@ -144,21 +149,27 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
 /**
  * Validate string
  * @param value - value to check
- * @returns if string is valid
+ * @returns `true` if string is valid
  */
 export const isValidString = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';
 
 /**
- * Clean string caraters
- * @param text - text to cliean
- * @returns cleanded string
+ * Cleans string characters by removing special characters and converting to lowercase.
+ * @param text - text to clean
+ * @returns cleaned string
+ * @example
+ * ```ts
+ * cleanString('âäàçéèêñù') // 'aaaceeenu'
+ * cleanString('BATMAN') // 'batman'
+ * ```
  */
 export const cleanString = (text: string): string =>
-  typeof text === 'string' &&
-  text
-    .toLocaleLowerCase()
-    .normalize('NFD')
-    .replaceAll(/[\u0300-\u036f]/g, '');
+  typeof text === 'string'
+    ? text
+        .toLocaleLowerCase()
+        .normalize('NFD')
+        .replaceAll(/[\u0300-\u036f]/g, '')
+    : text;
 
 /**
  * Use to process code next tick in the event loop

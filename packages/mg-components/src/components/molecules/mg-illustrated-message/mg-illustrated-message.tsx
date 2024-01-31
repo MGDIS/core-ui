@@ -1,5 +1,5 @@
 import { Component, Element, h, Prop } from '@stencil/core';
-import { isTagName } from '../../../utils/components.utils';
+import { isTagName } from '@mgdis/stencil-helpers';
 
 @Component({
   tag: 'mg-illustrated-message',

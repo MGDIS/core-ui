@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { variantStyles, variants } from '../mg-card.conf';
+import type { MgCard as MgCardType } from '../mg-card';
 
 export default {
   component: 'mg-card',
@@ -22,8 +23,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-card {...filterArgs(args)} innerHTML={args.slot}></mg-card>;
+const Template = (args: MgCardType & { slot: string }): HTMLElement => <mg-card {...filterArgs(args)} innerHTML={args.slot}></mg-card>;
 
 export const MgCard = {
   render: Template,

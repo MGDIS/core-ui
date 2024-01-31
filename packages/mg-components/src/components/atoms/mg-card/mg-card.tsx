@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
-import { ClassList } from '../../../utils/components.utils';
+import { ClassList } from '@mgdis/stencil-helpers';
 import { type VariantStyleType, variantStyles, type VariantType, variants } from './mg-card.conf';
 
 @Component({

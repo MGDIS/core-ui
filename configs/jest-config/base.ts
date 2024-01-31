@@ -3,7 +3,7 @@ import type { Config } from 'jest';
 const config: Config = {
   roots: ['<rootDir>', '<rootDir>/src'],
   testEnvironment: 'node',
-  coverageReporters: ['text', 'json'],
+  coverageReporters: ['text', 'html', 'cobertura', 'lcov'],
   reporters: ['default', ['jest-junit', { outputDirectory: 'coverage', outputName: 'junit.xml' }]],
   coveragePathIgnorePatterns: ['/node_modules/', '/build/', '/dist/', '/coverage/'],
   transform: {

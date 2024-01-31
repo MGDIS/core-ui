@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Handler, Width } from '../MgInput.conf';
-import { ClassList, isValidString } from '../../../../utils/components.utils';
+import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { TextType } from './mg-input-text.conf';
 

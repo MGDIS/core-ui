@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgActionMore as MgActionMoreType } from '../mg-action-more';
 
 export default {
   component: 'mg-action-more',
@@ -21,8 +22,7 @@ const mouseEventHandler = () => {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-action-more {...filterArgs(args)} style={{ 'margin-left': '1rem' }}></mg-action-more>;
+const Template = (args: MgActionMoreType): HTMLElement => <mg-action-more {...filterArgs(args)} style={{ 'margin-left': '1rem' }}></mg-action-more>;
 
 export const MgActionMoreIcon = {
   render: Template,

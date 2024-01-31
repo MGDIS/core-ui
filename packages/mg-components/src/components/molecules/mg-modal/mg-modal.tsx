@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen, forceUpdate } from '@stencil/core';
-import { createID, ClassList, focusableElements, isValidString } from '../../../utils/components.utils';
+import { createID, ClassList, focusableElements, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 

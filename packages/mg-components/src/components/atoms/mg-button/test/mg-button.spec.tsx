@@ -3,7 +3,7 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgButton } from '../mg-button';
 import { MgForm } from '../../../molecules/mg-form/mg-form';
 import { variants, buttonTypes } from '../mg-button.conf';
-import { setupMutationObserverMock, setupSubmitEventMock } from '../../../../utils/unit.test.utils';
+import { setupMutationObserverMock, setupSubmitEventMock } from '@mgdis/stencil-helpers';
 
 const getPage = async (args, content = 'Text button') =>
   newSpecPage({

@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputText as MgInputTextType } from '../mg-input-text';
 
 export default {
   component: 'mg-input-text',
@@ -18,8 +19,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => {
+const Template = (args: MgInputTextType): HTMLElement => {
   const displayCharacterLeft = args.displayCharacterLeft;
   delete args.displayCharacterLeft;
   return <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}></mg-input-text>;
@@ -120,7 +120,7 @@ export const URL = {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const SearchTemplate = (args: any): HTMLElement => {
+const SearchTemplate = (args: MgInputTextType): HTMLElement => {
   const displayCharacterLeft = args.displayCharacterLeft;
   delete args.displayCharacterLeft;
   // return element

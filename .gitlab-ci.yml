@@ -50,6 +50,12 @@ stages:
     - changes:
         - 'packages/playwright-helpers/**/*'
 
+# Rule to execute job only on stencil-helpers folder content changes
+.rules:changes:stencil-helpers:
+  rules:
+    - changes:
+        - 'packages/stencil-helpers/**/*'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -117,13 +123,13 @@ test:unit:
     when: always
     expire_in: 1 day
     paths:
-      - coverage
+      - packages/**/coverage
     reports:
       junit:
-        - coverage/junit.xml
+        - packages/**/junit.xml
       coverage_report:
         coverage_format: cobertura
-        path: coverage/cobertura-coverage.xml
+        path: packages/**/cobertura-coverage.xml
 
 test:e2e:
   stage: tests
@@ -425,9 +431,9 @@ styles:npmjs:
     - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public
 
-#####################
-# Playwright Config #
-#####################
+######################
+# Playwright helpers #
+######################
 
 playwright-helpers:artifact:
   stage: artifacts
@@ -441,3 +447,32 @@ playwright-helpers:artifact:
     - !reference [.artifact, script]
   needs:
     - lint
+
+###################
+# Stencil helpers #
+###################
+
+.stencil-helpers:
+  script:
+    - cd packages/stencil-helpers
+    - pnpm build
+
+stencil-helpers:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:stencil-helpers
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - !reference [.stencil-helpers, script]
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+stencil-helpers:npmjs:
+  extends:
+    - .rules:changes:stencil-helpers
+    - .npmjs
+  script:
+    - !reference [.stencil-helpers, script]
+    - pnpm publish --no-git-checks --access public
