@@ -9,12 +9,6 @@ stages:
   - mg-components
   - release
 
-# CI is run only when commit on master, merge requests, or tag creation
-only:
-  - master
-  - merge_requests
-  - tags
-
 ###########
 # Extends #
 ###########
@@ -75,12 +69,7 @@ only:
 # Rule to execute job only if not in tag creation pipeline
 .rules:except-tags:
   rules:
-    - if: $CI_COMMIT_TAG == null
-
-# Rule to execute job only if push master
-.rules:master:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == "master" || $CI_MERGE_REQUEST_ID)
 
 # install dependencies
 .install:dependencies:
