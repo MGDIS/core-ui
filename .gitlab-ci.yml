@@ -9,6 +9,12 @@ stages:
   - mg-components
   - release
 
+# CI is run only when commit on master, merge requests, or tag creation
+only:
+  - master
+  - merge_requests
+  - tags
+
 ###########
 # Extends #
 ###########
