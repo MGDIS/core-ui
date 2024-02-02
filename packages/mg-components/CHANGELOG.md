@@ -1,5 +1,15 @@
 # @mgdis/mg-components
 
+## 5.23.2
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+- Updated dependencies [eb3b1ab]
+  - @mgdis/stencil-helpers@1.0.1
+  - @mgdis/styles@1.1.1
+  - @mgdis/img@1.6.1
+
 ## 5.23.1
 
 ### Patch Changes
