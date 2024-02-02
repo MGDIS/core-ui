@@ -199,4 +199,18 @@ test.describe('mg-tooltip', () => {
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
+
+  test('Should display content with the specified style', async ({ page }) => {
+    const tooltipHtml = createHTML(
+      {
+        message: 'short tooltip',
+        display: true,
+      },
+      '<mg-icon icon="info-circle"></mg-icon>',
+    );
+    await page.setContent(`<h1>Title${tooltipHtml}</h1>`);
+    await page.setViewportSize({ width: 400, height: 400 });
+
+    await expect(page.locator('body')).toHaveScreenshot();
+  });
 });
