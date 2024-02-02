@@ -26,56 +26,64 @@ class NotificationCenter {
         if (data.appId === this.#appId) this.#displayMessage(data);
       });
       // When DOM is ready we add our CSS and the notifications zone
+      if (this.#rootWindow.document.readyState === 'complete') this.#render();
       this.#rootWindow.addEventListener('DOMContentLoaded', () => {
-        // If notification center is not already created
-        if (this.#rootWindow.document.getElementById(this.#appId) === null) {
-          // Add style
-          const css: Text = document.createTextNode(
-            `#${this.#appId} {
-              position: fixed;
-              bottom: 0;
-              right: 0;
-              padding:  0 1rem 1rem;
-              width: 40rem;
-              max-width: 100%;
-              display: flex;
-              flex-direction: column;
-              align-items: flex-end;
-              gap: 0.5rem;
-              pointer-events: none;
-              z-index: 1000;
-            }
-            #${this.#appId} mg-message {
-              pointer-events: auto;
-              animation: append-item .4s ease;
-            }
-            @media (prefers-reduced-motion) {
-              #${this.#appId} mg-message {
-                animation: none;
-              }
-            }
-            @keyframes append-item {
-              0% {
-                opacity: 0;
-                transform: translateY(50%);
-              }
-              100% {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }`,
-          );
-          const style: HTMLStyleElement = document.createElement('style');
-          style.appendChild(css);
-          this.#rootWindow.document.head.appendChild(style);
-          // Add div to receive notifications
-          this.#messagesReceiver.innerHTML = '';
-          this.#messagesReceiver.id = this.#appId;
-          this.#rootWindow.document.body.appendChild(this.#messagesReceiver);
-        }
+        this.#render();
       });
     }
   }
+
+  /**
+   * Render notification-center in rootwindow document
+   */
+  #render = () => {
+    // If notification center is not already created
+    if (this.#rootWindow.document.getElementById(this.#appId) === null) {
+      // Add style
+      const css: Text = document.createTextNode(
+        `#${this.#appId} {
+          position: fixed;
+          bottom: 0;
+          right: 0;
+          padding:  0 1rem 1rem;
+          width: 40rem;
+          max-width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          gap: 0.5rem;
+          pointer-events: none;
+          z-index: 1000;
+        }
+        #${this.#appId} mg-message {
+          pointer-events: auto;
+          animation: append-item .4s ease;
+        }
+        @media (prefers-reduced-motion) {
+          #${this.#appId} mg-message {
+            animation: none;
+          }
+        }
+        @keyframes append-item {
+          0% {
+            opacity: 0;
+            transform: translateY(50%);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }`,
+      );
+      const style: HTMLStyleElement = document.createElement('style');
+      style.appendChild(css);
+      this.#rootWindow.document.head.appendChild(style);
+      // Add div to receive notifications
+      this.#messagesReceiver.innerHTML = '';
+      this.#messagesReceiver.id = this.#appId;
+      this.#rootWindow.document.body.appendChild(this.#messagesReceiver);
+    }
+  };
 
   /**
    * Check if the window is in an iframe

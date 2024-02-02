@@ -1,7 +1,8 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { sizes, variantStyles, variants } from '../mg-icon.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
+import type { MgIcon as MgIconType } from '../mg-icon';
 
 export default {
   component: 'mg-icon',
@@ -31,8 +32,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => {
+const Template = (args: MgIconType & { color: string }): HTMLElement => {
   const color = args.color;
   delete args.color;
   // return element

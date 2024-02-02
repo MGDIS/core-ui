@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgInputTitle as MgInputTitleType } from '../mg-input-title';
 
 export default {
   component: 'mg-input-title',
@@ -11,8 +12,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-input-title {...filterArgs(args)} innerHTML={args.slot}></mg-input-title>;
+const Template = (args: MgInputTitleType & { slot: string }): HTMLElement => <mg-input-title {...filterArgs(args)} innerHTML={args.slot}></mg-input-title>;
 
 export const MgInputTitle = {
   render: Template,

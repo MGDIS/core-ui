@@ -51,11 +51,17 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   @Prop() checkboxes: CheckboxItem[] = [];
   @Watch('checkboxes')
   validateCheckboxes(newValue: MgInputCheckboxPaginated['checkboxes'], oldValue: MgInputCheckboxPaginated['checkboxes']): void {
+    const pageCountNewValue = this.getPageCount(newValue);
+    const pageCountOldValue = this.getPageCount(oldValue);
     // after each array.length update we reset pagination
     // when items fill on page, we set current page to 1
-    if (this.getPageCount(newValue) === 1) this.currentPage = 1;
+    if (pageCountNewValue === 1 || (pageCountNewValue !== 0 && this.currentPage === 0)) {
+      this.currentPage = 1;
+    }
     // when old items page numbers match the current page AND new items page number is lower than current page, we set the new last page
-    else if (this.getPageCount(oldValue) === this.currentPage && this.getPageCount(newValue) < this.currentPage) this.currentPage = this.getPageCount(newValue);
+    else if (pageCountOldValue === this.currentPage && pageCountNewValue < this.currentPage) {
+      this.currentPage--;
+    }
   }
 
   /**
@@ -157,7 +163,9 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const getText = (checkboxes: CheckboxItem[]): HTMLElement => <em>{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>;
+    const getText = (checkboxes: CheckboxItem[]): HTMLElement => (
+      <em class="mg-c-input__input-checkbox-multi-section-header-label">{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>
+    );
     const [from, to] = this.getFromToIndexes();
     const itemsContainerId = `items-${this.sectionKind}-container`;
 
@@ -173,9 +181,11 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             <p class="mg-c-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.expanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
-            <mg-button variant="link" onClick={this.massActionHandler}>
-              {this.messages.action}
-            </mg-button>
+            <mg-tooltip class="mg-c-input__input-checkbox-multi-section-header-tootlip" message={this.messages.tooltip} data-popper-strategy="absolute">
+              <mg-button variant="link" onClick={this.massActionHandler}>
+                {this.messages.action}
+              </mg-button>
+            </mg-tooltip>
           )}
           {this.expanded && this.getPageCount(this.checkboxes) > 1 && (
             <mg-pagination

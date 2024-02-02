@@ -1,9 +1,9 @@
 {
-  "timestamp": "2023-12-19T10:32:06",
+  "timestamp": "2024-02-01T10:21:13",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.8.2",
-    "typescriptVersion": "5.2.2"
+    "version": "4.12.0",
+    "typescriptVersion": "5.3.3"
   },
   "components": [
     {
@@ -106,7 +106,7 @@
           },
           "mutable": true,
           "reflectToAttr": false,
-          "docs": "Define displaied icon",
+          "docs": "Define displayed icon",
           "docsTags": [],
           "values": [
             {
@@ -2075,22 +2075,14 @@
             "signature": "(valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -2106,7 +2098,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -2187,10 +2190,14 @@
         "mg-input-checkbox-paginated": [
           "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-pagination"
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-button",
@@ -2201,9 +2208,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ],
         "mg-popover": [
           "mg-popover-content"
@@ -2451,16 +2455,21 @@
       "dependencies": [
         "mg-button",
         "mg-icon",
+        "mg-tooltip",
         "mg-pagination"
       ],
       "dependencyGraph": {
         "mg-input-checkbox-paginated": [
           "mg-button",
           "mg-icon",
+          "mg-tooltip",
           "mg-pagination"
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
         ],
         "mg-pagination": [
           "mg-button",
@@ -2471,9 +2480,6 @@
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
           "mg-input-checkbox-paginated"
@@ -2522,7 +2528,7 @@
           "mutable": false,
           "attr": "help-text",
           "reflectToAttr": false,
-          "docs": "Add a help text under the input, usually expected data format and example",
+          "docs": "Add a help text under the input, usually expected data format and example\nAvailable string variables:\n - `{pattern}`: render innerHTML pattern based on system\n - `{date}`: render innerText date with a pattern base format.\n - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.\nex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`",
           "docsTags": [],
           "values": [
             {
@@ -2843,22 +2849,14 @@
             "signature": "(valid: MgInputDate['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -2874,7 +2872,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputDate['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -3461,22 +3470,14 @@
             "signature": "(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -3492,7 +3493,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputNumeric['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -3945,22 +3957,14 @@
             "signature": "(valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -3976,7 +3980,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputPassword['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -4424,22 +4439,14 @@
             "signature": "(valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -4455,7 +4462,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputRadio['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -4985,22 +5003,14 @@
             "signature": "(valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -5016,7 +5026,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputSelect['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -5639,22 +5660,14 @@
             "signature": "(valid: MgInputText['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -5670,7 +5683,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputText['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -6304,22 +6328,14 @@
             "signature": "(valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -6335,7 +6351,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: MgInputTextarea['valid'], errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -6863,22 +6890,14 @@
             "signature": "(valid: boolean, errorMessage: string) => Promise<void>",
             "parameters": [
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "valid - value indicating the validity"
-                  }
-                ],
-                "text": "- value indicating the validity"
+                "name": "valid",
+                "type": "boolean",
+                "docs": "- value indicating the validity"
               },
               {
-                "tags": [
-                  {
-                    "name": "param",
-                    "text": "errorMessage - the error message to display"
-                  }
-                ],
-                "text": "- the error message to display"
+                "name": "errorMessage",
+                "type": "string",
+                "docs": "- the error message to display"
               }
             ],
             "references": {
@@ -6890,7 +6909,18 @@
             "return": "Promise<void>"
           },
           "signature": "setError(valid: boolean, errorMessage: string) => Promise<void>",
-          "parameters": [],
+          "parameters": [
+            {
+              "name": "valid",
+              "type": "boolean",
+              "docs": "- value indicating the validity"
+            },
+            {
+              "name": "errorMessage",
+              "type": "string",
+              "docs": "- the error message to display"
+            }
+          ],
           "docs": "Set an error and display a custom error message.\nThis method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter.\nIt must be paired with an error message to display for the given context.\nWhen used to set validity to `false`, you should use this method again to reset the validity to `true`.",
           "docsTags": [
             {
@@ -9195,6 +9225,7 @@
       "parts": [],
       "dependents": [
         "mg-input-checkbox",
+        "mg-input-checkbox-paginated",
         "mg-input-date",
         "mg-input-numeric",
         "mg-input-password",
@@ -9212,6 +9243,9 @@
           "mg-tooltip-content"
         ],
         "mg-input-checkbox": [
+          "mg-tooltip"
+        ],
+        "mg-input-checkbox-paginated": [
           "mg-tooltip"
         ],
         "mg-input-date": [

@@ -1,5 +1,6 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
+import type { MgSkipLinks as MgSkipLinksType } from '../mg-skip-links';
 
 export default {
   component: 'mg-skip-links',
@@ -12,8 +13,7 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => <mg-skip-links {...filterArgs(args)}></mg-skip-links>;
+const Template = (args: MgSkipLinksType): HTMLElement => <mg-skip-links {...filterArgs(args)}></mg-skip-links>;
 
 export const MgSkipLinks = {
   render: Template,

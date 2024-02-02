@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+- Updated dependencies [eb3b1ab]
+  - @mgdis/eslint-plugin-vue@3.11.4
+
 ## 1.0.0
 
 ### Major Changes

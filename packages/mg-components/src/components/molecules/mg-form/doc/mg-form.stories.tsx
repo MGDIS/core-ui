@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
-import { filterArgs } from '../../../../../.storybook/utils';
+import { filterArgs } from '@mgdis/stencil-helpers';
 import { requiredMessageStatus, roles } from '../mg-form.conf';
+import type { MgForm as MgFormType } from '../mg-form';
 
 export default {
   component: 'mg-form',
@@ -32,8 +33,7 @@ const args = {
  * @param args - component arguments
  * @returns HTMLElement
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Template = (args: any): HTMLElement => {
+const Template = (args: MgFormType): HTMLElement => {
   let form;
   let submit;
   let canSubmit = false;

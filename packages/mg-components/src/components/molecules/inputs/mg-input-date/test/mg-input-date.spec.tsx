@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
-import { localeDate } from '../../../../../utils/locale.utils';
+import { localeDate } from '@mgdis/stencil-helpers';
 
 const getPage = args => {
   const page = newSpecPage({
@@ -35,6 +35,7 @@ describe('mg-input-date', () => {
     { label: 'label', identifier: 'identifier', required: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', required: true, readonly: true, value: '2022-06-02', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', required: true, disabled: true, value: '2022-06-02', helpText: 'My help text' },
+    { label: 'label', identifier: 'identifier', helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
@@ -152,7 +153,7 @@ describe('mg-input-date', () => {
       { validity: false, valueMissing: true, badInput: false },
       { validity: false, valueMissing: false, badInput: true },
       { validity: false, valueMissing: false, badInput: true, min: date.first },
-    ])('validity (%s), valueMissing (%s), badInput (%s)', async ({ validity, valueMissing, badInput, min }) => {
+    ])('validity (%s)', async ({ validity, valueMissing, badInput, min }) => {
       const args = { label: 'label', identifier: 'identifier', min };
       const page = await getPage(args);
 
@@ -176,7 +177,11 @@ describe('mg-input-date', () => {
       } else if (valueMissing) {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
-        expect(page.rootInstance.errorMessage).toEqual(messages.errors.date.badInput.replace('{min}', localeDate(min !== undefined ? min : '1900-01-01', 'en')));
+        expect(page.rootInstance.errorMessage).toEqual(
+          messages.errors.date.badInput
+            .replace('{min}', localeDate(min !== undefined ? min : '1900-01-01', 'en'))
+            .replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+        );
       }
       expect(page.rootInstance.valid).toEqual(validity);
       expect(page.rootInstance.invalid).toEqual(!validity);
@@ -186,6 +191,73 @@ describe('mg-input-date', () => {
         await page.waitForChanges();
         expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
       }
+    });
+  });
+
+  describe('validity, case update min/max prop value', () => {
+    test.each([
+      {
+        value: '2024-03-01',
+        min: '2024-02-01',
+        next: '2024-01-01',
+      },
+      {
+        value: '2024-01-01',
+        min: '2024-02-01',
+        next: '2024-01-01',
+      },
+      {
+        value: '2024-01-01',
+        max: '2024-02-01',
+        next: '2024-03-01',
+      },
+      {
+        value: '2024-03-01',
+        max: '2024-02-01',
+        next: '2024-03-01',
+      },
+    ])('value (%s)', async ({ min, max, value, next }) => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+
+      const element = page.doc.querySelector('mg-input-date');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      const rangeUnderflow = () => input.min === '' || new Date(input.value) >= new Date(input.min);
+      const rangeOverflow = () => input.max === '' || new Date(input.value) <= new Date(input.max);
+      input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          rangeUnderflow: rangeUnderflow(),
+          rangeOverflow: rangeOverflow(),
+        })),
+      });
+
+      jest.runOnlyPendingTimers();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      if (min) element.min = min;
+      if (max) element.max = max;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(input.checkValidity());
+      expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
+
+      if (min) element.min = next;
+      if (max) element.max = next;
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
     });
   });
 

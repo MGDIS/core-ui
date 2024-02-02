@@ -1,6 +1,6 @@
 import en from './en/messages.json';
 import fr from './fr/messages.json';
-import { getLocaleMessages } from '../utils/locale.utils';
+import { defineLocales } from '@mgdis/stencil-helpers';
 
 const defaultLocale = 'en';
 const messages = { en, fr };
@@ -10,4 +10,4 @@ const messages = { en, fr };
  * @param element - element we need to get the language
  * @returns messages object
  */
-export const initLocales = (element: HTMLElement): { locale: string; messages: Record<string, unknown> } => getLocaleMessages(element, messages, defaultLocale);
+export const initLocales = defineLocales(messages, defaultLocale);

@@ -1,5 +1,43 @@
 # vue-3
 
+## 0.0.13
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+- Updated dependencies [eb3b1ab]
+  - @mgdis/notification-center@1.1.5
+  - @mgdis/mg-components@5.23.2
+
+## 0.0.12
+
+### Patch Changes
+
+- Updated dependencies [9afcd05]
+- Updated dependencies [4052b52]
+  - @mgdis/mg-components@5.23.1
+  - @mgdis/notification-center@1.1.4
+
+## 0.0.11
+
+### Patch Changes
+
+- Updated dependencies [71fd1ce]
+- Updated dependencies [bad9447]
+- Updated dependencies [e48bd9c]
+- Updated dependencies [32a99cf]
+  - @mgdis/mg-components@5.23.0
+  - @mgdis/notification-center@1.1.4
+
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies [bb1cca4]
+- Updated dependencies [4cdca06]
+  - @mgdis/mg-components@5.22.0
+  - @mgdis/notification-center@1.1.3
+
 ## 0.0.9
 
 ### Patch Changes

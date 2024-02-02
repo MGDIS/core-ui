@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { ClassList, allItemsAreString, isValidString } from '../../../../utils/components.utils';
+import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
 import { Handler } from '../MgInput.conf';

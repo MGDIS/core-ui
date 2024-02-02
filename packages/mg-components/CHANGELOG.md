@@ -1,5 +1,48 @@
 # @mgdis/mg-components
 
+## 5.23.2
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+- Updated dependencies [eb3b1ab]
+  - @mgdis/stencil-helpers@1.0.1
+  - @mgdis/styles@1.1.1
+  - @mgdis/img@1.6.1
+
+## 5.23.1
+
+### Patch Changes
+
+- 9afcd05: [#457](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/457) mg-input-\*\* : update error messages after min or max change
+- 4052b52: [#458](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/458) mg-components: missing style files in dist
+
+## 5.23.0
+
+### Minor Changes
+
+- e48bd9c: [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-date--docs) add default help-text with pattern based on user OS
+
+### Patch Changes
+
+- 71fd1ce: [#456](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/456) mg-input-checkbox: when type is undefined between 5 and 10 we still have the search bar
+- 32a99cf: [#452](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/452) mg-modal focus trap error
+- Updated dependencies [50174ed]
+  - @mgdis/stencil-helpers@1.0.0
+
+## 5.22.0
+
+### Minor Changes
+
+- bb1cca4: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) update "select all" action to only apply select/unselect on filtered results
+
+### Patch Changes
+
+- 4cdca06: [#445](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/445) popover should not move when update values
+- Updated dependencies [bb1cca4]
+- Updated dependencies [4cdca06]
+  - @mgdis/styles@1.1.0
+
 ## 5.21.1
 
 ### Patch Changes

@@ -50,6 +50,12 @@ stages:
     - changes:
         - 'packages/playwright-helpers/**/*'
 
+# Rule to execute job only on stencil-helpers folder content changes
+.rules:changes:stencil-helpers:
+  rules:
+    - changes:
+        - 'packages/stencil-helpers/**/*'
+
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
@@ -60,15 +66,10 @@ stages:
   rules:
     - if: $CI_COMMIT_TAG
 
-# Rule to execute job only if not in tag creation pipeline
+# Rule to execute job only if not in tag creation pipeline and on master or in merge request
 .rules:except-tags:
   rules:
-    - if: $CI_COMMIT_TAG == null
-
-# Rule to execute job only if push master
-.rules:master:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == "master" || $CI_MERGE_REQUEST_ID)
 
 # install dependencies
 .install:dependencies:
@@ -117,31 +118,28 @@ test:unit:
     when: always
     expire_in: 1 day
     paths:
-      - coverage
+      - packages/**/coverage
     reports:
       junit:
-        - coverage/junit.xml
+        - packages/**/junit.xml
       coverage_report:
         coverage_format: cobertura
-        path: coverage/cobertura-coverage.xml
+        path: packages/**/cobertura-coverage.xml
 
 test:e2e:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   parallel: 7
   extends:
-    - .rules:changes:notification-center
     - .rules:changes:mg-components
+    - .rules:changes:styles
     - .rules:except-tags
     - .install:dependencies
   script:
-    - pnpm test:e2e -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
+    - pnpm test:e2e --filter='./packages/*' --filter=\!@mgdis/notification-center -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
   artifacts:
     when: always
     paths:
-      - packages/notification-center/playwright-report/
-      - packages/notification-center/test-results/
-      - packages/notification-center/results.xml
       - packages/mg-components/playwright-report/
       - packages/mg-components/test-results/
       - packages/mg-components/results.xml
@@ -150,9 +148,28 @@ test:e2e:
       - packages/styles/results.xml
     reports:
       junit:
-        - packages/notification-center/results.xml
         - packages/mg-components/results.xml
         - packages/styles/results.xml
+
+test:e2e:notification-center:
+  stage: tests
+  image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  extends:
+    - .rules:changes:notification-center
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - pnpm test:e2e --filter=@mgdis/notification-center
+  retry: 2
+  artifacts:
+    when: always
+    paths:
+      - packages/notification-center/playwright-report/
+      - packages/notification-center/test-results/
+      - packages/notification-center/results.xml
+    reports:
+      junit:
+        - packages/notification-center/results.xml
 
 sonar:
   stage: tests
@@ -409,9 +426,9 @@ styles:npmjs:
     - !reference [.styles:build, script]
     - pnpm publish --no-git-checks --access public
 
-#####################
-# Playwright Config #
-#####################
+######################
+# Playwright helpers #
+######################
 
 playwright-helpers:artifact:
   stage: artifacts
@@ -425,3 +442,32 @@ playwright-helpers:artifact:
     - !reference [.artifact, script]
   needs:
     - lint
+
+###################
+# Stencil helpers #
+###################
+
+.stencil-helpers:
+  script:
+    - cd packages/stencil-helpers
+    - pnpm build
+
+stencil-helpers:artifact:
+  stage: artifacts
+  extends:
+    - .rules:changes:stencil-helpers
+    - .rules:except-tags
+    - .install:dependencies
+  script:
+    - !reference [.stencil-helpers, script]
+    - !reference [.artifact, script]
+  needs:
+    - lint
+
+stencil-helpers:npmjs:
+  extends:
+    - .rules:changes:stencil-helpers
+    - .npmjs
+  script:
+    - !reference [.stencil-helpers, script]
+    - pnpm publish --no-git-checks --access public

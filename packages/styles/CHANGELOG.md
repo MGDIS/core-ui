@@ -1,5 +1,21 @@
 # @mgdis/styles
 
+## 1.1.1
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+
+## 1.1.0
+
+### Minor Changes
+
+- bb1cca4: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) update "select all" action to only apply select/unselect on filtered results
+
+### Patch Changes
+
+- 4cdca06: [#445](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/445) popover should not move when update values
+
 ## 1.0.2
 
 ### Patch Changes
