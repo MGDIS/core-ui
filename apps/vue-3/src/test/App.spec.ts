@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, test } from 'vitest';
-import HelloWorld from '../HelloWorld.vue';
+import App from '../App.vue';
 import { axe } from 'jest-axe';
 
-const getWrapper = () => mount(HelloWorld);
+const getWrapper = () => mount(App);
 
-describe('HelloWorld', () => {
+describe('App', () => {
   test('Should render component', async () => {
     const wrapper = getWrapper();
     const html = wrapper.html();
