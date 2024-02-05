@@ -75,14 +75,14 @@ When we run a unit test with axe-core on an `<mg-form />` element we can get the
 
 #### Workaround
 
-To succeed the test with  `<mg-form />` propertie `aria-role` you need to bind this prop as a framework JS propertie, ex:
+To succeed the test with the `<mg-form />` property `aria-role`, you need to bind this `prop` as a framework JS property, ex:
 - vue: `<mg-form :aria-role.prop="presentation"></mg-form>`
 - angular: `<mg-form ng-prop-aria-role="presentation"></mg-form>`
 - jsx: `<mg-form ariaRole={"presentation"}></mg-form>`
 
-#### Explainations
+#### Explanation
 
-When you use JS property binding instead of html attribute, the component prop isn't rendered in the DOM, wich result in a valid HTML DOM sementic, and succeed the test.
+When you use JS property binding instead of HTML attribute, the component prop isn't rendered in the DOM, which results in a valid HTML DOM semantic, and succeed the test.
 
 ## CSS Variables
 
