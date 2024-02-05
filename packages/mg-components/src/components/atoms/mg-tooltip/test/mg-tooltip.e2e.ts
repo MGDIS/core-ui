@@ -209,7 +209,7 @@ test.describe('mg-tooltip', () => {
       '<mg-icon icon="info-circle"></mg-icon>',
     );
     await page.setContent(`<h1>Title${tooltipHtml}</h1>`);
-    await page.setViewportSize({ width: 400, height: 400 });
+    await page.setViewportSize({ width: 110, height: 90 });
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
