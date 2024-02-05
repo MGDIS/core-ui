@@ -1,7 +1,7 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
 import { widths, Width } from './MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { MgInputTitle } from '../../atoms/mg-input-title/mg-input-title';
+import { MgInputTitle } from '../../atoms/internals/mg-input-title/mg-input-title';
 
 /**
  * Apply in all input child node the aria-describedby attribute

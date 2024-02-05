@@ -143,7 +143,7 @@ Type: `Promise<void>`
 - [mg-icon](../../../atoms/mg-icon)
 - [mg-input-text](../mg-input-text)
 - [mg-tooltip](../../../atoms/mg-tooltip)
-- [mg-input-title](../../../atoms/mg-input-title)
+- [mg-input-title](../../../atoms/internals/mg-input-title)
 
 ### Graph
 ```mermaid
