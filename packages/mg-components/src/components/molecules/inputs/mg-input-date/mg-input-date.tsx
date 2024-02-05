@@ -88,12 +88,33 @@ export class MgInputDate {
   @Prop() readonly = false;
 
   /**
+   * Define input minimum date
+   * format: yyyy-mm-dd
+   */
+  @Prop() min: string;
+
+  /**
+   * Define input maximum date
+   * format: yyyy-mm-dd
+   */
+  @Prop() max: string;
+  @Watch('min')
+  @Watch('max')
+  validateMinMax(newValue: string): void {
+    if (newValue?.length === 0 || (newValue?.length > 0 && !(typeof newValue === 'string' && dateRegExp.test(newValue)))) {
+      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
+    }
+  }
+
+  /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('required')
   @Watch('readonly')
   @Watch('disabled')
+  @Watch('min')
+  @Watch('max')
   handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
     if (this.input !== undefined) {
       this.input[prop] = newValue;
@@ -129,25 +150,6 @@ export class MgInputDate {
    * Define input invalid state
    */
   @Prop({ mutable: true }) invalid: boolean;
-
-  /**
-   * Define input minimum date
-   * format: yyyy-mm-dd
-   */
-  @Prop() min: string;
-
-  /**
-   * Define input maximum date
-   * format: yyyy-mm-dd
-   */
-  @Prop() max: string;
-  @Watch('min')
-  @Watch('max')
-  validateMinMax(newValue: string): void {
-    if (newValue?.length === 0 || (newValue?.length > 0 && !(typeof newValue === 'string' && dateRegExp.test(newValue)))) {
-      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
-    }
-  }
 
   /**
    * Component classes

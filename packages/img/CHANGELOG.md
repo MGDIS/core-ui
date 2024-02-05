@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.6.1
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+
 ## 1.6.0
 
 ### Minor Changes
