@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.11.4
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+  - @mgdis/eslint-plugin-html@3.11.3
+
 ## 3.11.3
 
 ### Patch Changes
@@ -96,7 +103,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **linting:** eslint plugins integration 
+- **linting:** eslint plugins integration
 
 ## 3.3.1
 
@@ -106,9 +113,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **linting-angularjs:** mr feedback 
+- **linting-angularjs:** mr feedback
 
 ### Features
 
-- **linting:** add AngularJS 
-- **linting:** add eslint-plugin-angular 
+- **linting:** add AngularJS
+- **linting:** add eslint-plugin-angular
