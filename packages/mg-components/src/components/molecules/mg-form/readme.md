@@ -84,6 +84,25 @@ If you are creating a form that combines `mg-components` inputs with inputs from
 You can disable _submit button_ until all required fields are empty.
 For this, use "valid/invalid" options.
 
+## 💥 Troubleshooting
+
+### axe-core: `aria-valid-attr` error for `aria-role` props
+
+#### Issue
+
+When we run a unit test with axe-core on an `<mg-form />` element we can get the following error:  [`aria-valid-attr`](https://github.com/dequelabs/axe-core/blob/develop/doc/rule-descriptions.md).
+
+#### Workaround
+
+To succeed the test with the `<mg-form />` property `aria-role`, you need to bind this `prop` as a framework JS property, ex:
+- vue: `<mg-form :aria-role.prop="presentation"></mg-form>`
+- angular: `<mg-form ng-prop-aria-role="presentation"></mg-form>`
+- jsx: `<mg-form ariaRole={"presentation"}></mg-form>`
+
+#### Explanation
+
+When you use JS property binding instead of HTML attribute, the component prop isn't rendered in the DOM, which results in a valid HTML DOM semantic, and succeed the test.
+
 ## CSS Variables
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
