@@ -114,3 +114,15 @@ No more `variables.scss` export, only `variables.css`.
 ### Internal components
 
 - `mg-input-title` and `mg-character-left` components are now considered internal and should not be used outside of `mg-components`. Dedicated stories for these components have been removed.
+
+### Changes in `mg-input-text` and `mg-input-textarea`
+
+- Renammed `display-character-left` prop to `character-left-hide`.  
+  The `display-character-left` prop was inconsistent with standard boolean attributes as it requires setting a "false" value explicitly. It should align with standard boolean attributes, which are considered false when the attribute is missing.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-text identifier="blu" label="non" display-character-left="false"></mg-input-text>
+  <!-- in v6 -->
+  <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
+  ```

@@ -3,30 +3,6 @@
 exports[`mg-input-text Should render with args {
   label: 'label',
   identifier: 'identifier',
-  displayCharacterLeft: false
-}: 1`] = `
-<mg-input-text>
-  <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
-      <mg-input-title identifier="identifier">
-        label
-      </mg-input-title>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
-          </div>
-          <slot name="append-input"></slot>
-        </div>
-      </div>
-    </div>
-  </mock:shadow-root>
-</mg-input-text>
-`;
-
-exports[`mg-input-text Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   readonly: true,
   labelOnTop: true,
   tooltip: 'Tooltip message'
@@ -273,6 +249,26 @@ exports[`mg-input-text Should render with args { label: 'label', identifier: 'id
           <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
             <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
             <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+          </div>
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should render with args { label: 'label', identifier: 'identifier', characterLeftHide: true }: 1`] = `
+<mg-input-text>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <mg-input-title identifier="identifier">
+        label
+      </mg-input-title>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
           </div>
           <slot name="append-input"></slot>
         </div>

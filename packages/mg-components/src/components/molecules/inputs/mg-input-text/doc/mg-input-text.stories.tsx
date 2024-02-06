@@ -20,9 +20,7 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgInputTextType): HTMLElement => {
-  const displayCharacterLeft = args.displayCharacterLeft;
-  delete args.displayCharacterLeft;
-  return <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}></mg-input-text>;
+  return <mg-input-text {...filterArgs(args)}></mg-input-text>;
 };
 
 export const MgInputText = {
@@ -49,7 +47,7 @@ export const MgInputText = {
     // Tooltip
     tooltip: 'This is a tooltip',
     // Nb Char Left
-    displayCharacterLeft: true,
+    characterLeftHide: false,
     // Help Text
     helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
   },
@@ -121,12 +119,10 @@ export const URL = {
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const SearchTemplate = (args: MgInputTextType): HTMLElement => {
-  const displayCharacterLeft = args.displayCharacterLeft;
-  delete args.displayCharacterLeft;
   // return element
   return (
     <form role="search">
-      <mg-input-text {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}>
+      <mg-input-text {...filterArgs(args)}>
         <mg-button slot="append-input" label="search">
           <mg-icon icon="magnifying-glass"></mg-icon> Search
         </mg-button>

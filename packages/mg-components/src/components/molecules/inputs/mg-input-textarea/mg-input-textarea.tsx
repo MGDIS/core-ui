@@ -16,7 +16,7 @@ export class MgInputTextarea {
 
   // Classes
   private classFocus = 'mg-u-is-focused';
-  private classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
+  private classDisplayCharacterLeft = 'mg-c-input--display-character-left';
 
   // IDs
   private characterLeftId;
@@ -148,15 +148,15 @@ export class MgInputTextarea {
   @Prop() tooltip: string;
 
   /**
-   * Define if component should display character left
+   * Define if component should hide character left
    */
-  @Prop() displayCharacterLeft = true;
-  @Watch('displayCharacterLeft')
-  validateDisplayCharacterLeft(newValue: boolean): void {
+  @Prop() characterLeftHide = false;
+  @Watch('characterLeftHide')
+  validatecharacterLeftHide(newValue: boolean): void {
     if (newValue) {
-      this.classCollection.add(this.classHasDisplayCharacterLeft);
+      this.classCollection.delete(this.classDisplayCharacterLeft);
     } else {
-      this.classCollection.delete(this.classHasDisplayCharacterLeft);
+      this.classCollection.add(this.classDisplayCharacterLeft);
     }
   }
 
@@ -324,7 +324,7 @@ export class MgInputTextarea {
     this.messages = initLocales(this.element).messages;
     this.characterLeftId = `${this.identifier}-character-left`;
     // Validate
-    this.validateDisplayCharacterLeft(this.displayCharacterLeft);
+    this.validatecharacterLeftHide(this.characterLeftHide);
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
     // Check validity when component is ready
@@ -384,7 +384,7 @@ export class MgInputTextarea {
               if (el !== null) this.input = el;
             }}
           ></textarea>
-          {this.displayCharacterLeft && this.maxlength > 0 && (
+          {!this.characterLeftHide && this.maxlength > 0 && (
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}
         </div>

@@ -20,10 +20,8 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgInputTextareaType): HTMLElement => {
-  const displayCharacterLeft = args.displayCharacterLeft;
-  delete args.displayCharacterLeft;
   // return element
-  return <mg-input-textarea {...filterArgs(args)} display-character-left={displayCharacterLeft ? undefined : 'false'}></mg-input-textarea>;
+  return <mg-input-textarea {...filterArgs(args)}></mg-input-textarea>;
 };
 
 export const MgInputTextarea = {
@@ -51,7 +49,7 @@ export const MgInputTextarea = {
     // Tooltip
     tooltip: 'This is a tooltip',
     // Nb Char Left
-    displayCharacterLeft: true,
+    characterLeftHide: false,
     // Help Text
     helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
   },
