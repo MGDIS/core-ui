@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.11.4
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+- Updated dependencies [eb3b1ab]
+  - @mgdis/eslint-plugin-vue@3.11.4
+
 ## 3.11.3
 
 ### Patch Changes
@@ -96,7 +104,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Features
 
-- **linting:** eslint plugins integration 
+- **linting:** eslint plugins integration
 
 ## 3.3.1
 
@@ -106,15 +114,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- apply translation corrections 
+- apply translation corrections
 
 ## 3.2.0
 
 ### Features
 
-- **linting:** add doc 
-- **linting:** add linting for VueJS 2 
-- **linting:** change linting-prepare filename 
-- **linting:** replace linting-prepare everywhere 
-- **linting:** update import 
-- **linting:** update readme 
+- **linting:** add doc
+- **linting:** add linting for VueJS 2
+- **linting:** change linting-prepare filename
+- **linting:** replace linting-prepare everywhere
+- **linting:** update import
+- **linting:** update readme

@@ -1,5 +1,13 @@
 # eslint-config-stencil
 
+## 1.1.2
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+- Updated dependencies [eb3b1ab]
+  - eslint-config-custom@1.0.2
+
 ## 1.1.1
 
 ### Patch Changes

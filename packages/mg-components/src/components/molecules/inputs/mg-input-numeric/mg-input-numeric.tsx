@@ -106,12 +106,24 @@ export class MgInputNumeric {
   @Prop() readonly = false;
 
   /**
+   * Maximum value
+   */
+  @Prop() max: number;
+
+  /**
+   * Minimum value
+   */
+  @Prop() min: number;
+
+  /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('required')
   @Watch('readonly')
   @Watch('disabled')
+  @Watch('min')
+  @Watch('max')
   handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
     if (this.input !== undefined) {
       this.input[prop] = newValue;
@@ -153,16 +165,6 @@ export class MgInputNumeric {
    * Define currency
    */
   @Prop() currency = 'USD';
-
-  /**
-   * Maximum value
-   */
-  @Prop() max: number;
-
-  /**
-   * Minimum value
-   */
-  @Prop() min: number;
 
   /**
    * Override integer length
