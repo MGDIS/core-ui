@@ -11,8 +11,9 @@ import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { ClassList } from "@mgdis/stencil-helpers";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -33,8 +34,9 @@ export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { ClassList } from "@mgdis/stencil-helpers";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { Width } from "./components/molecules/inputs/MgInput.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -241,6 +243,72 @@ export namespace Components {
           * Define illustration size
          */
         "size": 'regular' | 'small';
+    }
+    interface MgInput {
+        /**
+          * Define aria-describedby ids to link with
+         */
+        "ariaDescribedbyIDs": any;
+        /**
+          * Component classes
+         */
+        "classCollection": ClassList;
+        /**
+          * Define if input is disabled
+         */
+        "disabled": boolean;
+        /**
+          * Define error message to display
+         */
+        "errorMessage": any;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText": string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define if mg-input is a fieldset
+         */
+        "isFieldset": boolean;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide": boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop": boolean;
+        /**
+          * Define input width
+         */
+        "mgWidth": Width;
+        /**
+          * Define if input is readonly
+         */
+        "readonly": boolean;
+        /**
+          * Defines value to display in readonly mode
+         */
+        "readonlyValue": any;
+        /**
+          * Define if input is required
+         */
+        "required": boolean;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip": string;
+        /**
+          * Define values
+         */
+        "value": any;
     }
     interface MgInputCheckbox {
         /**
@@ -1477,6 +1545,12 @@ declare global {
         prototype: HTMLMgIllustratedMessageElement;
         new (): HTMLMgIllustratedMessageElement;
     };
+    interface HTMLMgInputElement extends Components.MgInput, HTMLStencilElement {
+    }
+    var HTMLMgInputElement: {
+        prototype: HTMLMgInputElement;
+        new (): HTMLMgInputElement;
+    };
     interface HTMLMgInputCheckboxElementEventMap {
         "value-change": HTMLMgInputCheckboxElement['value'];
         "input-valid": HTMLMgInputCheckboxElement['valid'];
@@ -1863,6 +1937,7 @@ declare global {
         "mg-form": HTMLMgFormElement;
         "mg-icon": HTMLMgIconElement;
         "mg-illustrated-message": HTMLMgIllustratedMessageElement;
+        "mg-input": HTMLMgInputElement;
         "mg-input-checkbox": HTMLMgInputCheckboxElement;
         "mg-input-checkbox-paginated": HTMLMgInputCheckboxPaginatedElement;
         "mg-input-date": HTMLMgInputDateElement;
@@ -2094,6 +2169,72 @@ declare namespace LocalJSX {
           * Define illustration size
          */
         "size"?: 'regular' | 'small';
+    }
+    interface MgInput {
+        /**
+          * Define aria-describedby ids to link with
+         */
+        "ariaDescribedbyIDs"?: any;
+        /**
+          * Component classes
+         */
+        "classCollection"?: ClassList;
+        /**
+          * Define if input is disabled
+         */
+        "disabled"?: boolean;
+        /**
+          * Define error message to display
+         */
+        "errorMessage"?: any;
+        /**
+          * Add a help text under the input, usually expected data format and example
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define if mg-input is a fieldset
+         */
+        "isFieldset"?: boolean;
+        /**
+          * Input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide"?: boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Define input width
+         */
+        "mgWidth"?: Width;
+        /**
+          * Define if input is readonly
+         */
+        "readonly"?: boolean;
+        /**
+          * Defines value to display in readonly mode
+         */
+        "readonlyValue"?: any;
+        /**
+          * Define if input is required
+         */
+        "required"?: boolean;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define values
+         */
+        "value"?: any;
     }
     interface MgInputCheckbox {
         /**
@@ -3195,6 +3336,7 @@ declare namespace LocalJSX {
         "mg-form": MgForm;
         "mg-icon": MgIcon;
         "mg-illustrated-message": MgIllustratedMessage;
+        "mg-input": MgInput;
         "mg-input-checkbox": MgInputCheckbox;
         "mg-input-checkbox-paginated": MgInputCheckboxPaginated;
         "mg-input-date": MgInputDate;
@@ -3236,6 +3378,7 @@ declare module "@stencil/core" {
             "mg-form": LocalJSX.MgForm & JSXBase.HTMLAttributes<HTMLMgFormElement>;
             "mg-icon": LocalJSX.MgIcon & JSXBase.HTMLAttributes<HTMLMgIconElement>;
             "mg-illustrated-message": LocalJSX.MgIllustratedMessage & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;
+            "mg-input": LocalJSX.MgInput & JSXBase.HTMLAttributes<HTMLMgInputElement>;
             "mg-input-checkbox": LocalJSX.MgInputCheckbox & JSXBase.HTMLAttributes<HTMLMgInputCheckboxElement>;
             /**
              * Internal component use to manage sections instances

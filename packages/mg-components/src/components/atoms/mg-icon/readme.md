@@ -78,16 +78,10 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-action-more](../../molecules/mg-action-more)
  - [mg-button](../mg-button)
  - [mg-details](../../molecules/mg-details)
+ - [mg-input](../../molecules/inputs/mg-input)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
  - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
- - [mg-input-date](../../molecules/inputs/mg-input-date)
- - [mg-input-numeric](../../molecules/inputs/mg-input-numeric)
- - [mg-input-password](../../molecules/inputs/mg-input-password)
- - [mg-input-radio](../../molecules/inputs/mg-input-radio)
- - [mg-input-select](../../molecules/inputs/mg-input-select)
  - [mg-input-text](../../molecules/inputs/mg-input-text)
- - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
- - [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
  - [mg-item-more](../../molecules/mg-item-more)
  - [mg-menu-item](../../molecules/menu/mg-menu-item)
  - [mg-message](../../molecules/mg-message)
@@ -103,16 +97,10 @@ graph TD;
   mg-action-more --> mg-icon
   mg-button --> mg-icon
   mg-details --> mg-icon
+  mg-input --> mg-icon
   mg-input-checkbox --> mg-icon
   mg-input-checkbox-paginated --> mg-icon
-  mg-input-date --> mg-icon
-  mg-input-numeric --> mg-icon
-  mg-input-password --> mg-icon
-  mg-input-radio --> mg-icon
-  mg-input-select --> mg-icon
   mg-input-text --> mg-icon
-  mg-input-textarea --> mg-icon
-  mg-input-toggle --> mg-icon
   mg-item-more --> mg-icon
   mg-menu-item --> mg-icon
   mg-message --> mg-icon

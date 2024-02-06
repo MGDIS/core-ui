@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, Width } from '../mg-input/mg-input.conf';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
@@ -425,7 +424,7 @@ export class MgInputSelect {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
@@ -472,7 +471,7 @@ export class MgInputSelect {
             ),
           )}
         </select>
-      </MgInput>
+      </mg-input>
     );
   }
 }

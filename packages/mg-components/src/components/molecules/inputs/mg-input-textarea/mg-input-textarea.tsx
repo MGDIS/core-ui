@@ -1,6 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, Width } from '../mg-input/mg-input.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 
@@ -341,7 +340,7 @@ export class MgInputTextarea {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
@@ -388,7 +387,7 @@ export class MgInputTextarea {
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}
         </div>
-      </MgInput>
+      </mg-input>
     );
   }
 }

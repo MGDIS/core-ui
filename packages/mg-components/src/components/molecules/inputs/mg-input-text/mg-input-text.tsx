@@ -1,6 +1,5 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, Width } from '../mg-input/mg-input.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { TextType } from './mg-input-text.conf';
@@ -344,7 +343,7 @@ export class MgInputText {
   };
 
   /**
-   * Methode to control datalist display condition
+   * Method to control datalist display condition
    * @returns true if display condition success
    */
   private hasDatalist = (): boolean => isDatalistOption(this.datalistoptions) && this.datalistoptions.length > 0;
@@ -382,7 +381,7 @@ export class MgInputText {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[this.characterLeftId]}
@@ -444,7 +443,7 @@ export class MgInputText {
           )}
         </div>
         <slot name="append-input"></slot>
-      </MgInput>
+      </mg-input>
     );
   }
 }

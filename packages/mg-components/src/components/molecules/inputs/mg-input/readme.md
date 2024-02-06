@@ -1,0 +1,146 @@
+# mg-input
+
+
+## UX
+
+### Label
+
+- The label is located on the left of the input field.
+- The text is to be right aligned.
+- The label can be on one or more lines.
+- The label can be positioned above the input field.
+
+### Input help
+
+The message displayed indicates the format expected by the input field "example: email@provider.com" or "expected format: DD/MM/YYYY (ex: 13/04/2019)"
+
+### Message order
+
+When the messages are displayed under the field the order is as follows:
+
+1. input help
+2. error
+
+### Placeholder
+
+The placeholder should not be used as an input help.  
+♿ RGAA: The placeholder is not considered a valid label under the RGAA so is not subject to a contrast ratio.
+
+### Read only
+
+- The value is no longer editable.
+- The input field no longer has a border or background.
+- The value is displayed in bold.
+- If there is no value entered, nothing is displayed.
+
+### Required field
+
+The asterisk is displayed regardless of the status of the field: input, read-only, disabled.
+
+## Specs
+
+![](./doc/img/mg-input-base.png)
+
+### Placements
+
+The "i" is positioned next to the input field or next to the label when the label is on top.
+
+### Value positioning
+
+By default, the value is left aligned, you can change the CSS variable `--mg-inputs-text-align` to right align.
+
+### Errors
+
+Input field border and error message text are in [@color-danger](./?path=/docs/style-colors--docs).  
+Error message background is a variant of [@color-danger](./?path=/docs/style-colors--docs) : #FEF6F6 or HSL (357,80%,98%).
+
+## Behavior
+
+### Errors
+
+Error is triggered and displayed when we leave the input field.
+
+When we enter in an input field with an error its state is checked everytime the user update its content, when the error is fixed the message disapears.
+
+## CSS Variables
+
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
+
+- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`
+- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`
+- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`
+- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`
+- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`
+- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`
+- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`
+- `--mg-inputs-title-width`: Define input label width, default: `23rem`
+- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`
+- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`
+
+<!-- Auto Generated Below -->
+
+
+## Properties
+
+| Property                  | Attribute               | Description                                                                 | Type                     | Default                         |
+| ------------------------- | ----------------------- | --------------------------------------------------------------------------- | ------------------------ | ------------------------------- |
+| `ariaDescribedbyIDs`      | `aria-describedby-i-ds` | Define aria-describedby ids to link with                                    | `any`                    | `undefined`                     |
+| `classCollection`         | --                      | Component classes                                                           | `ClassList`              | `new ClassList(['mg-c-input'])` |
+| `disabled`                | `disabled`              | Define if input is disabled                                                 | `boolean`                | `false`                         |
+| `errorMessage`            | `error-message`         | Define error message to display                                             | `any`                    | `undefined`                     |
+| `helpText`                | `help-text`             | Add a help text under the input, usually expected data format and example   | `string`                 | `undefined`                     |
+| `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                 | `undefined`                     |
+| `isFieldset`              | `is-fieldset`           | Define if mg-input is a fieldset                                            | `boolean`                | `false`                         |
+| `label` _(required)_      | `label`                 | Input label                                                                 | `string`                 | `undefined`                     |
+| `labelHide`               | `label-hide`            | Define if label is visible                                                  | `boolean`                | `false`                         |
+| `labelOnTop`              | `label-on-top`          | Define if label is displayed on top                                         | `boolean`                | `undefined`                     |
+| `mgWidth`                 | `mg-width`              | Define input width                                                          | `"full" \| 16 \| 2 \| 4` | `'full'`                        |
+| `readonly`                | `readonly`              | Define if input is readonly                                                 | `boolean`                | `false`                         |
+| `readonlyValue`           | `readonly-value`        | Defines value to display in readonly mode                                   | `any`                    | `undefined`                     |
+| `required`                | `required`              | Define if input is required                                                 | `boolean`                | `false`                         |
+| `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                     | `string`                 | `undefined`                     |
+| `value`                   | `value`                 | Define values                                                               | `any`                    | `undefined`                     |
+
+
+## Dependencies
+
+### Used by
+
+ - [mg-input-checkbox](../mg-input-checkbox)
+ - [mg-input-date](../mg-input-date)
+ - [mg-input-numeric](../mg-input-numeric)
+ - [mg-input-password](../mg-input-password)
+ - [mg-input-radio](../mg-input-radio)
+ - [mg-input-select](../mg-input-select)
+ - [mg-input-text](../mg-input-text)
+ - [mg-input-textarea](../mg-input-textarea)
+ - [mg-input-toggle](../mg-input-toggle)
+
+### Depends on
+
+- [mg-tooltip](../../../atoms/mg-tooltip)
+- [mg-icon](../../../atoms/mg-icon)
+- [mg-input-title](../../../atoms/mg-input-title)
+
+### Graph
+```mermaid
+graph TD;
+  mg-input --> mg-tooltip
+  mg-input --> mg-icon
+  mg-input --> mg-input-title
+  mg-tooltip --> mg-tooltip-content
+  mg-input-checkbox --> mg-input
+  mg-input-date --> mg-input
+  mg-input-numeric --> mg-input
+  mg-input-password --> mg-input
+  mg-input-radio --> mg-input
+  mg-input-select --> mg-input
+  mg-input-text --> mg-input
+  mg-input-textarea --> mg-input
+  mg-input-toggle --> mg-input
+  style mg-input fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*

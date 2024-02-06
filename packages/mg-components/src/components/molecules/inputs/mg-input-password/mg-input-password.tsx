@@ -1,6 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, Width } from '../mg-input/mg-input.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 
@@ -262,7 +261,7 @@ export class MgInputPassword {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
@@ -297,7 +296,7 @@ export class MgInputPassword {
             if (el !== null) this.input = el;
           }}
         />
-      </MgInput>
+      </mg-input>
     );
   }
 }

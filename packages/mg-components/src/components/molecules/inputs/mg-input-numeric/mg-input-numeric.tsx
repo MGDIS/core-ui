@@ -1,6 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, Width } from '../mg-input/mg-input.conf';
 import { types, InputError } from './mg-input-numeric.conf';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales/';
@@ -449,7 +448,7 @@ export class MgInputNumeric {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
@@ -486,7 +485,7 @@ export class MgInputNumeric {
           }}
         />
         <slot name="append-input"></slot>
-      </MgInput>
+      </mg-input>
     );
   }
 }

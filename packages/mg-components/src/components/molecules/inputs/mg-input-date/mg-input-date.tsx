@@ -1,9 +1,8 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Handler } from '../MgInput.conf';
+import { Handler } from '../mg-input/mg-input.conf';
 
 @Component({
   tag: 'mg-input-date',
@@ -362,7 +361,7 @@ export class MgInputDate {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
@@ -397,7 +396,7 @@ export class MgInputDate {
             if (el !== null) this.input = el;
           }}
         />
-      </MgInput>
+      </mg-input>
     );
   }
 }

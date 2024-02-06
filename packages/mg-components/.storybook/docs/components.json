@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-01-31T08:28:49",
+  "timestamp": "2024-02-06T10:27:31",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.11.0",
+    "version": "4.12.1",
     "typescriptVersion": "5.3.3"
   },
   "components": [
@@ -1514,16 +1514,10 @@
         "mg-action-more",
         "mg-button",
         "mg-details",
+        "mg-input",
         "mg-input-checkbox",
         "mg-input-checkbox-paginated",
-        "mg-input-date",
-        "mg-input-numeric",
-        "mg-input-password",
-        "mg-input-radio",
-        "mg-input-select",
         "mg-input-text",
-        "mg-input-textarea",
-        "mg-input-toggle",
         "mg-item-more",
         "mg-menu-item",
         "mg-message",
@@ -1544,34 +1538,16 @@
         "mg-details": [
           "mg-icon"
         ],
+        "mg-input": [
+          "mg-icon"
+        ],
         "mg-input-checkbox": [
           "mg-icon"
         ],
         "mg-input-checkbox-paginated": [
           "mg-icon"
         ],
-        "mg-input-date": [
-          "mg-icon"
-        ],
-        "mg-input-numeric": [
-          "mg-icon"
-        ],
-        "mg-input-password": [
-          "mg-icon"
-        ],
-        "mg-input-radio": [
-          "mg-icon"
-        ],
-        "mg-input-select": [
-          "mg-icon"
-        ],
         "mg-input-text": [
-          "mg-icon"
-        ],
-        "mg-input-textarea": [
-          "mg-icon"
-        ],
-        "mg-input-toggle": [
           "mg-icon"
         ],
         "mg-item-more": [
@@ -1673,6 +1649,443 @@
       "dependents": [],
       "dependencies": [],
       "dependencyGraph": {}
+    },
+    {
+      "filePath": "src/components/molecules/inputs/mg-input/mg-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-input",
+      "readme": "# mg-input\n\n\n## UX\n\n### Label\n\n- The label is located on the left of the input field.\n- The text is to be right aligned.\n- The label can be on one or more lines.\n- The label can be positioned above the input field.\n\n### Input help\n\nThe message displayed indicates the format expected by the input field \"example: email@provider.com\" or \"expected format: DD/MM/YYYY (ex: 13/04/2019)\"\n\n### Message order\n\nWhen the messages are displayed under the field the order is as follows:\n\n1. input help\n2. error\n\n### Placeholder\n\nThe placeholder should not be used as an input help.  \n♿ RGAA: The placeholder is not considered a valid label under the RGAA so is not subject to a contrast ratio.\n\n### Read only\n\n- The value is no longer editable.\n- The input field no longer has a border or background.\n- The value is displayed in bold.\n- If there is no value entered, nothing is displayed.\n\n### Required field\n\nThe asterisk is displayed regardless of the status of the field: input, read-only, disabled.\n\n## Specs\n\n![](./doc/img/mg-input-base.png)\n\n### Placements\n\nThe \"i\" is positioned next to the input field or next to the label when the label is on top.\n\n### Value positioning\n\nBy default, the value is left aligned, you can change the CSS variable `--mg-inputs-text-align` to right align.\n\n### Errors\n\nInput field border and error message text are in [@color-danger](./?path=/docs/style-colors--docs).  \nError message background is a variant of [@color-danger](./?path=/docs/style-colors--docs) : #FEF6F6 or HSL (357,80%,98%).\n\n## Behavior\n\n### Errors\n\nError is triggered and displayed when we leave the input field.\n\nWhen we enter in an input field with an error its state is checked everytime the user update its content, when the error is fixed the message disapears.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`\n- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`\n- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`\n- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`\n- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`\n- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`\n- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`\n- `--mg-inputs-title-width`: Define input label width, default: `23rem`\n- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`\n- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "ariaDescribedbyIDs",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "aria-describedby-i-ds",
+          "reflectToAttr": false,
+          "docs": "Define aria-describedby ids to link with",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "classCollection",
+          "type": "ClassList",
+          "complexType": {
+            "original": "ClassList",
+            "resolved": "ClassList",
+            "references": {
+              "ClassList": {
+                "location": "import",
+                "path": "@mgdis/stencil-helpers",
+                "id": "../stencil-helpers/dist/index.d.ts::ClassList"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Component classes",
+          "docsTags": [],
+          "default": "new ClassList(['mg-c-input'])",
+          "values": [
+            {
+              "type": "ClassList"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "disabled",
+          "reflectToAttr": false,
+          "docs": "Define if input is disabled",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "errorMessage",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-message",
+          "reflectToAttr": false,
+          "docs": "Define error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "helpText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "help-text",
+          "reflectToAttr": false,
+          "docs": "Add a help text under the input, usually expected data format and example",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "isFieldset",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "is-fieldset",
+          "reflectToAttr": false,
+          "docs": "Define if mg-input is a fieldset",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Input label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "labelHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label-hide",
+          "reflectToAttr": false,
+          "docs": "Define if label is visible",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "labelOnTop",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label-on-top",
+          "reflectToAttr": false,
+          "docs": "Define if label is displayed on top",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "mgWidth",
+          "type": "\"full\" | 16 | 2 | 4",
+          "complexType": {
+            "original": "Width",
+            "resolved": "\"full\" | 16 | 2 | 4",
+            "references": {
+              "Width": {
+                "location": "import",
+                "path": "./mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "mg-width",
+          "reflectToAttr": false,
+          "docs": "Define input width",
+          "docsTags": [],
+          "default": "'full'",
+          "values": [
+            {
+              "value": "full",
+              "type": "string"
+            },
+            {
+              "value": "16",
+              "type": "number"
+            },
+            {
+              "value": "2",
+              "type": "number"
+            },
+            {
+              "value": "4",
+              "type": "number"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly",
+          "reflectToAttr": false,
+          "docs": "Define if input is readonly",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "readonlyValue",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly-value",
+          "reflectToAttr": false,
+          "docs": "Defines value to display in readonly mode",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "Define if input is required",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tooltip",
+          "reflectToAttr": false,
+          "docs": "Add a tooltip message next to the input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "value",
+          "reflectToAttr": false,
+          "docs": "Define values",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "mg-input-checkbox",
+        "mg-input-date",
+        "mg-input-numeric",
+        "mg-input-password",
+        "mg-input-radio",
+        "mg-input-select",
+        "mg-input-text",
+        "mg-input-textarea",
+        "mg-input-toggle"
+      ],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
+      "dependencyGraph": {
+        "mg-input": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
+        "mg-input-checkbox": [
+          "mg-input"
+        ],
+        "mg-input-date": [
+          "mg-input"
+        ],
+        "mg-input-numeric": [
+          "mg-input"
+        ],
+        "mg-input-password": [
+          "mg-input"
+        ],
+        "mg-input-radio": [
+          "mg-input"
+        ],
+        "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input-text": [
+          "mg-input"
+        ],
+        "mg-input-textarea": [
+          "mg-input"
+        ],
+        "mg-input-toggle": [
+          "mg-input"
+        ]
+      }
     },
     {
       "filePath": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
@@ -2174,8 +2587,7 @@
         "mg-button",
         "mg-icon",
         "mg-input-text",
-        "mg-tooltip",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-checkbox": [
@@ -2184,8 +2596,7 @@
           "mg-button",
           "mg-icon",
           "mg-input-text",
-          "mg-tooltip",
-          "mg-input-title"
+          "mg-input"
         ],
         "mg-input-checkbox-paginated": [
           "mg-button",
@@ -2205,6 +2616,9 @@
           "mg-input-select"
         ],
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -2218,10 +2632,9 @@
           "mg-icon"
         ],
         "mg-input-text": [
+          "mg-input",
           "mg-icon",
-          "mg-character-left",
-          "mg-tooltip",
-          "mg-input-title"
+          "mg-character-left"
         ]
       }
     },
@@ -2477,6 +2890,9 @@
           "mg-input-select"
         ],
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -2943,12 +3359,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-date": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -3212,8 +3629,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -3559,12 +3976,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-numeric": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -3741,8 +4159,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -4051,12 +4469,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-password": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -4533,12 +4952,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-radio": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -4744,8 +5164,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -5099,12 +5519,13 @@
         "mg-pagination"
       ],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -5369,8 +5790,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -5779,16 +6200,19 @@
         "mg-panel"
       ],
       "dependencies": [
+        "mg-input",
         "mg-icon",
-        "mg-character-left",
-        "mg-tooltip",
-        "mg-input-title"
+        "mg-character-left"
       ],
       "dependencyGraph": {
         "mg-input-text": [
+          "mg-input",
           "mg-icon",
-          "mg-character-left",
+          "mg-character-left"
+        ],
+        "mg-input": [
           "mg-tooltip",
+          "mg-icon",
           "mg-input-title"
         ],
         "mg-tooltip": [
@@ -6013,8 +6437,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -6422,14 +6846,15 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-character-left",
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input",
+        "mg-character-left"
       ],
       "dependencyGraph": {
         "mg-input-textarea": [
-          "mg-character-left",
+          "mg-input",
+          "mg-character-left"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -6541,43 +6966,11 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "mg-input-checkbox",
-        "mg-input-date",
-        "mg-input-numeric",
-        "mg-input-password",
-        "mg-input-radio",
-        "mg-input-select",
-        "mg-input-text",
-        "mg-input-textarea",
-        "mg-input-toggle"
+        "mg-input"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-input-title"
-        ],
-        "mg-input-date": [
-          "mg-input-title"
-        ],
-        "mg-input-numeric": [
-          "mg-input-title"
-        ],
-        "mg-input-password": [
-          "mg-input-title"
-        ],
-        "mg-input-radio": [
-          "mg-input-title"
-        ],
-        "mg-input-select": [
-          "mg-input-title"
-        ],
-        "mg-input-text": [
-          "mg-input-title"
-        ],
-        "mg-input-textarea": [
-          "mg-input-title"
-        ],
-        "mg-input-toggle": [
+        "mg-input": [
           "mg-input-title"
         ]
       }
@@ -6975,12 +7368,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-toggle": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -8041,6 +8435,9 @@
           "mg-icon"
         ],
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -8342,9 +8739,13 @@
           "mg-icon"
         ],
         "mg-input-text": [
+          "mg-input",
           "mg-icon",
-          "mg-character-left",
+          "mg-character-left"
+        ],
+        "mg-input": [
           "mg-tooltip",
+          "mg-icon",
           "mg-input-title"
         ],
         "mg-tooltip": [
@@ -9224,16 +9625,8 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "mg-input-checkbox",
-        "mg-input-checkbox-paginated",
-        "mg-input-date",
-        "mg-input-numeric",
-        "mg-input-password",
-        "mg-input-radio",
-        "mg-input-select",
-        "mg-input-text",
-        "mg-input-textarea",
-        "mg-input-toggle"
+        "mg-input",
+        "mg-input-checkbox-paginated"
       ],
       "dependencies": [
         "mg-tooltip-content"
@@ -9242,34 +9635,10 @@
         "mg-tooltip": [
           "mg-tooltip-content"
         ],
-        "mg-input-checkbox": [
+        "mg-input": [
           "mg-tooltip"
         ],
         "mg-input-checkbox-paginated": [
-          "mg-tooltip"
-        ],
-        "mg-input-date": [
-          "mg-tooltip"
-        ],
-        "mg-input-numeric": [
-          "mg-tooltip"
-        ],
-        "mg-input-password": [
-          "mg-tooltip"
-        ],
-        "mg-input-radio": [
-          "mg-tooltip"
-        ],
-        "mg-input-select": [
-          "mg-tooltip"
-        ],
-        "mg-input-text": [
-          "mg-tooltip"
-        ],
-        "mg-input-textarea": [
-          "mg-tooltip"
-        ],
-        "mg-input-toggle": [
           "mg-tooltip"
         ]
       }
@@ -9408,6 +9777,16 @@
       "docstring": "",
       "path": "src/components/atoms/mg-tag/mg-tag.conf.ts"
     },
+    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width": {
+      "declaration": "2 | 4 | 16 | \"full\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
+    },
+    "../stencil-helpers/dist/index.d.ts::ClassList": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "../stencil-helpers/dist/index.d.ts"
+    },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxValue": {
       "declaration": "export interface CheckboxValue {\n  title: string;\n  value: boolean | null;\n  disabled?: boolean;\n  required?: boolean;\n}",
       "docstring": "interface CheckboxValue\nuse to match returned value",
@@ -9427,11 +9806,6 @@
       "declaration": "export enum SectionKind {\n  SELECTED = 'selected',\n  NOT_SELECTED = 'not-selected',\n}",
       "docstring": "mg-input-checkbox-paginated section kind",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
-    },
-    "src/components/molecules/inputs/MgInput.conf.ts::Width": {
-      "declaration": "2 | 4 | 16 | \"full\"",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/MgInput.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts::RadioOption": {
       "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n}",

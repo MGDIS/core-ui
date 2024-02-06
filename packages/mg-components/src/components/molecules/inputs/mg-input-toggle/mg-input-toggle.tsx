@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
 
@@ -297,7 +296,7 @@ export class MgInputToggle {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
@@ -332,7 +331,7 @@ export class MgInputToggle {
             <slot name="item-2"></slot>
           </span>
         </button>
-      </MgInput>
+      </mg-input>
     );
   }
 }
