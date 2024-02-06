@@ -110,3 +110,7 @@ No more `variables.scss` export, only `variables.css`.
   <mg-message hidden>Non</mg-message>
   <mg-modal modal-title="Modal title" hidden><p slot="content">non</p></mg-modal>
   ```
+
+### Internal components
+
+- `mg-input-title` and `mg-character-left` components are now considered internal and should not be used outside of `mg-components`. Dedicated stories for these components have been removed.

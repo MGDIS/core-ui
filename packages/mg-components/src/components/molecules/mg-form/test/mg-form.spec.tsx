@@ -14,7 +14,7 @@ import { MgInputTextarea } from '../../inputs/mg-input-textarea/mg-input-textare
 import { MgInputToggle } from '../../inputs/mg-input-toggle/mg-input-toggle';
 import { HTMLMgInputsElement } from '../../inputs/MgInput.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '@mgdis/stencil-helpers';
-import { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title';
+import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 import { requiredMessageStatus, roles } from '../mg-form.conf';
 
 const getPage = async (args, content?) => {

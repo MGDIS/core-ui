@@ -18,8 +18,8 @@ This component display the number of characters left beside the max value length
 
 ### Used by
 
- - [mg-input-text](../../molecules/inputs/mg-input-text)
- - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
+ - [mg-input-text](../../../molecules/inputs/mg-input-text)
+ - [mg-input-textarea](../../../molecules/inputs/mg-input-textarea)
 
 ### Graph
 ```mermaid

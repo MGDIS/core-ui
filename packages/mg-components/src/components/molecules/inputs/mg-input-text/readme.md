@@ -129,9 +129,9 @@ Type: `Promise<void>`
 ### Depends on
 
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-character-left](../../../atoms/mg-character-left)
+- [mg-character-left](../../../atoms/internals/mg-character-left)
 - [mg-tooltip](../../../atoms/mg-tooltip)
-- [mg-input-title](../../../atoms/mg-input-title)
+- [mg-input-title](../../../atoms/internals/mg-input-title)
 
 ### Graph
 ```mermaid

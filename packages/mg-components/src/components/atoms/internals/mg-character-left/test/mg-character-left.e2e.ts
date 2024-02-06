@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
-import { test } from '../../../../utils/playwright.fixture';
+import { test } from '../../../../../utils/playwright.fixture';
 
 test.describe('mg-character-left', () => {
   [

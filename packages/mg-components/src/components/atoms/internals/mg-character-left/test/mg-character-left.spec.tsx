@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgCharacterLeft } from '../mg-character-left';
-import messages from '../../../../locales/en/messages.json';
+import messages from '../../../../../locales/en/messages.json';
 
 const getPage = args =>
   newSpecPage({

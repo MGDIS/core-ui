@@ -1,9 +1,9 @@
 import { Component, Element, h, Prop, Watch } from '@stencil/core';
-import { initLocales } from '../../../locales';
+import { initLocales } from '../../../../locales';
 
 @Component({
   tag: 'mg-character-left',
-  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-character-left.css',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-character-left.css',
   scoped: true,
 })
 export class MgCharacterLeft {
