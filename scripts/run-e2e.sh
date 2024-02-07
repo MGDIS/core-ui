@@ -47,6 +47,7 @@ prepare_package "packages/mg-components/package.json" '{
     "test:e2e": .scripts."test:e2e:docker"
   }, 
   "dependencies": { 
+    "@mgdis/stencil-helpers": .dependencies."@mgdis/stencil-helpers",
     "@stencil/core": .dependencies."@stencil/core",
     "@popperjs/core": .dependencies."@popperjs/core"
   },
@@ -89,6 +90,13 @@ prepare_package "apps/notification-center/package.json" '{
 
 # Prepare packages/playwright-helpers/package.json
 prepare_package "packages/playwright-helpers/package.json" '{
+  name, 
+  main,
+  types
+}'
+
+# Prepare packages/stencil-helpers/package.json
+prepare_package "packages/stencil-helpers/package.json" '{
   name, 
   main,
   types
