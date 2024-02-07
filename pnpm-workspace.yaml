@@ -1,6 +1,6 @@
 packages:
-  # all configs in subdirs of configs/
-  - 'configs/**'
+  # all configs in direct subdirs of configs/
+  - 'configs/*'
   # all packages in direct subdirs of packages/
   - 'packages/*'
   # all apps in direct subdirs of apps/
@@ -9,3 +9,4 @@ packages:
   - 'tools/*'
   # exclude packages that are inside test directories
   - '!**/test/**'
+save-prefix: ''
