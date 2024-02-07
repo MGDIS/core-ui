@@ -101,12 +101,12 @@ const inputsScriptDisabledAll = `<script>
   mgInputToggle.disabled = true;
 </script>`;
 
-describe('mg-form', () => {
+describe.only('mg-form', () => {
   test.beforeEach(async ({ page }) => {
     page.setViewportSize({ width: 800, height: 800 });
   });
 
-  describeEach([`<mg-form>`, `<mg-form disabled>`, `<mg-form readonly>`])('startTag %s', (startTag: string) => {
+  describeEach(['<mg-form>', '<mg-form disabled>', '<mg-form readonly>', '<mg-form label-on-top>'])('startTag %s', (startTag: string) => {
     test(`Should render`, async ({ page }) => {
       await setPageContent(
         page,

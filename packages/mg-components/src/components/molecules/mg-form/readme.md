@@ -27,10 +27,16 @@ The "\*" is in [@color-danger](./?path=/docs/style-colors--docs)
 
 ### Inputs
 
-Form adds a 15px margin to the bottom of inputs.  
-The gap between the label and the input zone is rising to 30px.
+The `mg-form` component applies a 15px margin to the bottom of the slotted `mg-input-*` elements.
+The space between the label and the input area is increased to 30px.
 
 ![](./doc/img/mg-form-spacing-inputs.png)
+
+#### Label on top
+
+When the `label-on-top` prop is used, the vertical spacing is increased to 25px.
+
+![](./doc/img/mg-form-spacing-inputs-label-on-top.png)
 
 ## Behavior
 
@@ -127,6 +133,7 @@ The "Display errors" button use the `mg-form` `displayError()` method.
 | `disabled`        | `disabled`         | Define if form is disabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `boolean`                                        | `false`               |
 | `identifier`      | `identifier`       | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `string`                                         | `createID('mg-form')` |
 | `invalid`         | `invalid`          | Define form invalid state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `boolean`                                        | `undefined`           |
+| `labelOnTop`      | `label-on-top`     | Define if slotted mg-component's label are displayed on top                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `boolean`                                        | `undefined`           |
 | `name`            | `name`             | Input name If not set the value equals the identifier                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `string`                                         | `this.identifier`     |
 | `readonly`        | `readonly`         | Define if form is readonly                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `boolean`                                        | `false`               |
 | `requiredMessage` | `required-message` | Define when required message is display. When it is unset, component use it internal logic to manage "required message" help text display. When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs. | `"default" \| "hide"`                            | `undefined`           |
