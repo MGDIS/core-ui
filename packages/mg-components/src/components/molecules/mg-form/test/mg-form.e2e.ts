@@ -101,7 +101,7 @@ const inputsScriptDisabledAll = `<script>
   mgInputToggle.disabled = true;
 </script>`;
 
-describe.only('mg-form', () => {
+describe('mg-form', () => {
   test.beforeEach(async ({ page }) => {
     page.setViewportSize({ width: 800, height: 800 });
   });
