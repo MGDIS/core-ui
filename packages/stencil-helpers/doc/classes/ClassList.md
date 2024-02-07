@@ -29,9 +29,9 @@ Class to manage component classlist
 
 #### Parameters
 
-| Name        | Type       | Default value |
-| :---------- | :--------- | :------------ |
-| `classlist` | `string`[] | `[]`          |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `classlist` | `string`[] | `[]` |
 
 #### Returns
 
@@ -63,8 +63,8 @@ Add class
 
 #### Parameters
 
-| Name        | Type     | Description       |
-| :---------- | :------- | :---------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `className` | `string` | class name to add |
 
 #### Returns
@@ -75,7 +75,7 @@ Add class
 
 packages/stencil-helpers/src/components/index.ts:37
 
----
+___
 
 ### delete
 
@@ -85,8 +85,8 @@ Delete class
 
 #### Parameters
 
-| Name        | Type     | Description          |
-| :---------- | :------- | :------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `className` | `string` | class name to delete |
 
 #### Returns
@@ -97,7 +97,7 @@ Delete class
 
 packages/stencil-helpers/src/components/index.ts:47
 
----
+___
 
 ### has
 
@@ -107,8 +107,8 @@ Check if class exist in list
 
 #### Parameters
 
-| Name        | Type     | Description         |
-| :---------- | :------- | :------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `className` | `string` | class name to check |
 
 #### Returns
@@ -121,7 +121,7 @@ class name is in the list
 
 packages/stencil-helpers/src/components/index.ts:59
 
----
+___
 
 ### join
 
