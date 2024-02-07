@@ -17,7 +17,7 @@
   ],
   "scripts": {
     "postinstall": "manypkg check",
-    "prepare": "husky install",
+    "prepare": "husky",
     "test": "pnpm test:unit && pnpm test:e2e",
     "test:unit": "turbo test:unit",
     "test:e2e": "turbo test:e2e --force --concurrency=1",
@@ -55,7 +55,7 @@
     "@manypkg/cli": "0.21.2",
     "codename": "0.0.6",
     "eslint-config-custom": "workspace:*",
-    "husky": "8.0.3",
+    "husky": "9.0.10",
     "lint-staged": "15.2.2",
     "prettier-config": "workspace:*",
     "turbo": "1.12.3"
