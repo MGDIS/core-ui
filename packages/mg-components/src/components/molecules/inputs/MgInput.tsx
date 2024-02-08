@@ -50,6 +50,25 @@ const manageClasses = (props: MgInputProps): void => {
 };
 
 /**
+ * Check props configuration
+ * @param props - MgInput Interface Props
+ */
+const checkPropsConfig = (props: MgInputProps): void => {
+  if (!isValidString(props.identifier)) {
+    throw new Error('<mg-input> prop "identifier" is required.');
+  }
+  if (!isValidString(props.label)) {
+    throw new Error('<mg-input> prop "label" is required.');
+  }
+  if (props.labelOnTop && props.labelHide) {
+    throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+  }
+  if (!tooltipPositions.includes(props.tooltipPosition)) {
+    throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
+  }
+};
+
+/**
  * Get tagname
  * @param isFieldset - is fieldset
  * @returns tag name
@@ -95,20 +114,9 @@ interface MgInputProps {
  */
 export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, children: VNode[], utils: FunctionalUtilities): VNode[] => {
   /**
-   * Check required properties
+   * Check props config
    */
-  if (!isValidString(props.identifier)) {
-    throw new Error('<mg-input> prop "identifier" is required.');
-  }
-  if (!isValidString(props.label)) {
-    throw new Error('<mg-input> prop "label" is required.');
-  }
-  if (props.labelOnTop && props.labelHide) {
-    throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
-  }
-  if (!tooltipPositions.includes(props.tooltipPosition)) {
-    throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
-  }
+  checkPropsConfig(props);
 
   /**
    * Set readonly value
