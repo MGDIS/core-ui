@@ -1043,6 +1043,16 @@ export namespace Components {
          */
         "slotlabel": SlotLabelType;
     }
+    interface MgLoader {
+        /**
+          * Override loader message
+         */
+        "message": string;
+        /**
+          * Hide message
+         */
+        "messageHide": boolean;
+    }
     interface MgMenu {
         /**
           * Component display direction.
@@ -1671,6 +1681,12 @@ declare global {
         prototype: HTMLMgItemMoreElement;
         new (): HTMLMgItemMoreElement;
     };
+    interface HTMLMgLoaderElement extends Components.MgLoader, HTMLStencilElement {
+    }
+    var HTMLMgLoaderElement: {
+        prototype: HTMLMgLoaderElement;
+        new (): HTMLMgLoaderElement;
+    };
     interface HTMLMgMenuElement extends Components.MgMenu, HTMLStencilElement {
     }
     var HTMLMgMenuElement: {
@@ -1875,6 +1891,7 @@ declare global {
         "mg-input-title": HTMLMgInputTitleElement;
         "mg-input-toggle": HTMLMgInputToggleElement;
         "mg-item-more": HTMLMgItemMoreElement;
+        "mg-loader": HTMLMgLoaderElement;
         "mg-menu": HTMLMgMenuElement;
         "mg-menu-item": HTMLMgMenuItemElement;
         "mg-message": HTMLMgMessageElement;
@@ -2882,6 +2899,16 @@ declare namespace LocalJSX {
          */
         "slotlabel"?: SlotLabelType;
     }
+    interface MgLoader {
+        /**
+          * Override loader message
+         */
+        "message"?: string;
+        /**
+          * Hide message
+         */
+        "messageHide"?: boolean;
+    }
     interface MgMenu {
         /**
           * Component display direction.
@@ -3207,6 +3234,7 @@ declare namespace LocalJSX {
         "mg-input-title": MgInputTitle;
         "mg-input-toggle": MgInputToggle;
         "mg-item-more": MgItemMore;
+        "mg-loader": MgLoader;
         "mg-menu": MgMenu;
         "mg-menu-item": MgMenuItem;
         "mg-message": MgMessage;
@@ -3251,6 +3279,7 @@ declare module "@stencil/core" {
             "mg-input-title": LocalJSX.MgInputTitle & JSXBase.HTMLAttributes<HTMLMgInputTitleElement>;
             "mg-input-toggle": LocalJSX.MgInputToggle & JSXBase.HTMLAttributes<HTMLMgInputToggleElement>;
             "mg-item-more": LocalJSX.MgItemMore & JSXBase.HTMLAttributes<HTMLMgItemMoreElement>;
+            "mg-loader": LocalJSX.MgLoader & JSXBase.HTMLAttributes<HTMLMgLoaderElement>;
             "mg-menu": LocalJSX.MgMenu & JSXBase.HTMLAttributes<HTMLMgMenuElement>;
             "mg-menu-item": LocalJSX.MgMenuItem & JSXBase.HTMLAttributes<HTMLMgMenuItemElement>;
             "mg-message": LocalJSX.MgMessage & JSXBase.HTMLAttributes<HTMLMgMessageElement>;

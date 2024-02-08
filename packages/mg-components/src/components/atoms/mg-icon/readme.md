@@ -89,6 +89,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-input-textarea](../../molecules/inputs/mg-input-textarea)
  - [mg-input-toggle](../../molecules/inputs/mg-input-toggle)
  - [mg-item-more](../../molecules/mg-item-more)
+ - [mg-loader](../../molecules/mg-loader)
  - [mg-menu-item](../../molecules/menu/mg-menu-item)
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
@@ -114,6 +115,7 @@ graph TD;
   mg-input-textarea --> mg-icon
   mg-input-toggle --> mg-icon
   mg-item-more --> mg-icon
+  mg-loader --> mg-icon
   mg-menu-item --> mg-icon
   mg-message --> mg-icon
   mg-modal --> mg-icon

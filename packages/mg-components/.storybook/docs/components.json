@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-07T08:13:02",
+  "timestamp": "2024-02-08T10:03:43",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.1",
@@ -1525,6 +1525,7 @@
         "mg-input-textarea",
         "mg-input-toggle",
         "mg-item-more",
+        "mg-loader",
         "mg-menu-item",
         "mg-message",
         "mg-modal",
@@ -1575,6 +1576,9 @@
           "mg-icon"
         ],
         "mg-item-more": [
+          "mg-icon"
+        ],
+        "mg-loader": [
           "mg-icon"
         ],
         "mg-menu-item": [
@@ -7122,6 +7126,74 @@
           "mg-icon"
         ],
         "mg-button": [
+          "mg-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/molecules/mg-loader/mg-loader.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-loader",
+      "readme": "## Specifications\n\n![](./doc/img/mg-loader-anatomy.png)\n\n### Anatomy\n\nComponent is built with :\n\n- loader icon\n- loader message\n\n### Style\n\nmessage : Open Sans, 13px, Regular\nAll contents are centered.\n",
+      "docs": "![](./doc/img/mg-loader-anatomy.png)",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "message",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "Override loader message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "messageHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message-hide",
+          "reflectToAttr": false,
+          "docs": "Hide message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "mg-icon"
+      ],
+      "dependencyGraph": {
+        "mg-loader": [
           "mg-icon"
         ]
       }
