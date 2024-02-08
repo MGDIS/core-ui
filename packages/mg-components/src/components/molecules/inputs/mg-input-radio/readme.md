@@ -39,6 +39,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `readonly`                | `readonly`            | Define if input is readonly                                                 | `boolean`                   | `false`           |
 | `required`                | `required`            | Define if input is required                                                 | `boolean`                   | `false`           |
 | `tooltip`                 | `tooltip`             | Add a tooltip message next to the input                                     | `string`                    | `undefined`       |
+| `tooltipPosition`         | `tooltip-position`    | Define tooltip position                                                     | `"input" \| "label"`        | `'input'`         |
 | `valid`                   | `valid`               | Define input valid state                                                    | `boolean`                   | `undefined`       |
 | `value`                   | `value`               | Component value                                                             | `any`                       | `undefined`       |
 

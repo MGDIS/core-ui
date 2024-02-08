@@ -446,6 +446,50 @@ exports[`mg-input-select Should render with args {
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+            <option value="">
+              Select a value
+            </option>
+            <option value="blu">
+              blu
+            </option>
+            <option value="bli">
+              bli
+            </option>
+            <option value="blo">
+              blo
+            </option>
+            <option value="bla">
+              bla
+            </option>
+          </select>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  items: [Array],
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
         <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
           <mg-icon icon="info-circle"></mg-icon>
         </mg-tooltip>
@@ -481,11 +525,56 @@ exports[`mg-input-select Should render with args {
   identifier: 'identifier',
   items: [Array],
   tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
   labelOnTop: true
 }: 1`] = `
 <mg-input-select>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+            <option value="">
+              Select a value
+            </option>
+            <option value="blu">
+              blu
+            </option>
+            <option value="bli">
+              bli
+            </option>
+            <option value="blo">
+              blo
+            </option>
+            <option value="bla">
+              bla
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  items: [Array],
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'label'
+}: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--select">
       <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label

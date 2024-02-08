@@ -18,7 +18,9 @@ const getPage = (args, slot?) => {
 
 describe('mg-input-numeric', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   describe.each(types)('type %s', type => {
     test.each([
       { label: 'label', identifier: 'identifier', type },
@@ -33,6 +35,8 @@ describe('mg-input-numeric', () => {
       { label: 'label', identifier: 'identifier', type, required: true, disabled: true, value: '1234567890', helpText: 'My help text' },
       { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message' },
       { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', labelOnTop: true },
+      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
       { label: 'label', identifier: 'identifier', type, value: '1234567890', currency: 'EUR' },
       { label: 'label', identifier: 'identifier', type, value: '1234567890', lang: 'fr' },
       { label: 'label', identifier: 'identifier', type, value: '1234567890', lang: 'xx' },
@@ -89,6 +93,15 @@ describe('mg-input-numeric', () => {
         await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+      }
+    });
+
+    test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
+      } catch (err) {
+        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
       }
     });
 

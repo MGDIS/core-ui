@@ -40,6 +40,11 @@ test.describe('mg-input-date', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.down('Tab');
+      if (!labelOnTop) {
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+      }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -56,9 +61,12 @@ test.describe('mg-input-date', () => {
     { value: '1982-06-02', helpText: 'My help text', required: true },
     { value: '1982-06-02', helpText: 'My help text', required: true, readonly: true },
     { value: '1982-06-02', helpText: 'My help text', required: true, disabled: true },
+    { tooltip: 'Batman is a DC Comics license', tooltipPosition: 'label' },
+    { tooltip: 'Batman is a DC Comics license', tooltipPosition: 'input', labelOnTop: true },
   ].forEach(props => {
     test(`render with template, ${renderAttributes(props)}`, async ({ page }) => {
-      await page.setContent(createHTML({ ...baseProps, ...props }));
+      const html = createHTML({ ...baseProps, ...props });
+      await page.setContent(html);
       await page.locator('mg-input-date.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
