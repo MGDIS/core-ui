@@ -1,4 +1,5 @@
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 
 const TIMEOUT = 1000;
 
@@ -186,11 +187,11 @@ describe('mg-input-radio', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
         await setPageContent(
           page,
-          `<mg-input-radio identifier="identifier" label="label" ${tooltip ? `tooltip=${tooltip}` : ''}></mg-input-radio>
+          `<mg-input-radio identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-radio>
         <script>
         const mgInputRadio = document.querySelector('mg-input-radio');
         mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];

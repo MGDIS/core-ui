@@ -156,9 +156,11 @@ test.describe('mg-input-date', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
-        await page.setContent(createHTML({ ...baseProps, tooltip }));
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const componentArgs = { ...baseProps, ...args };
+        const html = createHTML(componentArgs);
+        await page.setContent(html);
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

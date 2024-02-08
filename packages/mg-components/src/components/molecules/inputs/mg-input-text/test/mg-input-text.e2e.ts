@@ -241,9 +241,9 @@ describe('mg-input-text', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
-        const props = { identifier: 'identifier', label: 'label', tooltip };
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const props = { identifier: 'identifier', label: 'label', ...args };
         await setPageContent(page, creatHtml(props));
 
         // Initial state
