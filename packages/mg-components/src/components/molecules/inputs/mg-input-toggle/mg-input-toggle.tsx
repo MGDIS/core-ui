@@ -22,11 +22,11 @@ export class MgInputToggle {
    ************/
 
   // Classes
-  private classReadonly = 'mg-c-input--toggle-readonly';
-  private classDisabled = 'mg-c-input--toggle-disabled';
-  private classIsActive = 'mg-c-input--toggle-is-active';
-  private classOnOff = 'mg-c-input--toggle-on-off';
-  private classIcon = 'mg-c-input--toggle-icon';
+  private readonly classReadonly = 'mg-c-input--toggle-readonly';
+  private readonly classDisabled = 'mg-c-input--toggle-disabled';
+  private readonly classIsActive = 'mg-c-input--toggle-is-active';
+  private readonly classOnOff = 'mg-c-input--toggle-on-off';
+  private readonly classIcon = 'mg-c-input--toggle-icon';
 
   /**************
    * Decorators *

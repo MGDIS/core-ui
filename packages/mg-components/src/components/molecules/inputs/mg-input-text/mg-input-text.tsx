@@ -17,9 +17,9 @@ export class MgInputText {
    ************/
 
   // Classes
-  private classFocus = 'mg-u-is-focused';
-  private classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
-  private classHasIcon = 'mg-c-input--has-icon';
+  private readonly classFocus = 'mg-u-is-focused';
+  private readonly classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
+  private readonly classHasIcon = 'mg-c-input--has-icon';
 
   // IDs
   private characterLeftId;

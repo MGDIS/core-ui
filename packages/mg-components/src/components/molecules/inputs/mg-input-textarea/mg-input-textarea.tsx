@@ -14,8 +14,8 @@ export class MgInputTextarea {
    ************/
 
   // Classes
-  private classFocus = 'mg-u-is-focused';
-  private classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
+  private readonly classFocus = 'mg-u-is-focused';
+  private readonly classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
 
   // IDs
   private characterLeftId;
