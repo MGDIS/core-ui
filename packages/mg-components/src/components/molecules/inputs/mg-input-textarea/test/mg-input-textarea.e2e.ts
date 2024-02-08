@@ -44,7 +44,6 @@ describe('mg-input-textarea', () => {
 
     await page.keyboard.down('Tab');
     if (!labelOnTop) {
-      // when label on top tooltip is on fist tab (next to label)
       await page.keyboard.down('Tab');
     }
 
@@ -63,6 +62,8 @@ describe('mg-input-textarea', () => {
     `<mg-input-textarea identifier="identifier" label="label" value="blu" help-text="HelpText Message" required></mg-input-textarea>`,
     `<mg-input-textarea identifier="identifier" label="label" value="blu" help-text="HelpText Message" required readonly></mg-input-textarea>`,
     `<mg-input-textarea identifier="identifier" label="label" value="blu" help-text="HelpText Message" required disabled></mg-input-textarea>`,
+    `<mg-input-textarea identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="label"></mg-input-textarea>`,
+    `<mg-input-textarea identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="input" label-on-top></mg-input-textarea>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(page, html);
