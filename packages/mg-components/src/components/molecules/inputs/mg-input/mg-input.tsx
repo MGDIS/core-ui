@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Watch } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
 import { widths, Width, MgInputProps } from './mg-input.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 
@@ -15,6 +15,9 @@ export class MgInput implements MgInputProps {
   // HTML selector
   private helpTextId: string;
   private helpTextErrorId: string;
+
+  // style
+  private readonly classHasError = 'mg-c-input--has-error';
 
   /**************
    * Decorators *
@@ -86,6 +89,11 @@ export class MgInput implements MgInputProps {
    * Define error message to display
    */
   @Prop() errorMessage;
+  @Watch('errorMessage')
+  validateErrorMessage(newValue: MgInput['errorMessage']): void {
+    if (newValue) this.classCollection.add(this.classHasError);
+    else this.classCollection.delete(this.classHasError);
+  }
 
   /**
    * Define aria-describedby ids to link with
@@ -109,8 +117,9 @@ export class MgInput implements MgInputProps {
   validateReadonly(newValue: MgInput['readonly']): void {
     if (newValue) {
       this.classCollection.add('mg-c-input--readonly');
-      Array.from(this.element.children).forEach(child => {
-        if (child instanceof HTMLElement && Object.values(child).includes('append-input')) child.setAttribute('hidden', 'true');
+
+      Array.from(this.element.querySelectorAll('*')).forEach(child => {
+        child.setAttribute('hidden', 'true');
       });
     } else {
       this.classCollection.delete('mg-c-input--readonly');
@@ -210,6 +219,7 @@ export class MgInput implements MgInputProps {
     this.validateMgWidth(this.mgWidth);
     this.validateAriaDescribedbyIDs(this.ariaDescribedbyIDs);
     this.validateClassCollection(this.classCollection);
+    this.validateErrorMessage(this.errorMessage);
   }
 
   /**
@@ -237,28 +247,30 @@ export class MgInput implements MgInputProps {
     const TagName = !this.isFieldset || this.readonly ? 'div' : 'fieldset';
 
     return (
-      <TagName class={this.classCollection.join()}>
-        <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
-          <mg-input-title identifier={this.identifier} readonly={this.readonly} required={this.required && !this.disabled && !this.readonly} is-legend={this.isFieldset}>
-            {this.label}
-          </mg-input-title>
-          {!this.labelHide && this.renderTooltip()}
-        </div>
-        <div class="mg-c-input__input-container">
-          {this.readonly
-            ? [<strong>{this.readonlyValue}</strong>, <slot></slot>]
-            : [
-                <div class={{ 'mg-c-input__input': true, 'mg-c-input__input--has-error': this.errorMessage !== undefined }}>
-                  <slot></slot>
-                  {this.labelHide && this.renderTooltip()}
-                </div>,
-                this.helpText && <div id={this.helpTextId} class="mg-c-input__help-text" innerHTML={this.helpText}></div>,
-                this.errorMessage && !this.readonly && !this.disabled && (
-                  <div id={this.helpTextErrorId} class="mg-c-input__error" innerHTML={this.errorMessage} aria-live="assertive"></div>
-                ),
-              ]}
-        </div>
-      </TagName>
+      <Host class={this.classCollection.join()}>
+        <TagName class="mg-c-input__container">
+          <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
+            <mg-input-title identifier={this.identifier} readonly={this.readonly} required={this.required && !this.disabled && !this.readonly} is-legend={this.isFieldset}>
+              {this.label}
+            </mg-input-title>
+            {!this.labelHide && this.renderTooltip()}
+          </div>
+          <div class="mg-c-input__input-container">
+            {this.readonly
+              ? [<strong>{this.readonlyValue}</strong>, <slot></slot>]
+              : [
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                    {this.labelHide && this.renderTooltip()}
+                  </div>,
+                  this.helpText && <div id={this.helpTextId} class="mg-c-input__help-text" innerHTML={this.helpText}></div>,
+                  this.errorMessage && !this.readonly && !this.disabled && (
+                    <div id={this.helpTextErrorId} class="mg-c-input__error" innerHTML={this.errorMessage} aria-live="assertive"></div>
+                  ),
+                ]}
+          </div>
+        </TagName>
+      </Host>
     );
   }
 }

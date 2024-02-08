@@ -4,7 +4,7 @@
 $mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
 
 :host {
-  display: block;
+  display: flex;
 }
 
 mg-icon {
@@ -14,12 +14,39 @@ mg-icon {
   }
 }
 
+/* Label-on-top */
+@mixin label-on-top-styles {
+  flex-direction: column;
+
+  .mg-c-input__title {
+    flex: 0;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0.3rem;
+    text-align: left;
+
+    mg-input-title {
+      flex-shrink: 1;
+    }
+  }
+}
+
 .mg-c-input {
   display: flex;
   max-width: 100%;
   min-height: var(--default-size);
   align-items: flex-start;
   margin-bottom: var(--mg-inputs-margin-bottom, 0);
+
+  &.mg-c-input--has-error .mg-c-input__box {
+    border-color: hsl(var(--color-danger));
+  }
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   &__error {
     display: inline-block;
@@ -61,12 +88,6 @@ mg-icon {
       margin-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
     }
 
-    &.mg-c-input__input--has-error {
-      .mg-c-input__box {
-        border-color: hsl(var(--color-danger));
-      }
-    }
-
     /* Manage space between input and first message */
     & + .mg-c-input__help-text,
     & + .mg-c-input__error {
@@ -102,35 +123,14 @@ mg-icon {
       vertical-align: text-bottom;
     }
   }
+}
 
-  /* Label-on-top */
-  @mixin label-on-top-styles {
-    flex-direction: column;
+:host(.mg-c-input.mg-c-input--label-on-top) {
+  @include label-on-top-styles;
+}
 
-    .mg-c-input__title {
-      width: auto;
-      justify-content: flex-start;
-      margin-top: 0;
-      margin-right: 0;
-      margin-bottom: 0.3rem;
-      text-align: left;
-
-      mg-input-title {
-        width: 100%;
-        flex-shrink: 1;
-      }
-    }
-
-    .mg-c-input__input-container {
-      width: 100%;
-    }
-  }
-
-  &.mg-c-input--label-on-top {
-    @include label-on-top-styles;
-  }
-
-  @media screen and (max-width: ($mg-input-breakpoint - 1px)) {
+@media screen and (max-width: ($mg-input-breakpoint - 1px)) {
+  :host(.mg-c-input) {
     @include label-on-top-styles;
   }
 }
