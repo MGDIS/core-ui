@@ -50,6 +50,9 @@ describe('mg-input-text', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.down('Tab');
+      if (!labelOnTop) {
+        await page.keyboard.down('Tab');
+      }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -65,6 +68,8 @@ describe('mg-input-text', () => {
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, readonly: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, disabled: true },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with template %s', async (page: PageType, args) => {
       await setPageContent(page, creatHtml(args));
 

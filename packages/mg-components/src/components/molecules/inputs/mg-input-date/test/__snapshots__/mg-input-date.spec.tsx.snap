@@ -232,6 +232,43 @@ exports[`mg-input-date Should render with args {
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format:
+          <span aria-hidden="true">
+            mm/dd/yyyy
+          </span>
+          <span class="mg-u-visually-hidden">
+            m m / d d / y y y y
+          </span>
+          (ex: 12/24/2023)
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
         <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
           <mg-icon icon="info-circle"></mg-icon>
         </mg-tooltip>
@@ -260,11 +297,49 @@ exports[`mg-input-date Should render with args {
   label: 'label',
   identifier: 'identifier',
   tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
   labelOnTop: true
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
+        </div>
+        <div class="mg-c-input__help-text" id="identifier-help-text">
+          Expected format:
+          <span aria-hidden="true">
+            mm/dd/yyyy
+          </span>
+          <span class="mg-u-visually-hidden">
+            m m / d d / y y y y
+          </span>
+          (ex: 12/24/2023)
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'label'
+}: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--date">
       <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label

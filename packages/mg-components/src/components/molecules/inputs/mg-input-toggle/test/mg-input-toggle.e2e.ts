@@ -66,6 +66,17 @@ describe('mg-input-toggle', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
+  testEach([{ args: { tooltip: 'blu', tooltipPosition: 'label' } }, { args: { tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true } }])(
+    'Render with %s',
+    async (page: PageType, { args, slots }: { args: PropsType; slots: string }) => {
+      await setPageContent(page, createHTML(args, slots));
+
+      await page.locator('mg-input-toggle.hydrated').waitFor({ timeout: TIMEOUT });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    },
+  );
+
   testEach([undefined, false, true])('Render and toggle value with reverse checked logic %s', async (page: PageType, value) => {
     await setPageContent(
       page,
@@ -91,9 +102,13 @@ describe('mg-input-toggle', () => {
     await setPageContent(page, createHTML({ tooltip: 'Tooltip message', labelOnTop }), { width: 250, height: 65 });
 
     await page.locator('mg-input-toggle.hydrated').waitFor({ timeout: TIMEOUT });
+
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     await page.keyboard.down('Tab');
+    if (!labelOnTop) {
+      await page.keyboard.down('Tab');
+    }
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
