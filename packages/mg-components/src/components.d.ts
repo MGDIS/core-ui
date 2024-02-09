@@ -13,7 +13,7 @@ import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
-import { NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
+import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -36,7 +36,7 @@ export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
-export { NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
+export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -454,6 +454,10 @@ export namespace Components {
           * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
+        /**
+          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+         */
+        "format": Format;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -2339,6 +2343,10 @@ declare namespace LocalJSX {
           * Define if input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+         */
+        "format"?: Format;
         /**
           * Add a help text under the input, usually expected data format and example
          */

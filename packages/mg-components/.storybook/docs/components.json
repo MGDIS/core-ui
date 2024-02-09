@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-09T10:07:05",
+  "timestamp": "2024-02-09T13:35:45",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.1",
@@ -3094,6 +3094,43 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "\"currency\" | \"none\" | \"number\"",
+          "complexType": {
+            "original": "Format",
+            "resolved": "\"currency\" | \"none\" | \"number\"",
+            "references": {
+              "Format": {
+                "location": "import",
+                "path": "./mg-input-numeric.conf",
+                "id": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::Format"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "format",
+          "reflectToAttr": false,
+          "docs": "Set local formatting.\nNumbers are formatted based on the locale.\nWhen type is set to `currency`, formatting has no effect.",
+          "docsTags": [],
+          "default": "'number'",
+          "values": [
+            {
+              "value": "currency",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "number",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -9752,6 +9789,11 @@
     },
     "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::NumericType": {
       "declaration": "\"decimal\" | \"integer\" | \"currency\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::Format": {
+      "declaration": "\"number\" | \"none\" | \"currency\"",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts"
     },
