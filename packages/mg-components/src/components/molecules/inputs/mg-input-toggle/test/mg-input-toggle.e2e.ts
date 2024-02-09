@@ -99,7 +99,7 @@ describe('mg-input-toggle', () => {
   });
 
   testEach([true, false])('render with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(page, createHTML({ tooltip: 'Tooltip message', labelOnTop }), { width: 250, height: 65 });
+    await setPageContent(page, createHTML({ tooltip: 'Tooltip message', labelOnTop }));
 
     await page.locator('mg-input-toggle.hydrated').waitFor({ timeout: TIMEOUT });
 
@@ -150,5 +150,22 @@ describe('mg-input-toggle', () => {
 
     page.locator('.mg-c-input__input--has-error');
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const props = { identifier: 'identifier', label: 'label', ...args };
+        await setPageContent(page, createHTML(props));
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
   });
 });

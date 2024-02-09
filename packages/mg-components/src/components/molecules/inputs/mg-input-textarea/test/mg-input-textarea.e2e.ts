@@ -1,4 +1,5 @@
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 
 const TIMEOUT = 1000;
 
@@ -142,5 +143,21 @@ describe('mg-input-textarea', () => {
     await page.setViewportSize({ width: 200, height: 100 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        await setPageContent(page, `<mg-input-textarea identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-textarea>`);
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
   });
 });

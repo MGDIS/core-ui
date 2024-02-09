@@ -1,4 +1,5 @@
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 
 const TIMEOUT = 1000;
 
@@ -183,5 +184,28 @@ describe('mg-input-radio', () => {
     await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        await setPageContent(
+          page,
+          `<mg-input-radio identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-radio>
+        <script>
+        const mgInputRadio = document.querySelector('mg-input-radio');
+        mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
+        </script>`,
+        );
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
   });
 });
