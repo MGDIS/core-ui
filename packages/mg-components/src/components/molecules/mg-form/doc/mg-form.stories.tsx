@@ -25,6 +25,7 @@ const args = {
   readonly: false,
   disabled: false,
   ariaRole: undefined,
+  labelOnTop: false,
   requiredMessage: undefined,
 };
 

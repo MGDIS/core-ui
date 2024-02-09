@@ -194,6 +194,10 @@ export namespace Components {
          */
         "invalid": boolean;
         /**
+          * Define if slotted mg-component's label are displayed on top
+         */
+        "labelOnTop": boolean;
+        /**
           * Input name If not set the value equals the identifier
          */
         "name": string;
@@ -2074,6 +2078,10 @@ declare namespace LocalJSX {
           * Define form invalid state
          */
         "invalid"?: boolean;
+        /**
+          * Define if slotted mg-component's label are displayed on top
+         */
+        "labelOnTop"?: boolean;
         /**
           * Input name If not set the value equals the identifier
          */

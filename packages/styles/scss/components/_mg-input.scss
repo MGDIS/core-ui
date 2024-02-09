@@ -97,18 +97,16 @@ mg-icon {
   /* Label */
   &__title {
     display: flex;
+    width: var(--mg-inputs-title-width, auto);
+    flex-shrink: 0;
     align-items: baseline;
+    justify-content: flex-end;
     margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
     margin-right: var(--mg-inputs-title-horizontal-space, var(--mg-inputs-spacer));
     text-align: right;
 
-    mg-input-title {
-      width: var(--mg-inputs-title-width, auto);
-      flex-shrink: var(--mg-inputs-shrink, 1);
-
-      & + mg-tooltip {
-        margin-left: 0.4rem;
-      }
+    mg-input-title + mg-tooltip {
+      margin-left: 0.4rem;
     }
 
     mg-icon {
@@ -122,6 +120,8 @@ mg-icon {
     flex-direction: column;
 
     .mg-c-input__title {
+      width: auto;
+      justify-content: flex-start;
       margin-top: 0;
       margin-right: 0;
       margin-bottom: 0.3rem;
