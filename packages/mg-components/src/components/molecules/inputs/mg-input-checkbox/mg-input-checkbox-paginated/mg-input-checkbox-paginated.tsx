@@ -207,7 +207,6 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             displaySearchInput={true}
             messages={this.messages}
             id={`items-${this.sectionKind}`}
-            readonly={this.readonly}
             disabled={this.disabled}
             name={this.name}
             invalid={this.invalid}

@@ -1,7 +1,6 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { widths, type Width, tooltipPositions, type TooltipPosition } from './MgInput.conf';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { MgInputTitle } from '../../atoms/mg-input-title/mg-input-title';
+import { widths, tooltipPositions, type MgInputProps} from './MgInput.conf';
+import { isValidString } from '@mgdis/stencil-helpers';
 
 /**
  * Apply in all input child node the aria-describedby attribute
@@ -78,32 +77,6 @@ const getTagName = (isFieldset: MgInputProps['isFieldset'], readOnly: MgInputPro
 /**
  * MgInput Interface
  */
-interface MgInputProps {
-  // Global
-  identifier: string;
-  classCollection: ClassList;
-  // Label
-  label: string;
-  labelOnTop: boolean;
-  labelHide: boolean;
-  isFieldset: MgInputTitle['isLegend'];
-  // Input
-  value: string;
-  readonlyValue: string;
-  required: boolean;
-  readonly: boolean;
-  mgWidth: Width;
-  disabled: boolean;
-  // Tooltip
-  tooltip: string;
-  tooltipPosition: TooltipPosition;
-  // Help Text
-  helpText: string;
-  // Error Message
-  errorMessage: string;
-  // ariaDescribedbyIDs
-  ariaDescribedbyIDs: string[];
-}
 
 /**
  * Get input template
@@ -183,7 +156,12 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
       </div>
       {props.readonly ? (
         <div class="mg-c-input__input-container">
+          {
+            Array.isArray(props.readonlyValue) ? <ul>
+              {props.readonlyValue.map(value => <li><strong>{value}</strong></li>)}
+            </ul> :
           <strong>{props.readonlyValue}</strong>
+          }
           {children.filter(child => Object.values(child).includes('append-input'))}
         </div>
       ) : (

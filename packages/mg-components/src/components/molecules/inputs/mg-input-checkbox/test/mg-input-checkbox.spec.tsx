@@ -59,6 +59,8 @@ describe('mg-input-checkbox', () => {
     let testValues: unknown[] = [
       { label: 'label', identifier: 'identifier', value: getValues(), type },
       { label: 'label', identifier: 'identifier', value: getValues(), type, readonly: true },
+      { label: 'label', identifier: 'identifier', value: getValues().map(value => ({...value, value: true})), type, readonly: true },
+      { label: 'label', identifier: 'identifier', value: getValues().map(value => ({...value, value: true})), type, readonly: true, inputVerticalList: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, labelOnTop: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, labelHide: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, inputVerticalList: true },
