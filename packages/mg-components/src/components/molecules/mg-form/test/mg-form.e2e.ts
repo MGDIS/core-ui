@@ -1,8 +1,9 @@
 import { renderAttributes } from '@mgdis/playwright-helpers';
-import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
 import { requiredMessageStatus } from '../mg-form.conf';
 
-const TIMEOUT = 1000;
+const createHTML = (args, slot) => `<mg-form ${renderAttributes(args)}>${slot}</mg-form>`;
 
 const inputs = `<mg-input-checkbox identifier="mg-input-checkbox" label="mg-input-checkbox label"></mg-input-checkbox>
 <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
@@ -17,8 +18,7 @@ const inputs = `<mg-input-checkbox identifier="mg-input-checkbox" label="mg-inpu
   <span slot="item-2">oui</span>
 </mg-input-toggle>`;
 
-const inputsScript = `<script>
-  const mgInputCheckbox = document.querySelector('mg-input-checkbox');
+const inputsScript = `const mgInputCheckbox = document.querySelector('mg-input-checkbox');
   const mgInputDate = document.querySelector('mg-input-date');
   const mgInputNumeric = document.querySelector('mg-input-numeric');
   const mgInputPassword = document.querySelector('mg-input-password');
@@ -36,10 +36,9 @@ const inputsScript = `<script>
   mgInputToggle.items = [
     { title: 'non', value: false },
     { title: 'oui', value: true },
-  ];
-</script>`;
+  ];`;
 
-const inputsScriptSetValues = `<script>
+const inputsScriptSetValues = `
   mgInputCheckbox.value = [
     { title: 'oui', value: true },
     { title: 'non', value: false },
@@ -52,10 +51,9 @@ const inputsScriptSetValues = `<script>
   mgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
   mgInputTextarea.value =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
-  mgInputToggle.value = mgInputToggle.items[1].value;
-</script>`;
+  mgInputToggle.value = mgInputToggle.items[1].value;`;
 
-const inputsScriptRequiredAll = `<script>
+const inputsScriptRequiredAll = `
   mgInputCheckbox.required = true;
   mgInputDate.required = true;
   mgInputNumeric.required = true;
@@ -63,21 +61,18 @@ const inputsScriptRequiredAll = `<script>
   mgInputRadio.required = true;
   mgInputSelect.required = true;
   mgInputText.required = true;
-  mgInputTextarea.required = true;
-</script>`;
+  mgInputTextarea.required = true;`;
 
-const inputsScriptRequiredSome = `<script>
+const inputsScriptRequiredSome = `
   mgInputCheckbox.required = true;
   mgInputNumeric.required = true;
   mgInputRadio.required = true;
-  mgInputText.required = true;
-</script>`;
+  mgInputText.required = true;`;
 
-const inputsScriptRequiredSingle = `<script>
-  mgInputCheckbox.required = true;
-</script>`;
+const inputsScriptRequiredSingle = `
+  mgInputCheckbox.required = true;`;
 
-const inputsScriptReadonlyAll = `<script>
+const inputsScriptReadonlyAll = `
   mgInputCheckbox.readonly = true;
   mgInputDate.readonly = true;
   mgInputNumeric.readonly = true;
@@ -86,10 +81,9 @@ const inputsScriptReadonlyAll = `<script>
   mgInputSelect.readonly = true;
   mgInputText.readonly = true;
   mgInputTextarea.readonly = true;
-  mgInputToggle.readonly = true;
-</script>`;
+  mgInputToggle.readonly = true;`;
 
-const inputsScriptDisabledAll = `<script>
+const inputsScriptDisabledAll = `
   mgInputCheckbox.disabled = true;
   mgInputDate.disabled = true;
   mgInputNumeric.disabled = true;
@@ -98,134 +92,117 @@ const inputsScriptDisabledAll = `<script>
   mgInputSelect.disabled = true;
   mgInputText.disabled = true;
   mgInputTextarea.disabled = true;
-  mgInputToggle.disabled = true;
-</script>`;
+  mgInputToggle.disabled = true;`;
 
-describe('mg-form', () => {
+test.describe('mg-form', () => {
   test.beforeEach(async ({ page }) => {
     page.setViewportSize({ width: 800, height: 800 });
   });
 
-  describeEach([`<mg-form>`, `<mg-form disabled>`, `<mg-form readonly>`])('startTag %s', (startTag: string) => {
-    test(`Should render`, async ({ page }) => {
-      await setPageContent(
-        page,
-        `${startTag}
-        ${inputs}
-        </mg-form>
-        ${inputsScript}
-        ${inputsScriptSetValues}`,
-      );
-
-      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-
-    test('Should render with custom style', async ({ page }) => {
-      await setPageContent(
-        page,
-        `${startTag}
-        ${inputs}
-        </mg-form>
-        ${inputsScript}
-        ${inputsScriptSetValues}
-        ${inputsScriptRequiredSome}`,
-      );
-
-      const elementHandle = await page.$('mg-form');
-      elementHandle.evaluate(el => {
-        el.setAttribute('style', '--mg-form-inputs-title-width: 25rem;');
-      });
-
-      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
-  describeEach([true, false])('required %s', required => {
-    testEach([...requiredMessageStatus.map(requiredMessage => ({ requiredMessage }))])(`Should render with props %s`, async (page: PageType, args) => {
-      await setPageContent(
-        page,
-        `<mg-form ${renderAttributes(args)}>
-        ${inputs}
-        </mg-form>
-        ${inputsScript}
-        ${inputsScriptSetValues}
-        ${required ? inputsScriptRequiredSome : ''}`,
-      );
-
-      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
-  describeEach(['<mg-form>', '<mg-form lang="fr">'])('With different locale %s', startTag => {
-    testEach([inputsScriptRequiredAll, inputsScriptRequiredSome, inputsScriptRequiredSingle])(
-      'Should render required and errors %s',
-      async (page: PageType, inputsScriptRequired: string) => {
-        await setPageContent(
-          page,
-          `${startTag}
-        ${inputs}
-        </mg-form>
-        ${inputsScript}
-        ${inputsScriptRequired}`,
-        );
-
-        await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
+  [{}, { disabled: true }, { readonly: true }, { labelOnTop: true }].forEach(args => {
+    test.describe(`args ${JSON.stringify(args)}`, () => {
+      test(`Should render`, async ({ page }) => {
+        const html = createHTML(args, inputs);
+        await page.setContent(html);
+        await page.addScriptTag({ content: inputsScript });
+        await page.addScriptTag({ content: inputsScriptSetValues });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
 
-        const elementHandle = await page.$('mg-form');
-        await elementHandle.evaluate(element => {
-          element.displayError();
+      test('Should render with custom style', async ({ page }) => {
+        const html = createHTML(args, inputs);
+        await page.setContent(html);
+        await page.addScriptTag({ content: inputsScript });
+        await page.addScriptTag({ content: inputsScriptSetValues });
+        await page.addScriptTag({ content: inputsScriptRequiredSome });
+
+        await page.locator('mg-form').evaluate((elm: HTMLMgFormElement) => {
+          elm.setAttribute('style', '--mg-form-inputs-title-width: 15rem;');
         });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      },
-    );
-
-    test(`Should render single required input`, async ({ page }) => {
-      await setPageContent(
-        page,
-        `${startTag}
-          <mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>
-        </mg-form>
-        <script>
-          const mgInputDate = document.querySelector('mg-input-date');
-          mgInputDate.required = true;
-        </script>`,
-      );
-
-      await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      const elementHandle = await page.$('mg-form');
-      await elementHandle.evaluate(element => {
-        element.displayError();
       });
+    });
+  });
+
+  [true, false].forEach((required: boolean) => {
+    test.describe(`required ${required}`, () => {
+      [...requiredMessageStatus.map(requiredMessage => ({ requiredMessage }))].forEach(args => {
+        test(`Should render with props ${JSON.stringify(args)}`, async ({ page }) => {
+          const html = createHTML(args, inputs);
+          await page.setContent(html);
+          await page.addScriptTag({ content: inputsScript });
+          await page.addScriptTag({ content: inputsScriptSetValues });
+          if (required) {
+            await page.addScriptTag({ content: inputsScriptRequiredSome });
+          }
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
+    });
+  });
+
+  [{}, { lang: 'fr' }].forEach(args => {
+    [inputsScriptRequiredAll, inputsScriptRequiredSome, inputsScriptRequiredSingle].forEach(inputsScriptRequired => {
+      test.describe(`lang ${JSON.stringify(args)} inputsScriptRequired ${inputsScriptRequired}`, () => {
+        test(`Should render required and errors`, async ({ page }) => {
+          const html = createHTML(args, inputs);
+          await page.setContent(html);
+          await page.addScriptTag({ content: inputsScript });
+          await page.addScriptTag({ content: inputsScriptRequired });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+          await page.locator('mg-form').evaluate((elm: HTMLMgFormElement) => {
+            elm.displayError();
+          });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+
+        test(`Should render single required input`, async ({ page }) => {
+          const html = createHTML(args, '<mg-input-date identifier="mg-input-date" label="mg-input-date label"></mg-input-date>');
+          await page.setContent(html);
+          await page.addScriptTag({ content: `document.querySelector('mg-input-date').required = true;` });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+          await page.locator('mg-form').evaluate((elm: HTMLMgFormElement) => {
+            elm.displayError();
+          });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
+    });
+  });
+
+  [{ readonly: true }, { disabled: true }].forEach(args => {
+    test(`Should not have required message when all inputs are required and args ${JSON.stringify(args)}`, async ({ page }) => {
+      const html = createHTML(args, inputs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: inputsScript });
+      await page.addScriptTag({ content: inputsScriptSetValues });
+      await page.addScriptTag({ content: inputsScriptRequiredAll });
+      if (args.readonly) {
+        await page.addScriptTag({ content: inputsScriptReadonlyAll });
+      } else {
+        await page.addScriptTag({ content: inputsScriptDisabledAll });
+      }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  testEach(['readonly', 'disabled'])('Should not have required message when all inputs are required and %s', async (page: PageType, attribute) => {
-    await setPageContent(
-      page,
-      `<mg-form>
-    ${inputs}
-    </mg-form>
-    ${inputsScript}
-    ${inputsScriptSetValues}
-    ${inputsScriptRequiredAll}
-    ${attribute === 'readonly' ? inputsScriptReadonlyAll : inputsScriptDisabledAll}`,
-    );
+  test(`Should render responsive`, async ({ page }) => {
+    const html = createHTML({}, inputs);
+    await page.setContent(html);
+    await page.addScriptTag({ content: inputsScript });
+    await page.addScriptTag({ content: inputsScriptSetValues });
 
-    await page.locator('mg-form.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.setViewportSize({ width: 700, height: 800 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
