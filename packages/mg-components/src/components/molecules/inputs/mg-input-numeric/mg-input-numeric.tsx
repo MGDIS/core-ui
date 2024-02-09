@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
-import { types, InputError } from './mg-input-numeric.conf';
+import { types, InputError, NumericType } from './mg-input-numeric.conf';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales/';
 
@@ -158,7 +158,7 @@ export class MgInputNumeric {
   /**
    * Define numeric type
    */
-  @Prop() type: string = types[0];
+  @Prop() type: NumericType = 'decimal';
   @Watch('type')
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
