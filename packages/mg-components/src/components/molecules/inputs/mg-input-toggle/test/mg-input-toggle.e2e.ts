@@ -18,14 +18,14 @@ const defaultProps: PropsType = {
 
 const getProps = (args: PropsType = {}): PropsType => ({ ...defaultProps, ...args });
 
-const renderSlot = (title: string, index: number) => `<span slot="${`item-${index + 1}`}">${title}</span>`;
+const renderSlot = (title: string, index: number) => `<span slot="item-${index + 1}">${title}</span>`;
 
 const createHTML = (props: PropsType) => {
   return `<mg-input-toggle ${renderAttributes(props)}>${
     props.isIcon
       ? ['cross', 'check'].map(
           (icon, index) =>
-            `<span slot="${`item-${index + 1}`}">
+            `<span slot="item-${index + 1}">
         <mg-icon icon="${icon}"></mg-icon>
       </span>`,
         )
@@ -117,7 +117,7 @@ test.describe('mg-input-toggle', () => {
   });
 
   [true, false].forEach(labelOnTop => {
-    test(`render with tooltip, case label-on-top label-on-top=${labelOnTop}`, async ({ page }) => {
+    test(`render with tooltip, case label-on-top ${labelOnTop}`, async ({ page }) => {
       await setPageContent(page, { tooltip: 'Tooltip message', labelOnTop });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
