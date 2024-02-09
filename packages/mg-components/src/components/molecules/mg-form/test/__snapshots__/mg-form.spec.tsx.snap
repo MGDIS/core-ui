@@ -342,28 +342,21 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <fieldset class="mg-c-input mg-c-input--checkbox">
+      <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
         <div class="mg-c-input__title">
           <mg-input-title is-legend="">
             <!---->
-            <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            <span class="mg-c-input-title">
               mg-input-checkbox label
-            </legend>
+            </span>
           </mg-input-title>
         </div>
         <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-              <li class="mg-c-input__input-group">
-                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
-                <label htmlfor="mg-input-checkbox_0">
-                  oui
-                </label>
-              </li>
-            </ul>
-          </div>
+          <strong>
+            oui
+          </strong>
         </div>
-      </fieldset>
+      </div>
     </mock:shadow-root>
   </mg-input-checkbox>
   <mg-input-date>
@@ -4392,28 +4385,21 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <fieldset class="mg-c-input mg-c-input--checkbox">
+      <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
         <div class="mg-c-input__title">
           <mg-input-title is-legend="">
             <!---->
-            <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            <span class="mg-c-input-title">
               mg-input-checkbox label
-            </legend>
+            </span>
           </mg-input-title>
         </div>
         <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-              <li class="mg-c-input__input-group">
-                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
-                <label htmlfor="mg-input-checkbox_0">
-                  oui
-                </label>
-              </li>
-            </ul>
-          </div>
+          <strong>
+            oui
+          </strong>
         </div>
-      </fieldset>
+      </div>
     </mock:shadow-root>
   </mg-input-checkbox>
   <mg-input-date>
@@ -5105,28 +5091,21 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <fieldset class="mg-c-input mg-c-input--checkbox">
+      <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
         <div class="mg-c-input__title">
           <mg-input-title is-legend="">
             <!---->
-            <legend class="mg-c-input-title" id="mg-input-checkbox-title">
+            <span class="mg-c-input-title">
               mg-input-checkbox label
-            </legend>
+            </span>
           </mg-input-title>
         </div>
         <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-              <li class="mg-c-input__input-group">
-                <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="mg-input-checkbox_0" name="mg-input-checkbox" type="checkbox" value="true">
-                <label htmlfor="mg-input-checkbox_0">
-                  oui
-                </label>
-              </li>
-            </ul>
-          </div>
+          <strong>
+            oui
+          </strong>
         </div>
-      </fieldset>
+      </div>
     </mock:shadow-root>
   </mg-input-checkbox>
   <mg-input-date>

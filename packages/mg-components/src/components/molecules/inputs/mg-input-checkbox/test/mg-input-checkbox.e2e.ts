@@ -28,6 +28,8 @@ test.describe('mg-input-checkbox', () => {
       [
         { ...baseArgs, readonly: true },
         { ...baseArgs, readonly: true, labelOnTop: true },
+        { ...baseArgs, readonly: true, inputVerticalList: true },
+        { ...baseArgs, readonly: true, labelOnTop: true, inputVerticalList: true },
         { ...baseArgs, disabled: true },
         { ...baseArgs, inputVerticalList: true, helpText: 'HelpText Message' },
         { ...baseArgs, inputVerticalList: true, helpText: 'HelpText Message', labelOnTop: true },
@@ -38,8 +40,8 @@ test.describe('mg-input-checkbox', () => {
         { ...baseArgs, type, tooltip: 'blu' },
         { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label' },
         { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label', labelOnTop: true },
-      ].forEach((args, index) => {
-        test(`Should render with template ${index + 1}`, async ({ page }) => {
+      ].forEach(args => {
+        test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
           const componentArgs = {
             ...args,
             type,
