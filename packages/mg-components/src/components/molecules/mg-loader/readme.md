@@ -7,7 +7,7 @@
 Component is built with :
 
 - loader icon
-- loader message
+- loader message. By default component use the locale version of "Loading in progress...".
 
 ### Style
 
