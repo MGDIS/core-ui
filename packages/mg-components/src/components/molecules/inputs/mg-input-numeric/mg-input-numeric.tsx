@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { types, InputError } from './mg-input-numeric.conf';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales/';
@@ -144,6 +144,11 @@ export class MgInputNumeric {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -465,6 +470,7 @@ export class MgInputNumeric {
         value={this.value}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={false}

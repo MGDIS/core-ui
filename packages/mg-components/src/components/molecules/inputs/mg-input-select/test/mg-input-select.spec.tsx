@@ -17,7 +17,9 @@ const getPage = async args => {
 
 describe('mg-input-select', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   test.each([
     { label: 'label', identifier: 'identifier', items: [] },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'] },
@@ -62,6 +64,8 @@ describe('mg-input-select', () => {
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, disabled: true, helpText: 'My help text', value: 'blu' },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', labelOnTop: true },
+    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder' },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderHide: true },
     { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderDisabled: true },
@@ -95,6 +99,15 @@ describe('mg-input-select', () => {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+    }
+  });
+
+  test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
     }
   });
 

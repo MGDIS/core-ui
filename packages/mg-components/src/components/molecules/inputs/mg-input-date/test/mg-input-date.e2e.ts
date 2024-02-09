@@ -40,6 +40,11 @@ test.describe('mg-input-date', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.down('Tab');
+      if (!labelOnTop) {
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+        await page.keyboard.down('Tab');
+      }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -56,9 +61,12 @@ test.describe('mg-input-date', () => {
     { value: '1982-06-02', helpText: 'My help text', required: true },
     { value: '1982-06-02', helpText: 'My help text', required: true, readonly: true },
     { value: '1982-06-02', helpText: 'My help text', required: true, disabled: true },
+    { tooltip: 'Batman is a DC Comics license', tooltipPosition: 'label' },
+    { tooltip: 'Batman is a DC Comics license', tooltipPosition: 'input', labelOnTop: true },
   ].forEach(props => {
     test(`render with template, ${renderAttributes(props)}`, async ({ page }) => {
-      await page.setContent(createHTML({ ...baseProps, ...props }));
+      const html = createHTML({ ...baseProps, ...props });
+      await page.setContent(html);
       await page.locator('mg-input-date.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -148,9 +156,11 @@ test.describe('mg-input-date', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
-        await page.setContent(createHTML({ ...baseProps, tooltip }));
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const componentArgs = { ...baseProps, ...args };
+        const html = createHTML(componentArgs);
+        await page.setContent(html);
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

@@ -35,6 +35,9 @@ test.describe('mg-input-checkbox', () => {
         { ...baseArgs, helpText: 'HelpText Message', required: true },
         { ...baseArgs, helpText: 'HelpText Message', required: true, readonly: true },
         { ...baseArgs, helpText: 'HelpText Message', required: true, disabled: true },
+        { ...baseArgs, type, tooltip: 'blu' },
+        { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label' },
+        { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label', labelOnTop: true },
       ].forEach((args, index) => {
         test(`Should render with template ${index + 1}`, async ({ page }) => {
           const componentArgs = {
@@ -76,6 +79,12 @@ test.describe('mg-input-checkbox', () => {
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
           await page.keyboard.down('Tab');
+          if (!labelOnTop) {
+            await page.keyboard.down('Tab');
+            await page.keyboard.down('Tab');
+            await page.keyboard.down('Tab');
+            await page.keyboard.down('Tab');
+          }
 
           await page.locator('mg-tooltip-content').waitFor();
 
@@ -430,10 +439,12 @@ test.describe('mg-input-checkbox', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
-        const componentArgs = { ...baseArgs, tooltip };
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const componentArgs = { ...baseArgs, ...args };
         const html = createHTML(componentArgs);
+        console.log(html);
+
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 

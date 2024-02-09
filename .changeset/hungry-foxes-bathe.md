@@ -3,4 +3,4 @@
 '@mgdis/styles': minor
 ---
 
-Add possibility to use Bootstrap behavior on mg-input-\*
+[mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add possibility to use Bootstrap behavior
