@@ -6867,28 +6867,97 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'checkbox',
+  readonly: true
+}: 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            label
+          </span>
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          batman, robin, joker, bane
+        </strong>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type checkbox Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'checkbox',
+  readonly: true,
+  inputVerticalList: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            label
+          </span>
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <ul>
+          <li>
+            <strong>
+              batman
+            </strong>
+          </li>
+          <li>
+            <strong>
+              robin
+            </strong>
+          </li>
+          <li>
+            <strong>
+              joker
+            </strong>
+          </li>
+          <li>
+            <strong>
+              bane
+            </strong>
+          </li>
+        </ul>
+      </div>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -6904,28 +6973,21 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--label-on-top">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--label-on-top mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -7057,28 +7119,21 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -7982,21 +8037,19 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
 exports[`mg-input-checkbox render by type checkbox validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list"></ul>
-        </div>
+        <strong></strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -9669,28 +9722,49 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  readonly: true
+}: 2`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            label
+          </span>
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          batman, robin, joker, bane
+        </strong>
+      </div>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -9705,28 +9779,21 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -9741,28 +9808,69 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: 'multi',
+  readonly: true,
+  inputVerticalList: true
+}: 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            label
+          </span>
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <ul>
+          <li>
+            <strong>
+              batman
+            </strong>
+          </li>
+          <li>
+            <strong>
+              robin
+            </strong>
+          </li>
+          <li>
+            <strong>
+              joker
+            </strong>
+          </li>
+          <li>
+            <strong>
+              bane
+            </strong>
+          </li>
+        </ul>
+      </div>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -9778,28 +9886,21 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--label-on-top">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--label-on-top mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -10003,28 +10104,21 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -11692,21 +11786,19 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
 exports[`mg-input-checkbox render by type multi validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list"></ul>
-        </div>
+        <strong></strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -12721,28 +12813,97 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  readonly: true
+}: 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            label
+          </span>
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          batman, robin, joker, bane
+        </strong>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type undefined Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  value: [Array],
+  type: undefined,
+  readonly: true,
+  inputVerticalList: true
+}: 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title is-legend="">
+          <!---->
+          <span class="mg-c-input-title">
+            label
+          </span>
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <ul>
+          <li>
+            <strong>
+              batman
+            </strong>
+          </li>
+          <li>
+            <strong>
+              robin
+            </strong>
+          </li>
+          <li>
+            <strong>
+              joker
+            </strong>
+          </li>
+          <li>
+            <strong>
+              bane
+            </strong>
+          </li>
+        </ul>
+      </div>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -12758,28 +12919,21 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox mg-c-input--label-on-top">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--label-on-top mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -12911,28 +13065,21 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-            <li class="mg-c-input__input-group">
-              <input aria-describedby="" aria-invalid="false" checked="" disabled="" id="identifier_0" name="identifier" type="checkbox" value="true">
-              <label htmlfor="identifier_0">
-                batman
-              </label>
-            </li>
-          </ul>
-        </div>
+        <strong>
+          batman
+        </strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
@@ -13836,21 +13983,19 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
 exports[`mg-input-checkbox render by type undefined validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <fieldset class="mg-c-input mg-c-input--checkbox">
+    <div class="mg-c-input mg-c-input--checkbox mg-c-input--readonly">
       <div class="mg-c-input__title">
         <mg-input-title is-legend="">
           <!---->
-          <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title">
             label
-          </legend>
+          </span>
         </mg-input-title>
       </div>
       <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list"></ul>
-        </div>
+        <strong></strong>
       </div>
-    </fieldset>
+    </div>
   </mock:shadow-root>
 </mg-input-checkbox>
 `;
