@@ -607,7 +607,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                   mgWidth="full"
                   value={this.searchValue}
                   labelHide={true}
-                  displayCharacterLeft={false}
+                  characterLeftHide={true}
                   name="q"
                   onValue-change={this.handleSearchChange}
                   aria-controls="search-results items-list"

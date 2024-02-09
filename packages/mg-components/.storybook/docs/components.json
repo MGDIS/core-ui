@@ -5106,6 +5106,28 @@
       "usage": {},
       "props": [
         {
+          "name": "characterLeftHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "character-left-hide",
+          "reflectToAttr": false,
+          "docs": "Define if component should hide character left",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "datalistoptions",
           "type": "string[]",
           "complexType": {
@@ -5139,28 +5161,6 @@
           "docs": "Define if input is disabled",
           "docsTags": [],
           "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "displayCharacterLeft",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "display-character-left",
-          "reflectToAttr": false,
-          "docs": "Define if component should display character left",
-          "docsTags": [],
-          "default": "true",
           "values": [
             {
               "type": "boolean"
@@ -5791,6 +5791,28 @@
       "usage": {},
       "props": [
         {
+          "name": "characterLeftHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "character-left-hide",
+          "reflectToAttr": false,
+          "docs": "Define if component should hide character left",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
           "complexType": {
@@ -5804,28 +5826,6 @@
           "docs": "Define if input is disabled",
           "docsTags": [],
           "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "displayCharacterLeft",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "display-character-left",
-          "reflectToAttr": false,
-          "docs": "Define if component should display character left",
-          "docsTags": [],
-          "default": "true",
           "values": [
             {
               "type": "boolean"

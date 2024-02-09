@@ -749,6 +749,10 @@ export namespace Components {
     }
     interface MgInputText {
         /**
+          * Define if component should hide character left
+         */
+        "characterLeftHide": boolean;
+        /**
           * Define datalist options
          */
         "datalistoptions": string[];
@@ -756,10 +760,6 @@ export namespace Components {
           * Define if input is disabled
          */
         "disabled": boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft": boolean;
         /**
           * Display input error if it exists.
          */
@@ -853,13 +853,13 @@ export namespace Components {
     }
     interface MgInputTextarea {
         /**
+          * Define if component should hide character left
+         */
+        "characterLeftHide": boolean;
+        /**
           * Define if input is disabled
          */
         "disabled": boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft": boolean;
         /**
           * Display input error if it exists.
          */
@@ -2582,6 +2582,10 @@ declare namespace LocalJSX {
     }
     interface MgInputText {
         /**
+          * Define if component should hide character left
+         */
+        "characterLeftHide"?: boolean;
+        /**
           * Define datalist options
          */
         "datalistoptions"?: string[];
@@ -2589,10 +2593,6 @@ declare namespace LocalJSX {
           * Define if input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -2680,13 +2680,13 @@ declare namespace LocalJSX {
     }
     interface MgInputTextarea {
         /**
+          * Define if component should hide character left
+         */
+        "characterLeftHide"?: boolean;
+        /**
           * Define if input is disabled
          */
         "disabled"?: boolean;
-        /**
-          * Define if component should display character left
-         */
-        "displayCharacterLeft"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */

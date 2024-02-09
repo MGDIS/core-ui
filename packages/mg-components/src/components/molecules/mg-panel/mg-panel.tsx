@@ -248,7 +248,7 @@ export class MgPanel {
       label-hide
       value={this.panelTitle}
       onValue-change={this.handleUpdateTitle}
-      displayCharacterLeft={false}
+      characterLeftHide={true}
       pattern={this.titlePattern}
       pattern-error-message={this.titlePatternErrorMessage}
       identifier={`${this.identifier}-edition-input`}

@@ -177,9 +177,9 @@ export class MgInputText {
   @Prop() tooltip: string;
 
   /**
-   * Define if component should display character left
+   * Define if component should hide character left
    */
-  @Prop() displayCharacterLeft = true;
+  @Prop() characterLeftHide = false;
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -403,7 +403,7 @@ export class MgInputText {
         <div
           class="mg-c-input__with-character-left"
           style={{
-            '--mg-character-left-message-length': (this.displayCharacterLeft
+            '--mg-character-left-message-length': (!this.characterLeftHide
               ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
               : 0
             ).toString(),
@@ -439,7 +439,7 @@ export class MgInputText {
               ))}
             </datalist>
           )}
-          {this.displayCharacterLeft && this.maxlength > 0 && (
+          {!this.characterLeftHide && this.maxlength > 0 && (
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}
         </div>

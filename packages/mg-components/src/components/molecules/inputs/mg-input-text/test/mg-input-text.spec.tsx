@@ -34,7 +34,7 @@ describe('mg-input-text', () => {
     { label: 'label', identifier: 'identifier', required: true, disabled: true, value: 'blu', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', displayCharacterLeft: false },
+    { label: 'label', identifier: 'identifier', characterLeftHide: true },
   ])('Should render with args %s:', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
