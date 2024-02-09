@@ -3,116 +3,100 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgInputToggle } from '../mg-input-toggle';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 
-const getPage = (args, slots?) =>
+const getPage = (args, customSlots?) =>
   newSpecPage({
     components: [MgInputToggle, MgIcon],
-    template: () => <mg-input-toggle {...args}>{slots && slots.map(slot => slot())}</mg-input-toggle>,
+    template: () => (
+      <mg-input-toggle {...args}>
+        {customSlots
+          ? customSlots
+          : args.isIcon
+            ? ['cross', 'check'].map((icon, index) => (
+                <span slot={`item-${index + 1}`}>
+                  <mg-icon icon={icon}></mg-icon>
+                </span>
+              ))
+            : args.items.map((item, index) => renderSlot(item.title, index))}
+      </mg-input-toggle>
+    ),
   });
 
-const defaultSlots = [() => <span slot="item-1">Batman</span>, () => <span slot="item-2">Joker</span>];
-const onOffSlots = [() => <span slot="item-1">Non</span>, () => <span slot="item-2">Oui</span>];
-const iconSlots = [
-  () => (
-    <span slot="item-1">
-      <mg-icon icon="cross"></mg-icon>
-    </span>
-  ),
-  () => (
-    <span slot="item-2">
-      <mg-icon icon="check"></mg-icon>
-    </span>
-  ),
+const renderSlot = (title: string, index: number) => <span slot={`item-${index + 1}`}>{title}</span>;
+
+const defaultItems = [
+  { title: 'Batman', value: false },
+  { title: 'Joker', value: true },
 ];
 
 const defaultProps = {
   label: 'label',
   identifier: 'identifier',
-  items: [
-    { title: 'batman', value: false },
-    { title: 'joker', value: true },
-  ],
+  items: defaultItems,
 };
 
 describe('mg-input-toggle', () => {
   describe.each([
     {
-      props: {
-        ...defaultProps,
-      },
-      slots: defaultSlots,
+      ...defaultProps,
     },
     {
-      props: {
-        ...defaultProps,
-        value: '',
-      },
-      slots: defaultSlots,
+      ...defaultProps,
+      value: '',
     },
     {
-      props: {
-        ...defaultProps,
-        value: true,
-      },
-      slots: defaultSlots,
+      ...defaultProps,
+      value: true,
     },
     {
-      props: {
-        ...defaultProps,
-        value: 'true',
-      },
-      slots: defaultSlots,
+      ...defaultProps,
+      value: 'true',
     },
     {
-      props: {
-        ...defaultProps,
-        isOnOff: false,
-      },
-      slots: onOffSlots,
+      ...defaultProps,
+      isOnOff: false,
     },
     {
-      props: {
-        ...defaultProps,
-        isIcon: true,
-        isOnOff: true,
-      },
-      slots: iconSlots,
+      ...defaultProps,
+      items: ['Oui', 'Non'],
+      isIcon: true,
+      isOnOff: true,
     },
-  ])('template', ({ props, slots }) => {
+  ])('template', args => {
     test.each([
       {
-        ...props,
+        ...args,
       },
       {
-        ...props,
+        ...args,
         labelOnTop: true,
       },
       {
-        ...props,
+        ...args,
         labelHide: true,
       },
       {
-        ...props,
+        ...args,
         readonly: true,
       },
       {
-        ...props,
+        ...args,
         disabled: true,
       },
       {
-        ...props,
-        helpText: 'Hello joker',
+        ...args,
+        helpText: 'Hello Joker',
       },
       {
-        ...props,
+        ...args,
         tooltip: 'My Tooltip Message',
       },
       {
-        ...props,
+        ...args,
         tooltip: 'My Tooltip Message',
         labelOnTop: true,
       },
     ])('Should render with args %s:', async args => {
-      const { root } = await getPage(args, slots);
+      const { root } = await getPage(args);
       expect(root).toMatchSnapshot();
     });
   });
@@ -121,17 +105,11 @@ describe('mg-input-toggle', () => {
     test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
       expect.assertions(1);
       try {
-        await getPage(
-          {
-            identifier,
-            label: 'label',
-            items: [
-              { title: 'batman', value: false },
-              { title: 'joker', value: true },
-            ],
-          },
-          defaultSlots,
-        );
+        await getPage({
+          identifier,
+          label: 'label',
+          items: defaultItems,
+        });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
       }
@@ -140,17 +118,11 @@ describe('mg-input-toggle', () => {
     test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
       expect.assertions(1);
       try {
-        await getPage(
-          {
-            identifier: 'identifier',
-            label,
-            items: [
-              { title: 'batman', value: false },
-              { title: 'joker', value: true },
-            ],
-          },
-          defaultSlots,
-        );
+        await getPage({
+          identifier: 'identifier',
+          label,
+          items: defaultItems,
+        });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "label" is required.');
       }
@@ -159,7 +131,7 @@ describe('mg-input-toggle', () => {
     test('Should throw an error with labelOnTop & labelHide set to true', async () => {
       expect.assertions(1);
       try {
-        await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] }, defaultSlots);
+        await getPage({ identifier: 'identifier', label: 'Batman', labelOnTop: true, labelHide: true, items: ['Batman', 'Joker'] });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
       }
@@ -168,38 +140,41 @@ describe('mg-input-toggle', () => {
     test('Should throw an error with less than 2 items, case %s', async () => {
       expect.assertions(1);
       try {
-        await getPage({ label: 'batman', items: [{ title: 'batman' }] }, defaultSlots);
+        await getPage({ label: 'Batman', items: [{ title: 'Batman' }] });
       } catch (err) {
         expect(err.message).toMatch('<mg-input-toggle> prop "items" require 2 items.');
       }
     });
 
-    test.each([undefined, [defaultSlots[0]], [...defaultSlots, ...defaultSlots]])('Should throw an error with blank slots', async () => {
-      expect.assertions(1);
-      try {
-        await getPage({ label: 'batman', items: ['batman', 'joker'] });
-      } catch (err) {
-        expect(err.message).toMatch('<mg-input-toggle> 2 slots are required.');
-      }
-    });
+    test.each([[<span></span>], [renderSlot('oui', 1)], ['oui', 'non', 'possible'].map((title, index) => renderSlot(title, index))])(
+      'Should throw an error with blank slots',
+      async slots => {
+        expect.assertions(1);
+        try {
+          await getPage(defaultProps, slots);
+        } catch (err) {
+          expect(err.message).toMatch('<mg-input-toggle> 2 slots are required.');
+        }
+      },
+    );
 
     test.each([
-      [['batman', { title: 'batman', value: 'batman' }]],
-      [['batman', { batman: 'batman' }]],
+      [['Batman', { title: 'Batman', value: 'Batman' }]],
+      [['Batman', { Batman: 'Batman' }]],
       [[true, false]],
       [[1, 2]],
-      [[true, 'batman']],
-      [[{ title: 'batman', value: 'batman' }, { batman: 'batman' }]],
+      [[true, 'Batman']],
+      [[{ title: 'Batman', value: 'Batman' }, { Batman: 'Batman' }]],
       [
         [
-          { title: 'batman', value: undefined },
-          { title: 'batman', value: 'test' },
+          { title: 'Batman', value: undefined },
+          { title: 'Batman', value: 'test' },
         ],
       ],
     ])('Should throw error with invalid items property: %s', async items => {
       expect.assertions(1);
       try {
-        await getPage({ label: 'Label', items }, defaultSlots);
+        await getPage({ label: 'Label', items });
       } catch (err) {
         expect(err.message).toMatch('<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue.');
       }
@@ -209,31 +184,31 @@ describe('mg-input-toggle', () => {
   test.each([
     {
       items: [
-        { title: 'batman', value: 'a' },
-        { title: 'joker', value: 'b' },
+        { title: 'Batman', value: 'a' },
+        { title: 'Joker', value: 'b' },
       ],
       expected: 'b',
       value: undefined,
     },
     {
       items: [
-        { title: 'batman', value: 'a' },
-        { title: 'joker', value: 'b' },
+        { title: 'Batman', value: 'a' },
+        { title: 'Joker', value: 'b' },
       ],
       expected: 'a',
       value: 'b',
     },
     {
       items: [
-        { title: 'batman', value: 1 },
-        { title: 'joker', value: 2 },
+        { title: 'Batman', value: 1 },
+        { title: 'Joker', value: 2 },
       ],
       expected: 2,
       value: 1,
     },
     {
       items: [
-        { title: 'batman', value: false },
+        { title: 'Batman', value: false },
         { title: 'robin', value: true },
       ],
       expected: false,
@@ -241,7 +216,7 @@ describe('mg-input-toggle', () => {
     },
     {
       items: [
-        { title: 'batman', value: true },
+        { title: 'Batman', value: true },
         { title: 'robin', value: false },
       ],
       expected: true,
@@ -249,7 +224,7 @@ describe('mg-input-toggle', () => {
     },
   ])('Should trigger events for items with inputValue: %s', async ({ items, expected, value }) => {
     const args = { label: 'label', items, identifier: 'identifier', helpText: 'My help text', value };
-    const page = await getPage(args, defaultSlots);
+    const page = await getPage(args);
 
     const mgInputToggle = page.doc.querySelector('mg-input-toggle');
     const button = mgInputToggle.shadowRoot.querySelector('button');
@@ -270,13 +245,13 @@ describe('mg-input-toggle', () => {
 
   describe('setError', () => {
     test.each([true, false])("should display override error with setError component's public method", async valid => {
-      const page = await getPage({ ...defaultProps }, defaultSlots);
+      const page = await getPage({ ...defaultProps });
 
       const mgInputToggle = page.doc.querySelector('mg-input-toggle');
 
       const spyInputValid = jest.spyOn(page.rootInstance.inputValid, 'emit');
 
-      await mgInputToggle.setError(valid, 'error batman');
+      await mgInputToggle.setError(valid, 'error Batman');
 
       await page.waitForChanges();
 
@@ -309,7 +284,7 @@ describe('mg-input-toggle', () => {
     ])("shloud throw error with setError component's public method invalid params", async params => {
       expect.assertions(1);
       try {
-        const page = await getPage({ ...defaultProps }, defaultSlots);
+        const page = await getPage({ ...defaultProps });
 
         const mgInputToggle = page.doc.querySelector('mg-input-toggle');
         await mgInputToggle.setError(params.valid as unknown as boolean, params.errorMessage as unknown as string);

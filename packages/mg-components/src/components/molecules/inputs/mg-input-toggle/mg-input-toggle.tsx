@@ -10,7 +10,8 @@ import { ToggleValue } from './mg-input-toggle.conf';
  * @param option - radio option
  * @returns toggle option type is valid
  */
-const isOption = (option: ToggleValue): boolean => typeof option === 'object' && typeof option.title === 'string' && option.value !== undefined;
+const isOption = (option: unknown): option is ToggleValue =>
+  typeof option === 'object' && typeof (option as ToggleValue).title === 'string' && (option as ToggleValue).value !== undefined;
 
 @Component({
   tag: 'mg-input-toggle',
@@ -23,7 +24,6 @@ export class MgInputToggle {
    ************/
 
   // Classes
-  private classReadonly = 'mg-c-input--toggle-readonly';
   private classDisabled = 'mg-c-input--toggle-disabled';
   private classIsActive = 'mg-c-input--toggle-is-active';
   private classOnOff = 'mg-c-input--toggle-on-off';
@@ -55,17 +55,17 @@ export class MgInputToggle {
    */
   @Prop() items!: string[] | ToggleValue[];
   @Watch('items')
-  validateItems(newValue: string[] | ToggleValue[]): void {
+  validateItems(newValue: MgInputToggle['items']): void {
     if (typeof newValue === 'object' && this.items.length !== 2) {
       throw new Error('<mg-input-toggle> prop "items" require 2 items.');
     }
     // String array
-    else if (allItemsAreString(newValue as string[])) {
-      this.options = (newValue as string[]).map(item => ({ title: item, value: item }));
+    else if (allItemsAreString(newValue)) {
+      this.options = newValue.map(item => ({ title: item, value: item }));
     }
     // Object array
-    else if (newValue && (newValue as ToggleValue[]).every(item => isOption(item))) {
-      this.options = newValue as ToggleValue[];
+    else if (newValue && newValue.every(item => isOption(item))) {
+      this.options = newValue;
     } else {
       throw new Error('<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue.');
     }
@@ -102,7 +102,7 @@ export class MgInputToggle {
    */
   @Prop() isOnOff = false;
   @Watch('isOnOff')
-  handleIsOnOff(newValue: boolean): void {
+  handleIsOnOff(newValue: MgInputToggle['isOnOff']): void {
     if (newValue) this.classCollection.add(this.classOnOff);
     else this.classCollection.delete(this.classOnOff);
   }
@@ -112,7 +112,7 @@ export class MgInputToggle {
    */
   @Prop() isIcon = false;
   @Watch('isIcon')
-  handleIsIcon(newValue: boolean): void {
+  handleIsIcon(newValue: MgInputToggle['isIcon']): void {
     if (newValue) this.classCollection.add(this.classIcon);
     else this.classCollection.delete(this.classIcon);
   }
@@ -121,18 +121,13 @@ export class MgInputToggle {
    * Define if input is readonly
    */
   @Prop() readonly = false;
-  @Watch('readonly')
-  handleReadonly(newValue: boolean): void {
-    if (newValue) this.classCollection.add(this.classReadonly);
-    else this.classCollection.delete(this.classReadonly);
-  }
 
   /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('disabled')
-  handleDisabled(newValue: boolean): void {
+  handleDisabled(newValue: MgInputToggle['disabled']): void {
     if (newValue) this.classCollection.add(this.classDisabled);
     else this.classCollection.delete(this.classDisabled);
   }
@@ -172,7 +167,7 @@ export class MgInputToggle {
    */
   @State() checked = false;
   @Watch('checked')
-  handleChecked(newValue: boolean): void {
+  handleChecked(newValue: MgInputToggle['checked']): void {
     // style
     if (newValue) this.classCollection.add(this.classIsActive);
     else this.classCollection.delete(this.classIsActive);
@@ -287,7 +282,6 @@ export class MgInputToggle {
     // apply handler
     this.handleIsOnOff(this.isOnOff);
     this.handleIsIcon(this.isIcon);
-    this.handleReadonly(this.readonly);
     this.handleDisabled(this.disabled);
   }
 
@@ -305,11 +299,11 @@ export class MgInputToggle {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={undefined}
-        readonly={undefined}
+        readonly={this.readonly}
         mgWidth={undefined}
         disabled={this.disabled}
-        value={this.value as string}
-        readonlyValue={undefined}
+        value={this.value?.toString()}
+        readonlyValue={this.options[this.checked ? 1 : 0].title}
         tooltip={!this.readonly && this.tooltip}
         helpText={this.helpText}
         errorMessage={this.errorMessage}

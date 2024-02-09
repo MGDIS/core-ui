@@ -113,30 +113,6 @@ $toggle-item-container-padding-vertical: 0.5rem;
     }
   }
 
-  // readonly
-  &.mg-c-input--toggle-readonly {
-    .mg-c-input__button-toggle {
-      border-color: transparent;
-      background-color: transparent;
-      cursor: initial;
-    }
-
-    /* stylelint-disable-next-line no-descending-specificity */
-    .mg-c-input__toggle-item-container:last-of-type {
-      display: none;
-    }
-    /* stylelint-disable-next-line no-descending-specificity */
-    &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container {
-      &:first-of-type {
-        display: none;
-      }
-
-      &:last-of-type {
-        display: flex;
-      }
-    }
-  }
-
   // on/off
   &.mg-c-input--toggle-on-off {
     /* stylelint-disable-next-line no-descending-specificity */

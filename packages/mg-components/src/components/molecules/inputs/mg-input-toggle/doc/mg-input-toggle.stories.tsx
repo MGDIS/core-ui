@@ -1,6 +1,7 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputToggle as MgInputToggleType } from '../mg-input-toggle';
+import { ToggleValue } from '../mg-input-toggle.conf';
 
 export default {
   component: 'mg-input-toggle',
@@ -38,10 +39,10 @@ const args = {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgInputToggleType): HTMLElement => (
+const Template = (args: MgInputToggleType): HTMLMgInputToggleElement => (
   <mg-input-toggle {...filterArgs(args)}>
-    <span slot="item-1">Non</span>
-    <span slot="item-2">Oui</span>
+    <span slot="item-1">{(args.items[0] as ToggleValue).title}</span>
+    <span slot="item-2">{(args.items[1] as ToggleValue).title}</span>
   </mg-input-toggle>
 );
 
