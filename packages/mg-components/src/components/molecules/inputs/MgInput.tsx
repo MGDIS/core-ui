@@ -1,5 +1,5 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { widths, tooltipPositions, type MgInputProps} from './MgInput.conf';
+import { widths, tooltipPositions, type MgInputProps } from './MgInput.conf';
 import { isValidString } from '@mgdis/stencil-helpers';
 
 /**
@@ -156,12 +156,17 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
       </div>
       {props.readonly ? (
         <div class="mg-c-input__input-container">
-          {
-            Array.isArray(props.readonlyValue) ? <ul>
-              {props.readonlyValue.map(value => <li><strong>{value}</strong></li>)}
-            </ul> :
-          <strong>{props.readonlyValue}</strong>
-          }
+          {Array.isArray(props.readonlyValue) ? (
+            <ul>
+              {props.readonlyValue.map(value => (
+                <li key={value}>
+                  <strong>{value}</strong>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <strong>{props.readonlyValue}</strong>
+          )}
           {children.filter(child => Object.values(child).includes('append-input'))}
         </div>
       ) : (

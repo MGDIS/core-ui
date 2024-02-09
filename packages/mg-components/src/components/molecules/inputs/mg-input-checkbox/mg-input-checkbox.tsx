@@ -427,7 +427,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Get readonly values
    * @returns formated readonly value
    */
-  private getReadonlyValues = (): MgInputProps['readonlyValue'] => this.inputVerticalList ? this.value.filter(({value}) => value).map(({title}) => title) : this.value.filter(({value}) => value).map(({title}) => title).join(', ')
+  private getReadonlyValues = (): MgInputProps['readonlyValue'] =>
+    this.inputVerticalList
+      ? this.value.filter(({ value }) => value).map(({ title }) => title)
+      : this.value
+          .filter(({ value }) => value)
+          .map(({ title }) => title)
+          .join(', ');
 
   /**
    * has invalid input

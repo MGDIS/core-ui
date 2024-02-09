@@ -40,7 +40,7 @@ test.describe('mg-input-checkbox', () => {
         { ...baseArgs, type, tooltip: 'blu' },
         { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label' },
         { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label', labelOnTop: true },
-      ].forEach((args) => {
+      ].forEach(args => {
         test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
           const componentArgs = {
             ...args,
