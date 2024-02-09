@@ -111,6 +111,17 @@ describe('mg-input-toggle', () => {
         tooltip: 'My Tooltip Message',
         labelOnTop: true,
       },
+      {
+        ...props,
+        tooltip: 'My Tooltip Message',
+        tooltipPosition: 'label',
+      },
+      {
+        ...props,
+        tooltip: 'My Tooltip Message',
+        tooltipPosition: 'input',
+        labelOnTop: true,
+      },
     ])('Should render with args %s:', async args => {
       const { root } = await getPage(args, slots);
       expect(root).toMatchSnapshot();
@@ -162,6 +173,15 @@ describe('mg-input-toggle', () => {
         await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] }, defaultSlots);
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+      }
+    });
+
+    test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition }, defaultSlots);
+      } catch (err) {
+        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
       }
     });
 

@@ -170,6 +170,35 @@ exports[`mg-input-textarea Should render with args {
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+            <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+          </div>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-textarea>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
         <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
           <mg-icon icon="info-circle"></mg-icon>
         </mg-tooltip>
@@ -190,11 +219,41 @@ exports[`mg-input-textarea Should render with args {
   label: 'label',
   identifier: 'identifier',
   tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
   labelOnTop: true
 }: 1`] = `
 <mg-input-textarea>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
+            <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-textarea>
+`;
+
+exports[`mg-input-textarea Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'label'
+}: 1`] = `
+<mg-input-textarea>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
       <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label

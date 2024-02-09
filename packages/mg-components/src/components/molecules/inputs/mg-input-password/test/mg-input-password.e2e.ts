@@ -1,4 +1,5 @@
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { renderAttributes } from '@mgdis/playwright-helpers';
 
 const TIMEOUT = 1000;
 
@@ -43,6 +44,9 @@ describe('mg-input-password', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     await page.keyboard.down('Tab');
+    if (!labelOnTop) {
+      await page.keyboard.down('Tab');
+    }
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -58,6 +62,8 @@ describe('mg-input-password', () => {
     `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required></mg-input-password>`,
     `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required readonly></mg-input-password>`,
     `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required disabled></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="label"></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="input" label-on-top></mg-input-password>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(page, html);
@@ -116,9 +122,9 @@ describe('mg-input-password', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
-        await setPageContent(page, `<mg-input-password identifier="identifier" label="label" ${tooltip ? `tooltip=${tooltip}` : ''}></mg-input-password>`);
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        await setPageContent(page, `<mg-input-password identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-password>`);
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

@@ -1,5 +1,5 @@
 import { FunctionalComponent, h, VNode, FunctionalUtilities } from '@stencil/core';
-import { widths, Width } from './MgInput.conf';
+import { widths, type Width, tooltipPositions, type TooltipPosition } from './MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { MgInputTitle } from '../../atoms/mg-input-title/mg-input-title';
 
@@ -50,6 +50,25 @@ const manageClasses = (props: MgInputProps): void => {
 };
 
 /**
+ * Check props configuration
+ * @param props - MgInput Interface Props
+ */
+const checkPropsConfig = (props: MgInputProps): void => {
+  if (!isValidString(props.identifier)) {
+    throw new Error('<mg-input> prop "identifier" is required.');
+  }
+  if (!isValidString(props.label)) {
+    throw new Error('<mg-input> prop "label" is required.');
+  }
+  if (props.labelOnTop && props.labelHide) {
+    throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+  }
+  if (!tooltipPositions.includes(props.tooltipPosition)) {
+    throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
+  }
+};
+
+/**
  * Get tagname
  * @param isFieldset - is fieldset
  * @returns tag name
@@ -77,6 +96,7 @@ interface MgInputProps {
   disabled: boolean;
   // Tooltip
   tooltip: string;
+  tooltipPosition: TooltipPosition;
   // Help Text
   helpText: string;
   // Error Message
@@ -94,17 +114,9 @@ interface MgInputProps {
  */
 export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, children: VNode[], utils: FunctionalUtilities): VNode[] => {
   /**
-   * Check required properties
+   * Check props config
    */
-  if (!isValidString(props.identifier)) {
-    throw new Error('<mg-input> prop "identifier" is required.');
-  }
-  if (!isValidString(props.label)) {
-    throw new Error('<mg-input> prop "label" is required.');
-  }
-  if (props.labelOnTop && props.labelHide) {
-    throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
-  }
+  checkPropsConfig(props);
 
   /**
    * Set readonly value
@@ -136,15 +148,15 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
   /**
    * Return template
    *
-   * +--------+--------------+---------+
-   * |  label | input        | tooltip |
-   * |        +--------------+---------+
-   * |        | nb Char Left           |
-   * |        +------------------------+
-   * |        | Help Text              |
-   * |        +------------------------+
-   * |        | Error                  |
-   * +--------+------------------------+
+   * +--------+---------+--------------+---------+
+   * |  label | tooltip | input        | tooltip |
+   * |--------+---------+--------------+---------+
+   * |                  | nb Char Left           |
+   * |                  +------------------------+
+   * |                  | Help Text              |
+   * |                  +------------------------+
+   * |                  | Error                  |
+   * +------------------+------------------------+
    *
    * Error message is based on this aria method: https://www.w3.org/WAI/tutorials/forms/notifications/#on-focus-change
    */
@@ -167,7 +179,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
         <mg-input-title identifier={props.identifier} readonly={props.readonly} required={props.required && !props.disabled && !props.readonly} is-legend={props.isFieldset}>
           {props.label}
         </mg-input-title>
-        {props.tooltip && !props.readonly && !props.labelHide && getTooltip()}
+        {props.tooltip && !props.readonly && (props.tooltipPosition === 'label' || props.labelOnTop) && !props.labelHide && getTooltip()}
       </div>
       {props.readonly ? (
         <div class="mg-c-input__input-container">
@@ -178,7 +190,7 @@ export const MgInput: FunctionalComponent<MgInputProps> = (props: MgInputProps, 
         <div class="mg-c-input__input-container">
           <div class={{ 'mg-c-input__input': true, 'mg-c-input__input--has-error': props.errorMessage !== undefined }}>
             {applyAriadescribedBy(children, ariaDescribedbyIDs, utils)}
-            {props.tooltip && !props.readonly && props.labelHide && getTooltip()}
+            {props.tooltip && !props.readonly && !props.labelOnTop && (props.tooltipPosition === 'input' || props.labelHide) && getTooltip()}
           </div>
           {props.helpText && <div id={helpTextId} class="mg-c-input__help-text" innerHTML={props.helpText}></div>}
           {props.errorMessage && !props.readonly && !props.disabled && (

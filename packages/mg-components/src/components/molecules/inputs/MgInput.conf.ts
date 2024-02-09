@@ -8,7 +8,6 @@ export type Width = (typeof widths)[number];
 /**
  * Possible Input types
  */
-
 export type HTMLMgInputsElement =
   | HTMLMgInputCheckboxElement
   | HTMLMgInputDateElement
@@ -27,3 +26,7 @@ export enum Handler {
   BLUR = 'blur',
   FOCUS = 'focus',
 }
+
+export const tooltipPositions = ['input', 'label'] as const;
+
+export type TooltipPosition = (typeof tooltipPositions)[number];

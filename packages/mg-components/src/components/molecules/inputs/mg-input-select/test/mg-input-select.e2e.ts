@@ -90,6 +90,9 @@ describe('mg-input-select', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     await page.keyboard.down('Tab');
+    if (!labelOnTop) {
+      await page.keyboard.down('Tab');
+    }
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -105,6 +108,8 @@ describe('mg-input-select', () => {
     `<mg-input-select identifier="identifier" label="label" value="blu" required help-text="HelpText Message"></mg-input-select>`,
     `<mg-input-select identifier="identifier" label="label" value="blu" required readonly help-text="HelpText Message"></mg-input-select>`,
     `<mg-input-select identifier="identifier" label="label" value="blu" required disabled help-text="HelpText Message"></mg-input-select>`,
+    `<mg-input-select identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="label"></mg-input-select>`,
+    `<mg-input-select identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="input" label-on-top></mg-input-select>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(
@@ -229,11 +234,11 @@ describe('mg-input-select', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
         await setPageContent(
           page,
-          `<mg-input-select identifier="identifier" label="label" ${tooltip ? `tooltip=${tooltip}` : ''}></mg-input-select>
+          `<mg-input-select identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-select>
           <script>
           const mgInputSelect = document.querySelector('mg-input-select');
           mgInputSelect.items = ['blu', 'bli', 'bla', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'];
