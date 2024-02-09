@@ -103,13 +103,15 @@ test.describe('mg-input-checkbox', () => {
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(args, `[identifier="${args.identifier}"]`) });
 
-          if (type === 'multi') {
-            page.setViewportSize({ width: 300, height: 200 });
-          }
-
           await page.waitForSelector('mg-input-checkbox.hydrated');
 
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          // Screenshot with focus on first item
+          if (type === 'multi') {
+            // On type multi we need to also capture the popover
+            await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 200 } });
+          } else {
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          }
 
           // when multi open checkbox in popover
           if (type === 'multi') {
@@ -122,7 +124,13 @@ test.describe('mg-input-checkbox', () => {
 
           await page.keyboard.down('Tab');
 
-          await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
+          // Screenshot with focus on first item
+          if (type === 'multi') {
+            // On type multi we need to also capture the popover
+            await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 200 } });
+          } else {
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          }
 
           await page.locator('mg-input-checkbox .mg-c-input__input-group:first-of-type input').press('Space');
 
@@ -135,11 +143,23 @@ test.describe('mg-input-checkbox', () => {
           await page.keyboard.down('Tab');
           await page.locator('mg-input-checkbox .mg-c-input__input-group:nth-of-type(4) input').press('Space');
 
-          await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
+          // Screenshot with all selected items and focus on last item
+          if (type === 'multi') {
+            // On type multi we need to also capture the popover
+            await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 200 } });
+          } else {
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          }
 
           await page.keyboard.down('Tab');
 
-          await expect(page.locator(type === 'multi' ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
+          // Screenshot with all selected items and without focus
+          if (type === 'multi') {
+            // On type multi we need to also capture the popover
+            await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 300, height: 200 } });
+          } else {
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          }
         });
       });
 
@@ -151,10 +171,6 @@ test.describe('mg-input-checkbox', () => {
           const html = createHTML(args);
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(args, `[identifier="${args.identifier}"]`) });
-
-          if (type === 'multi') {
-            page.setViewportSize({ width: 390, height: 200 });
-          }
 
           await page.waitForSelector('mg-input-checkbox.hydrated');
 
@@ -278,7 +294,6 @@ test.describe('mg-input-checkbox', () => {
       const html = createHTML(componentArgs);
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-      page.setViewportSize({ width: 450, height: 470 });
 
       // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
@@ -291,17 +306,17 @@ test.describe('mg-input-checkbox', () => {
 
       await page.locator('mg-popover-content').waitFor();
 
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // take focus in search input
       await page.keyboard.down('Tab');
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // got to navigation after 10th input
       for (const index of value.map((_item, index) => index)) {
         if (index < 10) await page.keyboard.down('Tab');
       }
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // use navigatio to go to last page
       await page.keyboard.down('Tab');
@@ -310,16 +325,16 @@ test.describe('mg-input-checkbox', () => {
       await page.keyboard.down('Enter');
       await page.keyboard.down('Enter');
 
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       await page.getByPlaceholder(/value/).fill('2');
 
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // update search with an unmatchable value
       await page.getByPlaceholder(/value/).fill('batman');
 
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // close popover
       await page.keyboard.down('Escape');
@@ -335,7 +350,6 @@ test.describe('mg-input-checkbox', () => {
       const html = createHTML(componentArgs);
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-      await page.setViewportSize({ width: 450, height: 570 });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -347,7 +361,7 @@ test.describe('mg-input-checkbox', () => {
       await page.keyboard.down('Enter');
       await page.locator('mg-popover-content').waitFor();
 
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 570 } });
     });
 
     test('Should render "multi" with 2 sections and a closed selected section', async ({ page }) => {
@@ -359,7 +373,6 @@ test.describe('mg-input-checkbox', () => {
       const html = createHTML(componentArgs);
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-      await page.setViewportSize({ width: 450, height: 570 });
 
       // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
@@ -376,7 +389,7 @@ test.describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
 
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 570 } });
     });
 
     test('Should select all filtered values', async ({ page }) => {
@@ -388,7 +401,6 @@ test.describe('mg-input-checkbox', () => {
       const html = createHTML(componentArgs);
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-      page.setViewportSize({ width: 450, height: 470 });
 
       // wait to ensure to have the interactive element rendered
       await waitForInteractiveElement(page, 'multi');
@@ -397,32 +409,53 @@ test.describe('mg-input-checkbox', () => {
       await page.keyboard.down('Tab');
       await page.keyboard.down('Enter');
       await page.locator('mg-popover-content').waitFor();
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // filter content
       await page.keyboard.down('Tab');
       await page.keyboard.down('2');
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // display tooltip
       await page.keyboard.down('Tab');
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // select all
       await page.keyboard.down('Enter');
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // remove filter
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Delete');
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
 
       // display tooltip
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
-      await expect(page.locator('body')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, width: 450, height: 470 } });
+    });
+  });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const componentArgs = { ...baseArgs, ...args };
+        const html = createHTML(componentArgs);
+        console.log(html);
+
+        await page.setContent(html);
+        await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 });

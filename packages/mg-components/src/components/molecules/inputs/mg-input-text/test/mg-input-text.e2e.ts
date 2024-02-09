@@ -145,9 +145,7 @@ describe('mg-input-text', () => {
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
-      await page.setViewportSize({ height: 100, width: 500 });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, height: 100, width: 500 } });
     });
 
     describeEach([true, false])('using append-input slot, case readonly %s', (readonly: boolean) => {
@@ -239,6 +237,23 @@ describe('mg-input-text', () => {
       await page.keyboard.down('Tab');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const props = { identifier: 'identifier', label: 'label', ...args };
+        await setPageContent(page, creatHtml(props));
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 });
