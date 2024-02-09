@@ -118,6 +118,7 @@ describe('mg-form', () => {
     { args: { identifier: 'identifier' } },
     { args: { identifier: 'identifier', readonly: true } },
     { args: { identifier: 'identifier', disabled: true } },
+    { args: { identifier: 'identifier', labelOnTop: true } },
     { args: { identifier: 'identifier' }, readonly: true },
     ...requiredFields.flatMap(required => [undefined, ...requiredMessageStatus].map(requiredMessage => ({ args: { identifier: 'identifier', requiredMessage }, required }))),
   ])('Should render with args %o:', async ({ args, required, readonly }: Partial<{ args; required; readonly }>) => {
