@@ -225,9 +225,11 @@ test.describe('mg-input-numeric', () => {
       '<span slot="append-input">km</span>',
     ].forEach(slottedHTML => {
       test(`using append-input slot ${renderAttributes(addedArgs)} ${slottedHTML}`, async ({ page }) => {
-        const args = { ...baseArgs, ...addedArgs };
+        const args = { ...baseArgs, ...addedArgs, value: 1 };
         const html = createHTML(args, slottedHTML);
         await page.setContent(html);
+
+        await page.locator('mg-input-numeric.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
