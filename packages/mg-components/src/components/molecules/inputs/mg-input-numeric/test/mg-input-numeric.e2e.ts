@@ -1,6 +1,7 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
+import { formats, types } from '../mg-input-numeric.conf';
 
 const baseArgs = {
   identifier: 'identifier',
@@ -247,6 +248,28 @@ test.describe('mg-input-numeric', () => {
 
         // Responsive state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
+
+  test.describe('Format', () => {
+    [false, true].forEach(readonly => {
+      types.forEach(type => {
+        formats.forEach(format => {
+          const addedArgs = {
+            readonly,
+            value: type === 'integer' ? 123456789 : 1234567.89,
+            type,
+            format,
+          };
+          test(`format value ${renderAttributes(addedArgs)}`, async ({ page }) => {
+            const args = { ...baseArgs, ...addedArgs };
+            const html = createHTML(args);
+            await page.setContent(html);
+
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          });
+        });
       });
     });
   });
