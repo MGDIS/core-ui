@@ -88,6 +88,19 @@ test.describe('mg-input-toggle', () => {
     });
   });
 
+  [
+    { tooltip: 'blu', tooltipPosition: 'label' as MgInputToggle['tooltipPosition'] },
+    { tooltip: 'blu', tooltipPosition: 'input' as MgInputToggle['tooltipPosition'], labelOnTop: true },
+  ].forEach(args => {
+    test(`Render with ${renderAttributes(args)}`, async ({ page }) => {
+      await setPageContent(page, args);
+
+      await page.locator('mg-input-toggle.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
   [undefined, false, true].forEach(value => {
     test(`Render and toggle value with reverse checked logic value="${value}"`, async ({ page }) => {
       await setPageContent(page, {
@@ -112,12 +125,10 @@ test.describe('mg-input-toggle', () => {
 
       await page.keyboard.down('Tab');
       if (!labelOnTop) {
-        // when label on top tooltip is on fist tab (next to label)
         await page.keyboard.down('Tab');
-        await expect(page.locator('body')).toHaveScreenshot();
-      } else {
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       }
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 

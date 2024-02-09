@@ -4,6 +4,7 @@ import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method 
 import { MgInput } from '../MgInput';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
+import { type TooltipPosition } from '../MgInput.conf';
 
 /**
  * type Option validation function
@@ -136,6 +137,11 @@ export class MgInputToggle {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -305,6 +311,7 @@ export class MgInputToggle {
         value={this.value?.toString()}
         readonlyValue={this.options[this.checked ? 1 : 0].title}
         tooltip={!this.readonly && this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={false}

@@ -44,9 +44,6 @@ describe('mg-input-password', () => {
 
     await page.keyboard.down('Tab');
     if (!labelOnTop) {
-      // Ensure to display tooltip
-      await page.setViewportSize({ width: 600, height: 65 });
-      // when label on top tooltip is on fist tab (next to label)
       await page.keyboard.down('Tab');
     }
 
@@ -64,6 +61,8 @@ describe('mg-input-password', () => {
     `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required></mg-input-password>`,
     `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required readonly></mg-input-password>`,
     `<mg-input-password identifier="identifier" label="label" value="blu" help-text="HelpText Message" required disabled></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="label"></mg-input-password>`,
+    `<mg-input-password identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="input" label-on-top></mg-input-password>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(page, html);

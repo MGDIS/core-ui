@@ -2,11 +2,18 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputToggle as MgInputToggleType } from '../mg-input-toggle';
 import { ToggleValue } from '../mg-input-toggle.conf';
+import { tooltipPositions } from '../../MgInput.conf';
 
 export default {
   component: 'mg-input-toggle',
   title: 'Molecules/Inputs/mg-input-toggle',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
+  argTypes: {
+    tooltipPosition: {
+      options: [undefined, ...tooltipPositions],
+      control: { type: 'select' },
+    },
+  },
 };
 
 const args = {
@@ -30,6 +37,7 @@ const args = {
   readonly: false,
   // Tooltip
   tooltip: 'This is a tooltip',
+  tooltipPosition: undefined,
   // Help Text
   helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
 };
@@ -70,7 +78,6 @@ const TemplateIcon = (args: MgInputToggleType): HTMLElement => (
 
 export const MgInputToggleWithIcon = {
   render: TemplateIcon,
-
   args: {
     ...args,
     isIcon: true,

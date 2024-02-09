@@ -1,5 +1,5 @@
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
-import { setPageContent, expect, describe, test, testEach, PageType, updateScreenshotClass, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
+import { setPageContent, expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputText } from '../mg-input-text';
 
 const creatHtml = (props: Partial<MgInputText & { slot: string }>) => {
@@ -51,10 +51,6 @@ describe('mg-input-text', () => {
 
       await page.keyboard.down('Tab');
       if (!labelOnTop) {
-        // Ensure to display tooltip
-        await page.setViewportSize({ height: 100, width: 500 });
-        await updateScreenshotClass(page, { height: '65px', width: '500px' });
-        // when label on top tooltip is on fist tab (next to label)
         await page.keyboard.down('Tab');
       }
 
@@ -72,6 +68,8 @@ describe('mg-input-text', () => {
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, readonly: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, disabled: true },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with template %s', async (page: PageType, args) => {
       await setPageContent(page, creatHtml(args));
 

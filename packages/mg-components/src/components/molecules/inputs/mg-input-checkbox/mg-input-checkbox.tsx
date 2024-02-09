@@ -5,7 +5,7 @@ import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler } from '../MgInput.conf';
+import { Handler, type TooltipPosition } from '../MgInput.conf';
 
 /**
  * type CheckboxItem validation function
@@ -180,6 +180,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -673,6 +678,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         value={this.value?.toString()}
         readonlyValue={undefined}
         tooltip={!this.readonly ? this.tooltip : undefined}
+        tooltipPosition={this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
         isFieldset={true}

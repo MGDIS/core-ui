@@ -17,7 +17,9 @@ const getPage = args => {
 
 describe('mg-input-radio', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   test.each([
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'] },
     {
@@ -62,6 +64,8 @@ describe('mg-input-radio', () => {
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], helpText: 'Hello joker' },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', labelOnTop: true },
+    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
   ])('Should render with args %s:', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
@@ -91,6 +95,15 @@ describe('mg-input-radio', () => {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true, items: ['batman', 'joker'] });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+    }
+  });
+
+  test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', items: ['batman', 'joker'], tooltipPosition });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
     }
   });
 

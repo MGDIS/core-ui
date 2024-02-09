@@ -9,9 +9,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -56,9 +58,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -106,9 +110,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container mg-c-input__input-group-container--vertical" role="list">
@@ -153,9 +159,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title class="mg-u-visually-hidden" identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title mg-u-visually-hidden">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -249,9 +257,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-      <mg-input-title identifier="identifier" is-legend="" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong></strong>
       </div>
@@ -296,9 +306,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -348,9 +360,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -401,9 +415,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-      <mg-input-title identifier="identifier" is-legend="" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong>
           batman
@@ -423,9 +439,11 @@ exports[`mg-input-radio Should render with args {
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -517,13 +535,122 @@ exports[`mg-input-radio Should render with args {
 </mg-input-radio>
 `;
 
+exports[`mg-input-radio Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  items: [Array],
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-radio>
+  <mock:shadow-root>
+    <fieldset class="mg-c-input mg-c-input--label-on-top mg-c-input--radio">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <ul class="mg-c-input__input-group-container" role="list">
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_0" name="identifier" type="radio" value="0">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_1" name="identifier" type="radio" value="1">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="radio" value="2">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_3" name="identifier" type="radio" value="3">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-radio>
+`;
+
+exports[`mg-input-radio Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  items: [Array],
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'label'
+}: 1`] = `
+<mg-input-radio>
+  <mock:shadow-root>
+    <fieldset class="mg-c-input mg-c-input--radio">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon icon="info-circle"></mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <ul class="mg-c-input__input-group-container" role="list">
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_0" name="identifier" type="radio" value="0">
+              <label htmlfor="identifier_0">
+                batman
+              </label>
+            </li>
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_1" name="identifier" type="radio" value="1">
+              <label htmlfor="identifier_1">
+                robin
+              </label>
+            </li>
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_2" name="identifier" type="radio" value="2">
+              <label htmlfor="identifier_2">
+                joker
+              </label>
+            </li>
+            <li class="mg-c-input__input-group">
+              <input aria-describedby="" id="identifier_3" name="identifier" type="radio" value="3">
+              <label htmlfor="identifier_3">
+                bane
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </fieldset>
+  </mock:shadow-root>
+</mg-input-radio>
+`;
+
 exports[`mg-input-radio Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -563,9 +690,11 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -605,9 +734,11 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -647,9 +778,11 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -689,9 +822,11 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -722,9 +857,11 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -767,9 +904,11 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -800,9 +939,11 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -845,9 +986,11 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -890,9 +1033,11 @@ exports[`mg-input-radio display error message with locale: fr 1`] = `
 <mg-input-radio lang="fr">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -938,9 +1083,11 @@ exports[`mg-input-radio display error message with locale: xx 1`] = `
 <mg-input-radio lang="xx">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -986,9 +1133,11 @@ exports[`mg-input-radio display error with displayError component's public metho
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1031,9 +1180,11 @@ exports[`mg-input-radio display error with displayError component's public metho
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1079,9 +1230,11 @@ exports[`mg-input-radio should display override error with setError component's 
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1121,9 +1274,11 @@ exports[`mg-input-radio should display override error with setError component's 
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1163,9 +1318,11 @@ exports[`mg-input-radio should display override error with setError component's 
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1205,9 +1362,11 @@ exports[`mg-input-radio should display override error with setError component's 
 <mg-input-radio>
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="" required="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" required="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1250,9 +1409,11 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1295,9 +1456,11 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1337,9 +1500,11 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
     <fieldset class="mg-c-input mg-c-input--radio">
-      <mg-input-title identifier="identifier" is-legend="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <div class="mg-c-input__input mg-c-input__input--has-error">
           <ul class="mg-c-input__input-group-container" role="list">
@@ -1382,9 +1547,11 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--radio mg-c-input--readonly">
-      <mg-input-title identifier="identifier" is-legend="" readonly="">
-        label
-      </mg-input-title>
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" is-legend="" readonly="">
+          label
+        </mg-input-title>
+      </div>
       <div class="mg-c-input__input-container">
         <strong></strong>
       </div>
