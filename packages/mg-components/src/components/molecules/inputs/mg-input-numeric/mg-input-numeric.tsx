@@ -173,7 +173,7 @@ export class MgInputNumeric {
    * Numbers are formatted based on the locale.
    * When type is set to `currency`, formatting has no effect.
    */
-  @Prop({ mutable: true }) format: Format = 'number';
+  @Prop({ mutable: true }) format: Format = 'number'; // eslint-disable-line @stencil-community/strict-mutable
   @Watch('format')
   watchFormat(newValue: MgInputNumeric['format']): void {
     if (!formats.includes(newValue)) {
