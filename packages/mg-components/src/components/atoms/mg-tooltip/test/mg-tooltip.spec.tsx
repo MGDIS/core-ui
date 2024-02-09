@@ -31,7 +31,9 @@ describe('mg-tooltip', () => {
     });
   });
 
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
 
   describe.each([
     () => <span>span</span>,

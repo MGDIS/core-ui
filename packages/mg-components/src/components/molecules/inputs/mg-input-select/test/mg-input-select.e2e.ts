@@ -91,9 +91,6 @@ describe('mg-input-select', () => {
 
     await page.keyboard.down('Tab');
     if (!labelOnTop) {
-      // Ensure to display tooltip
-      await page.setViewportSize({ width: 600, height: 65 });
-      // when label on top tooltip is on fist tab (next to label)
       await page.keyboard.down('Tab');
     }
 
@@ -111,6 +108,8 @@ describe('mg-input-select', () => {
     `<mg-input-select identifier="identifier" label="label" value="blu" required help-text="HelpText Message"></mg-input-select>`,
     `<mg-input-select identifier="identifier" label="label" value="blu" required readonly help-text="HelpText Message"></mg-input-select>`,
     `<mg-input-select identifier="identifier" label="label" value="blu" required disabled help-text="HelpText Message"></mg-input-select>`,
+    `<mg-input-select identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="label"></mg-input-select>`,
+    `<mg-input-select identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="input" label-on-top></mg-input-select>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(

@@ -2,6 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
 import type { MgInputCheckbox as MgInputCheckboxType } from '../mg-input-checkbox';
+import { tooltipPositions } from '../../MgInput.conf';
 
 export default {
   component: 'mg-input-checkbox',
@@ -10,6 +11,10 @@ export default {
   argTypes: {
     type: {
       options: [undefined, ...checkboxTypes],
+      control: { type: 'select' },
+    },
+    tooltipPosition: {
+      options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },
   },
@@ -56,6 +61,7 @@ export const MgInputCheckbox = {
     readonly: false,
     // Tooltip
     tooltip: 'This is a tooltip',
+    tooltipPosition: undefined,
     // Help Text
     helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
     displaySelectedValues: false,

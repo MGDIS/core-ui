@@ -49,11 +49,7 @@ describe('mg-input-numeric', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
     await page.keyboard.down('Tab');
-
     if (!labelOnTop) {
-      // Ensure to display tooltip
-      await page.setViewportSize({ width: 600, height: 65 });
-      // when label on top tooltip is on fist tab (next to label)
       await page.keyboard.down('Tab');
     }
 
@@ -76,6 +72,8 @@ describe('mg-input-numeric', () => {
     `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text="HelpText Message" required></mg-input-numeric>`,
     `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text="HelpText Message" required readonly></mg-input-numeric>`,
     `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text="HelpText Message" required disabled></mg-input-numeric>`,
+    `<mg-input-numeric identifier="identifier" label="label" value="123,45" tooltip="blu" tooltip-position="label"></mg-input-numeric>`,
+    `<mg-input-numeric identifier="identifier" label="label" value="123,45" tooltip="blu" tooltip-position="input" label-on-top></mg-input-numeric>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
       await setPageContent(page, html);

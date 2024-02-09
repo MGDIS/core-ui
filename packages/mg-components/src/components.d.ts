@@ -12,7 +12,7 @@ import { VariantStyleType, VariantType as VariantType1 } from "./components/atom
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { Width } from "./components/molecules/inputs/MgInput.conf";
+import { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -34,7 +34,7 @@ export { VariantStyleType, VariantType as VariantType1 } from "./components/atom
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { Width } from "./components/molecules/inputs/MgInput.conf";
+export { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -306,6 +306,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
         "type": CheckboxType;
@@ -419,6 +423,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -511,6 +519,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define numeric type
          */
         "type": string;
@@ -587,6 +599,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -658,6 +674,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
         /**
           * Define input valid state
          */
@@ -742,6 +762,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
         /**
           * Define input valid state
          */
@@ -843,6 +867,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Input type
          */
         "type": TextType;
@@ -943,6 +971,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -1024,6 +1056,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
         /**
           * Component value
          */
@@ -2174,6 +2210,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
         "type"?: CheckboxType;
@@ -2289,6 +2329,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid"?: boolean;
@@ -2379,6 +2423,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define numeric type
          */
         "type"?: string;
@@ -2453,6 +2501,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid"?: boolean;
@@ -2522,6 +2574,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Define input valid state
          */
@@ -2604,6 +2660,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Define input valid state
          */
@@ -2698,6 +2758,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Input type
          */
@@ -2797,6 +2861,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid"?: boolean;
@@ -2880,6 +2948,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Component value
          */

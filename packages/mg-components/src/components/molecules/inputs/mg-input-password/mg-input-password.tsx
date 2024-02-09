@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 
@@ -111,6 +111,11 @@ export class MgInputPassword {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -276,6 +281,7 @@ export class MgInputPassword {
         value={this.value}
         readonlyValue={this.value !== undefined ? '•'.repeat(this.value.length) : undefined}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={false}

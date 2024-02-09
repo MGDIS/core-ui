@@ -35,6 +35,9 @@ test.describe('mg-input-checkbox', () => {
         { ...baseArgs, helpText: 'HelpText Message', required: true },
         { ...baseArgs, helpText: 'HelpText Message', required: true, readonly: true },
         { ...baseArgs, helpText: 'HelpText Message', required: true, disabled: true },
+        { ...baseArgs, type, tooltip: 'blu' },
+        { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label' },
+        { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label', labelOnTop: true },
       ].forEach((args, index) => {
         test(`Should render with template ${index + 1}`, async ({ page }) => {
           const componentArgs = {
@@ -68,8 +71,6 @@ test.describe('mg-input-checkbox', () => {
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-          const KEY_TAB = 'Tab';
-
           expect(page.locator('mg-input-checkbox.hydrated')).toBeDefined();
 
           // wait to ensure to have the interactive element rendered
@@ -77,17 +78,12 @@ test.describe('mg-input-checkbox', () => {
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-          let actions = [KEY_TAB];
-
-          // when label on top tooltip is on first tab (next to label)
+          await page.keyboard.down('Tab');
           if (!labelOnTop) {
-            page.addStyleTag({ content: '.e2e-screenshot{padding-right:4rem;padding-bottom:3rem}' });
-            // when type is 'multi' the tooltip is on second tab
-            actions = type !== 'multi' ? [...actions, KEY_TAB, KEY_TAB, KEY_TAB, KEY_TAB] : [...actions, KEY_TAB];
-          }
-
-          for (const key of actions) {
-            await page.keyboard.down(key);
+            await page.keyboard.down('Tab');
+            await page.keyboard.down('Tab');
+            await page.keyboard.down('Tab');
+            await page.keyboard.down('Tab');
           }
 
           await page.locator('mg-tooltip-content').waitFor();
