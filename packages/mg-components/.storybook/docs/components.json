@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-09T07:37:24",
+  "timestamp": "2024-02-12T08:21:15",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.1",
@@ -3121,6 +3121,43 @@
           "required": false
         },
         {
+          "name": "format",
+          "type": "\"currency\" | \"none\" | \"number\"",
+          "complexType": {
+            "original": "Format",
+            "resolved": "\"currency\" | \"none\" | \"number\"",
+            "references": {
+              "Format": {
+                "location": "import",
+                "path": "./mg-input-numeric.conf",
+                "id": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::Format"
+              }
+            }
+          },
+          "mutable": true,
+          "attr": "format",
+          "reflectToAttr": false,
+          "docs": "Set local formatting.\nNumbers are formatted based on the locale.\nWhen type is set to `currency`, formatting has no effect.",
+          "docsTags": [],
+          "default": "'number'",
+          "values": [
+            {
+              "value": "currency",
+              "type": "string"
+            },
+            {
+              "value": "none",
+              "type": "string"
+            },
+            {
+              "value": "number",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "helpText",
           "type": "string",
           "complexType": {
@@ -3494,20 +3531,35 @@
         },
         {
           "name": "type",
-          "type": "string",
+          "type": "\"currency\" | \"decimal\" | \"integer\"",
           "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
+            "original": "NumericType",
+            "resolved": "\"currency\" | \"decimal\" | \"integer\"",
+            "references": {
+              "NumericType": {
+                "location": "import",
+                "path": "./mg-input-numeric.conf",
+                "id": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::NumericType"
+              }
+            }
           },
           "mutable": false,
           "attr": "type",
           "reflectToAttr": false,
           "docs": "Define numeric type",
           "docsTags": [],
-          "default": "types[0]",
+          "default": "'decimal'",
           "values": [
             {
+              "value": "currency",
+              "type": "string"
+            },
+            {
+              "value": "decimal",
+              "type": "string"
+            },
+            {
+              "value": "integer",
               "type": "string"
             }
           ],
@@ -9755,6 +9807,16 @@
       "declaration": "2 | 4 | 16 | \"full\"",
       "docstring": "",
       "path": "src/components/molecules/inputs/MgInput.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::NumericType": {
+      "declaration": "\"decimal\" | \"integer\" | \"currency\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::Format": {
+      "declaration": "\"number\" | \"none\" | \"currency\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts::RadioOption": {
       "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n}",
