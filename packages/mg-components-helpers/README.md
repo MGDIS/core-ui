@@ -13,3 +13,7 @@ It can be used in vueJS and angularJS projects.
 ```shell
 npm add @mgdis/mg-components-helpers
 ```
+
+## Documentation
+
+Read the full [documentation](./doc/README.md)

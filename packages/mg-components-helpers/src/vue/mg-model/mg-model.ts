@@ -4,6 +4,29 @@ import { type App } from './mg-model.conf';
 
 const wm = new WeakMap();
 
+/**
+ * Custom `v-mg-model` directive
+ *
+ * @remarks
+ * Packages requirements
+ * - "\@mgdis/mg-components": \>=3
+ * - "vue": \>=2
+ * - "lodash"
+ *
+ * @example
+ * ```js
+ * // src/main.js
+ * import Vue from 'vue';
+ * import App from './App.vue';
+ * import { mgModel } from '@mgdis/mg-components-helpers/vue';
+ *
+ * Vue.use(mgModel);
+ *
+ * new Vue({
+ *   render: (h) => h(App),
+ * }).$mount('#app');
+ * ```
+ */
 export const mgModel = {
   install(Vue: App) {
     Vue.directive('mg-model', <Directive<HTMLInputElement, string>>{
