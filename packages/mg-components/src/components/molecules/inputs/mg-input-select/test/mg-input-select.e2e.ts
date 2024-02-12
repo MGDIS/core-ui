@@ -232,4 +232,27 @@ describe('mg-input-select', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        await setPageContent(
+          page,
+          `<mg-input-select identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-select>
+          <script>
+          const mgInputSelect = document.querySelector('mg-input-select');
+          mgInputSelect.items = ['blu', 'bli', 'bla', 'blo', 'le long libellé qui va faire sortir le champ mg-input-select de sa zone de confort'];
+        </script>`,
+        );
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
 });

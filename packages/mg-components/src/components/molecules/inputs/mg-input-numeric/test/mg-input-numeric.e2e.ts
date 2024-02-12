@@ -1,31 +1,34 @@
-import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
+import { renderAttributes } from '@mgdis/playwright-helpers';
+import { test } from '../../../../../utils/playwright.fixture';
+import { formats, types } from '../mg-input-numeric.conf';
 
-const TIMEOUT = 1000;
+const baseArgs = {
+  identifier: 'identifier',
+  label: 'label',
+};
 
-describe('mg-input-numeric', () => {
-  describeEach([
-    `<mg-input-numeric identifier="identifier" label="label"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" label-on-top></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" label-hide></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" placeholder="placeholder" help-text="HelpText Message"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" type="integer"></mg-input-numeric>`,
-  ])('without tooltip', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, html);
+const createHTML = (args, slot = '') => `<mg-input-numeric ${renderAttributes(args)}>${slot}</mg-input-numeric>`;
 
-      await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
-      const input = page.locator('input');
+test.describe('mg-input-numeric', () => {
+  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }, { type: 'integer' }].forEach(addedArgs => {
+    test(`render ${renderAttributes(addedArgs)}`, async ({ page }) => {
+      const args = { ...baseArgs, ...addedArgs };
+      const html = createHTML(args);
+      await page.setContent(html);
 
-      // Hide caret for screenshots
-      await page.$eval('mg-input-numeric', elm => {
-        const input = elm.shadowRoot.querySelector('input');
-        input.style.caretColor = 'transparent';
+      const input = page.locator('mg-input-numeric.hydrated');
+
+      await input.evaluate(elm => {
+        elm.shadowRoot.querySelector('input').style.caretColor = 'transparent';
       });
 
+      // initial state
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.down('Tab');
 
+      // focus
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await input.press('1');
@@ -37,61 +40,47 @@ describe('mg-input-numeric', () => {
       await input.press('6');
       await input.press('7');
 
+      // filled
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  testEach([true, false])('render with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(page, `<mg-input-numeric identifier="identifier" label="label" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-numeric>`);
-
-    await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-    await page.keyboard.down('Tab');
-    if (!labelOnTop) {
-      await page.keyboard.down('Tab');
-    }
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-  });
-
-  describeEach([
-    `<mg-input-numeric identifier="identifier" label="label" readonly></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" readonly></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" disabled></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" disabled></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" lang="fr"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" lang="fr" type="currency"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" lang="fr" type="currency" currency="EUR"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" readonly lang="fr"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" readonly lang="fr" type="currency"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" readonly lang="fr" type="currency" currency="EUR"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text='<mg-icon icon="user" size="small"></mg-icon> Welcome batman'></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text="HelpText Message" required></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text="HelpText Message" required readonly></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" help-text="HelpText Message" required disabled></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" tooltip="blu" tooltip-position="label"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" value="123,45" tooltip="blu" tooltip-position="input" label-on-top></mg-input-numeric>`,
-  ])('Should render with template', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, html);
-
-      await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
+  [
+    { readonly: true },
+    { value: '123,45', readonly: true },
+    { value: '123,45', readonly: true, disabled: true },
+    { disabled: true },
+    { value: '123,45', disabled: true },
+    { value: '123,45', lang: 'fr' },
+    { value: '123,45', lang: 'fr', type: 'currency' },
+    { value: '123,45', lang: 'fr', type: 'currency', currency: 'EUR' },
+    { value: '123,45', readonly: true, lang: 'fr' },
+    { value: '123,45', readonly: true, lang: 'fr', type: 'currency' },
+    { value: '123,45', readonly: true, lang: 'fr', type: 'currency', currency: 'EUR' },
+    { value: '123,45', helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
+    { value: '123,45', helpText: 'HelpText Message', required: true },
+    { value: '123,45', helpText: 'HelpText Message', required: true, readonly: true },
+    { value: '123,45', helpText: 'HelpText Message', required: true, disabled: true },
+    { value: '123,45', tooltip: 'blu', tooltipPosition: 'label' },
+    { value: '123,45', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
+  ].forEach(addedArgs => {
+    test(`Should render template ${renderAttributes(addedArgs)}`, async ({ page }) => {
+      const args = { ...baseArgs, ...addedArgs };
+      const html = createHTML(args);
+      await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   test('Should render currency symbol', async ({ page }) => {
-    await setPageContent(page, `<mg-input-numeric identifier="identifier" label="label" type="currency"></mg-input-numeric>`);
-
-    await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
-    const input = page.locator('input');
+    const args = { ...baseArgs, type: 'currency' };
+    const html = createHTML(args);
+    await page.setContent(html);
 
     await page.keyboard.down('Tab');
 
+    const input = page.locator('input');
     await input.press('1');
     await input.press('2');
     await input.press('3');
@@ -106,14 +95,13 @@ describe('mg-input-numeric', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  describeEach([
-    `<mg-input-numeric identifier="identifier" label="label" required></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" required lang="fr"></mg-input-numeric>`,
-  ])('%s', (html: string) => {
-    test('Should render error when leaving an empty required input', async ({ page }) => {
-      await setPageContent(page, html);
+  [{}, { lang: 'fr' }].forEach(addedArgs => {
+    test(`Should render error when leaving an empty required input ${renderAttributes(addedArgs)}`, async ({ page }) => {
+      const args = { ...baseArgs, ...addedArgs, required: true };
+      const html = createHTML(args);
+      await page.setContent(html);
 
-      await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-input-numeric.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
@@ -122,19 +110,17 @@ describe('mg-input-numeric', () => {
     });
   });
 
-  describeEach([
-    `<mg-input-numeric identifier="identifier" label="label" min="120"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" max="100"></mg-input-numeric>`,
-    `<mg-input-numeric identifier="identifier" label="label" min="10" max="100"></mg-input-numeric>`,
-  ])('Should render error when value does not respect min max attributes', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, html);
+  [{ min: '120' }, { max: '100' }, { min: '10', max: '100' }].forEach(addedArgs => {
+    test(`Should render error when value does not respect min max attributes ${renderAttributes(addedArgs)}`, async ({ page }) => {
+      const args = { ...baseArgs, ...addedArgs };
+      const html = createHTML(args);
+      await page.setContent(html);
 
-      await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
-      const input = page.locator('input');
+      await page.locator('mg-input-numeric.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
 
+      const input = page.locator('input');
       await input.press('1');
       await input.press('1');
       await input.press('0');
@@ -146,13 +132,14 @@ describe('mg-input-numeric', () => {
   });
 
   test('Should not allow invalid characters', async ({ page }) => {
-    await setPageContent(page, `<mg-input-numeric identifier="identifier" label="label"></mg-input-numeric>`);
+    const html = createHTML(baseArgs);
+    await page.setContent(html);
 
-    await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
-    const input = page.locator('input');
+    await page.locator('mg-input-numeric.hydrated').waitFor();
 
     await page.keyboard.down('Tab');
 
+    const input = page.locator('input');
     await input.press('1');
     await input.press('KeyB'); // Should not be included
     await input.press('2');
@@ -180,54 +167,112 @@ describe('mg-input-numeric', () => {
     expect(value).toEqual('1234567890123,45');
   });
 
-  describeEach([
-    '<mg-input-numeric identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-numeric>',
-    '<mg-input-numeric identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-numeric>',
-  ])('inside a div.mg-form-group', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, `<div class="mg-form-group">${html}</div>`);
+  [{}, { labelOnTop: true }].forEach(addedArgs => {
+    test.describe(`${renderAttributes(addedArgs)}`, () => {
+      test(`render with tooltip`, async ({ page }) => {
+        const args = { ...baseArgs, ...addedArgs, tooltip: 'Tooltip message' };
+        const html = createHTML(args);
+        await page.setContent(html);
 
-      await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await page.keyboard.down('Tab');
+        if (!addedArgs.labelOnTop) {
+          await page.keyboard.down('Tab');
+        }
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      test(`render inside a div.mg-form-group`, async ({ page }) => {
+        const args = {
+          ...baseArgs,
+          ...addedArgs,
+          label: 'long label long label long label long label long label long label long label long label long label long label long label',
+        };
+        const html = createHTML(args);
+        await page.setContent(`<div class="mg-form-group">${html}</div>`);
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      [{ mgWidth: 'full' }, { mgWidth: 16 }, { mgWidth: 4 }, { mgWidth: 2 }].forEach(widthArgs => {
+        test(`with custom width ${renderAttributes(widthArgs)}`, async ({ page }) => {
+          const args = { ...baseArgs, ...addedArgs, ...widthArgs };
+          const html = createHTML(args);
+          await page.setContent(html);
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
+
+      test('Ensure component fit in width 150px', async ({ page }) => {
+        const args = { ...baseArgs, ...addedArgs };
+        const html = createHTML(args);
+        await page.setContent(html);
+        await page.setViewportSize({ width: 150, height: 100 });
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 
-  describeEach([true, false])('using append-input slot, case readonly %s', readonly => {
-    testEach([
+  [{}, { readonly: true }].forEach(addedArgs => {
+    [
       `<mg-button slot="append-input" label="search">
         <mg-icon icon="calculator"></mg-icon> Calculate
       </mg-button>`,
       '<span slot="append-input">km</span>',
-    ])('render %s', async (page: PageType, slot: string) => {
-      await setPageContent(
-        page,
-        `
-        <mg-input-numeric identifier="identifier" label="label" readonly="${readonly}" value="1">
-          ${slot}
-        </mg-input-numeric>
-      `,
-      );
+    ].forEach(slottedHTML => {
+      test(`using append-input slot ${renderAttributes(addedArgs)} ${slottedHTML}`, async ({ page }) => {
+        const args = { ...baseArgs, ...addedArgs, value: 1 };
+        const html = createHTML(args, slottedHTML);
+        await page.setContent(html);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await page.locator('mg-input-numeric.hydrated').waitFor();
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 
-  describeEach(['full', 16, 4, 2])('with custom width: %s', width => {
-    testEach([false, true])('with label on top: %s', async (page: PageType, labelOnTop: boolean) => {
-      await setPageContent(page, `<mg-input-numeric identifier="identifier" label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-numeric>`);
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(addedArgs => {
+      test(`Should display label on top on responsive breakpoint with tooltip message ${renderAttributes(addedArgs)}`, async ({ page }) => {
+        const args = { ...baseArgs, ...addedArgs };
+        const html = createHTML(args);
+        await page.setContent(html);
 
-      await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 
-  testEach([false, true])('Ensure component fit in width 150px with label-on-top: %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(page, `<mg-input-numeric identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-numeric>`, { width: 150, height: 100 });
+  test.describe('Format', () => {
+    [false, true].forEach(readonly => {
+      types.forEach(type => {
+        formats.forEach(format => {
+          const addedArgs = {
+            readonly,
+            value: type === 'integer' ? 123456789 : 1234567.89,
+            type,
+            format,
+          };
+          test(`format value ${renderAttributes(addedArgs)}`, async ({ page }) => {
+            const args = { ...baseArgs, ...addedArgs };
+            const html = createHTML(args);
+            await page.setContent(html);
 
-    await page.locator('mg-input-numeric.hydrated').waitFor({ timeout: TIMEOUT });
-
-    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          });
+        });
+      });
+    });
   });
 });
