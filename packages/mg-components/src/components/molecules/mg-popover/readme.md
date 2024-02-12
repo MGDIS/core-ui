@@ -33,7 +33,7 @@ The title and the close button are optional.
 
 ![](./doc/img/mg-popover-sizing.png)
 
-Default max-width : 400px
+Default max-width: 400px
 The value of the max-width can be modified according to the case via the CSS variable.
 
 ### Alignments

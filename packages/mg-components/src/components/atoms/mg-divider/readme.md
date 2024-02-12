@@ -2,12 +2,12 @@
 
 ![](./doc/img/mg-divider-sizing.png)
 
-Two sizes are possible :
+Two sizes are possible:
 
-- Regular : 120px
-- Full : 100%
+- Regular: 120px
+- Full: 100%
 
-Rules :
+Rules:
 
 - Regular is the default mode.
 - In full mode it takes 100% of its parent.

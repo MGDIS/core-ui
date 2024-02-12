@@ -6,18 +6,18 @@
 
 ![](./doc/img/mg-illustrated-message-vertical-anatomy.png)
 
-Component is built with :
+Component is built with:
 
 - an illustration
 - a title
 
-Optionnally :
+Optionnally:
 
 - one or more _details_ slot which accept HTML content (text, button...)
 
 #### Style
 
-- _title_ : Open Sans, 20px, Regular
+- _title_: Open Sans, 20px, Regular
 - All contents are centered.
 
 #### Spacing

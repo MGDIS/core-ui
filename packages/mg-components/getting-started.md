@@ -35,7 +35,7 @@ import '@mgdis/mg-components/dist/components/mg-button';
 import '@mgdis/mg-components/dist/components/mg-message';
 ```
 
-You need now to import the components style by adding the mg-components variables or directly the stylesheet who came with in the `App.vue` file :
+You need now to import the components style by adding the mg-components variables or directly the stylesheet who came with in the `App.vue` file:
 
 ```html
 <style>
@@ -85,7 +85,7 @@ import '@mgdis/mg-components/dist/components/mg-button';
 import '@mgdis/mg-components/dist/components/mg-message';
 ```
 
-You need now to import the components style by adding the mg-components variables or directly the stylesheet who came with in the `app.js` file :
+You need now to import the components style by adding the mg-components variables or directly the stylesheet who came with in the `app.js` file:
 
 ```js
 import '@mgdis/mg-components/dist/mg-components/variables.css';
@@ -145,7 +145,7 @@ In some cases, binding **a string or a number** won't work ([#191](https://gitla
 
 #### ng-model
 
-`ng-model` can not be used in web components so we must set the value and the use the custom event `value-change` with the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive :
+`ng-model` can not be used in web components so we must set the value and the use the custom event `value-change` with the [`ng-on-`](https://docs.angularjs.org/api/ng/directive/ngOn) directive:
 
 ```html
 <mg-input-text ng-prop-value="user.firstname" label="Firstname" ng-on-value-change="user.firstname = $event.detail"></mg-input-text>

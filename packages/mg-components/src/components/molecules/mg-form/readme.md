@@ -1,7 +1,7 @@
 ## Use
 
 Use mg-form to build clean forms.  
-The component manages :
+The component manages:
 
 - the spacing between inputs
 - the required fileds message
