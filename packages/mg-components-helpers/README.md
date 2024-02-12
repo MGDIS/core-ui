@@ -8,12 +8,6 @@ It can be used in vueJS and angularJS projects.
 
 **NodeJS v14.x or higher.**
 
-### Packages
-
-@mgdis/mg-components: >=3
-angular:>=1.8
-angular-translate: >=2.19
-
 ## Installation
 
 ```shell
