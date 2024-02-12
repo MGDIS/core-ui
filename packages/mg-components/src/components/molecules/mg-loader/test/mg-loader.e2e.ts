@@ -6,7 +6,7 @@ const renderHTML = args => `<mg-loader ${renderAttributes(args)}></mg-loader>`;
 
 test.describe('mg-loader', () => {
   [{}, { message: 'new loader message' }, { messageHide: true }].forEach(args => {
-    test(`renders with args message="${args.message}" messageHide="${args.messageHide}"`, async ({ page }) => {
+    test(`renders with args ${renderAttributes(args)}`, async ({ page }) => {
       await page.setContent(renderHTML(args));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

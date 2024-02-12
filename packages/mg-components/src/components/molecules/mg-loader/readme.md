@@ -4,7 +4,7 @@
 
 The default loader message is "Loading in progress..." and can be overridden with the `message` prop.
 
-The loader message can be hidden by toggling the `messageHide` prop.
+The loader message can be hidden using the `messageHide` prop.
 
 <!-- Auto Generated Below -->
 
