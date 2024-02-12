@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
 import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
-import { types, InputError } from './mg-input-numeric.conf';
+import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales/';
 
@@ -158,11 +158,26 @@ export class MgInputNumeric {
   /**
    * Define numeric type
    */
-  @Prop() type: string = types[0];
+  @Prop() type: NumericType = 'decimal';
   @Watch('type')
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
       throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
+    } else if (newValue === 'currency') {
+      this.format = 'currency';
+    }
+  }
+
+  /**
+   * Set local formatting.
+   * Numbers are formatted based on the locale.
+   * When type is set to `currency`, formatting has no effect.
+   */
+  @Prop({ mutable: true }) format: Format = 'number'; // eslint-disable-line @stencil-community/strict-mutable
+  @Watch('format')
+  watchFormat(newValue: MgInputNumeric['format']): void {
+    if (!formats.includes(newValue)) {
+      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}`);
     }
   }
 
@@ -410,7 +425,16 @@ export class MgInputNumeric {
    * @param value - value to format
    * @returns formated local value
    */
-  private formatValue = (value: number): string => (this.type === 'currency' ? localeCurrency(value, this.locale, this.currency) : localeNumber(value, this.locale));
+  private formatValue = (value: number): string => {
+    switch (this.format) {
+      case 'number':
+        return localeNumber(value, this.locale);
+      case 'currency':
+        return localeCurrency(value, this.locale, this.currency);
+      case 'none':
+        return value.toString();
+    }
+  };
 
   /**
    * Validate append slot
@@ -436,6 +460,7 @@ export class MgInputNumeric {
     this.locale = locales.locale;
     this.messages = locales.messages;
     // Validate component config
+    this.watchFormat(this.format);
     this.validateType(this.type);
     this.validateIntegerLength(this.integerLength);
     this.validateDecimalLength(this.decimalLength);

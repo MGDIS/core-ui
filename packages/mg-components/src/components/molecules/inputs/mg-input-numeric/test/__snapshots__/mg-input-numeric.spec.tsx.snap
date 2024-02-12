@@ -209,6 +209,126 @@ exports[`mg-input-numeric should display override error with setError component'
 </mg-input-numeric>
 `;
 
+exports[`mg-input-numeric type currency Format currency args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Format currency args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Format none args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Format none args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Format number args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type currency Format number args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
 exports[`mg-input-numeric type currency Should render with args {
   label: 'label',
   identifier: 'identifier',
@@ -990,6 +1110,126 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
 </mg-input-numeric>
 `;
 
+exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          1234567890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format none args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1234567890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          1,234,567,890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Format number args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
 exports[`mg-input-numeric type decimal Should render with args {
   label: 'label',
   identifier: 'identifier',
@@ -1765,6 +2005,126 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
       <div class="mg-c-input__input-container">
         <strong></strong>
         <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format currency args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          $1,234,567,890.00
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format currency args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          1234567890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format none args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1234567890">
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format number args { readonly: true } 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier" readonly="">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <strong>
+          1,234,567,890
+        </strong>
+        <slot name="append-input"></slot>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Format number args {} 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--numeric">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="text" value="1,234,567,890">
+          <slot name="append-input"></slot>
+        </div>
       </div>
     </div>
   </mock:shadow-root>
