@@ -1,18 +1,10 @@
-## Specifications
+## Behavior
 
 ![](./doc/img/mg-loader-anatomy.png)
 
-### Anatomy
+The default loader message is "Loading in progress..." and can be overridden with the `message` prop.
 
-Component is built with :
-
-- loader icon
-- loader message. By default component use the locale version of "Loading in progress...".
-
-### Style
-
-message : Open Sans, 13px, Regular
-All contents are centered.
+The loader message can be hidden by toggling the `messageHide` prop.
 
 <!-- Auto Generated Below -->
 

@@ -12,4 +12,14 @@ test.describe('mg-loader', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
+
+  test.describe('responsive', () => {
+    test(`renders with default args`, async ({ page }) => {
+      await page.setContent(renderHTML({}));
+
+      await page.setViewportSize({ width: 100, height: 100 });
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
 });
