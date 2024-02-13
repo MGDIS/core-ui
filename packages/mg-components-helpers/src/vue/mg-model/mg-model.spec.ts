@@ -1,5 +1,6 @@
-const { createLocalVue } = require('@vue/test-utils');
-const mgModel = require('./index');
+import { describe, expect, test } from 'vitest';
+import { createLocalVue } from '@vue/test-utils';
+import { mgModel } from './';
 
 const localVue = createLocalVue();
 

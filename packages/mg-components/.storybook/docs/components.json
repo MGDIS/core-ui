@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-12T16:54:35",
+  "timestamp": "2024-02-13T08:20:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.1",
@@ -1546,6 +1546,7 @@
         "mg-input-textarea",
         "mg-input-toggle",
         "mg-item-more",
+        "mg-loader",
         "mg-menu-item",
         "mg-message",
         "mg-modal",
@@ -1596,6 +1597,9 @@
           "mg-icon"
         ],
         "mg-item-more": [
+          "mg-icon"
+        ],
+        "mg-loader": [
           "mg-icon"
         ],
         "mg-menu-item": [
@@ -7492,6 +7496,74 @@
           "mg-icon"
         ],
         "mg-button": [
+          "mg-icon"
+        ]
+      }
+    },
+    {
+      "filePath": "src/components/molecules/mg-loader/mg-loader.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-loader",
+      "readme": "## Behavior\n\n![](./doc/img/mg-loader-anatomy.png)\n\nThe default loader message is \"Loading in progress...\" and can be overridden with the `message` prop.\n\nThe loader message can be hidden using the `messageHide` prop.\n",
+      "docs": "![](./doc/img/mg-loader-anatomy.png)\n\nThe default loader message is \"Loading in progress...\" and can be overridden with the `message` prop.\n\nThe loader message can be hidden using the `messageHide` prop.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "message",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message",
+          "reflectToAttr": false,
+          "docs": "Override loader message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "messageHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "message-hide",
+          "reflectToAttr": false,
+          "docs": "Hide message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "mg-icon"
+      ],
+      "dependencyGraph": {
+        "mg-loader": [
           "mg-icon"
         ]
       }
