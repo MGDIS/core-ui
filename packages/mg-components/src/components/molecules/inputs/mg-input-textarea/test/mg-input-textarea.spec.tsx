@@ -16,7 +16,9 @@ const getPage = args => {
 
 describe('mg-input-textarea', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   test.each([
     { label: 'label', identifier: 'identifier' },
     { label: 'label', identifier: 'identifier', labelHide: true },
@@ -29,6 +31,8 @@ describe('mg-input-textarea', () => {
     { label: 'label', identifier: 'identifier', required: true, disabled: true, value: 'blu', helpText: 'My help text' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
+    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
     { label: 'label', identifier: 'identifier', resizable: 'both' },
     { label: 'label', identifier: 'identifier', resizable: 'vertical' },
     { label: 'label', identifier: 'identifier', resizable: 'horizontal' },
@@ -62,6 +66,15 @@ describe('mg-input-textarea', () => {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide"');
+    }
+  });
+
+  test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
     }
   });
 

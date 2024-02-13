@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 
@@ -148,7 +148,12 @@ export class MgInputTextarea {
   @Prop() tooltip: string;
 
   /**
-   * Define if component should hide character left
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
+
+  /**
+   * Define if component should display character left
    */
   @Prop() characterLeftHide = false;
   @Watch('characterLeftHide')
@@ -355,6 +360,7 @@ export class MgInputTextarea {
         value={this.value}
         readonlyValue={undefined}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={false}

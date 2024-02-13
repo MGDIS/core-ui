@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { MgInput } from '../MgInput';
-import { Handler, Width } from '../MgInput.conf';
+import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
@@ -208,6 +208,11 @@ export class MgInputSelect {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -439,6 +444,7 @@ export class MgInputSelect {
         value={undefined}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={false}

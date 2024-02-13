@@ -704,9 +704,11 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="panel title">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -774,9 +776,11 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -844,9 +848,11 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -958,9 +964,11 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1320,9 +1328,11 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1512,9 +1522,11 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
@@ -1670,9 +1682,11 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
                 <div class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mg-input-title class="mg-u-visually-hidden" identifier="identifier-edition-input">
-                    Edit section title.
-                  </mg-input-title>
+                  <div class="mg-c-input__title mg-u-visually-hidden">
+                    <mg-input-title identifier="identifier-edition-input">
+                      Edit section title.
+                    </mg-input-title>
+                  </div>
                   <div class="mg-c-input__input-container">
                     <div class="mg-c-input__input">
                       <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">

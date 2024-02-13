@@ -1,5 +1,5 @@
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
-import { setPageContent, expect, describe, test, testEach, PageType, updateScreenshotClass, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
+import { setPageContent, expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputText } from '../mg-input-text';
 
 const creatHtml = (props: Partial<MgInputText & { slot: string }>) => {
@@ -51,10 +51,6 @@ describe('mg-input-text', () => {
 
       await page.keyboard.down('Tab');
       if (!labelOnTop) {
-        // Ensure to display tooltip
-        await page.setViewportSize({ height: 100, width: 500 });
-        await updateScreenshotClass(page, { height: '65px', width: '500px' });
-        // when label on top tooltip is on fist tab (next to label)
         await page.keyboard.down('Tab');
       }
 
@@ -72,6 +68,8 @@ describe('mg-input-text', () => {
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, readonly: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, disabled: true },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with template %s', async (page: PageType, args) => {
       await setPageContent(page, creatHtml(args));
 
@@ -147,9 +145,7 @@ describe('mg-input-text', () => {
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
 
-      await page.setViewportSize({ height: 100, width: 500 });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, height: 100, width: 500 } });
     });
 
     describeEach([true, false])('using append-input slot, case readonly %s', (readonly: boolean) => {
@@ -241,6 +237,23 @@ describe('mg-input-text', () => {
       await page.keyboard.down('Tab');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  test.describe('Responsive', () => {
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const props = { identifier: 'identifier', label: 'label', ...args };
+        await setPageContent(page, creatHtml(props));
+
+        // Initial state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        await page.setViewportSize({ width: 767, height: 800 });
+
+        // Responsive state
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 });

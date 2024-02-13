@@ -3,7 +3,7 @@ import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Handler } from '../MgInput.conf';
+import { Handler, type TooltipPosition } from '../MgInput.conf';
 
 @Component({
   tag: 'mg-input-date',
@@ -130,6 +130,11 @@ export class MgInputDate {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -308,9 +313,7 @@ export class MgInputDate {
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.errors.date.badInput
-          .replace('{min}', this.min?.length > 0 ? localeDate(this.min, this.systemLocale) : localeDate('1900-01-01', this.systemLocale))
-          .replace('{pattern}', this.renderPattern());
+        this.errorMessage = this.messages.errors.date.badInput.replace('{pattern}', this.renderPattern());
       }
     }
   };
@@ -378,6 +381,7 @@ export class MgInputDate {
         value={this.value}
         readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
         isFieldset={false}

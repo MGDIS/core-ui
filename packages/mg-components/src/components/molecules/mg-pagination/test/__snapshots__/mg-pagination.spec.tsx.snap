@@ -23,9 +23,11 @@ exports[`mg-pagination Should render Should hide navigation labels 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -92,9 +94,11 @@ exports[`mg-pagination Should render Should hide navigation labels 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -211,9 +215,11 @@ exports[`mg-pagination Should render Should hide page select 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -281,9 +287,11 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -351,9 +359,11 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Sélectionner la page à afficher.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Sélectionner la page à afficher.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -421,9 +431,11 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -491,9 +503,11 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -558,9 +572,11 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -628,9 +644,11 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -698,9 +716,11 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -771,9 +791,11 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -844,9 +866,11 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -917,9 +941,11 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1011,9 +1037,11 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1105,9 +1133,11 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1199,9 +1229,11 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1293,9 +1325,11 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1387,9 +1421,11 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1481,9 +1517,11 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1575,9 +1613,11 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1669,9 +1709,11 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1763,9 +1805,11 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1857,9 +1901,11 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -1936,9 +1982,11 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -2015,9 +2063,11 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -2094,9 +2144,11 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -2173,9 +2225,11 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -2252,9 +2306,11 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -2331,9 +2387,11 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
@@ -2410,9 +2468,11 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
       <mg-input-select label-hide="" placeholder-hide="">
         <mock:shadow-root>
           <div class="mg-c-input mg-c-input--select">
-            <mg-input-title class="mg-u-visually-hidden" identifier="id-select">
-              Select the page to display.
-            </mg-input-title>
+            <div class="mg-c-input__title mg-u-visually-hidden">
+              <mg-input-title identifier="id-select">
+                Select the page to display.
+              </mg-input-title>
+            </div>
             <div class="mg-c-input__input-container">
               <div class="mg-c-input__input">
                 <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">

@@ -21,7 +21,9 @@ const date = {
 
 describe('mg-input-date', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   /**
    * Snapshots
    */
@@ -38,6 +40,8 @@ describe('mg-input-date', () => {
     { label: 'label', identifier: 'identifier', helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
+    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'xx' },
   ])('Should render with args %s:', async args => {
@@ -73,6 +77,15 @@ describe('mg-input-date', () => {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+    }
+  });
+
+  test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
     }
   });
 
@@ -178,9 +191,7 @@ describe('mg-input-date', () => {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.date.badInput
-            .replace('{min}', localeDate(min !== undefined ? min : '1900-01-01', 'en'))
-            .replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+          messages.errors.date.badInput.replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
         );
       }
       expect(page.rootInstance.valid).toEqual(validity);

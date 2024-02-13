@@ -51,12 +51,16 @@ describe('mg-input-checkbox', () => {
     });
   });
 
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
 
   describe.each([...checkboxTypes, undefined])('render by type %s', type => {
     let testValues: unknown[] = [
       { label: 'label', identifier: 'identifier', value: getValues(), type },
       { label: 'label', identifier: 'identifier', value: getValues(), type, readonly: true },
+      { label: 'label', identifier: 'identifier', value: getValues().map(value => ({ ...value, value: true })), type, readonly: true },
+      { label: 'label', identifier: 'identifier', value: getValues().map(value => ({ ...value, value: true })), type, readonly: true, inputVerticalList: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, labelOnTop: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, labelHide: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, inputVerticalList: true },
@@ -67,6 +71,8 @@ describe('mg-input-checkbox', () => {
       { label: 'label', identifier: 'identifier', value: getValues(), type, disabled: true },
       { label: 'label', identifier: 'identifier', value: getValues(), type, helpText: 'Hello joker' },
       { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license', tooltipPosition: 'label' },
+      { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license', tooltipPosition: 'input', labelOnTop: true },
     ];
     if (type === 'multi') {
       testValues = [
@@ -104,12 +110,21 @@ describe('mg-input-checkbox', () => {
       }
     });
 
-    test('Should not render when using labelOnTop and labelHide: %s', async () => {
+    test('Should not render when using labelOnTop and labelHide', async () => {
       expect.assertions(1);
       try {
         await getPage({ identifier: 'identifier', type, label: 'label', value: getValues(), labelOnTop: true, labelHide: true });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+      }
+    });
+
+    test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', type, label: 'label', value: getValues(), tooltipPosition });
+      } catch (err) {
+        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
       }
     });
 

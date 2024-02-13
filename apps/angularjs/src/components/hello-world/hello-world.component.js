@@ -18,7 +18,7 @@ export default {
         hidden: true,
       };
     }
-    handleClick() {
+    handleClick = () => {
       this.counter++;
 
       this.modal.hidden = !this.modal.hidden;
@@ -27,7 +27,7 @@ export default {
         content: 'Counter value change',
         variant: 'info',
       });
-    }
+    };
 
     handleModalHide = (newValue) => {
       this.modal.hidden = newValue;
