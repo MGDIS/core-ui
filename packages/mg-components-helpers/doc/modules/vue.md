@@ -19,7 +19,6 @@ Custom `v-mg-model` directive
 **`Remarks`**
 
 Packages requirements
-
 - "@mgdis/mg-components": \>=3
 - "vue": \>=2
 - "lodash"
@@ -35,14 +34,14 @@ import { mgModel } from '@mgdis/mg-components-helpers/vue';
 Vue.use(mgModel);
 
 new Vue({
-  render: h => h(App),
+  render: (h) => h(App),
 }).$mount('#app');
 ```
 
 #### Type declaration
 
-| Name      | Type                     |
-| :-------- | :----------------------- |
+| Name | Type |
+| :------ | :------ |
 | `install` | (`Vue`: `App`) => `void` |
 
 #### Defined in

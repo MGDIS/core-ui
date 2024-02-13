@@ -18,8 +18,8 @@ Set window logger custom rules for angular and mg-components
 
 #### Parameters
 
-| Name     | Type         | Description                 |
-| :------- | :----------- | :-------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `config` | `ConfigType` | logger configuration object |
 
 #### Returns
@@ -34,7 +34,7 @@ import { defineCustomElements } from '@mgdis/mg-components/loader';
 import { setMgAngularLogger } from '@mgdis/mg-components-helpers/angular';
 
 // need to be set before `defineCustomElements` call
-setMgAngularLogger({ level: 'error' });
+setMgAngularLogger({level: 'error'});
 defineCustomElements();
 ```
 
