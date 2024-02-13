@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.11.4
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+
 ## 3.11.3
 
 ### Patch Changes
@@ -85,10 +91,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ### Bug Fixes
 
-- **linting:** package names 
-- **linting:** translation feedback 
-- **linting:** typo feedback 
+- **linting:** package names
+- **linting:** translation feedback
+- **linting:** typo feedback
 
 ### Features
 
-- **linting:** add eslint plugin vuejs 
+- **linting:** add eslint plugin vuejs

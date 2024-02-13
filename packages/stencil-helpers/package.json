@@ -1,6 +1,6 @@
 {
   "name": "@mgdis/stencil-helpers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "ISC",
   "author": "Nicolas Jouanno <jouanno-n@mgdis.fr>",
   "maintainers": [
@@ -32,16 +32,16 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "@stencil/core": "4.11.0"
+    "@stencil/core": "4.12.1"
   },
   "devDependencies": {
-    "@types/node": "20.11.13",
+    "@types/node": "20.11.17",
     "@vitest/coverage-istanbul": "1.2.2",
     "@vitest/coverage-v8": "1.2.2",
     "eslint-config-custom": "workspace:*",
     "prettier-config": "workspace:*",
     "tsconfig": "workspace:*",
-    "typedoc": "0.25.7",
+    "typedoc": "0.25.8",
     "typedoc-plugin-markdown": "3.17.1",
     "typescript": "5.3.3",
     "vite": "5.0.12",

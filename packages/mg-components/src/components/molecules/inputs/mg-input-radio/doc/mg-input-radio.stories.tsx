@@ -1,17 +1,22 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputRadio as MgInputRadioType } from '../mg-input-radio';
+import { tooltipPositions } from '../../MgInput.conf';
 
 export default {
   component: 'mg-input-radio',
   title: 'Molecules/Inputs/mg-input-radio',
+  parameters: { actions: { handles: ['value-change', 'input-valid'] } },
   argTypes: {
     value: {
       options: [null, 'ht', 'ttc', 'mixte'],
       control: { type: 'radio' },
     },
+    tooltipPosition: {
+      options: [undefined, ...tooltipPositions],
+      control: { type: 'select' },
+    },
   },
-  parameters: { actions: { handles: ['value-change', 'input-valid'] } },
 };
 
 /**
@@ -41,6 +46,7 @@ export const MgInputRadio = {
     readonly: false,
     // Tooltip
     tooltip: 'This is a tooltip',
+    tooltipPosition: undefined,
     // Help Text
     helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
   },

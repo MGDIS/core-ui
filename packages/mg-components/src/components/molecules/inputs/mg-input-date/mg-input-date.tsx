@@ -3,7 +3,7 @@ import { MgInput } from '../MgInput';
 import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Handler } from '../MgInput.conf';
+import { Handler, type TooltipPosition } from '../MgInput.conf';
 
 @Component({
   tag: 'mg-input-date',
@@ -88,12 +88,33 @@ export class MgInputDate {
   @Prop() readonly = false;
 
   /**
+   * Define input minimum date
+   * format: yyyy-mm-dd
+   */
+  @Prop() min: string;
+
+  /**
+   * Define input maximum date
+   * format: yyyy-mm-dd
+   */
+  @Prop() max: string;
+  @Watch('min')
+  @Watch('max')
+  validateMinMax(newValue: string): void {
+    if (newValue?.length === 0 || (newValue?.length > 0 && !(typeof newValue === 'string' && dateRegExp.test(newValue)))) {
+      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
+    }
+  }
+
+  /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('required')
   @Watch('readonly')
   @Watch('disabled')
+  @Watch('min')
+  @Watch('max')
   handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
     if (this.input !== undefined) {
       this.input[prop] = newValue;
@@ -109,6 +130,11 @@ export class MgInputDate {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -129,25 +155,6 @@ export class MgInputDate {
    * Define input invalid state
    */
   @Prop({ mutable: true }) invalid: boolean;
-
-  /**
-   * Define input minimum date
-   * format: yyyy-mm-dd
-   */
-  @Prop() min: string;
-
-  /**
-   * Define input maximum date
-   * format: yyyy-mm-dd
-   */
-  @Prop() max: string;
-  @Watch('min')
-  @Watch('max')
-  validateMinMax(newValue: string): void {
-    if (newValue?.length === 0 || (newValue?.length > 0 && !(typeof newValue === 'string' && dateRegExp.test(newValue)))) {
-      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
-    }
-  }
 
   /**
    * Component classes
@@ -376,6 +383,7 @@ export class MgInputDate {
         value={this.value}
         readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
         isFieldset={false}

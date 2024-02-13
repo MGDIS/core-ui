@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.2
+
+### Patch Changes
+
+- eb3b1ab: Update dependencies
+
 ## 1.0.1
 
 ### Patch Changes

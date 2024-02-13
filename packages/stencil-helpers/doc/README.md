@@ -47,19 +47,19 @@ Date RegExp, usefull to test if string is a follow the date pattern
 **`Example`**
 
 ```ts
-dateRegExp.test('mystring'); // false
-dateRegExp.test('2020-12-31'); // true
+dateRegExp.test('mystring') // false
+dateRegExp.test('2020-12-31') // true
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/locale/index.ts:85
 
----
+___
 
 ### focusableElements
 
-• `Const` **focusableElements**: `"a[href], button, input, textarea, select, details, [tabindex]:not([tabindex=\"-1\"]), [identifier], mg-button"`
+• `Const` **focusableElements**: ``"a[href], button, input, textarea, select, details, [tabindex]:not([tabindex=\"-1\"]), [identifier], mg-button"``
 
 CSS selector to select focusable elements.
 
@@ -83,8 +83,8 @@ Typeguard function to check if all array items are strings.
 
 #### Parameters
 
-| Name    | Type      | Description    |
-| :------ | :-------- | :------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `items` | `unknown` | items to check |
 
 #### Returns
@@ -97,7 +97,7 @@ items is string[]
 
 packages/stencil-helpers/src/components/index.ts:77
 
----
+___
 
 ### cleanString
 
@@ -107,8 +107,8 @@ Cleans string characters by removing special characters and converting to lowerc
 
 #### Parameters
 
-| Name   | Type     | Description   |
-| :----- | :------- | :------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `text` | `string` | text to clean |
 
 #### Returns
@@ -120,15 +120,15 @@ cleaned string
 **`Example`**
 
 ```ts
-cleanString('âäàçéèêñù'); // 'aaaceeenu'
-cleanString('BATMAN'); // 'batman'
+cleanString('âäàçéèêñù') // 'aaaceeenu'
+cleanString('BATMAN') // 'batman'
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/components/index.ts:166
 
----
+___
 
 ### createID
 
@@ -138,10 +138,10 @@ Create random ID
 
 #### Parameters
 
-| Name     | Type     | Default value | Description              |
-| :------- | :------- | :------------ | :----------------------- |
-| `prefix` | `string` | `''`          | add prefix to created ID |
-| `length` | `number` | `10`          | ID length                |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `prefix` | `string` | `''` | add prefix to created ID |
+| `length` | `number` | `10` | ID length |
 
 #### Returns
 
@@ -153,7 +153,7 @@ ID
 
 packages/stencil-helpers/src/components/index.ts:7
 
----
+___
 
 ### dateToString
 
@@ -163,8 +163,8 @@ Formats a date object to a string with the pattern 'YYYY-MM-DD'.
 
 #### Parameters
 
-| Name   | Type   | Description   |
-| :----- | :----- | :------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `date` | `Date` | date to parse |
 
 #### Returns
@@ -176,27 +176,27 @@ string date with pattern 'YYYY-MM-DD'
 **`Example`**
 
 ```ts
-dateToString(new Date('2023-12-24')); // '2023-12-24'
+dateToString(new Date('2023-12-24')) // '2023-12-24'
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/locale/index.ts:28
 
----
+___
 
 ### defineLocales
 
-▸ **defineLocales**(`messages`, `defaultLocale`): (`element`: `HTMLElement`) => \{ `locale`: `string` ; `messages`: `ObjectType` }
+▸ **defineLocales**(`messages`, `defaultLocale`): (`element`: `HTMLElement`) => \{ `locale`: `string` ; `messages`: `ObjectType`  }
 
 Get Intl object
 
 #### Parameters
 
-| Name            | Type         | Description                                                                              |
-| :-------------- | :----------- | :--------------------------------------------------------------------------------------- |
-| `messages`      | `ObjectType` | locales to render in object format. `ex: { en: { porp: "test" }, fr: { porp: "test" }}`. |
-| `defaultLocale` | `string`     | fallback locale to render. `ex: 'en'`.                                                   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `messages` | `ObjectType` | locales to render in object format. `ex: { en: { porp: "test" }, fr: { porp: "test" }}`. |
+| `defaultLocale` | `string` | fallback locale to render. `ex: 'en'`. |
 
 #### Returns
 
@@ -208,17 +208,17 @@ from the element passed in return function you will get the matching messages ob
 
 ##### Parameters
 
-| Name      | Type          |
-| :-------- | :------------ |
+| Name | Type |
+| :------ | :------ |
 | `element` | `HTMLElement` |
 
 ##### Returns
 
 `Object`
 
-| Name       | Type         |
-| :--------- | :----------- |
-| `locale`   | `string`     |
+| Name | Type |
+| :------ | :------ |
+| `locale` | `string` |
 | `messages` | `ObjectType` |
 
 **`Example`**
@@ -238,7 +238,7 @@ export const initLocales = defineLocales(messages, defaultLocale);
 
 packages/stencil-helpers/src/locale/index.ts:122
 
----
+___
 
 ### filterArgs
 
@@ -249,15 +249,15 @@ Filter default argument on component argument to prevent them to be rendered
 #### Type parameters
 
 | Name |
-| :--- |
-| `T`  |
+| :------ |
+| `T` |
 
 #### Parameters
 
-| Name             | Type | Description                          |
-| :--------------- | :--- | :----------------------------------- |
-| `args`           | `T`  | all possible args with custom values |
-| `defaultValues?` | `T`  | component default args values        |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `args` | `T` | all possible args with custom values |
+| `defaultValues?` | `T` | component default args values |
 
 #### Returns
 
@@ -276,7 +276,7 @@ const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(ar
 
 packages/stencil-helpers/src/storybook/index.ts:59
 
----
+___
 
 ### getLocaleDatePattern
 
@@ -286,8 +286,8 @@ Gets the date pattern based on the specified locale.
 
 #### Parameters
 
-| Name     | Type     | Description            |
-| :------- | :------- | :--------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `locale` | `string` | the locale to refer to |
 
 #### Returns
@@ -299,14 +299,14 @@ date pattern
 **`Example`**
 
 ```ts
-getLocaleDatePattern('fr'); // 'dd/mm/yyyy'
+getLocaleDatePattern('fr') // 'dd/mm/yyyy'
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/locale/index.ts:12
 
----
+___
 
 ### getParentWindows
 
@@ -316,10 +316,10 @@ Get parent windows
 
 #### Parameters
 
-| Name          | Type       | Default value | Description                           |
-| :------------ | :--------- | :------------ | :------------------------------------ |
-| `localWindow` | `Window`   | `undefined`   | the window we are lookink for parents |
-| `windows`     | `Window`[] | `[]`          | The list of allready found windows    |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `localWindow` | `Window` | `undefined` | the window we are lookink for parents |
+| `windows` | `Window`[] | `[]` | The list of allready found windows |
 
 #### Returns
 
@@ -331,7 +331,7 @@ The list of windows found
 
 packages/stencil-helpers/src/components/index.ts:115
 
----
+___
 
 ### getStoryHTML
 
@@ -342,8 +342,8 @@ Mainly used to render, component code exemple in stories.
 
 #### Parameters
 
-| Name         | Type    | Description       |
-| :----------- | :------ | :---------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `vitualNode` | `VNode` | story virtual DOM |
 
 #### Returns
@@ -371,7 +371,7 @@ export const parameters: Preview['parameters'] = {
 
 packages/stencil-helpers/src/storybook/index.ts:132
 
----
+___
 
 ### getWindows
 
@@ -381,8 +381,8 @@ Get windows
 
 #### Parameters
 
-| Name          | Type     | Description                                 |
-| :------------ | :------- | :------------------------------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `localWindow` | `Window` | the window we are lookink for other windows |
 
 #### Returns
@@ -395,7 +395,7 @@ The list of windows found
 
 packages/stencil-helpers/src/components/index.ts:103
 
----
+___
 
 ### isTagName
 
@@ -405,9 +405,9 @@ Check if element belongs to the given tagNames list
 
 #### Parameters
 
-| Name       | Type       | Description            |
-| :--------- | :--------- | :--------------------- |
-| `element`  | `Element`  | element to check       |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `element` | `Element` | element to check |
 | `tagNames` | `string`[] | allowed tag names list |
 
 #### Returns
@@ -420,7 +420,7 @@ Check if element belongs to the given tagNames list
 
 packages/stencil-helpers/src/components/index.ts:85
 
----
+___
 
 ### isValidString
 
@@ -430,8 +430,8 @@ Validate string
 
 #### Parameters
 
-| Name    | Type      | Description    |
-| :------ | :-------- | :------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `value` | `unknown` | value to check |
 
 #### Returns
@@ -444,7 +444,7 @@ Validate string
 
 packages/stencil-helpers/src/components/index.ts:154
 
----
+___
 
 ### localeCurrency
 
@@ -454,10 +454,10 @@ Format number to the locale currency
 
 #### Parameters
 
-| Name       | Type     | Description       |
-| :--------- | :------- | :---------------- |
-| `number`   | `number` | number to format  |
-| `locale`   | `string` | locale to apply   |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `number` | `number` | number to format |
+| `locale` | `string` | locale to apply |
 | `currency` | `string` | currency to apply |
 
 #### Returns
@@ -469,14 +469,14 @@ formatted currency
 **`Example`**
 
 ```ts
-localeCurrency(1234567890.12, 'fr', 'EUR'); // '1 234 567 890,12\xa0€'
+localeCurrency(1234567890.12, 'fr', 'EUR') // '1 234 567 890,12\xa0€'
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/locale/index.ts:63
 
----
+___
 
 ### localeDate
 
@@ -486,10 +486,10 @@ Locale date format
 
 #### Parameters
 
-| Name     | Type                    | Description     |
-| :------- | :---------------------- | :-------------- |
-| `date`   | `undefined` \| `string` | date to format  |
-| `locale` | `string`                | locale to apply |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `date` | `undefined` \| `string` | date to format |
+| `locale` | `string` | locale to apply |
 
 #### Returns
 
@@ -500,14 +500,14 @@ formatted date
 **`Example`**
 
 ```ts
-localeDate('2022-06-02', 'fr'); // '02/06/2022'
+localeDate('2022-06-02', 'fr') // '02/06/2022'
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/locale/index.ts:97
 
----
+___
 
 ### localeNumber
 
@@ -517,10 +517,10 @@ Format number to locale
 
 #### Parameters
 
-| Name     | Type     | Description      |
-| :------- | :------- | :--------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `number` | `number` | number to format |
-| `locale` | `string` | locale to apply  |
+| `locale` | `string` | locale to apply |
 
 #### Returns
 
@@ -531,14 +531,14 @@ formatted number
 **`Example`**
 
 ```ts
-localeNumber(1234567890.12, 'fr'); // 1 234 567 890,12
+localeNumber(1234567890.12, 'fr') // 1 234 567 890,12
 ```
 
 #### Defined in
 
 packages/stencil-helpers/src/locale/index.ts:75
 
----
+___
 
 ### nextTick
 
@@ -548,8 +548,8 @@ Use to process code next tick in the event loop
 
 #### Parameters
 
-| Name       | Type         | Description                 |
-| :--------- | :----------- | :-------------------------- |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `callback` | () => `void` | code to excute on next tick |
 
 #### Returns
@@ -562,7 +562,7 @@ differed code excution
 
 packages/stencil-helpers/src/components/index.ts:179
 
----
+___
 
 ### setupMutationObserverMock
 
@@ -572,8 +572,8 @@ Utility function that mocks the `MutationObserver` API. Recommended to execute i
 
 #### Parameters
 
-| Name             | Type                              |
-| :--------------- | :-------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `«destructured»` | `SetupMutationObserverMockParams` |
 
 #### Returns
@@ -586,16 +586,16 @@ Mocked MutationObserver
 
 ##### Parameters
 
-| Name       | Type               |
-| :--------- | :----------------- |
+| Name | Type |
+| :------ | :------ |
 | `callback` | `MutationCallback` |
 
 ##### Returns
 
 `MutationObserver`
 
-| Name        | Type               |
-| :---------- | :----------------- |
+| Name | Type |
+| :------ | :------ |
 | `prototype` | `MutationObserver` |
 
 **`Example`**
@@ -615,7 +615,7 @@ fireMo([{ type: 'childList', addedNodes: [AMockElemenet, AnotherMockElemenet], t
 
 packages/stencil-helpers/src/test/unit.ts:23
 
----
+___
 
 ### setupResizeObserverMock
 
@@ -625,8 +625,8 @@ Utility function that mocks the `ResizeObserver` API. Recommended to execute ins
 
 #### Parameters
 
-| Name             | Type                            |
-| :--------------- | :------------------------------ |
+| Name | Type |
+| :------ | :------ |
 | `«destructured»` | `setupResizeObserverMockParams` |
 
 #### Returns
@@ -639,16 +639,16 @@ Mocked ResizeObserver
 
 ##### Parameters
 
-| Name       | Type                     |
-| :--------- | :----------------------- |
+| Name | Type |
+| :------ | :------ |
 | `callback` | `ResizeObserverCallback` |
 
 ##### Returns
 
 `ResizeObserver`
 
-| Name        | Type             |
-| :---------- | :--------------- |
+| Name | Type |
+| :------ | :------ |
 | `prototype` | `ResizeObserver` |
 
 **`Example`**
@@ -674,7 +674,7 @@ fireRo([{
 
 packages/stencil-helpers/src/test/unit.ts:83
 
----
+___
 
 ### setupSubmitEventMock
 
@@ -698,7 +698,7 @@ setupSubmitEventMock();
 
 packages/stencil-helpers/src/test/unit.ts:133
 
----
+___
 
 ### stencilWrapper
 
@@ -708,10 +708,10 @@ Storybook stencil wrapper. Used to target element with `storybook-root` id and r
 
 #### Parameters
 
-| Name      | Type                     | Description               |
-| :-------- | :----------------------- | :------------------------ |
+| Name | Type | Description |
+| :------ | :------ | :------ |
 | `storyFn` | (`ctx`: `any`) => `void` | storybook render function |
-| `context` | `ArgsType`               | storybook context         |
+| `context` | `ArgsType` | storybook context |
 
 #### Returns
 
