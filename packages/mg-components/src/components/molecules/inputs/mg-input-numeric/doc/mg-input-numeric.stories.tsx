@@ -2,10 +2,12 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { types } from '../mg-input-numeric.conf';
 import type { MgInputNumeric as MgInputNumericType } from '../mg-input-numeric';
+import { tooltipPositions } from '../../MgInput.conf';
 
 export default {
   component: 'mg-input-numeric',
   title: 'Molecules/Inputs/mg-input-numeric',
+  parameters: { actions: { handles: ['value-change', 'input-valid'] } },
   argTypes: {
     type: {
       options: types,
@@ -15,8 +17,11 @@ export default {
       options: [undefined, 2, 4, 16, 'full'],
       control: { type: 'select' },
     },
+    tooltipPosition: {
+      options: [undefined, ...tooltipPositions],
+      control: { type: 'select' },
+    },
   },
-  parameters: { actions: { handles: ['value-change', 'input-valid'] } },
 };
 
 /**
@@ -48,6 +53,7 @@ export const MgInputNumeric = {
     mgWidth: undefined,
     // Tooltip
     tooltip: 'This is a tooltip',
+    tooltipPosition: undefined,
     // Help Text
     helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
   },

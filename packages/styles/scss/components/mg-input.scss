@@ -61,8 +61,20 @@ mg-icon {
     min-height: var(--default-size);
 
     /* Readonly */
+    & > ul {
+      display: flex;
+      flex-flow: column wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      row-gap: 0.8rem;
+    }
+
     & > strong {
       display: inline-block;
+    }
+
+    & > strong, & > ul {
       min-height: var(--font-size);
       margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
     }

@@ -6,7 +6,7 @@ import vueLogo from './assets/vue.svg';
 export default defineComponent({
   render() {
     return (
-      <>
+      <main role="main">
         <div>
           <a href="https://vitejs.dev" target="_blank">
             <img src="/vite.svg" class="logo" alt="Vite logo" />
@@ -16,7 +16,7 @@ export default defineComponent({
           </a>
         </div>
         <HelloWorld msg="Vite + Vue" />
-      </>
+      </main>
     );
   },
 });

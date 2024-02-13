@@ -66,15 +66,10 @@ stages:
   rules:
     - if: $CI_COMMIT_TAG
 
-# Rule to execute job only if not in tag creation pipeline
+# Rule to execute job only if not in tag creation pipeline and on master or in merge request
 .rules:except-tags:
   rules:
-    - if: $CI_COMMIT_TAG == null
-
-# Rule to execute job only if push master
-.rules:master:
-  rules:
-    - if: $CI_COMMIT_BRANCH == "master"
+    - if: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == "master" || $CI_MERGE_REQUEST_ID)
 
 # install dependencies
 .install:dependencies:

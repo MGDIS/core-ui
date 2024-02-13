@@ -5,7 +5,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
-import { Handler } from '../mg-input/mg-input.conf';
+import { Handler , type TooltipPosition} from '../mg-input/mg-input.conf';
 
 /**
  * type Option validation function
@@ -137,6 +137,11 @@ export class MgInputRadio {
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -313,6 +318,7 @@ export class MgInputRadio {
         value={this.value as string}
         readonlyValue={this.value as string}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={true}

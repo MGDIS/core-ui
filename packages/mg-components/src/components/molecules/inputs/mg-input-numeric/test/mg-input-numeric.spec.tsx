@@ -5,7 +5,7 @@ import { MgInputNumeric } from '../mg-input-numeric';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import messages from '../../../../../locales/en/messages.json';
-import { types } from '../mg-input-numeric.conf';
+import { formats, types } from '../mg-input-numeric.conf';
 
 const getPage = (args, slot?) => {
   const page = newSpecPage({
@@ -18,7 +18,9 @@ const getPage = (args, slot?) => {
 
 describe('mg-input-numeric', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   describe.each(types)('type %s', type => {
     test.each([
       { label: 'label', identifier: 'identifier', type },
@@ -33,6 +35,8 @@ describe('mg-input-numeric', () => {
       { label: 'label', identifier: 'identifier', type, required: true, disabled: true, value: '1234567890', helpText: 'My help text' },
       { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message' },
       { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', labelOnTop: true },
+      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
       { label: 'label', identifier: 'identifier', type, value: '1234567890', currency: 'EUR' },
       { label: 'label', identifier: 'identifier', type, value: '1234567890', lang: 'fr' },
       { label: 'label', identifier: 'identifier', type, value: '1234567890', lang: 'xx' },
@@ -41,6 +45,13 @@ describe('mg-input-numeric', () => {
     ])('Should render with args %s:', async args => {
       const { root } = await getPage(args);
       expect(root).toMatchSnapshot();
+    });
+
+    describe.each(formats)('Format %s', format => {
+      test.each([{}, { readonly: true }])('args %s', async args => {
+        const { root } = await getPage({ ...args, label: 'label', identifier: 'identifier', type, format, value: '1234567890' });
+        expect(root).toMatchSnapshot();
+      });
     });
 
     test('Should update display value when value props change', async () => {
@@ -92,6 +103,15 @@ describe('mg-input-numeric', () => {
       }
     });
 
+    test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
+      } catch (err) {
+        expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
+      }
+    });
+
     test('Should throw an error with non positive integer length value', async () => {
       expect.assertions(1);
       try {
@@ -107,6 +127,15 @@ describe('mg-input-numeric', () => {
         await getPage({ identifier: 'identifier', label: 'label', decimalLength: 0 });
       } catch (err) {
         expect(err.message).toMatch('<mg-input-numeric> prop "decimal-length" must be a positive number, consider using prop "type" to "integer" instead.');
+      }
+    });
+
+    test('Should throw an error with unknown format value', async () => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', label: 'label', format: 'blu' });
+      } catch (err) {
+        expect(err.message).toMatch('<mg-input-numeric> prop "format" must be one of: ');
       }
     });
 
@@ -148,7 +177,7 @@ describe('mg-input-numeric', () => {
       test.each([
         { validity: true, valueMissing: false },
         { validity: false, valueMissing: true },
-      ])('validity (%s), valueMissing (%s)', async ({ validity, valueMissing }) => {
+      ])('validity (%s)', async ({ validity, valueMissing }) => {
         const args = { label: 'label', identifier: 'identifier', type };
         const page = await getPage(args);
 
@@ -495,6 +524,73 @@ describe('mg-input-numeric', () => {
       expect(page.rootInstance.valid).toEqual(true);
       expect(page.rootInstance.invalid).toEqual(false);
     }
+  });
+
+  describe('validity, case update min/max prop value', () => {
+    test.each([
+      {
+        value: 3,
+        min: 2,
+        next: 1,
+      },
+      {
+        value: 1,
+        min: 2,
+        next: 1,
+      },
+      {
+        value: 1,
+        max: 2,
+        next: 3,
+      },
+      {
+        value: 3,
+        max: 2,
+        next: 3,
+      },
+    ])('value %s', async ({ min, max, value, next }) => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+
+      const element = page.doc.querySelector('mg-input-numeric');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      const rangeUnderflow = () => min === undefined || Number(input.value) >= Number(element.min);
+      const rangeOverflow = () => max === undefined || Number(input.value) <= Number(element.max);
+      input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          rangeUnderflow: rangeUnderflow(),
+          rangeOverflow: rangeOverflow(),
+        })),
+      });
+
+      jest.runOnlyPendingTimers();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      if (min) element.min = min;
+      if (max) element.max = max;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(input.checkValidity());
+      expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
+
+      if (min) element.min = next;
+      if (max) element.max = next;
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+    });
   });
 
   test('Should update mg-width', async () => {

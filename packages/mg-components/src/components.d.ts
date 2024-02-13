@@ -11,9 +11,10 @@ import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { ClassList } from "@mgdis/stencil-helpers";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -34,9 +35,10 @@ export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-export { Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { ClassList } from "@mgdis/stencil-helpers";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
@@ -196,6 +198,10 @@ export namespace Components {
          */
         "invalid": boolean;
         /**
+          * Define if slotted mg-component's label are displayed on top
+         */
+        "labelOnTop": boolean;
+        /**
           * Input name If not set the value equals the identifier
          */
         "name": string;
@@ -305,6 +311,7 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        "tooltipPosition": any;
         /**
           * Define values
          */
@@ -373,6 +380,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
         /**
           * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
@@ -487,6 +498,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -512,6 +527,10 @@ export namespace Components {
           * Display input error if it exists.
          */
         "displayError": () => Promise<void>;
+        /**
+          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+         */
+        "format": Format;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -579,9 +598,13 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define numeric type
          */
-        "type": string;
+        "type": NumericType;
         /**
           * Define input pattern to validate
          */
@@ -655,6 +678,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -726,6 +753,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
         /**
           * Define input valid state
          */
@@ -810,6 +841,10 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
         /**
           * Define input valid state
          */
@@ -911,6 +946,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Input type
          */
         "type": TextType;
@@ -1011,6 +1050,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid": boolean;
@@ -1093,6 +1136,10 @@ export namespace Components {
          */
         "tooltip": string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+        /**
           * Component value
          */
         "value": any;
@@ -1110,6 +1157,16 @@ export namespace Components {
           * Define slot label element
          */
         "slotlabel": SlotLabelType;
+    }
+    interface MgLoader {
+        /**
+          * Override loader message
+         */
+        "message": string;
+        /**
+          * Hide message
+         */
+        "messageHide": boolean;
     }
     interface MgMenu {
         /**
@@ -1745,6 +1802,12 @@ declare global {
         prototype: HTMLMgItemMoreElement;
         new (): HTMLMgItemMoreElement;
     };
+    interface HTMLMgLoaderElement extends Components.MgLoader, HTMLStencilElement {
+    }
+    var HTMLMgLoaderElement: {
+        prototype: HTMLMgLoaderElement;
+        new (): HTMLMgLoaderElement;
+    };
     interface HTMLMgMenuElement extends Components.MgMenu, HTMLStencilElement {
     }
     var HTMLMgMenuElement: {
@@ -1950,6 +2013,7 @@ declare global {
         "mg-input-title": HTMLMgInputTitleElement;
         "mg-input-toggle": HTMLMgInputToggleElement;
         "mg-item-more": HTMLMgItemMoreElement;
+        "mg-loader": HTMLMgLoaderElement;
         "mg-menu": HTMLMgMenuElement;
         "mg-menu-item": HTMLMgMenuItemElement;
         "mg-message": HTMLMgMessageElement;
@@ -2114,6 +2178,10 @@ declare namespace LocalJSX {
          */
         "invalid"?: boolean;
         /**
+          * Define if slotted mg-component's label are displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
           * Input name If not set the value equals the identifier
          */
         "name"?: string;
@@ -2231,6 +2299,7 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        "tooltipPosition"?: any;
         /**
           * Define values
          */
@@ -2297,6 +2366,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Define checkbox type When it's undefined the type is dynamic: - With 0-5 items type is 'checkbox' - With 5-10 items type is 'multi' When it set the type is locked to the defined value. When type is dynamic OR with 'multi' type AND Over 10 items "search" feature is enabled
          */
@@ -2413,6 +2486,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid"?: boolean;
@@ -2434,6 +2511,10 @@ declare namespace LocalJSX {
           * Define if input is disabled
          */
         "disabled"?: boolean;
+        /**
+          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+         */
+        "format"?: Format;
         /**
           * Add a help text under the input, usually expected data format and example
          */
@@ -2503,9 +2584,13 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define numeric type
          */
-        "type"?: string;
+        "type"?: NumericType;
         /**
           * Define input pattern to validate
          */
@@ -2577,6 +2662,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid"?: boolean;
@@ -2646,6 +2735,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Define input valid state
          */
@@ -2728,6 +2821,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Define input valid state
          */
@@ -2822,6 +2919,10 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
         /**
           * Input type
          */
@@ -2921,6 +3022,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Define input valid state
          */
         "valid"?: boolean;
@@ -3005,6 +3110,10 @@ declare namespace LocalJSX {
          */
         "tooltip"?: string;
         /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
+        /**
           * Component value
          */
         "value"?: any;
@@ -3022,6 +3131,16 @@ declare namespace LocalJSX {
           * Define slot label element
          */
         "slotlabel"?: SlotLabelType;
+    }
+    interface MgLoader {
+        /**
+          * Override loader message
+         */
+        "message"?: string;
+        /**
+          * Hide message
+         */
+        "messageHide"?: boolean;
     }
     interface MgMenu {
         /**
@@ -3349,6 +3468,7 @@ declare namespace LocalJSX {
         "mg-input-title": MgInputTitle;
         "mg-input-toggle": MgInputToggle;
         "mg-item-more": MgItemMore;
+        "mg-loader": MgLoader;
         "mg-menu": MgMenu;
         "mg-menu-item": MgMenuItem;
         "mg-message": MgMessage;
@@ -3394,6 +3514,7 @@ declare module "@stencil/core" {
             "mg-input-title": LocalJSX.MgInputTitle & JSXBase.HTMLAttributes<HTMLMgInputTitleElement>;
             "mg-input-toggle": LocalJSX.MgInputToggle & JSXBase.HTMLAttributes<HTMLMgInputToggleElement>;
             "mg-item-more": LocalJSX.MgItemMore & JSXBase.HTMLAttributes<HTMLMgItemMoreElement>;
+            "mg-loader": LocalJSX.MgLoader & JSXBase.HTMLAttributes<HTMLMgLoaderElement>;
             "mg-menu": LocalJSX.MgMenu & JSXBase.HTMLAttributes<HTMLMgMenuElement>;
             "mg-menu-item": LocalJSX.MgMenuItem & JSXBase.HTMLAttributes<HTMLMgMenuItemElement>;
             "mg-message": LocalJSX.MgMessage & JSXBase.HTMLAttributes<HTMLMgMessageElement>;

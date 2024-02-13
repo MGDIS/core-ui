@@ -1,5 +1,3 @@
-# mg-input
-
 
 ## UX
 
@@ -39,15 +37,29 @@ The asterisk is displayed regardless of the status of the field: input, read-onl
 
 ## Specs
 
-![](./doc/img/mg-input-base.png)
+### Positioning of "i" icon
 
-### Placements
+![](./doc/img/mg-input-tooltip-position.png)
 
-The "i" is positioned next to the input field or next to the label when the label is on top.
+By default, the "i" icon is positioned next to the input field.
+
+You can position it next to the label by using the `tooltip-placement` prop with the value `label`.
+
+When `label-on-top` is enabled, the "i" icon moves next to the label, overriding the `tooltip-placement` setting.
+
+When the `label-hide` prop is enabled, the "i" icon moves next to the input, overriding the `tooltip-placement` setting.
 
 ### Value positioning
 
 By default, the value is left aligned, you can change the CSS variable `--mg-inputs-text-align` to right align.
+
+### Responsive
+
+![](./doc/img/mg-input-responsive.png)
+
+When the viewport width is less than 768px, the label is stacked above the input field.
+
+If you are creating a form that combines mg-components inputs with inputs from one of our legacy libraries (such as form, ui-components, ui-components-vuejs), please refer to [this section on mg-form](.?path=/docs/molecules-mg-form--docs#combining-mg-input--with-legacy-libraries).
 
 ### Errors
 
@@ -63,6 +75,20 @@ Error is triggered and displayed when we leave the input field.
 When we enter in an input field with an error its state is checked everytime the user update its content, when the error is fixed the message disapears.
 
 ## CSS Variables
+
+If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
+
+- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`
+- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`
+- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`
+- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`
+- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`
+- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`
+- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`
+- `--mg-inputs-title-width`: Define input label width, default: `23rem`
+- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`
+- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`
+
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
@@ -99,6 +125,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `readonlyValue`           | `readonly-value`        | Defines value to display in readonly mode                                   | `any`                    | `undefined`                     |
 | `required`                | `required`              | Define if input is required                                                 | `boolean`                | `false`                         |
 | `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                     | `string`                 | `undefined`                     |
+| `tooltipPosition`         | `tooltip-position`      |                                                                             | `any`                    | `undefined`                     |
 | `value`                   | `value`                 | Define values                                                               | `any`                    | `undefined`                     |
 
 

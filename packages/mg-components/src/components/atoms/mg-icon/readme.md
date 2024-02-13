@@ -83,6 +83,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
  - [mg-input-text](../../molecules/inputs/mg-input-text)
  - [mg-item-more](../../molecules/mg-item-more)
+ - [mg-loader](../../molecules/mg-loader)
  - [mg-menu-item](../../molecules/menu/mg-menu-item)
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
@@ -102,6 +103,7 @@ graph TD;
   mg-input-checkbox-paginated --> mg-icon
   mg-input-text --> mg-icon
   mg-item-more --> mg-icon
+  mg-loader --> mg-icon
   mg-menu-item --> mg-icon
   mg-message --> mg-icon
   mg-modal --> mg-icon

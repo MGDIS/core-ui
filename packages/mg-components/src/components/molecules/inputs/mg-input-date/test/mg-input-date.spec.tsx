@@ -21,7 +21,9 @@ const date = {
 
 describe('mg-input-date', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   /**
    * Snapshots
    */
@@ -38,6 +40,8 @@ describe('mg-input-date', () => {
     { label: 'label', identifier: 'identifier', helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
+    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
     { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'xx' },
   ])('Should render with args %s:', async args => {
@@ -73,6 +77,15 @@ describe('mg-input-date', () => {
       await getPage({ identifier: 'identifier', label: 'batman', labelOnTop: true, labelHide: true });
     } catch (err) {
       expect(err.message).toMatch('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
+    }
+  });
+
+  test.each(['blu', {}, 5, false])('Should not render with invalid tooltipPosition property: %s', async tooltipPosition => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier: 'identifier', label: 'label', tooltipPosition });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: ');
     }
   });
 
@@ -153,7 +166,7 @@ describe('mg-input-date', () => {
       { validity: false, valueMissing: true, badInput: false },
       { validity: false, valueMissing: false, badInput: true },
       { validity: false, valueMissing: false, badInput: true, min: date.first },
-    ])('validity (%s), valueMissing (%s), badInput (%s)', async ({ validity, valueMissing, badInput, min }) => {
+    ])('validity (%s)', async ({ validity, valueMissing, badInput, min }) => {
       const args = { label: 'label', identifier: 'identifier', min };
       const page = await getPage(args);
 
@@ -178,9 +191,7 @@ describe('mg-input-date', () => {
         expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
       } else if (badInput) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.date.badInput
-            .replace('{min}', localeDate(min !== undefined ? min : '1900-01-01', 'en'))
-            .replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
+          messages.errors.date.badInput.replace('{pattern}', '<span aria-hidden="true">mm/dd/yyyy</span><span class="mg-u-visually-hidden">m m / d d / y y y y</span>'),
         );
       }
       expect(page.rootInstance.valid).toEqual(validity);
@@ -191,6 +202,73 @@ describe('mg-input-date', () => {
         await page.waitForChanges();
         expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled TRUE
       }
+    });
+  });
+
+  describe('validity, case update min/max prop value', () => {
+    test.each([
+      {
+        value: '2024-03-01',
+        min: '2024-02-01',
+        next: '2024-01-01',
+      },
+      {
+        value: '2024-01-01',
+        min: '2024-02-01',
+        next: '2024-01-01',
+      },
+      {
+        value: '2024-01-01',
+        max: '2024-02-01',
+        next: '2024-03-01',
+      },
+      {
+        value: '2024-03-01',
+        max: '2024-02-01',
+        next: '2024-03-01',
+      },
+    ])('value (%s)', async ({ min, max, value, next }) => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value });
+
+      const element = page.doc.querySelector('mg-input-date');
+      const input = element.shadowRoot.querySelector('input');
+
+      //mock validity
+      const rangeUnderflow = () => input.min === '' || new Date(input.value) >= new Date(input.min);
+      const rangeOverflow = () => input.max === '' || new Date(input.value) <= new Date(input.max);
+      input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
+      Object.defineProperty(input, 'validity', {
+        get: jest.fn(() => ({
+          rangeUnderflow: rangeUnderflow(),
+          rangeOverflow: rangeOverflow(),
+        })),
+      });
+
+      jest.runOnlyPendingTimers();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
+
+      if (min) element.min = min;
+      if (max) element.max = max;
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(input.checkValidity());
+      expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
+
+      if (min) element.min = next;
+      if (max) element.max = next;
+      await page.waitForChanges();
+
+      expect(element.valid).toEqual(true);
+      expect(page.root).toMatchSnapshot(); // no error displayed
     });
   });
 

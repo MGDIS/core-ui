@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { Handler, Width } from '../mg-input/mg-input.conf';
-import { types, InputError } from './mg-input-numeric.conf';
+import { Handler, type TooltipPosition, type Width } from '../mg-input/mg-input.conf';
+import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales/';
 
@@ -105,12 +105,24 @@ export class MgInputNumeric {
   @Prop() readonly = false;
 
   /**
+   * Maximum value
+   */
+  @Prop() max: number;
+
+  /**
+   * Minimum value
+   */
+  @Prop() min: number;
+
+  /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('required')
   @Watch('readonly')
   @Watch('disabled')
+  @Watch('min')
+  @Watch('max')
   handleValidityChange(newValue: boolean, _oldValue: boolean, prop: string): void {
     if (this.input !== undefined) {
       this.input[prop] = newValue;
@@ -133,6 +145,11 @@ export class MgInputNumeric {
   @Prop() tooltip: string;
 
   /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
+
+  /**
    * Add a help text under the input, usually expected data format and example
    */
   @Prop() helpText: string;
@@ -140,11 +157,26 @@ export class MgInputNumeric {
   /**
    * Define numeric type
    */
-  @Prop() type: string = types[0];
+  @Prop() type: NumericType = 'decimal';
   @Watch('type')
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
       throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
+    } else if (newValue === 'currency') {
+      this.format = 'currency';
+    }
+  }
+
+  /**
+   * Set local formatting.
+   * Numbers are formatted based on the locale.
+   * When type is set to `currency`, formatting has no effect.
+   */
+  @Prop({ mutable: true }) format: Format = 'number'; // eslint-disable-line @stencil-community/strict-mutable
+  @Watch('format')
+  watchFormat(newValue: MgInputNumeric['format']): void {
+    if (!formats.includes(newValue)) {
+      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}`);
     }
   }
 
@@ -152,16 +184,6 @@ export class MgInputNumeric {
    * Define currency
    */
   @Prop() currency = 'USD';
-
-  /**
-   * Maximum value
-   */
-  @Prop() max: number;
-
-  /**
-   * Minimum value
-   */
-  @Prop() min: number;
 
   /**
    * Override integer length
@@ -402,7 +424,16 @@ export class MgInputNumeric {
    * @param value - value to format
    * @returns formated local value
    */
-  private formatValue = (value: number): string => (this.type === 'currency' ? localeCurrency(value, this.locale, this.currency) : localeNumber(value, this.locale));
+  private formatValue = (value: number): string => {
+    switch (this.format) {
+      case 'number':
+        return localeNumber(value, this.locale);
+      case 'currency':
+        return localeCurrency(value, this.locale, this.currency);
+      case 'none':
+        return value.toString();
+    }
+  };
 
   /**
    * Validate append slot
@@ -428,6 +459,7 @@ export class MgInputNumeric {
     this.locale = locales.locale;
     this.messages = locales.messages;
     // Validate component config
+    this.watchFormat(this.format);
     this.validateType(this.type);
     this.validateIntegerLength(this.integerLength);
     this.validateDecimalLength(this.decimalLength);
@@ -462,6 +494,7 @@ export class MgInputNumeric {
         value={this.value}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
+        tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
         isFieldset={false}

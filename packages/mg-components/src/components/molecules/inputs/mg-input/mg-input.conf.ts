@@ -2,7 +2,7 @@ import type { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title'
 import type { ClassList } from '@mgdis/stencil-helpers';
 
 /**
- * MgInput Interface
+ * MgInput component props
  */
 export interface MgInputProps {
   // Global
@@ -15,13 +15,14 @@ export interface MgInputProps {
   isFieldset: MgInputTitle['isLegend'];
   // Input
   value: string;
-  readonlyValue: string;
+  readonlyValue: string | string[];
   required: boolean;
   readonly: boolean;
   mgWidth: Width;
   disabled: boolean;
   // Tooltip
   tooltip: string;
+  tooltipPosition: TooltipPosition;
   // Help Text
   helpText: string;
   // Error Message
@@ -40,7 +41,6 @@ export type Width = (typeof widths)[number];
 /**
  * Possible Input types
  */
-
 export type HTMLMgInputsElement =
   | HTMLMgInputCheckboxElement
   | HTMLMgInputDateElement
@@ -59,3 +59,7 @@ export enum Handler {
   BLUR = 'blur',
   FOCUS = 'focus',
 }
+
+export const tooltipPositions = ['input', 'label'] as const;
+
+export type TooltipPosition = (typeof tooltipPositions)[number];

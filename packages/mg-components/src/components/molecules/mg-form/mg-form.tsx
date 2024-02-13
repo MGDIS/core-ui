@@ -19,6 +19,7 @@ export class MgForm {
 
   // Classes
   private readonly classAllRequired = 'mg-c-form--all-required';
+  private readonly classLabelOnTop = 'mg-c-form--label-on-top';
 
   // Locales
   private messages;
@@ -60,7 +61,9 @@ export class MgForm {
   @Prop() requiredMessage: RequiredMessageStatusType;
   @Watch('requiredMessage')
   validateRequiredMessage(newValue): void {
-    if (newValue && !requiredMessageStatus.includes(newValue)) throw new Error(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}.`);
+    if (newValue && !requiredMessageStatus.includes(newValue)) {
+      throw new Error(`<mg-form> prop "requiredMessage" must be one of: ${requiredMessageStatus.join(', ')}.`);
+    }
   }
 
   /**
@@ -70,9 +73,23 @@ export class MgForm {
   @Prop() ariaRole: AriaRoleType;
   @Watch('ariaRole')
   validateAriaRole(newValue: MgForm['ariaRole']) {
-    if (newValue && !roles.includes(newValue)) throw new Error(`<mg-form> prop "ariaRole" must be one of: ${roles.join(', ')}.`);
+    if (newValue && !roles.includes(newValue)) {
+      throw new Error(`<mg-form> prop "ariaRole" must be one of: ${roles.join(', ')}.`);
+    }
   }
 
+  /**
+   * Define if slotted mg-component's label are displayed on top
+   */
+  @Prop() labelOnTop: boolean;
+  @Watch('labelOnTop')
+  handlelabelOnTop(newValue: MgForm['labelOnTop']) {
+    if (newValue) {
+      this.classCollection.add(this.classLabelOnTop);
+    } else {
+      this.classCollection.delete(this.classLabelOnTop);
+    }
+  }
   /**
    * Define if form is disabled
    */
@@ -209,9 +226,16 @@ export class MgForm {
     // Set inputs readonly or disabled based on form configuration
     // Othewise listen to events
     this.mgInputs.forEach(input => {
-      if (this.readonly) input.readonly = true;
-      else if (this.disabled) input.disabled = true;
-      else input.addEventListener('input-valid', this.checkValidity);
+      if (this.labelOnTop) {
+        input.labelOnTop = true;
+      }
+      if (this.readonly) {
+        input.readonly = true;
+      } else if (this.disabled) {
+        input.disabled = true;
+      } else {
+        input.addEventListener('input-valid', this.checkValidity);
+      }
     });
   };
 
@@ -228,6 +252,7 @@ export class MgForm {
 
     this.validateAriaRole(this.ariaRole);
     this.validateRequiredMessage(this.requiredMessage);
+    this.handlelabelOnTop(this.labelOnTop);
 
     // Get slotted mgButtons
     this.mgButtons = Array.from(this.element.querySelectorAll('mg-button'));

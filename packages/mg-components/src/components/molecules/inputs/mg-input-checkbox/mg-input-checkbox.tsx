@@ -4,7 +4,7 @@ import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler } from '../mg-input/mg-input.conf';
+import { Handler, type MgInputProps, type TooltipPosition } from '../mg-input/mg-input.conf';
 
 /**
  * type CheckboxItem validation function
@@ -179,6 +179,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Add a tooltip message next to the input
    */
   @Prop() tooltip: string;
+
+  /**
+   * Define tooltip position
+   */
+  @Prop() tooltipPosition: TooltipPosition = 'input';
 
   /**
    * Add a help text under the input, usually expected data format and example
@@ -418,6 +423,18 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
+   * Get readonly values
+   * @returns formated readonly value
+   */
+  private getReadonlyValues = (): MgInputProps['readonlyValue'] =>
+    this.inputVerticalList
+      ? this.value.filter(({ value }) => value).map(({ title }) => title)
+      : this.value
+          .filter(({ value }) => value)
+          .map(({ title }) => title)
+          .join(', ');
+
+  /**
    * has invalid input
    * @returns true if at least one input is invalid
    */
@@ -520,9 +537,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * add listeners and DOM attributed
    */
   componentDidLoad(): void {
-    this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId);
-    this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
-    this.searchInput?.addEventListener('keydown', this.handleKeydown);
+    if (!this.readonly) {
+      this.element.shadowRoot.querySelector('legend').setAttribute('id', this.legendId);
+      this.searchInput = this.element.shadowRoot.querySelector('mg-input-text')?.shadowRoot.querySelector('input');
+      this.searchInput?.addEventListener('keydown', this.handleKeydown);
+    }
   }
 
   /**
@@ -623,7 +642,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 checkboxes={checkboxes}
                 inputVerticalList={true}
                 type={this.type}
-                readonly={this.readonly}
                 displaySearchInput={this.displaySearchInput}
                 messages={this.messages.input.checkbox}
                 id="checkboxes-list"
@@ -666,22 +684,22 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        readonly={undefined}
+        readonly={this.readonly}
         mgWidth={undefined}
         disabled={this.disabled}
         value={this.value?.toString()}
-        readonlyValue={undefined}
+        readonlyValue={this.getReadonlyValues()}
         tooltip={!this.readonly ? this.tooltip : undefined}
+        tooltipPosition={this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
         isFieldset={true}
       >
-        {this.type === 'checkbox' || this.readonly ? (
+        {this.type === 'checkbox' ? (
           <MgInputCheckboxList
             checkboxes={this.checkboxItems}
             inputVerticalList={this.inputVerticalList}
             type={this.type}
-            readonly={this.readonly}
             displaySearchInput={this.displaySearchInput}
             messages={this.messages.input.checkbox}
             id="checkboxes-list"

@@ -2,7 +2,7 @@
   "errors": {
     "required": "This field is required.",
     "date": {
-      "badInput": "The date format must be {pattern} and the date must be greater than {min}",
+      "badInput": "The date format must be {pattern}",
       "min": "The date cannot be earlier than {min}",
       "max": "The date cannot be later than {max}",
       "minMax": "The date must be between {min} and {max}"
@@ -10,7 +10,7 @@
     "numeric": {
       "min": "The value cannot be less than {min}",
       "max": "The value cannot be greater than {max}",
-      "minMax": "The value must be between {min} et {max}"
+      "minMax": "The value must be between {min} and {max}"
     }
   },
   "nbCharLeft": "{counter} characters left.",
@@ -92,5 +92,8 @@
   },
   "actionMore": {
     "label": "Actions"
+  },
+  "loader": {
+    "inProgess": "Loading in progress…"
   }
 }

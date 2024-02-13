@@ -50,6 +50,9 @@ describe('mg-input-text', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
       await page.keyboard.down('Tab');
+      if (!labelOnTop) {
+        await page.keyboard.down('Tab');
+      }
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -65,6 +68,8 @@ describe('mg-input-text', () => {
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, readonly: true },
       { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, disabled: true },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
+      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with template %s', async (page: PageType, args) => {
       await setPageContent(page, creatHtml(args));
 
@@ -236,9 +241,9 @@ describe('mg-input-text', () => {
   });
 
   test.describe('Responsive', () => {
-    [undefined, 'Tooltip message'].forEach((tooltip: string) => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${tooltip}`, async ({ page }) => {
-        const props = { identifier: 'identifier', label: 'label', tooltip };
+    [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
+      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
+        const props = { identifier: 'identifier', label: 'label', ...args };
         await setPageContent(page, creatHtml(props));
 
         // Initial state

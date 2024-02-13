@@ -179,6 +179,43 @@ exports[`mg-input-text Should render with args {
         <mg-input-title identifier="identifier">
           label
         </mg-input-title>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+          </div>
+          <slot name="append-input"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  tooltip: 'My Tooltip Message',
+  labelOnTop: true
+}: 1`] = `
+<mg-input-text>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
         <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
           <mg-icon>
             <mock:shadow-root>
@@ -207,11 +244,49 @@ exports[`mg-input-text Should render with args {
   label: 'label',
   identifier: 'identifier',
   tooltip: 'My Tooltip Message',
+  tooltipPosition: 'input',
   labelOnTop: true
 }: 1`] = `
 <mg-input-text>
   <mock:shadow-root>
     <div class="mg-c-input mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
+      <div class="mg-c-input__title">
+        <mg-input-title identifier="identifier">
+          label
+        </mg-input-title>
+        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+          <mg-icon>
+            <mock:shadow-root>
+              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+              </svg>
+            </mock:shadow-root>
+          </mg-icon>
+        </mg-tooltip>
+      </div>
+      <div class="mg-c-input__input-container">
+        <div class="mg-c-input__input">
+          <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 7;">
+            <input aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box" id="identifier" maxlength="400" name="identifier" type="text">
+            <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+          </div>
+          <slot name="append-input"></slot>
+        </div>
+      </div>
+    </div>
+  </mock:shadow-root>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should render with args {
+  label: 'label',
+  identifier: 'identifier',
+  tooltip: 'My Tooltip Message',
+  tooltipPosition: 'label'
+}: 1`] = `
+<mg-input-text>
+  <mock:shadow-root>
+    <div class="mg-c-input mg-c-input--text mg-c-input--width-full">
       <div class="mg-c-input__title">
         <mg-input-title identifier="identifier">
           label
