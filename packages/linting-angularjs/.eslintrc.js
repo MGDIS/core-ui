@@ -12,19 +12,17 @@ module.exports = {
     requireConfigFile: false,
   },
   rules: {
-    // These rules will be gradually activated in the next releases
-    'no-unused-vars': 'warn',
-    'no-redeclare': 'warn',
-    'no-inner-declarations': 'warn',
-    'no-prototype-builtins': 'off',
+    // Best Practices
     'angular/controller-as-route': 'off',
-    'angular/controller-as': 'off',
     'angular/controller-as-vm': 'off',
+    'angular/controller-as': 'off',
+    'angular/no-run-logic': 'off',
+    // Naming
     'angular/controller-name': 'off',
     'angular/file-name': 'off',
+    // Conventions
     'angular/function-type': 'off',
     'angular/no-service-method': 'off',
-    'angular/no-run-logic': 'off',
   },
   overrides: [
     {
@@ -39,13 +37,7 @@ module.exports = {
       extends: ['plugin:@html-eslint/recommended', 'plugin:@mgdis/html/recommended'],
       rules: {
         'prettier/prettier': 'off', // Do not report prettier errors on html files
-        '@html-eslint/indent': 'off',
-        '@html-eslint/require-doctype': 'off',
-        '@html-eslint/element-newline': 'off',
-        '@html-eslint/require-closing-tags': 'off',
-        '@html-eslint/no-duplicate-id': 'off',
-        '@html-eslint/require-li-container': 'off',
-        '@html-eslint/no-extra-spacing-attrs': 'off',
+        '@html-eslint/require-doctype': 'off', // Component templates do not require a doctype.
       },
     },
   ],

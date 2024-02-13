@@ -313,9 +313,7 @@ export class MgInputDate {
       // wrong date format
       // element.validity.badInput is default error message
       else {
-        this.errorMessage = this.messages.errors.date.badInput
-          .replace('{min}', this.min?.length > 0 ? localeDate(this.min, this.systemLocale) : localeDate('1900-01-01', this.systemLocale))
-          .replace('{pattern}', this.renderPattern());
+        this.errorMessage = this.messages.errors.date.badInput.replace('{pattern}', this.renderPattern());
       }
     }
   };
