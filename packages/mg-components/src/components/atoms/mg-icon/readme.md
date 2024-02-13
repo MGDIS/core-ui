@@ -4,13 +4,13 @@
 
 ![](./doc/img/mg-icon-sizing.png) 
 
-Sizes (px) :
+Sizes (px):
 
-- small : 12x12
-- regular : 16x16
-- medium : 20x20
-- large : 24x24
-- extra-large : 32x32
+- small: 12x12
+- regular: 16x16
+- medium: 20x20
+- large: 24x24
+- extra-large: 32x32
 
 ### With "variant" applied
 
@@ -42,9 +42,9 @@ You can select "variant style" to apply "variant" on the icon or the background 
 
 # File naming
 
-Separator : "-" (dash).
+Separator: "-" (dash).
 By default, the pictograms are the "filled" version, but this doesn't need to be specified in the naming
-Variant : "-outline". If pictogram variant has a background that has a full circle > add "-circle" *ex : check-circle, check-circle-outline*
+Variant: "-outline". If pictogram variant has a background that has a full circle > add "-circle" *ex: check-circle, check-circle-outline*
 
 ## CSS Variables
 

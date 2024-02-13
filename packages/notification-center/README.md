@@ -2,7 +2,7 @@
 
 Notification center is the new way to display notifications in MGDIS products.
 
-Considering notifications as :
+Considering notifications as:
 
 - an information message
 - an error message
@@ -32,7 +32,7 @@ import { NotificationCenter } from '@mgdis/notification-center';
 new NotificationCenter();
 ```
 
-To send messages :
+To send messages:
 
 ```TS
 import { NotificationCenter } from '@mgdis/notification-center';

@@ -1,6 +1,6 @@
 ## Anatomy
 
-A modal has :
+A modal has:
 
 - a closing cross at the top right corner
 - a title
@@ -23,11 +23,11 @@ In this sense the rest of the screen should not be accessible:
 - clicking on the backdrop does not close the modal
 
 The title of the modal has a written name.
-Ex : Add value
+Ex: Add value
 
 The wording of the validation button is the infinitive verb of the current action.  
 Avoid the verb "Validate" if a more explicit one is possible.  
-Ex : "Add" for adding a value, "Delete" to delete a value, "Modify" to modify a value.
+Ex: "Add" for adding a value, "Delete" to delete a value, "Modify" to modify a value.
 
 ### Icon or not icon on the action buttons ?
 

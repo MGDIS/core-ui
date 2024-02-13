@@ -18,10 +18,10 @@ The style of the active checkbox is the browser's style.
 ![](./doc/img/mg-input-checkbox-multi-anatomy.png)
 
 1. Button
-  - variant : secondary
-  - icon : list
+  - variant: secondary
+  - icon: list
 2. Button
-  - variant : link
+  - variant: link
 3. Popover
 4. Checkbox
 5. Details
