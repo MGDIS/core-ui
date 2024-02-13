@@ -482,26 +482,19 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
+      <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
         <div class="mg-c-input__title">
           <mg-input-title>
             <!---->
-            <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            <span class="mg-c-input-title" htmlfor="mg-input-toggle">
               mg-input-toggle label
-            </label>
+            </span>
           </mg-input-title>
         </div>
         <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="mg-input-toggle" role="switch" type="button">
-              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-                <slot name="item-1"></slot>
-              </span>
-              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-                <slot name="item-2"></slot>
-              </span>
-            </button>
-          </div>
+          <strong>
+            non
+          </strong>
         </div>
       </div>
     </mock:shadow-root>
@@ -4532,26 +4525,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
+      <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
         <div class="mg-c-input__title">
           <mg-input-title>
             <!---->
-            <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            <span class="mg-c-input-title" htmlfor="mg-input-toggle">
               mg-input-toggle label
-            </label>
+            </span>
           </mg-input-title>
         </div>
         <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="mg-input-toggle" role="switch" type="button">
-              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-                <slot name="item-1"></slot>
-              </span>
-              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-                <slot name="item-2"></slot>
-              </span>
-            </button>
-          </div>
+          <strong>
+            non
+          </strong>
         </div>
       </div>
     </mock:shadow-root>
@@ -5245,26 +5231,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-readonly">
+      <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
         <div class="mg-c-input__title">
           <mg-input-title>
             <!---->
-            <label class="mg-c-input-title" htmlfor="mg-input-toggle">
+            <span class="mg-c-input-title" htmlfor="mg-input-toggle">
               mg-input-toggle label
-            </label>
+            </span>
           </mg-input-title>
         </div>
         <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="mg-input-toggle" role="switch" type="button">
-              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-                <slot name="item-1"></slot>
-              </span>
-              <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-                <slot name="item-2"></slot>
-              </span>
-            </button>
-          </div>
+          <strong>
+            non
+          </strong>
         </div>
       </div>
     </mock:shadow-root>
