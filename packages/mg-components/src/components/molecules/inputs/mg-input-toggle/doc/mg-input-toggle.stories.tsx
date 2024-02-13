@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputToggle as MgInputToggleType } from '../mg-input-toggle';
 import { ToggleValue } from '../mg-input-toggle.conf';
-import { tooltipPositions } from '../../MgInput.conf';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-toggle',
