@@ -1,9 +1,9 @@
 ---
-'@mgdis/eslint-config-vue3': minor
-'@mgdis/eslint-plugin-html': minor
-'@mgdis/eslint-plugin-vue': minor
-'@mgdis/linting-angularjs': minor
-'@mgdis/linting-vue2': minor
+'@mgdis/eslint-config-vue3': major
+'@mgdis/eslint-plugin-html': major
+'@mgdis/eslint-plugin-vue': major
+'@mgdis/linting-angularjs': major
+'@mgdis/linting-vue2': major
 ---
 
 Update linting rules
