@@ -122,6 +122,7 @@ export class MgInputTextarea {
 
   /**
    * Define input pattern to validate
+   * Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
    */
   @Prop() pattern: string;
 

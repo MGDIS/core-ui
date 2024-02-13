@@ -26,7 +26,7 @@ Vue.config.ignoredElements = [/mg-\w*/];
 Vue.use(mgModel);
 
 new Vue({
-  render: (h) => h(App),
+  render: h => h(App),
 }).$mount('#app');
 
 // src/my-component/my-components.js
@@ -35,4 +35,4 @@ import '@mgdis/mg-components/dist/components/mg-input-text';
 
 ## Documentation
 
-The complete module documentation is available here : <http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue>
+The complete module documentation is available here: <http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue>
