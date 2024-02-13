@@ -8,8 +8,8 @@
   <h1>Hello Vite!</h1>
   <div class="card">
     <mg-button id="button" type="button" ng-click="$ctrl.handleClick()" variant="secondary"
-      >count is {{$ctrl.counter}}</mg-button
-    >
+      >count <mg-badge label="badge" value="{{$ctrl.counter}}" ng-if="$ctrl.counter > 0"></mg-badge
+    ></mg-button>
     <mg-modal
       modal-title="{{$ctrl.modal.modalTitle}}"
       ng-prop-hide="$ctrl.modal.hide"

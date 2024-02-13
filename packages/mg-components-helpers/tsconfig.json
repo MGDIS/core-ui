@@ -1,5 +1,15 @@
 {
+  "extends": "tsconfig/base.node20.json",
   "compilerOptions": {
-    "resolveJsonModule": true
-  }
+    "outDir": "dist",
+    "rootDir": "src",
+    "composite": false,
+    "incremental": false,
+    "lib": ["dom", "es2021"],
+    "resolveJsonModule": false,
+    "moduleResolution": "Bundler",
+    "module": "ES6"
+  },
+  "include": ["src"],
+  "exclude": ["src/**/*.spec.ts"]
 }
