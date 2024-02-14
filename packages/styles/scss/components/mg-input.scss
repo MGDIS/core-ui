@@ -135,6 +135,13 @@ mg-icon {
       vertical-align: text-bottom;
     }
   }
+
+  /**
+    * Readonly variation
+    */
+  &.mg-c-input--readonly > * {
+    display: none;
+  }
 }
 
 :host(.mg-c-input.mg-c-input--label-on-top) {
