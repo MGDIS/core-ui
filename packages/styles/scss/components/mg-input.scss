@@ -1,10 +1,12 @@
+@import '../utils/a11y';
+
 /**
  * Common style for MGDIS inputs
  */
 $mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
 
 :host {
-  display: flex;
+  display: block;
 }
 
 mg-icon {
@@ -25,6 +27,7 @@ mg-icon {
     margin-right: 0;
     margin-bottom: 0.3rem;
     text-align: left;
+    width: 100%;
 
     mg-input-title {
       flex-shrink: 1;
@@ -41,11 +44,6 @@ mg-icon {
 
   &.mg-c-input--has-error .mg-c-input__box {
     border-color: hsl(var(--color-danger));
-  }
-
-  &__container {
-    display: flex;
-    flex-wrap: wrap;
   }
 
   &__error {
@@ -108,8 +106,8 @@ mg-icon {
 
     /* Set custom opacity on disabled input */
     .mg-c-input__box:disabled,
+    ::slotted(.mg-c-input__button-toggle:disabled),
     &-group--disabled label,
-    .mg-c-input.mg-c-input--toggle-disabled & .mg-c-input__button-toggle,
     .mg-c-input.mg-c-input--checkbox-multi-disabled & strong {
       opacity: var(--mg-disabled-opacity);
     }
