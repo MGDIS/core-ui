@@ -18,8 +18,8 @@ export class MgInput implements MgInputProps {
 
   // style
   private readonly classHasError = 'mg-c-input--has-error';
-  private readonly classLabelOnTop = 'mg-c-input--label-on-top'
-  private readonly classReadonly = 'mg-c-input--readonly'
+  private readonly classLabelOnTop = 'mg-c-input--label-on-top';
+  private readonly classReadonly = 'mg-c-input--readonly';
 
   /**************
    * Decorators *
@@ -79,7 +79,7 @@ export class MgInput implements MgInputProps {
   @Prop() value;
 
   /**
-   * 
+   *
    */
   @Prop() tooltipPosition;
   @Watch('tooltipPosition')
@@ -87,11 +87,10 @@ export class MgInput implements MgInputProps {
     if (!tooltipPositions.includes(newValue)) throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
   }
 
-
   /**
    * Defines value to display in readonly mode
    */
-  @Prop() readonlyValue;
+  @Prop({ mutable: true }) readonlyValue;
   @Watch('readonlyValue')
   validateReadonlyValue(newValue: MgInput['readonlyValue']): void {
     if (newValue === undefined) this.readonlyValue = this.value;
@@ -110,7 +109,7 @@ export class MgInput implements MgInputProps {
   /**
    * Define aria-describedby ids to link with
    */
-  @Prop() ariaDescribedbyIDs;
+  @Prop({ mutable: true }) ariaDescribedbyIDs;
   @Watch('ariaDescribedbyIDs')
   validateAriaDescribedbyIDs(newValue: MgInput['ariaDescribedbyIDs']): void {
     this.applyAriadescribedBy(Array.from(this.element.children), newValue);
@@ -129,10 +128,6 @@ export class MgInput implements MgInputProps {
   validateReadonly(newValue: MgInput['readonly']): void {
     if (newValue) {
       this.classCollection.add(this.classReadonly);
-
-      Array.from(this.element.querySelectorAll('*')).forEach(child => {
-        child.setAttribute('hidden', 'true');
-      });
     } else {
       this.classCollection.delete(this.classReadonly);
 
@@ -226,6 +221,7 @@ export class MgInput implements MgInputProps {
     this.validateIdentifier(this.identifier);
     this.validateLabelOnTop(this.labelOnTop);
     this.validateLabelConfig();
+    this.validateLabel(this.label);
     this.validateReadonly(this.readonly);
     this.validateReadonlyValue(this.readonlyValue);
     this.validateTooltipPosition(this.tooltipPosition);
@@ -252,47 +248,40 @@ export class MgInput implements MgInputProps {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    /**
-     * Get tagname
-     * @param isFieldset - is fieldset
-     * @returns tag name
-     */
-    const TagName = !this.isFieldset || this.readonly ? 'div' : 'fieldset';
-
     return (
-      <Host class={this.classCollection.join()}>
-        <TagName class="mg-c-input__container">
-          <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
-            <mg-input-title identifier={this.identifier} readonly={this.readonly} required={this.required && !this.disabled && !this.readonly} is-legend={this.isFieldset}>
-              {this.label}
-            </mg-input-title>
-            {(this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
-          </div>
-          <div class="mg-c-input__input-container">
-            {this.readonly
-              ? [Array.isArray(this.readonlyValue) ? (
-                <ul>
-                  {this.readonlyValue.map(value => (
-                    <li key={value}>
-                      <strong>{value}</strong>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <strong>{this.readonlyValue}</strong>
-              ), <slot></slot>]
-              : [
-                  <div class="mg-c-input__input">
-                    <slot></slot>
-                    {!this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
-                  </div>,
-                  this.helpText && <div id={this.helpTextId} class="mg-c-input__help-text" innerHTML={this.helpText}></div>,
-                  this.errorMessage && !this.readonly && !this.disabled && (
-                    <div id={this.helpTextErrorId} class="mg-c-input__error" innerHTML={this.errorMessage} aria-live="assertive"></div>
-                  ),
-                ]}
-          </div>
-        </TagName>
+      <Host class={this.classCollection.join()} role={this.isFieldset && !this.readonly && 'group'} >
+        <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
+          <mg-input-title identifier={this.identifier} readonly={this.readonly} required={this.required && !this.disabled && !this.readonly} is-legend={this.isFieldset}>
+            {this.label}
+          </mg-input-title>
+          {(this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
+        </div>
+        <div class="mg-c-input__input-container">
+          {this.readonly ? (
+            Array.isArray(this.readonlyValue) ? (
+              <ul>
+                {this.readonlyValue.map(value => (
+                  <li key={value}>
+                    <strong>{value}</strong>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <strong>{this.readonlyValue}</strong>
+            )
+          ) : (
+            [
+              <div class="mg-c-input__input">
+                <slot></slot>
+                {!this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+              </div>,
+              this.helpText && <div id={this.helpTextId} class="mg-c-input__help-text" innerHTML={this.helpText}></div>,
+              this.errorMessage && !this.readonly && !this.disabled && (
+                <div id={this.helpTextErrorId} class="mg-c-input__error" innerHTML={this.errorMessage} aria-live="assertive"></div>
+              ),
+            ]
+          )}
+        </div>
       </Host>
     );
   }

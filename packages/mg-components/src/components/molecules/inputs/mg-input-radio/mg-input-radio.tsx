@@ -5,7 +5,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
-import { Handler , type TooltipPosition} from '../mg-input/mg-input.conf';
+import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
 
 /**
  * type Option validation function

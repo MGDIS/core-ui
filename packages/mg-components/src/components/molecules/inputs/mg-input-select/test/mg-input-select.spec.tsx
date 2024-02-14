@@ -3,10 +3,11 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgInputSelect } from '../mg-input-select';
 import { SelectOption } from '../mg-input-select.conf';
 import messages from '../../../../../locales/en/messages.json';
+import { MgInput } from '../../mg-input/mg-input';
 
 const getPage = async args => {
   const page = newSpecPage({
-    components: [MgInputSelect],
+    components: [MgInputSelect, MgInput],
     template: () => <mg-input-select {...args}></mg-input-select>,
   });
 

@@ -13,12 +13,13 @@ import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
+import { MgInput } from '../../mg-input/mg-input';
 
 mockWindowFrames();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle],
+    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle, MgInput],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 
