@@ -47,7 +47,8 @@ mg-icon {
       display: inline-block;
     }
 
-    & > strong, & > ul {
+    & > strong,
+    & > ul {
       min-height: var(--font-size);
       margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
     }
