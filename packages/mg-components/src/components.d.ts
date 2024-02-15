@@ -11,7 +11,7 @@ import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
 import { ClassList } from "@mgdis/stencil-helpers";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -35,7 +35,7 @@ export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
 export { ClassList } from "@mgdis/stencil-helpers";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -266,11 +266,7 @@ export namespace Components {
         /**
           * Define error message to display
          */
-        "errorMessage": any;
-        /**
-          * Add a help text under the input, usually expected data format and example
-         */
-        "helpText": string;
+        "hasError": any;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -279,10 +275,6 @@ export namespace Components {
           * Define if mg-input is a fieldset
          */
         "isFieldset": boolean;
-        /**
-          * Input label
-         */
-        "label": string;
         /**
           * Define if label is visible
          */
@@ -311,6 +303,9 @@ export namespace Components {
           * Add a tooltip message next to the input
          */
         "tooltip": string;
+        /**
+          * Define tooltip position
+         */
         "tooltipPosition": any;
         /**
           * Define values
@@ -2254,11 +2249,7 @@ declare namespace LocalJSX {
         /**
           * Define error message to display
          */
-        "errorMessage"?: any;
-        /**
-          * Add a help text under the input, usually expected data format and example
-         */
-        "helpText"?: string;
+        "hasError"?: any;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -2267,10 +2258,6 @@ declare namespace LocalJSX {
           * Define if mg-input is a fieldset
          */
         "isFieldset"?: boolean;
-        /**
-          * Input label
-         */
-        "label": string;
         /**
           * Define if label is visible
          */
@@ -2299,6 +2286,9 @@ declare namespace LocalJSX {
           * Add a tooltip message next to the input
          */
         "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
         "tooltipPosition"?: any;
         /**
           * Define values

@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputDate as MgInputDateType } from '../mg-input-date';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { tooltipPositions } from '../../MgInput.conf';
 
 export default {
   component: 'mg-input-date',

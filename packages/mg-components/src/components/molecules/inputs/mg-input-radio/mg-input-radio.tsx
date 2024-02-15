@@ -3,9 +3,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
-import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
-import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { initLocales } from '../../../../locales';
+import { Handler, type TooltipPosition } from '../MgInput.conf';
+import { MgInput } from '../MgInput';
 
 /**
  * type Option validation function
@@ -304,11 +305,11 @@ export class MgInputRadio {
    */
   render(): HTMLElement {
     return (
-      <mg-input
+      <MgInput
+        label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
-        label={this.label}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
@@ -344,7 +345,7 @@ export class MgInputRadio {
             </li>
           ))}
         </ul>
-      </mg-input>
+      </MgInput>
     );
   }
 }

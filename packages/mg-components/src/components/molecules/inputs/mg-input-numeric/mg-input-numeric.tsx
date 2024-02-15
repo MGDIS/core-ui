@@ -1,8 +1,9 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { Handler, type TooltipPosition, type Width } from '../mg-input/mg-input.conf';
-import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
+import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
 import { initLocales } from '../../../../locales/';
+import { type TooltipPosition, type Width, Handler } from '../MgInput.conf';
+import { MgInput } from '../MgInput';
 
 @Component({
   tag: 'mg-input-numeric',
@@ -480,11 +481,11 @@ export class MgInputNumeric {
    */
   render(): HTMLElement {
     return (
-      <mg-input
+      <MgInput
+        label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
-        label={this.label}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
@@ -518,7 +519,7 @@ export class MgInputNumeric {
           }}
         />
         <slot name="append-input"></slot>
-      </mg-input>
+      </MgInput>
     );
   }
 }

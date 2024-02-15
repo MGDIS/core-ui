@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Method, Prop, State, Watch } from '@stencil/core';
 import { createID, ClassList } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
-import { HTMLMgInputsElement } from '../inputs/mg-input/mg-input.conf';
+import { HTMLMgInputsElement } from '../inputs/MgInput.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
 
 @Component({

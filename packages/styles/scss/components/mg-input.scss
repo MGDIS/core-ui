@@ -29,7 +29,7 @@ mg-icon {
     text-align: left;
     width: 100%;
 
-    mg-input-title {
+    ::slotted(mg-input-title) {
       flex-shrink: 1;
     }
   }
@@ -46,7 +46,7 @@ mg-icon {
     border-color: hsl(var(--color-danger));
   }
 
-  &__error {
+  &__error ::slotted(*) {
     display: inline-block;
     padding: 0.3rem 0.8rem;
     border-radius: 0.3rem;
@@ -84,8 +84,8 @@ mg-icon {
       margin-left: var(--mg-inputs-spacer);
     }
 
-    .mg-c-input__help-text,
-    .mg-c-input__error {
+    .mg-c-input__help-text ::slotted(*),
+    .mg-c-input__error ::slotted(*) {
       font-size: 1.2rem;
       text-align: start;
     }
@@ -99,8 +99,9 @@ mg-icon {
     }
 
     /* Manage space between input and first message */
-    & + .mg-c-input__help-text,
-    & + .mg-c-input__error {
+    & + .mg-c-input__help-text ::slotted(*),
+    & + .mg-c-input__error ::slotted(*) {
+      display: block;
       margin-top: 0.5rem;
     }
 
@@ -124,7 +125,7 @@ mg-icon {
     margin-right: var(--mg-inputs-title-horizontal-space, var(--mg-inputs-spacer));
     text-align: right;
 
-    mg-input-title + mg-tooltip {
+    slot[name='title'] + mg-tooltip {
       margin-left: 0.4rem;
     }
 
@@ -137,7 +138,7 @@ mg-icon {
   /**
     * Readonly variation
     */
-  &.mg-c-input--readonly > * {
+  &.mg-c-input--readonly > *:not([slot='title']) {
     display: none;
   }
 }

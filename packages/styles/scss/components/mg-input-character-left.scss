@@ -9,8 +9,8 @@ mg-input-text, mg-input-textarea {
   }
 
   &.mg-c-input--has-display-character-left .mg-c-input__input {
-    & + .mg-c-input__help-text,
-    & + .mg-c-input__error {
+    & + .mg-c-input__help-text ::slotted(*),
+    & + .mg-c-input__error ::slotted(*) {
       margin-top: 0;
     }
   }

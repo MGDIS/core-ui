@@ -113,11 +113,9 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `ariaDescribedbyIDs`      | `aria-describedby-i-ds` | Define aria-describedby ids to link with                                    | `any`                    | `undefined`                     |
 | `classCollection`         | --                      | Component classes                                                           | `ClassList`              | `new ClassList(['mg-c-input'])` |
 | `disabled`                | `disabled`              | Define if input is disabled                                                 | `boolean`                | `false`                         |
-| `errorMessage`            | `error-message`         | Define error message to display                                             | `any`                    | `undefined`                     |
-| `helpText`                | `help-text`             | Add a help text under the input, usually expected data format and example   | `string`                 | `undefined`                     |
+| `hasError`                | `has-error`             | Define error message to display                                             | `any`                    | `undefined`                     |
 | `identifier` _(required)_ | `identifier`            | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                 | `undefined`                     |
 | `isFieldset`              | `is-fieldset`           | Define if mg-input is a fieldset                                            | `boolean`                | `false`                         |
-| `label` _(required)_      | `label`                 | Input label                                                                 | `string`                 | `undefined`                     |
 | `labelHide`               | `label-hide`            | Define if label is visible                                                  | `boolean`                | `false`                         |
 | `labelOnTop`              | `label-on-top`          | Define if label is displayed on top                                         | `boolean`                | `undefined`                     |
 | `mgWidth`                 | `mg-width`              | Define input width                                                          | `"full" \| 16 \| 2 \| 4` | `'full'`                        |
@@ -125,7 +123,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `readonlyValue`           | `readonly-value`        | Defines value to display in readonly mode                                   | `any`                    | `undefined`                     |
 | `required`                | `required`              | Define if input is required                                                 | `boolean`                | `false`                         |
 | `tooltip`                 | `tooltip`               | Add a tooltip message next to the input                                     | `string`                 | `undefined`                     |
-| `tooltipPosition`         | `tooltip-position`      |                                                                             | `any`                    | `undefined`                     |
+| `tooltipPosition`         | `tooltip-position`      | Define tooltip position                                                     | `any`                    | `undefined`                     |
 | `value`                   | `value`                 | Define values                                                               | `any`                    | `undefined`                     |
 
 
@@ -147,14 +145,12 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
 ```mermaid
 graph TD;
   mg-input --> mg-tooltip
   mg-input --> mg-icon
-  mg-input --> mg-input-title
   mg-tooltip --> mg-tooltip-content
   mg-input-checkbox --> mg-input
   mg-input-date --> mg-input

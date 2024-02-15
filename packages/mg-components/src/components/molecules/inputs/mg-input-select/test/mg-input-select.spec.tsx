@@ -90,7 +90,7 @@ describe('mg-input-select', () => {
     try {
       await getPage({ identifier: 'identifier', label, items: ['blu', 'bli', 'blo', 'bla'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> prop "label" is required.');
+      expect(err.message).toMatch('<mg-input> slot "title" is required and must be a <mg-input-title /> element.');
     }
   });
 

@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
 import type { MgInputCheckbox as MgInputCheckboxType } from '../mg-input-checkbox';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
+import { tooltipPositions } from '../../MgInput.conf';
 
 export default {
   component: 'mg-input-checkbox',

@@ -96,17 +96,18 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [mg-input](../mg-input)
 - [mg-character-left](../../../atoms/mg-character-left)
+- [mg-input](../mg-input)
+- [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
 ```mermaid
 graph TD;
-  mg-input-textarea --> mg-input
   mg-input-textarea --> mg-character-left
+  mg-input-textarea --> mg-input
+  mg-input-textarea --> mg-input-title
   mg-input --> mg-tooltip
   mg-input --> mg-icon
-  mg-input --> mg-input-title
   mg-tooltip --> mg-tooltip-content
   style mg-input-textarea fill:#f9f,stroke:#333,stroke-width:4px
 ```

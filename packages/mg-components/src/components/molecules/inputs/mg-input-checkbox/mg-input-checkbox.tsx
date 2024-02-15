@@ -4,7 +4,9 @@ import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler, type MgInputProps, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { type MgInputProps } from '../mg-input/mg-input.conf';
+import { Handler, type TooltipPosition } from '../MgInput.conf';
+import { MgInput } from '../MgInput';
 
 /**
  * type CheckboxItem validation function
@@ -676,11 +678,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   render(): HTMLElement {
     return (
-      <mg-input
+      <MgInput
+        label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
-        label={this.label}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
@@ -710,7 +712,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         ) : (
           this.renderCheckboxMulti()
         )}
-      </mg-input>
+      </MgInput>
     );
   }
 }

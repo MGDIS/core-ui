@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { Handler, type TooltipPosition, type Width } from '../mg-input/mg-input.conf';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
+import { type TooltipPosition, type Width, Handler } from '../MgInput.conf';
+import { MgInput } from '../MgInput';
 
 /**
  * Check if item is a well configured option
@@ -429,11 +430,11 @@ export class MgInputSelect {
    */
   render(): HTMLElement {
     return (
-      <mg-input
+      <MgInput
+        label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
         ariaDescribedbyIDs={[]}
-        label={this.label}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
@@ -477,7 +478,7 @@ export class MgInputSelect {
             ),
           )}
         </select>
-      </mg-input>
+      </MgInput>
     );
   }
 }
