@@ -1,14 +1,13 @@
 import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
-import { MgInputProps } from './mg-input.conf';
-import { widths, type Width, tooltipPositions } from '../MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { widths, type Width, tooltipPositions, type TooltipPosition } from './mg-input.conf';
 
 @Component({
   tag: 'mg-input',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input.css',
   shadow: true,
 })
-export class MgInput implements MgInputProps {
+export class MgInput {
   /************
    * Internal *
    ************/
@@ -16,10 +15,14 @@ export class MgInput implements MgInputProps {
   // HTML selector
   private helpTextId: string;
   private helpTextErrorId: string;
-  // private readonly slotTitle = ['label', 'legend'].map(el => `mg-input-title[slot="title"] ${el}`).join(',');
-  private readonly slotTitle = 'mg-input-title[slot="title"]';
-  private readonly slotError = '[slot="error"]';
-  private readonly slotHelpText = '[slot="help-text"]';
+  private readonly slotLabel = 'label';
+  private readonly slotError = 'error';
+  private readonly slotHelpText = 'help-text';
+
+  // slots elements
+  private labelSlotElement: HTMLMgInputTitleElement;
+  private errorMessageSlotElement: HTMLElement;
+  private helptextMessageSlotElement: HTMLElement;
 
   // style
   private readonly classHasError = 'mg-c-input--has-error';
@@ -40,7 +43,7 @@ export class MgInput implements MgInputProps {
    */
   @Prop() identifier!: string;
   @Watch('identifier')
-  validateIdentifier(newValue: MgInput['identifier']): void {
+  watchIdentifier(newValue: MgInput['identifier']): void {
     if (!isValidString(newValue)) {
       throw new Error('<mg-input> prop "identifier" is required.');
     } else {
@@ -50,16 +53,29 @@ export class MgInput implements MgInputProps {
   }
 
   /**
+   * Define input label
+   */
+  @Prop() label!: string;
+  @Watch('label')
+  watchLabel(newValue: MgInput['label']): void {
+    if (!isValidString(newValue)) {
+      throw new Error('<mg-input> prop "label" is required.');
+    } else {
+      this.renderLabel();
+    }
+  }
+
+  /**
    * Define if mg-input is a fieldset
    */
-  @Prop() isFieldset = false;
+  @Prop() isFieldset: boolean = false;
 
   /**
    * Define if label is displayed on top
    */
   @Prop() labelOnTop: boolean;
   @Watch('labelOnTop')
-  validateLabelOnTop(newValue: MgInput['labelOnTop']): void {
+  watchLabelOnTop(newValue: MgInput['labelOnTop']): void {
     if (newValue) {
       this.classCollection.add(this.classLabelOnTop);
     } else {
@@ -70,10 +86,10 @@ export class MgInput implements MgInputProps {
   /**
    * Define if label is visible
    */
-  @Prop() labelHide = false;
+  @Prop() labelHide: boolean = false;
   @Watch('labelHide')
   @Watch('labelOnTop')
-  validateLabelConfig(): void {
+  watchLabelConfig(): void {
     if (this.labelHide && this.labelOnTop) {
       throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
     }
@@ -82,14 +98,14 @@ export class MgInput implements MgInputProps {
   /**
    * Define values
    */
-  @Prop() value;
+  @Prop() value: string;
 
   /**
    * Defines value to display in readonly mode
    */
-  @Prop({ mutable: true }) readonlyValue;
+  @Prop({ mutable: true }) readonlyValue: string | string[];
   @Watch('readonlyValue')
-  validateReadonlyValue(newValue: MgInput['readonlyValue']): void {
+  watchReadonlyValue(newValue: MgInput['readonlyValue']): void {
     if (newValue === undefined) {
       this.readonlyValue = this.value;
     }
@@ -103,9 +119,9 @@ export class MgInput implements MgInputProps {
   /**
    * Define tooltip position
    */
-  @Prop() tooltipPosition;
+  @Prop() tooltipPosition: TooltipPosition = 'input';
   @Watch('tooltipPosition')
-  validateTooltipPosition(newValue: MgInput['tooltipPosition']) {
+  watchTooltipPosition(newValue: MgInput['tooltipPosition']) {
     if (!tooltipPositions.includes(newValue)) {
       throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
     }
@@ -114,14 +130,14 @@ export class MgInput implements MgInputProps {
   /**
    * Define if input is required
    */
-  @Prop() required = false;
+  @Prop() required: boolean = false;
 
   /**
    * Define if input is readonly
    */
-  @Prop() readonly = false;
+  @Prop() readonly: boolean = false;
   @Watch('readonly')
-  validateReadonly(newValue: MgInput['readonly']): void {
+  watchReadonly(newValue: MgInput['readonly']): void {
     if (newValue) {
       this.classCollection.add(this.classReadonly);
     } else {
@@ -132,29 +148,57 @@ export class MgInput implements MgInputProps {
   /**
    * Define if input is disabled
    */
-  @Prop() disabled = false;
+  @Prop() disabled: boolean = false;
+
+  /**
+   * Define error message to display
+   */
+  @Prop() errorMessage: string;
+  @Watch('errorMessage')
+  watchErrorMessage(newValue: MgInput['errorMessage']): void {
+    if (newValue) {
+      this.classCollection.add(this.classHasError);
+      this.renderErrorMessage();
+    } else {
+      this.classCollection.delete(this.classHasError);
+      this.errorMessageSlotElement?.remove();
+    }
+  }
+
+  /**
+   * Define help text to display
+   */
+  @Prop() helpText: string;
+  @Watch('helpText')
+  watchHelpText(newValue: MgInput['helpText']): void {
+    if (newValue) {
+      this.renderHelpText();
+    } else {
+      this.helptextMessageSlotElement?.remove();
+    }
+  }
 
   /**
    * Define aria-describedby ids to link with
    */
-  @Prop() ariaDescribedbyIDs;
+  @Prop() ariaDescribedbyIDs: string[];
   @Watch('identifier')
+  @Watch('errorMessage')
+  @Watch('helpText')
   @Watch('ariaDescribedbyIDs')
-  validateAriaDescribedbyIDs(newValue: MgInput['ariaDescribedbyIDs']): void {
+  watchAriaDescribedbyIDs(): void {
     // a11y IDs
-    const ariaDescribedbyIDs = new Set(newValue);
+    const ariaDescribedbyIDs = new Set(this.ariaDescribedbyIDs);
     // Help text
-    const slotHelpText = this.element.querySelector(this.slotHelpText);
-    if (!ariaDescribedbyIDs.has(this.helpTextId)) {
-      slotHelpText.setAttribute('id', this.helpTextId);
-      ariaDescribedbyIDs.add(this.helpTextId);
+    if (this.helpText) {
+      this.renderHelpText();
+      if (!ariaDescribedbyIDs.has(this.helpTextId)) ariaDescribedbyIDs.add(this.helpTextId);
     }
 
     // Error Message
-    const slotError = this.element.querySelector(this.slotError);
-    if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) {
-      slotError.setAttribute('id', this.helpTextErrorId);
-      ariaDescribedbyIDs.add(this.helpTextErrorId);
+    if (this.errorMessage) {
+      this.renderErrorMessage();
+      if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) ariaDescribedbyIDs.add(this.helpTextErrorId);
     }
 
     this.element.querySelectorAll(['input', 'select', 'textarea', '[role="switch"]'].join(', ')).forEach(element => {
@@ -163,24 +207,11 @@ export class MgInput implements MgInputProps {
   }
 
   /**
-   * Define error message to display
-   */
-  @Prop() hasError;
-  @Watch('hasError')
-  validateHasError(newValue: MgInput['hasError']): void {
-    if (newValue) {
-      this.classCollection.add(this.classHasError);
-    } else {
-      this.classCollection.delete(this.classHasError);
-    }
-  }
-
-  /**
    * Define input width
    */
   @Prop() mgWidth: Width = 'full';
   @Watch('mgWidth')
-  validateMgWidth(newValue: MgInput['mgWidth']): void {
+  watchMgWidth(newValue: MgInput['mgWidth']): void {
     // reset width class
     widths.forEach(width => {
       this.classCollection.delete(`mg-c-input--width-${width}`);
@@ -195,7 +226,7 @@ export class MgInput implements MgInputProps {
    */
   @Prop() classCollection: ClassList = new ClassList(['mg-c-input']);
   @Watch('classCollection')
-  validateClassCollection(newValue: MgInput['classCollection']): void {
+  watchClassCollection(newValue: MgInput['classCollection']): void {
     if (!newValue.has('mg-c-input')) {
       this.classCollection.add('mg-c-input');
     }
@@ -206,14 +237,55 @@ export class MgInput implements MgInputProps {
    ************/
 
   /**
-   * Validate slot title element
-   * @param element - slot title element
+   * Render input label
    */
-  private validateSlotTitle = (element: HTMLElement | null): void => {
-    if (!element || !isValidString(element.textContent)) {
-      throw new Error(`<mg-input> slot "title" is required and must be a <mg-input-title /> element.`);
+  private renderLabel() {
+    const slot: HTMLMgInputTitleElement = this.element.querySelector(`[slot=${this.slotLabel}]`);
+    if (!this.labelSlotElement && slot) {
+      this.labelSlotElement = slot;
+    } else if (!this.labelSlotElement && !slot) {
+      this.labelSlotElement = document.createElement('mg-input-title');
+      this.labelSlotElement.setAttribute('slot', this.slotLabel);
+      this.labelSlotElement.setAttribute('identifier', this.identifier.toString());
+      this.labelSlotElement.setAttribute('readonly', this.readonly.toString());
+      this.labelSlotElement.setAttribute('required', this.required.toString());
+      this.labelSlotElement.setAttribute('is-legend', this.isFieldset.toString());
+      this.element.appendChild(this.labelSlotElement);
     }
-  };
+    this.labelSlotElement.textContent = this.label;
+  }
+
+  /**
+   * Render error message
+   */
+  private renderErrorMessage() {
+    const slot: HTMLElement = this.element.querySelector(`[slot=${this.slotError}]`);
+    if (!this.errorMessageSlotElement && slot) {
+      this.errorMessageSlotElement = slot;
+    } else if (!this.errorMessageSlotElement && !slot) {
+      this.errorMessageSlotElement = document.createElement('div');
+      this.errorMessageSlotElement.setAttribute('slot', this.slotError);
+      this.element.appendChild(this.errorMessageSlotElement);
+    }
+    this.errorMessageSlotElement.setAttribute('id', this.helpTextErrorId);
+    this.errorMessageSlotElement.innerHTML = this.errorMessage;
+  }
+
+  /**
+   * Render help text message
+   */
+  private renderHelpText() {
+    const slot: HTMLElement = this.element.querySelector(`[slot=${this.slotHelpText}]`);
+    if (!this.helptextMessageSlotElement && slot) {
+      this.helptextMessageSlotElement = slot;
+    } else if (!this.helptextMessageSlotElement && !slot) {
+      this.helptextMessageSlotElement = document.createElement('div');
+      this.helptextMessageSlotElement.setAttribute('slot', this.slotHelpText);
+      this.element.appendChild(this.helptextMessageSlotElement);
+    }
+    this.helptextMessageSlotElement.setAttribute('id', this.helpTextId);
+    this.helptextMessageSlotElement.innerHTML = this.helpText;
+  }
 
   /*************
    * Lifecycle *
@@ -224,36 +296,36 @@ export class MgInput implements MgInputProps {
    */
   componentWillLoad(): void {
     //Check required properties
-    this.validateIdentifier(this.identifier);
-    this.validateLabelOnTop(this.labelOnTop);
-    this.validateLabelConfig();
-    this.validateReadonly(this.readonly);
-    this.validateReadonlyValue(this.readonlyValue);
-    this.validateTooltipPosition(this.tooltipPosition);
-    this.validateMgWidth(this.mgWidth);
-    this.validateClassCollection(this.classCollection);
-    this.validateHasError(this.hasError);
+    this.watchIdentifier(this.identifier);
+    this.watchLabel(this.label);
+    this.watchLabelOnTop(this.labelOnTop);
+    this.watchLabelConfig();
+    this.watchReadonly(this.readonly);
+    this.watchReadonlyValue(this.readonlyValue);
+    this.watchTooltipPosition(this.tooltipPosition);
+    this.watchMgWidth(this.mgWidth);
+    this.watchClassCollection(this.classCollection);
+    this.watchErrorMessage(this.errorMessage);
+    this.watchHelpText(this.helpText);
   }
 
   /**
    * Validate slots
    */
   componentDidLoad(): void {
-    this.validateSlotTitle(this.element.querySelector(this.slotTitle));
-    this.validateAriaDescribedbyIDs(this.ariaDescribedbyIDs);
+    this.renderLabel();
+    this.watchAriaDescribedbyIDs();
   }
 
   /**
    * Get tooltip node
    * @returns mg-tooltip
    */
-  private renderTooltip = (): HTMLMgTooltipElement =>
-    this.tooltip &&
-    !this.readonly && (
-      <mg-tooltip identifier={`${this.identifier}-tooltip`} message={this.tooltip}>
-        <mg-icon icon="info-circle"></mg-icon>
-      </mg-tooltip>
-    );
+  private renderTooltip = (): HTMLMgTooltipElement => (
+    <mg-tooltip identifier={`${this.identifier}-tooltip`} message={this.tooltip}>
+      <mg-icon icon="info-circle"></mg-icon>
+    </mg-tooltip>
+  );
 
   /**
    * Render
@@ -263,8 +335,8 @@ export class MgInput implements MgInputProps {
     return (
       <Host class={this.classCollection.join()} role={this.isFieldset && !this.readonly && 'group'}>
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
-          <slot name="title"></slot>
-          {(this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
+          <slot name={this.slotLabel}></slot>
+          {this.tooltip && !this.readonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
         <div class="mg-c-input__input-container">
           {this.readonly ? (
@@ -283,14 +355,20 @@ export class MgInput implements MgInputProps {
             [
               <div class="mg-c-input__input">
                 <slot></slot>
-                {!this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+                {this.tooltip && !this.readonly && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
               </div>,
-              !this.disabled && <div class="mg-c-input__help-text">
-                <slot name="help-text"></slot>
-              </div>,
-              !this.disabled && this.hasError && <div class="mg-c-input__error"aria-live='assertive'>
-                <slot name="error"></slot>
-              </div>,
+              !this.disabled && [
+                this.helpText && (
+                  <div class="mg-c-input__help-text">
+                    <slot name={this.slotHelpText}></slot>
+                  </div>
+                ),
+                this.errorMessage && (
+                  <div class="mg-c-input__error" aria-live="assertive">
+                    <slot name={this.slotError}></slot>
+                  </div>
+                ),
+              ],
             ]
           )}
         </div>

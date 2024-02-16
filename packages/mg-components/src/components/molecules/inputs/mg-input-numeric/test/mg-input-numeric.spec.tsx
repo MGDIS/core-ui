@@ -91,7 +91,7 @@ describe('mg-input-numeric', () => {
       try {
         await getPage({ identifier: 'identifier', label, type });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> slot "title" is required and must be a <mg-input-title /> element.');
+        expect(err.message).toMatch('<mg-input> prop "label" is required.');
       }
     });
 

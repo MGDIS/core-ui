@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
-import { initLocales } from '../../../../locales';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { type MgInputProps } from '../mg-input/mg-input.conf';
-import { Handler, type TooltipPosition } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
+import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
+import type { MgInput } from '../mg-input/mg-input';
+import { initLocales } from '../../../../locales';
 
 /**
  * type CheckboxItem validation function
@@ -428,7 +427,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Get readonly values
    * @returns formated readonly value
    */
-  private getReadonlyValues = (): MgInputProps['readonlyValue'] =>
+  private getReadonlyValues = (): MgInput['readonlyValue'] =>
     this.inputVerticalList
       ? this.value.filter(({ value }) => value).map(({ title }) => title)
       : this.value
@@ -678,7 +677,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
@@ -712,7 +711,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         ) : (
           this.renderCheckboxMulti()
         )}
-      </MgInput>
+      </mg-input>
     );
   }
 }

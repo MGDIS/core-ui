@@ -1,9 +1,8 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { initLocales } from '../../../../locales';
 import { TextType } from './mg-input-text.conf';
-import { type TooltipPosition, type Width, Handler } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
+import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
+import { initLocales } from '../../../../locales';
 
 const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
@@ -387,7 +386,7 @@ export class MgInputText {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
@@ -450,7 +449,7 @@ export class MgInputText {
           )}
         </div>
         <slot name="append-input"></slot>
-      </MgInput>
+      </mg-input>
     );
   }
 }

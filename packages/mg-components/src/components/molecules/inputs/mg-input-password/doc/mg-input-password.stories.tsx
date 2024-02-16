@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputPassword as MgInputPasswordType } from '../mg-input-password';
-import { tooltipPositions } from '../../MgInput.conf';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-password',

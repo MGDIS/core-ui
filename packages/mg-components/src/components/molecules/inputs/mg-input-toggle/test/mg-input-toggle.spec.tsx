@@ -136,7 +136,7 @@ describe('mg-input-toggle', () => {
           items: defaultItems,
         });
       } catch (err) {
-        expect(err.message).toMatch('<mg-input> slot "title" is required and must be a <mg-input-title /> element.');
+        expect(err.message).toMatch('<mg-input> prop "label" is required.');
       }
     });
 

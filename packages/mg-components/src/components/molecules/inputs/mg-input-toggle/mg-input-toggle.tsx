@@ -3,8 +3,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
-import { type TooltipPosition } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
+import { type TooltipPosition } from '../mg-input/mg-input.conf';
 
 /**
  * type Option validation function
@@ -161,7 +160,7 @@ export class MgInputToggle {
   /**
    * Error message to display
    */
-  @State() errorMessage:string;
+  @State() errorMessage: string;
 
   /**
    * Define input valid state
@@ -297,7 +296,7 @@ export class MgInputToggle {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         helpText={this.helpText}
         identifier={this.identifier}
@@ -333,7 +332,7 @@ export class MgInputToggle {
             <slot name="item-2"></slot>
           </span>
         </button>
-      </MgInput>
+      </mg-input>
     );
   }
 }

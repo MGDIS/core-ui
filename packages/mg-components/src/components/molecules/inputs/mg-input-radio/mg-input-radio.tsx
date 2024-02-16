@@ -4,9 +4,8 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { RadioOption } from './mg-input-radio.conf';
+import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { Handler, type TooltipPosition } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
 
 /**
  * type Option validation function
@@ -305,7 +304,7 @@ export class MgInputRadio {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
@@ -345,7 +344,7 @@ export class MgInputRadio {
             </li>
           ))}
         </ul>
-      </MgInput>
+      </mg-input>
     );
   }
 }

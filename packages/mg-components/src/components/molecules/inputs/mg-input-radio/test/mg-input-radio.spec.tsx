@@ -86,7 +86,7 @@ describe('mg-input-radio', () => {
     try {
       await getPage({ identifier: 'identifier', label, items: ['batman', 'robin', 'joker', 'bane'] });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input> slot "title" is required and must be a <mg-input-title /> element.');
+      expect(err.message).toMatch('<mg-input> prop "label" is required.');
     }
   });
 

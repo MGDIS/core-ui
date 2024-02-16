@@ -1,8 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { type TooltipPosition, type Width, Handler } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
 
 @Component({
   tag: 'mg-input-textarea',
@@ -346,7 +345,7 @@ export class MgInputTextarea {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
@@ -394,7 +393,7 @@ export class MgInputTextarea {
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}
         </div>
-      </MgInput>
+      </mg-input>
     );
   }
 }

@@ -1,9 +1,8 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
 import { InputError } from './mg-input-date.conf';
+import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { Handler, type TooltipPosition } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
 
 @Component({
   tag: 'mg-input-date',
@@ -367,7 +366,7 @@ export class MgInputDate {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
@@ -403,7 +402,7 @@ export class MgInputDate {
             if (el !== null) this.input = el;
           }}
         />
-      </MgInput>
+      </mg-input>
     );
   }
 }

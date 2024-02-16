@@ -2,10 +2,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
-import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
-import { type TooltipPosition, type Width, Handler } from '../MgInput.conf';
-import { MgInput } from '../MgInput';
+import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
+import { initLocales } from '../../../../locales';
 
 /**
  * Check if item is a well configured option
@@ -430,7 +429,7 @@ export class MgInputSelect {
    */
   render(): HTMLElement {
     return (
-      <MgInput
+      <mg-input
         label={this.label}
         identifier={this.identifier}
         classCollection={this.classCollection}
@@ -478,7 +477,7 @@ export class MgInputSelect {
             ),
           )}
         </select>
-      </MgInput>
+      </mg-input>
     );
   }
 }

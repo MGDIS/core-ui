@@ -144,7 +144,6 @@ Type: `Promise<void>`
 - [mg-icon](../../../atoms/mg-icon)
 - [mg-input-text](../mg-input-text)
 - [mg-input](../mg-input)
-- [mg-input-title](../../../atoms/mg-input-title)
 
 ### Graph
 ```mermaid
@@ -155,7 +154,6 @@ graph TD;
   mg-input-checkbox --> mg-icon
   mg-input-checkbox --> mg-input-text
   mg-input-checkbox --> mg-input
-  mg-input-checkbox --> mg-input-title
   mg-input-checkbox-paginated --> mg-button
   mg-input-checkbox-paginated --> mg-icon
   mg-input-checkbox-paginated --> mg-tooltip
@@ -166,17 +164,16 @@ graph TD;
   mg-pagination --> mg-icon
   mg-pagination --> mg-input-select
   mg-input-select --> mg-input
-  mg-input-select --> mg-input-title
   mg-input --> mg-tooltip
   mg-input --> mg-icon
+  mg-input --> mg-input-title
   mg-popover --> mg-popover-content
   mg-popover-content --> mg-card
   mg-popover-content --> mg-button
   mg-popover-content --> mg-icon
+  mg-input-text --> mg-input
   mg-input-text --> mg-icon
   mg-input-text --> mg-character-left
-  mg-input-text --> mg-input
-  mg-input-text --> mg-input-title
   style mg-input-checkbox fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

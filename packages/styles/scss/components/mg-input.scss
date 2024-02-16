@@ -125,7 +125,7 @@ mg-icon {
     margin-right: var(--mg-inputs-title-horizontal-space, var(--mg-inputs-spacer));
     text-align: right;
 
-    slot[name='title'] + mg-tooltip {
+    slot[name='label'] + mg-tooltip {
       margin-left: 0.4rem;
     }
 
@@ -138,7 +138,7 @@ mg-icon {
   /**
     * Readonly variation
     */
-  &.mg-c-input--readonly > *:not([slot='title']) {
+  &.mg-c-input--readonly > *:not([slot='label']) {
     display: none;
   }
 }
