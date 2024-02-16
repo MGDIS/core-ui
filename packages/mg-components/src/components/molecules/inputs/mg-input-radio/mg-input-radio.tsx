@@ -321,7 +321,7 @@ export class MgInputRadio {
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={true}
+        type="fieldset"
       >
         <ul class={{ 'mg-c-input__input-group-container': true, 'mg-c-input__input-group-container--vertical': this.inputVerticalList }} role="list">
           {this.options.map((input, index) => (

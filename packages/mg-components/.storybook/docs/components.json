@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-16T07:09:19",
+  "timestamp": "2024-02-16T11:04:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.1",
@@ -1817,28 +1817,6 @@
           "required": true
         },
         {
-          "name": "isFieldset",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "is-fieldset",
-          "reflectToAttr": false,
-          "docs": "Define if mg-input is a fieldset",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "label",
           "type": "string",
           "complexType": {
@@ -2059,6 +2037,39 @@
             },
             {
               "value": "label",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "\"fieldset\" | \"input\"",
+          "complexType": {
+            "original": "InputType",
+            "resolved": "\"fieldset\" | \"input\"",
+            "references": {
+              "InputType": {
+                "location": "import",
+                "path": "./mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::InputType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "type",
+          "reflectToAttr": false,
+          "docs": "Define component type",
+          "docsTags": [],
+          "default": "'input'",
+          "values": [
+            {
+              "value": "fieldset",
+              "type": "string"
+            },
+            {
+              "value": "input",
               "type": "string"
             }
           ],
@@ -10253,6 +10264,11 @@
       "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\"",
       "docstring": "",
       "path": "src/components/atoms/mg-tag/mg-tag.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::InputType": {
+      "declaration": "\"fieldset\" | \"input\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
     },
     "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition": {
       "declaration": "\"input\" | \"label\"",

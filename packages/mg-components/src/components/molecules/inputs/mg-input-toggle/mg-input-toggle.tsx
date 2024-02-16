@@ -64,7 +64,7 @@ export class MgInputToggle {
       this.options = newValue.map(item => ({ title: item, value: item }));
     }
     // Object array
-    else if (newValue?.every(item => isOption(item))) {
+    else if (Array.isArray(newValue) && newValue.every(isOption)) {
       this.options = newValue;
     } else {
       throw new Error('<mg-input-toggle> prop "items" is required and all items must be the same type: ToggleValue.');
@@ -313,7 +313,6 @@ export class MgInputToggle {
         tooltip={!this.readonly && this.tooltip}
         tooltipPosition={this.tooltipPosition}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <button
           type="button"

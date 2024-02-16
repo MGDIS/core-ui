@@ -116,7 +116,6 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `errorMessage`            | `error-message`    | Define error message to display                                             | `string`                 | `undefined`                     |
 | `helpText`                | `help-text`        | Define help text to display                                                 | `string`                 | `undefined`                     |
 | `identifier` _(required)_ | `identifier`       | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                 | `undefined`                     |
-| `isFieldset`              | `is-fieldset`      | Define if mg-input is a fieldset                                            | `boolean`                | `false`                         |
 | `label` _(required)_      | `label`            | Define input label                                                          | `string`                 | `undefined`                     |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`                | `false`                         |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`                | `undefined`                     |
@@ -126,6 +125,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `required`                | `required`         | Define if input is required                                                 | `boolean`                | `false`                         |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`                 | `undefined`                     |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"`     | `'input'`                       |
+| `type`                    | `type`             | Define component type                                                       | `"fieldset" \| "input"`  | `'input'`                       |
 | `value`                   | `value`            | Define values                                                               | `string`                 | `undefined`                     |
 
 

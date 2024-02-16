@@ -383,7 +383,6 @@ export class MgInputDate {
         tooltipPosition={this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <input
           type="date"

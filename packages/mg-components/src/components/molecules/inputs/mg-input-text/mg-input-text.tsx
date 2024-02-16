@@ -403,7 +403,6 @@ export class MgInputText {
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <div
           class="mg-c-input__with-character-left"

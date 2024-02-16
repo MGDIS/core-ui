@@ -497,7 +497,6 @@ export class MgInputNumeric {
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <input
           type="text"

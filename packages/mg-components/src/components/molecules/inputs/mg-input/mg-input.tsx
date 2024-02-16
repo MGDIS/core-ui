@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { widths, type Width, tooltipPositions, type TooltipPosition } from './mg-input.conf';
+import { widths, type Width, tooltipPositions, type TooltipPosition, type InputType, inputTypes } from './mg-input.conf';
 
 @Component({
   tag: 'mg-input',
@@ -66,9 +66,15 @@ export class MgInput {
   }
 
   /**
-   * Define if mg-input is a fieldset
+   * Define component type
    */
-  @Prop() isFieldset: boolean = false;
+  @Prop() type: InputType = 'input';
+  @Watch('type')
+  watchType(newValue: MgInput['type']): void {
+    if (!inputTypes.includes(newValue)) {
+      throw new Error('<mg-input> prop "type" must be a InputType.');
+    }
+  }
 
   /**
    * Define if label is displayed on top
@@ -249,7 +255,7 @@ export class MgInput {
       this.labelSlotElement.setAttribute('identifier', this.identifier.toString());
       this.labelSlotElement.setAttribute('readonly', this.readonly.toString());
       this.labelSlotElement.setAttribute('required', this.required.toString());
-      this.labelSlotElement.setAttribute('is-legend', this.isFieldset.toString());
+      this.labelSlotElement.setAttribute('is-legend', (this.type === 'fieldset').toString());
       this.element.appendChild(this.labelSlotElement);
     }
     this.labelSlotElement.textContent = this.label;
@@ -298,6 +304,7 @@ export class MgInput {
     //Check required properties
     this.watchIdentifier(this.identifier);
     this.watchLabel(this.label);
+    this.watchType(this.type);
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchReadonly(this.readonly);
@@ -333,7 +340,7 @@ export class MgInput {
    */
   render(): HTMLElement {
     return (
-      <Host class={this.classCollection.join()} role={this.isFieldset && !this.readonly && 'group'}>
+      <Host class={this.classCollection.join()} role={this.type === 'fieldset' && !this.readonly && 'group'}>
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
           <slot name={this.slotLabel}></slot>
           {this.tooltip && !this.readonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}

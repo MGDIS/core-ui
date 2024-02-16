@@ -446,7 +446,6 @@ export class MgInputSelect {
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <select
           class="mg-c-input__box"

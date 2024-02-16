@@ -283,7 +283,6 @@ export class MgInputPassword {
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <input
           type="password"

@@ -11,7 +11,7 @@ import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+import { InputType, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { ClassList } from "@mgdis/stencil-helpers";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -35,7 +35,7 @@ export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
-export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
+export { InputType, TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { ClassList } from "@mgdis/stencil-helpers";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -276,10 +276,6 @@ export namespace Components {
          */
         "identifier": string;
         /**
-          * Define if mg-input is a fieldset
-         */
-        "isFieldset": boolean;
-        /**
           * Define input label
          */
         "label": string;
@@ -315,6 +311,10 @@ export namespace Components {
           * Define tooltip position
          */
         "tooltipPosition": TooltipPosition;
+        /**
+          * Define component type
+         */
+        "type": InputType;
         /**
           * Define values
          */
@@ -2267,10 +2267,6 @@ declare namespace LocalJSX {
          */
         "identifier": string;
         /**
-          * Define if mg-input is a fieldset
-         */
-        "isFieldset"?: boolean;
-        /**
           * Define input label
          */
         "label": string;
@@ -2306,6 +2302,10 @@ declare namespace LocalJSX {
           * Define tooltip position
          */
         "tooltipPosition"?: TooltipPosition;
+        /**
+          * Define component type
+         */
+        "type"?: InputType;
         /**
           * Define values
          */

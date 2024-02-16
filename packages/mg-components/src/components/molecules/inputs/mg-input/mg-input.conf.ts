@@ -34,3 +34,7 @@ export enum Handler {
   BLUR = 'blur',
   FOCUS = 'focus',
 }
+
+export const inputTypes = ['input', 'fieldset'] as const;
+
+export type InputType = (typeof inputTypes)[number];
