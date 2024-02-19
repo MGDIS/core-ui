@@ -915,7 +915,7 @@ export namespace Components {
          */
         "name": string;
         /**
-          * Define input pattern to validate
+          * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
         "pattern": string;
         /**
@@ -1015,7 +1015,7 @@ export namespace Components {
          */
         "name": string;
         /**
-          * Define input pattern to validate
+          * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
         "pattern": string;
         /**
@@ -2902,7 +2902,7 @@ declare namespace LocalJSX {
          */
         "onValue-change"?: (event: MgInputTextCustomEvent<HTMLMgInputTextElement['value']>) => void;
         /**
-          * Define input pattern to validate
+          * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
         "pattern"?: string;
         /**
@@ -2996,7 +2996,7 @@ declare namespace LocalJSX {
          */
         "onValue-change"?: (event: MgInputTextareaCustomEvent<HTMLMgInputTextareaElement['value']>) => void;
         /**
-          * Define input pattern to validate
+          * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
         "pattern"?: string;
         /**

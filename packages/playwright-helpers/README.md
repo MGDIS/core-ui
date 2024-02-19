@@ -10,7 +10,7 @@ pnpm i -D @mgdis/playwright-helpers
 
 ## Configuration
 
-Here a configuration exemple for your `playwright.config.ts` if you need to override a value or run a webserver for your e2e tests :
+Here a configuration exemple for your `playwright.config.ts` if you need to override a value or run a webserver for your e2e tests:
 
 ```TS
 import { playwrightBaseConfig } from '@mgdis/playwright-helpers';

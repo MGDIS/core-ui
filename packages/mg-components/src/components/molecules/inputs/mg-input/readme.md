@@ -35,6 +35,17 @@ The placeholder should not be used as an input help.
 
 The asterisk is displayed regardless of the status of the field: input, read-only, disabled.
 
+### Pattern
+
+Please ensure to consider this when using regular expressions in your components.
+
+Since mid-2023, there have been updates to the regular expressions used in native inputs. Browsers now uses the 'v' flag instead of the 'u' flag.  
+Consequently, all literal characters must be escaped, and there's no longer a need to use the `^` and `$` characters to indicate the start and end of the string.
+
+For exemple this RegExp working using the 'u' flag `^[\d ()+]*$` should be converted to the corresponding 'v' flag `[\d\s\(\)\+]` on our components. You can get more info on the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern#overview).
+
+If needed, this library has been identified for converting regular expressions: [regexpu-core](https://www.npmjs.com/package/regexpu-core).
+
 ## Specs
 
 ### Positioning of "i" icon

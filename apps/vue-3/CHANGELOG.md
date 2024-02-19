@@ -1,5 +1,27 @@
 # vue-3
 
+## 0.0.14
+
+### Patch Changes
+
+- 80eecca: [#444](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/444) mg-form: aria-role isn't permit by axe-core
+- c87d711: Update dependencies
+- Updated dependencies [b022637]
+- Updated dependencies [e4aea6b]
+- Updated dependencies [c663987]
+- Updated dependencies [0f8510e]
+- Updated dependencies [99e1b92]
+- Updated dependencies [331ed0c]
+- Updated dependencies [d72667f]
+- Updated dependencies [d360050]
+- Updated dependencies [495fec2]
+- Updated dependencies [d698fe4]
+- Updated dependencies [80eecca]
+- Updated dependencies [b9938ee]
+- Updated dependencies [c87d711]
+  - @mgdis/mg-components@5.24.0
+  - @mgdis/notification-center@1.1.6
+
 ## 0.0.13
 
 ### Patch Changes

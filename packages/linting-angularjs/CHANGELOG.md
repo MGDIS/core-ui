@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- f5688c0: Update linting rules
+
+### Patch Changes
+
+- c87d711: Update dependencies
+- Updated dependencies [f5688c0]
+  - @mgdis/eslint-plugin-html@4.0.0
+
 ## 3.11.4
 
 ### Patch Changes

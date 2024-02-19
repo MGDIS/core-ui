@@ -7,12 +7,12 @@ Our "custom tooltip" component is called "tooltip" here.
 
 ## Behavior
 
-The tooltip must be displayed when the element that allows its display :
+The tooltip must be displayed when the element that allows its display:
 
 - Is hovered over by the mouse.
 - Takes the keyboard focus.
 
-The tooltip must be hidden when the element that allows its display :
+The tooltip must be hidden when the element that allows its display:
 
 - Is no longer hovered over by the mouse.
 - Loses the keyboard focus.

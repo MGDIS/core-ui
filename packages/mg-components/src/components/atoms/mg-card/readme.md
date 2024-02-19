@@ -13,7 +13,7 @@
 
 You can set variant color on left bar or on background of the card
 
-Values for variant colors are :
+Values for variant colors are:
 
 - info
 - success

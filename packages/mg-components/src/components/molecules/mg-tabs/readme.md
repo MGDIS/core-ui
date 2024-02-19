@@ -16,8 +16,8 @@
 ![](./doc/img/mg-tabs-spacing.png)
 
 - if only text, no extra spacing,
-- if no badge : no extra spacing on the right
-- if only icon : no extra spacing on the right
+- if no badge: no extra spacing on the right
+- if only icon: no extra spacing on the right
 
 ### Sizing
 
