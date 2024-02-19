@@ -1,5 +1,22 @@
 # @mgdis/styles
 
+## 1.2.0
+
+### Minor Changes
+
+- b022637: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add possibility to display tooltip next to label
+- c663987: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add possibility to use Bootstrap behavior
+- 0f8510e: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add responsive behavior
+- 99e1b92: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use mg-input-\*\* readonly style
+- 331ed0c: [`<mg-form>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs) Add `label-on-top` prop.
+- d72667f: [**`<mg-loader>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-loader--docs) add mg-loader component
+- d360050: [**`<mg-input-toggle>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-toggle--docs) use mg-input-\*\* readonly style
+
+### Patch Changes
+
+- e4aea6b: [#368](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/368) mg-tooltip: content style should not inherit from parent
+- b1d026a: Add prettier
+
 ## 1.1.1
 
 ### Patch Changes

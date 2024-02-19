@@ -1,5 +1,28 @@
 # angularjs
 
+## 0.0.14
+
+### Patch Changes
+
+- 71e8db4: [#446](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/446) create mg-angular-logger
+- Updated dependencies [b022637]
+- Updated dependencies [e4aea6b]
+- Updated dependencies [c663987]
+- Updated dependencies [0f8510e]
+- Updated dependencies [99e1b92]
+- Updated dependencies [331ed0c]
+- Updated dependencies [d72667f]
+- Updated dependencies [d360050]
+- Updated dependencies [495fec2]
+- Updated dependencies [d698fe4]
+- Updated dependencies [71e8db4]
+- Updated dependencies [80eecca]
+- Updated dependencies [b9938ee]
+- Updated dependencies [c87d711]
+  - @mgdis/mg-components@5.24.0
+  - @mgdis/mg-components-helpers@4.0.0
+  - @mgdis/notification-center@1.1.6
+
 ## 0.0.13
 
 ### Patch Changes

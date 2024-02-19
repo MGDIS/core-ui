@@ -1,5 +1,38 @@
 # @mgdis/mg-components
 
+## 5.24.0
+
+### Minor Changes
+
+- b022637: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add possibility to display tooltip next to label
+- c663987: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add possibility to use Bootstrap behavior
+- 0f8510e: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add responsive behavior
+- 99e1b92: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use mg-input-\*\* readonly style
+- 331ed0c: [`<mg-form>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs) Add `label-on-top` prop.
+- d72667f: [**`<mg-loader>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-loader--docs) add mg-loader component
+- d360050: [**`<mg-input-toggle>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-toggle--docs) use mg-input-\*\* readonly style
+- b9938ee: [`mg-input-numeric`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add format prop
+
+### Patch Changes
+
+- e4aea6b: [#368](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/368) mg-tooltip: content style should not inherit from parent
+- 495fec2: [#461](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/461) mg-input-date: badInput message show an unwanted date 1900-01-01
+- d698fe4: Add input documentation for detailed information on using regular expressions in components.
+- 80eecca: [#444](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/444) mg-form: aria-role isn't permit by axe-core
+- c87d711: Update dependencies
+- Updated dependencies [b022637]
+- Updated dependencies [e4aea6b]
+- Updated dependencies [c663987]
+- Updated dependencies [0f8510e]
+- Updated dependencies [99e1b92]
+- Updated dependencies [331ed0c]
+- Updated dependencies [d72667f]
+- Updated dependencies [d360050]
+- Updated dependencies [b1d026a]
+- Updated dependencies [c87d711]
+  - @mgdis/styles@1.2.0
+  - @mgdis/stencil-helpers@1.0.2
+
 ## 5.23.2
 
 ### Patch Changes

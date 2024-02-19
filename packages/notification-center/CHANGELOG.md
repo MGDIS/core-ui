@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.6
+
+### Patch Changes
+
+- c87d711: Update dependencies
+
 ## 1.1.5
 
 ### Patch Changes
