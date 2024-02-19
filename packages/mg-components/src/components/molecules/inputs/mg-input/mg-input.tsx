@@ -56,14 +56,6 @@ export class MgInput {
    * Define input label
    */
   @Prop() label!: string;
-  @Watch('label')
-  watchLabel(newValue: MgInput['label']): void {
-    if (!isValidString(newValue)) {
-      throw new Error('<mg-input> prop "label" is required.');
-    } else {
-      this.renderLabel();
-    }
-  }
 
   /**
    * Define component type
@@ -155,7 +147,16 @@ export class MgInput {
    * Define if input is disabled
    */
   @Prop() disabled: boolean = false;
-
+  @Watch('disabled')
+  @Watch('readonly')
+  @Watch('label')
+  watchLabel(): void {
+    if (!isValidString(this.label)) {
+      throw new Error('<mg-input> prop "label" is required.');
+    } else {
+      this.renderLabel();
+    }
+  }
   /**
    * Define error message to display
    */
@@ -168,6 +169,7 @@ export class MgInput {
     } else {
       this.classCollection.delete(this.classHasError);
       this.errorMessageSlotElement?.remove();
+      this.errorMessageSlotElement = undefined;
     }
   }
 
@@ -181,6 +183,7 @@ export class MgInput {
       this.renderHelpText();
     } else {
       this.helptextMessageSlotElement?.remove();
+      this.helptextMessageSlotElement = undefined;
     }
   }
 
@@ -215,7 +218,7 @@ export class MgInput {
   /**
    * Define input width
    */
-  @Prop() mgWidth: Width = 'full';
+  @Prop() mgWidth: Width;
   @Watch('mgWidth')
   watchMgWidth(newValue: MgInput['mgWidth']): void {
     // reset width class
@@ -247,6 +250,7 @@ export class MgInput {
    */
   private renderLabel() {
     const slot: HTMLMgInputTitleElement = this.element.querySelector(`[slot=${this.slotLabel}]`);
+    const textClass = 'mg-c-input-title__text'
     if (!this.labelSlotElement && slot) {
       this.labelSlotElement = slot;
     } else if (!this.labelSlotElement && !slot) {
@@ -254,11 +258,14 @@ export class MgInput {
       this.labelSlotElement.setAttribute('slot', this.slotLabel);
       this.labelSlotElement.setAttribute('identifier', this.identifier.toString());
       this.labelSlotElement.setAttribute('readonly', this.readonly.toString());
-      this.labelSlotElement.setAttribute('required', this.required.toString());
+      this.labelSlotElement.setAttribute('required', (this.required && !this.disabled).toString());
       this.labelSlotElement.setAttribute('is-legend', (this.type === 'fieldset').toString());
+      const label = document.createElement('span')
+      label.classList.add(textClass)
+      this.labelSlotElement.appendChild(label)
       this.element.appendChild(this.labelSlotElement);
     }
-    this.labelSlotElement.textContent = this.label;
+    this.labelSlotElement.getElementsByClassName(textClass)[0].textContent = this.label
   }
 
   /**
@@ -303,7 +310,7 @@ export class MgInput {
   componentWillLoad(): void {
     //Check required properties
     this.watchIdentifier(this.identifier);
-    this.watchLabel(this.label);
+    this.watchLabel();
     this.watchType(this.type);
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
@@ -347,7 +354,7 @@ export class MgInput {
         </div>
         <div class="mg-c-input__input-container">
           {this.readonly ? (
-            Array.isArray(this.readonlyValue) ? (
+            [Array.isArray(this.readonlyValue) ? (
               <ul>
                 {this.readonlyValue.map(value => (
                   <li key={value}>
@@ -357,25 +364,25 @@ export class MgInput {
               </ul>
             ) : (
               <strong>{this.readonlyValue}</strong>
-            )
+            ),
+          <slot></slot>
+          ]
           ) : (
             [
               <div class="mg-c-input__input">
                 <slot></slot>
                 {this.tooltip && !this.readonly && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
               </div>,
-              !this.disabled && [
-                this.helpText && (
-                  <div class="mg-c-input__help-text">
-                    <slot name={this.slotHelpText}></slot>
-                  </div>
-                ),
-                this.errorMessage && (
-                  <div class="mg-c-input__error" aria-live="assertive">
-                    <slot name={this.slotError}></slot>
-                  </div>
-                ),
-              ],
+              this.helpText && (
+                <div class="mg-c-input__help-text">
+                  <slot name={this.slotHelpText}></slot>
+                </div>
+              ),
+              !this.disabled && this.errorMessage && (
+                <div class="mg-c-input__error" aria-live="assertive">
+                  <slot name={this.slotError}></slot>
+                </div>
+              ),
             ]
           )}
         </div>

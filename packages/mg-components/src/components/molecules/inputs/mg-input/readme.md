@@ -119,7 +119,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `label` _(required)_      | `label`            | Define input label                                                          | `string`                 | `undefined`                     |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`                | `false`                         |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`                | `undefined`                     |
-| `mgWidth`                 | `mg-width`         | Define input width                                                          | `"full" \| 16 \| 2 \| 4` | `'full'`                        |
+| `mgWidth`                 | `mg-width`         | Define input width                                                          | `"full" \| 16 \| 2 \| 4` | `undefined`                     |
 | `readonly`                | `readonly`         | Define if input is readonly                                                 | `boolean`                | `false`                         |
 | `readonlyValue`           | `readonly-value`   | Defines value to display in readonly mode                                   | `string \| string[]`     | `undefined`                     |
 | `required`                | `required`         | Define if input is required                                                 | `boolean`                | `false`                         |

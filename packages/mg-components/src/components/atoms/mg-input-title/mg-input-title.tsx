@@ -64,7 +64,7 @@ export class MgInputTitle {
     return (
       <TagName class="mg-c-input-title" htmlFor={this.isLegend ? undefined : this.identifier}>
         <slot></slot>
-        {this.required && (
+        {this.required && !this.readonly && (
           <span class="mg-c-input-title__required">
             &nbsp;<span class="mg-u-is-asterisk">*</span>
           </span>

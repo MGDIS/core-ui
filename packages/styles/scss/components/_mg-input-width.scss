@@ -7,6 +7,24 @@ $width-2: 5rem;
 $width-4: 7rem;
 $width-16: 21rem;
 
+@mixin set-max-width {
+  &.mg-c-input--width-2 .mg-c-input__box {
+    max-width: $width-2;
+  }
+  
+  &.mg-c-input--width-4 .mg-c-input__box {
+    max-width: $width-4;
+  }
+  
+  &.mg-c-input--width-16 .mg-c-input__box {
+    max-width: $width-16;
+  }
+  
+  &.mg-c-input--width-full .mg-c-input__box {
+    max-width: 100%;
+  }
+}
+
 .mg-c-input {
   // default width
   .mg-c-input__box {
@@ -15,25 +33,17 @@ $width-16: 21rem;
     max-width: calc(17.7rem + var(--mg-inputs-spacer) * 2); // keep native width + mg-input spacer
   }
 
-  &.mg-c-input--width-full {
-    &:not(.mg-c-input--label-on-top) {
-      justify-content: space-between;
-    }
+  @include set-max-width;
 
-    .mg-c-input__box {
-      max-width: 100%;
-    }
+  &.mg-c-input--width-full:not(.mg-c-input--label-on-top) {
+    justify-content: stretch;
   }
 
-  &.mg-c-input--width-16 .mg-c-input__box {
-    max-width: $width-16;
+  &.mg-c-input--label-on-top {
+    @include set-max-width;  
   }
+}
 
-  &.mg-c-input--width-4 .mg-c-input__box {
-    max-width: $width-4;
-  }
-
-  &.mg-c-input--width-2 .mg-c-input__box {
-    max-width: $width-2;
-  }
+:host(.mg-c-input.mg-c-input--width-full) .mg-c-input__input-container {
+  width: 100%;
 }

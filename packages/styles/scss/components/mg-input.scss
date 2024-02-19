@@ -21,13 +21,13 @@ mg-icon {
   flex-direction: column;
 
   .mg-c-input__title {
+    width: 100%;
     flex: 0;
     justify-content: flex-start;
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0.3rem;
     text-align: left;
-    width: 100%;
 
     ::slotted(mg-input-title) {
       flex-shrink: 1;
@@ -138,7 +138,7 @@ mg-icon {
   /**
     * Readonly variation
     */
-  &.mg-c-input--readonly > *:not([slot='label']) {
+  &.mg-c-input--readonly > *:not([slot='label'], [name='append-input']),  &.mg-c-input--readonly ::slotted(mg-button[slot='append-input']) {
     display: none;
   }
 }
