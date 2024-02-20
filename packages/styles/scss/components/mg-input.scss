@@ -1,5 +1,6 @@
 @import '../utils/a11y';
 @import 'mg-input-width';
+@import 'mg-input-fieldset';
 
 /**
  * Common style for MGDIS inputs
@@ -71,7 +72,6 @@ mg-icon {
       height: var(--mg-icon-regular-size);
       margin-left: var(--mg-inputs-spacer);
     }
-
   }
 
   &__input {
@@ -117,22 +117,26 @@ mg-icon {
     border-radius: 0.3rem;
     background: hsl(var(--mg-inputs-error-bg-color));
     color: hsl(var(--color-danger));
-    .mg-c-input__help-text + & {
-      margin-top: 0.2rem;
+  }
+
+  &__error,
+  &__help-text {
+    /* Manage slot style */
+    ::slotted(*) {
+      font-size: 1.2rem;
+      text-align: start;
     }
   }
 
-  &__help-text,
-  &__error {
-    /* Manage space between input and first message */
-    :host(:not(.mg-c-input--textarea)) .mg-c-input__input + & {
+  &__help-text + &__error {
+    margin-top: 0.2rem;
+  }
+
+  /* Manage space between input and first message */
+  :host(:not(&--textarea)) &__input + .mg-c-input {
+    &__error,
+    &__help-text {
       margin-top: 0.5rem;
-    }
-    
-    /* Manage slot style */
-    & ::slotted(*) {
-      font-size: 1.2rem;
-      text-align: start;
     }
   }
 

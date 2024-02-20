@@ -28,8 +28,8 @@ $width-16: 21rem;
 
 .mg-c-input {
   &__input-container {
-    flex: 1 auto;
     width: 100%;
+    flex: 1 auto;
   }
 
   // default width
@@ -62,7 +62,7 @@ $width-16: 21rem;
 * Slots
 */
 
-:host(.mg-c-input.mg-c-input--width-full) ::slotted(*:not(mg-input-title)){
+:host(.mg-c-input.mg-c-input--width-full) ::slotted(*:not(mg-input-title)) {
   width: 100%;
   max-width: 100%;
 }

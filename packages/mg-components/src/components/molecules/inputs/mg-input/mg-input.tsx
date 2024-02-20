@@ -65,6 +65,11 @@ export class MgInput {
   watchType(newValue: MgInput['type']): void {
     if (!inputTypes.includes(newValue)) {
       throw new Error('<mg-input> prop "type" must be a InputType.');
+    } else {
+      inputTypes.forEach(className => {
+        this.classCollection.delete(`mg-c-input--${className}`)
+      })
+      this.classCollection.add(`mg-c-input--${newValue}`)
     }
   }
 
