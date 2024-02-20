@@ -1,5 +1,13 @@
 # eslint-config-stencil
 
+## 1.1.3
+
+### Patch Changes
+
+- c87d711: Update dependencies
+- Updated dependencies [c87d711]
+  - eslint-config-custom@1.0.3
+
 ## 1.1.2
 
 ### Patch Changes
