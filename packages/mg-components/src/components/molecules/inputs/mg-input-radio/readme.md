@@ -17,7 +17,7 @@ The style of the active radio button is that of the browser.
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-input-check-size`: Define radio input size, default: `1.3rem`
+- `--mg-c-input-check-size`: Define radio input size, default: `1.3rem`
 
 <!-- Auto Generated Below -->
 

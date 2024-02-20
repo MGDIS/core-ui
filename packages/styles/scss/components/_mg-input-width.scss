@@ -11,7 +11,7 @@ $width-16: 21rem;
   &:not(.mg-c-input--label-on-top) .mg-c-input__box {
     width: 100%;
     min-width: $width-2;
-    max-width: calc(17.7rem + var(--mg-inputs-spacer) * 2); // keep native width + mg-input spacer
+    max-width: calc(17.7rem + var(--mg-c-input-spacer) * 2); // keep native width + mg-input spacer
   }
 
   &.mg-c-input--width-full {

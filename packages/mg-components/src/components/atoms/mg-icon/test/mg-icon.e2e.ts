@@ -29,7 +29,7 @@ test.describe('mg-icon', () => {
     test(`render variants, with variantStyle ${variantStyle}`, async ({ page }) => {
       const html = variants.map(variant => sizes.map(size => createHTML({ icon: 'check-circle', variant, variantStyle, size })).join('')).join('');
 
-      page.addStyleTag({ content: 'mg-icon[variant="app"]{--mg-color-app-h:250}' });
+      page.addStyleTag({ content: 'mg-icon[variant="app"]{--mg-b-color-app-h:250}' });
       await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

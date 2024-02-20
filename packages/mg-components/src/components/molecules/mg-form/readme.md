@@ -113,7 +113,7 @@ When you use JS property binding instead of HTML attribute, the component prop i
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-form-inputs-title-width`: Define slotted input label width, default: `23rem`
+- `--mg-c-form-inputs-title-width`: Define slotted input label width, default: `23rem`
 
 ## Example
 

@@ -50,12 +50,12 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`
-- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`
-- `--mg-icon-medium-size`: Define medium icon size, default: `2rem`
-- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`
-- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`
-- `--mg-icon-border-radius`: Define icon border radiys, default: `50%`
+- `--mg-c-icon-small-size`: Define small icon size, default: `1.2rem`
+- `--mg-c-icon-regular-size`: Define regular icon size, default: `1.6rem`
+- `--mg-c-icon-medium-size`: Define medium icon size, default: `2rem`
+- `--mg-c-icon-large-size`: Define large icon size, default: `2.4rem`
+- `--mg-c-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`
+- `--mg-c-icon-border-radius`: Define icon border radiys, default: `50%`
 
 <!-- Auto Generated Below -->
 

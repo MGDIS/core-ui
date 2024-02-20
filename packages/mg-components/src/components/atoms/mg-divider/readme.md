@@ -27,9 +27,9 @@ Default margin applied on top and bottom of the divider is set to 40px.
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-divider-background-color`: define the divider background color, default: `hsla(var(--color-danger), 15%)`
-- `--mg-divider-thickness`: define the divider thickness, default: `0.1rem`
-- `--mg-divider-vertical-spacing`: define the divider vertical spacing, default: `4rem`
+- `--mg-c-divider-background-color`: define the divider background color, default: `hsla(var(--mg-b-color-danger), 15%)`
+- `--mg-c-divider-thickness`: define the divider thickness, default: `0.1rem`
+- `--mg-c-divider-vertical-spacing`: define the divider vertical spacing, default: `4rem`
 
 <!-- Auto Generated Below -->
 

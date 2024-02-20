@@ -1,11 +1,11 @@
 @mixin reset-slot-card-variables() {
   ::slotted(*) {
-    --mg-card-border: var(--mg-card-border-default);
-    --mg-card-padding: var(--mg-card-padding-default);
-    --mg-card-border-radius: var(--mg-card-border-radius-default);
-    --mg-card-background: var(--mg-card-background-default);
-    --mg-card-box-shadow: var(--mg-card-box-shadow-default);
-    --mg-card-max-width: unset;
-    --mg-card-min-width: unset;
+    --mg-c-card-border: var(--mg-c-card-border-default);
+    --mg-c-card-padding: var(--mg-c-card-padding-default);
+    --mg-c-card-border-radius: var(--mg-c-card-border-radius-default);
+    --mg-c-card-background: var(--mg-c-card-background-default);
+    --mg-c-card-box-shadow: var(--mg-c-card-box-shadow-default);
+    --mg-c-card-max-width: unset;
+    --mg-c-card-min-width: unset;
   }
 }

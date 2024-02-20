@@ -16,9 +16,9 @@ The badge displays a number (can be followed by the `+` character) or a punctuat
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-badge-size`: define badge height and min-width, default: `1.6rem`
-- `--mg-badge-font-size`: define badge font size, default: `1.1rem`
-- `--mg-badge-text-color`: define badge color for text-color variant, default: `--color-light`
+- `--mg-c-badge-size`: define badge height and min-width, default: `1.6rem`
+- `--mg-c-badge-font-size`: define badge font size, default: `1.1rem`
+- `--mg-c-badge-text-color`: define badge color for text-color variant, default: `--mg-b-color-light`
 
 <!-- Auto Generated Below -->
 

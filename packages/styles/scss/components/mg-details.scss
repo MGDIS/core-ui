@@ -9,7 +9,7 @@
 
   &__toggle {
     display: flex;
-    min-height: calc(var(--font-size) * var(--line-height));
+    min-height: calc(var(--mg-b-font-size) * var(--mg-b-line-height));
     flex-shrink: 0;
     align-items: center;
     align-self: flex-start;
@@ -22,7 +22,7 @@
   }
 
   &__details {
-    margin-top: var(--mg-details-spacing);
+    margin-top: var(--mg-c-details-spacing);
   }
 }
 

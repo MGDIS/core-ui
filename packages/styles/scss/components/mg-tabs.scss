@@ -11,13 +11,13 @@ $navigation-button-sizes: (
   ),
 );
 
-@include navigation-button('mg-c-tabs', 'mg-tabs', $navigation-button-sizes);
+@include navigation-button('mg-c-tabs', 'mg-c-tabs', $navigation-button-sizes);
 
 .mg-c-tabs {
   &__header {
     display: flex;
     flex-flow: row wrap;
-    border-bottom: var(--mg-tabs-border-bottom);
+    border-bottom: var(--mg-c-tabs-border-bottom);
   }
 
   &__content-container:focus-visible {

@@ -118,7 +118,7 @@ test.describe('mg-form', () => {
         await page.addScriptTag({ content: inputsScriptRequiredSome });
 
         await page.locator('mg-form').evaluate((elm: HTMLMgFormElement) => {
-          elm.setAttribute('style', '--mg-form-inputs-title-width: 15rem;');
+          elm.setAttribute('style', '--mg-c-form-inputs-title-width: 15rem;');
         });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

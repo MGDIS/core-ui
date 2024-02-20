@@ -6,17 +6,17 @@ $button-column-gap: 0.6rem;
 /* Mixins */
 @mixin style-gradient($name, $background-color, $font-color, $has-variable: false) {
   @if $has-variable {
-    $background-color: --mg-button-#{$name}-color;
-    $font-color: --mg-button-#{$name}-font-color;
+    $background-color: --mg-c-button-#{$name}-color;
+    $font-color: --mg-c-button-#{$name}-font-color;
   } @else {
-    $background-color: --color-#{$background-color};
-    $font-color: --color-#{$font-color};
+    $background-color: --mg-b-color-#{$background-color};
+    $font-color: --mg-b-color-#{$font-color};
   }
   .mg-c-button.mg-c-button--#{$name} {
     border-color: hsl(
       var(
-        #{--mg-button-#{$name}-border-color},
-        (var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-button-border-variation) * 10%))
+        #{--mg-c-button-#{$name}-border-color},
+        (var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-border-variation) * 10%))
       )
     );
 
@@ -24,7 +24,7 @@ $button-column-gap: 0.6rem;
     background: linear-gradient(
       to bottom,
       hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l)),
-      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-button-gradient) * 10%))
+      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-gradient) * 10%))
     );
     color: hsl(var(#{$font-color}));
   }
@@ -37,8 +37,8 @@ $button-column-gap: 0.6rem;
 
 @mixin font-style() {
   font-family: inherit;
-  font-size: var(--font-size);
-  font-weight: var(--mg-button-font-weight, normal);
+  font-size: var(--mg-b-font-size);
+  font-weight: var(--mg-c-button-font-weight, normal);
   text-align: left;
   text-decoration: none;
 }
@@ -51,7 +51,7 @@ $button-column-gap: 0.6rem;
 
 // Only apply if not disabled
 :host(:hover) .mg-c-button--flat:not(.mg-c-button--disabled) {
-  background: hsl(var(--color-dark) / 10%);
+  background: hsl(var(--mg-b-color-dark) / 10%);
 }
 
 :host([full-width]) {
@@ -74,19 +74,19 @@ $button-column-gap: 0.6rem;
 
 /* Styles */
 .mg-c-button {
-  $padding-value: calc((var(--default-size) - (2 * $mg-button-border-width) - (var(--font-size) * var(--line-height))) / 2) $mg-button-padding-horizontal;
+  $padding-value: calc((var(--mg-b-default-size) - (2 * $mg-button-border-width) - (var(--mg-b-font-size) * var(--mg-b-line-height))) / 2) $mg-button-padding-horizontal;
 
   position: relative;
   display: inline-flex;
-  min-height: var(--default-size);
+  min-height: var(--mg-b-default-size);
   box-sizing: border-box;
   align-items: center;
   padding: $padding-value;
-  border-width: var(--mg-button-border-top-width, $mg-button-border-width) var(--mg-button-border-right-width, $mg-button-border-width)
-    var(--mg-button-border-bottom-width, $mg-button-border-width) var(--mg-button-border-left-width, $mg-button-border-width);
+  border-width: var(--mg-c-button-border-top-width, $mg-button-border-width) var(--mg-c-button-border-right-width, $mg-button-border-width)
+    var(--mg-c-button-border-bottom-width, $mg-button-border-width) var(--mg-c-button-border-left-width, $mg-button-border-width);
   border-style: solid;
-  border-radius: var(--mg-button-border-radius-top-left, var(--mg-button-border-radius)) var(--mg-button-border-radius-top-right, var(--mg-button-border-radius))
-    var(--mg-button-border-radius-bottom-right, var(--mg-button-border-radius)) var(--mg-button-border-radius-bottom-left, var(--mg-button-border-radius));
+  border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-top-right, var(--mg-c-button-border-radius))
+    var(--mg-c-button-border-radius-bottom-right, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-bottom-left, var(--mg-c-button-border-radius));
   background-image: none;
   column-gap: $button-column-gap;
   cursor: pointer;
@@ -98,19 +98,20 @@ $button-column-gap: 0.6rem;
   // Disabled style
   &.mg-c-button--disabled {
     cursor: default;
-    opacity: var(--mg-button-disabled-opacity);
+    opacity: var(--mg-c-button-disabled-opacity);
   }
 
   // Icon only button
   &.mg-c-button--icon {
-    width: var(--default-size);
-    height: var(--default-size);
+    width: var(--mg-b-default-size);
+    height: var(--mg-b-default-size);
     justify-content: center;
     padding: 0;
-    border-radius: var(--mg-button-border-radius-top-left, var(--mg-button-icon-border-radius)) var(--mg-button-border-radius-top-right, var(--mg-button-icon-border-radius))
-      var(--mg-button-border-radius-bottom-right, var(--mg-button-icon-border-radius)) var(--mg-button-border-radius-bottom-left, var(--mg-button-icon-border-radius));
-    font-size: var(--font-size);
-    line-height: var(--font-size);
+    border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-icon-border-radius))
+      var(--mg-c-button-border-radius-top-right, var(--mg-c-button-icon-border-radius)) var(--mg-c-button-border-radius-bottom-right, var(--mg-c-button-icon-border-radius))
+      var(--mg-c-button-border-radius-bottom-left, var(--mg-c-button-icon-border-radius));
+    font-size: var(--mg-b-font-size);
+    line-height: var(--mg-b-font-size);
   }
 
   // Flat variant

@@ -20,7 +20,7 @@ The right area of the header can accommodate any component.
 
 ![](./doc/img/mg-panel-spacing.png)
 
-Slot content padding can be customized using the --mg-panel-content-padding CSS variable, default is 15px.
+Slot content padding can be customized using the --mg-c-panel-content-padding CSS variable, default is 15px.
 
 ### Alignments
 
@@ -34,12 +34,12 @@ Slot content padding can be customized using the --mg-panel-content-padding CSS 
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-panel-border-radius`: Define panel border radius, default: `0.5rem`
-- `--mg-panel-background`: Define panel background, default: `var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%)`
-- `--mg-panel-box-shadow`: Define panel box shadow, default: `var(--box-shadow)`
-- `--mg-panel-content-padding`: Define panel content padding, default: `1.5rem`
+- `--mg-c-panel-border-radius`: Define panel border radius, default: `0.5rem`
+- `--mg-c-panel-background`: Define panel background, default: `var(--mg-b-color-info-h) var(--mg-b-color-info-s) calc(var(--mg-b-color-info-l) + 68%)`
+- `--mg-c-panel-box-shadow`: Define panel box shadow, default: `var(--mg-b-box-shadow)`
+- `--mg-c-panel-content-padding`: Define panel content padding, default: `1.5rem`
 
-Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.
+Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.
 
 <!-- Auto Generated Below -->
 

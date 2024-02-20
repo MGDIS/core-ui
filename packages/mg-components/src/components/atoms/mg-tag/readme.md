@@ -46,9 +46,9 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 ### Global
 
-- `--mg-tag-height`: Define tag min height, default: `2.3rem`
-- `--mg-tag-border-radius`: Define tag border radius, default: `0.5rem`
-- `--mg-tag-font-size`: Define tag font size, default: `1.2rem`
+- `--mg-c-tag-height`: Define tag min height, default: `2.3rem`
+- `--mg-c-tag-border-radius`: Define tag border radius, default: `0.5rem`
+- `--mg-c-tag-font-size`: Define tag font size, default: `1.2rem`
 
 ### Variant
 

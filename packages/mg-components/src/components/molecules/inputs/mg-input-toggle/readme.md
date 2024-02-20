@@ -24,7 +24,7 @@ The values must be transcribed by texts or icons.
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`
+- `--mg-c-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`
 
 <!-- Auto Generated Below -->
 

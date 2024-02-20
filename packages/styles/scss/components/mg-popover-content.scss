@@ -3,7 +3,7 @@
 $popover-space: 1rem;
 $arrow-height: 1rem;
 $arrow-width: 3rem;
-$border-arrow-head: $arrow-height solid hsl(var(--mg-popover-background-color));
+$border-arrow-head: $arrow-height solid hsl(var(--mg-c-popover-background-color));
 $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
 :host {
@@ -11,7 +11,7 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
   z-index: 2000;
   display: none;
   padding: $popover-space;
-  color: hsl(var(--mg-popover-font-color));
+  color: hsl(var(--mg-c-popover-font-color));
 }
 
 :host([data-show]) {
@@ -28,19 +28,19 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 }
 
 .mg-c-popover-content {
-  --mg-card-max-width: var(--mg-popover-max-width);
-  --mg-card-min-width: var(--mg-popover-min-width);
+  --mg-c-card-max-width: var(--mg-c-popover-max-width);
+  --mg-c-card-min-width: var(--mg-c-popover-min-width);
 
   mg-button {
-    margin-top: calc(0rem - (var(--default-size) - var(--mg-popover-title-font-size) * var(--line-height)) / 2);
-    margin-right: calc(0rem - (var(--default-size) - var(--mg-icon-regular-size)) / 2); // Without unit (rem) the value can not be negative
+    margin-top: calc(0rem - (var(--mg-b-default-size) - var(--mg-c-popover-title-font-size) * var(--mg-b-line-height)) / 2);
+    margin-right: calc(0rem - (var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2); // Without unit (rem) the value can not be negative
     margin-left: 3rem;
     float: right;
   }
 
   &__title ::slotted([slot='title']) {
     margin: 0 0 1rem !important; /* stylelint-disable-line declaration-no-important */
-    font-size: var(--mg-popover-title-font-size) !important; /* stylelint-disable-line declaration-no-important */
+    font-size: var(--mg-c-popover-title-font-size) !important; /* stylelint-disable-line declaration-no-important */
     font-weight: 600 !important; /* stylelint-disable-line declaration-no-important */
   }
 
@@ -72,8 +72,8 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 * Arrow style
 */
 ::slotted([slot='arrow']) {
-  $width-value: calc($arrow-width + 2 * var(--mg-card-border-radius) + 2 * $popover-space);
-  $popover-position: calc(var(--mg-card-border-radius) + $popover-space);
+  $width-value: calc($arrow-width + 2 * var(--mg-c-card-border-radius) + 2 * $popover-space);
+  $popover-position: calc(var(--mg-c-card-border-radius) + $popover-space);
 
   position: absolute;
 
@@ -108,7 +108,7 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
   :host([data-popper-placement^='top']) & {
     bottom: 0.1rem;
-    filter: drop-shadow(0 0.5rem 0.25rem hsl(var(--color-dark) / 15%));
+    filter: drop-shadow(0 0.5rem 0.25rem hsl(var(--mg-b-color-dark) / 15%));
 
     &::before {
       border-top: $border-arrow-head;
@@ -117,7 +117,7 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
   :host([data-popper-placement^='bottom']) & {
     top: 0.1rem;
-    filter: drop-shadow(0 -0.5rem 0.25rem hsl(var(--color-dark) / 15%));
+    filter: drop-shadow(0 -0.5rem 0.25rem hsl(var(--mg-b-color-dark) / 15%));
 
     &::before {
       border-bottom: $border-arrow-head;
@@ -137,7 +137,7 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
   :host([data-popper-placement^='left']) & {
     right: 0.1rem;
-    filter: drop-shadow(0.5rem 0 0.25rem hsl(var(--color-dark) / 15%));
+    filter: drop-shadow(0.5rem 0 0.25rem hsl(var(--mg-b-color-dark) / 15%));
 
     &::before {
       border-left: $border-arrow-head;
@@ -146,7 +146,7 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
 
   :host([data-popper-placement^='right']) & {
     left: 0.1rem;
-    filter: drop-shadow(-0.5rem 0 0.25rem hsl(var(--color-dark) / 15%));
+    filter: drop-shadow(-0.5rem 0 0.25rem hsl(var(--mg-b-color-dark) / 15%));
 
     &::before {
       border-right: $border-arrow-head;
@@ -157,12 +157,12 @@ $border-arrow-side: calc(#{$arrow-width} / 2) solid transparent;
   :host([data-popper-placement^='left-end']) &,
   :host([data-popper-placement^='right-start']) &,
   :host([data-popper-placement^='right-end']) & {
-    $height-value: calc($arrow-width + 2 * var(--mg-card-border-radius));
+    $height-value: calc($arrow-width + 2 * var(--mg-c-card-border-radius));
 
     height: $height-value;
 
     &::before {
-      top: var(--mg-card-border-radius);
+      top: var(--mg-c-card-border-radius);
     }
   }
 }

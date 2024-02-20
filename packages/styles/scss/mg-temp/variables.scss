@@ -3,18 +3,18 @@
     Fonts
   */
 
-  --font-size: 1.3rem;
-  --line-height: 1.4;
+  --mg-b-font-size: 1.3rem;
+  --mg-b-line-height: 1.4;
 
   /* Open Sans is used for the body (mostly all texts) */
-  --font-family: 'Open Sans', sans-serif;
+  --mg-b-font-family: 'Open Sans', sans-serif;
 
   /* Headings (h1 to h6) font can be customized */
-  --font-family-heading: var(--font-family);
+  --mg-b-font-family-heading: var(--mg-b-font-family);
 
   /* Font colors */
-  --color-font-light: var(--color-light);
-  --color-font-dark: var(--color-dark);
+  --mg-b-color-font-light: var(--mg-b-color-light);
+  --mg-b-color-font-dark: var(--mg-b-color-dark);
 
   /*
     Colors
@@ -24,220 +24,220 @@
   /* App */
 
   /* default color-info */
-  --mg-color-app-h: var(--color-info-h);
-  --mg-color-app-s: var(--color-info-s);
-  --mg-color-app-l: var(--color-info-l);
-  --mg-color-app-hsl: var(--mg-color-app-h) var(--mg-color-app-s) var(--mg-color-app-l);
+  --mg-b-color-app-h: var(--mg-b-color-info-h);
+  --mg-b-color-app-s: var(--mg-b-color-info-s);
+  --mg-b-color-app-l: var(--mg-b-color-info-l);
+  --mg-b-color-app-hsl: var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l);
 
   /* Neutral */
 
   /* #fefefe; */
 
   /* rgb(254, 254, 254); */
-  --color-neutral-h: 0;
-  --color-neutral-s: 0%;
-  --color-neutral-l: 99.6%;
-  --color-neutral: var(--color-neutral-h) var(--color-neutral-s) var(--color-neutral-l);
+  --mg-b-color-neutral-h: 0;
+  --mg-b-color-neutral-s: 0%;
+  --mg-b-color-neutral-l: 99.6%;
+  --mg-b-color-neutral: var(--mg-b-color-neutral-h) var(--mg-b-color-neutral-s) var(--mg-b-color-neutral-l);
 
   /* Warning */
 
   /* #ffc33e */
 
   /* rgb(255, 195, 62); */
-  --color-warning-h: 41;
-  --color-warning-s: 100%;
-  --color-warning-l: 62.2%;
-  --color-warning: var(--color-warning-h) var(--color-warning-s) var(--color-warning-l);
+  --mg-b-color-warning-h: 41;
+  --mg-b-color-warning-s: 100%;
+  --mg-b-color-warning-l: 62.2%;
+  --mg-b-color-warning: var(--mg-b-color-warning-h) var(--mg-b-color-warning-s) var(--mg-b-color-warning-l);
 
   /* Success */
 
   /* #32d59c */
 
   /* rgb(50, 213, 156); */
-  --color-success-h: 159;
-  --color-success-s: 66%;
-  --color-success-l: 51.6%;
-  --color-success: var(--color-success-h) var(--color-success-s) var(--color-success-l);
+  --mg-b-color-success-h: 159;
+  --mg-b-color-success-s: 66%;
+  --mg-b-color-success-l: 51.6%;
+  --mg-b-color-success: var(--mg-b-color-success-h) var(--mg-b-color-success-s) var(--mg-b-color-success-l);
 
   /* Info */
 
   /* #005e9c; */
 
   /* rgb(0, 94, 156); */
-  --color-info-h: 204;
-  --color-info-s: 100%;
-  --color-info-l: 30.6%;
-  --color-info: var(--color-info-h) var(--color-info-s) var(--color-info-l);
+  --mg-b-color-info-h: 204;
+  --mg-b-color-info-s: 100%;
+  --mg-b-color-info-l: 30.6%;
+  --mg-b-color-info: var(--mg-b-color-info-h) var(--mg-b-color-info-s) var(--mg-b-color-info-l);
 
   /* Danger */
 
   /* #db1f29; */
 
   /* rgb(219, 31, 41); */
-  --color-danger-h: 357;
-  --color-danger-s: 75%;
-  --color-danger-l: 49%;
-  --color-danger: var(--color-danger-h) var(--color-danger-s) var(--color-danger-l);
+  --mg-b-color-danger-h: 357;
+  --mg-b-color-danger-s: 75%;
+  --mg-b-color-danger-l: 49%;
+  --mg-b-color-danger: var(--mg-b-color-danger-h) var(--mg-b-color-danger-s) var(--mg-b-color-danger-l);
 
   /* Dark */
 
   /* #15282e; */
 
   /* rgb(21, 40, 46); */
-  --color-dark-h: 194;
-  --color-dark-s: 37.3%;
-  --color-dark-l: 13.1%;
-  --color-dark: var(--color-dark-h) var(--color-dark-s) var(--color-dark-l);
+  --mg-b-color-dark-h: 194;
+  --mg-b-color-dark-s: 37.3%;
+  --mg-b-color-dark-l: 13.1%;
+  --mg-b-color-dark: var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l);
 
   /* dark-40 */
-  --mg-color-dark-40-hsl: var(--color-dark-h) 7% 43%;
+  --mg-b-color-dark-40-hsl: var(--mg-b-color-dark-h) 7% 43%;
 
   /* dark-5 */
-  --mg-color-dark-5-hsl: var(--color-dark-h) 9% 96%;
+  --mg-b-color-dark-5-hsl: var(--mg-b-color-dark-h) 9% 96%;
 
   /* dark-soft */
-  --mg-color-dark-soft-hsl: var(--color-dark-h) var(--color-dark-s) 90%;
+  --mg-b-color-dark-soft-hsl: var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) 90%;
 
   /* Light */
 
   /* white; (#ffffff) */
 
   /* rgb(255, 255, 255); */
-  --color-light-h: 0;
-  --color-light-s: 0%;
-  --color-light-l: 100%;
-  --color-light: var(--color-light-h) var(--color-light-s) var(--color-light-l);
+  --mg-b-color-light-h: 0;
+  --mg-b-color-light-s: 0%;
+  --mg-b-color-light-l: 100%;
+  --mg-b-color-light: var(--mg-b-color-light-h) var(--mg-b-color-light-s) var(--mg-b-color-light-l);
 
   /* Primary */
-  --color-primary-h: var(--color-dark-h);
-  --color-primary-s: var(--color-dark-s);
-  --color-primary-l: var(--color-dark-l);
-  --color-primary: hsl(var(--color-dark));
+  --mg-b-color-primary-h: var(--mg-b-color-dark-h);
+  --mg-b-color-primary-s: var(--mg-b-color-dark-s);
+  --mg-b-color-primary-l: var(--mg-b-color-dark-l);
+  --mg-b-color-primary: hsl(var(--mg-b-color-dark));
 
   /* Secondary */
-  --color-secondary-h: var(--color-neutral-h);
-  --color-secondary-s: var(--color-neutral-s);
-  --color-secondary-l: var(--color-neutral-l);
-  --color-secondary: hsl(var(--color-neutral));
+  --mg-b-color-secondary-h: var(--mg-b-color-neutral-h);
+  --mg-b-color-secondary-s: var(--mg-b-color-neutral-s);
+  --mg-b-color-secondary-l: var(--mg-b-color-neutral-l);
+  --mg-b-color-secondary: hsl(var(--mg-b-color-neutral));
 
   /* Shadow */
-  --box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--color-dark) / 15%);
+  --mg-b-box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--mg-b-color-dark) / 15%);
 
   /* Soft style */
-  --mg-color-soft-l: 90%;
+  --mg-b-color-soft-l: 90%;
 
   /*
     Global
    */
-  --default-size: 3.5rem;
-  --mg-disabled-opacity: 0.4;
+  --mg-b-default-size: 3.5rem;
+  --mg-b-disabled-opacity: 0.4;
 
   /*
     <mg-icon>
    */
-  --mg-icon-small-size: 1.2rem;
-  --mg-icon-regular-size: 1.6rem;
-  --mg-icon-medium-size: 2rem;
-  --mg-icon-large-size: 2.4rem;
-  --mg-icon-extra-large-size: 3.2rem;
-  --mg-icon-border-radius: 50%;
+  --mg-c-icon-small-size: 1.2rem;
+  --mg-c-icon-regular-size: 1.6rem;
+  --mg-c-icon-medium-size: 2rem;
+  --mg-c-icon-large-size: 2.4rem;
+  --mg-c-icon-extra-large-size: 3.2rem;
+  --mg-c-icon-border-radius: 50%;
 
   /*
     <mg-button>
    */
 
-  --mg-button-border-radius: 0.3rem;
-  --mg-button-icon-border-radius: var(--default-size);
-  --mg-button-disabled-opacity: var(--mg-disabled-opacity);
-  --mg-button-gradient: 1; /* Can only be 1 or 0 to enable disable gradient */
-  --mg-button-border-variation: 1; /* Can only be 1 or 0 to enable disable border variation */
+  --mg-c-button-border-radius: 0.3rem;
+  --mg-c-button-icon-border-radius: var(--mg-b-default-size);
+  --mg-c-button-disabled-opacity: var(--mg-b-disabled-opacity);
+  --mg-c-button-gradient: 1; /* Can only be 1 or 0 to enable disable gradient */
+  --mg-c-button-border-variation: 1; /* Can only be 1 or 0 to enable disable border variation */
 
   /* Primary */
-  --mg-button-primary-color-h: var(--color-dark-h);
-  --mg-button-primary-color-s: var(--color-dark-s);
-  --mg-button-primary-color-l: var(--color-dark-l);
-  --mg-button-primary-font-color: var(--color-neutral);
+  --mg-c-button-primary-color-h: var(--mg-b-color-dark-h);
+  --mg-c-button-primary-color-s: var(--mg-b-color-dark-s);
+  --mg-c-button-primary-color-l: var(--mg-b-color-dark-l);
+  --mg-c-button-primary-font-color: var(--mg-b-color-neutral);
 
   /* Secondary */
-  --mg-button-secondary-color-h: var(--color-neutral-h);
-  --mg-button-secondary-color-s: var(--color-neutral-s);
-  --mg-button-secondary-color-l: var(--color-neutral-l);
-  --mg-button-secondary-font-color: var(--color-dark);
+  --mg-c-button-secondary-color-h: var(--mg-b-color-neutral-h);
+  --mg-c-button-secondary-color-s: var(--mg-b-color-neutral-s);
+  --mg-c-button-secondary-color-l: var(--mg-b-color-neutral-l);
+  --mg-c-button-secondary-font-color: var(--mg-b-color-dark);
 
   /*
     <mg-tag>
    */
-  --mg-tag-height: 2.3rem;
-  --mg-tag-border-radius: 0.5rem;
-  --mg-tag-font-size: 1.2rem;
+  --mg-c-tag-height: 2.3rem;
+  --mg-c-tag-border-radius: 0.5rem;
+  --mg-c-tag-font-size: 1.2rem;
 
   /*
   <mg-badge>
   */
-  --mg-badge-size: 1.6rem;
-  --mg-badge-font-size: 1.1rem;
+  --mg-c-badge-size: 1.6rem;
+  --mg-c-badge-font-size: 1.1rem;
 
   /*
     <mg-tooltip>
    */
-  --mg-tooltip-border-radius: 0.5rem;
-  --mg-tooltip-background-color: var(--color-dark);
-  --mg-tooltip-font-color: var(--color-font-light);
+  --mg-c-tooltip-border-radius: 0.5rem;
+  --mg-c-tooltip-background-color: var(--mg-b-color-dark);
+  --mg-c-tooltip-font-color: var(--mg-b-color-font-light);
 
   /*
     <mg-popover>
    */
-  --mg-popover-background-color: var(--color-light);
-  --mg-popover-font-color: var(--color-font-dark);
-  --mg-popover-title-font-size: 1.4rem;
-  --mg-popover-max-width: 40rem;
+  --mg-c-popover-background-color: var(--mg-b-color-light);
+  --mg-c-popover-font-color: var(--mg-b-color-font-dark);
+  --mg-c-popover-title-font-size: 1.4rem;
+  --mg-c-popover-max-width: 40rem;
 
   /*
     <mg-message>
    */
-  --mg-message-border-radius: 0.3rem;
+  --mg-c-message-border-radius: 0.3rem;
 
   /*
     <mg-modal>
    */
-  --mg-modal-border-radius: 0.5rem;
-  --mg-modal-title-font-size: 1.8rem;
-  --mg-modal-content-font-size: 1.2rem;
+  --mg-c-modal-border-radius: 0.5rem;
+  --mg-c-modal-title-font-size: 1.8rem;
+  --mg-c-modal-content-font-size: 1.2rem;
 
   /*
     <mg-panel>
    */
-  --mg-panel-border-radius: 0.5rem;
-  --mg-panel-background: var(--color-info-h) var(--color-info-s) calc(var(--color-info-l) + 68%);
-  --mg-panel-box-shadow: var(--box-shadow);
-  --mg-panel-content-padding: 1.5rem;
+  --mg-c-panel-border-radius: 0.5rem;
+  --mg-c-panel-background: var(--mg-b-color-info-h) var(--mg-b-color-info-s) calc(var(--mg-b-color-info-l) + 68%);
+  --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
+  --mg-c-panel-content-padding: 1.5rem;
 
   /*
     <mg-illustrated-message>
    */
 
-  --mg-illustrated-message-padding-vertical: 4rem;
+  --mg-c-illustrated-message-padding-vertical: 4rem;
 
   /*
     <mg-card>
    */
-  --mg-card-padding-default: 1.6rem;
-  --mg-card-border-radius-default: 0.5rem;
-  --mg-card-background-default: hsl(var(--color-light));
-  --mg-card-border-default: 0.1rem solid hsl(var(--color-dark) / 5%);
-  --mg-card-box-shadow-default: var(--box-shadow);
+  --mg-c-card-padding-default: 1.6rem;
+  --mg-c-card-border-radius-default: 0.5rem;
+  --mg-c-card-background-default: hsl(var(--mg-b-color-light));
+  --mg-c-card-border-default: 0.1rem solid hsl(var(--mg-b-color-dark) / 5%);
+  --mg-c-card-box-shadow-default: var(--mg-b-box-shadow);
 
   /*
     <mg-divider>
   */
-  --mg-divider-background-color: hsl(var(--color-dark) / 15%);
-  --mg-divider-thickness: 0.1rem;
-  --mg-divider-vertical-spacing: 4rem;
+  --mg-c-divider-background-color: hsl(var(--mg-b-color-dark) / 15%);
+  --mg-c-divider-thickness: 0.1rem;
+  --mg-c-divider-vertical-spacing: 4rem;
 
   /*
     Layout
    */
-  --mg-grid-spacing: 1rem;
+  --mg-l-grid-spacing: 1rem;
 
   /*
     Forms
@@ -246,13 +246,13 @@
   /*
     <mg-input-...>
    */
-  --mg-inputs-border-width: 0.1rem;
-  --mg-inputs-border-radius: 0.3rem;
-  --mg-inputs-color: #b5c2c9;
-  --mg-inputs-spacer: 1rem;
+  --mg-c-input-border-width: 0.1rem;
+  --mg-c-input-border-radius: 0.3rem;
+  --mg-c-input-color: #b5c2c9;
+  --mg-c-input-spacer: 1rem;
 
   /* Error message background */
-  --mg-inputs-error-bg-color: var(--color-danger-h) calc(var(--color-danger-s) + 5%) calc(var(--color-danger-l) + 49%);
+  --mg-c-input-error-bg-color: var(--mg-b-color-danger-h) calc(var(--mg-b-color-danger-s) + 5%) calc(var(--mg-b-color-danger-l) + 49%);
 
   /* Input focus shadow */
 
@@ -261,36 +261,36 @@
   /* rgb(0, 221, 255); */
 
   /* hsl(188, 100%, 50%); */
-  --mg-inputs-color-shadow-focus-hsl: 188 100% 50%;
+  --mg-c-input-color-shadow-focus-hsl: 188 100% 50%;
 
   /*
     <mg-input-toggle>
   */
-  --mg-input-toggle-border-radius-ratio: 2;
+  --mg-c-input-toggle-border-radius-ratio: 2;
 
   /*
     <mg-input-checkbox>
     <mg-input-radio>
    */
-  --mg-input-check-size: 1.3rem;
+  --mg-c-input-check-size: 1.3rem;
 
   /*
     <mg-menu-item>
    */
-  --mg-menu-item-focused-background-color-hsl: var(--mg-color-app-hsl);
-  --mg-menu-item-border-color-active-hsl: var(--mg-color-app-hsl);
-  --mg-menu-item-color-active-hsl: var(--mg-color-app-hsl);
+  --mg-c-menu-item-focused-background-color-hsl: var(--mg-b-color-app-hsl);
+  --mg-c-menu-item-border-color-active-hsl: var(--mg-b-color-app-hsl);
+  --mg-c-menu-item-color-active-hsl: var(--mg-b-color-app-hsl);
 
   /*
   <mg-tabs>
   */
-  --mg-tabs-focused-background-color-hsl: var(--mg-color-app-hsl);
-  --mg-tabs-border-color-active-hsl: var(--mg-color-app-hsl);
-  --mg-tabs-color-active-hsl: var(--mg-color-app-hsl);
-  --mg-tabs-border-bottom: solid 0.1rem hsl(var(--mg-color-dark-soft-hsl));
+  --mg-c-tabs-focused-background-color-hsl: var(--mg-b-color-app-hsl);
+  --mg-c-tabs-border-color-active-hsl: var(--mg-b-color-app-hsl);
+  --mg-c-tabs-color-active-hsl: var(--mg-b-color-app-hsl);
+  --mg-c-tabs-border-bottom: solid 0.1rem hsl(var(--mg-b-color-dark-soft-hsl));
 
   /*
     <mg-details>
    */
-  --mg-details-spacing: 1.5rem;
+  --mg-c-details-spacing: 1.5rem;
 }

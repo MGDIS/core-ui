@@ -18,7 +18,7 @@ test.describe('mg-card', () => {
           ].forEach(slot => {
             test(`Should render with slot ${slot}`, async ({ page }) => {
               if (variant === 'app') {
-                page.addStyleTag({ content: 'mg-card{--mg-color-app-h:250}' });
+                page.addStyleTag({ content: 'mg-card{--mg-b-color-app-h:250}' });
               }
               await page.setContent(`<mg-card ${renderAttributes({ variant, variantStyle })}>${slot}</mg-card>`);
 
@@ -38,7 +38,9 @@ test.describe('mg-card', () => {
   ].forEach(slot => {
     test(`Should render with slot ${slot}`, async ({ page }) => {
       if (slot.includes('</mg-card>')) {
-        await page.addStyleTag({ content: 'mg-card:has(> mg-card){--mg-card-background:hsl(var(--color-danger))}.custom-card--info{--mg-card-background:hsl(var(--color-info))}' });
+        await page.addStyleTag({
+          content: 'mg-card:has(> mg-card){--mg-c-card-background:hsl(var(--mg-b-color-danger))}.custom-card--info{--mg-c-card-background:hsl(var(--mg-b-color-info))}',
+        });
       }
       await page.setContent(`<mg-card>${slot}</mg-card>`);
 

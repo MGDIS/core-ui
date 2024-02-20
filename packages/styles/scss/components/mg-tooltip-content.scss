@@ -4,9 +4,9 @@
   max-width: 40rem;
   box-sizing: border-box;
   padding: 0.5rem 0.8rem;
-  border-radius: var(--mg-tooltip-border-radius);
-  background-color: hsl(var(--mg-tooltip-background-color));
-  color: hsl(var(--mg-tooltip-font-color));
+  border-radius: var(--mg-c-tooltip-border-radius);
+  background-color: hsl(var(--mg-c-tooltip-background-color));
+  color: hsl(var(--mg-c-tooltip-font-color));
   text-align: start;
 }
 
@@ -29,7 +29,7 @@
     z-index: 9999;
     width: 0.8rem;
     height: 0.8rem;
-    background-color: hsl(var(--mg-tooltip-background-color));
+    background-color: hsl(var(--mg-c-tooltip-background-color));
   }
 
   :host([data-popper-placement^='top']) > & {

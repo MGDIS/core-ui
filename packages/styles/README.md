@@ -2,7 +2,7 @@
 
 **This package is, for now, reserved to mg-components.**
 
-👋 Hello @mgdis/element! Meet our newest addition: 'styles' We're gearing up for a smoother, more modern styling experience, and 'styles' will be leading the way. While we appreciate your service, we're gradually transitioning to the new package to harness its power and simplicity. Don't worry; we'll ensure a seamless migration for your styles. Exciting times ahead! 🌟
+👋 Hello `@mgdis/element`! Meet our newest addition: 'styles' We're gearing up for a smoother, more modern styling experience, and 'styles' will be leading the way. While we appreciate your service, we're gradually transitioning to the new package to harness its power and simplicity. Don't worry; we'll ensure a seamless migration for your styles. Exciting times ahead! 🌟
 
 ## SCSS
 
@@ -43,7 +43,7 @@ scss/
 - The `layout/` folder contains styles related to the overall layout structure of the project.
 - The `utilities/` folder contains various utility classes and mixins to apply common styles throughout the project.
 - The `style.scss` file acts as the entry point, where all other partial files are imported and compiled into a single CSS file.
-- The `variables.scss` file where all the custom CSS properties are stored.
+- The `custom-properties.scss` file where all the custom CSS properties are stored.
 
 Each folder contains an `_index.scss` in charge of importing all the folder files.
 
@@ -65,6 +65,23 @@ In addition to a global namespace, we added prefixes to each class to make it mo
 - `l-` for layout-related styles, such as `.mg-l-grid__item` or `.mg-l--two-column`
 - `u-` for utilities, such as `.mg-u-margin-bottom-double` or `.mg-u-margin-bottom-double`
 
-## Stylelint
+## Custom Properties
 
-To avoid errors and enforce conventions we are using [Stylelint](https://stylelint.io/) with a [custom config](.stylelintrc.json).
+Custom properties, a.k.a. CSS variables, are a powerful mechanism for storing reusable values in CSS stylesheets. They are defined using the syntax `--variable-name: value;`.
+
+### Global namespace
+
+All custom properties **MUST** start with `--mg-`.
+
+### Prefixes
+
+In addition to a global namespace, we added prefixes to each custom properties to make it more apparent what job that custom properties is doing. Here’s the prefixes:
+
+- `b-` for base custom properties, such as `font-size` will be `--mg-b-font-size`.
+- `c-` for components custom properties, such as the `min-width` variable of the `mg-card` components will be `--mg-c-card-min-width`.
+- `l-` for layout-related custom properties, such as `--mg-l-grid-spacing`.
+- `u-` for utilities custom properties, such as ``
+
+## Lint
+
+To avoid errors and enforce conventions we are using [Stylelint](https://stylelint.io/) with a [custom config](.stylelintrc.json) and Prettier.

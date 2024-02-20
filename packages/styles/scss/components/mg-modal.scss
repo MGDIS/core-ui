@@ -2,9 +2,9 @@
 
 :host {
   // Set mg-card variables
-  --mg-card-border-radius: var(--mg-modal-border-radius);
-  --mg-card-padding: 1.5rem 2.5rem;
-  --mg-card-border: none;
+  --mg-c-card-border-radius: var(--mg-c-modal-border-radius);
+  --mg-c-card-padding: 1.5rem 2.5rem;
+  --mg-c-card-border: none;
 }
 
 .mg-c-modal {
@@ -16,7 +16,7 @@
   padding: 2rem 0;
 
   // Appearance
-  background-color: hsl(var(--color-light) / 85%);
+  background-color: hsl(var(--mg-b-color-light) / 85%);
   inset: 0;
 
   mg-card {
@@ -42,15 +42,15 @@
 
   &__title {
     margin: 0;
-    font-family: var(--font-family-heading);
-    font-size: var(--mg-modal-title-font-size);
+    font-family: var(--mg-b-font-family-heading);
+    font-size: var(--mg-c-modal-title-font-size);
     font-weight: 600;
   }
 
   &__close-button {
-    height: var(--mg-modal-title-font-size);
-    margin-top: calc((var(--default-size) - (var(--mg-modal-title-font-size) * var(--line-height))) / 2 * -1); // -6px;
-    margin-right: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2 * -1); // -10px;
+    height: var(--mg-c-modal-title-font-size);
+    margin-top: calc((var(--mg-b-default-size) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
+    margin-right: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2 * -1); // -10px;
     float: right;
   }
 
@@ -58,7 +58,7 @@
     overflow-y: auto;
 
     &::slotted(*) {
-      font-size: var(--mg-modal-content-font-size);
+      font-size: var(--mg-c-modal-content-font-size);
     }
   }
 
