@@ -7,43 +7,62 @@ $width-2: 5rem;
 $width-4: 7rem;
 $width-16: 21rem;
 
-@mixin set-max-width {
+@mixin input-box-max-width {
   &.mg-c-input--width-2 .mg-c-input__box {
     max-width: $width-2;
   }
-  
+
   &.mg-c-input--width-4 .mg-c-input__box {
     max-width: $width-4;
   }
-  
+
   &.mg-c-input--width-16 .mg-c-input__box {
     max-width: $width-16;
   }
-  
+
   &.mg-c-input--width-full .mg-c-input__box {
+    width: 100%;
     max-width: 100%;
   }
 }
 
 .mg-c-input {
+  &__input-container {
+    flex: 1 auto;
+    width: 100%;
+  }
+
   // default width
-  .mg-c-input__box {
+  &__box.mg-c-input__box--width {
     width: 100%;
     min-width: $width-2;
     max-width: calc(17.7rem + var(--mg-inputs-spacer) * 2); // keep native width + mg-input spacer
   }
 
-  @include set-max-width;
+  /**
+  * Variations
+  */
+
+  @include input-box-max-width;
+
+  &.mg-c-input--label-on-top {
+    @include input-box-max-width;
+
+    .mg-c-input__box {
+      width: auto;
+    }
+  }
 
   &.mg-c-input--width-full:not(.mg-c-input--label-on-top) {
     justify-content: stretch;
   }
-
-  &.mg-c-input--label-on-top {
-    @include set-max-width;  
-  }
 }
 
-:host(.mg-c-input.mg-c-input--width-full) .mg-c-input__input-container {
+/**
+* Slots
+*/
+
+:host(.mg-c-input.mg-c-input--width-full) ::slotted(*:not(mg-input-title)){
   width: 100%;
+  max-width: 100%;
 }

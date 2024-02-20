@@ -250,7 +250,7 @@ export class MgInput {
    */
   private renderLabel() {
     const slot: HTMLMgInputTitleElement = this.element.querySelector(`[slot=${this.slotLabel}]`);
-    const textClass = 'mg-c-input-title__text'
+    const textClass = 'mg-c-input-title__text';
     if (!this.labelSlotElement && slot) {
       this.labelSlotElement = slot;
     } else if (!this.labelSlotElement && !slot) {
@@ -260,12 +260,12 @@ export class MgInput {
       this.labelSlotElement.setAttribute('readonly', this.readonly.toString());
       this.labelSlotElement.setAttribute('required', (this.required && !this.disabled).toString());
       this.labelSlotElement.setAttribute('is-legend', (this.type === 'fieldset').toString());
-      const label = document.createElement('span')
-      label.classList.add(textClass)
-      this.labelSlotElement.appendChild(label)
+      const label = document.createElement('span');
+      label.classList.add(textClass);
+      this.labelSlotElement.appendChild(label);
       this.element.appendChild(this.labelSlotElement);
     }
-    this.labelSlotElement.getElementsByClassName(textClass)[0].textContent = this.label
+    this.labelSlotElement.getElementsByClassName(textClass)[0].textContent = this.label;
   }
 
   /**
@@ -353,38 +353,37 @@ export class MgInput {
           {this.tooltip && !this.readonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
         <div class="mg-c-input__input-container">
-          {this.readonly ? (
-            [Array.isArray(this.readonlyValue) ? (
-              <ul>
-                {this.readonlyValue.map(value => (
-                  <li key={value}>
-                    <strong>{value}</strong>
-                  </li>
-                ))}
-              </ul>
-            ) : (
-              <strong>{this.readonlyValue}</strong>
-            ),
-          <slot></slot>
-          ]
-          ) : (
-            [
-              <div class="mg-c-input__input">
-                <slot></slot>
-                {this.tooltip && !this.readonly && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
-              </div>,
-              this.helpText && (
-                <div class="mg-c-input__help-text">
-                  <slot name={this.slotHelpText}></slot>
-                </div>
-              ),
-              !this.disabled && this.errorMessage && (
-                <div class="mg-c-input__error" aria-live="assertive">
-                  <slot name={this.slotError}></slot>
-                </div>
-              ),
-            ]
-          )}
+          {this.readonly
+            ? [
+                Array.isArray(this.readonlyValue) ? (
+                  <ul>
+                    {this.readonlyValue.map(value => (
+                      <li key={value}>
+                        <strong>{value}</strong>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <strong>{this.readonlyValue}</strong>
+                ),
+                <slot></slot>,
+              ]
+            : [
+                <div class="mg-c-input__input">
+                  <slot></slot>
+                  {this.tooltip && !this.readonly && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+                </div>,
+                this.helpText && (
+                  <div class="mg-c-input__help-text">
+                    <slot name={this.slotHelpText}></slot>
+                  </div>
+                ),
+                !this.disabled && this.errorMessage && (
+                  <div class="mg-c-input__error" aria-live="assertive">
+                    <slot name={this.slotError}></slot>
+                  </div>
+                ),
+              ]}
         </div>
       </Host>
     );

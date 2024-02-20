@@ -286,7 +286,7 @@ export class MgInputPassword {
       >
         <input
           type="password"
-          class="mg-c-input__box"
+          class="mg-c-input__box mg-c-input__box--width"
           value={this.value}
           id={this.identifier}
           name={this.name}

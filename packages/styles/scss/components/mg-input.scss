@@ -1,4 +1,5 @@
 @import '../utils/a11y';
+@import 'mg-input-width';
 
 /**
  * Common style for MGDIS inputs
@@ -37,23 +38,9 @@ mg-icon {
 
 .mg-c-input {
   display: flex;
-  max-width: 100%;
   min-height: var(--default-size);
   align-items: flex-start;
   margin-bottom: var(--mg-inputs-margin-bottom, 0);
-
-  &.mg-c-input--has-error .mg-c-input__box {
-    border-color: hsl(var(--color-danger));
-  }
-
-  &__error ::slotted(*) {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.3rem;
-    margin-top: 0.2rem;
-    background: hsl(var(--mg-inputs-error-bg-color));
-    color: hsl(var(--color-danger));
-  }
 
   &__input-container {
     min-height: var(--default-size);
@@ -85,11 +72,6 @@ mg-icon {
       margin-left: var(--mg-inputs-spacer);
     }
 
-    .mg-c-input__help-text ::slotted(*),
-    .mg-c-input__error ::slotted(*) {
-      font-size: 1.2rem;
-      text-align: start;
-    }
   }
 
   &__input {
@@ -97,13 +79,6 @@ mg-icon {
 
     mg-tooltip {
       margin-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
-    }
-
-    /* Manage space between input and first message */
-    & + .mg-c-input__help-text ::slotted(*),
-    & + .mg-c-input__error ::slotted(*) {
-      display: block;
-      margin-top: 0.5rem;
     }
 
     /* Set custom opacity on disabled input */
@@ -136,11 +111,44 @@ mg-icon {
     }
   }
 
+  &__error {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.3rem;
+    background: hsl(var(--mg-inputs-error-bg-color));
+    color: hsl(var(--color-danger));
+    .mg-c-input__help-text + & {
+      margin-top: 0.2rem;
+    }
+  }
+
+  &__help-text,
+  &__error {
+    /* Manage space between input and first message */
+    :host(:not(.mg-c-input--textarea)) .mg-c-input__input + & {
+      margin-top: 0.5rem;
+    }
+    
+    /* Manage slot style */
+    & ::slotted(*) {
+      font-size: 1.2rem;
+      text-align: start;
+    }
+  }
+
   /**
-    * Readonly variation
-    */
-  &.mg-c-input--readonly > *:not([slot='label'], [name='append-input']),  &.mg-c-input--readonly ::slotted(mg-button[slot='append-input']) {
+  * Readonly variation
+  */
+  &.mg-c-input--readonly > *:not([slot='label'], [name='append-input']),
+  &.mg-c-input--readonly ::slotted(mg-button[slot='append-input']) {
     display: none;
+  }
+
+  /**
+  * Error variation
+  */
+  &.mg-c-input--has-error .mg-c-input__box {
+    border-color: hsl(var(--color-danger));
   }
 }
 

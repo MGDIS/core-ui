@@ -368,6 +368,7 @@ export class MgInputTextarea {
           <textarea
             class={{
               'mg-c-input__box': true,
+              'mg-c-input__box--width': true,
               'mg-c-input__box--resizable': this.resizable === 'both',
               'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
               'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',

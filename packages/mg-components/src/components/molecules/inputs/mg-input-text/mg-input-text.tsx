@@ -417,7 +417,7 @@ export class MgInputText {
           {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
           <input
             type={this.type}
-            class="mg-c-input__box"
+            class="mg-c-input__box mg-c-input__box--width"
             value={this.value}
             id={this.identifier}
             list={this.hasDatalist() ? this.datalistId : undefined}

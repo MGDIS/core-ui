@@ -500,7 +500,7 @@ export class MgInputNumeric {
       >
         <input
           type="text"
-          class="mg-c-input__box"
+          class="mg-c-input__box mg-c-input__box--width"
           value={this.displayValue()}
           id={this.identifier}
           name={this.name}
