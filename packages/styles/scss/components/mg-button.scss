@@ -24,7 +24,7 @@ $button-column-gap: 0.6rem;
       hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l)),
       hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-gradient) * 10%))
     );
-    color: var($font-color);
+    color: var(#{$font-color});
   }
 
   // Only apply if not disabled
