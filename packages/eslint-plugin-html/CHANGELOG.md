@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- f5688c0: Update linting rules
+
 ## 3.11.3
 
 ### Patch Changes

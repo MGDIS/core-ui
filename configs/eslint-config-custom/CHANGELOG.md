@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.3
+
+### Patch Changes
+
+- c87d711: Update dependencies
+
 ## 1.0.2
 
 ### Patch Changes

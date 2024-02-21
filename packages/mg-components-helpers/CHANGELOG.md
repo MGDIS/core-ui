@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.0.0
+
+### Major Changes
+
+- 71e8db4: [#446](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/446) create mg-angular-logger
+
+### Patch Changes
+
+- 80eecca: [#444](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/444) mg-form: aria-role isn't permit by axe-core
+
 ## 3.11.5
 
 ### Patch Changes
