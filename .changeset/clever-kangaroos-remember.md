@@ -1,7 +1,6 @@
 ---
 "@mgdis/styles": major
-"@mgdis/notification-center": patch
-"@mgdis/mg-components": patch
+"@mgdis/mg-components": major
 "angularjs": patch
 "stencil": patch
 "vanilla": patch
