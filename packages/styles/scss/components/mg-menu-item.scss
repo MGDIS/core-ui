@@ -130,7 +130,7 @@ $navigation-button-sizes: (
 :host([data-style-direction='horizontal']),
 :host([data-overflow-more]) {
   .mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
-    background-color: hsl(var(--mg-b-color-light));
+    background-color: var(--mg-b-color-light);
 
     ::slotted(mg-menu) {
       padding: 1rem 0;

@@ -53,7 +53,7 @@ $checkbox-multi-spacer: 0.4rem;
       justify-content: center;
       padding: calc((var(--mg-b-default-size) - 0.2rem - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) 1.1rem;
       border-radius: 0.3rem;
-      background-color: hsl(var(--mg-b-color-dark-5-hsl));
+      background-color: var(--mg-b-color-dark-5);
       font-size: var(--mg-b-font-size);
     }
 
@@ -65,7 +65,7 @@ $checkbox-multi-spacer: 0.4rem;
     &-title {
       display: inline;
       margin: 0;
-      color: hsl(var(--mg-b-color-dark-40-hsl));
+      color: var(--mg-b-color-dark-40);
     }
 
     &-title {

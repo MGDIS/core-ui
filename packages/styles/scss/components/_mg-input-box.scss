@@ -15,8 +15,8 @@
   border-style: solid;
   border-color: var(--mg-c-input-color);
   border-radius: var(--mg-c-input-border-radius);
-  background-color: hsl(var(--mg-b-color-light));
-  color: hsl(var(--mg-b-color-dark));
+  background-color: var(--mg-b-color-light);
+  color: var(--mg-b-color-dark);
   font-family: inherit;
   font-size: var(--mg-b-font-size);
   text-align: var(--mg-c-input-text-align, left);
@@ -28,7 +28,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0.6rem hsl(var(--mg-c-input-color-shadow-focus-hsl) / 50%);
+    box-shadow: 0 0 0.6rem var(--mg-c-input-color-shadow-focus);
   }
 
   // disabled

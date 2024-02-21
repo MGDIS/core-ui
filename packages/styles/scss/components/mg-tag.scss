@@ -5,13 +5,13 @@ $mg-tag-padding-horizontal: 0.7rem;
 /* Mixins */
 @mixin tag-variant($name, $backgroundColor, $color) {
   &.mg-c-tag--#{$name} {
-    border-color: hsl(var(--mg-b-color-#{$backgroundColor}));
-    background-color: hsl(var(--mg-b-color-#{$backgroundColor}));
-    color: hsl(var(--mg-b-color-#{$color}));
+    border-color: var(--mg-b-color-#{$backgroundColor});
+    background-color: var(--mg-b-color-#{$backgroundColor});
+    color: var(--mg-b-color-#{$color});
 
     &.mg-c-tag--outline {
       background-color: transparent;
-      color: hsl(var(--mg-b-color-#{$backgroundColor}));
+      color: var(--mg-b-color-#{$backgroundColor});
     }
 
     &.mg-c-tag--soft {
@@ -19,14 +19,14 @@ $mg-tag-padding-horizontal: 0.7rem;
 
       border-color: $fill-color;
       background-color: $fill-color;
-      color: hsl(var(--mg-b-color-dark));
+      color: var(--mg-b-color-dark);
       font-weight: 400;
 
       ::slotted(mg-icon) {
         @if $name == 'secondary' {
-          color: hsl(var(--mg-b-color-dark));
+          color: var(--mg-b-color-dark);
         } @else {
-          color: hsl(var(--mg-b-color-#{$backgroundColor}));
+          color: var(--mg-b-color-#{$backgroundColor});
         }
       }
     }

@@ -26,8 +26,8 @@ mg-icon {
     padding: 0.3rem 0.8rem;
     border-radius: 0.3rem;
     margin-top: 0.2rem;
-    background: hsl(var(--mg-c-input-error-bg-color));
-    color: hsl(var(--mg-b-color-danger));
+    background: var(--mg-c-input-error-bg-color);
+    color: var(--mg-b-color-danger);
   }
 
   &__input-container {
@@ -76,7 +76,7 @@ mg-icon {
 
     &.mg-c-input__input--has-error {
       .mg-c-input__box {
-        border-color: hsl(var(--mg-b-color-danger));
+        border-color: var(--mg-b-color-danger);
       }
     }
 

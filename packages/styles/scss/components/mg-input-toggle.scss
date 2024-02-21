@@ -21,14 +21,14 @@ $toggle-item-container-padding-vertical: 0.5rem;
     border: 0;
     border-radius: $border-radius-value;
     background-color: unset;
-    color: hsl(var(--mg-b-color-dark));
+    color: var(--mg-b-color-dark);
     font-weight: unset;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     &:first-of-type {
       background-color: $color-light-blue;
-      color: hsl(var(--mg-b-color-info));
+      color: var(--mg-b-color-info);
       font-weight: 600;
     }
   }
@@ -49,7 +49,7 @@ $toggle-item-container-padding-vertical: 0.5rem;
     border-style: solid;
     border-color: var(--mg-c-input-color);
     border-radius: $border-radius-value;
-    background-color: hsl(var(--mg-b-color-light));
+    background-color: var(--mg-b-color-light);
     cursor: pointer;
     font-family: var(--mg-b-font-family);
     font-size: inherit;
@@ -70,13 +70,13 @@ $toggle-item-container-padding-vertical: 0.5rem;
     .mg-c-input__toggle-item-container {
       &:first-of-type {
         background-color: unset;
-        color: hsl(var(--mg-b-color-dark));
+        color: var(--mg-b-color-dark);
         font-weight: unset;
       }
 
       &:last-of-type {
         background-color: $color-light-blue;
-        color: hsl(var(--mg-b-color-info));
+        color: var(--mg-b-color-info);
         font-weight: 600;
       }
     }
@@ -121,13 +121,13 @@ $toggle-item-container-padding-vertical: 0.5rem;
     /* stylelint-disable-next-line no-descending-specificity */
     .mg-c-input__toggle-item-container:first-of-type {
       background-color: $color-light-dark;
-      color: hsl(var(--mg-b-color-dark));
+      color: var(--mg-b-color-dark);
       font-weight: 600;
     }
 
     &.mg-c-input--toggle-is-active .mg-c-input__toggle-item-container:first-of-type {
       background-color: unset;
-      color: hsl(var(--mg-b-color-dark));
+      color: var(--mg-b-color-dark);
       font-weight: unset;
     }
   }

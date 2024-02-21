@@ -1,6 +1,6 @@
 .mg-c-skip-links {
   position: absolute;
-  background: hsl(var(--mg-b-color-light));
+  background: var(--mg-b-color-light);
   opacity: 0;
   transform: translateY(-100%);
 
@@ -23,7 +23,7 @@
   &__link {
     display: inline-block;
     padding: 1.2rem;
-    color: hsl(var(--mg-b-color-dark));
+    color: var(--mg-b-color-dark);
 
     &:hover {
       background: hsl(var(--mg-b-color-dark) / 10%);

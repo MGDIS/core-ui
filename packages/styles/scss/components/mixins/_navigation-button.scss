@@ -35,7 +35,7 @@ $navigation-button-column-gap: 1rem;
     align-items: center;
     border: none;
     background-color: unset;
-    color: hsl(var(--#{$custom-property-prefix}-color-hsl, var(--mg-b-color-dark)));
+    color: var(--#{$custom-property-prefix}-color, var(--mg-b-color-dark));
     column-gap: var(--#{$custom-property-prefix}-navigation-button-column-gap, $navigation-button-column-gap);
     cursor: pointer;
     font-family: var(--mg-b-font-family);
@@ -55,16 +55,16 @@ $navigation-button-column-gap: 1rem;
     }
     &:hover:not(.#{$component-class-prefix}__navigation-button--disabled),
     &:focus-visible:not(.#{$component-class-prefix}__navigation-button--disabled) {
-      background-color: hsl(var(--#{$custom-property-prefix}-focused-background-color-hsl) / 10%);
+      background-color: var(--#{$custom-property-prefix}-focused-background-color);
     }
     &.#{$component-class-prefix}__navigation-button--active {
-      color: hsl(var(--#{$custom-property-prefix}-color-active-hsl));
+      color: var(--#{$custom-property-prefix}-color-active);
       font-weight: 600;
       &.#{$component-class-prefix}__navigation-button--horizontal {
-        border-bottom-color: hsl(var(--#{$custom-property-prefix}-border-color-active-hsl));
+        border-bottom-color: var(--#{$custom-property-prefix}-border-color-active);
       }
       &.#{$component-class-prefix}__navigation-button--vertical {
-        border-left-color: hsl(var(--#{$custom-property-prefix}-border-color-active-hsl));
+        border-left-color: var(--#{$custom-property-prefix}-border-color-active);
       }
     }
     &.#{$component-class-prefix}__navigation-button--hidden {

@@ -4,7 +4,7 @@ $mg-popover-padding-vertical: var(--mg-c-popover-padding-vertical, 1.5rem);
   --mg-c-card-padding: #{$mg-popover-padding-vertical} var(--mg-c-popover-padding-horizontal, #{$mg-popover-padding-vertical});
   --mg-c-card-border: none;
   --mg-c-card-border-radius: 0.5rem;
-  --mg-c-card-background: hsl(var(--mg-c-popover-background-color));
+  --mg-c-card-background: var(--mg-c-popover-background-color);
 
   position: relative;
   display: contents;

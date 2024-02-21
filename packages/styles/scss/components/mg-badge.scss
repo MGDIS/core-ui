@@ -11,12 +11,12 @@ $mg-badge-border-width: 0.1rem;
       background-color: currentcolor;
 
       .mg-c-badge__value {
-        color: hsl(var(--mg-c-badge-text-color, var(--mg-b-color-light)));
+        color: var(--mg-c-badge-text-color, var(--mg-b-color-light));
       }
     } @else {
-      border-color: hsl(var(--mg-b-color-#{$backgroundColor}));
-      background-color: hsl(var(--mg-b-color-#{$backgroundColor}));
-      color: hsl(var(--mg-b-color-#{$color}));
+      border-color: var(--mg-b-color-#{$backgroundColor});
+      background-color: var(--mg-b-color-#{$backgroundColor});
+      color: var(--mg-b-color-#{$color});
     }
 
     &.mg-c-badge--outline {
@@ -27,7 +27,7 @@ $mg-badge-border-width: 0.1rem;
           color: currentcolor;
         }
       } @else {
-        color: hsl(var(--mg-b-color-#{$backgroundColor}));
+        color: var(--mg-b-color-#{$backgroundColor});
       }
     }
   }

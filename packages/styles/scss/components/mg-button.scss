@@ -13,11 +13,9 @@ $button-column-gap: 0.6rem;
     $font-color: --mg-b-color-#{$font-color};
   }
   .mg-c-button.mg-c-button--#{$name} {
-    border-color: hsl(
-      var(
-        #{--mg-c-button-#{$name}-border-color},
-        (var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-border-variation) * 10%))
-      )
+    border-color: var(
+      --mg-c-button-#{$name}-border-color,
+      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-border-variation) * 10%))
     );
 
     // Background
@@ -26,7 +24,7 @@ $button-column-gap: 0.6rem;
       hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l)),
       hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-gradient) * 10%))
     );
-    color: hsl(var(#{$font-color}));
+    color: var($font-color);
   }
 
   // Only apply if not disabled
@@ -51,7 +49,7 @@ $button-column-gap: 0.6rem;
 
 // Only apply if not disabled
 :host(:hover) .mg-c-button--flat:not(.mg-c-button--disabled) {
-  background: hsl(var(--mg-b-color-dark) / 10%);
+  background: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 10%);
 }
 
 :host([full-width]) {

@@ -42,7 +42,7 @@ describe('mg-message', () => {
       </mg-message>
       <style>
         .custom-message-card {
-          --mg-c-card-background: hsl(var(--mg-b-color-danger));
+          --mg-c-card-background: var(--mg-b-color-danger);
         }
       </style>`,
     );

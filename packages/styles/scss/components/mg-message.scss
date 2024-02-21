@@ -3,7 +3,7 @@
 @mixin message-variants($variants...) {
   @each $variant in $variants {
     &.mg-c-message--#{$variant} .mg-c-message__icon {
-      color: hsl(var(--mg-b-color-#{$variant}));
+      color: var(--mg-b-color-#{$variant});
     }
   }
 }
