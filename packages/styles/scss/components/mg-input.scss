@@ -85,7 +85,7 @@ mg-icon {
     .mg-c-input__box:disabled,
     ::slotted(.mg-c-input__button-toggle:disabled),
     &-group--disabled label,
-    .mg-c-input.mg-c-input--checkbox-multi-disabled & strong {
+    .mg-c-input.mg-c-input--checkbox-multi-disabled &-container strong {
       opacity: var(--mg-disabled-opacity);
     }
   }

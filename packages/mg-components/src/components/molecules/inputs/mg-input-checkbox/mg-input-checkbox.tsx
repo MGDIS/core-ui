@@ -696,7 +696,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         errorMessage={!this.readonly ? this.errorMessage : undefined}
         type="fieldset"
       >
-        {this.type === 'checkbox' ? (
+        {this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList
             checkboxes={this.checkboxItems}
             inputVerticalList={this.inputVerticalList}

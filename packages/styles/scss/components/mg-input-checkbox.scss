@@ -15,6 +15,8 @@ $checkbox-multi-spacer: 0.4rem;
 .mg-c-input.mg-c-input--checkbox-multi {
   .mg-c-input__input-checkbox-multi {
     display: flex;
+    width: unset;
+    flex: unset;
     flex-wrap: wrap;
     column-gap: calc(var(--mg-inputs-spacer) * 1.2);
 

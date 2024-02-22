@@ -8,6 +8,7 @@
 */
 .mg-c-input__with-character-left {
   position: relative;
+  width: 100%;
 
   .mg-c-input.mg-u-is-focused & .mg-c-input__box {
     padding-right: calc(var(--mg-character-left-message-length) * 1ch + 0.8rem);

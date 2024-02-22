@@ -8,16 +8,22 @@ $width-4: 7rem;
 $width-16: 21rem;
 
 @mixin input-box-max-width {
-  &.mg-c-input--width-2 .mg-c-input__box {
-    max-width: $width-2;
+  &.mg-c-input--width-2 {
+    .mg-c-input__box, .mg-c-input__with-character-left {
+      max-width: $width-2;
+    }
   }
 
-  &.mg-c-input--width-4 .mg-c-input__box {
-    max-width: $width-4;
+  &.mg-c-input--width-4 {
+    .mg-c-input__box, .mg-c-input__with-character-left {
+      max-width: $width-4;
+    }
   }
 
-  &.mg-c-input--width-16 .mg-c-input__box {
-    max-width: $width-16;
+  &.mg-c-input--width-16 {
+    .mg-c-input__box, .mg-c-input__with-character-left {
+      max-width: $width-16;
+    }
   }
 
   &.mg-c-input--width-full .mg-c-input__box {
@@ -55,6 +61,13 @@ $width-16: 21rem;
 
   &.mg-c-input--width-full:not(.mg-c-input--label-on-top) {
     justify-content: stretch;
+  }
+
+  &.mg-c-input--is-input-group-append,
+  &.mg-c-input--is-append-input-slot-content {
+    ::slotted([slot='append-input']) {
+      width: auto;
+    }
   }
 }
 
