@@ -11,7 +11,7 @@ $navigation-button-sizes: (
   ),
 );
 
-@include navigation-button('mg-c-tabs', 'mg-c-tabs', $navigation-button-sizes);
+@include navigation-button('mg-c-tabs', $navigation-button-sizes);
 
 .mg-c-tabs {
   &__header {

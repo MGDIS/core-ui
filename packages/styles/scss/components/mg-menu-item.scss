@@ -40,7 +40,7 @@ $navigation-button-sizes: (
   }
 }
 
-@include navigation-button('mg-c-menu-item', 'mg-c-menu-item', $navigation-button-sizes);
+@include navigation-button('mg-c-menu-item', $navigation-button-sizes);
 @include level($navigation-button-sizes);
 
 .mg-c-menu-item {
