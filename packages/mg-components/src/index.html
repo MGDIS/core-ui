@@ -8,24 +8,18 @@
       /* Website style */
       html {
         background: #bada55;
-        font-size: 62.5%;
-      }
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-        font-size: 1.3rem;
-        line-height: 1.4;
       }
       main {
         padding: 1rem;
       }
       #custom-border-color {
-        --mg-button-danger-alt-border-color: 188, 100%, 50%;
-        --mg-button-primary-border-color: 188, 100%, 50%;
-        --mg-button-secondary-border-color: 188, 100%, 50%;
-        --mg-button-danger-border-color: 188, 100%, 50%;
-        --mg-button-danger-alt-border-color: 188, 100%, 50%;
-        --mg-button-info-border-color: 188, 100%, 50%;
-        --mg-button-flat-border-color: 188, 100%, 50%;
+        --mg-c-button-danger-alt-border-color: 188, 100%, 50%;
+        --mg-c-button-primary-border-color: 188, 100%, 50%;
+        --mg-c-button-secondary-border-color: 188, 100%, 50%;
+        --mg-c-button-danger-border-color: 188, 100%, 50%;
+        --mg-c-button-danger-alt-border-color: 188, 100%, 50%;
+        --mg-c-button-info-border-color: 188, 100%, 50%;
+        --mg-c-button-flat-border-color: 188, 100%, 50%;
       }
       .align-right {
         --mg-c-input-text-align: right;
@@ -51,19 +45,6 @@
     </script>
     <main>
       <h1>MG Components</h1>
-      <section>
-        <h2 id="typography">Typography</h2>
-        <h1>The h1 heading element</h1>
-        <h2>The h2 heading element</h2>
-        <h3>The h3 heading element</h3>
-        <h4>The h4 heading element</h4>
-        <h5>The h5 heading element</h5>
-        <h6>The h6 heading element</h6>
-        <p>The Paragraph element</p>
-        <p><strong>The Strong Importance element</strong></p>
-        <p><small>The side comment element</small></p>
-        <p><a href="#">A link</a></p>
-      </section>
       <section>
         <h2 id="icons">Icons</h2>
         <div class="mg-group-elements">
@@ -379,7 +360,7 @@
           <mg-button variant="link" class="custom-link">link</mg-button>
           <style>
             .custom-link {
-              --mg-button-border-radius: 1rem;
+              --mg-c-button-border-radius: 1rem;
             }
           </style>
         </div>
@@ -472,12 +453,6 @@
             >👈 Toggle disabled</mg-button
           >
         </div>
-        <h3>a.mg-button</h3>
-        <div class="mg-group-elements" style="padding: 0 0 1rem">
-          <a href="#" class="mg-c-button mg-c-button--primary">a.mg-button</a>
-          <a href="#" class="mg-c-button mg-c-button--primary"><mg-icon icon="check-circle"></mg-icon>a.mg-button w/ icon</a>
-          <a href="#" class="mg-c-button mg-c-button--primary mg-c-button--icon"><mg-icon icon="check-circle"></mg-icon></a>
-        </div>
       </section>
       <section>
         <h2>Card</h2>
@@ -494,10 +469,10 @@
         >
         <style>
           .custom-mg-card--danger {
-            --mg-c-card-background: hsl(var(--mg-b-color-danger));
+            --mg-c-card-background: var(--mg-b-color-danger);
           }
           .custom-mg-card--info {
-            --mg-c-card-background: hsl(var(--mg-b-color-info));
+            --mg-c-card-background: var(--mg-b-color-info);
           }
         </style>
       </section>
@@ -556,7 +531,7 @@
         </mg-message>
         <style>
           .custom-message-card {
-            --mg-c-card-background: hsl(var(--mg-b-color-danger));
+            --mg-c-card-background: var(--mg-b-color-danger);
           }
         </style>
         <script>
@@ -742,7 +717,7 @@
           <mg-badge label="label" variant="info" value="1"></mg-badge>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
-          <mg-button>mg-button <mg-badge label="label" value="1"></mg-badge></mg-button>
+          <mg-button>mg-c-button <mg-badge label="label" value="1"></mg-badge></mg-button>
         </div>
       </section>
       <section>
@@ -777,21 +752,21 @@
             ><span>coucou</span></mg-tooltip
           >
           <mg-tooltip message="my tooltip icon"><mg-icon icon="check-circle"></mg-icon></mg-tooltip>
-          <mg-tooltip message="my tooltip mg-button"><mg-button>mg-button</mg-button></mg-tooltip>
-          <mg-tooltip message="my tooltip native button"><button class="mg-c-button mg-c-button--primary" aria-describedby="blu">native button</button></mg-tooltip>
+          <mg-tooltip message="my tooltip mg-c-button"><mg-button>mg-c-button</mg-button></mg-tooltip>
+          <mg-tooltip message="my tooltip native button"><button aria-describedby="blu">native button</button></mg-tooltip>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-tooltip message="This is a tooltip message">
             <mg-button variant="primary" disabled disable-on-click id="btn-dbld" onClick="alert('blu')">Click Me !</mg-button></mg-tooltip
           >
-          <button class="mg-c-button mg-c-button--secondary" onClick="document.getElementById('btn-dbld').removeAttribute('disabled')">Enable first button</button>
-          <button class="mg-c-button mg-c-button--secondary" onClick="document.getElementById('btn-dbld').setAttribute('disabled', '')">Disable first button</button>
+          <button onClick="document.getElementById('btn-dbld').removeAttribute('disabled')">Enable first button</button>
+          <button onClick="document.getElementById('btn-dbld').setAttribute('disabled', '')">Disable first button</button>
         </div>
         <div class="mg-group-elements" style="padding: 0 0 1rem">
           <mg-tooltip message="my tooltip icon" display><mg-icon icon="check-circle"></mg-icon></mg-tooltip>
           <mg-tooltip message="my tooltip icon" disabled><mg-icon icon="check-circle"></mg-icon></mg-tooltip>
-          <mg-tooltip message="my tooltip mg-button" id="tp-disabled" disabled display>
-            <mg-button onclick="document.getElementById('tp-disabled').removeAttribute('disabled')">mg-button</mg-button></mg-tooltip
+          <mg-tooltip message="my tooltip mg-c-button" id="tp-disabled" disabled display>
+            <mg-button onclick="document.getElementById('tp-disabled').removeAttribute('disabled')">mg-c-button</mg-button></mg-tooltip
           >
         </div>
 
@@ -1423,141 +1398,6 @@
             tooltip="message tooltip du mg-input-text"
             value="mg-blu"
           ></mg-input-text>
-        </div>
-      </section>
-      <section id="mg-grid">
-        <h2>.mg-grid</h2>
-        <style>
-          #mg-grid .mg-grid {
-            margin-bottom: 0.5rem;
-          }
-          #mg-grid .mg-grid__col {
-            padding: 0.5rem 1.5rem;
-            border: 1px solid rgba(0, 0, 0, 0.2);
-            background-color: rgba(0, 0, 0, 0.1);
-          }
-        </style>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-3">col-3</div>
-          <div class="mg-grid__col mg-grid__col-3">col-3</div>
-          <div class="mg-grid__col mg-grid__col-3">col-3</div>
-          <div class="mg-grid__col mg-grid__col-3">col-3</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-4">col-4</div>
-          <div class="mg-grid__col mg-grid__col-4">col-4</div>
-          <div class="mg-grid__col mg-grid__col-4">col-4</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-5">col-5</div>
-          <div class="mg-grid__col mg-grid__col-5">col-5</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-6">col-6</div>
-          <div class="mg-grid__col mg-grid__col-6">col-6</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-7">col-7</div>
-          <div class="mg-grid__col mg-grid__col-5">col-5</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-8">col-8</div>
-          <div class="mg-grid__col mg-grid__col-4">col-4</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-9">col-9</div>
-          <div class="mg-grid__col mg-grid__col-3">col-3</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-10">col-10</div>
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-11">col-11</div>
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-12">col-12</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-1">col-1</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-2">col-2</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-3">col-3</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-4">col-4</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-5">col-5</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-6">col-6</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-7">col-7</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-8">col-8</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-9">col-9</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-10">col-10</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-11">col-11</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col mg-grid__col-12">col-12</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col">col</div>
-        </div>
-        <div class="mg-grid">
-          <div class="mg-grid__col">col</div>
-          <div class="mg-grid__col mg-grid__col-5">col-5</div>
-          <div class="mg-grid__col">col</div>
         </div>
       </section>
     </main>

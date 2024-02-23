@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 
 export const config: Config = {
   namespace: 'mg-components',
-  globalStyle: './node_modules/@mgdis/styles/dist/mg-temp/global.css',
+  globalStyle: './node_modules/@mgdis/styles/dist/mg-components.css',
   devServer: {
     openBrowser: false,
   },
@@ -12,18 +12,6 @@ export const config: Config = {
       type: 'dist',
       esmLoaderPath: '../loader',
       copy: [
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
-          dest: 'variables.css', // export variable in a seperate file for component inside another framework
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
-          dest: 'fonts', // export fonts
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/*.css',
-          dest: 'styles', // export styles
-        },
         {
           src: 'locales/en',
           dest: 'locales/en',
@@ -51,14 +39,6 @@ export const config: Config = {
       copy: [
         {
           src: 'iframe.html',
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/variables.css',
-          dest: 'build/variables.css', // export variable for working space
-        },
-        {
-          src: '../node_modules/@mgdis/styles/dist/mg-temp/fonts',
-          dest: 'build/fonts', // export fonts for working space
         },
       ],
     },

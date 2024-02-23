@@ -1,0 +1,14 @@
+/**
+ * Minimum CSS file to use with mg-components
+ */
+
+// Custom properties (CSS variables)
+@import 'base/custom-properties';
+@import 'components/custom-properties';
+
+:root {
+  --mg-b-font-family: system-ui, sans-serif;
+}
+
+// CSS
+@import 'base/document';
