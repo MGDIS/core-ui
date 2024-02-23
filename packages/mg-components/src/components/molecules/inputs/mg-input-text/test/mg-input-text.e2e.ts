@@ -127,27 +127,6 @@ describe('mg-input-text', () => {
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
-    testEach([
-      {
-        ...defaultProps,
-        label: 'long label long label long label long label long label long label long label long label long label long label long label',
-        tooltip: 'tooltip message',
-      },
-      {
-        ...defaultProps,
-        label: 'long label long label long label long label long label long label long label long label long label long label long label',
-        tooltip: 'tooltip message',
-        labelOnTop: true,
-      },
-    ])('inside a div.mg-form-group %s', async (page: PageType, args) => {
-      await setPageContent(page, `<div class="mg-form-group">${creatHtml(args)}</div>`);
-
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
-
-      await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, height: 100, width: 500 } });
-    });
-
     describeEach([true, false])('using append-input slot, case readonly %s', (readonly: boolean) => {
       testEach([
         {

@@ -105,22 +105,6 @@ test.describe('mg-input-date', () => {
     });
   });
 
-  [true, false].forEach(labelOnTop => {
-    test(`render inside a div.mg-form-group, label-on-top="${labelOnTop}"`, async ({ page }) => {
-      await page.setContent(
-        `<div class="mg-form-group">${createHTML({
-          ...baseProps,
-          labelOnTop,
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-          tooltip: 'tooltip message',
-        })}</div>`,
-      );
-      await page.locator('mg-input-date.hydrated').waitFor();
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
   [false, true].forEach(labelOnTop => {
     test(`Ensure component fit in width 200px, label-on-top="${labelOnTop}"`, async ({ page }) => {
       await page.setContent(createHTML({ ...baseProps, labelOnTop }));

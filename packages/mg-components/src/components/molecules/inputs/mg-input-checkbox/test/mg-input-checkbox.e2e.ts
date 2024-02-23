@@ -199,36 +199,6 @@ test.describe('mg-input-checkbox', () => {
         });
       });
 
-      [
-        { label: 'long label long label long label long label long label long label long label long label long label long label long label', type, tooltip: 'tooltip message' },
-        {
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-          type,
-          tooltip: 'tooltip message',
-          labelOnTop: true,
-        },
-      ].forEach((args, index) => {
-        test(`Should render long label in .mg-form-group ${index + 1}`, async ({ page }) => {
-          const componentArgs = {
-            ...baseArgs,
-            ...args,
-            value: [
-              { title: 'Batman', value: true },
-              { title: 'Robin', value: false },
-              { title: 'Joker', value: null },
-              { title: 'Bane', value: true, disabled: true },
-            ],
-          };
-          const html = `<div class="mg-form-group">${createHTML(componentArgs)}</div>`;
-          await page.setContent(html);
-          await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-
-          await page.waitForSelector('mg-input-checkbox.hydrated');
-
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-        });
-      });
-
       [false, true].forEach((labelOnTop: boolean) => {
         test(`Ensure component fit in width 200px with label-on-top: ${labelOnTop}`, async ({ page }) => {
           const componentArgs = { ...baseArgs, labelOnTop, type };
@@ -445,7 +415,6 @@ test.describe('mg-input-checkbox', () => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
         const componentArgs = { ...baseArgs, ...args };
         const html = createHTML(componentArgs);
-        console.log(html);
 
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });

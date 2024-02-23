@@ -14,7 +14,7 @@ export const test = base.extend<{ page: void }>({
     // Add lib CSS
     await page.addStyleTag({ url: 'http://localhost:3333/build/mg-components.css' });
     // Add screenshot CSS
-    await page.addStyleTag({ content: '.e2e-screenshot{display:inline-block}' });
+    await page.addStyleTag({ content: 'body{margin:0}.e2e-screenshot{display:inline-block}' });
     // Make sure everything is loaded
     await page.waitForLoadState('networkidle');
     await page.waitForSelector('html.hydrated');

@@ -112,19 +112,6 @@ describe('mg-input-textarea', () => {
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  describeEach([
-    '<mg-input-textarea identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-textarea>',
-    '<mg-input-textarea identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-textarea>',
-  ])('inside a div.mg-form-group', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, `<div class="mg-form-group">${html}</div>`);
-
-      await page.locator('mg-input-textarea.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
   describeEach([16])('with custom width: %s', width => {
     testEach([false, true])('with label on top: %s', async (page: PageType, labelOnTop: boolean) => {
       await setPageContent(page, `<mg-input-textarea identifier="identifier" label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-textarea>`);

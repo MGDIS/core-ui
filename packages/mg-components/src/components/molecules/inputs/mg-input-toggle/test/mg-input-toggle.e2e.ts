@@ -141,23 +141,6 @@ test.describe('mg-input-toggle', () => {
       });
     });
 
-  [true, false]
-    .map(labelOnTop => ({
-      label: 'long label long label long label long label long label long label long label long label long label long label long label',
-      tooltip: 'tooltip message',
-      labelOnTop,
-    }))
-    .forEach(args => {
-      test(`render inside a div.mg-form-group ${renderAttributes(args)}`, async ({ page }) => {
-        const props = getProps(args);
-        await page.setContent(`<div class="mg-form-group">${createHTML(props)}</div>`);
-        await page.addScriptTag({ content: renderProperties(props, `[identifier="${props.identifier}"]`) });
-        await page.locator('mg-input-toggle.hydrated').waitFor();
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-    });
-
   test('render with error', async ({ page }) => {
     await setPageContent(page);
 

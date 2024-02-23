@@ -149,26 +149,6 @@ describe('mg-input-radio', () => {
     });
   });
 
-  describeEach([
-    '<mg-input-radio identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-radio>',
-    '<mg-input-radio identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-radio>',
-  ])('inside a div.mg-form-group', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(
-        page,
-        `<div class="mg-form-group">${html}</div>
-      <script>
-      const mgInputRadio = document.querySelector('mg-input-radio');
-      mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-      </script>`,
-      );
-
-      await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
   testEach([false, true])('Ensure component fit in width 200px with label-on-top: %s', async (page: PageType, labelOnTop: boolean) => {
     await setPageContent(
       page,

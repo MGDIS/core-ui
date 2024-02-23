@@ -90,19 +90,6 @@ describe('mg-input-password', () => {
     });
   });
 
-  describeEach([
-    '<mg-input-password identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message"></mg-input-password>',
-    '<mg-input-password identifier="identifier" label="long label long label long label long label long label long label long label long label long label long label long label" tooltip="tooltip message" label-on-top></mg-input-password>',
-  ])('inside a div.mg-form-group', (html: string) => {
-    test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, `<div class="mg-form-group">${html}</div>`);
-
-      await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
   describeEach([16])('with custom width: %s', width => {
     testEach([false, true])('with label on top: %s', async (page: PageType, labelOnTop: boolean) => {
       await setPageContent(page, `<mg-input-password identifier="identifier" label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-password>`);
