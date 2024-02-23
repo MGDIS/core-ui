@@ -16,6 +16,7 @@ import { HTMLMgInputsElement } from '../../inputs/mg-input/mg-input.conf';
 import { setupMutationObserverMock, setupSubmitEventMock } from '@mgdis/stencil-helpers';
 import { MgInputTitle } from '../../../atoms/mg-input-title/mg-input-title';
 import { requiredMessageStatus, roles } from '../mg-form.conf';
+import { MgInput } from '../../inputs/mg-input/mg-input';
 
 const getPage = async (args, content?) => {
   const page = await newSpecPage({
@@ -32,6 +33,7 @@ const getPage = async (args, content?) => {
       MgInputToggle,
       MgButton,
       MgInputTitle,
+      MgInput,
     ],
     template: () => <mg-form {...args}>{content}</mg-form>,
   });

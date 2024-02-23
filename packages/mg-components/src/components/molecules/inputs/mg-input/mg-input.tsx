@@ -13,6 +13,7 @@ export class MgInput {
    ************/
 
   // HTML selector
+  private legendId: string;
   private helpTextId: string;
   private helpTextErrorId: string;
   private readonly slotLabel = 'label';
@@ -49,6 +50,7 @@ export class MgInput {
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;
+      this.legendId = `${this.identifier}-title`;
     }
   }
 
@@ -67,9 +69,9 @@ export class MgInput {
       throw new Error('<mg-input> prop "type" must be a InputType.');
     } else {
       inputTypes.forEach(className => {
-        this.classCollection.delete(`mg-c-input--${className}`)
-      })
-      this.classCollection.add(`mg-c-input--${newValue}`)
+        this.classCollection.delete(`mg-c-input--${className}`);
+      });
+      this.classCollection.add(`mg-c-input--${newValue}`);
     }
   }
 
@@ -334,6 +336,7 @@ export class MgInput {
   componentDidLoad(): void {
     this.renderLabel();
     this.watchAriaDescribedbyIDs();
+    if (!this.readonly && this.type === 'fieldset') this.element.querySelector('legend').setAttribute('id', this.legendId);
   }
 
   /**
@@ -352,7 +355,11 @@ export class MgInput {
    */
   render(): HTMLElement {
     return (
-      <Host class={this.classCollection.join()} role={this.type === 'fieldset' && !this.readonly && 'group'}>
+      <Host
+        class={this.classCollection.join()}
+        role={this.type === 'fieldset' && !this.readonly && 'group'}
+        aria-labelledby={this.type === 'fieldset' && `${this.identifier}-title`}
+      >
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
           <slot name={this.slotLabel}></slot>
           {this.tooltip && !this.readonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}

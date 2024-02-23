@@ -9,19 +9,22 @@ $width-16: 21rem;
 
 @mixin input-box-max-width {
   &.mg-c-input--width-2 {
-    .mg-c-input__box, .mg-c-input__with-character-left {
+    .mg-c-input__box,
+    .mg-c-input__with-character-left {
       max-width: $width-2;
     }
   }
 
   &.mg-c-input--width-4 {
-    .mg-c-input__box, .mg-c-input__with-character-left {
+    .mg-c-input__box,
+    .mg-c-input__with-character-left {
       max-width: $width-4;
     }
   }
 
   &.mg-c-input--width-16 {
-    .mg-c-input__box, .mg-c-input__with-character-left {
+    .mg-c-input__box,
+    .mg-c-input__with-character-left {
       max-width: $width-16;
     }
   }
