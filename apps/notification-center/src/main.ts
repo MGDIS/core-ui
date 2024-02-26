@@ -1,5 +1,4 @@
 import { NotificationCenter } from '@mgdis/notification-center';
-
 import '@mgdis/mg-components/dist/mg-components/mg-components.css';
 import '@mgdis/mg-components/dist/components';
 import { defineCustomElements } from '@mgdis/mg-components/loader';
