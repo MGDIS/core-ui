@@ -4,10 +4,11 @@ import { MgInputRadio } from '../mg-input-radio';
 import { RadioOption } from '../mg-input-radio.conf';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputRadio, MgInput],
+    components: [MgInputRadio, MgInput, MgInputTitle],
     template: () => <mg-input-radio {...args}></mg-input-radio>,
   });
 

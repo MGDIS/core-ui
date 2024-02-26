@@ -13,79 +13,37 @@ $checkbox-multi-spacer: 0.4rem;
 * checkbox multi
 */
 .mg-c-input.mg-c-input--checkbox-multi {
-  .mg-c-input__input-checkbox-multi {
-    display: flex;
-    width: unset;
-    flex: unset;
-    flex-wrap: wrap;
-    column-gap: calc(var(--mg-inputs-spacer) * 1.2);
-
-    &--with-values.mg-c-input__input-checkbox-multi {
-      gap: $checkbox-multi-spacer;
+  .mg-c-input {
+    &__input-group-container {
+      padding: $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} * 2) $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} / 2);
+      margin: 0;
     }
 
-    .mg-c-input__input-checkbox-multi-content {
-      @include flex-container(2, column, nowrap);
+    &__input-container {
+      display: flex;
+      width: unset;
+      flex: unset;
+      flex-wrap: wrap;
+      column-gap: calc(var(--mg-inputs-spacer) * 1.2);
 
-      .mg-c-input__input-group {
-        margin-left: calc(#{$checkbox-multi-spacer} * 2);
+      &-list {
+        @include flex-container;
+
+        padding: 0;
+        margin: 0;
+        list-style: none;
       }
     }
 
-    &--search-mode.mg-c-input__input-checkbox-multi .mg-c-input__input-checkbox-multi-content {
-      width: 37rem;
-      height: 40rem;
+    &__sections {
+      @include flex-container(0, column, nowrap);
+
+      max-height: 80vh;
+      padding-right: 1rem;
+      overflow-y: auto;
     }
 
-    &-values-container {
-      @include flex-container;
-
-      padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    &-value {
-      display: inline-flex;
-      min-width: var(--default-size);
-      min-height: var(--default-size);
-      box-sizing: border-box;
-      align-items: center;
-      justify-content: center;
-      padding: calc((var(--default-size) - 0.2rem - var(--font-size) * var(--line-height)) / 2) 1.1rem;
-      border-radius: 0.3rem;
-      background-color: hsl(var(--mg-color-dark-5-hsl));
-      font-size: var(--font-size);
-    }
-
-    &-no-result {
-      text-align: center;
-    }
-
-    &-text,
-    &-title {
-      display: inline;
-      margin: 0;
-      color: hsl(var(--mg-color-dark-40-hsl));
-    }
-
-    &-title {
-      margin: 0 1.1rem;
-    }
-
-    &-sections {
-      @include flex-container(1, column);
-
-      &-container {
-        @include flex-container(0, column, nowrap);
-
-        max-height: 80vh;
-        padding-right: 1rem;
-        overflow-y: auto;
-      }
-    }
-
-    &-section-header {
+    &__section-header {
       @include flex-container(2);
 
       min-height: var(--default-size);
@@ -100,18 +58,58 @@ $checkbox-multi-spacer: 0.4rem;
         margin: 0;
       }
 
-      &-label {
-        font-size: var(--font-size);
+      &-title {
+        display: inline;
+        margin: 0;
+        color: hsl(var(--mg-color-dark-40-hsl));
+
+        &-label {
+          font-size: var(--font-size);
+        }
+
+        &--static.mg-c-input__section-header-title {
+          margin: 0 1.1rem;
+        }
       }
     }
 
-    &-inputs {
-      padding: $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} * 2) $checkbox-multi-spacer calc(#{$checkbox-multi-spacer} / 2);
-      margin: 0;
+    &__input-value {
+      display: inline-flex;
+      min-width: var(--default-size);
+      min-height: var(--default-size);
+      box-sizing: border-box;
+      align-items: center;
+      justify-content: center;
+      padding: calc((var(--default-size) - 0.2rem - var(--font-size) * var(--line-height)) / 2) 1.1rem;
+      border-radius: 0.3rem;
+      background-color: hsl(var(--mg-color-dark-5-hsl));
+      font-size: var(--font-size);
+    }
+
+    &__content {
+      @include flex-container(2, column, nowrap);
+    }
+
+    &__input-group {
+      margin-left: calc(#{$checkbox-multi-spacer} * 2);
+    }
+
+    &__input-no-result {
+      text-align: center;
     }
   }
 
-  &:not(.mg-c-input--label-on-top) mg-tooltip:not(.mg-c-input__input-checkbox-multi-section-header-tootlip) {
+  /* Variations */
+  &.mg-c-input--with-values .mg-c-input__input-container {
+    gap: $checkbox-multi-spacer;
+  }
+
+  &.mg-c-input--search-mode .mg-c-input__content {
+    width: 37rem;
+    height: 40rem;
+  }
+
+  &:not(.mg-c-input--label-on-top) mg-tooltip:not(.mg-c-input__section-header-tootlip) {
     margin-left: var(--mg-inputs-spacer);
   }
 

@@ -9,11 +9,7 @@ import { MgInputCheckboxListProps } from './mg-input-checkbox.conf';
 export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> = (props: MgInputCheckboxListProps): VNode[] => (
   // eslint-disable-next-line jsx-a11y/no-redundant-roles
   <ul
-    class={{
-      'mg-c-input__input-group-container': true,
-      'mg-c-input__input-group-container--vertical': props.inputVerticalList || props.type === 'multi',
-      'mg-c-input__input-checkbox-multi-inputs': props.type === 'multi',
-    }}
+    class="mg-c-input__input-group-container"
     role="list"
     aria-describedby={props.displaySearchInput ? 'search-results' : undefined}
     aria-label={props.displaySearchInput ? props.messages.searchResults : undefined}

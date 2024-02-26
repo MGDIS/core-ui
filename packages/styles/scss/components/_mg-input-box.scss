@@ -7,41 +7,40 @@
  * - select
  */
 
-.mg-c-input__box {
-  height: var(--default-size);
-  box-sizing: border-box;
-  padding: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2) var(--mg-inputs-spacer);
-  border-width: var(--mg-inputs-border-width);
-  border-style: solid;
-  border-color: var(--mg-inputs-color);
-  border-radius: var(--mg-inputs-border-radius);
-  background-color: hsl(var(--color-light));
-  color: hsl(var(--color-dark));
-  font-family: inherit;
-  font-size: var(--font-size);
-  text-align: var(--mg-inputs-text-align, left);
-
-  // placeholder
-  &::placeholder {
-    color: var(--mg-inputs-color);
-    font-style: italic;
-  }
-
-  &:focus {
-    box-shadow: 0 0 0.6rem hsl(var(--mg-inputs-color-shadow-focus-hsl) / 50%);
-  }
-
-  // disabled
-  &:disabled {
-    opacity: 0.3;
-  }
-}
-
-/**
-* Variations
-*/
-
 .mg-c-input {
+  &__box {
+    height: var(--default-size);
+    box-sizing: border-box;
+    padding: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2) var(--mg-inputs-spacer);
+    border-width: var(--mg-inputs-border-width);
+    border-style: solid;
+    border-color: var(--mg-inputs-color);
+    border-radius: var(--mg-inputs-border-radius);
+    background-color: hsl(var(--color-light));
+    color: hsl(var(--color-dark));
+    font-family: inherit;
+    font-size: var(--font-size);
+    text-align: var(--mg-inputs-text-align, left);
+
+    // placeholder
+    &::placeholder {
+      color: var(--mg-inputs-color);
+      font-style: italic;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0.6rem hsl(var(--mg-inputs-color-shadow-focus-hsl) / 50%);
+    }
+
+    // disabled
+    &:disabled {
+      opacity: 0.3;
+    }
+  }
+
+  /**
+  * Variations
+  */
   &.mg-c-input--is-input-group-append {
     // Input group button
     --mg-button-border-radius-top-left: 0;

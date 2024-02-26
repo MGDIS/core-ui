@@ -27,6 +27,9 @@ export class MgInputRadio {
   // HTML selector
   private inputs: HTMLInputElement[] = [];
 
+  // classes
+  private readonly classVerticalList = 'mg-c-input--vertical-list';
+
   // Locales
   private messages;
 
@@ -104,6 +107,11 @@ export class MgInputRadio {
    * Define if inputs are display verticaly
    */
   @Prop() inputVerticalList = false;
+  @Watch('inputVerticalList')
+  watchInputVerticalList(newValue: MgInputRadio['inputVerticalList']): void {
+    if (newValue) this.classCollection.add(this.classVerticalList);
+    else this.classCollection.delete(this.classVerticalList);
+  }
 
   /**
    * Define if input is required
@@ -290,6 +298,7 @@ export class MgInputRadio {
     this.messages = initLocales(this.element).messages;
     // Validate
     this.validateItems(this.items);
+    this.watchInputVerticalList(this.inputVerticalList);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -323,7 +332,7 @@ export class MgInputRadio {
         errorMessage={this.errorMessage}
         type="fieldset"
       >
-        <ul class={{ 'mg-c-input__input-group-container': true, 'mg-c-input__input-group-container--vertical': this.inputVerticalList }} role="list">
+        <ul class="mg-c-input__input-group-container" role="list">
           {this.options.map((input, index) => (
             <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
               <input

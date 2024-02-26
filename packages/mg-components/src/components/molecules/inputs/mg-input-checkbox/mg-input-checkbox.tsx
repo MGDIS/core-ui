@@ -41,6 +41,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   // style
   private readonly baseClassName = 'mg-c-input--checkbox';
+  private readonly classVerticalList = 'mg-c-input--vertical-list';
+  private readonly classWithValues = 'mg-c-input--with-values';
+  private readonly classSearchMode = 'mg-c-input--search-mode';
 
   // "multi" setup
   private readonly multiStart = 5;
@@ -134,6 +137,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Define if inputs are display verticaly
    */
   @Prop() inputVerticalList = false;
+  @Watch('inputVerticalList')
+  watchInputVerticalList(newValue: MgInputCheckbox['inputVerticalList']): void {
+    if (newValue || this.type === 'multi') this.classCollection.add(this.classVerticalList);
+    else this.classCollection.delete(this.classVerticalList);
+  }
 
   /**
    * Define if mg-input-checkbox is required
@@ -150,6 +158,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
    */
   @Prop() displaySelectedValues: boolean;
+  @Watch('displaySelectedValues')
+  watchDisplaySelectedValues(newValue: MgInputCheckbox['displaySelectedValues']): void {
+    if (newValue) this.classCollection.add(this.classWithValues);
+    else this.classCollection.delete(this.classWithValues);
+  }
 
   /**
    * Define if input is disabled
@@ -229,6 +242,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Display search input
    */
   @State() displaySearchInput: boolean;
+  @Watch('displaySearchInput')
+  watchDisplaySearchInput(newValue: MgInputCheckbox['displaySearchInput']): void {
+    if (newValue) this.classCollection.add(this.classSearchMode);
+    else this.classCollection.delete(this.classSearchMode);
+  }
 
   /**
    * Search value query
@@ -524,6 +542,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
+    this.watchInputVerticalList(this.inputVerticalList);
+    this.watchDisplaySelectedValues(this.displaySelectedValues);
+    this.watchDisplaySearchInput(this.displaySearchInput);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -589,14 +610,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     const checkboxes = this.getDisplayItems();
 
     return (
-      <div
-        class={{
-          'mg-c-input__input-container': true,
-          'mg-c-input__input-checkbox-multi': true,
-          'mg-c-input__input-checkbox-multi--with-values': this.displaySelectedValues,
-          'mg-c-input__input-checkbox-multi--search-mode': this.displaySearchInput,
-        }}
-      >
+      <div class="mg-c-input__input-container">
         <mg-popover
           arrowHide={true}
           identifier={this.getMgPopoverIdentifier()}
@@ -610,7 +624,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             <mg-icon icon="list"></mg-icon>
             {this.messages.input.checkbox[this.selectValuesButtonKey]}
           </mg-button>
-          <div slot="content" class="mg-c-input__input-checkbox-multi-content">
+          <div slot="content" class="mg-c-input__content">
             {this.displaySearchInput ? (
               [
                 <mg-input-text
@@ -631,15 +645,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 <p key="search-results" role="status" class="mg-u-visually-hidden" id="search-results">
                   {`${checkboxes.length} ${this.messages.input.checkbox[checkboxes.length > 0 ? 'results' : 'result']}`}
                 </p>,
-                <div key="sections-container" class="mg-c-input__input-checkbox-multi-sections-container">
+                <div key="sections-container" class="mg-c-input__sections">
                   {this.renderCheckboxBySection(checkboxes)}
                 </div>,
               ]
             ) : (
               <MgInputCheckboxList
                 checkboxes={checkboxes}
-                inputVerticalList={true}
-                type={this.type}
                 displaySearchInput={this.displaySearchInput}
                 messages={this.messages.input.checkbox}
                 id="checkboxes-list"
@@ -648,14 +660,14 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
                 invalid={this.invalid}
               ></MgInputCheckboxList>
             )}
-            {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-c-input__input-checkbox-multi-no-result">{this.messages.input.checkbox.noResult}</p>}
+            {this.displaySearchInput && checkboxes.length === 0 && <p class="mg-c-input__input-no-result">{this.messages.input.checkbox.noResult}</p>}
           </div>
         </mg-popover>
         {this.displaySelectedValues ? (
           selectedValuesNb > 0 && (
-            <ul role="list" class="mg-c-input__input-checkbox-multi-values-container">
+            <ul role="list" class="mg-c-input__input-container-list">
               {this.getSelectedItems().map(({ title }) => (
-                <li class="mg-c-input__input-checkbox-multi-value" key={title}>
+                <li class="mg-c-input__input-value" key={title}>
                   {title}
                 </li>
               ))}
@@ -696,8 +708,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         {this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList
             checkboxes={this.checkboxItems}
-            inputVerticalList={this.inputVerticalList}
-            type={this.type}
             displaySearchInput={this.displaySearchInput}
             messages={this.messages.input.checkbox}
             id="checkboxes-list"
