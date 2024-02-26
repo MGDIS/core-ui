@@ -36,6 +36,6 @@ export const MgInput = {
     tooltip: 'This is a tooltip',
     // Help Text
     helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
-    slot: '<mg-input-text label="label"></mg-input-text>',
+    slot: '<input type="file" id="identifier" class="mg-c-input__box"></input>',
   },
 };

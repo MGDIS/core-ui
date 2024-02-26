@@ -342,7 +342,15 @@ export class MgInput {
    */
   componentDidLoad(): void {
     this.watchAriaDescribedbyIDs();
-    if (!this.readonly && this.type === 'fieldset') this.labelSlotElement.querySelector('legend').setAttribute('id', this.legendId);
+    if (!this.readonly) {
+      if (this.type === 'fieldset') {
+        this.labelSlotElement.querySelector('legend').setAttribute('id', this.legendId);
+      } else {
+        if (!this.element.querySelector(`#${this.identifier}`)) {
+          throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
+        }
+      }
+    }
   }
 
   /**

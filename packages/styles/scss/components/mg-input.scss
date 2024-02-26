@@ -156,6 +156,10 @@ mg-icon {
   }
 }
 
+:host(.mg-c-input) {
+  display: flex;
+}
+
 :host(.mg-c-input.mg-c-input--label-on-top) {
   @include label-on-top-styles;
 }
