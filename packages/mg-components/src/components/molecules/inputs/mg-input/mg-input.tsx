@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { widths, type Width, tooltipPositions, type TooltipPosition, type InputType, inputTypes } from './mg-input.conf';
 
@@ -58,22 +58,6 @@ export class MgInput {
    * Define input label
    */
   @Prop() label!: string;
-
-  /**
-   * Define component type
-   */
-  @Prop() type: InputType = 'input';
-  @Watch('type')
-  watchType(newValue: MgInput['type']): void {
-    if (!inputTypes.includes(newValue)) {
-      throw new Error('<mg-input> prop "type" must be a InputType.');
-    } else {
-      inputTypes.forEach(className => {
-        this.classCollection.delete(`mg-c-input--${className}`);
-      });
-      this.classCollection.add(`mg-c-input--${newValue}`);
-    }
-  }
 
   /**
    * Define if label is displayed on top
@@ -248,41 +232,66 @@ export class MgInput {
     }
   }
 
+  /**
+   * Define component type
+   */
+  @State() type: InputType = 'input';
+  @Watch('type')
+  watchType(newValue: MgInput['type']): void {
+    inputTypes.forEach(className => {
+      this.classCollection.delete(`mg-c-input--${className}`);
+    });
+    this.classCollection.add(`mg-c-input--${newValue}`);
+    this.renderLabel();
+  }
+
   /************
    * Methods *
    ************/
 
   /**
+   * Set attributes on agiven HTML Element
+   * @param element - element to update
+   * @param attributes - attributes to apply
+   */
+  private setElement = (element: HTMLElement, attributes: [string, string][]): void => {
+    attributes.forEach(([key, val]) => {
+      element.setAttribute(key, val);
+    });
+  };
+
+  /**
    * Render input label
    */
-  private renderLabel() {
-    const slot: HTMLMgInputTitleElement = this.element.querySelector(`[slot=${this.slotLabel}]`);
-    const textClass = 'mg-c-input-title__text';
-    if (!this.labelSlotElement && slot) {
-      this.labelSlotElement = slot;
-    } else if (!this.labelSlotElement && !slot) {
+  private renderLabel(): void {
+    this.labelSlotElement = this.element.querySelector(`[slot=${this.slotLabel}]`);
+    const labelTextClass = 'mg-c-input-title__text';
+    const labelAttributes: [string, string][] = [
+      ['slot', this.slotLabel],
+      ['identifier', this.identifier.toString()],
+      ['readonly', this.readonly.toString()],
+      ['required', ((this.required && !this.disabled) || false).toString()],
+      ['is-legend', (this.type === 'fieldset').toString()],
+    ];
+    if (!this.labelSlotElement) {
       this.labelSlotElement = document.createElement('mg-input-title');
-      this.labelSlotElement.setAttribute('slot', this.slotLabel);
-      this.labelSlotElement.setAttribute('identifier', this.identifier.toString());
-      this.labelSlotElement.setAttribute('readonly', this.readonly.toString());
-      this.labelSlotElement.setAttribute('required', (this.required && !this.disabled).toString());
-      this.labelSlotElement.setAttribute('is-legend', (this.type === 'fieldset').toString());
+      this.setElement(this.labelSlotElement, labelAttributes);
       const label = document.createElement('span');
-      label.classList.add(textClass);
+      label.classList.add(labelTextClass);
       this.labelSlotElement.appendChild(label);
       this.element.appendChild(this.labelSlotElement);
     }
-    this.labelSlotElement.getElementsByClassName(textClass)[0].textContent = this.label;
+
+    this.setElement(this.labelSlotElement, labelAttributes);
+    this.labelSlotElement.getElementsByClassName(labelTextClass)[0].textContent = this.label;
   }
 
   /**
    * Render error message
    */
-  private renderErrorMessage() {
-    const slot: HTMLElement = this.element.querySelector(`[slot=${this.slotError}]`);
-    if (!this.errorMessageSlotElement && slot) {
-      this.errorMessageSlotElement = slot;
-    } else if (!this.errorMessageSlotElement && !slot) {
+  private renderErrorMessage(): void {
+    this.errorMessageSlotElement = this.element.querySelector(`[slot=${this.slotError}]`);
+    if (!this.errorMessageSlotElement) {
       this.errorMessageSlotElement = document.createElement('div');
       this.errorMessageSlotElement.setAttribute('slot', this.slotError);
       this.element.appendChild(this.errorMessageSlotElement);
@@ -294,11 +303,9 @@ export class MgInput {
   /**
    * Render help text message
    */
-  private renderHelpText() {
-    const slot: HTMLElement = this.element.querySelector(`[slot=${this.slotHelpText}]`);
-    if (!this.helptextMessageSlotElement && slot) {
-      this.helptextMessageSlotElement = slot;
-    } else if (!this.helptextMessageSlotElement && !slot) {
+  private renderHelpText(): void {
+    this.helptextMessageSlotElement = this.element.querySelector(`[slot=${this.slotHelpText}]`);
+    if (!this.helptextMessageSlotElement) {
       this.helptextMessageSlotElement = document.createElement('div');
       this.helptextMessageSlotElement.setAttribute('slot', this.slotHelpText);
       this.element.appendChild(this.helptextMessageSlotElement);
@@ -318,7 +325,6 @@ export class MgInput {
     //Check required properties
     this.watchIdentifier(this.identifier);
     this.watchLabel();
-    this.watchType(this.type);
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchReadonly(this.readonly);
@@ -328,15 +334,15 @@ export class MgInput {
     this.watchClassCollection(this.classCollection);
     this.watchErrorMessage(this.errorMessage);
     this.watchHelpText(this.helpText);
+    this.type = (this.element.dataset.inputType as InputType) || 'input';
   }
 
   /**
    * Validate slots
    */
   componentDidLoad(): void {
-    this.renderLabel();
     this.watchAriaDescribedbyIDs();
-    if (!this.readonly && this.type === 'fieldset') this.element.querySelector('legend').setAttribute('id', this.legendId);
+    if (!this.readonly && this.type === 'fieldset') this.labelSlotElement.querySelector('legend').setAttribute('id', this.legendId);
   }
 
   /**

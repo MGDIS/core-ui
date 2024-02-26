@@ -220,7 +220,7 @@ export class MgInputPassword {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
+    this.setValidity(this.readonly || this.disabled || this.input.checkValidity());
   };
 
   /**

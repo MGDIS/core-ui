@@ -7,7 +7,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -58,7 +58,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--label-on-top mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -97,7 +97,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -139,7 +139,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date lang="fr" value="2022-06-02">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -181,7 +181,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date lang="xx" value="2022-06-02">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -224,7 +224,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -262,7 +262,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -297,7 +297,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date value="2022-06-02">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -332,7 +332,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -378,7 +378,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--label-on-top">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -425,7 +425,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--label-on-top">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -471,7 +471,7 @@ exports[`mg-input-date Should render with args {
 }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -512,7 +512,7 @@ exports[`mg-input-date Should render with args {
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier' }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -550,7 +550,7 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', labelHide: true }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
@@ -588,7 +588,7 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', labelOnTop: true }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--label-on-top">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -626,7 +626,7 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', readonly: true }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -660,7 +660,7 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
 exports[`mg-input-date Should trigger events 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -691,7 +691,7 @@ exports[`mg-input-date Should trigger events 1`] = `
 exports[`mg-input-date display error message with locale: fr 1`] = `
 <mg-input-date lang="fr">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -735,7 +735,7 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
 exports[`mg-input-date display error message with locale: xx 1`] = `
 <mg-input-date lang="xx">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -779,7 +779,7 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
 exports[`mg-input-date display error with displayError component's public method 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -817,7 +817,7 @@ exports[`mg-input-date display error with displayError component's public method
 exports[`mg-input-date display error with displayError component's public method 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -861,7 +861,7 @@ exports[`mg-input-date display error with displayError component's public method
 exports[`mg-input-date should display override error with setError component's public method 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -899,7 +899,7 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date should display override error with setError component's public method 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -937,7 +937,7 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date should display override error with setError component's public method 3`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -975,7 +975,7 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date should display override error with setError component's public method 4`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1019,7 +1019,7 @@ exports[`mg-input-date should display override error with setError component's p
 exports[`mg-input-date validity, case next state is disabled validity ({ validity: false, valueMissing: true, badInput: false }) 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1063,7 +1063,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
 exports[`mg-input-date validity, case next state is disabled validity ({ validity: false, valueMissing: true, badInput: false }) 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1101,7 +1101,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
 exports[`mg-input-date validity, case next state is readonly validity ({ validity: false, valueMissing: true, badInput: false }) 1`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1145,7 +1145,7 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
 exports[`mg-input-date validity, case next state is readonly validity ({ validity: false, valueMissing: true, badInput: false }) 2`] = `
 <mg-input-date>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1156,7 +1156,7 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
         </div>
       </mock:shadow-root>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" type="date">
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
@@ -1179,7 +1179,7 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 1`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1217,7 +1217,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 2`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1255,7 +1255,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 3`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1293,7 +1293,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 4`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1331,7 +1331,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 1`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1369,7 +1369,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 2`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1407,7 +1407,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 3`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1451,7 +1451,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 4`] = `
 <mg-input-date value="2024-01-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1489,7 +1489,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 1`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1527,7 +1527,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 2`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1565,7 +1565,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 3`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1609,7 +1609,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 4`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1647,7 +1647,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 1`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1685,7 +1685,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 2`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1723,7 +1723,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 3`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1761,7 +1761,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 4`] = `
 <mg-input-date value="2024-03-01">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+    <mg-input class="mg-c-input mg-c-input--date">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>

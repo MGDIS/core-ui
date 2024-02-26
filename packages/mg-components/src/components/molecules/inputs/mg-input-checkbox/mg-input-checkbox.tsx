@@ -703,7 +703,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         tooltipPosition={this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
-        type="fieldset"
+        data-input-type="fieldset"
       >
         {this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList

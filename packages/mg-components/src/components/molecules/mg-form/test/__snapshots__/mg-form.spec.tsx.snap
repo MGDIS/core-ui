@@ -13,7 +13,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -62,7 +62,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -111,7 +111,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -148,7 +148,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -184,7 +184,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -245,7 +245,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -297,7 +297,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -337,7 +337,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--has-error mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -375,7 +375,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -423,7 +423,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly" data-input-type="fieldset">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -462,7 +462,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -496,7 +496,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -521,7 +521,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -545,7 +545,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -594,7 +594,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -634,7 +634,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -662,7 +662,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -688,7 +688,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -748,7 +748,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -791,7 +791,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -834,7 +834,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -865,7 +865,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -895,7 +895,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -950,7 +950,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -996,7 +996,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1030,7 +1030,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1062,7 +1062,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1121,7 +1121,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1164,7 +1164,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1207,7 +1207,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1233,7 +1233,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1258,7 +1258,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1308,7 +1308,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1349,7 +1349,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1378,7 +1378,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1405,7 +1405,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1464,7 +1464,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1507,7 +1507,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1545,7 +1545,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1571,7 +1571,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1596,7 +1596,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1646,7 +1646,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1687,7 +1687,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1716,7 +1716,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1743,7 +1743,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1802,7 +1802,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1866,7 +1866,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1904,7 +1904,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1942,7 +1942,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1968,7 +1968,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -1993,7 +1993,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2043,7 +2043,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2084,7 +2084,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2113,7 +2113,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2140,7 +2140,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2192,7 +2192,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2235,7 +2235,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2278,7 +2278,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2309,7 +2309,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2339,7 +2339,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2394,7 +2394,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2440,7 +2440,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2474,7 +2474,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2506,7 +2506,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2558,7 +2558,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2601,7 +2601,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2644,7 +2644,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2670,7 +2670,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2695,7 +2695,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2745,7 +2745,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2786,7 +2786,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2815,7 +2815,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2842,7 +2842,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2894,7 +2894,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2937,7 +2937,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -2975,7 +2975,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3001,7 +3001,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3026,7 +3026,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3076,7 +3076,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3117,7 +3117,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3146,7 +3146,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3173,7 +3173,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3225,7 +3225,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3282,7 +3282,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3320,7 +3320,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3358,7 +3358,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3384,7 +3384,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3409,7 +3409,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3459,7 +3459,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3500,7 +3500,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3529,7 +3529,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3556,7 +3556,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3611,7 +3611,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3654,7 +3654,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3697,7 +3697,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3728,7 +3728,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3758,7 +3758,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3813,7 +3813,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3859,7 +3859,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3893,7 +3893,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3925,7 +3925,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -3984,7 +3984,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4027,7 +4027,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4070,7 +4070,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4096,7 +4096,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4121,7 +4121,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4171,7 +4171,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4212,7 +4212,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4241,7 +4241,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4268,7 +4268,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4327,7 +4327,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4370,7 +4370,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4408,7 +4408,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4434,7 +4434,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4459,7 +4459,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4509,7 +4509,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4550,7 +4550,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4579,7 +4579,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4606,7 +4606,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4661,7 +4661,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4718,7 +4718,7 @@ exports[`mg-form Should render with args {
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4756,7 +4756,7 @@ exports[`mg-form Should render with args {
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4794,7 +4794,7 @@ exports[`mg-form Should render with args {
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4820,7 +4820,7 @@ exports[`mg-form Should render with args {
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4845,7 +4845,7 @@ exports[`mg-form Should render with args {
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4895,7 +4895,7 @@ exports[`mg-form Should render with args {
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4936,7 +4936,7 @@ exports[`mg-form Should render with args {
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4965,7 +4965,7 @@ exports[`mg-form Should render with args {
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -4992,7 +4992,7 @@ exports[`mg-form Should render with args {
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5041,7 +5041,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5079,7 +5079,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5117,7 +5117,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5143,7 +5143,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5168,7 +5168,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5218,7 +5218,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5259,7 +5259,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5288,7 +5288,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5315,7 +5315,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5364,7 +5364,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly" data-input-type="fieldset">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5403,7 +5403,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5437,7 +5437,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5462,7 +5462,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5486,7 +5486,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5535,7 +5535,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5575,7 +5575,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5603,7 +5603,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5629,7 +5629,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5678,7 +5678,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5716,7 +5716,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5754,7 +5754,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5780,7 +5780,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5805,7 +5805,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5855,7 +5855,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5896,7 +5896,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5925,7 +5925,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5952,7 +5952,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle mg-c-input--toggle-disabled">
+      <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6001,7 +6001,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--label-on-top" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--label-on-top" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6039,7 +6039,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--label-on-top">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6077,7 +6077,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6103,7 +6103,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6128,7 +6128,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6178,7 +6178,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6219,7 +6219,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6248,7 +6248,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--label-on-top mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6275,7 +6275,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6323,7 +6323,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly" data-input-type="fieldset">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6362,7 +6362,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6396,7 +6396,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6421,7 +6421,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--readonly mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6445,7 +6445,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6494,7 +6494,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6534,7 +6534,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6562,7 +6562,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--readonly mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6588,7 +6588,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--readonly mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6638,7 +6638,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6676,7 +6676,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6714,7 +6714,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6740,7 +6740,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6765,7 +6765,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6815,7 +6815,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6856,7 +6856,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6885,7 +6885,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6912,7 +6912,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6961,7 +6961,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6999,7 +6999,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7037,7 +7037,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7063,7 +7063,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7088,7 +7088,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7138,7 +7138,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7179,7 +7179,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7208,7 +7208,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7235,7 +7235,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7284,7 +7284,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7322,7 +7322,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7360,7 +7360,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7386,7 +7386,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7411,7 +7411,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7461,7 +7461,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7502,7 +7502,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7531,7 +7531,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7558,7 +7558,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7607,7 +7607,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7645,7 +7645,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7683,7 +7683,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7709,7 +7709,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7734,7 +7734,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7784,7 +7784,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7825,7 +7825,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7854,7 +7854,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7881,7 +7881,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7930,7 +7930,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -7968,7 +7968,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8006,7 +8006,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8032,7 +8032,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8057,7 +8057,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8107,7 +8107,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8148,7 +8148,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8177,7 +8177,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8204,7 +8204,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8253,7 +8253,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8291,7 +8291,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8329,7 +8329,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8355,7 +8355,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8380,7 +8380,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8430,7 +8430,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8471,7 +8471,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8500,7 +8500,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8527,7 +8527,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
   </mg-input-textarea>
   <mg-input-toggle>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8579,7 +8579,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8628,7 +8628,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8677,7 +8677,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8714,7 +8714,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8750,7 +8750,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8811,7 +8811,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8863,7 +8863,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8903,7 +8903,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--has-error mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8941,7 +8941,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8993,7 +8993,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9042,7 +9042,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-checkbox>
   <mg-input-date>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error mg-c-input--input">
+      <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9091,7 +9091,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-date>
   <mg-input-numeric>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9128,7 +9128,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-numeric>
   <mg-input-password>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--password mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--password mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9164,7 +9164,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
+      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9225,7 +9225,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-radio>
   <mg-input-select>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--select">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--select">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9277,7 +9277,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-select>
   <mg-input-text>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--text mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--text mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9317,7 +9317,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-text>
   <mg-input-textarea>
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--has-error mg-c-input--input mg-c-input--textarea mg-c-input--width-full">
+      <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--has-error mg-c-input--textarea mg-c-input--width-full">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -9355,7 +9355,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
   </mg-input-textarea>
   <mg-input-toggle required="">
     <mock:shadow-root>
-      <mg-input class="mg-c-input mg-c-input--input mg-c-input--toggle">
+      <mg-input class="mg-c-input mg-c-input--toggle">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>

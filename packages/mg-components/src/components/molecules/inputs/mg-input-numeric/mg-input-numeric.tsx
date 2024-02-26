@@ -397,9 +397,7 @@ export class MgInputNumeric {
    */
   private getInputError = (): null | InputError => {
     let inputError = null;
-    const hasNotEmptyValues = (toControl: unknown[]) => !toControl.some(value => [null, undefined].includes(value));
-
-    if (!hasNotEmptyValues([this.input])) return inputError;
+    const hasNotEmptyValues = (toControl: number[]) => !toControl.some(value => [null, undefined].includes(value));
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {

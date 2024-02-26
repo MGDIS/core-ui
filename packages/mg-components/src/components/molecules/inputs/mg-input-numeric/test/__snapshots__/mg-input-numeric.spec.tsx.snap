@@ -3,7 +3,7 @@
 exports[`mg-input-numeric Should update mg-width 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--width-2">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-2">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -29,7 +29,7 @@ exports[`mg-input-numeric Should update mg-width 1`] = `
 exports[`mg-input-numeric Should update mg-width 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--width-4">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-4">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -55,7 +55,7 @@ exports[`mg-input-numeric Should update mg-width 2`] = `
 exports[`mg-input-numeric Should update mg-width 3`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--width-16">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-16">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -81,7 +81,7 @@ exports[`mg-input-numeric Should update mg-width 3`] = `
 exports[`mg-input-numeric Should update mg-width 4`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--width-full">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-full">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -107,7 +107,7 @@ exports[`mg-input-numeric Should update mg-width 4`] = `
 exports[`mg-input-numeric display error message with locale: fr 1`] = `
 <mg-input-numeric lang="fr">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -139,7 +139,7 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
 exports[`mg-input-numeric display error message with locale: xx 1`] = `
 <mg-input-numeric lang="xx">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -171,7 +171,7 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
 exports[`mg-input-numeric should display override error with setError component's public method 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -197,7 +197,7 @@ exports[`mg-input-numeric should display override error with setError component'
 exports[`mg-input-numeric should display override error with setError component's public method 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -223,7 +223,7 @@ exports[`mg-input-numeric should display override error with setError component'
 exports[`mg-input-numeric should display override error with setError component's public method 3`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -249,7 +249,7 @@ exports[`mg-input-numeric should display override error with setError component'
 exports[`mg-input-numeric should display override error with setError component's public method 4`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -281,7 +281,7 @@ exports[`mg-input-numeric should display override error with setError component'
 exports[`mg-input-numeric type currency Format currency args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -308,7 +308,7 @@ exports[`mg-input-numeric type currency Format currency args { readonly: true } 
 exports[`mg-input-numeric type currency Format currency args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -334,7 +334,7 @@ exports[`mg-input-numeric type currency Format currency args {} 1`] = `
 exports[`mg-input-numeric type currency Format none args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -361,7 +361,7 @@ exports[`mg-input-numeric type currency Format none args { readonly: true } 1`] 
 exports[`mg-input-numeric type currency Format none args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -387,7 +387,7 @@ exports[`mg-input-numeric type currency Format none args {} 1`] = `
 exports[`mg-input-numeric type currency Format number args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -414,7 +414,7 @@ exports[`mg-input-numeric type currency Format number args { readonly: true } 1`
 exports[`mg-input-numeric type currency Format number args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -446,7 +446,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -477,7 +477,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
@@ -508,7 +508,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -539,7 +539,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -571,7 +571,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -602,7 +602,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -636,7 +636,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -670,7 +670,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -705,7 +705,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -745,7 +745,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -782,7 +782,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -819,7 +819,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -860,7 +860,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -902,7 +902,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -943,7 +943,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -984,7 +984,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1016,7 +1016,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1048,7 +1048,7 @@ exports[`mg-input-numeric type currency Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1074,7 +1074,7 @@ exports[`mg-input-numeric type currency Should render with args {
 exports[`mg-input-numeric type currency Should render with args { label: 'label', identifier: 'identifier', type: 'currency' }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1100,7 +1100,7 @@ exports[`mg-input-numeric type currency Should render with args { label: 'label'
 exports[`mg-input-numeric type currency Should render with slot. 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--is-input-group-append mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--is-input-group-append mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1143,7 +1143,7 @@ exports[`mg-input-numeric type currency Should render with slot. 1`] = `
 exports[`mg-input-numeric type currency Should render with slot. 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1172,7 +1172,7 @@ exports[`mg-input-numeric type currency Should render with slot. 2`] = `
 exports[`mg-input-numeric type currency Should trigger events 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1204,7 +1204,7 @@ exports[`mg-input-numeric type currency Should trigger events 1`] = `
 exports[`mg-input-numeric type currency Should update display value when value props change 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1230,7 +1230,7 @@ exports[`mg-input-numeric type currency Should update display value when value p
 exports[`mg-input-numeric type currency Should update display value when value props change 2`] = `
 <mg-input-numeric value="10">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1256,7 +1256,7 @@ exports[`mg-input-numeric type currency Should update display value when value p
 exports[`mg-input-numeric type currency display error with displayError component's public method 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1282,7 +1282,7 @@ exports[`mg-input-numeric type currency display error with displayError componen
 exports[`mg-input-numeric type currency display error with displayError component's public method 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1314,7 +1314,7 @@ exports[`mg-input-numeric type currency display error with displayError componen
 exports[`mg-input-numeric type currency validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1346,7 +1346,7 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
 exports[`mg-input-numeric type currency validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1372,7 +1372,7 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
 exports[`mg-input-numeric type currency validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1404,7 +1404,7 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
 exports[`mg-input-numeric type currency validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1416,7 +1416,7 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
       </mock:shadow-root>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
@@ -1429,7 +1429,7 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
 exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1456,7 +1456,7 @@ exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1
 exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1482,7 +1482,7 @@ exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
 exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1509,7 +1509,7 @@ exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] =
 exports[`mg-input-numeric type decimal Format none args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1535,7 +1535,7 @@ exports[`mg-input-numeric type decimal Format none args {} 1`] = `
 exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1562,7 +1562,7 @@ exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`]
 exports[`mg-input-numeric type decimal Format number args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1594,7 +1594,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1625,7 +1625,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
@@ -1656,7 +1656,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1687,7 +1687,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1719,7 +1719,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1750,7 +1750,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1784,7 +1784,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1818,7 +1818,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1853,7 +1853,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1893,7 +1893,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1930,7 +1930,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1967,7 +1967,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2008,7 +2008,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2050,7 +2050,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2091,7 +2091,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2132,7 +2132,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2164,7 +2164,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2196,7 +2196,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2222,7 +2222,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 exports[`mg-input-numeric type decimal Should render with args { label: 'label', identifier: 'identifier', type: 'decimal' }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2248,7 +2248,7 @@ exports[`mg-input-numeric type decimal Should render with args { label: 'label',
 exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--is-input-group-append mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--is-input-group-append mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2291,7 +2291,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
 exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2320,7 +2320,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
 exports[`mg-input-numeric type decimal Should trigger events 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2352,7 +2352,7 @@ exports[`mg-input-numeric type decimal Should trigger events 1`] = `
 exports[`mg-input-numeric type decimal Should update display value when value props change 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2378,7 +2378,7 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
 exports[`mg-input-numeric type decimal Should update display value when value props change 2`] = `
 <mg-input-numeric value="10">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2404,7 +2404,7 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
 exports[`mg-input-numeric type decimal display error with displayError component's public method 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2430,7 +2430,7 @@ exports[`mg-input-numeric type decimal display error with displayError component
 exports[`mg-input-numeric type decimal display error with displayError component's public method 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2462,7 +2462,7 @@ exports[`mg-input-numeric type decimal display error with displayError component
 exports[`mg-input-numeric type decimal validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2494,7 +2494,7 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
 exports[`mg-input-numeric type decimal validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2520,7 +2520,7 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
 exports[`mg-input-numeric type decimal validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2552,7 +2552,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
 exports[`mg-input-numeric type decimal validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2564,7 +2564,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
       </mock:shadow-root>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
@@ -2577,7 +2577,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
 exports[`mg-input-numeric type integer Format currency args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2604,7 +2604,7 @@ exports[`mg-input-numeric type integer Format currency args { readonly: true } 1
 exports[`mg-input-numeric type integer Format currency args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2630,7 +2630,7 @@ exports[`mg-input-numeric type integer Format currency args {} 1`] = `
 exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2657,7 +2657,7 @@ exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] =
 exports[`mg-input-numeric type integer Format none args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2683,7 +2683,7 @@ exports[`mg-input-numeric type integer Format none args {} 1`] = `
 exports[`mg-input-numeric type integer Format number args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2710,7 +2710,7 @@ exports[`mg-input-numeric type integer Format number args { readonly: true } 1`]
 exports[`mg-input-numeric type integer Format number args {} 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2742,7 +2742,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2773,7 +2773,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
@@ -2804,7 +2804,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2835,7 +2835,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2867,7 +2867,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2898,7 +2898,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2932,7 +2932,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2966,7 +2966,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3001,7 +3001,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3041,7 +3041,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3078,7 +3078,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3115,7 +3115,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3156,7 +3156,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3198,7 +3198,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--label-on-top mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3239,7 +3239,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3280,7 +3280,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3312,7 +3312,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3344,7 +3344,7 @@ exports[`mg-input-numeric type integer Should render with args {
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3370,7 +3370,7 @@ exports[`mg-input-numeric type integer Should render with args {
 exports[`mg-input-numeric type integer Should render with args { label: 'label', identifier: 'identifier', type: 'integer' }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3396,7 +3396,7 @@ exports[`mg-input-numeric type integer Should render with args { label: 'label',
 exports[`mg-input-numeric type integer Should render with slot. 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--is-input-group-append mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--is-input-group-append mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3439,7 +3439,7 @@ exports[`mg-input-numeric type integer Should render with slot. 1`] = `
 exports[`mg-input-numeric type integer Should render with slot. 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3468,7 +3468,7 @@ exports[`mg-input-numeric type integer Should render with slot. 2`] = `
 exports[`mg-input-numeric type integer Should trigger events 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3500,7 +3500,7 @@ exports[`mg-input-numeric type integer Should trigger events 1`] = `
 exports[`mg-input-numeric type integer Should update display value when value props change 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3526,7 +3526,7 @@ exports[`mg-input-numeric type integer Should update display value when value pr
 exports[`mg-input-numeric type integer Should update display value when value props change 2`] = `
 <mg-input-numeric value="10">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3552,7 +3552,7 @@ exports[`mg-input-numeric type integer Should update display value when value pr
 exports[`mg-input-numeric type integer display error with displayError component's public method 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3578,7 +3578,7 @@ exports[`mg-input-numeric type integer display error with displayError component
 exports[`mg-input-numeric type integer display error with displayError component's public method 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3610,7 +3610,7 @@ exports[`mg-input-numeric type integer display error with displayError component
 exports[`mg-input-numeric type integer validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3642,7 +3642,7 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
 exports[`mg-input-numeric type integer validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3668,7 +3668,7 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
 exports[`mg-input-numeric type integer validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3700,7 +3700,7 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
 exports[`mg-input-numeric type integer validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3712,7 +3712,7 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
       </mock:shadow-root>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
@@ -3725,7 +3725,7 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 1`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3751,7 +3751,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 2`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3777,7 +3777,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 3`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3803,7 +3803,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 4`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3829,7 +3829,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 1`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3855,7 +3855,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 2`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3881,7 +3881,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 3`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3913,7 +3913,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 4`] = `
 <mg-input-numeric value="1">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3939,7 +3939,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 1`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3965,7 +3965,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 2`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -3991,7 +3991,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 3`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -4023,7 +4023,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 4`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -4049,7 +4049,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 1`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -4075,7 +4075,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 2`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -4101,7 +4101,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 3`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -4127,7 +4127,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 4`] = `
 <mg-input-numeric value="3">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--input mg-c-input--numeric">
+    <mg-input class="mg-c-input mg-c-input--numeric">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>

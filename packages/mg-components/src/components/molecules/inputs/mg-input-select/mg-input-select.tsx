@@ -318,7 +318,7 @@ export class MgInputSelect {
    * @param item - item to compare with
    * @returns truthy if input.value is an item
    */
-  private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
+  private isInputValue = (item: SelectOption): boolean => item.title === this.input.value;
 
   /**
    * value props setter
@@ -367,7 +367,7 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true)));
+    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || (this.input.checkValidity !== undefined ? this.input.checkValidity() : true)));
   };
 
   /**

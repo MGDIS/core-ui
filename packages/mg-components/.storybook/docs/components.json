@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-20T15:33:53",
+  "timestamp": "2024-02-26T12:11:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.2",
@@ -2036,39 +2036,6 @@
             },
             {
               "value": "label",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "type",
-          "type": "\"fieldset\" | \"input\"",
-          "complexType": {
-            "original": "InputType",
-            "resolved": "\"fieldset\" | \"input\"",
-            "references": {
-              "InputType": {
-                "location": "import",
-                "path": "./mg-input.conf",
-                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::InputType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "type",
-          "reflectToAttr": false,
-          "docs": "Define component type",
-          "docsTags": [],
-          "default": "'input'",
-          "values": [
-            {
-              "value": "fieldset",
-              "type": "string"
-            },
-            {
-              "value": "input",
               "type": "string"
             }
           ],
@@ -10263,11 +10230,6 @@
       "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\"",
       "docstring": "",
       "path": "src/components/atoms/mg-tag/mg-tag.conf.ts"
-    },
-    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::InputType": {
-      "declaration": "\"fieldset\" | \"input\"",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
     },
     "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition": {
       "declaration": "\"input\" | \"label\"",

@@ -136,7 +136,6 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `required`                | `required`         | Define if input is required                                                 | `boolean`                | `false`                         |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`                 | `undefined`                     |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"`     | `'input'`                       |
-| `type`                    | `type`             | Define component type                                                       | `"fieldset" \| "input"`  | `'input'`                       |
 | `value`                   | `value`            | Define values                                                               | `string`                 | `undefined`                     |
 
 
