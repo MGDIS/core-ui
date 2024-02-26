@@ -6,7 +6,6 @@ CORE-NUMBER
 
 - [ ] Storybook
   - [ ] Component stories
-  - [ ] Changelog story updated
   - [ ] Documentation in component readme.md
 - [ ] Tests
   - [ ] Unit tests
