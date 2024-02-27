@@ -95,15 +95,15 @@ importers:
         specifier: workspace:*
         version: link:../../packages/mg-components
       '@stencil/core':
-        specifier: 4.12.3
-        version: 4.12.3
+        specifier: 4.12.4
+        version: 4.12.4
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
         version: link:../../packages/linting-stencil
       '@stencil/sass':
         specifier: 3.0.10
-        version: 3.0.10(@stencil/core@4.12.3)
+        version: 3.0.10(@stencil/core@4.12.4)
       '@types/jest':
         specifier: 29.5.12
         version: 29.5.12
@@ -616,8 +616,8 @@ importers:
         specifier: 2.11.8
         version: 2.11.8
       '@stencil/core':
-        specifier: 4.12.3
-        version: 4.12.3
+        specifier: 4.12.4
+        version: 4.12.4
     devDependencies:
       '@mgdis/linting-stencil':
         specifier: workspace:*
@@ -872,8 +872,8 @@ importers:
   packages/stencil-helpers:
     dependencies:
       '@stencil/core':
-        specifier: 4.12.3
-        version: 4.12.3
+        specifier: 4.12.4
+        version: 4.12.4
     devDependencies:
       '@types/node':
         specifier: 20.11.20
@@ -5640,18 +5640,18 @@ packages:
       typescript: 5.3.3
     dev: false
 
-  /@stencil/core@4.12.3:
-    resolution: {integrity: sha512-9XkE9i2aXPlApMNeq3tbVHKx0eAfDc7QGyIl6t5NMuQFTOGL5Xd1soF38d+hCIDpUoUUtY7jXWg+iFrlrMzQhg==}
+  /@stencil/core@4.12.4:
+    resolution: {integrity: sha512-KrwoXu9J1loWSvQQReilGPkt6/dCH/x5eTBDecCBPclz7vxUM13Iw9almBIffEpurk/kaMAglH0G7sAF/A2y1A==}
     engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
 
-  /@stencil/sass@3.0.10(@stencil/core@4.12.3):
+  /@stencil/sass@3.0.10(@stencil/core@4.12.4):
     resolution: {integrity: sha512-G4JdKDhEXEBS4+Riy5WVxPRXfHdfEwPopmPne8fm9ilQpaTRyl3BMpbxt63ijHtQjH0KtH8jxmRiTYamP4BfIA==}
     engines: {node: '>=12.0.0', npm: '>=6.0.0'}
     peerDependencies:
       '@stencil/core': '>=2.0.0 || >=3.0.0-beta.0 || >= 4.0.0-beta.0 || >= 4.0.0'
     dependencies:
-      '@stencil/core': 4.12.3
+      '@stencil/core': 4.12.4
     dev: true
 
   /@storybook/addon-a11y@7.6.17:
