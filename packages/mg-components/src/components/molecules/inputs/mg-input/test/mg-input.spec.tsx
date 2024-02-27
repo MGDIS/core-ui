@@ -16,7 +16,6 @@ const getPage = (args, slot?) =>
 const baseArgs = {
   label: 'label',
   identifier: 'identifier',
-  value: 'batman',
 };
 
 const errorMessage = 'This is an error';
@@ -34,8 +33,7 @@ describe('mg-input', () => {
       { ...baseArgs, errorMessage },
       { ...baseArgs, errorMessage, readonly: true },
       { ...baseArgs, errorMessage, disabled: true },
-      { ...baseArgs, value: ['batman', 'joker', 'bane'], readonly: true },
-      { ...baseArgs, readonly: true },
+      { ...baseArgs, readonlyValue: ['batman', 'joker', 'bane'], readonly: true },
       { ...baseArgs, readonly: true },
       { ...baseArgs, readonly: true, inputVerticalList: true },
       { ...baseArgs, labelOnTop: true },

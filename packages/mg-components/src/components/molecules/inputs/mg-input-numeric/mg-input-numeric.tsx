@@ -489,7 +489,6 @@ export class MgInputNumeric {
         readonly={this.readonly}
         mgWidth={this.mgWidth}
         disabled={this.disabled}
-        value={this.value}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}

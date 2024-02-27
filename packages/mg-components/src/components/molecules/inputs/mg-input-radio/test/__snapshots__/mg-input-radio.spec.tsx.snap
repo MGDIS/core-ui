@@ -342,7 +342,7 @@ exports[`mg-input-radio Should render with args {
       </ul>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
-        <span class="mg-c-input-title">
+        <span class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
@@ -401,7 +401,7 @@ exports[`mg-input-radio Should render with args {
       </ul>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
-        <span class="mg-c-input-title">
+        <span class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
@@ -601,7 +601,7 @@ exports[`mg-input-radio Should render with args {
       </ul>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="true" slot="label">
         <!---->
-        <span class="mg-c-input-title">
+        <span class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
@@ -2073,7 +2073,7 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
       </ul>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
-        <span class="mg-c-input-title"></span>
+        <span class="mg-c-input-title" id="identifier-title"></span>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.

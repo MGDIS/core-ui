@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-26T12:11:39",
+  "timestamp": "2024-02-27T15:11:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.2",
@@ -1950,7 +1950,7 @@
             "resolved": "string | string[]",
             "references": {}
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "readonly-value",
           "reflectToAttr": false,
           "docs": "Defines value to display in readonly mode",
@@ -2036,27 +2036,6 @@
             },
             {
               "value": "label",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "value",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "value",
-          "reflectToAttr": false,
-          "docs": "Define values",
-          "docsTags": [],
-          "values": [
-            {
               "type": "string"
             }
           ],

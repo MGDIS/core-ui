@@ -308,7 +308,6 @@ export class MgInputToggle {
         readonly={this.readonly}
         mgWidth={undefined}
         disabled={this.disabled}
-        value={this.value?.toString()}
         readonlyValue={this.options[this.checked ? 1 : 0].title}
         tooltip={!this.readonly && this.tooltip}
         tooltipPosition={this.tooltipPosition}

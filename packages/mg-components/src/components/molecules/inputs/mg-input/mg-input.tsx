@@ -1,4 +1,4 @@
-import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host, forceUpdate } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { widths, type Width, tooltipPositions, type TooltipPosition, type InputType, inputTypes } from './mg-input.conf';
 
@@ -13,7 +13,6 @@ export class MgInput {
    ************/
 
   // HTML selector
-  private legendId: string;
   private helpTextId: string;
   private helpTextErrorId: string;
   private readonly slotLabel = 'label';
@@ -50,7 +49,6 @@ export class MgInput {
     } else {
       this.helpTextId = `${this.identifier}-help-text`;
       this.helpTextErrorId = `${this.identifier}-error`;
-      this.legendId = `${this.identifier}-title`;
     }
   }
 
@@ -81,22 +79,6 @@ export class MgInput {
   watchLabelConfig(): void {
     if (this.labelHide && this.labelOnTop) {
       throw new Error('<mg-input> prop "labelOnTop" must not be paired with the prop "labelHide".');
-    }
-  }
-
-  /**
-   * Define values
-   */
-  @Prop() value: string;
-
-  /**
-   * Defines value to display in readonly mode
-   */
-  @Prop({ mutable: true }) readonlyValue: string | string[];
-  @Watch('readonlyValue')
-  watchReadonlyValue(newValue: MgInput['readonlyValue']): void {
-    if (newValue === undefined) {
-      this.readonlyValue = this.value;
     }
   }
 
@@ -133,6 +115,11 @@ export class MgInput {
       this.classCollection.delete(this.classReadonly);
     }
   }
+
+  /**
+   * Defines value to display in readonly mode
+   */
+  @Prop() readonlyValue: string | string[];
 
   /**
    * Define if input is disabled
@@ -235,19 +222,27 @@ export class MgInput {
   /**
    * Define component type
    */
-  @State() type: InputType = 'input';
-  @Watch('type')
-  watchType(newValue: MgInput['type']): void {
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('data-input-type')
+  watchInputType(newValue: InputType): void {
     inputTypes.forEach(className => {
       this.classCollection.delete(`mg-c-input--${className}`);
     });
-    this.classCollection.add(`mg-c-input--${newValue}`);
+    if (newValue) this.classCollection.add(`mg-c-input--${newValue}`);
+    this.watchAriaDescribedbyIDs();
     this.renderLabel();
+    forceUpdate(this);
   }
 
   /************
    * Methods *
    ************/
+
+  /**
+   * Methode to check if input is a fieldset
+   * @returns true if is fieldset
+   */
+  private isFieldset = (): boolean => this.element.dataset.inputType === 'fieldset';
 
   /**
    * Set attributes on agiven HTML Element
@@ -268,10 +263,10 @@ export class MgInput {
     const labelTextClass = 'mg-c-input-title__text';
     const labelAttributes: [string, string][] = [
       ['slot', this.slotLabel],
-      ['identifier', this.identifier.toString()],
+      ['identifier', this.identifier],
       ['readonly', this.readonly.toString()],
       ['required', ((this.required && !this.disabled) || false).toString()],
-      ['is-legend', (this.type === 'fieldset').toString()],
+      ['is-legend', this.isFieldset().toString()],
     ];
     if (!this.labelSlotElement) {
       this.labelSlotElement = document.createElement('mg-input-title');
@@ -322,19 +317,17 @@ export class MgInput {
    * Check if component props are well configured on init
    */
   componentWillLoad(): void {
-    //Check required properties
     this.watchIdentifier(this.identifier);
     this.watchLabel();
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchReadonly(this.readonly);
-    this.watchReadonlyValue(this.readonlyValue);
     this.watchTooltipPosition(this.tooltipPosition);
     this.watchMgWidth(this.mgWidth);
     this.watchClassCollection(this.classCollection);
     this.watchErrorMessage(this.errorMessage);
     this.watchHelpText(this.helpText);
-    this.type = (this.element.dataset.inputType as InputType) || 'input';
+    this.watchInputType(this.element.dataset.inputType as InputType);
   }
 
   /**
@@ -342,14 +335,8 @@ export class MgInput {
    */
   componentDidLoad(): void {
     this.watchAriaDescribedbyIDs();
-    if (!this.readonly) {
-      if (this.type === 'fieldset') {
-        this.labelSlotElement.querySelector('legend').setAttribute('id', this.legendId);
-      } else {
-        if (!this.element.querySelector(`#${this.identifier}`)) {
-          throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
-        }
-      }
+    if (!this.readonly && !this.isFieldset() && !this.element.querySelector(`#${this.identifier}`)) {
+      throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
     }
   }
 
@@ -369,11 +356,7 @@ export class MgInput {
    */
   render(): HTMLElement {
     return (
-      <Host
-        class={this.classCollection.join()}
-        role={this.type === 'fieldset' && !this.readonly && 'group'}
-        aria-labelledby={this.type === 'fieldset' && `${this.identifier}-title`}
-      >
+      <Host class={this.classCollection.join()} role={this.isFieldset() && !this.readonly && 'group'} aria-labelledby={this.isFieldset() && `${this.identifier}-title`}>
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
           <slot name={this.slotLabel}></slot>
           {this.tooltip && !this.readonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}

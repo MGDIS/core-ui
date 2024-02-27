@@ -143,9 +143,11 @@ mg-icon {
   /**
   * Readonly variation
   */
-  &.mg-c-input--readonly > *:not([slot='label'], [name='append-input']),
-  &.mg-c-input--readonly ::slotted(mg-button[slot='append-input']) {
-    display: none;
+  &.mg-c-input--readonly {
+    > *:not([slot='label'], [name='append-input']),
+    ::slotted(mg-button[slot='append-input']) {
+      display: none;
+    }
   }
 
   /**
@@ -158,6 +160,10 @@ mg-icon {
 
 :host(.mg-c-input) {
   display: flex;
+}
+
+:host(.mg-c-input.mg-c-input--readonly) ::slotted(*:not([slot='label'])) {
+  display: none;
 }
 
 :host(.mg-c-input.mg-c-input--label-on-top) {

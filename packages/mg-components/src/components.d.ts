@@ -311,10 +311,6 @@ export namespace Components {
           * Define tooltip position
          */
         "tooltipPosition": TooltipPosition;
-        /**
-          * Define values
-         */
-        "value": string;
     }
     interface MgInputCheckbox {
         /**
@@ -2298,10 +2294,6 @@ declare namespace LocalJSX {
           * Define tooltip position
          */
         "tooltipPosition"?: TooltipPosition;
-        /**
-          * Define values
-         */
-        "value"?: string;
     }
     interface MgInputCheckbox {
         /**

@@ -398,8 +398,7 @@ export class MgInputText {
         readonly={this.readonly}
         mgWidth={this.mgWidth}
         disabled={this.disabled}
-        value={this.value}
-        readonlyValue={undefined}
+        readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}

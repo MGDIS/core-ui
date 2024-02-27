@@ -62,7 +62,7 @@ export class MgInputTitle {
     const TagName = this.readonly ? 'span' : this.tagName;
     // \u00A0 represent a &nbsp;
     return (
-      <TagName class="mg-c-input-title" htmlFor={!this.isLegend && this.identifier}>
+      <TagName class="mg-c-input-title" htmlFor={!this.isLegend && this.identifier} id={this.isLegend ? `${this.identifier}-title` : undefined}>
         <slot></slot>
         {this.required && !this.readonly && (
           <span class="mg-c-input-title__required">

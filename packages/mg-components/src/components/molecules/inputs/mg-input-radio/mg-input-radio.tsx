@@ -324,8 +324,7 @@ export class MgInputRadio {
         disabled={this.disabled}
         readonly={this.readonly}
         mgWidth={undefined}
-        value={this.value as string}
-        readonlyValue={this.value as string}
+        readonlyValue={this.value?.toString()}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}

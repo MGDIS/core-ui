@@ -440,7 +440,6 @@ export class MgInputSelect {
         readonly={this.readonly}
         mgWidth={this.mgWidth}
         disabled={this.disabled}
-        value={undefined}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
