@@ -85,7 +85,7 @@ mg-icon {
     .mg-c-input__box:disabled,
     ::slotted(.mg-c-input__button-toggle:disabled),
     &-group--disabled label,
-    .mg-c-input.mg-c-input--checkbox-multi-disabled &-container strong {
+    .mg-c-input.mg-c-input--checkbox-multi.mg-c-input--disabled &-container strong {
       opacity: var(--mg-disabled-opacity);
     }
   }
@@ -160,10 +160,6 @@ mg-icon {
 
 :host(.mg-c-input) {
   display: flex;
-}
-
-:host(.mg-c-input.mg-c-input--readonly) ::slotted(*:not([slot='label'])) {
-  display: none;
 }
 
 :host(.mg-c-input.mg-c-input--label-on-top) {

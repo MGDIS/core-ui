@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-02-27T15:11:01",
+  "timestamp": "2024-02-28T10:12:37",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.2",
@@ -1722,32 +1722,10 @@
           "reflectToAttr": false,
           "docs": "Component classes",
           "docsTags": [],
-          "default": "new ClassList(['mg-c-input'])",
+          "default": "new ClassList([classInput])",
           "values": [
             {
               "type": "ClassList"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "disabled",
-          "reflectToAttr": false,
-          "docs": "Define if input is disabled",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
             }
           ],
           "optional": false,
@@ -1872,68 +1850,6 @@
           "reflectToAttr": false,
           "docs": "Define if label is displayed on top",
           "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "mgWidth",
-          "type": "\"full\" | 16 | 2 | 4",
-          "complexType": {
-            "original": "Width",
-            "resolved": "\"full\" | 16 | 2 | 4",
-            "references": {
-              "Width": {
-                "location": "import",
-                "path": "./mg-input.conf",
-                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "mg-width",
-          "reflectToAttr": false,
-          "docs": "Define input width",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "full",
-              "type": "string"
-            },
-            {
-              "value": "16",
-              "type": "number"
-            },
-            {
-              "value": "2",
-              "type": "number"
-            },
-            {
-              "value": "4",
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "readonly",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "readonly",
-          "reflectToAttr": false,
-          "docs": "Define if input is readonly",
-          "docsTags": [],
-          "default": "false",
           "values": [
             {
               "type": "boolean"
@@ -10215,11 +10131,6 @@
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
     },
-    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width": {
-      "declaration": "2 | 4 | 16 | \"full\"",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
-    },
     "../stencil-helpers/dist/index.d.ts::ClassList": {
       "declaration": "any",
       "docstring": "",
@@ -10244,6 +10155,11 @@
       "declaration": "export enum SectionKind {\n  SELECTED = 'selected',\n  NOT_SELECTED = 'not-selected',\n}",
       "docstring": "mg-input-checkbox-paginated section kind",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width": {
+      "declaration": "2 | 4 | 16 | \"full\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::NumericType": {
       "declaration": "\"decimal\" | \"integer\" | \"currency\"",

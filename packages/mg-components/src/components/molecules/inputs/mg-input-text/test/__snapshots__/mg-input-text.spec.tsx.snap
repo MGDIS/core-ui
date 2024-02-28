@@ -111,7 +111,7 @@ exports[`mg-input-text Should render with args {
 }: 1`] = `
 <mg-input-text value="blu">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--text mg-c-input--width-full">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -130,14 +130,14 @@ exports[`mg-input-text Should render with args {
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -170,14 +170,14 @@ exports[`mg-input-text Should render with args {
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -211,14 +211,14 @@ exports[`mg-input-text Should render with args {
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -776,14 +776,14 @@ exports[`mg-input-text Should trigger events 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1170,7 +1170,7 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
 exports[`mg-input-text validity, case next state is disabled validity ({ validity: false, valueMissing: true, patternMismatch: false }), valueMissing (%s), patternMismatch (%s) 2`] = `
 <mg-input-text>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--text mg-c-input--width-full">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1249,7 +1249,7 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>

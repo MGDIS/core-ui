@@ -105,7 +105,7 @@ exports[`mg-input-textarea Should render with args {
 }: 1`] = `
 <mg-input-textarea value="blu">
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -122,14 +122,14 @@ exports[`mg-input-textarea Should render with args {
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -160,14 +160,14 @@ exports[`mg-input-textarea Should render with args {
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -199,14 +199,14 @@ exports[`mg-input-textarea Should render with args {
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
         <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -560,14 +560,14 @@ exports[`mg-input-textarea Should trigger events 1`] = `
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -957,7 +957,7 @@ exports[`mg-input-textarea validity, case next state is disabled validity ({ val
 exports[`mg-input-textarea validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-textarea>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--has-display-character-left mg-c-input--textarea mg-c-input--width-full">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1030,7 +1030,7 @@ exports[`mg-input-textarea validity, case next state is readonly validity ({ val
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <span class="mg-c-input-title__text">
           label
         </span>

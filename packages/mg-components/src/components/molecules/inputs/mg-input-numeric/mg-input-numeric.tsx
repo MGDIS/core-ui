@@ -486,9 +486,6 @@ export class MgInputNumeric {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={this.mgWidth}
-        disabled={this.disabled}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}

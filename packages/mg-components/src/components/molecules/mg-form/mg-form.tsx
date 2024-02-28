@@ -14,7 +14,7 @@ export class MgForm {
    * Internal *
    ************/
 
-  private mgInputs: HTMLMgInputsElement[];
+  private mgInputs: (HTMLMgInputsElement & { disabled: boolean })[];
   private mgButtons: HTMLMgButtonElement[];
 
   // Classes
@@ -222,7 +222,7 @@ export class MgForm {
    */
   private setMgInputs = (): void => {
     // Get slotted mgInputs
-    this.mgInputs = Array.from(this.element.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT-')) as HTMLMgInputsElement[];
+    this.mgInputs = Array.from(this.element.querySelectorAll('*')).filter((node: Node) => node.nodeName.startsWith('MG-INPUT-')) as (HTMLMgInputsElement & { disabled: boolean })[];
     // Set inputs readonly or disabled based on form configuration
     // Othewise listen to events
     this.mgInputs.forEach(input => {

@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -95,6 +95,11 @@ export class MgInputTextarea {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputTextarea['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
@@ -114,10 +119,26 @@ export class MgInputTextarea {
     }
   }
 
+  @Watch('disabled')
+  validateDisabled(newValue: MgInputTextarea['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop() mgWidth: Width = 'full';
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputTextarea['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(`mg-c-input--width-${width}`);
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+  }
 
   /**
    * Define input pattern to validate
@@ -332,6 +353,10 @@ export class MgInputTextarea {
     this.validateDisplayCharacterLeft(this.displayCharacterLeft);
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
+    this.watchMgWidth(this.mgWidth);
+    this.watchReadonly(this.readonly);
+    this.validateDisabled(this.disabled);
+
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -354,9 +379,6 @@ export class MgInputTextarea {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={this.mgWidth}
-        disabled={this.disabled}
         readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}

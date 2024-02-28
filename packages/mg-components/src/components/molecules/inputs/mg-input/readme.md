@@ -119,23 +119,20 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 ## Properties
 
-| Property                  | Attribute          | Description                                                                 | Type                     | Default                         |
-| ------------------------- | ------------------ | --------------------------------------------------------------------------- | ------------------------ | ------------------------------- |
-| `ariaDescribedbyIDs`      | --                 | Define aria-describedby ids to link with                                    | `string[]`               | `undefined`                     |
-| `classCollection`         | --                 | Component classes                                                           | `ClassList`              | `new ClassList(['mg-c-input'])` |
-| `disabled`                | `disabled`         | Define if input is disabled                                                 | `boolean`                | `false`                         |
-| `errorMessage`            | `error-message`    | Define error message to display                                             | `string`                 | `undefined`                     |
-| `helpText`                | `help-text`        | Define help text to display                                                 | `string`                 | `undefined`                     |
-| `identifier` _(required)_ | `identifier`       | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`                 | `undefined`                     |
-| `label` _(required)_      | `label`            | Define input label                                                          | `string`                 | `undefined`                     |
-| `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`                | `false`                         |
-| `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`                | `undefined`                     |
-| `mgWidth`                 | `mg-width`         | Define input width                                                          | `"full" \| 16 \| 2 \| 4` | `undefined`                     |
-| `readonly`                | `readonly`         | Define if input is readonly                                                 | `boolean`                | `false`                         |
-| `readonlyValue`           | `readonly-value`   | Defines value to display in readonly mode                                   | `string \| string[]`     | `undefined`                     |
-| `required`                | `required`         | Define if input is required                                                 | `boolean`                | `false`                         |
-| `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`                 | `undefined`                     |
-| `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"`     | `'input'`                       |
+| Property                  | Attribute          | Description                                                                 | Type                 | Default                       |
+| ------------------------- | ------------------ | --------------------------------------------------------------------------- | -------------------- | ----------------------------- |
+| `ariaDescribedbyIDs`      | --                 | Define aria-describedby ids to link with                                    | `string[]`           | `undefined`                   |
+| `classCollection`         | --                 | Component classes                                                           | `ClassList`          | `new ClassList([classInput])` |
+| `errorMessage`            | `error-message`    | Define error message to display                                             | `string`             | `undefined`                   |
+| `helpText`                | `help-text`        | Define help text to display                                                 | `string`             | `undefined`                   |
+| `identifier` _(required)_ | `identifier`       | Identifier is used for the element ID (id is a reserved prop in Stencil.js) | `string`             | `undefined`                   |
+| `label` _(required)_      | `label`            | Define input label                                                          | `string`             | `undefined`                   |
+| `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`            | `false`                       |
+| `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`            | `undefined`                   |
+| `readonlyValue`           | `readonly-value`   | Defines value to display in readonly mode                                   | `string \| string[]` | `undefined`                   |
+| `required`                | `required`         | Define if input is required                                                 | `boolean`            | `false`                       |
+| `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`             | `undefined`                   |
+| `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"` | `'input'`                     |
 
 
 ## Dependencies

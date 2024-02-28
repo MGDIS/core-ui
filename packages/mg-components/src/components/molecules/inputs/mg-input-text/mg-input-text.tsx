@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { TextType } from './mg-input-text.conf';
-import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, Handler, widths, getInputClassModifier, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
@@ -18,8 +18,10 @@ export class MgInputText {
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
-  private readonly classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
-  private readonly classHasIcon = 'mg-c-input--has-icon';
+  private readonly classIsInputGroupAppend = getInputClassModifier('is-input-group-append');
+  private readonly classHasIcon = getInputClassModifier('has-icon');
+  private readonly classHasButtonsGroupAppend = getInputClassModifier('has-buttons-group-append');
+  private readonly classIsAppendInputSlotContent = getInputClassModifier('is-append-input-slot-content');
 
   // IDs
   private characterLeftId;
@@ -129,6 +131,11 @@ export class MgInputText {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputText['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
@@ -148,10 +155,26 @@ export class MgInputText {
     }
   }
 
+  @Watch('disabled')
+  validateDisabled(newValue: MgInputText['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop() mgWidth: Width = 'full';
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputText['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(getInputClassModifier(`width-${width}`));
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(getInputClassModifier(`width-${this.mgWidth}`));
+  }
 
   /**
    * Define input pattern to validate
@@ -204,7 +227,7 @@ export class MgInputText {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-c-input--text']);
+  @State() classCollection: ClassList = new ClassList([getInputClassModifier('text')]);
 
   /**
    * Error message to display
@@ -341,10 +364,10 @@ export class MgInputText {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
 
     if (slotAppendInput.length === 1) {
-      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : 'mg-c-input--is-append-input-slot-content');
+      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : this.classIsAppendInputSlotContent);
     } else if (slotAppendInput.filter(slot => slot.nodeName === 'MG-BUTTON').length > 1) {
       this.classCollection.add(this.classIsInputGroupAppend);
-      this.classCollection.add('mg-c-input--has-buttons-group-append');
+      this.classCollection.add(this.classHasButtonsGroupAppend);
     }
   };
 
@@ -373,6 +396,9 @@ export class MgInputText {
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
     this.validateAppendSlot();
+    this.watchMgWidth(this.mgWidth);
+    this.watchReadonly(this.readonly);
+    this.validateDisabled(this.disabled);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -395,9 +421,6 @@ export class MgInputText {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={this.mgWidth}
-        disabled={this.disabled}
         readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}

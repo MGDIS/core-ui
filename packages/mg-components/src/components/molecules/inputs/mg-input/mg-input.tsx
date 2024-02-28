@@ -1,6 +1,6 @@
-import { Component, h, Prop, Element, Watch, Host, forceUpdate } from '@stencil/core';
+import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { widths, type Width, tooltipPositions, type TooltipPosition, type InputType, inputTypes } from './mg-input.conf';
+import { tooltipPositions, type TooltipPosition, getInputClassModifier, classFieldset, classReadonly, classDisabled, classInput } from './mg-input.conf';
 
 @Component({
   tag: 'mg-input',
@@ -25,9 +25,8 @@ export class MgInput {
   private helptextMessageSlotElement: HTMLElement;
 
   // style
-  private readonly classHasError = 'mg-c-input--has-error';
-  private readonly classLabelOnTop = 'mg-c-input--label-on-top';
-  private readonly classReadonly = 'mg-c-input--readonly';
+  private readonly classHasError = getInputClassModifier('has-error');
+  private readonly classLabelOnTop = getInputClassModifier('label-on-top');
 
   /**************
    * Decorators *
@@ -104,37 +103,18 @@ export class MgInput {
   @Prop() required: boolean = false;
 
   /**
-   * Define if input is readonly
-   */
-  @Prop() readonly: boolean = false;
-  @Watch('readonly')
-  watchReadonly(newValue: MgInput['readonly']): void {
-    if (newValue) {
-      this.classCollection.add(this.classReadonly);
-    } else {
-      this.classCollection.delete(this.classReadonly);
-    }
-  }
-
-  /**
    * Defines value to display in readonly mode
    */
   @Prop() readonlyValue: string | string[];
-
-  /**
-   * Define if input is disabled
-   */
-  @Prop() disabled: boolean = false;
-  @Watch('disabled')
-  @Watch('readonly')
-  @Watch('label')
-  watchLabel(): void {
-    if (!isValidString(this.label)) {
-      throw new Error('<mg-input> prop "label" is required.');
+  @Watch('readonlyValue')
+  watchReadonlyValue(newValue: MgInput['readonlyValue']): void {
+    if (newValue && this.classCollection.has(classReadonly)) {
+      this.classCollection.add(classReadonly);
     } else {
-      this.renderLabel();
+      this.classCollection.delete(classReadonly);
     }
   }
+
   /**
    * Define error message to display
    */
@@ -194,44 +174,28 @@ export class MgInput {
   }
 
   /**
-   * Define input width
-   */
-  @Prop() mgWidth: Width;
-  @Watch('mgWidth')
-  watchMgWidth(newValue: MgInput['mgWidth']): void {
-    // reset width class
-    widths.forEach(width => {
-      this.classCollection.delete(`mg-c-input--width-${width}`);
-    });
-
-    // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
-  }
-
-  /**
    * Component classes
    */
-  @Prop() classCollection: ClassList = new ClassList(['mg-c-input']);
+  @Prop() classCollection: ClassList = new ClassList([classInput]);
   @Watch('classCollection')
   watchClassCollection(newValue: MgInput['classCollection']): void {
-    if (!newValue.has('mg-c-input')) {
-      this.classCollection.add('mg-c-input');
+    if (!newValue.has(classInput)) {
+      this.classCollection.add(classInput);
     }
   }
 
   /**
-   * Define component type
+   * Trigger label update
    */
-  // eslint-disable-next-line @stencil-community/no-unused-watch
-  @Watch('data-input-type')
-  watchInputType(newValue: InputType): void {
-    inputTypes.forEach(className => {
-      this.classCollection.delete(`mg-c-input--${className}`);
-    });
-    if (newValue) this.classCollection.add(`mg-c-input--${newValue}`);
-    this.watchAriaDescribedbyIDs();
-    this.renderLabel();
-    forceUpdate(this);
+  @Watch('classCollection')
+  @Watch('label')
+  watchLabel(): void {
+    if (!isValidString(this.label)) {
+      throw new Error('<mg-input> prop "label" is required.');
+    } else {
+      this.watchAriaDescribedbyIDs();
+      this.renderLabel();
+    }
   }
 
   /************
@@ -242,7 +206,19 @@ export class MgInput {
    * Methode to check if input is a fieldset
    * @returns true if is fieldset
    */
-  private isFieldset = (): boolean => this.element.dataset.inputType === 'fieldset';
+  private isFieldset = (): boolean => this.classCollection.has(classFieldset);
+
+  /**
+   * Methode to check if input is readonly
+   * @returns true if is readonly
+   */
+  private isReadonly = (): boolean => this.classCollection.has(classReadonly);
+
+  /**
+   * Methode to check if input is disabled
+   * @returns true if is disabled
+   */
+  private isDisabled = (): boolean => this.classCollection.has(classDisabled);
 
   /**
    * Set attributes on agiven HTML Element
@@ -264,8 +240,8 @@ export class MgInput {
     const labelAttributes: [string, string][] = [
       ['slot', this.slotLabel],
       ['identifier', this.identifier],
-      ['readonly', this.readonly.toString()],
-      ['required', ((this.required && !this.disabled) || false).toString()],
+      ['readonly', this.isReadonly().toString()],
+      ['required', ((this.required && !this.isDisabled()) || false).toString()],
       ['is-legend', this.isFieldset().toString()],
     ];
     if (!this.labelSlotElement) {
@@ -321,13 +297,10 @@ export class MgInput {
     this.watchLabel();
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
-    this.watchReadonly(this.readonly);
     this.watchTooltipPosition(this.tooltipPosition);
-    this.watchMgWidth(this.mgWidth);
     this.watchClassCollection(this.classCollection);
     this.watchErrorMessage(this.errorMessage);
     this.watchHelpText(this.helpText);
-    this.watchInputType(this.element.dataset.inputType as InputType);
   }
 
   /**
@@ -335,7 +308,7 @@ export class MgInput {
    */
   componentDidLoad(): void {
     this.watchAriaDescribedbyIDs();
-    if (!this.readonly && !this.isFieldset() && !this.element.querySelector(`#${this.identifier}`)) {
+    if (!this.isReadonly() && !this.isFieldset() && !this.element.querySelector(`#${this.identifier}`)) {
       throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
     }
   }
@@ -356,13 +329,13 @@ export class MgInput {
    */
   render(): HTMLElement {
     return (
-      <Host class={this.classCollection.join()} role={this.isFieldset() && !this.readonly && 'group'} aria-labelledby={this.isFieldset() && `${this.identifier}-title`}>
+      <Host class={this.classCollection.join()} role={this.isFieldset() && !this.isReadonly() && 'group'} aria-labelledby={this.isFieldset() && `${this.identifier}-title`}>
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
           <slot name={this.slotLabel}></slot>
-          {this.tooltip && !this.readonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
+          {this.tooltip && !this.isReadonly() && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
         <div class="mg-c-input__input-container">
-          {this.readonly
+          {this.isReadonly()
             ? [
                 Array.isArray(this.readonlyValue) ? (
                   <ul>
@@ -380,14 +353,14 @@ export class MgInput {
             : [
                 <div class="mg-c-input__input">
                   <slot></slot>
-                  {this.tooltip && !this.readonly && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+                  {this.tooltip && !this.isReadonly() && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
                 </div>,
                 this.helpText && (
                   <div class="mg-c-input__help-text">
                     <slot name={this.slotHelpText}></slot>
                   </div>
                 ),
-                !this.disabled && this.errorMessage && (
+                !this.isDisabled() && this.errorMessage && (
                   <div class="mg-c-input__error" aria-live="assertive">
                     <slot name={this.slotError}></slot>
                   </div>

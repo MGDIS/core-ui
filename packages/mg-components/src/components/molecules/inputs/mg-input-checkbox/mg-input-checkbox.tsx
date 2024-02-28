@@ -3,7 +3,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset, getInputClassModifier } from '../mg-input/mg-input.conf';
 import type { MgInput } from '../mg-input/mg-input';
 import { initLocales } from '../../../../locales';
 
@@ -40,10 +40,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private mode: 'custom' | 'auto' = 'custom';
 
   // style
-  private readonly baseClassName = 'mg-c-input--checkbox';
-  private readonly classVerticalList = 'mg-c-input--vertical-list';
-  private readonly classWithValues = 'mg-c-input--with-values';
-  private readonly classSearchMode = 'mg-c-input--search-mode';
+  private readonly baseClassName = getInputClassModifier('checkbox');
+  private readonly classTypeMulti = getInputClassModifier('checkbox-multi');
+  private readonly classVerticalList = getInputClassModifier('vertical-list');
+  private readonly classWithValues = getInputClassModifier('with-values');
+  private readonly classSearchMode = getInputClassModifier('search-mode');
 
   // "multi" setup
   private readonly multiStart = 5;
@@ -99,11 +100,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       this.mode = 'auto';
       this.type = checkboxTypes[0];
     } else {
-      const className = `${this.baseClassName}-multi`;
       if (newValue === 'multi') {
-        this.classCollection.add(className);
+        this.classCollection.add(this.classTypeMulti);
         this.element.dataset.mgPopoverGuard = this.getMgPopoverIdentifier();
-      } else this.classCollection.delete(className);
+      } else {
+        this.classCollection.delete(this.classTypeMulti);
+      }
     }
   }
 
@@ -152,6 +154,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Define if mg-input-checkbox is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputCheckbox['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Display selected values list in "multi" type
@@ -183,9 +190,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
 
   @Watch('disabled')
   validateDisabled(newValue: MgInputCheckbox['disabled']): void {
-    const className = `${this.baseClassName}-multi-disabled`;
-    if (newValue && this.type === 'multi') this.classCollection.add(className);
-    else this.classCollection.delete(className);
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
   }
 
   /**
@@ -216,7 +222,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList([this.baseClassName]);
+  @State() classCollection: ClassList = new ClassList([this.baseClassName, classFieldset]);
 
   /**
    * Error message to display
@@ -542,6 +548,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.validateType(this.type);
     this.validateValue(this.value);
     this.validateDisabled(this.disabled);
+    this.watchReadonly(this.readonly);
     this.watchInputVerticalList(this.inputVerticalList);
     this.watchDisplaySelectedValues(this.displaySelectedValues);
     this.watchDisplaySearchInput(this.displaySearchInput);
@@ -694,15 +701,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        readonly={this.readonly}
-        mgWidth={undefined}
-        disabled={this.disabled}
         readonlyValue={this.getReadonlyValues()}
         tooltip={!this.readonly ? this.tooltip : undefined}
         tooltipPosition={this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
-        data-input-type="fieldset"
       >
         {this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList

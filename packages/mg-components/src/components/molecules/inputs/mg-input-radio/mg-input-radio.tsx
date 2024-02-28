@@ -321,15 +321,11 @@ export class MgInputRadio {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        disabled={this.disabled}
-        readonly={this.readonly}
-        mgWidth={undefined}
         readonlyValue={this.value?.toString()}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        data-input-type="fieldset"
       >
         <ul class="mg-c-input__input-group-container" role="list">
           {this.options.map((input, index) => (

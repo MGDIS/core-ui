@@ -4,6 +4,7 @@ import { mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 import { ClassList } from '@mgdis/stencil-helpers';
+import { classDisabled, classFieldset, classReadonly } from '../mg-input.conf';
 
 mockWindowFrames();
 
@@ -29,48 +30,28 @@ describe('mg-input', () => {
     test.each([
       { ...baseArgs },
       { ...baseArgs, classCollection: new ClassList([]) },
-      { ...baseArgs, ['data-input-type']: 'fieldset' },
+      { ...baseArgs, classCollection: new ClassList([classFieldset]) },
       { ...baseArgs, errorMessage },
-      { ...baseArgs, errorMessage, readonly: true },
-      { ...baseArgs, errorMessage, disabled: true },
-      { ...baseArgs, readonlyValue: ['batman', 'joker', 'bane'], readonly: true },
-      { ...baseArgs, readonly: true },
-      { ...baseArgs, readonly: true, inputVerticalList: true },
+      { ...baseArgs, errorMessage, classCollection: new ClassList([classReadonly]) },
+      { ...baseArgs, errorMessage, classCollection: new ClassList([classDisabled]) },
+      { ...baseArgs, readonlyValue: ['batman', 'joker', 'bane'], classCollection: new ClassList([classReadonly]) },
+      { ...baseArgs, classCollection: new ClassList([classReadonly]) },
+      { ...baseArgs, classCollection: new ClassList([classReadonly]), inputVerticalList: true },
       { ...baseArgs, labelOnTop: true },
       { ...baseArgs, labelHide: true },
       { ...baseArgs, inputVerticalList: true },
       { ...baseArgs, required: true },
       { ...baseArgs, helpText },
-      { ...baseArgs, required: true, readonly: true, helpText },
-      { ...baseArgs, required: true, disabled: true, helpText },
-      { ...baseArgs, readonly: true, labelOnTop: true, tooltip },
-      { ...baseArgs, disabled: true },
+      { ...baseArgs, required: true, classCollection: new ClassList([classReadonly]), helpText },
+      { ...baseArgs, required: true, classCollection: new ClassList([classDisabled]), helpText },
+      { ...baseArgs, classCollection: new ClassList([classReadonly]), labelOnTop: true, tooltip },
+      { ...baseArgs, classCollection: new ClassList([classDisabled]) },
       { ...baseArgs, tooltip },
       { ...baseArgs, tooltip, tooltipPosition: 'label' },
       { ...baseArgs, tooltip, tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with args %s:', async args => {
       const { root } = await getPage(args);
       expect(root).toMatchSnapshot();
-    });
-
-    test('Should update mg-width', async () => {
-      const page = await getPage(baseArgs);
-      const element = page.doc.querySelector('mg-input');
-
-      element.mgWidth = 2;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      element.mgWidth = 4;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
-
-      element.mgWidth = 16;
-      await page.waitForChanges();
-
-      expect(page.root).toMatchSnapshot();
     });
 
     test('Should update "error" slot', async () => {

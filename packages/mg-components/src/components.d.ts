@@ -260,10 +260,6 @@ export namespace Components {
          */
         "classCollection": ClassList;
         /**
-          * Define if input is disabled
-         */
-        "disabled": boolean;
-        /**
           * Define error message to display
          */
         "errorMessage": string;
@@ -287,14 +283,6 @@ export namespace Components {
           * Define if label is displayed on top
          */
         "labelOnTop": boolean;
-        /**
-          * Define input width
-         */
-        "mgWidth": Width;
-        /**
-          * Define if input is readonly
-         */
-        "readonly": boolean;
         /**
           * Defines value to display in readonly mode
          */
@@ -2243,10 +2231,6 @@ declare namespace LocalJSX {
          */
         "classCollection"?: ClassList;
         /**
-          * Define if input is disabled
-         */
-        "disabled"?: boolean;
-        /**
           * Define error message to display
          */
         "errorMessage"?: string;
@@ -2270,14 +2254,6 @@ declare namespace LocalJSX {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
-        /**
-          * Define input width
-         */
-        "mgWidth"?: Width;
-        /**
-          * Define if input is readonly
-         */
-        "readonly"?: boolean;
         /**
           * Defines value to display in readonly mode
          */
