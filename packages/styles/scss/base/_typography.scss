@@ -21,7 +21,7 @@ p {
 @for $i from 1 through 6 {
   h#{$i},
   .mg-u-h#{$i} {
-    font-family: var(--font-family-heading);
+    font-family: var(--mg-b-font-family-heading);
     font-weight: bold;
   }
 }
@@ -29,44 +29,44 @@ p {
 // h1
 h1,
 .mg-u-h1 {
-  font-size: calc(var(--font-size) * 1.85);
+  font-size: calc(var(--mg-b-font-size) * 1.85);
 }
 
 // h2
 h2,
 .mg-u-h2 {
-  font-size: calc(var(--font-size) * 1.65);
+  font-size: calc(var(--mg-b-font-size) * 1.65);
 }
 
 // h3
 h3,
 .mg-u-h3 {
-  font-size: calc(var(--font-size) * 1.35);
+  font-size: calc(var(--mg-b-font-size) * 1.35);
 }
 
 // h4
 h4,
 .mg-u-h4 {
-  font-size: calc(var(--font-size) * 1.2);
+  font-size: calc(var(--mg-b-font-size) * 1.2);
 }
 
 // h5
 h5,
 .mg-u-h5 {
-  font-size: calc(var(--font-size) * 1.1);
+  font-size: calc(var(--mg-b-font-size) * 1.1);
 }
 
 // h6
 h6,
 .mg-u-h6 {
-  font-size: calc(var(--font-size) * 0.8);
+  font-size: calc(var(--mg-b-font-size) * 0.8);
 }
 
 /**
    * Links
    */
 a {
-  color: hsl(var(--color-primary));
+  color: var(--mg-b-color-primary);
   text-decoration: underline;
 
   &:hover,

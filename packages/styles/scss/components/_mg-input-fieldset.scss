@@ -8,7 +8,7 @@
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  margin-top: calc((var(--default-size) - var(--font-size) * var(--line-height)) / 2);
+  margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
   gap: 1rem 2.3rem;
   list-style: none;
 
@@ -25,10 +25,10 @@ fieldset.mg-c-input {
 
   input[type='radio'],
   input[type='checkbox'] {
-    width: var(--mg-input-check-size);
-    height: var(--mg-input-check-size);
+    width: var(--mg-c-input-check-size);
+    height: var(--mg-c-input-check-size);
     flex-shrink: 0; /* Ensure checkbox won't resize in flex element */
-    margin: calc((var(--font-size) * var(--line-height) - var(--mg-input-check-size)) / 2) 0.6rem 0 0;
+    margin: calc((var(--mg-b-font-size) * var(--mg-b-line-height) - var(--mg-c-input-check-size)) / 2) 0.6rem 0 0;
   }
 
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {

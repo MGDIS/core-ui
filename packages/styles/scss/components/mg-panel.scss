@@ -4,11 +4,11 @@ $spacer-default: 1rem;
 $spacer-small: 0.3rem;
 
 :host {
-  --mg-card-border: none;
-  --mg-card-padding: 0;
-  --mg-card-border-radius: var(--mg-panel-border-radius);
-  --mg-card-background: hsl(var(--mg-panel-background));
-  --mg-card-box-shadow: var(--mg-panel-box-shadow);
+  --mg-c-card-border: none;
+  --mg-c-card-padding: 0;
+  --mg-c-card-border-radius: var(--mg-c-panel-border-radius);
+  --mg-c-card-background: var(--mg-c-panel-background);
+  --mg-c-card-box-shadow: var(--mg-c-panel-box-shadow);
 }
 
 .mg-c-panel {
@@ -34,7 +34,7 @@ $spacer-small: 0.3rem;
   }
 
   &__header-content {
-    min-height: var(--default-size);
+    min-height: var(--mg-b-default-size);
     flex: 1 auto;
     align-items: center;
     padding-left: $spacer-small;
@@ -57,8 +57,8 @@ $spacer-small: 0.3rem;
 
   &__collapse-button {
     &-content {
-      --font-size: 1.4rem;
-      --mg-button-font-weight: 600;
+      --mg-b-font-size: 1.4rem;
+      --mg-c-button-font-weight: 600;
     }
 
     &-icon.mg-c-panel__collapse-button-icon--reverse {
@@ -67,7 +67,7 @@ $spacer-small: 0.3rem;
   }
 
   &__content {
-    padding: var(--mg-panel-content-padding);
+    padding: var(--mg-c-panel-content-padding);
   }
 
   ::slotted([slot='header-right']) {

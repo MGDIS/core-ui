@@ -410,7 +410,7 @@ export class MgInputText {
         <div
           class="mg-c-input__with-character-left"
           style={{
-            '--mg-character-left-message-length': (!this.characterLeftHide
+            '--mg-c-character-left-message-length': (!this.characterLeftHide
               ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
               : 0
             ).toString(),

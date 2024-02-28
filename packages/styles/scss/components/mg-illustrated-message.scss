@@ -4,7 +4,7 @@
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
-  padding: var(--mg-illustrated-message-padding-vertical) 1.5rem;
+  padding: var(--mg-c-illustrated-message-padding-vertical) 1.5rem;
   margin: auto;
   gap: 3em 7rem;
   text-align: center;
@@ -41,7 +41,7 @@
 
   &__title ::slotted([slot='title']) {
     margin: 0;
-    font-family: var(--font-family) !important; /* stylelint-disable-line declaration-no-important */
+    font-family: var(--mg-b-font-family) !important; /* stylelint-disable-line declaration-no-important */
     font-size: 2rem !important; /* stylelint-disable-line declaration-no-important */
     font-weight: 400 !important; /* stylelint-disable-line declaration-no-important */
   }

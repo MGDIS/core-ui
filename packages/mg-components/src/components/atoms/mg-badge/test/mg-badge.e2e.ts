@@ -13,7 +13,7 @@ test.describe('mg-badge', () => {
         const html = [1, 99, '*', '!', '99+'].map(value => `<mg-badge ${renderAttributes({ value, label: variant, variant, outline })}></mg-badge>`).join('');
         // Add style based on variant
         if (variant === 'text-color') {
-          await page.addStyleTag({ content: 'mg-badge{--mg-badge-text-color:40 80% 60%;color:hsl(260 80% 50%)}' });
+          await page.addStyleTag({ content: 'mg-badge{--mg-c-badge-text-color:hsl(40 80% 60%);color:hsl(260 80% 50%)}' });
         } else if (variant === 'secondary') {
           await page.addStyleTag({ content: 'body{background:#999}' });
         }

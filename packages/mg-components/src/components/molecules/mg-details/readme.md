@@ -48,7 +48,7 @@ Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/styl
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-details-spacing`: define space between summary and details, default: `1.5rem`
+- `--mg-c-details-spacing`: define space between summary and details, default: `1.5rem`
 
 <!-- Auto Generated Below -->
 

@@ -70,14 +70,14 @@ describe('mg-panel', () => {
       panelTitle:
         'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
     },
-    { ...baseArgs, expanded: true, style: '--mg-panel-content-padding: 0', slot: '<div>Content without padding.</div>' },
-    { ...baseArgs, expanded: true, style: '--mg-panel-background: none; --mg-panel-border-radius: 0; --mg-panel-box-shadow: none', slot: '<div>Transparent mg-panel</div>' },
+    { ...baseArgs, expanded: true, style: '--mg-c-panel-content-padding:0', slot: '<div>Content without padding.</div>' },
+    { ...baseArgs, expanded: true, style: '--mg-c-panel-background:none;--mg-c-panel-border-radius:0;--mg-c-panel-box-shadow:none', slot: '<div>Transparent mg-panel</div>' },
     {
       ...baseArgs,
       expanded: true,
       slot: '<div>header right items should be vertically aligned</div><div slot="header-right"><mg-tag>Label</mg-tag><mg-icon size="small" icon="check-circle" variant="success"></mg-icon></div>',
     },
-    { ...baseArgs, expanded: true, style: '--mg-panel-background: var(--color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
+    { ...baseArgs, expanded: true, style: '--mg-c-panel-background:var(--mg-b-color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
   ])('Should render with template %s', async (page: PageType, args: ArgsType) => {
     await setPageContent(
       page,

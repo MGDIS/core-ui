@@ -61,7 +61,7 @@ The component is ajusting with the space available. If the width is not enought 
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-input-check-size`: Define checkbox size, default: `1.3rem`
+- `--mg-c-input-check-size`: Define checkbox size, default: `1.3rem`
 
 ## Warning
 

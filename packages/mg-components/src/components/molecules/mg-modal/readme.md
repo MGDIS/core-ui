@@ -83,11 +83,11 @@ Color: [@color-light](./?path=/docs/style-colors--docs) with an opacity set to 8
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-modal-border-radius`: Define border radius modal, default: `0.5rem`
-- `--mg-modal-title-font-size`: Define modal title font size, default: `1.8rem`
-- `--mg-modal-content-font-size`: Define modall content font size, default: `1.2rem`
+- `--mg-c-modal-border-radius`: Define border radius modal, default: `0.5rem`
+- `--mg-c-modal-title-font-size`: Define modal title font size, default: `1.8rem`
+- `--mg-c-modal-content-font-size`: Define modall content font size, default: `1.2rem`
 
-Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.
+Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.
 
 ## Hide component
 

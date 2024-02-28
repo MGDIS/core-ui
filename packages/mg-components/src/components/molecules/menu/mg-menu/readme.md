@@ -87,7 +87,7 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 
 ### global
 
-- `--mg-menu-background-color-hsl`: define mg-menu background color. Default: `--color-light`.
+- `--mg-c-menu-background-color-hsl`: define mg-menu background color. Default: `--mg-b-color-light`.
 
 <!-- Auto Generated Below -->
 

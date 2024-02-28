@@ -18,7 +18,7 @@ By default, the value is right aligned.
 
 ![](./doc/img/mg-input-numeric-positioning-default.png)
 
-You can change the CSS variable `--mg-inputs-text-align` to left align.
+You can change the CSS variable `--mg-c-input-text-align` to left align.
 
 ![](./doc/img/mg-input-numeric-positioning-custom.png)
 

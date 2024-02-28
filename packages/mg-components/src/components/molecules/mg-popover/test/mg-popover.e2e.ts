@@ -199,7 +199,7 @@ describe('mg-popover', () => {
       await page.addStyleTag({
         content: `
     .custom-popover-card {
-      --mg-popover-background-color: var(--color-danger);
+      --mg-c-popover-background-color: var(--mg-b-color-danger);
     }`,
       });
 
@@ -208,7 +208,7 @@ describe('mg-popover', () => {
       await expect(page.locator('body')).toHaveScreenshot();
     });
 
-    testEach(['content', 'title'])('Should render with --mg-popover-max-width %s', async (page: PageType, slot) => {
+    testEach(['content', 'title'])('Should render with --mg-c-popover-max-width %s', async (page: PageType, slot) => {
       await setPageContent(
         page,
         `<mg-popover display close-button class="custom-popover">
@@ -222,7 +222,7 @@ describe('mg-popover', () => {
       await page.addStyleTag({
         content: `
       .custom-popover {
-        --mg-popover-max-width: 10rem;
+        --mg-c-popover-max-width: 10rem;
       }`,
       });
 

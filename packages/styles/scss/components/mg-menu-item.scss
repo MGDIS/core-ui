@@ -40,11 +40,11 @@ $navigation-button-sizes: (
   }
 }
 
-@include navigation-button('mg-c-menu-item', 'mg-menu-item', $navigation-button-sizes);
+@include navigation-button('mg-c-menu-item', $navigation-button-sizes);
 @include level($navigation-button-sizes);
 
 .mg-c-menu-item {
-  max-width: var(--mg-menu-item-navigation-button-max-width);
+  max-width: var(--mg-c-menu-item-navigation-button-max-width);
 
   &__collapse-container {
     z-index: 10;
@@ -64,7 +64,7 @@ $navigation-button-sizes: (
       &-notification,
       ::slotted([slot='information']) {
         margin-left: 1rem;
-        font-size: var(--font-size);
+        font-size: var(--mg-b-font-size);
       }
     }
 
@@ -80,9 +80,9 @@ $navigation-button-sizes: (
   position: relative;
   display: flex;
 
-  --mg-popover-padding-vertical: 0;
-  --mg-popover-padding-horizontal: 0;
-  --mg-popover-max-width: unset;
+  --mg-c-popover-padding-vertical: 0;
+  --mg-c-popover-padding-horizontal: 0;
+  --mg-c-popover-max-width: unset;
 }
 
 // vertical item style
@@ -109,7 +109,7 @@ $navigation-button-sizes: (
 
 // more menu-item element
 :host([data-overflow-more]) {
-  --mg-menu-item-navigation-button-column-gap: 0;
+  --mg-c-menu-item-navigation-button-column-gap: 0;
 
   .mg-c-menu-item__navigation-button {
     &-chevron {
@@ -122,7 +122,7 @@ $navigation-button-sizes: (
   }
 
   ::slotted(mg-menu) {
-    --mg-menu-item-navigation-button-column-gap: #{$navigation-button-column-gap};
+    --mg-c-menu-item-navigation-button-column-gap: #{$navigation-button-column-gap};
   }
 }
 
@@ -130,7 +130,7 @@ $navigation-button-sizes: (
 :host([data-style-direction='horizontal']),
 :host([data-overflow-more]) {
   .mg-c-menu-item__collapse-container.mg-c-menu-item__collapse-container--first-level {
-    background-color: hsl(var(--color-light));
+    background-color: var(--mg-b-color-light);
 
     ::slotted(mg-menu) {
       padding: 1rem 0;

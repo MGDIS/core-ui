@@ -28,10 +28,10 @@
         --mg-button-flat-border-color: 188, 100%, 50%;
       }
       .align-right {
-        --mg-inputs-text-align: right;
+        --mg-c-input-text-align: right;
       }
       .align-left {
-        --mg-inputs-text-align: left;
+        --mg-c-input-text-align: left;
       }
     </style>
     <link rel="stylesheet" href="/build/mg-components.css" />
@@ -494,10 +494,10 @@
         >
         <style>
           .custom-mg-card--danger {
-            --mg-card-background: hsl(var(--color-danger));
+            --mg-c-card-background: hsl(var(--mg-b-color-danger));
           }
           .custom-mg-card--info {
-            --mg-card-background: hsl(var(--color-info));
+            --mg-c-card-background: hsl(var(--mg-b-color-info));
           }
         </style>
       </section>
@@ -556,7 +556,7 @@
         </mg-message>
         <style>
           .custom-message-card {
-            --mg-card-background: hsl(var(--color-danger));
+            --mg-c-card-background: hsl(var(--mg-b-color-danger));
           }
         </style>
         <script>
@@ -653,7 +653,7 @@
         </mg-panel>
         <style>
           .custom-panel-card {
-            --mg-panel-background: var(--color-danger);
+            --mg-c-panel-background: var(--mg-b-color-danger);
           }
         </style>
 
@@ -667,7 +667,7 @@
           </div>
         </mg-panel>
 
-        <mg-panel panel-title="panel title" title-editable style="--mg-panel-background: none; --mg-panel-border-radius: 0; --mg-panel-box-shadow: none">
+        <mg-panel panel-title="panel title" title-editable style="--mg-c-panel-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none">
           <div>Content</div>
           <div slot="header-right">
             <mg-button variant="secondary"> <mg-icon icon="file-upload"></mg-icon> Upload </mg-button>
@@ -863,11 +863,11 @@
         </mg-popover>
         <style>
           .custom-popover {
-            --mg-card-padding: 5rem;
-            --mg-card-border-radius: 5rem;
+            --mg-c-card-padding: 5rem;
+            --mg-c-card-border-radius: 5rem;
           }
           .custom-popover--card {
-            --mg-popover-background-color: var(--color-danger);
+            --mg-c-popover-background-color: var(--mg-b-color-danger);
           }
         </style>
         <iframe src="./iframe.html" title="test popover iframe" frameborder="0"></iframe>

@@ -46,14 +46,14 @@ A padding of 16px is applied around the content
 
 If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
 
-- `--mg-card-padding`: define car padding, default: `1.6rem`
-- `--mg-card-border-radius`: define card border radius, default: `0.5rem`
-- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`
-- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`
-- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`
-- `--mg-card-box-overflow`: define card overflow, default: `unset`
-- `--mg-card-max-width`: define card max-width, default: `unset`
-- `--mg-card-min-width`: define card min-width, default: `unset`
+- `--mg-c-card-padding`: define car padding, default: `1.6rem`
+- `--mg-c-card-border-radius`: define card border radius, default: `0.5rem`
+- `--mg-c-card-background`: define card background, default: `--mg-b-color-light`
+- `--mg-c-card-border`: define card border, default: `0.1rem solid hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 5%)`
+- `--mg-c-card-box-shadow`: define card shadow, default: `--mg-b-box-shadow`
+- `--mg-c-card-box-overflow`: define card overflow, default: `unset`
+- `--mg-c-card-max-width`: define card max-width, default: `unset`
+- `--mg-c-card-min-width`: define card min-width, default: `unset`
 
 <!-- Auto Generated Below -->
 

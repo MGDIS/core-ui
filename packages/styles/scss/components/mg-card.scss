@@ -1,30 +1,22 @@
 @import 'mixins/reset-mg-card-slotted-variables';
 
-@function get-color-prefix($color) {
-  @if $color == 'app' {
-    @return 'mg-color';
-  }
-
-  @return 'color';
-}
-
 @mixin card-variants($variants...) {
   @each $variant in $variants {
     &.mg-c-card--#{$variant} {
-      $custom-property-color-h: --#{get-color-prefix($variant)}-#{$variant}-h;
-      $custom-property-color-s: --#{get-color-prefix($variant)}-#{$variant}-s;
+      $custom-property-color-h: --mg-b-color-#{$variant}-h;
+      $custom-property-color-s: --mg-b-color-#{$variant}-s;
 
       overflow: hidden;
 
       &.mg-c-card--bar-left .mg-c-card__bar {
-        $custom-property-color-l: --#{get-color-prefix($variant)}-#{$variant}-l;
+        $custom-property-color-l: --mg-b-color-#{$variant}-l;
         $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var($custom-property-color-l));
 
         background-color: $background-color-value;
       }
 
       &.mg-c-card--fill {
-        $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var(--mg-color-soft-l));
+        $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var(--mg-b-color-soft-l));
 
         background-color: $background-color-value;
       }
@@ -35,16 +27,16 @@
 .mg-c-card {
   position: relative;
   z-index: inherit;
-  overflow: var(--mg-card-overflow, var(--mg-card-overflow-default));
+  overflow: var(--mg-c-card-overflow, var(--mg-c-card-overflow-default));
   width: 100%;
-  min-width: var(--mg-card-min-width);
-  max-width: var(--mg-card-max-width);
+  min-width: var(--mg-c-card-min-width);
+  max-width: var(--mg-c-card-max-width);
   box-sizing: border-box;
-  padding: var(--mg-card-padding, var(--mg-card-padding-default));
-  border: var(--mg-card-border, var(--mg-card-border-default));
-  border-radius: var(--mg-card-border-radius, var(--mg-card-border-radius-default));
-  background: var(--mg-card-background, var(--mg-card-background-default));
-  box-shadow: var(--mg-card-box-shadow, var(--mg-card-box-shadow-default));
+  padding: var(--mg-c-card-padding, var(--mg-c-card-padding-default));
+  border: var(--mg-c-card-border, var(--mg-c-card-border-default));
+  border-radius: var(--mg-c-card-border-radius, var(--mg-c-card-border-radius-default));
+  background: var(--mg-c-card-background, var(--mg-c-card-background-default));
+  box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
 
   @include reset-slot-card-variables;
   @include card-variants('info', 'warning', 'success', 'danger', 'app');

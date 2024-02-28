@@ -3,27 +3,27 @@
 @mixin message-variants($variants...) {
   @each $variant in $variants {
     &.mg-c-message--#{$variant} .mg-c-message__icon {
-      color: hsl(var(--color-#{$variant}));
+      color: var(--mg-b-color-#{$variant});
     }
   }
 }
 
 :host {
   // Set mg-card variables
-  --mg-card-padding: 0;
-  --mg-card-border-radius: var(--mg-message-border-radius);
-  --mg-card-border: none;
-  --mg-card-overflow: hidden;
+  --mg-c-card-padding: 0;
+  --mg-c-card-border-radius: var(--mg-c-message-border-radius);
+  --mg-c-card-border: none;
+  --mg-c-card-overflow: hidden;
 }
 
 .mg-c-message {
   display: inline-block;
-  min-height: var(--default-size);
+  min-height: var(--mg-b-default-size);
 
   @include message-variants('info', 'warning', 'success', 'danger');
 
   &.mg-c-message--close-button {
-    --mg-card-padding: 0 3.4rem 0 0;
+    --mg-c-card-padding: 0 3.4rem 0 0;
   }
 
   ::slotted(*) {
@@ -35,7 +35,7 @@
 
   &__icon {
     position: absolute;
-    top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
+    top: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2);
     left: 1.3rem;
     line-height: 1;
   }

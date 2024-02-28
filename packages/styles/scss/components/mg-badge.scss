@@ -11,12 +11,12 @@ $mg-badge-border-width: 0.1rem;
       background-color: currentcolor;
 
       .mg-c-badge__value {
-        color: hsl(var(--mg-badge-text-color, var(--color-light)));
+        color: var(--mg-c-badge-text-color, var(--mg-b-color-light));
       }
     } @else {
-      border-color: hsl(var(--color-#{$backgroundColor}));
-      background-color: hsl(var(--color-#{$backgroundColor}));
-      color: hsl(var(--color-#{$color}));
+      border-color: var(--mg-b-color-#{$backgroundColor});
+      background-color: var(--mg-b-color-#{$backgroundColor});
+      color: var(--mg-b-color-#{$color});
     }
 
     &.mg-c-badge--outline {
@@ -27,7 +27,7 @@ $mg-badge-border-width: 0.1rem;
           color: currentcolor;
         }
       } @else {
-        color: hsl(var(--color-#{$backgroundColor}));
+        color: var(--mg-b-color-#{$backgroundColor});
       }
     }
   }
@@ -35,15 +35,15 @@ $mg-badge-border-width: 0.1rem;
 
 /* Styles */
 .mg-c-badge {
-  min-width: var(--mg-badge-size);
-  height: var(--mg-badge-size);
+  min-width: var(--mg-c-badge-size);
+  height: var(--mg-c-badge-size);
   box-sizing: border-box;
   padding: 0 0.4rem;
   border: $mg-badge-border-width solid;
-  border-radius: calc(var(--mg-badge-size) / 2);
-  font-size: var(--mg-badge-font-size);
+  border-radius: calc(var(--mg-c-badge-size) / 2);
+  font-size: var(--mg-c-badge-font-size);
   font-weight: 600;
-  line-height: var(--mg-badge-size);
+  line-height: var(--mg-c-badge-size);
   text-align: center;
 
   // Variant

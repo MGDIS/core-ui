@@ -17,7 +17,7 @@ $checkbox-multi-spacer: 0.4rem;
   .mg-c-input__input-checkbox-multi {
     display: flex;
     flex-wrap: wrap;
-    column-gap: calc(var(--mg-inputs-spacer) * 1.2);
+    column-gap: calc(var(--mg-c-input-spacer) * 1.2);
 
     &--with-values.mg-c-input__input-checkbox-multi {
       gap: $checkbox-multi-spacer;
@@ -46,15 +46,15 @@ $checkbox-multi-spacer: 0.4rem;
 
     &-value {
       display: inline-flex;
-      min-width: var(--default-size);
-      min-height: var(--default-size);
+      min-width: var(--mg-b-default-size);
+      min-height: var(--mg-b-default-size);
       box-sizing: border-box;
       align-items: center;
       justify-content: center;
-      padding: calc((var(--default-size) - 0.2rem - var(--font-size) * var(--line-height)) / 2) 1.1rem;
+      padding: calc((var(--mg-b-default-size) - 0.2rem - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) 1.1rem;
       border-radius: 0.3rem;
-      background-color: hsl(var(--mg-color-dark-5-hsl));
-      font-size: var(--font-size);
+      background-color: var(--mg-b-color-dark-5);
+      font-size: var(--mg-b-font-size);
     }
 
     &-no-result {
@@ -65,7 +65,7 @@ $checkbox-multi-spacer: 0.4rem;
     &-title {
       display: inline;
       margin: 0;
-      color: hsl(var(--mg-color-dark-40-hsl));
+      color: var(--mg-b-color-dark-40);
     }
 
     &-title {
@@ -87,7 +87,7 @@ $checkbox-multi-spacer: 0.4rem;
     &-section-header {
       @include flex-container(2);
 
-      min-height: var(--default-size);
+      min-height: var(--mg-b-default-size);
       flex-wrap: nowrap;
       align-items: center;
       text-wrap: nowrap;
@@ -100,7 +100,7 @@ $checkbox-multi-spacer: 0.4rem;
       }
 
       &-label {
-        font-size: var(--font-size);
+        font-size: var(--mg-b-font-size);
       }
     }
 
@@ -111,15 +111,15 @@ $checkbox-multi-spacer: 0.4rem;
   }
 
   &:not(.mg-c-input--label-on-top) mg-tooltip:not(.mg-c-input__input-checkbox-multi-section-header-tootlip) {
-    margin-left: var(--mg-inputs-spacer);
+    margin-left: var(--mg-c-input-spacer);
   }
 
   mg-popover {
-    --mg-popover-min-width: 7rem;
-    --mg-card-padding: calc(#{$checkbox-multi-spacer} * 2);
+    --mg-c-popover-min-width: 7rem;
+    --mg-c-card-padding: calc(#{$checkbox-multi-spacer} * 2);
   }
 
   mg-input-text {
-    --mg-inputs-margin-bottom: 0;
+    --mg-c-input-margin-bottom: 0;
   }
 }

@@ -41,7 +41,7 @@ The header bottom border is 100% wide, 1px sizing and its color is @color-dark-s
 
 If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
 
-- `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.
+- `--mg-c-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem var(--mg-b-color-dark-soft)`.
 
 <!-- Auto Generated Below -->
 

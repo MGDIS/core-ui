@@ -2,7 +2,7 @@
 
 :host {
   display: flex;
-  background-color: hsl(var(--mg-menu-background-color-hsl, var(--color-light)));
+  background-color: var(--mg-c-menu-background-color, var(--mg-b-color-light));
 }
 
 :host([direction='vertical']) {

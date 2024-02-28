@@ -37,7 +37,7 @@ describe('mg-details', () => {
       htmlContent(
         { ...baseArgs },
         `mg-details {
-        --mg-details-spacing: ${args}rem;
+        --mg-c-details-spacing: ${args}rem;
       })`,
       ),
     );
