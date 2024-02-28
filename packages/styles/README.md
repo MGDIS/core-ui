@@ -34,7 +34,7 @@ scss/
   │   ├── _spacing.scss
   │   ├── _colors.scss
   │   └── ...
-  ├── style.scss
+  ├── styles.scss
   └── variables.scss
 ```
 
@@ -42,7 +42,7 @@ scss/
 - The `components/` folder holds styles specific to UI components, each in its own partial file.
 - The `layout/` folder contains styles related to the overall layout structure of the project.
 - The `utilities/` folder contains various utility classes and mixins to apply common styles throughout the project.
-- The `style.scss` file acts as the entry point, where all other partial files are imported and compiled into a single CSS file.
+- The `styles.scss` file acts as the entry point, where all other partial files are imported and compiled into a single CSS file.
 - The `custom-properties.scss` file where all the custom CSS properties are stored.
 
 Each folder contains an `_index.scss` in charge of importing all the folder files.

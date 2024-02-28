@@ -1,7 +1,7 @@
 import { NotificationCenter } from '@mgdis/notification-center';
 import { defineCustomElements } from '@mgdis/mg-components/loader';
 
-import './style.scss';
+import './styles.scss';
 import Vue from 'vue';
 import App from './App.vue';
 

@@ -2,7 +2,7 @@ import { NotificationCenter } from '@mgdis/notification-center';
 import { defineCustomElements } from '@mgdis/mg-components/loader';
 import { setMgAngularLogger } from '@mgdis/mg-components-helpers/angular';
 
-import './style.scss';
+import './styles.scss';
 import './app.module';
 
 setMgAngularLogger({ level: 'error' });
