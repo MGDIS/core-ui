@@ -8,7 +8,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--disabled mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -66,7 +66,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -106,6 +106,9 @@ exports[`mg-input-radio Should render with args {
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        Hello joker
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -114,9 +117,6 @@ exports[`mg-input-radio Should render with args {
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        Hello joker
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -130,7 +130,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--vertical-list" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--vertical-list" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -188,7 +188,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
@@ -246,7 +246,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -304,7 +304,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -363,7 +363,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -423,7 +423,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--disabled mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -463,6 +463,9 @@ exports[`mg-input-radio Should render with args {
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -471,9 +474,6 @@ exports[`mg-input-radio Should render with args {
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -489,7 +489,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -529,6 +529,9 @@ exports[`mg-input-radio Should render with args {
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -542,9 +545,6 @@ exports[`mg-input-radio Should render with args {
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -561,7 +561,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -599,6 +599,9 @@ exports[`mg-input-radio Should render with args {
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="true" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
@@ -607,9 +610,6 @@ exports[`mg-input-radio Should render with args {
           </span>
         </span>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -623,7 +623,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -685,7 +685,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -748,7 +748,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -810,7 +810,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -866,7 +866,7 @@ exports[`mg-input-radio Should render with args {
 exports[`mg-input-radio Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -919,7 +919,7 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 exports[`mg-input-radio Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 2`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -972,7 +972,7 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 exports[`mg-input-radio Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 3`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1025,7 +1025,7 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 exports[`mg-input-radio Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 4`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1078,7 +1078,7 @@ exports[`mg-input-radio Should render with args { label: 'label', identifier: 'i
 exports[`mg-input-radio Should trigger events for items ({ items: [Array], selectedIndex: 0 }) with selectedIndex (%s) 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1106,6 +1106,9 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1114,9 +1117,6 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1125,7 +1125,7 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 exports[`mg-input-radio Should trigger events for items ({ items: [Array], selectedIndex: 1 }) with selectedIndex (%s) 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1165,6 +1165,9 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1173,9 +1176,6 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1184,7 +1184,7 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 exports[`mg-input-radio Should trigger events for items ({ items: [Array], selectedIndex: 1 }) with selectedIndex (%s) 2`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1212,6 +1212,9 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1220,9 +1223,6 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1231,7 +1231,7 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 exports[`mg-input-radio Should trigger events for items ({ items: [Array], selectedIndex: 2 }) with selectedIndex (%s) 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1271,6 +1271,9 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1279,9 +1282,6 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1290,7 +1290,7 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 exports[`mg-input-radio Should trigger events for items ({ items: [Array], selectedIndex: 3 }) with selectedIndex (%s) 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1330,6 +1330,9 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1338,9 +1341,6 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1349,7 +1349,7 @@ exports[`mg-input-radio Should trigger events for items ({ items: [Array], selec
 exports[`mg-input-radio display error message with locale: fr 1`] = `
 <mg-input-radio lang="fr">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1392,6 +1392,9 @@ exports[`mg-input-radio display error message with locale: fr 1`] = `
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1405,9 +1408,6 @@ exports[`mg-input-radio display error message with locale: fr 1`] = `
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
       <div id="identifier-error" slot="error">
         Ce champ est obligatoire.
       </div>
@@ -1419,7 +1419,7 @@ exports[`mg-input-radio display error message with locale: fr 1`] = `
 exports[`mg-input-radio display error message with locale: xx 1`] = `
 <mg-input-radio lang="xx">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1462,6 +1462,9 @@ exports[`mg-input-radio display error message with locale: xx 1`] = `
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1475,9 +1478,6 @@ exports[`mg-input-radio display error message with locale: xx 1`] = `
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
@@ -1489,7 +1489,7 @@ exports[`mg-input-radio display error message with locale: xx 1`] = `
 exports[`mg-input-radio display error with displayError component's public method 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1529,6 +1529,9 @@ exports[`mg-input-radio display error with displayError component's public metho
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1542,9 +1545,6 @@ exports[`mg-input-radio display error with displayError component's public metho
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1553,7 +1553,7 @@ exports[`mg-input-radio display error with displayError component's public metho
 exports[`mg-input-radio display error with displayError component's public method 2`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1596,6 +1596,9 @@ exports[`mg-input-radio display error with displayError component's public metho
           </label>
         </li>
       </ul>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1609,9 +1612,6 @@ exports[`mg-input-radio display error with displayError component's public metho
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
@@ -1623,7 +1623,7 @@ exports[`mg-input-radio display error with displayError component's public metho
 exports[`mg-input-radio should display override error with setError component's public method 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1681,7 +1681,7 @@ exports[`mg-input-radio should display override error with setError component's 
 exports[`mg-input-radio should display override error with setError component's public method 2`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1739,7 +1739,7 @@ exports[`mg-input-radio should display override error with setError component's 
 exports[`mg-input-radio should display override error with setError component's public method 3`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1797,7 +1797,7 @@ exports[`mg-input-radio should display override error with setError component's 
 exports[`mg-input-radio should display override error with setError component's public method 4`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1861,7 +1861,7 @@ exports[`mg-input-radio should display override error with setError component's 
 exports[`mg-input-radio validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1920,7 +1920,7 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
 exports[`mg-input-radio validity, case next state is disabled validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--disabled mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1976,7 +1976,7 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
 exports[`mg-input-radio validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 1`] = `
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2035,7 +2035,7 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
 exports[`mg-input-radio validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio mg-c-input--readonly" data-input-type="fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio mg-c-input--readonly" role="group">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2071,9 +2071,13 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
           </label>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
-        <span class="mg-c-input-title" id="identifier-title"></span>
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.

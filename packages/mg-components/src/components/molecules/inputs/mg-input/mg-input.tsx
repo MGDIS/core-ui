@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Watch, Host } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { tooltipPositions, type TooltipPosition, getInputClassModifier, classFieldset, classReadonly, classDisabled, classInput } from './mg-input.conf';
+import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled } from './mg-input.conf';
 
 @Component({
   tag: 'mg-input',
@@ -25,8 +25,9 @@ export class MgInput {
   private helptextMessageSlotElement: HTMLElement;
 
   // style
-  private readonly classHasError = getInputClassModifier('has-error');
-  private readonly classLabelOnTop = getInputClassModifier('label-on-top');
+  private readonly classInput = 'mg-c-input';
+  private readonly classHasError = 'mg-c-input--has-error';
+  private readonly classLabelOnTop = 'mg-c-input--label-on-top';
 
   /**************
    * Decorators *
@@ -110,8 +111,6 @@ export class MgInput {
   watchReadonlyValue(newValue: MgInput['readonlyValue']): void {
     if (newValue && this.classCollection.has(classReadonly)) {
       this.classCollection.add(classReadonly);
-    } else {
-      this.classCollection.delete(classReadonly);
     }
   }
 
@@ -168,7 +167,7 @@ export class MgInput {
       if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) ariaDescribedbyIDs.add(this.helpTextErrorId);
     }
 
-    this.element.querySelectorAll(['input', 'select', 'textarea', '[role="switch"]'].join(', ')).forEach(element => {
+    this.element.querySelectorAll('input,select,textarea,[role="switch"]').forEach(element => {
       element.setAttribute('aria-describedby', Array.from(ariaDescribedbyIDs).join(' '));
     });
   }
@@ -176,11 +175,11 @@ export class MgInput {
   /**
    * Component classes
    */
-  @Prop() classCollection: ClassList = new ClassList([classInput]);
+  @Prop() classCollection: ClassList = new ClassList([this.classInput]);
   @Watch('classCollection')
   watchClassCollection(newValue: MgInput['classCollection']): void {
-    if (!newValue.has(classInput)) {
-      this.classCollection.add(classInput);
+    if (!newValue.has(this.classInput)) {
+      this.classCollection.add(this.classInput);
     }
   }
 
@@ -225,7 +224,7 @@ export class MgInput {
    * @param element - element to update
    * @param attributes - attributes to apply
    */
-  private setElement = (element: HTMLElement, attributes: [string, string][]): void => {
+  private setElementAttributes = (element: HTMLElement, attributes: [string, string][]): void => {
     attributes.forEach(([key, val]) => {
       element.setAttribute(key, val);
     });
@@ -246,14 +245,15 @@ export class MgInput {
     ];
     if (!this.labelSlotElement) {
       this.labelSlotElement = document.createElement('mg-input-title');
-      this.setElement(this.labelSlotElement, labelAttributes);
+      this.setElementAttributes(this.labelSlotElement, labelAttributes);
       const label = document.createElement('span');
       label.classList.add(labelTextClass);
       this.labelSlotElement.appendChild(label);
       this.element.appendChild(this.labelSlotElement);
+    } else {
+      this.setElementAttributes(this.labelSlotElement, labelAttributes);
     }
 
-    this.setElement(this.labelSlotElement, labelAttributes);
     this.labelSlotElement.getElementsByClassName(labelTextClass)[0].textContent = this.label;
   }
 
@@ -298,6 +298,7 @@ export class MgInput {
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchTooltipPosition(this.tooltipPosition);
+    this.watchReadonlyValue(this.readonlyValue);
     this.watchClassCollection(this.classCollection);
     this.watchErrorMessage(this.errorMessage);
     this.watchHelpText(this.helpText);

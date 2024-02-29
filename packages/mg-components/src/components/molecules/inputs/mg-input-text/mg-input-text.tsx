@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { TextType } from './mg-input-text.conf';
-import { type TooltipPosition, type Width, Handler, widths, getInputClassModifier, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
@@ -18,10 +18,10 @@ export class MgInputText {
 
   // Classes
   private readonly classFocus = 'mg-u-is-focused';
-  private readonly classIsInputGroupAppend = getInputClassModifier('is-input-group-append');
-  private readonly classHasIcon = getInputClassModifier('has-icon');
-  private readonly classHasButtonsGroupAppend = getInputClassModifier('has-buttons-group-append');
-  private readonly classIsAppendInputSlotContent = getInputClassModifier('is-append-input-slot-content');
+  private readonly classIsInputGroupAppend = 'mg-c-input--is-input-group-append';
+  private readonly classHasIcon = 'mg-c-input--has-icon';
+  private readonly classHasButtonsGroupAppend = 'mg-c-input--has-buttons-group-append';
+  private readonly classIsAppendInputSlotContent = 'mg-c-input--is-append-input-slot-content';
 
   // IDs
   private characterLeftId;
@@ -156,7 +156,7 @@ export class MgInputText {
   }
 
   @Watch('disabled')
-  validateDisabled(newValue: MgInputText['disabled']): void {
+  watchDisabled(newValue: MgInputText['disabled']): void {
     if (newValue) this.classCollection.add(classDisabled);
     else this.classCollection.delete(classDisabled);
   }
@@ -169,11 +169,11 @@ export class MgInputText {
   watchMgWidth(newValue: MgInputText['mgWidth']): void {
     // reset width class
     widths.forEach(width => {
-      this.classCollection.delete(getInputClassModifier(`width-${width}`));
+      this.classCollection.delete(`mg-c-input--width-${width}`);
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(getInputClassModifier(`width-${this.mgWidth}`));
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -227,7 +227,7 @@ export class MgInputText {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList([getInputClassModifier('text')]);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--text']);
 
   /**
    * Error message to display
@@ -398,7 +398,7 @@ export class MgInputText {
     this.validateAppendSlot();
     this.watchMgWidth(this.mgWidth);
     this.watchReadonly(this.readonly);
-    this.validateDisabled(this.disabled);
+    this.watchDisabled(this.disabled);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload

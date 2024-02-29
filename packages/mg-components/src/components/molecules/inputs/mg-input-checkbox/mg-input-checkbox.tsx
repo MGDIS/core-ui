@@ -3,7 +3,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset, getInputClassModifier } from '../mg-input/mg-input.conf';
+import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset } from '../mg-input/mg-input.conf';
 import type { MgInput } from '../mg-input/mg-input';
 import { initLocales } from '../../../../locales';
 
@@ -40,11 +40,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private mode: 'custom' | 'auto' = 'custom';
 
   // style
-  private readonly baseClassName = getInputClassModifier('checkbox');
-  private readonly classTypeMulti = getInputClassModifier('checkbox-multi');
-  private readonly classVerticalList = getInputClassModifier('vertical-list');
-  private readonly classWithValues = getInputClassModifier('with-values');
-  private readonly classSearchMode = getInputClassModifier('search-mode');
+  private readonly baseClassName = 'mg-c-input--checkbox';
+  private readonly classTypeMulti = 'mg-c-input--checkbox-multi';
+  private readonly classVerticalList = 'mg-c-input--vertical-list';
+  private readonly classWithValues = 'mg-c-input--with-values';
+  private readonly classSearchMode = 'mg-c-input--search-mode';
 
   // "multi" setup
   private readonly multiStart = 5;

@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
-import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
 
 @Component({
@@ -103,6 +103,11 @@ export class MgInputNumeric {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputNumeric['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Maximum value
@@ -134,10 +139,26 @@ export class MgInputNumeric {
     }
   }
 
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputNumeric['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop() mgWidth: Width;
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputNumeric['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(`mg-c-input--width-${width}`);
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+  }
 
   /**
    * Add a tooltip message next to the input
@@ -464,6 +485,9 @@ export class MgInputNumeric {
     // validate value
     this.validateValue(this.value);
     this.validateAppendSlot();
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
+    this.watchMgWidth(this.mgWidth);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload

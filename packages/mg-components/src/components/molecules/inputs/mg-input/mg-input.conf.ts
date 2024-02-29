@@ -35,12 +35,6 @@ export enum Handler {
   FOCUS = 'focus',
 }
 
-export const classInput = 'mg-c-input';
-
-export const getInputClassModifier = modifier => `${classInput}--${modifier}`;
-
-export const classFieldset = getInputClassModifier('fieldset');
-
-export const classDisabled = getInputClassModifier('disabled');
-
-export const classReadonly = getInputClassModifier('readonly');
+export const classFieldset = 'mg-c-input--fieldset';
+export const classDisabled = 'mg-c-input--disabled';
+export const classReadonly = 'mg-c-input--readonly';

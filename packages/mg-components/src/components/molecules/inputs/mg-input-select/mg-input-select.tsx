@@ -3,7 +3,7 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
-import { type TooltipPosition, type Width, Handler } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -179,6 +179,11 @@ export class MgInputSelect {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputSelect['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
@@ -198,10 +203,26 @@ export class MgInputSelect {
     }
   }
 
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputSelect['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop({ reflect: true }) mgWidth: Width;
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputSelect['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(`mg-c-input--width-${width}`);
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+  }
 
   /**
    * Add a tooltip message next to the input
@@ -400,6 +421,9 @@ export class MgInputSelect {
     // Validate
     this.validateItems(this.items);
     this.validateValue(this.value);
+    this.watchMgWidth(this.mgWidth);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
     // Set default placeholder
     if (this.placeholder === undefined || this.placeholder === '') {
       this.placeholder = this.messages.input.select.placeholder;

@@ -4,7 +4,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { RadioOption } from './mg-input-radio.conf';
-import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { Handler, classReadonly, type TooltipPosition, classDisabled, classFieldset } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -122,7 +122,11 @@ export class MgInputRadio {
    * Define if input is readonly
    */
   @Prop() readonly = false;
-
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputRadio['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
   /**
    * Define if input is disabled
    */
@@ -139,6 +143,12 @@ export class MgInputRadio {
       this.setErrorMessage();
       this.hasDisplayedError = false;
     }
+  }
+
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputRadio['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
   }
 
   /**
@@ -169,7 +179,7 @@ export class MgInputRadio {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-c-input--radio']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--radio', classFieldset]);
 
   /**
    * Error message to display
@@ -299,6 +309,8 @@ export class MgInputRadio {
     // Validate
     this.validateItems(this.items);
     this.watchInputVerticalList(this.inputVerticalList);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload

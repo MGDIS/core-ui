@@ -3,7 +3,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
-import { type TooltipPosition } from '../mg-input/mg-input.conf';
+import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 
 /**
  * type Option validation function
@@ -24,7 +24,6 @@ export class MgInputToggle {
    ************/
 
   // Classes
-  private readonly classDisabled = 'mg-c-input--toggle-disabled';
   private readonly classIsActive = 'mg-c-input--toggle-is-active';
   private readonly classOnOff = 'mg-c-input--toggle-on-off';
   private readonly classIcon = 'mg-c-input--toggle-icon';
@@ -121,15 +120,20 @@ export class MgInputToggle {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputToggle['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('disabled')
-  handleDisabled(newValue: MgInputToggle['disabled']): void {
-    if (newValue) this.classCollection.add(this.classDisabled);
-    else this.classCollection.delete(this.classDisabled);
+  watchDisabled(newValue: MgInputToggle['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
   }
 
   /**
@@ -286,8 +290,8 @@ export class MgInputToggle {
     this.setChecked();
     // apply handler
     this.handleIsOnOff(this.isOnOff);
-    this.handleIsIcon(this.isIcon);
-    this.handleDisabled(this.disabled);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
   }
 
   /**

@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-02-28T10:12:37",
+  "timestamp": "2024-02-29T15:12:46",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.12.2",
+    "version": "4.12.4",
     "typescriptVersion": "5.3.3"
   },
   "components": [
@@ -1722,7 +1722,7 @@
           "reflectToAttr": false,
           "docs": "Component classes",
           "docsTags": [],
-          "default": "new ClassList([classInput])",
+          "default": "new ClassList([this.classInput])",
           "values": [
             {
               "type": "ClassList"

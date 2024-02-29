@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
 import { InputError } from './mg-input-date.conf';
-import { Handler, type TooltipPosition } from '../mg-input/mg-input.conf';
+import { Handler, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -85,6 +85,11 @@ export class MgInputDate {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputDate['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define input minimum date
@@ -123,6 +128,12 @@ export class MgInputDate {
         this.hasDisplayedError = false;
       }
     }
+  }
+
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputDate['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
   }
 
   /**
@@ -339,6 +350,8 @@ export class MgInputDate {
     this.validateValue(this.value);
     this.validateMinMax(this.min);
     this.validateMinMax(this.max);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload

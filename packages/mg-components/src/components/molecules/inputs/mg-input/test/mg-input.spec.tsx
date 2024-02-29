@@ -1,18 +1,9 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 import { ClassList } from '@mgdis/stencil-helpers';
 import { classDisabled, classFieldset, classReadonly } from '../mg-input.conf';
-
-mockWindowFrames();
-
-const getPage = (args, slot?) =>
-  newSpecPage({
-    components: [MgInputTitle, MgInput],
-    template: () => <mg-input {...args}>{slot ? slot : <input type="file" id={args.identifier}></input>}</mg-input>,
-  });
 
 const baseArgs = {
   label: 'label',
@@ -25,37 +16,62 @@ const helpText = 'Hello joker';
 
 const tooltip = 'Batman is a DC Comics license';
 
+const getPage = (args = {}, slot?) => {
+  const props = { ...baseArgs, ...args };
+
+  return newSpecPage({
+    components: [MgInputTitle, MgInput],
+    template: () => <mg-input {...props}>{slot ? slot : <input type="file" id={props.identifier}></input>}</mg-input>,
+  });
+};
+
 describe('mg-input', () => {
   describe('render', () => {
     test.each([
-      { ...baseArgs },
-      { ...baseArgs, classCollection: new ClassList([]) },
-      { ...baseArgs, classCollection: new ClassList([classFieldset]) },
-      { ...baseArgs, errorMessage },
-      { ...baseArgs, errorMessage, classCollection: new ClassList([classReadonly]) },
-      { ...baseArgs, errorMessage, classCollection: new ClassList([classDisabled]) },
-      { ...baseArgs, readonlyValue: ['batman', 'joker', 'bane'], classCollection: new ClassList([classReadonly]) },
-      { ...baseArgs, classCollection: new ClassList([classReadonly]) },
-      { ...baseArgs, classCollection: new ClassList([classReadonly]), inputVerticalList: true },
-      { ...baseArgs, labelOnTop: true },
-      { ...baseArgs, labelHide: true },
-      { ...baseArgs, inputVerticalList: true },
-      { ...baseArgs, required: true },
-      { ...baseArgs, helpText },
-      { ...baseArgs, required: true, classCollection: new ClassList([classReadonly]), helpText },
-      { ...baseArgs, required: true, classCollection: new ClassList([classDisabled]), helpText },
-      { ...baseArgs, classCollection: new ClassList([classReadonly]), labelOnTop: true, tooltip },
-      { ...baseArgs, classCollection: new ClassList([classDisabled]) },
-      { ...baseArgs, tooltip },
-      { ...baseArgs, tooltip, tooltipPosition: 'label' },
-      { ...baseArgs, tooltip, tooltipPosition: 'input', labelOnTop: true },
+      {},
+      { classCollection: new ClassList([]) },
+      { labelOnTop: true },
+      { labelHide: true },
+      { inputVerticalList: true },
+      { required: true },
+      { helpText },
+      { errorMessage },
+      // fieldset
+      { classCollection: new ClassList([classFieldset]) },
+      // readonly
+      { readonlyValue: 'batman', classCollection: new ClassList([classReadonly]) },
+      { readonlyValue: ['batman', 'joker', 'bane'], classCollection: new ClassList([classReadonly]) },
+      { errorMessage, classCollection: new ClassList([classReadonly]) },
+      { classCollection: new ClassList([classReadonly]) },
+      { classCollection: new ClassList([classReadonly]), inputVerticalList: true },
+      { required: true, classCollection: new ClassList([classReadonly]), helpText },
+      { classCollection: new ClassList([classReadonly]), labelOnTop: true, tooltip },
+      // disabled
+      { required: true, classCollection: new ClassList([classDisabled]), helpText },
+      { errorMessage, classCollection: new ClassList([classDisabled]) },
+      { classCollection: new ClassList([classDisabled]) },
+      // tooltip
+      { tooltip },
+      { tooltip, tooltipPosition: 'label' },
+      { tooltip, tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with args %s:', async args => {
       const { root } = await getPage(args);
       expect(root).toMatchSnapshot();
     });
 
+    test('Should update "label" slot', async () => {
+      const page = await getPage({ label: 'batma,' });
+      expect(page).toMatchSnapshot();
+      const element = page.doc.querySelector('mg-input');
+
+      element.label = 'joker';
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
     test('Should update "error" slot', async () => {
-      const page = await getPage(baseArgs);
+      const page = await getPage();
       const element = page.doc.querySelector('mg-input');
 
       element.errorMessage = errorMessage;
@@ -70,7 +86,7 @@ describe('mg-input', () => {
     });
 
     test('Should update "help-text" slot', async () => {
-      const page = await getPage(baseArgs);
+      const page = await getPage();
       const element = page.doc.querySelector('mg-input');
 
       element.helpText = helpText;
@@ -89,7 +105,7 @@ describe('mg-input', () => {
     test.each(['', ' ', undefined])('Should not render with invalid "identifier" property: %s', async identifier => {
       expect.assertions(1);
       try {
-        await getPage({ ...baseArgs, identifier });
+        await getPage({ identifier });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
       }
@@ -98,7 +114,7 @@ describe('mg-input', () => {
     test.each(['', ' ', undefined])('Should not render with invalid "label" property: %s', async label => {
       expect.assertions(1);
       try {
-        await getPage({ ...baseArgs, label });
+        await getPage({ label });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "label" is required.');
       }
@@ -107,7 +123,7 @@ describe('mg-input', () => {
     test.each([' ', 'batman'])('Should not render with invalid "tooltipPosition" property: %s', async tooltipPosition => {
       expect.assertions(1);
       try {
-        await getPage({ ...baseArgs, tooltipPosition });
+        await getPage({ tooltipPosition });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "tooltipPosition" must be one of: input, label');
       }
@@ -125,7 +141,7 @@ describe('mg-input', () => {
     test('Should throw error when slotted input hasn\'t valid "id" attribute', async () => {
       expect.assertions(1);
       try {
-        await getPage({ ...baseArgs }, <input type="file"></input>);
+        await getPage({}, <input type="file"></input>);
       } catch (err) {
         expect(err.message).toMatch('<mg-input> "identifier" prop has no target for id: identifier. Add an id to the targeted input.');
       }
