@@ -252,8 +252,13 @@ export class MgInputToggle {
    * @param checked
    * @returns toggle value
    */
-  private getCheckedItem = (checked: MgInputToggle['checked']): ToggleValue => (this.options?.length >= 2 ? this.options[checked ? 1 : 0] : ({} as ToggleValue));
-
+  private getCheckedItem = (checked: MgInputToggle['checked']): ToggleValue => {
+    if (this.options?.length === 2) {
+      return this.options[checked ? 1 : 0];
+    } else {
+      return null;
+    }
+  };
   /**
    * set checked state
    */
@@ -316,7 +321,7 @@ export class MgInputToggle {
         mgWidth={undefined}
         disabled={this.disabled}
         value={this.value?.toString()}
-        readonlyValue={this.getCheckedItem(this.checked).title}
+        readonlyValue={this.getCheckedItem(this.checked)?.title}
         tooltip={!this.readonly && this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
