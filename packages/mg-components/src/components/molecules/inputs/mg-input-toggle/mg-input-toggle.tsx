@@ -248,7 +248,7 @@ export class MgInputToggle {
   };
 
   /**
-   * Get check item
+   * Get checked item
    * @param checked
    * @returns toggle value
    */
