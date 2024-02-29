@@ -1,1 +1,9 @@
+# Check if previous commit contains WIP
+LAST_COMMIT_MESSAGE=$(git log -1 --format="%h - %s")
+if echo "$LAST_COMMIT_MESSAGE" | grep -iq wip; then
+    echo "Previous commit message contains WIP: $LAST_COMMIT_MESSAGE"
+    exit 1
+fi
+
+# Check linting
 pnpm --filter @mgdis/linting-stencil build:config && pnpm dlx lint-staged
