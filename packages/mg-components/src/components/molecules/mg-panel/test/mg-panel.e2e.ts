@@ -1,4 +1,4 @@
-import { setPageContent, expect, describe, testEach, updateScreenshotClass, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { createID } from '@mgdis/stencil-helpers';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 import { type MgPanel } from '../mg-panel';
@@ -79,14 +79,13 @@ describe('mg-panel', () => {
     },
     { ...baseArgs, expanded: true, style: '--mg-c-panel-background:var(--mg-b-color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
   ])('Should render with template %s', async (page: PageType, args: ArgsType) => {
-    await setPageContent(
-      page,
+    await page.setContent(
       createHTML({
         ...args,
       }),
     );
 
-    await updateScreenshotClass(page, { width: '500px', height: '100%' });
+    await page.setViewportSize({ width: 500, height: 500 });
 
     await expect(page.locator('mg-panel')).toHaveScreenshot();
 
@@ -105,8 +104,7 @@ describe('mg-panel', () => {
           'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
       },
     ])('Should navigate throw editabled panel %s', async (page: PageType, args: ArgsType) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         createHTML({
           ...args,
         }),
@@ -145,7 +143,7 @@ describe('mg-panel', () => {
         titlePatternErrorMessage: "You can't enter a bad guy !",
       };
 
-      await setPageContent(page, createHTML(args));
+      await page.setContent(createHTML(args));
 
       await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 

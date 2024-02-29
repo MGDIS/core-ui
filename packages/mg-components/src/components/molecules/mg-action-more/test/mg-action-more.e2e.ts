@@ -1,4 +1,4 @@
-import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { createID } from '@mgdis/stencil-helpers';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
@@ -101,7 +101,7 @@ describe('mg-action-more', () => {
         },
       },
     ])('Should render %s', async (page: PageType, args: MgActionMoreType) => {
-      await setPageContent(page, createHTML(args));
+      await page.setContent(createHTML(args));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -109,7 +109,8 @@ describe('mg-action-more', () => {
 
   describe('navigation', () => {
     testEach(['mouse', 'keyboard'])('should toggle button menu, case %s', async (page: PageType, navigation) => {
-      await setPageContent(page, createHTML({ items }), { width: 130, height: 200 });
+      await page.setContent(createHTML({ items }));
+      await page.setViewportSize({ width: 130, height: 200 });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -130,8 +131,7 @@ describe('mg-action-more', () => {
     });
 
     test('Should toggle button chevron menu', async ({ page }) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         createHTML({
           items,
           displayChevron: true,

@@ -1,4 +1,4 @@
-import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { createID } from '@mgdis/stencil-helpers';
 import { sizes } from '../mg-tabs.conf';
 import { MgTabs } from '../mg-tabs';
@@ -62,8 +62,7 @@ describe('mg-tabs', () => {
         ],
       },
     ])(`render %s`, async (page: PageType, args: Partial<MgTabs>) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         createHTML({
           ...defaultArgs,
           ...args,
@@ -77,8 +76,7 @@ describe('mg-tabs', () => {
 
   describe('navigation', () => {
     test('Should go to next tab on click event', async ({ page }) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         createHTML({
           ...defaultArgs,
           items: ['Batman', 'Joker', 'Bane'],

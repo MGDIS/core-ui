@@ -29,6 +29,7 @@ pnpm build "$@"
 prepare_package "package.json" '{
   name, 
   "scripts": {
+    "apps:mg-components": .scripts."apps:mg-components",
     "apps:notification-center": .scripts."apps:notification-center",
     "test:e2e": .scripts."test:e2e"
   }, 

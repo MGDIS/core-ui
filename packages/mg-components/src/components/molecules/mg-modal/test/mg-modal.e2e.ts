@@ -1,4 +1,4 @@
-import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { MgModalType, actions, contents, createHTML } from './mg-modal.e2e.template';
 
 describe('mg-modal', () => {
@@ -13,22 +13,21 @@ describe('mg-modal', () => {
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat',
       },
     ])('Should render %s', async (page: PageType, args: MgModalType) => {
-      await setPageContent(page, createHTML(args, slots));
+      await page.setContent(createHTML(args, slots));
 
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
     });
   });
 
   test('Should render hidden modal', async ({ page }) => {
-    await setPageContent(page, createHTML({ hidden: true }));
+    await page.setContent(createHTML({ hidden: true }));
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
 
   describe('style', () => {
     test('Should render with child mg-card', async ({ page }) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         `<mg-modal modal-title="child mg-card" class="custom-modal-card">
   <mg-card slot="content">child card</mg-card>
 </mg-modal>
@@ -41,7 +40,7 @@ describe('mg-modal', () => {
 
   describe('navigation', () => {
     test('Should trigger modal and close modal.', async ({ page }) => {
-      await setPageContent(page, createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
+      await page.setContent(createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
 
       await expect(page.locator('body')).toHaveScreenshot();
 
@@ -57,7 +56,7 @@ describe('mg-modal', () => {
     });
 
     test('Should navigate with keyboard', async ({ page }) => {
-      await setPageContent(page, createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
+      await page.setContent(createHTML({ closeButton: true, hidden: true }, { action: true, content: 'short' }));
 
       await expect(page.locator('body')).toHaveScreenshot();
 

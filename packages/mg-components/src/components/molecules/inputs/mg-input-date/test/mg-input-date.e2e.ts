@@ -108,7 +108,7 @@ test.describe('mg-input-date', () => {
   [false, true].forEach(labelOnTop => {
     test(`Ensure component fit in width 200px, label-on-top="${labelOnTop}"`, async ({ page }) => {
       await page.setContent(createHTML({ ...baseProps, labelOnTop }));
-      page.setViewportSize({ width: 200, height: 100 });
+      await page.setViewportSize({ width: 200, height: 100 });
       await page.locator('mg-input-date.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

@@ -1,9 +1,8 @@
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { Direction, sizes } from '../../mg-menu/mg-menu.conf';
 import { Status } from '../mg-menu-item.conf';
-import { PageType, describe, describeEach, expect, setPageContent, test, testEach } from '../../../../../utils/playwright.e2e.test.utils';
+import { PageType, describe, describeEach, expect, test, testEach } from '../../../../../utils/playwright.e2e.test.utils';
 
-const TIMEOUT = 1000;
 const slotContent = '<div><h3>Demo title</h3><p>some content</p></div>';
 const slotMenuItem = '<mg-menu label="submenu"><mg-menu-item><span slot="label">Batman begins</span></mg-menu-item></mg-menu>';
 const slotImage = '<mg-icon icon="user" slot="image"></mg-icon>';
@@ -26,10 +25,11 @@ describe('mg-menu-item', () => {
         [undefined, '#link'].flatMap(href => [true, false].map(submenu => createHTML({ status, href }, submenu && slotMenuItem, direction))),
       ),
     )('should render with status %s', async (page: PageType, html: string) => {
-      await setPageContent(page, html, { width: 100, height: 38 });
+      await page.setContent(html);
+      await page.setViewportSize({ width: 100, height: 38 });
 
       if (!html.includes('status="hidden"')) {
-        await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+        await page.locator('mg-menu-item.hydrated').first();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       } else {
         await expect(page.locator('body')).toHaveScreenshot();
@@ -48,42 +48,47 @@ describe('mg-menu-item', () => {
         ),
       ),
     )('should render with slots %s', async (page: PageType, html: string) => {
-      await setPageContent(page, html, { width: 130, height: 60 });
+      await page.setContent(html);
+      await page.setViewportSize({ width: 130, height: 60 });
 
-      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-menu-item.hydrated').first();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
     testEach(sizes)(`should renders direction=${direction}, props size=%s`, async (page: PageType, size) => {
-      await setPageContent(page, createHTML({ size }, [slotInformation, slotImage, slotMenuItem].join(''), direction), { width: 130, height: 110 });
+      await page.setContent(createHTML({ size }, [slotInformation, slotImage, slotMenuItem].join(''), direction));
+      await page.setViewportSize({ width: 130, height: 110 });
 
-      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-menu-item.hydrated').first();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
     testEach([true, false])(`should renders direction=${direction}, props expanded=%s`, async (page: PageType, expanded: boolean) => {
-      await setPageContent(page, createHTML({ expanded }, slotMenuItem, direction), { width: 130, height: 110 });
+      await page.setContent(createHTML({ expanded }, slotMenuItem, direction));
+      await page.setViewportSize({ width: 130, height: 110 });
 
-      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-menu-item.hydrated').first();
 
       await expect(page.locator(expanded ? 'body' : '.e2e-screenshot')).toHaveScreenshot();
     });
 
     test('Should render content slot', async ({ page }) => {
-      await setPageContent(page, createHTML({ expanded: true }, slotContent, direction), { width: 100, height: 150 });
+      await page.setContent(createHTML({ expanded: true }, slotContent, direction));
+      await page.setViewportSize({ width: 100, height: 150 });
 
-      await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+      await page.locator('mg-menu-item.hydrated').first();
 
       await expect(page.locator('body')).toHaveScreenshot();
     });
 
     testEach([Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED])('shoud manage keyboard navigation %s', async (page: PageType, status) => {
-      await setPageContent(page, createHTML({ status }, slotMenuItem, direction), { width: 120, height: 200 });
+      await page.setContent(createHTML({ status }, slotMenuItem, direction));
+      await page.setViewportSize({ width: 120, height: 200 });
 
       if (status !== Status.HIDDEN) {
-        await page.locator('mg-menu-item.hydrated').first().waitFor({ timeout: TIMEOUT });
+        await page.locator('mg-menu-item.hydrated').first();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       } else {
         await expect(page.locator('body')).toHaveScreenshot();

@@ -1,21 +1,14 @@
-import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { PageType, describe, describeEach, expect, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '@mgdis/playwright-helpers';
-
-const TIMEOUT = 1000;
 
 describe('mg-input-radio', () => {
   describeEach([`<mg-input-radio identifier="identifier" label="legend"></mg-input-radio>`])('without tooltip', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
-      await setPageContent(
-        page,
-        `${html}
-      <script>
-      const mgInputRadio = document.querySelector('mg-input-radio');
-      mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-      </script>`,
-      );
+      await page.setContent(html);
 
-      await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.addScriptTag({ content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']" });
+
+      page.locator('mg-input-radio.hydrated');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -48,32 +41,21 @@ describe('mg-input-radio', () => {
     `<mg-input-radio identifier="identifier" label="legend" placeholder="placeholder" required disabled help-text="HelpText Message" value="batman"></mg-input-radio>`,
   ])('without tooltip', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
-      await setPageContent(
-        page,
-        `${html}
-        <script>
-        const mgInputRadio = document.querySelector('mg-input-radio');
-        mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-        </script>`,
-      );
+      await page.setContent(html);
+      await page.addScriptTag({ content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']" });
 
-      await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+      page.locator('mg-input-radio.hydrated');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   testEach([true, false])('render with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(
-      page,
-      `<mg-input-radio identifier="identifier" label="legend" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-radio>
-      <script>
-      const mgInputRadio = document.querySelector('mg-input-radio');
-      mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-      </script>`,
-    );
+    await page.setContent(`<mg-input-radio identifier="identifier" label="legend" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-radio>`);
 
-    await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.addScriptTag({ content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']" });
+
+    page.locator('mg-input-radio.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -86,16 +68,14 @@ describe('mg-input-radio', () => {
   });
 
   test('render longer intems list inline', async ({ page }) => {
-    await setPageContent(
-      page,
-      `<mg-input-radio identifier="identifier" label="legend"></mg-input-radio>
-      <script>
-      const mgInputRadio = document.querySelector('mg-input-radio');
-      mgInputRadio.items = ['batman', 'robin', 'joker', 'bane', 'ironman', 'spiderman', 'captain america', 'thor', 'vision', 'antman', 'black widow', 'black panther'];
-      </script>`,
-    );
+    await page.setContent(`<mg-input-radio identifier="identifier" label="legend"></mg-input-radio>`);
 
-    await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.addScriptTag({
+      content:
+        "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane', 'ironman', 'spiderman', 'captain america', 'thor', 'vision', 'antman', 'black widow', 'black panther']",
+    });
+
+    page.locator('mg-input-radio.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -111,16 +91,13 @@ describe('mg-input-radio', () => {
     `<mg-input-radio identifier="identifier" label="legend" tooltip="blu" tooltip-position="input" label-on-top></mg-input-radio>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
-      await setPageContent(
-        page,
-        `${html}
-        <script>
-        const mgInputRadio = document.querySelector('mg-input-radio');
-        mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-        </script>`,
-      );
+      await page.setContent(html);
 
-      await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.addScriptTag({
+        content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']",
+      });
+
+      page.locator('mg-input-radio.hydrated');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -131,16 +108,13 @@ describe('mg-input-radio', () => {
     `<mg-input-radio identifier="identifier" label="legend" required lang="fr"></mg-input-radio>`,
   ])('%s', (html: string) => {
     test('Should render error when leaving an empty required input', async ({ page }) => {
-      await setPageContent(
-        page,
-        `${html}
-      <script>
-      const mgInputRadio = document.querySelector('mg-input-radio');
-      mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-      </script>`,
-      );
+      await page.setContent(html);
 
-      await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+      await page.addScriptTag({
+        content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']",
+      });
+
+      page.locator('mg-input-radio.hydrated');
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
@@ -150,18 +124,15 @@ describe('mg-input-radio', () => {
   });
 
   testEach([false, true])('Ensure component fit in width 200px with label-on-top: %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(
-      page,
-      `<mg-input-radio identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-radio>
-        <script>
-        const mgInputRadio = document.querySelector('mg-input-radio');
-        mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-        </script>
-      `,
-      { width: 200, height: 100 },
-    );
+    await page.setContent(`<mg-input-radio identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-radio>`);
 
-    await page.locator('mg-input-radio.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.addScriptTag({
+      content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']",
+    });
+
+    await page.setViewportSize({ width: 200, height: 100 });
+
+    page.locator('mg-input-radio.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -169,14 +140,11 @@ describe('mg-input-radio', () => {
   test.describe('Responsive', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
-        await setPageContent(
-          page,
-          `<mg-input-radio identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-radio>
-        <script>
-        const mgInputRadio = document.querySelector('mg-input-radio');
-        mgInputRadio.items = ['batman', 'robin', 'joker', 'bane'];
-        </script>`,
-        );
+        await page.setContent(`<mg-input-radio identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-radio>`);
+
+        await page.addScriptTag({
+          content: "document.querySelector('mg-input-radio').items = ['batman', 'robin', 'joker', 'bane']",
+        });
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

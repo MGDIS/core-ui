@@ -1,9 +1,8 @@
-import { describe, expect, setPageContent, test } from '../../../../utils/playwright.e2e.test.utils';
+import { describe, expect, test } from '../../../../utils/playwright.e2e.test.utils';
 
 describe('mg-skip-links', () => {
   test('Should render', async ({ page }) => {
-    await setPageContent(
-      page,
+    await page.setContent(
       `<mg-skip-links></mg-skip-links>
     <style>body{background:#999;}</style>
     <script>

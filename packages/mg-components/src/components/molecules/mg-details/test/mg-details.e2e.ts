@@ -1,4 +1,4 @@
-import { setPageContent, describe, testEach, expect, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { describe, testEach, expect, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 
 const content =
@@ -11,7 +11,7 @@ const htmlContent = (args, style?) =>
 
 describe('mg-details', () => {
   testEach([{}, { 'hide-summary': '' }])('Should toggle details %s', async (page: PageType, args: object) => {
-    await setPageContent(page, htmlContent({ ...baseArgs, ...args }));
+    await page.setContent(htmlContent({ ...baseArgs, ...args }));
 
     await page.setViewportSize({ width: 700, height: 100 });
 
@@ -24,7 +24,7 @@ describe('mg-details', () => {
   });
 
   test('Should not render toggle text when window size is under 700px', async ({ page }) => {
-    await setPageContent(page, htmlContent({ ...baseArgs }));
+    await page.setContent(htmlContent({ ...baseArgs }));
 
     await page.setViewportSize({ width: 650, height: 100 });
 
@@ -32,8 +32,7 @@ describe('mg-details', () => {
   });
 
   testEach([0, 5])('Should update space (%s) between summary and details', async (page, args) => {
-    await setPageContent(
-      page,
+    await page.setContent(
       htmlContent(
         { ...baseArgs },
         `mg-details {

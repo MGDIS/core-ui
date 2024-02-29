@@ -1,6 +1,4 @@
-import { PageType, describe, expect, setPageContent, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
-
-const TIMEOUT = 1000;
+import { PageType, describe, expect, test, testEach } from '../../../../utils/playwright.e2e.test.utils';
 
 const template = (size = 'regular', direction = 'vertical') => `<mg-illustrated-message size="${size}" direction="${direction}">
 <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
@@ -22,21 +20,22 @@ const template = (size = 'regular', direction = 'vertical') => `<mg-illustrated-
 
 describe('mg-illustrated-message', () => {
   testEach(['regular', 'small'])('renders size %s', async (page: PageType, size: string) => {
-    await setPageContent(page, template(size));
+    await page.setContent(template(size));
 
-    await page.locator('mg-illustrated-message.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.locator('mg-illustrated-message.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test('renders horizontal', async ({ page }) => {
-    await setPageContent(page, template(undefined, 'horizontal'), { width: 800, height: 300 });
+    await page.setContent(template(undefined, 'horizontal'));
+    await page.setViewportSize({ width: 800, height: 300 });
 
-    await page.locator('mg-illustrated-message.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.locator('mg-illustrated-message.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    page.setViewportSize({ width: 600, height: 600 });
+    await page.setViewportSize({ width: 600, height: 600 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

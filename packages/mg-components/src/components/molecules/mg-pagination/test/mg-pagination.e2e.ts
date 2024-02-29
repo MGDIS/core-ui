@@ -1,4 +1,4 @@
-import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { MgPagination } from '../mg-pagination';
 
@@ -9,7 +9,7 @@ describe('mg-pagination', () => {
     testEach(
       [1, 2, 3].flatMap(totalPages => [true, false].flatMap(hidePageCount => [true, false].map(hideNavigationLabels => ({ totalPages, hideNavigationLabels, hidePageCount })))),
     )('render %s', async (page: PageType, args: Partial<MgPagination>) => {
-      await setPageContent(page, createHTML(args));
+      await page.setContent(createHTML(args));
 
       if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       else expect(await page.locator('mg-pagination').isVisible()).toBe(false);
@@ -18,7 +18,7 @@ describe('mg-pagination', () => {
 
   describe('navigation', () => {
     testEach([2, 3, 10])('should success mouse navigation %s', async (page: PageType, totalPages: number) => {
-      await setPageContent(page, createHTML({ totalPages }));
+      await page.setContent(createHTML({ totalPages }));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -33,7 +33,7 @@ describe('mg-pagination', () => {
     });
 
     test('Should success keyboard navigation', async ({ page }) => {
-      await setPageContent(page, createHTML({ totalPages: 5 }));
+      await page.setContent(createHTML({ totalPages: 5 }));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -68,7 +68,7 @@ describe('mg-pagination', () => {
 
   describe('locales', () => {
     test('render with locale: %s', async ({ page }) => {
-      await setPageContent(page, createHTML({ totalPages: 5, lang: 'fr' }));
+      await page.setContent(createHTML({ totalPages: 5, lang: 'fr' }));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });

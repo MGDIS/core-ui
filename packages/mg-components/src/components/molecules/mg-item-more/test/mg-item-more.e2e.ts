@@ -1,5 +1,5 @@
 import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
-import { setPageContent, expect, describe, testEach, PageType } from '../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, testEach, PageType } from '../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
@@ -67,13 +67,14 @@ const createHTML = args => `
 describe('mg-item-more', () => {
   describe('mg-menu', () => {
     testEach(sizes)(`should renders, case direction ${Direction.VERTICAL} size %s with small screen`, async (page: PageType, size: string) => {
-      await setPageContent(page, createHTML({ direction: Direction.VERTICAL, size }), verticalFrameSizes[size]);
+      await page.setContent(createHTML({ direction: Direction.VERTICAL, size }), verticalFrameSizes[size]);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
     testEach([true, false])('should renders with overflow, case badge %s', async (page: PageType, badge) => {
-      await setPageContent(page, createHTML({ direction: Direction.HORIZONTAL, badge }), { width: 400, height: 250 });
+      await page.setContent(createHTML({ direction: Direction.HORIZONTAL, badge }));
+      await page.setViewportSize({ width: 400, height: 250 });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 

@@ -1,5 +1,5 @@
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
-import { setPageContent, expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
+import { expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
 import { MgInputText } from '../mg-input-text';
 
 const creatHtml = (props: Partial<MgInputText & { slot: string }>) => {
@@ -18,7 +18,7 @@ describe('mg-input-text', () => {
       { ...defaultProps, labelHide: true },
       { ...defaultProps, placeholder: 'placeholder', helpText: 'HelpText Message' },
     ])('without tooltip %s', async (page: PageType, props: MgInputText) => {
-      await setPageContent(page, creatHtml(props));
+      await page.setContent(creatHtml(props));
 
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
@@ -42,7 +42,7 @@ describe('mg-input-text', () => {
 
     testEach([true, false])('with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
       const args: Partial<MgInputText> = { ...defaultProps, tooltip: 'Tooltip message', labelOnTop };
-      await setPageContent(page, creatHtml(args));
+      await page.setContent(creatHtml(args));
 
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
@@ -71,7 +71,7 @@ describe('mg-input-text', () => {
       { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
       { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
     ])('Should render with template %s', async (page: PageType, args) => {
-      await setPageContent(page, creatHtml(args));
+      await page.setContent(creatHtml(args));
 
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
@@ -83,7 +83,7 @@ describe('mg-input-text', () => {
       { ...defaultProps, required: true },
       { ...defaultProps, required: true, lang: 'fr' },
     ])('Should render error when leaving an empty required input %s', async (page: PageType, args) => {
-      await setPageContent(page, creatHtml(args));
+      await page.setContent(creatHtml(args));
 
       const element = page.locator('mg-input-text.hydrated');
       await element.waitFor({ timeout: 1000 });
@@ -95,8 +95,7 @@ describe('mg-input-text', () => {
     });
 
     testEach([16, 'full'])('Should render error when leaving input with a non matching pattern value, mg-width: %s', async (page: PageType, mgWidth: MgInputText['mgWidth']) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         creatHtml({
           ...defaultProps,
           mgWidth,
@@ -154,8 +153,7 @@ describe('mg-input-text', () => {
         `,
         },
       ])('render slot %s', async (page: PageType, props: Record<string, unknown>) => {
-        await setPageContent(
-          page,
+        await page.setContent(
           creatHtml({
             ...props,
             placeholder: 'placeholder',
@@ -173,8 +171,7 @@ describe('mg-input-text', () => {
 
     describeEach([16, 4, 2])('with custom width: %s', (mgWidth: MgInputText['mgWidth']) => {
       testEach([false, true])('with label on top: %s', async (page: PageType, labelOnTop: MgInputText['labelOnTop']) => {
-        await setPageContent(
-          page,
+        await page.setContent(
           creatHtml({
             ...defaultProps,
             value: 'bruce',
@@ -191,8 +188,7 @@ describe('mg-input-text', () => {
     });
 
     testEach([false, true])('Ensure component fit in width 200px with label-on-top: %s', async (page: PageType, labelOnTop: MgInputText['labelOnTop']) => {
-      await setPageContent(
-        page,
+      await page.setContent(
         creatHtml({
           ...defaultProps,
           labelOnTop,
@@ -211,7 +207,7 @@ describe('mg-input-text', () => {
   describe('datalist', () => {
     test('Should display datalist', async ({ page }) => {
       const props = { identifier: 'identifier', label: 'label', datalistoptions: ['batman', 'robin'] };
-      await setPageContent(page, creatHtml(props));
+      await page.setContent(creatHtml(props));
 
       await page.keyboard.down('Tab');
 
@@ -223,7 +219,7 @@ describe('mg-input-text', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
         const props = { identifier: 'identifier', label: 'label', ...args };
-        await setPageContent(page, creatHtml(props));
+        await page.setContent(creatHtml(props));
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

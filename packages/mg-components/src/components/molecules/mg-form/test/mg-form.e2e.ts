@@ -96,7 +96,7 @@ const inputsScriptDisabledAll = `
 
 test.describe('mg-form', () => {
   test.beforeEach(async ({ page }) => {
-    page.setViewportSize({ width: 800, height: 800 });
+    await page.setViewportSize({ width: 800, height: 800 });
   });
 
   [{}, { disabled: true }, { readonly: true }, { labelOnTop: true }].forEach(args => {

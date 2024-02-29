@@ -1,7 +1,5 @@
-import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
+import { PageType, describe, describeEach, expect, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
 import { renderAttributes } from '@mgdis/playwright-helpers';
-
-const TIMEOUT = 1000;
 
 describe('mg-input-password', () => {
   describeEach([
@@ -11,9 +9,9 @@ describe('mg-input-password', () => {
     `<mg-input-password identifier="identifier" label="label" placeholder="placeholder" help-text="HelpText Message"></mg-input-password>`,
   ])('without tooltip', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, html);
+      await page.setContent(html);
 
-      await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
+      page.locator('mg-input-password.hydrated');
       const input = page.locator('input');
 
       // Hide caret for screenshots
@@ -37,9 +35,9 @@ describe('mg-input-password', () => {
   });
 
   testEach([true, false])('render with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(page, `<mg-input-password identifier="identifier" label="label" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-password>`);
+    await page.setContent(`<mg-input-password identifier="identifier" label="label" tooltip="Tooltip message" label-on-top="${labelOnTop}"></mg-input-password>`);
 
-    await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
+    page.locator('mg-input-password.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -66,9 +64,9 @@ describe('mg-input-password', () => {
     `<mg-input-password identifier="identifier" label="label" value="blu" tooltip="blu" tooltip-position="input" label-on-top></mg-input-password>`,
   ])('Should render with template', (html: string) => {
     test(`render ${html}`, async ({ page }) => {
-      await setPageContent(page, html);
+      await page.setContent(html);
 
-      await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
+      page.locator('mg-input-password.hydrated');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -79,9 +77,9 @@ describe('mg-input-password', () => {
     `<mg-input-password identifier="identifier" label="label" required lang="fr"></mg-input-password>`,
   ])('%s', (html: string) => {
     test('Should render error when leaving an empty required input', async ({ page }) => {
-      await setPageContent(page, html);
+      await page.setContent(html);
 
-      await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
+      page.locator('mg-input-password.hydrated');
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
@@ -92,18 +90,19 @@ describe('mg-input-password', () => {
 
   describeEach([16])('with custom width: %s', width => {
     testEach([false, true])('with label on top: %s', async (page: PageType, labelOnTop: boolean) => {
-      await setPageContent(page, `<mg-input-password identifier="identifier" label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-password>`);
+      await page.setContent(`<mg-input-password identifier="identifier" label="label" mg-width="${width}" label-on-top="${labelOnTop}"></mg-input-password>`);
 
-      await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
+      page.locator('mg-input-password.hydrated');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
   testEach([false, true])('Ensure component fit in width 200px with label-on-top: %s', async (page: PageType, labelOnTop: boolean) => {
-    await setPageContent(page, `<mg-input-password identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-password>`, { width: 200, height: 100 });
+    await page.setContent(`<mg-input-password identifier="identifier" label="label" label-on-top="${labelOnTop}"></mg-input-password>`);
+    await page.setViewportSize({ width: 200, height: 100 });
 
-    await page.locator('mg-input-password.hydrated').waitFor({ timeout: TIMEOUT });
+    await page.locator('mg-input-password.hydrated');
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
@@ -111,7 +110,7 @@ describe('mg-input-password', () => {
   test.describe('Responsive', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
-        await setPageContent(page, `<mg-input-password identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-password>`);
+        await page.setContent(`<mg-input-password identifier="identifier" label="label" ${renderAttributes(args)}></mg-input-password>`);
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
