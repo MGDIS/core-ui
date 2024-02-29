@@ -147,7 +147,7 @@ const getSVGs = async (pageId: string, folder: string, replaceColors?: boolean):
 };
 
 // Get Icons
-// getSVGs(figmaIconsPageId, 'icons', true);
+getSVGs(figmaIconsPageId, 'icons', true);
 
 // Get Illustrations
 getSVGs(figmaIllustrationsPageId, 'illustrations');
