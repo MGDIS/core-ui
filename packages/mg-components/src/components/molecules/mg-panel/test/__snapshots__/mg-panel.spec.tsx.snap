@@ -703,11 +703,29 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="panel title">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
@@ -766,11 +784,29 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="joker" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
@@ -829,11 +865,29 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="joker" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
@@ -936,11 +990,29 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
@@ -1291,11 +1363,29 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
@@ -1476,11 +1566,29 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
@@ -1627,11 +1735,29 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
+                <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
+                  <mock:shadow-root>
+                    <div class="mg-c-input__title mg-u-visually-hidden">
+                      <slot name="label"></slot>
+                    </div>
+                    <div class="mg-c-input__input-container">
+                      <div class="mg-c-input__input">
+                        <slot></slot>
+                      </div>
+                    </div>
+                  </mock:shadow-root>
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
-                    <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
+                    <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
                   <slot name="append-input"></slot>
+                  <mg-input-title identifier="identifier-edition-input" is-legend="false" readonly="false" required="false" slot="label">
+                    <!---->
+                    <label class="mg-c-input-title" htmlfor="identifier-edition-input">
+                      <span class="mg-c-input-title__text">
+                        Edit section title.
+                      </span>
+                    </label>
+                  </mg-input-title>
                 </mg-input>
               </mock:shadow-root>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
