@@ -17,7 +17,9 @@ const getPage = async args => {
 };
 
 describe('mg-input-select', () => {
-  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
+  beforeEach(() => {
+    jest.useFakeTimers({ legacyFakeTimers: true });
+  });
   afterEach(() => {
     jest.runOnlyPendingTimers();
   });
