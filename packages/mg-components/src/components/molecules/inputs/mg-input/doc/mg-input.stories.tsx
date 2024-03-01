@@ -17,6 +17,37 @@ export default {
   },
 };
 
+const classSizeFull = `
+<style>
+  .size-full {
+    flex: 1;
+  }
+</style>
+`;
+
+const inputFile = '<input type="file" id="identifier" class="mg-c-input__box"></input>';
+
+const baseArgs = {
+  // Global
+  identifier: 'identifier',
+  // Label
+  label: 'Label',
+  labelOnTop: false,
+  labelHide: false,
+  // Input
+  required: true,
+  readonlyValue: '',
+  ariaDescribedbyIDs: undefined,
+  classCollection: undefined,
+  // Tooltip
+  tooltip: 'This is a tooltip',
+  tooltipPosition: 'label',
+  // Help Text
+  helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+  errorMessage: 'Error to display',
+  slot: inputFile,
+};
+
 /**
  * Template
  * @param args - component arguments
@@ -26,24 +57,18 @@ const Template = (args: MgInputType & { slot: string }): HTMLMgInputElement => <
 
 export const MgInput = {
   render: Template,
+  args: baseArgs,
+};
+
+export const MgInputWithPanel = {
+  render: Template,
+  args: { ...baseArgs, slot: `${classSizeFull}<mg-panel panel-title="section" identidier="panel" class="size-full" expanded>${inputFile}</mg-panel>` },
+};
+
+export const MgInputWithMgMessage = {
+  render: Template,
   args: {
-    // Global
-    identifier: 'identifier',
-    // Label
-    label: 'Label',
-    labelOnTop: false,
-    labelHide: false,
-    // Input
-    required: true,
-    readonlyValue: '',
-    ariaDescribedbyIDs: undefined,
-    classCollection: undefined,
-    // Tooltip
-    tooltip: 'This is a tooltip',
-    tooltipPosition: 'label',
-    // Help Text
-    helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
-    errorMessage: 'Error to display',
-    slot: '<input type="file" id="identifier" class="mg-c-input__box"></input>',
+    ...baseArgs,
+    slot: `${classSizeFull}<mg-message identifier="identifier" variant="warning" class="size-full"><span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></span><span slot="actions"><div class="mg-group-elements mg-group-elements--align-right"><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div></span></mg-message>`,
   },
 };

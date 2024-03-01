@@ -289,30 +289,6 @@ exports[`mg-input render Should render with args { helpText: 'Hello joker' }: 1`
 </mg-input>
 `;
 
-exports[`mg-input render Should render with args { inputVerticalList: true }: 1`] = `
-<mg-input class="mg-c-input" inputverticallist="">
-  <mock:shadow-root>
-    <div class="mg-c-input__title">
-      <slot name="label"></slot>
-    </div>
-    <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-    </div>
-  </mock:shadow-root>
-  <input aria-describedby="" id="identifier" type="file">
-  <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-    <!---->
-    <label class="mg-c-input-title" htmlfor="identifier">
-      <span class="mg-c-input-title__text">
-        label
-      </span>
-    </label>
-  </mg-input-title>
-</mg-input>
-`;
-
 exports[`mg-input render Should render with args { labelHide: true }: 1`] = `
 <mg-input class="mg-c-input">
   <mock:shadow-root>

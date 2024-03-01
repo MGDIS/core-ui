@@ -32,7 +32,6 @@ describe('mg-input', () => {
       { classCollection: new ClassList([]) },
       { labelOnTop: true },
       { labelHide: true },
-      { inputVerticalList: true },
       { required: true },
       { helpText },
       { errorMessage },

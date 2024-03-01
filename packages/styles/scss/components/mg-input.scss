@@ -76,8 +76,12 @@ mg-icon {
 
   &__input {
     display: flex;
+    min-height: var(--default-size);
+    align-items: center;
+    justify-content: start;
 
     mg-tooltip {
+      align-self: baseline;
       margin-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
     }
 

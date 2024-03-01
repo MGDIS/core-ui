@@ -107,12 +107,6 @@ export class MgInput {
    * Defines value to display in readonly mode
    */
   @Prop() readonlyValue: string | string[];
-  @Watch('readonlyValue')
-  watchReadonlyValue(newValue: MgInput['readonlyValue']): void {
-    if (newValue && this.classCollection.has(classReadonly)) {
-      this.classCollection.add(classReadonly);
-    }
-  }
 
   /**
    * Define error message to display
@@ -298,7 +292,6 @@ export class MgInput {
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchTooltipPosition(this.tooltipPosition);
-    this.watchReadonlyValue(this.readonlyValue);
     this.watchClassCollection(this.classCollection);
     this.watchErrorMessage(this.errorMessage);
     this.watchHelpText(this.helpText);
