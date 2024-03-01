@@ -7,10 +7,11 @@ import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import messages from '../../../../../locales/en/messages.json';
 import { formats, types } from '../mg-input-numeric.conf';
 import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 const getPage = (args, slot?) => {
   const page = newSpecPage({
-    components: [MgInputNumeric, MgButton, MgIcon, MgInput],
+    components: [MgInputNumeric, MgButton, MgIcon, MgInput, MgInputTitle],
     template: () => <mg-input-numeric {...args}>{slot}</mg-input-numeric>,
   });
   jest.runAllTimers();

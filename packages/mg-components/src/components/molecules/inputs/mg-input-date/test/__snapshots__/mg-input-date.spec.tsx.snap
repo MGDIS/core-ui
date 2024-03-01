@@ -40,9 +40,12 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -80,8 +83,11 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -121,8 +127,11 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -163,8 +172,11 @@ exports[`mg-input-date Should render with args {
         (ex&nbsp;: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -205,8 +217,11 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -243,9 +258,12 @@ exports[`mg-input-date Should render with args {
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -279,8 +297,11 @@ exports[`mg-input-date Should render with args {
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -316,9 +337,17 @@ exports[`mg-input-date Should render with args {
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -361,9 +390,12 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -407,9 +439,12 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -454,9 +489,12 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -500,9 +538,12 @@ exports[`mg-input-date Should render with args {
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -538,9 +579,12 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -576,9 +620,12 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -614,9 +661,12 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -648,8 +698,11 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -679,9 +732,12 @@ exports[`mg-input-date Should trigger events 1`] = `
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -720,9 +776,17 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
         (ex&nbsp;: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         Ce champ est obligatoire.
@@ -764,9 +828,17 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -805,9 +877,17 @@ exports[`mg-input-date display error with displayError component's public method
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -846,9 +926,17 @@ exports[`mg-input-date display error with displayError component's public method
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -887,9 +975,17 @@ exports[`mg-input-date should display override error with setError component's p
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -925,9 +1021,17 @@ exports[`mg-input-date should display override error with setError component's p
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -963,9 +1067,17 @@ exports[`mg-input-date should display override error with setError component's p
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1004,9 +1116,17 @@ exports[`mg-input-date should display override error with setError component's p
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         Override error
@@ -1048,9 +1168,12 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -1089,9 +1212,12 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1130,9 +1256,12 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -1167,9 +1296,12 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1205,9 +1337,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1243,9 +1378,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1281,9 +1419,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1319,9 +1460,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1357,9 +1501,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1395,9 +1542,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1436,9 +1586,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         The date cannot be later than
@@ -1477,9 +1630,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1515,9 +1671,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1553,9 +1712,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1594,9 +1756,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         The date cannot be earlier than
@@ -1635,9 +1800,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1673,9 +1841,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1711,9 +1882,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1749,9 +1923,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1787,9 +1964,12 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         (ex: 12/24/2023)
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>

@@ -3,10 +3,11 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgInputPassword } from '../mg-input-password';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputPassword, MgInput],
+    components: [MgInputPassword, MgInput, MgInputTitle],
     template: () => <mg-input-password {...args}></mg-input-password>,
   });
   jest.runAllTimers();

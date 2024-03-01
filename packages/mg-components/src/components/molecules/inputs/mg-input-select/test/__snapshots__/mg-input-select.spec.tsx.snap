@@ -37,9 +37,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -83,9 +86,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -129,9 +135,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -176,9 +185,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -224,9 +236,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -271,9 +286,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -316,8 +334,11 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -363,8 +384,11 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -411,8 +435,11 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -466,9 +493,12 @@ exports[`mg-input-select Should render with args {
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -520,9 +550,17 @@ exports[`mg-input-select Should render with args {
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -573,8 +611,11 @@ exports[`mg-input-select Should render with args {
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
         </span>
       </mg-input-title>
     </mg-input>
@@ -622,9 +663,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -672,9 +716,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -723,9 +770,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -773,9 +823,12 @@ exports[`mg-input-select Should render with args {
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -802,9 +855,12 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -843,9 +899,12 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -884,9 +943,12 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -929,9 +991,12 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -976,9 +1041,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1017,9 +1085,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1058,9 +1129,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1105,9 +1179,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1146,9 +1223,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1193,9 +1273,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1240,9 +1323,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1287,9 +1373,12 @@ exports[`mg-input-select Should trigger events for ({ items: [Array], selectedOp
         My help text
       </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1328,9 +1417,12 @@ exports[`mg-input-select Should update mg-width 1`] = `
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1369,9 +1461,12 @@ exports[`mg-input-select Should update mg-width 2`] = `
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1410,9 +1505,12 @@ exports[`mg-input-select Should update mg-width 3`] = `
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1451,9 +1549,12 @@ exports[`mg-input-select Should update mg-width 4`] = `
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1495,9 +1596,17 @@ exports[`mg-input-select display error message with locale: fr 1`] = `
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         Ce champ est obligatoire.
@@ -1542,9 +1651,17 @@ exports[`mg-input-select display error message with locale: xx 1`] = `
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -1586,9 +1703,17 @@ exports[`mg-input-select display error with displayError component's public meth
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1630,9 +1755,17 @@ exports[`mg-input-select display error with displayError component's public meth
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -1674,9 +1807,17 @@ exports[`mg-input-select should display override error with setError component's
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1715,9 +1856,17 @@ exports[`mg-input-select should display override error with setError component's
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1756,9 +1905,17 @@ exports[`mg-input-select should display override error with setError component's
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1800,9 +1957,17 @@ exports[`mg-input-select should display override error with setError component's
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         Override error
@@ -1847,9 +2012,12 @@ exports[`mg-input-select validity, case next state is disabled validity ({ valid
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -1891,9 +2059,12 @@ exports[`mg-input-select validity, case next state is disabled validity ({ valid
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -1935,9 +2106,12 @@ exports[`mg-input-select validity, case next state is readonly validity ({ valid
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
@@ -1978,9 +2152,12 @@ exports[`mg-input-select validity, case next state is readonly validity ({ valid
         </option>
       </select>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <span class="mg-c-input-title__text">
-          label
-        </span>
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>

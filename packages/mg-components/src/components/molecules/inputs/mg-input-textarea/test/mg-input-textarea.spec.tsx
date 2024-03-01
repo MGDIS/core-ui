@@ -3,10 +3,11 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgInputTextarea } from '../mg-input-textarea';
 import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputTextarea, MgInput],
+    components: [MgInputTextarea, MgInput, MgInputTitle],
     template: () => <mg-input-textarea {...args}></mg-input-textarea>,
   });
 
