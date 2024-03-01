@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { requiredMessageStatus } from '../mg-form.conf';
+import { requiredMessageStatus, roles } from '../mg-form.conf';
 import type { MgForm as MgFormType } from '../mg-form';
 
 export default {
@@ -8,6 +8,10 @@ export default {
   title: 'Molecules/mg-form',
   parameters: { actions: { handles: ['form-valid', 'form-submit'] } },
   argTypes: {
+    ariaRole: {
+      options: [undefined, ...roles],
+      control: { type: 'select' },
+    },
     requiredMessage: {
       options: [undefined, ...requiredMessageStatus],
       control: { type: 'select' },
