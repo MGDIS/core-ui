@@ -5,18 +5,14 @@ exports[`mg-input render Should render with args {
   labelOnTop: true,
   tooltip: 'Batman is a DC Comics license'
 }: 1`] = `
-<mg-input class="mg-input mg-input--label-on-top">
+<mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--readonly">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
-      <mg-tooltip identifier="identifier-tooltip" message="Batman is a DC Comics license">
-        <mg-icon icon="info-circle"></mg-icon>
-      </mg-tooltip>
     </div>
     <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
+      <strong></strong>
+      <slot></slot>
     </div>
   </mock:shadow-root>
   <input aria-describedby="" id="identifier" type="file">
@@ -36,7 +32,7 @@ exports[`mg-input render Should render with args {
   tooltipPosition: 'input',
   labelOnTop: true
 }: 1`] = `
-<mg-input class="mg-input mg-input--label-on-top">
+<mg-input class="mg-c-input mg-c-input--label-on-top">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -63,7 +59,7 @@ exports[`mg-input render Should render with args {
 `;
 
 exports[`mg-input render Should render with args { classCollection: [xe] }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -87,7 +83,7 @@ exports[`mg-input render Should render with args { classCollection: [xe] }: 1`] 
 `;
 
 exports[`mg-input render Should render with args { classCollection: [xe] }: 2`] = `
-<mg-input aria-labelledby="identifier-title" class="mg-input mg-input--fieldset" role="group">
+<mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset" role="group">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -111,15 +107,14 @@ exports[`mg-input render Should render with args { classCollection: [xe] }: 2`] 
 `;
 
 exports[`mg-input render Should render with args { classCollection: [xe] }: 3`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input mg-c-input--readonly">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
     </div>
     <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
+      <strong></strong>
+      <slot></slot>
     </div>
   </mock:shadow-root>
   <input aria-describedby="" id="identifier" type="file">
@@ -135,7 +130,7 @@ exports[`mg-input render Should render with args { classCollection: [xe] }: 3`] 
 `;
 
 exports[`mg-input render Should render with args { classCollection: [xe] }: 4`] = `
-<mg-input class="mg-input mg-input--disabled">
+<mg-input class="mg-c-input mg-c-input--disabled">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -159,15 +154,14 @@ exports[`mg-input render Should render with args { classCollection: [xe] }: 4`] 
 `;
 
 exports[`mg-input render Should render with args { classCollection: [xe], inputVerticalList: true }: 1`] = `
-<mg-input class="mg-input" inputverticallist="">
+<mg-input class="mg-c-input mg-c-input--readonly" inputverticallist="">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
     </div>
     <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
+      <strong></strong>
+      <slot></slot>
     </div>
   </mock:shadow-root>
   <input aria-describedby="" id="identifier" type="file">
@@ -183,7 +177,7 @@ exports[`mg-input render Should render with args { classCollection: [xe], inputV
 `;
 
 exports[`mg-input render Should render with args { errorMessage: 'This is an error' }: 1`] = `
-<mg-input class="mg-input mg-input--has-error">
+<mg-input class="mg-c-input mg-c-input--has-error">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -213,18 +207,14 @@ exports[`mg-input render Should render with args { errorMessage: 'This is an err
 `;
 
 exports[`mg-input render Should render with args { errorMessage: 'This is an error', classCollection: [xe] }: 1`] = `
-<mg-input class="mg-input mg-input--has-error">
+<mg-input class="mg-c-input mg-c-input--has-error mg-c-input--readonly">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
     </div>
     <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-      <div aria-live="assertive" class="mg-c-input__error">
-        <slot name="error"></slot>
-      </div>
+      <strong></strong>
+      <slot></slot>
     </div>
   </mock:shadow-root>
   <input aria-describedby="identifier-error" id="identifier" type="file">
@@ -243,7 +233,7 @@ exports[`mg-input render Should render with args { errorMessage: 'This is an err
 `;
 
 exports[`mg-input render Should render with args { errorMessage: 'This is an error', classCollection: [xe] }: 2`] = `
-<mg-input class="mg-input mg-input--disabled mg-input--has-error">
+<mg-input class="mg-c-input mg-c-input--disabled mg-c-input--has-error">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -270,7 +260,7 @@ exports[`mg-input render Should render with args { errorMessage: 'This is an err
 `;
 
 exports[`mg-input render Should render with args { helpText: 'Hello joker' }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -300,7 +290,7 @@ exports[`mg-input render Should render with args { helpText: 'Hello joker' }: 1`
 `;
 
 exports[`mg-input render Should render with args { inputVerticalList: true }: 1`] = `
-<mg-input class="mg-input" inputverticallist="">
+<mg-input class="mg-c-input" inputverticallist="">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -324,7 +314,7 @@ exports[`mg-input render Should render with args { inputVerticalList: true }: 1`
 `;
 
 exports[`mg-input render Should render with args { labelHide: true }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title mg-u-visually-hidden">
       <slot name="label"></slot>
@@ -348,7 +338,7 @@ exports[`mg-input render Should render with args { labelHide: true }: 1`] = `
 `;
 
 exports[`mg-input render Should render with args { labelOnTop: true }: 1`] = `
-<mg-input class="mg-input mg-input--label-on-top">
+<mg-input class="mg-c-input mg-c-input--label-on-top">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -372,7 +362,7 @@ exports[`mg-input render Should render with args { labelOnTop: true }: 1`] = `
 `;
 
 exports[`mg-input render Should render with args { readonlyValue: 'batman', classCollection: [xe] }: 1`] = `
-<mg-input class="mg-input mg-input--readonly">
+<mg-input class="mg-c-input mg-c-input--readonly">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -397,7 +387,7 @@ exports[`mg-input render Should render with args { readonlyValue: 'batman', clas
 `;
 
 exports[`mg-input render Should render with args { readonlyValue: [Array], classCollection: [xe] }: 1`] = `
-<mg-input class="mg-input mg-input--readonly">
+<mg-input class="mg-c-input mg-c-input--readonly">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -436,7 +426,7 @@ exports[`mg-input render Should render with args { readonlyValue: [Array], class
 `;
 
 exports[`mg-input render Should render with args { required: true }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -465,18 +455,14 @@ exports[`mg-input render Should render with args { required: true }: 1`] = `
 `;
 
 exports[`mg-input render Should render with args { required: true, classCollection: [xe], helpText: 'Hello joker' }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input mg-c-input--readonly">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
     </div>
     <div class="mg-c-input__input-container">
-      <div class="mg-c-input__input">
-        <slot></slot>
-      </div>
-      <div class="mg-c-input__help-text">
-        <slot name="help-text"></slot>
-      </div>
+      <strong></strong>
+      <slot></slot>
     </div>
   </mock:shadow-root>
   <input aria-describedby="identifier-help-text" id="identifier" type="file">
@@ -495,7 +481,7 @@ exports[`mg-input render Should render with args { required: true, classCollecti
 `;
 
 exports[`mg-input render Should render with args { required: true, classCollection: [xe], helpText: 'Hello joker' }: 2`] = `
-<mg-input class="mg-input mg-input--disabled">
+<mg-input class="mg-c-input mg-c-input--disabled">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -525,7 +511,7 @@ exports[`mg-input render Should render with args { required: true, classCollecti
 `;
 
 exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comics license' }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -552,7 +538,7 @@ exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comi
 `;
 
 exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comics license', tooltipPosition: 'label' }: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -579,7 +565,7 @@ exports[`mg-input render Should render with args { tooltip: 'Batman is a DC Comi
 `;
 
 exports[`mg-input render Should render with args {}: 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -603,7 +589,7 @@ exports[`mg-input render Should render with args {}: 1`] = `
 `;
 
 exports[`mg-input render Should update "error" slot 1`] = `
-<mg-input class="mg-input mg-input--has-error">
+<mg-input class="mg-c-input mg-c-input--has-error">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -633,7 +619,7 @@ exports[`mg-input render Should update "error" slot 1`] = `
 `;
 
 exports[`mg-input render Should update "error" slot 2`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -657,7 +643,7 @@ exports[`mg-input render Should update "error" slot 2`] = `
 `;
 
 exports[`mg-input render Should update "help-text" slot 1`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -687,7 +673,7 @@ exports[`mg-input render Should update "help-text" slot 1`] = `
 `;
 
 exports[`mg-input render Should update "help-text" slot 2`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>
@@ -713,7 +699,7 @@ exports[`mg-input render Should update "help-text" slot 2`] = `
 exports[`mg-input render Should update "label" slot 1`] = `
 {
   "body": <body>
-  <mg-input class="mg-input">
+  <mg-input class="mg-c-input">
     <mock:shadow-root>
       <div class="mg-c-input__title">
         <slot name="label"></slot>
@@ -830,7 +816,7 @@ exports[`mg-input render Should update "label" slot 1`] = `
 `;
 
 exports[`mg-input render Should update "label" slot 2`] = `
-<mg-input class="mg-input">
+<mg-input class="mg-c-input">
   <mock:shadow-root>
     <div class="mg-c-input__title">
       <slot name="label"></slot>

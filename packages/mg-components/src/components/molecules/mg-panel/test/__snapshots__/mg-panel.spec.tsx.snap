@@ -703,7 +703,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="panel title">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="panel title">
                   </div>
@@ -766,7 +766,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="joker">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="joker" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
@@ -829,7 +829,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="joker">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="joker" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
@@ -936,7 +936,7 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="panel title">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1291,7 +1291,7 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="panel title">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1476,7 +1476,7 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="panel title">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1627,7 +1627,7 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
               <mock:shadow-root>
-                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" mgwidth="full" tooltipposition="input" value="panel title">
+                <mg-input identifier="identifier-edition-input" label="Edit section title." labelhide="" readonlyvalue="panel title" tooltipposition="input">
                   <div class="mg-c-input__with-character-left" style="--mg-character-left-message-length: 0;">
                     <input aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>

@@ -101,7 +101,7 @@ export class MgInputToggle {
    */
   @Prop() isOnOff = false;
   @Watch('isOnOff')
-  handleIsOnOff(newValue: MgInputToggle['isOnOff']): void {
+  watchIsOnOff(newValue: MgInputToggle['isOnOff']): void {
     if (newValue) this.classCollection.add(this.classOnOff);
     else this.classCollection.delete(this.classOnOff);
   }
@@ -111,7 +111,7 @@ export class MgInputToggle {
    */
   @Prop() isIcon = false;
   @Watch('isIcon')
-  handleIsIcon(newValue: MgInputToggle['isIcon']): void {
+  watchIsIcon(newValue: MgInputToggle['isIcon']): void {
     if (newValue) this.classCollection.add(this.classIcon);
     else this.classCollection.delete(this.classIcon);
   }
@@ -289,7 +289,8 @@ export class MgInputToggle {
     // init checked value
     this.setChecked();
     // apply handler
-    this.handleIsOnOff(this.isOnOff);
+    this.watchIsIcon(this.isIcon);
+    this.watchIsOnOff(this.isOnOff);
     this.watchReadonly(this.readonly);
     this.watchDisabled(this.disabled);
   }
