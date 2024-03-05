@@ -1,5 +1,24 @@
 # @mgdis/mg-components
 
+## 5.25.0
+
+### Minor Changes
+
+- 1cab7cf: Add icons
+
+### Patch Changes
+
+- 7a7e0ec: Update dependencies
+- 1e3a230: [#446](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/446) mgInputToggle: prevent erreur when options can't be set
+- Updated dependencies [7a7e0ec]
+- Updated dependencies [1ba2d2a]
+- Updated dependencies [1cab7cf]
+- Updated dependencies [1cab7cf]
+- Updated dependencies [2ed265a]
+  - @mgdis/stencil-helpers@1.0.3
+  - @mgdis/styles@1.2.1
+  - @mgdis/img@1.7.0
+
 ## 5.24.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.2.1
+
+### Patch Changes
+
+- 7a7e0ec: Update dependencies
+
 ## 1.2.0
 
 ### Minor Changes
