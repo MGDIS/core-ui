@@ -1,4 +1,6 @@
+import { WebTypesGenerator } from 'stenciljs-web-types-generator/web-types-generator';
 import { Config } from '@stencil/core';
+import { name, version } from './package.json';
 
 export const config: Config = {
   namespace: 'mg-components',
@@ -61,6 +63,19 @@ export const config: Config = {
           dest: 'build/fonts', // export fonts for working space
         },
       ],
+    },
+    {
+      type: 'docs-custom',
+      generator: new WebTypesGenerator({
+        name,
+        version,
+        defaultIconPath: '<path-to-icon-of-your-library>',
+        outputPath: 'dist/types/web-types.json',
+      }).generateWebTypesJson,
+    },
+    {
+      type: 'docs-vscode',
+      file: 'dist/types/html.html-data.json',
     },
   ],
   extras: {
