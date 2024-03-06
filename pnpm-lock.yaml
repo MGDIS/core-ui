@@ -709,6 +709,9 @@ importers:
       sass:
         specifier: 1.71.1
         version: 1.71.1
+      stenciljs-web-types-generator:
+        specifier: 1.0.4
+        version: 1.0.4
       storybook:
         specifier: 7.6.17
         version: 7.6.17
@@ -779,6 +782,8 @@ importers:
       vue-template-compiler:
         specifier: 2.7.16
         version: 2.7.16
+
+  packages/mg-components-vscode: {}
 
   packages/notification-center:
     dependencies:
@@ -5767,6 +5772,12 @@ packages:
       - supports-color
       - utf-8-validate
     dev: false
+
+  /@stencil/core@3.4.2:
+    resolution: {integrity: sha512-FAUhUVaakCy29nU2GwO/HQBRV1ihPRvncz3PUc8oR+UJLAxGabTmP8PLY7wvHfbw+Cvi4VXfJFTBvdfDu6iKPQ==}
+    engines: {node: '>=14.10.0', npm: '>=6.0.0'}
+    hasBin: true
+    dev: true
 
   /@stencil/core@4.12.5:
     resolution: {integrity: sha512-vSyFjY7XSEx0ufa9SebOd437CvnneaTXlCpuGDhjUDxAjGBlu6ie5qHyubobVGBth//aErc6wZPHc6W75Vp3iQ==}
@@ -18666,6 +18677,12 @@ packages:
 
   /std-env@3.7.0:
     resolution: {integrity: sha512-JPbdCEQLj1w5GilpiHAx3qJvFndqybBysA3qUOnznweH4QbNYUsW/ea8QzSrnh0vNsezMMw5bcVool8lM0gwzg==}
+    dev: true
+
+  /stenciljs-web-types-generator@1.0.4:
+    resolution: {integrity: sha512-gzWDBr9bSSka1goYcTsGLQlw5DnuFTZIuihPrexbI2HdwjukIpXfBCXaMmW43ABmd0rVqiduvQvwoEevgJ1IYA==}
+    dependencies:
+      '@stencil/core': 3.4.2
     dev: true
 
   /stop-iteration-iterator@1.0.0:
