@@ -160,4 +160,16 @@ describe('mg-input-textarea', () => {
       });
     });
   });
+
+  test('Should display content with line-break', async ({ page }) => {
+    await setPageContent(page, `<mg-input-textarea identifier="identifier" label="label" ${renderAttributes({ value: 'Blu\nBli\nBla\nBlo' })}></mg-input-textarea>`);
+    // Initial state
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    // Set Readonly
+    await page.locator('mg-input-textarea').evaluate((elm: HTMLMgInputTextareaElement) => {
+      elm.readonly = true;
+    });
+    // Readonly state
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
 });
