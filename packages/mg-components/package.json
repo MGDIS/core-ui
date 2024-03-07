@@ -11,13 +11,6 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/mg-components/mg-components.esm.js",
   "web-types": "dist/ide/intellij/web-types.json",
-  "contributes": {
-    "html": {
-      "customData": [
-        "dist/ide/vscode/html-custom-data.json"
-      ]
-    }
-  },
   "files": [
     "dist/",
     "loader/"
@@ -88,7 +81,6 @@
     "react-dom": "18.2.0",
     "react-textarea-autosize": "8.5.3",
     "sass": "1.71.1",
-    "stenciljs-web-types-generator": "1.0.4",
     "storybook": "7.6.17",
     "ts-node": "10.9.2",
     "tsconfig": "workspace:*",
