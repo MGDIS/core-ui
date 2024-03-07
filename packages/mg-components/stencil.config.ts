@@ -1,9 +1,9 @@
-import { WebTypesGenerator } from '@mgdis/stencil-helpers';
+import { webTypesGenerator } from '@mgdis/stencil-helpers';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
 import packageJson from './package.json';
-const { name, version, contributes, 'web-types': webTypes } = packageJson;
+const { name, version, 'web-types': webTypes } = packageJson;
 
 export const config: Config = {
   namespace: 'mg-components',
@@ -69,18 +69,15 @@ export const config: Config = {
     },
     {
       type: 'docs-custom',
-      generator: async docs => {
-        const webTypesContent = await new WebTypesGenerator({
-          name,
-          version,
-        }).generateWebTypesJson(docs);
+      generator: async jsonDocs => {
+        const webTypesContent = webTypesGenerator(name, version, jsonDocs);
         await mkdir(dirname(webTypes), { recursive: true });
         await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
       },
     },
     {
       type: 'docs-vscode',
-      file: contributes.html.customData[0],
+      file: 'dist/ide/vscode/html-custom-data.json',
     },
   ],
   extras: {

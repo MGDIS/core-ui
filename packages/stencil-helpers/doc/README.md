@@ -7,11 +7,6 @@
 ### Classes
 
 - [ClassList](classes/ClassList.md)
-- [WebTypesGenerator](classes/WebTypesGenerator.md)
-
-### Interfaces
-
-- [WebTypesGeneratorConfig](interfaces/WebTypesGeneratorConfig.md)
 
 ### Variables
 
@@ -40,6 +35,7 @@
 - [setupResizeObserverMock](README.md#setupresizeobservermock)
 - [setupSubmitEventMock](README.md#setupsubmiteventmock)
 - [stencilWrapper](README.md#stencilwrapper)
+- [webTypesGenerator](README.md#webtypesgenerator)
 
 ## Variables
 
@@ -735,3 +731,35 @@ export const decorators: Preview['decorators'] = [stencilWrapper];
 #### Defined in
 
 packages/stencil-helpers/src/storybook/index.ts:90
+
+___
+
+### webTypesGenerator
+
+▸ **webTypesGenerator**(`name`, `version`, `jsonDocs`): `Object`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `version` | `string` |
+| `jsonDocs` | `JsonDocs` |
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `$schema` | `string` |
+| `contributions` | \{ `html`: \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` = component.docs; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  }  } |
+| `contributions.html` | \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` = component.docs; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  } |
+| `contributions.html.elements` | \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` = component.docs; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[] |
+| `description-markup` | `string` |
+| `name` | `string` |
+| `version` | `string` |
+
+#### Defined in
+
+packages/stencil-helpers/src/ide/index.ts:3
