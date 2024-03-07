@@ -7,6 +7,11 @@
 ### Classes
 
 - [ClassList](classes/ClassList.md)
+- [WebTypesGenerator](classes/WebTypesGenerator.md)
+
+### Interfaces
+
+- [WebTypesGeneratorConfig](interfaces/WebTypesGeneratorConfig.md)
 
 ### Variables
 
