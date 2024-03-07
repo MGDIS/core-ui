@@ -34,10 +34,6 @@ export const config: Config = {
           src: 'locales/fr',
           dest: 'locales/fr',
         },
-        {
-          src: '../.vscode',
-          dest: '../.vscode',
-        },
       ],
     },
     {

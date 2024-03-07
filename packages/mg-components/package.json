@@ -11,6 +11,13 @@
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/mg-components/mg-components.esm.js",
   "web-types": "dist/types/web-types.json",
+  "contributes": {
+    "html": {
+      "customData": [
+        "dist/types/html.html-data.json"
+      ]
+    }
+  },
   "files": [
     "dist/",
     "loader/"
