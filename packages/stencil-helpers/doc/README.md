@@ -35,6 +35,7 @@
 - [setupResizeObserverMock](README.md#setupresizeobservermock)
 - [setupSubmitEventMock](README.md#setupsubmiteventmock)
 - [stencilWrapper](README.md#stencilwrapper)
+- [vsCodeGenerator](README.md#vscodegenerator)
 - [webTypesGenerator](README.md#webtypesgenerator)
 
 ## Variables
@@ -731,6 +732,35 @@ export const decorators: Preview['decorators'] = [stencilWrapper];
 #### Defined in
 
 packages/stencil-helpers/src/storybook/index.ts:90
+
+___
+
+### vsCodeGenerator
+
+▸ **vsCodeGenerator**(`name`, `version`, `jsonDocs`): `Object`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `name` | `string` |
+| `version` | `string` |
+| `jsonDocs` | `JsonDocs` |
+
+#### Returns
+
+`Object`
+
+| Name | Type |
+| :------ | :------ |
+| `globalAttributes` | `never`[] |
+| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `string`  }[]  }[] |
+| `valueSets` | `never`[] |
+| `version` | `string` |
+
+#### Defined in
+
+packages/stencil-helpers/src/ide/index.ts:55
 
 ___
 
