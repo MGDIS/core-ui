@@ -1,4 +1,4 @@
-import { webTypesGenerator } from '@mgdis/stencil-helpers';
+import { webTypesGenerator, vsCodeGenerator } from '@mgdis/stencil-helpers';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
@@ -76,8 +76,13 @@ export const config: Config = {
       },
     },
     {
-      type: 'docs-vscode',
-      file: 'dist/ide/vscode/html-custom-data.json',
+      type: 'docs-custom',
+      generator: async jsonDocs => {
+        const webTypes = 'dist/ide/vscode/html-custom-data.json';
+        const webTypesContent = vsCodeGenerator(name, version, jsonDocs);
+        await mkdir(dirname(webTypes), { recursive: true });
+        await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
+      },
     },
   ],
   extras: {
