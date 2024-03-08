@@ -760,7 +760,7 @@ ___
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:56
+packages/stencil-helpers/src/ide/index.ts:55
 
 ___
 
@@ -792,4 +792,4 @@ ___
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:4
+packages/stencil-helpers/src/ide/index.ts:3

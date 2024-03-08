@@ -53,7 +53,7 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
 };
 
 export const vsCodeGenerator = (name: string, version: string, jsonDocs: JsonDocs) => {
-  console.log(JSON.stringify(jsonDocs.components[1], null, 2));
+  console.log(JSON.stringify(jsonDocs.components[10], null, 2));
 
   return {
     version,
@@ -78,16 +78,16 @@ export const vsCodeGenerator = (name: string, version: string, jsonDocs: JsonDoc
 
 const storybookBasePath = 'http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/';
 
+const getStorybookUrl = (path: string): string => {
+  const split = path.split('/');
+  return `${storybookBasePath}${split.slice(2, split.length - 1).join('-')}--docs`;
+};
+
 const getStorybookReference = (filePath: string | undefined) => {
   if (!filePath) {
     return;
   }
   return [{ name: 'Storybook', url: getStorybookUrl(filePath) }];
-};
-
-const getStorybookUrl = (path: string): string => {
-  const split = path.split('/');
-  return `${storybookBasePath}${split[2]}-${split[3]}--docs`;
 };
 
 const getAttributeDescription = (prop: JsonDocsProp): string => {
