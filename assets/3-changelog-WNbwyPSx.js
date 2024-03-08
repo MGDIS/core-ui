@@ -1,4 +1,12 @@
-import{j as e}from"./jsx-runtime-CK6f3fUW.js";import{M as n,e as i}from"./index-DloJM0fF.js";import{u as c}from"./index-B0zu9Pwf.js";import"./iframe-229-ItFZ.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-Bw8VTzHM.js";import"./index-BHQg7lv3.js";import"./index-DrFu-skq.js";const r=`# @mgdis/mg-components
+import{j as e}from"./jsx-runtime-IpW17l0L.js";import{M as n,e as i}from"./index-C-1jQEdC.js";import{u as c}from"./index-1ZZ7i8Z3.js";import"./iframe-BmywqEBX.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-Bw8VTzHM.js";import"./index-BHQg7lv3.js";import"./index-DrFu-skq.js";const r=`# @mgdis/mg-components
+
+## 5.25.2
+
+### Patch Changes
+
+- 92be1fc: [\`<mg-input-textarea>\`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) render line-break in readonly
+- Updated dependencies [92be1fc]
+  - @mgdis/styles@1.2.2
 
 ## 5.25.1
 

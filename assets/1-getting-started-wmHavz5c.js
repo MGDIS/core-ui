@@ -1,4 +1,4 @@
-import{j as n}from"./jsx-runtime-CK6f3fUW.js";import{M as o,e as m}from"./index-DloJM0fF.js";import{u as i}from"./index-B0zu9Pwf.js";import"./iframe-229-ItFZ.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-Bw8VTzHM.js";import"./index-BHQg7lv3.js";import"./index-DrFu-skq.js";const r=`# Getting started
+import{j as n}from"./jsx-runtime-IpW17l0L.js";import{M as o,e as m}from"./index-C-1jQEdC.js";import{u as i}from"./index-1ZZ7i8Z3.js";import"./iframe-BmywqEBX.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-Bw8VTzHM.js";import"./index-BHQg7lv3.js";import"./index-DrFu-skq.js";const r=`# Getting started
 
 ## Install
 
