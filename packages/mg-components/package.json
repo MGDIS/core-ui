@@ -10,10 +10,16 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/mg-components/mg-components.esm.js",
-  "web-types": "dist/ide/intellij/web-types.json",
+  "web-types": "ide/intellij/web-types.json",
+  "contributes": {
+    "html": {
+      "customData": "ide/vscode/html-custom-data.json"
+    }
+  },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "ide/"
   ],
   "maintainers": [
     "Simon Duhem <duhem-s@mgdis.fr>",
