@@ -3,7 +3,7 @@ import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
 import packageJson from './package.json';
-const { name, version, 'web-types': webTypes } = packageJson;
+const { name, version, 'web-types': webTypes, contributes } = packageJson;
 
 export const config: Config = {
   namespace: 'mg-components',
@@ -70,15 +70,17 @@ export const config: Config = {
     {
       type: 'docs-custom',
       generator: async jsonDocs => {
+        // Storybook Base Url
+        const storybookBaseUrl = 'http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/';
         // Web Types
-        const webTypesContent = webTypesGenerator(name, version, jsonDocs);
-        await mkdir(dirname(webTypes), { recursive: true });
-        await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
+        const webTypesContent = webTypesGenerator(name, version, storybookBaseUrl, jsonDocs);
         // VS Code
-        const vsCode = 'dist/ide/vscode/html-custom-data.json';
-        const vsCodeContent = vsCodeGenerator(name, version, jsonDocs);
-        await mkdir(dirname(vsCode), { recursive: true });
-        await writeFile(vsCode, JSON.stringify(vsCodeContent, null, 2), 'utf8');
+        const vsCodeContent = vsCodeGenerator(version, storybookBaseUrl, jsonDocs);
+        // Write files
+        await mkdir(dirname(webTypes), { recursive: true });
+        await mkdir(dirname(contributes.html.customData), { recursive: true });
+        await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
+        await writeFile(contributes.html.customData, JSON.stringify(vsCodeContent, null, 2), 'utf8');
       },
     },
   ],

@@ -737,59 +737,68 @@ ___
 
 ### vsCodeGenerator
 
-▸ **vsCodeGenerator**(`name`, `version`, `jsonDocs`): `Object`
+▸ **vsCodeGenerator**(`version`, `storybookBaseUrl`, `jsonDocs`): `Object`
+
+Generate custom HTML datasets for VS Code
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
-| `version` | `string` |
-| `jsonDocs` | `JsonDocs` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `version` | `string` | Library version |
+| `storybookBaseUrl` | `string` | Storybook Base Url |
+| `jsonDocs` | `JsonDocs` | Stencil JSON doc |
 
 #### Returns
 
 `Object`
 
+custom HTML datasets
+
 | Name | Type |
 | :------ | :------ |
 | `globalAttributes` | `never`[] |
-| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `string`  }[]  }[] |
+| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[]  }[] |
 | `valueSets` | `never`[] |
 | `version` | `string` |
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:55
+packages/stencil-helpers/src/ide/index.ts:163
 
 ___
 
 ### webTypesGenerator
 
-▸ **webTypesGenerator**(`name`, `version`, `jsonDocs`): `Object`
+▸ **webTypesGenerator**(`name`, `version`, `storybookBaseUrl`, `jsonDocs`): `Object`
+
+Generate Web Types metadata for IntelliJ's IDE
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `name` | `string` |
-| `version` | `string` |
-| `jsonDocs` | `JsonDocs` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `string` | Library name |
+| `version` | `string` | Library version |
+| `storybookBaseUrl` | `string` | Storybook Base Url |
+| `jsonDocs` | `JsonDocs` | Stencil JSON doc |
 
 #### Returns
 
 `Object`
 
+Web Types metadata
+
 | Name | Type |
 | :------ | :------ |
 | `$schema` | `string` |
-| `contributions` | \{ `html`: \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` = component.docs; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  }  } |
-| `contributions.html` | \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` = component.docs; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  } |
-| `contributions.html.elements` | \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` = component.docs; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` = prop.docs; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[] |
+| `contributions` | \{ `html`: \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  }  } |
+| `contributions.html` | \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  } |
+| `contributions.html.elements` | \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[] |
 | `description-markup` | `string` |
 | `name` | `string` |
 | `version` | `string` |
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:3
+packages/stencil-helpers/src/ide/index.ts:73
