@@ -70,18 +70,15 @@ export const config: Config = {
     {
       type: 'docs-custom',
       generator: async jsonDocs => {
+        // Web Types
         const webTypesContent = webTypesGenerator(name, version, jsonDocs);
         await mkdir(dirname(webTypes), { recursive: true });
         await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
-      },
-    },
-    {
-      type: 'docs-custom',
-      generator: async jsonDocs => {
-        const webTypes = 'dist/ide/vscode/html-custom-data.json';
-        const webTypesContent = vsCodeGenerator(name, version, jsonDocs);
-        await mkdir(dirname(webTypes), { recursive: true });
-        await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
+        // VS Code
+        const vsCode = 'dist/ide/vscode/html-custom-data.json';
+        const vsCodeContent = vsCodeGenerator(name, version, jsonDocs);
+        await mkdir(dirname(vsCode), { recursive: true });
+        await writeFile(vsCode, JSON.stringify(vsCodeContent, null, 2), 'utf8');
       },
     },
   ],

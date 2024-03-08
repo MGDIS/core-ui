@@ -1,4 +1,4 @@
-import { JsonDocs, JsonDocsProp } from '@stencil/core/internal';
+import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/internal';
 
 export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonDocs) => {
   return {
@@ -61,7 +61,7 @@ export const vsCodeGenerator = (name: string, version: string, jsonDocs: JsonDoc
       const references = getStorybookReference(component.filePath);
       return {
         name: component.tag,
-        description: `# ${component.tag}`,
+        description: getTagDescription(component),
         attributes: component.props.map(prop => ({
           name: prop.attr || prop.name,
           description: getAttributeDescription(prop),
@@ -99,4 +99,37 @@ const getValues = (prop: JsonDocsProp): unknown[] | undefined => {
     return;
   }
   return prop.values.map(({ value }) => ({ name: value }));
+};
+
+const getTagDescription = (component: JsonDocsComponent): string => {
+  // Component title
+  let description = `\`<${component.tag}>\` component.\n\n`;
+  // Attributes
+  const attributes = component.props.filter(({ attr }) => attr !== undefined);
+  if (attributes.length) {
+    description += `Attributes:\n`;
+    description += attributes.map(({ attr, docs }) => `- \`${attr}\`: ${docs}\n`).join('');
+    description += '\n';
+  }
+  // Properties
+  const properties = component.props.filter(({ attr }) => attr === undefined);
+  if (properties.length) {
+    description += `Properties:\n`;
+    description += properties.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
+    description += '\n';
+  }
+  // Events
+  if (component.events.length) {
+    description += `Events:\n`;
+    description += component.events.map(({ event, docs }) => `- \`${event}\`: ${docs}\n`).join('');
+    description += '\n';
+  }
+  // Methods
+  if (component.methods.length) {
+    description += `Methods:\n`;
+    description += component.methods.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
+    description += '\n';
+  }
+  // Return
+  return description;
 };
