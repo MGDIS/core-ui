@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.2.2
+
+### Patch Changes
+
+- 92be1fc: [`<mg-input-textarea>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) render line-break in readonly
+
 ## 1.2.1
 
 ### Patch Changes

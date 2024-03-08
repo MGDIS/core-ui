@@ -1,5 +1,21 @@
 # @mgdis/mg-components
 
+## 5.25.2
+
+### Patch Changes
+
+- 92be1fc: [`<mg-input-textarea>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) render line-break in readonly
+- Updated dependencies [92be1fc]
+  - @mgdis/styles@1.2.2
+
+## 5.25.1
+
+### Patch Changes
+
+- d6a9e03: Update dependencies
+- Updated dependencies [d6a9e03]
+  - @mgdis/stencil-helpers@1.0.4
+
 ## 5.25.0
 
 ### Minor Changes

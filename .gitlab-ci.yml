@@ -192,6 +192,8 @@ auto-review:
   script:
     # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
     - mg-danger
+  variables:
+    DANGER_GITLAB_USE_THREADS: '1'
   allow_failure: true
   needs:
     - sonar

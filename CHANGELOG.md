@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2024-03-08-11-33_Creepy-Cerulean-Cat)
+
+### Packages released
+
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
+## Release (2024-03-08-10-59_Uneven-Unmellow-Yellow-2)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+
 ## Release (2024-03-05-10-50_Handsome-Hot-Magenta-Hyena)
 
 ### Packages released
