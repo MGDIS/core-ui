@@ -1,4 +1,12 @@
-import{j as e}from"./jsx-runtime-CGDXXvWf.js";import{M as n,e as i}from"./index-mPO1Ee9J.js";import{u as c}from"./index-Dh3P_DE2.js";import"./iframe-x_v7VgSX.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-Bw8VTzHM.js";import"./index-BHQg7lv3.js";import"./index-DrFu-skq.js";const r=`# @mgdis/mg-components
+import{j as e}from"./jsx-runtime-CK6f3fUW.js";import{M as n,e as i}from"./index-DloJM0fF.js";import{u as c}from"./index-B0zu9Pwf.js";import"./iframe-229-ItFZ.js";import"../sb-preview/runtime.js";import"./_commonjsHelpers-BosuxZz1.js";import"./index-Bw8VTzHM.js";import"./index-BHQg7lv3.js";import"./index-DrFu-skq.js";const r=`# @mgdis/mg-components
+
+## 5.25.1
+
+### Patch Changes
+
+- d6a9e03: Update dependencies
+- Updated dependencies [d6a9e03]
+  - @mgdis/stencil-helpers@1.0.4
 
 ## 5.25.0
 
