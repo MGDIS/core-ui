@@ -72,10 +72,12 @@ export const config: Config = {
       generator: async jsonDocs => {
         // Storybook Base Url
         const storybookBaseUrl = 'http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/';
+        // Source Base Url
+        const sourceBaseUrl = 'https://gitlab.mgdis.fr/core/core-ui/core-ui/-/tree/master/packages/mg-components/';
         // Web Types
-        const webTypesContent = webTypesGenerator(name, version, storybookBaseUrl, jsonDocs);
+        const webTypesContent = webTypesGenerator(name, version, jsonDocs, storybookBaseUrl);
         // VS Code
-        const vsCodeContent = vsCodeGenerator(version, storybookBaseUrl, jsonDocs);
+        const vsCodeContent = vsCodeGenerator(version, jsonDocs, storybookBaseUrl, sourceBaseUrl);
         // Write files
         await mkdir(dirname(webTypes), { recursive: true });
         await mkdir(dirname(contributes.html.customData), { recursive: true });

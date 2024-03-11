@@ -2,7 +2,7 @@ import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/interna
 
 /**
  * Retrieve Component Storybook URL from file path
- * @param storybookBaseUrl - Storybook Base Url
+ * @param storybookBaseUrl - Storybook Base URL
  * @param filePath - Component file path
  * @returns Component Storybook URL
  */
@@ -15,13 +15,26 @@ const getStorybookUrl = (storybookBaseUrl: string, filePath: string | undefined)
 };
 
 /**
- * Get Component Tag Description
- * @param component - Component
- * @returns Component Tag Description
+ * Retrieve Component source URL from file path
+ * @param sourcesBaseUrl - Source base URL
+ * @param filePath - Component file path
+ * @returns Component source URL
  */
-const getTagDescription = (component: JsonDocsComponent): string => {
-  // Component title
-  let description = `\`<${component.tag}>\` component.\n\n`;
+const getSourcesUrl = (sourcesBaseUrl: string, filePath: string | undefined): string | undefined => {
+  if (!filePath) {
+    return;
+  }
+  return `${sourcesBaseUrl}${filePath}`;
+};
+
+/**
+ * Get Component element description
+ * @param component - Component
+ * @returns Component element description
+ */
+const getElementDescription = (component: JsonDocsComponent): string => {
+  // Init description
+  let description = component.overview ? `${component.overview}\n\n` : '';
   // Attributes
   const attributes = component.props.filter(({ attr }) => attr !== undefined);
   if (attributes.length) {
@@ -36,16 +49,28 @@ const getTagDescription = (component: JsonDocsComponent): string => {
     description += properties.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
     description += '\n';
   }
+  // Methods
+  if (component.methods.length) {
+    description += `Methods:\n`;
+    description += component.methods.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
+    description += '\n';
+  }
   // Events
   if (component.events.length) {
     description += `Events:\n`;
     description += component.events.map(({ event, docs }) => `- \`${event}\`: ${docs}\n`).join('');
     description += '\n';
   }
-  // Methods
-  if (component.methods.length) {
-    description += `Methods:\n`;
-    description += component.methods.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
+  // Listeners
+  if (component.listeners.length) {
+    description += `Listeners:\n`;
+    description += component.listeners.map(({ event }) => `- \`${event}\`\n`).join('');
+    description += '\n';
+  }
+  // Slots
+  if (component.slots.length) {
+    description += `Slots:\n`;
+    description += component.slots.map(({ name, docs }) => `- \`${name}\`: ${docs}\n`).join('');
     description += '\n';
   }
   // Return
@@ -70,7 +95,7 @@ const getAttributeDescription = (prop: JsonDocsProp): string => {
  * @returns Web Types metadata
  */
 
-export const webTypesGenerator = (name: string, version: string, storybookBaseUrl: string, jsonDocs: JsonDocs) => {
+export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonDocs, storybookBaseUrl: string) => {
   return {
     '$schema': 'https://json.schemastore.org/web-types',
     name,
@@ -82,7 +107,7 @@ export const webTypesGenerator = (name: string, version: string, storybookBaseUr
           const docUrl = getStorybookUrl(storybookBaseUrl, component.filePath);
           return {
             'name': component.tag,
-            'description': getTagDescription(component),
+            'description': getElementDescription(component),
             'doc-url': docUrl,
             'attributes': component.props
               .filter(prop => prop.attr)
@@ -90,36 +115,28 @@ export const webTypesGenerator = (name: string, version: string, storybookBaseUr
                 'name': prop.attr,
                 'description': getAttributeDescription(prop),
                 'doc-url': docUrl,
-                'type': prop.type,
-                'defaultValue': prop.default,
-                'required': prop.required,
+                'value': {
+                  type: prop.type,
+                  default: prop.default,
+                  required: prop.required,
+                },
               })),
-            'properties': component.props.map(prop => ({
-              name: prop.name,
-              type: prop.type,
-              description: getAttributeDescription(prop),
-              defaultValue: prop.default,
-              required: prop.required,
-            })),
-            '/js/events': component.events.map(event => ({
-              name: event.event,
-              description: event.docs,
-            })),
-            'methods': component.methods.map(method => ({
-              name: method.name,
-              description: method.docs,
-              signature: method.signature,
-            })),
-            'cssProperties': component.styles
-              .filter(style => style.annotation === 'prop')
-              .map(style => ({
-                name: style.name,
-                description: style.docs,
+            'js': {
+              properties: component.props.map(prop => ({
+                'name': prop.name,
+                'description': getAttributeDescription(prop),
+                'doc-url': docUrl,
+                'value': {
+                  type: prop.type,
+                  default: prop.default,
+                  required: prop.required,
+                },
               })),
-            'cssParts': component.parts.map(part => ({
-              name: part.name,
-              description: part.docs,
-            })),
+              events: component.events.map(event => ({
+                name: event.event,
+                description: event.docs,
+              })),
+            },
           };
         }),
       },
@@ -133,11 +150,14 @@ export const webTypesGenerator = (name: string, version: string, storybookBaseUr
  * @param filePath - Component file path
  * @returns Storybook Reference
  */
-const getStorybookReference = (storybookBaseUrl: string, filePath: string | undefined) => {
+const getReferences = (storybookBaseUrl: string, sourceBaseUrl: string, filePath: string | undefined) => {
   if (!filePath) {
     return;
   }
-  return [{ name: 'Storybook', url: getStorybookUrl(storybookBaseUrl, filePath) }];
+  return [
+    { name: 'Storybook', url: getStorybookUrl(storybookBaseUrl, filePath) },
+    { name: 'Sources', url: getSourcesUrl(sourceBaseUrl, filePath) },
+  ];
 };
 
 /**
@@ -160,14 +180,14 @@ const getValues = (prop: JsonDocsProp): unknown[] | undefined => {
  * @param jsonDocs - Stencil JSON doc
  * @returns custom HTML datasets
  */
-export const vsCodeGenerator = (version: string, storybookBaseUrl: string, jsonDocs: JsonDocs) => {
+export const vsCodeGenerator = (version: string, jsonDocs: JsonDocs, storybookBaseUrl: string, sourceBaseUrl: string) => {
   return {
     version,
     tags: jsonDocs.components.map(component => {
-      const references = getStorybookReference(storybookBaseUrl, component.filePath);
+      const references = getReferences(storybookBaseUrl, sourceBaseUrl, component.filePath);
       return {
         name: component.tag,
-        description: getTagDescription(component),
+        description: getElementDescription(component),
         attributes: component.props.map(prop => ({
           name: prop.attr || prop.name,
           description: getAttributeDescription(prop),

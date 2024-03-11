@@ -737,7 +737,7 @@ ___
 
 ### vsCodeGenerator
 
-▸ **vsCodeGenerator**(`version`, `storybookBaseUrl`, `jsonDocs`): `Object`
+▸ **vsCodeGenerator**(`version`, `jsonDocs`, `storybookBaseUrl`, `sourceBaseUrl`): `Object`
 
 Generate custom HTML datasets for VS Code
 
@@ -746,8 +746,9 @@ Generate custom HTML datasets for VS Code
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `version` | `string` | Library version |
-| `storybookBaseUrl` | `string` | Storybook Base Url |
 | `jsonDocs` | `JsonDocs` | Stencil JSON doc |
+| `storybookBaseUrl` | `string` | Storybook Base Url |
+| `sourceBaseUrl` | `string` | - |
 
 #### Returns
 
@@ -764,13 +765,13 @@ custom HTML datasets
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:163
+packages/stencil-helpers/src/ide/index.ts:192
 
 ___
 
 ### webTypesGenerator
 
-▸ **webTypesGenerator**(`name`, `version`, `storybookBaseUrl`, `jsonDocs`): `Object`
+▸ **webTypesGenerator**(`name`, `version`, `jsonDocs`, `storybookBaseUrl`): `Object`
 
 Generate Web Types metadata for IntelliJ's IDE
 
@@ -780,8 +781,8 @@ Generate Web Types metadata for IntelliJ's IDE
 | :------ | :------ | :------ |
 | `name` | `string` | Library name |
 | `version` | `string` | Library version |
-| `storybookBaseUrl` | `string` | Storybook Base Url |
 | `jsonDocs` | `JsonDocs` | Stencil JSON doc |
+| `storybookBaseUrl` | `string` | Storybook Base Url |
 
 #### Returns
 
@@ -792,13 +793,13 @@ Web Types metadata
 | Name | Type |
 | :------ | :------ |
 | `$schema` | `string` |
-| `contributions` | \{ `html`: \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  }  } |
-| `contributions.html` | \{ `elements`: \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[]  } |
-| `contributions.html.elements` | \{ `/js/events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `attributes`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[] ; `cssParts`: \{ `description`: `string` = part.docs; `name`: `string` = part.name }[] ; `cssProperties`: \{ `description`: `string` = style.docs; `name`: `string` = style.name }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `methods`: \{ `description`: `string` = method.docs; `name`: `string` = method.name; `signature`: `string` = method.signature }[] ; `name`: `string` = component.tag; `properties`: \{ `defaultValue`: `undefined` \| `string` = prop.default; `description`: `string` ; `name`: `string` = prop.name; `required`: `boolean` = prop.required; `type`: `string` = prop.type }[]  }[] |
+| `contributions` | \{ `html`: \{ `elements`: \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[]  }  } |
+| `contributions.html` | \{ `elements`: \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[]  } |
+| `contributions.html.elements` | \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[] |
 | `description-markup` | `string` |
 | `name` | `string` |
 | `version` | `string` |
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:73
+packages/stencil-helpers/src/ide/index.ts:92
