@@ -1,5 +1,40 @@
 # @mgdis/mg-components
 
+## 5.25.2
+
+### Patch Changes
+
+- 92be1fc: [`<mg-input-textarea>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs) render line-break in readonly
+- Updated dependencies [92be1fc]
+  - @mgdis/styles@1.2.2
+
+## 5.25.1
+
+### Patch Changes
+
+- d6a9e03: Update dependencies
+- Updated dependencies [d6a9e03]
+  - @mgdis/stencil-helpers@1.0.4
+
+## 5.25.0
+
+### Minor Changes
+
+- 1cab7cf: Add icons
+
+### Patch Changes
+
+- 7a7e0ec: Update dependencies
+- 1e3a230: [#446](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/446) mgInputToggle: prevent erreur when options can't be set
+- Updated dependencies [7a7e0ec]
+- Updated dependencies [1ba2d2a]
+- Updated dependencies [1cab7cf]
+- Updated dependencies [1cab7cf]
+- Updated dependencies [2ed265a]
+  - @mgdis/stencil-helpers@1.0.3
+  - @mgdis/styles@1.2.1
+  - @mgdis/img@1.7.0
+
 ## 5.24.0
 
 ### Minor Changes

@@ -1,20 +1,20 @@
 {
   "name": "@mgdis/eslint-config-vue3",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "CORE eslint-config-vue3",
   "main": "src/index.js",
   "dependencies": {
-    "@typescript-eslint/parser": "6.21.0",
+    "@typescript-eslint/parser": "7.1.1",
     "@vue/eslint-config-prettier": "9.0.0",
     "@vue/eslint-config-typescript": "12.0.0",
     "eslint-config-airbnb-base": "15.0.0",
-    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-config-airbnb-typescript": "18.0.0",
     "eslint-config-prettier": "9.1.0",
     "vue-eslint-parser": "9.4.2"
   },
   "peerDependencies": {
     "@mgdis/eslint-plugin-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "5.x || 6.x",
+    "@typescript-eslint/eslint-plugin": "5.x || 6.x || 7.x",
     "eslint": "8.x",
     "eslint-import-resolver-typescript": "3.x",
     "eslint-plugin-import": "2.x",
@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@mgdis/eslint-plugin-vue": "workspace:*",
-    "@typescript-eslint/eslint-plugin": "6.21.0",
+    "@typescript-eslint/eslint-plugin": "7.1.1",
     "eslint": "8.57.0",
     "eslint-import-resolver-typescript": "3.6.1",
     "eslint-plugin-import": "2.29.1",
