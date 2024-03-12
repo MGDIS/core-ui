@@ -90,59 +90,61 @@ const getAttributeDescription = (prop: JsonDocsProp): string => {
  * Generate Web Types metadata for IntelliJ's IDE
  * @param name - Library name
  * @param version - Library version
- * @param storybookBaseUrl - Storybook Base Url
  * @param jsonDocs - Stencil JSON doc
+ * @param storybookBaseUrl - Storybook Base Url
  * @returns Web Types metadata
+ * @example
+ * ```ts
+ * const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs, 'https://storybook.example.com');
+ * ```
  */
 
-export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonDocs, storybookBaseUrl: string) => {
-  return {
-    '$schema': 'https://json.schemastore.org/web-types',
-    name,
-    version,
-    'description-markup': 'markdown',
-    'contributions': {
-      html: {
-        elements: jsonDocs.components.map(component => {
-          const docUrl = getStorybookUrl(storybookBaseUrl, component.filePath);
-          return {
-            'name': component.tag,
-            'description': getElementDescription(component),
-            'doc-url': docUrl,
-            'attributes': component.props
-              .filter(prop => prop.attr)
-              .map(prop => ({
-                'name': prop.attr,
-                'description': getAttributeDescription(prop),
-                'doc-url': docUrl,
-                'value': {
-                  type: prop.type,
-                  default: prop.default,
-                  required: prop.required,
-                },
-              })),
-            'js': {
-              properties: component.props.map(prop => ({
-                'name': prop.name,
-                'description': getAttributeDescription(prop),
-                'doc-url': docUrl,
-                'value': {
-                  type: prop.type,
-                  default: prop.default,
-                  required: prop.required,
-                },
-              })),
-              events: component.events.map(event => ({
-                name: event.event,
-                description: event.docs,
-              })),
-            },
-          };
-        }),
-      },
+export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonDocs, storybookBaseUrl: string) => ({
+  '$schema': 'https://json.schemastore.org/web-types',
+  name,
+  version,
+  'description-markup': 'markdown',
+  'contributions': {
+    html: {
+      elements: jsonDocs.components.map(component => {
+        const docUrl = getStorybookUrl(storybookBaseUrl, component.filePath);
+        return {
+          'name': component.tag,
+          'description': getElementDescription(component),
+          'doc-url': docUrl,
+          'attributes': component.props
+            .filter(prop => prop.attr)
+            .map(prop => ({
+              'name': prop.attr,
+              'description': getAttributeDescription(prop),
+              'doc-url': docUrl,
+              'value': {
+                type: prop.type,
+                default: prop.default,
+                required: prop.required,
+              },
+            })),
+          'js': {
+            properties: component.props.map(prop => ({
+              'name': prop.name,
+              'description': getAttributeDescription(prop),
+              'doc-url': docUrl,
+              'value': {
+                type: prop.type,
+                default: prop.default,
+                required: prop.required,
+              },
+            })),
+            events: component.events.map(event => ({
+              name: event.event,
+              description: event.docs,
+            })),
+          },
+        };
+      }),
     },
-  };
-};
+  },
+});
 
 /**
  * Create Storybook Reference
@@ -176,28 +178,30 @@ const getValues = (prop: JsonDocsProp): unknown[] | undefined => {
 /**
  * Generate custom HTML datasets for VS Code
  * @param version - Library version
- * @param storybookBaseUrl - Storybook Base Url
  * @param jsonDocs - Stencil JSON doc
+ * @param storybookBaseUrl - Storybook Base Url
  * @returns custom HTML datasets
+ * @example
+ * ```ts
+ * const customDataJson = vsCodeGenerator('1.0.0', jsonDocs, 'https://storybook.example.com', 'https://sources.example.com');
+ * ```
  */
-export const vsCodeGenerator = (version: string, jsonDocs: JsonDocs, storybookBaseUrl: string, sourceBaseUrl: string) => {
-  return {
-    version,
-    tags: jsonDocs.components.map(component => {
-      const references = getReferences(storybookBaseUrl, sourceBaseUrl, component.filePath);
-      return {
-        name: component.tag,
-        description: getElementDescription(component),
-        attributes: component.props.map(prop => ({
-          name: prop.attr || prop.name,
-          description: getAttributeDescription(prop),
-          values: getValues(prop),
-          references,
-        })),
+export const vsCodeGenerator = (version: string, jsonDocs: JsonDocs, storybookBaseUrl: string, sourceBaseUrl: string) => ({
+  version,
+  tags: jsonDocs.components.map(component => {
+    const references = getReferences(storybookBaseUrl, sourceBaseUrl, component.filePath);
+    return {
+      name: component.tag,
+      description: getElementDescription(component),
+      attributes: component.props.map(prop => ({
+        name: prop.attr || prop.name,
+        description: getAttributeDescription(prop),
+        values: getValues(prop),
         references,
-      };
-    }),
-    globalAttributes: [],
-    valueSets: [],
-  };
-};
+      })),
+      references,
+    };
+  }),
+  globalAttributes: [],
+  valueSets: [],
+});
