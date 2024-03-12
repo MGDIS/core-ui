@@ -763,9 +763,15 @@ custom HTML datasets
 | `valueSets` | `never`[] |
 | `version` | `string` |
 
+**`Example`**
+
+```ts
+const customDataJson = vsCodeGenerator('1.0.0', jsonDocs, 'https://storybook.example.com', 'https://sources.example.com');
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:192
+packages/stencil-helpers/src/ide/index.ts:189
 
 ___
 
@@ -800,6 +806,12 @@ Web Types metadata
 | `name` | `string` |
 | `version` | `string` |
 
+**`Example`**
+
+```ts
+const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs, 'https://storybook.example.com');
+```
+
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:92
+packages/stencil-helpers/src/ide/index.ts:102
