@@ -1,5 +1,15 @@
 # @mgdis/stencil-helpers
 
+## 1.1.0
+
+### Minor Changes
+
+- a4091b3: Provide autocompletion
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 1.0.4
 
 ### Patch Changes

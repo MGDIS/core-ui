@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.8
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 1.1.7
 
 ### Patch Changes

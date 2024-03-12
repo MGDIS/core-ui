@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.7.1
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 1.7.0
 
 ### Minor Changes

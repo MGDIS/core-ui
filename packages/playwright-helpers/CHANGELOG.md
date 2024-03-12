@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.0.3
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 1.0.2
 
 ### Patch Changes

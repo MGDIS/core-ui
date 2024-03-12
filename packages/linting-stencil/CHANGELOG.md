@@ -1,5 +1,11 @@
 # @mgdis/linting-stencil
 
+## 1.1.2
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 1.1.1
 
 ### Patch Changes
