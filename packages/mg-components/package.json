@@ -10,9 +10,16 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/mg-components/mg-components.esm.js",
+  "web-types": "ide/intellij/web-types.json",
+  "contributes": {
+    "html": {
+      "customData": "ide/vscode/html-custom-data.json"
+    }
+  },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "ide/"
   ],
   "maintainers": [
     "Simon Duhem <duhem-s@mgdis.fr>",
@@ -65,7 +72,7 @@
     "@storybook/html-vite": "7.6.17",
     "@storybook/testing-library": "0.2.2",
     "@types/jest": "29.5.12",
-    "@types/node": "20.11.25",
+    "@types/node": "20.11.26",
     "chromatic": "11.0.8",
     "eslint": "8.57.0",
     "eslint-config-stencil": "workspace:*",

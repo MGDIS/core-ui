@@ -35,6 +35,8 @@
 - [setupResizeObserverMock](README.md#setupresizeobservermock)
 - [setupSubmitEventMock](README.md#setupsubmiteventmock)
 - [stencilWrapper](README.md#stencilwrapper)
+- [vsCodeGenerator](README.md#vscodegenerator)
+- [webTypesGenerator](README.md#webtypesgenerator)
 
 ## Variables
 
@@ -730,3 +732,74 @@ export const decorators: Preview['decorators'] = [stencilWrapper];
 #### Defined in
 
 packages/stencil-helpers/src/storybook/index.ts:90
+
+___
+
+### vsCodeGenerator
+
+▸ **vsCodeGenerator**(`version`, `jsonDocs`, `storybookBaseUrl`, `sourceBaseUrl`): `Object`
+
+Generate custom HTML datasets for VS Code
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `version` | `string` | Library version |
+| `jsonDocs` | `JsonDocs` | Stencil JSON doc |
+| `storybookBaseUrl` | `string` | Storybook Base Url |
+| `sourceBaseUrl` | `string` | - |
+
+#### Returns
+
+`Object`
+
+custom HTML datasets
+
+| Name | Type |
+| :------ | :------ |
+| `globalAttributes` | `never`[] |
+| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[]  }[] |
+| `valueSets` | `never`[] |
+| `version` | `string` |
+
+#### Defined in
+
+packages/stencil-helpers/src/ide/index.ts:192
+
+___
+
+### webTypesGenerator
+
+▸ **webTypesGenerator**(`name`, `version`, `jsonDocs`, `storybookBaseUrl`): `Object`
+
+Generate Web Types metadata for IntelliJ's IDE
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `name` | `string` | Library name |
+| `version` | `string` | Library version |
+| `jsonDocs` | `JsonDocs` | Stencil JSON doc |
+| `storybookBaseUrl` | `string` | Storybook Base Url |
+
+#### Returns
+
+`Object`
+
+Web Types metadata
+
+| Name | Type |
+| :------ | :------ |
+| `$schema` | `string` |
+| `contributions` | \{ `html`: \{ `elements`: \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[]  }  } |
+| `contributions.html` | \{ `elements`: \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[]  } |
+| `contributions.html.elements` | \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[] |
+| `description-markup` | `string` |
+| `name` | `string` |
+| `version` | `string` |
+
+#### Defined in
+
+packages/stencil-helpers/src/ide/index.ts:92
