@@ -42,7 +42,7 @@ export class MgBadge {
   }
 
   /**
-   * Define button variant
+   * Define badge variant
    */
   @Prop() variant?: BadgeVariantType = variants[0]; // info
   @Watch('variant')
