@@ -6496,6 +6496,9 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -6509,9 +6512,6 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -6566,6 +6566,9 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -6579,9 +6582,6 @@ exports[`mg-input-checkbox render by type checkbox Should render component error
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -7296,7 +7296,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -7356,7 +7356,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 2`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -7417,7 +7417,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -7498,7 +7498,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -7691,7 +7691,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -8044,6 +8044,9 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -8057,9 +8060,6 @@ exports[`mg-input-checkbox render by type checkbox Should trigger events, case v
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -8306,6 +8306,9 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -8319,9 +8322,6 @@ exports[`mg-input-checkbox render by type checkbox display error with displayErr
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -8568,6 +8568,9 @@ exports[`mg-input-checkbox render by type checkbox should display override error
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -8581,9 +8584,6 @@ exports[`mg-input-checkbox render by type checkbox should display override error
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -8638,6 +8638,9 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -8651,9 +8654,6 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -8705,22 +8705,17 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -8775,6 +8770,9 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -8788,9 +8786,6 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -8799,7 +8794,7 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
 exports[`mg-input-checkbox render by type checkbox validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly" role="group">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -8835,18 +8830,13 @@ exports[`mg-input-checkbox render by type checkbox validity, case next state is 
           </label>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
+        <span class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </legend>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -9186,6 +9176,9 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -9199,9 +9192,6 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -9292,6 +9282,9 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -9305,9 +9298,6 @@ exports[`mg-input-checkbox render by type multi Should render component error wi
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -10638,7 +10628,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -10698,15 +10688,34 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 2`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            batman, robin, joker, bane
-          </strong>
+          <ul>
+            <li>
+              <strong>
+                batman
+              </strong>
+            </li>
+            <li>
+              <strong>
+                robin
+              </strong>
+            </li>
+            <li>
+              <strong>
+                joker
+              </strong>
+            </li>
+            <li>
+              <strong>
+                bane
+              </strong>
+            </li>
+          </ul>
           <slot></slot>
         </div>
       </mock:shadow-root>
@@ -10759,7 +10768,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -10820,7 +10829,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list mg-c-input--with-values">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list mg-c-input--with-values">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -10881,7 +10890,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -10962,7 +10971,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -11227,7 +11236,7 @@ exports[`mg-input-checkbox render by type multi Should render with args {
 }: 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -11960,6 +11969,9 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -11973,9 +11985,6 @@ exports[`mg-input-checkbox render by type multi Should trigger events, case vali
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -12366,6 +12375,9 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -12379,9 +12391,6 @@ exports[`mg-input-checkbox render by type multi display error with displayError 
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -12772,6 +12781,9 @@ exports[`mg-input-checkbox render by type multi should display override error wi
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -12785,9 +12797,6 @@ exports[`mg-input-checkbox render by type multi should display override error wi
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -12878,6 +12887,9 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -12891,9 +12903,6 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -12981,22 +12990,17 @@ exports[`mg-input-checkbox render by type multi validity, case next state is dis
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -13087,6 +13091,9 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -13100,9 +13107,6 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -13111,7 +13115,7 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
 exports[`mg-input-checkbox render by type multi validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list" role="group">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -13147,18 +13151,13 @@ exports[`mg-input-checkbox render by type multi validity, case next state is rea
           </label>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
+        <span class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </legend>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -13462,6 +13461,9 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -13475,9 +13477,6 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -13532,6 +13531,9 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -13545,9 +13547,6 @@ exports[`mg-input-checkbox render by type undefined Should render component erro
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -14262,7 +14261,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -14322,7 +14321,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 2`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -14383,7 +14382,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly mg-c-input--vertical-list">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -14464,7 +14463,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -14657,7 +14656,7 @@ exports[`mg-input-checkbox render by type undefined Should render with args {
 }: 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -15010,6 +15009,9 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -15023,9 +15025,6 @@ exports[`mg-input-checkbox render by type undefined Should trigger events, case 
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -15272,6 +15271,9 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -15285,9 +15287,6 @@ exports[`mg-input-checkbox render by type undefined display error with displayEr
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -15534,6 +15533,9 @@ exports[`mg-input-checkbox render by type undefined should display override erro
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -15547,9 +15549,6 @@ exports[`mg-input-checkbox render by type undefined should display override erro
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -15604,6 +15603,9 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -15617,9 +15619,6 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -15671,22 +15670,17 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -15741,6 +15735,9 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -15754,9 +15751,6 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-checkbox>
@@ -15765,7 +15759,7 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
 exports[`mg-input-checkbox render by type undefined validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly" role="group">
+    <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -15801,18 +15795,13 @@ exports[`mg-input-checkbox render by type undefined validity, case next state is
           </label>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
+        <span class="mg-c-input-title" id="identifier-title">
           <span class="mg-c-input-title__text">
             label
           </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </legend>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>

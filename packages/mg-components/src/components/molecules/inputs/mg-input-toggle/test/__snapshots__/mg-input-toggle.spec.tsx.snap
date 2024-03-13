@@ -301,6 +301,9 @@ exports[`mg-input-toggle setError should display override error with setError co
           <slot name="item-2"></slot>
         </span>
       </button>
+      <div id="identifier-error" slot="error">
+        error Batman
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -309,9 +312,6 @@ exports[`mg-input-toggle setError should display override error with setError co
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        error Batman
-      </div>
     </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">

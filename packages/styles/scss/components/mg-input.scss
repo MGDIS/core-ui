@@ -166,6 +166,10 @@ mg-icon {
   display: flex;
 }
 
+:host(.mg-c-input.mg-c-input--textarea.mg-c-input--readonly) .mg-c-input__input-container {
+  white-space: pre-line;
+}
+
 :host(.mg-c-input.mg-c-input--label-on-top) {
   @include label-on-top-styles;
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-11T15:17:28",
+  "timestamp": "2024-03-13T09:14:15",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.5",
@@ -1699,33 +1699,6 @@
           "values": [
             {
               "type": "string[]"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "classCollection",
-          "type": "ClassList",
-          "complexType": {
-            "original": "ClassList",
-            "resolved": "ClassList",
-            "references": {
-              "ClassList": {
-                "location": "import",
-                "path": "@mgdis/stencil-helpers",
-                "id": "../stencil-helpers/dist/index.d.ts::ClassList"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "Component classes",
-          "docsTags": [],
-          "default": "new ClassList([this.classInput])",
-          "values": [
-            {
-              "type": "ClassList"
             }
           ],
           "optional": false,
@@ -10130,11 +10103,6 @@
       "declaration": "\"input\" | \"label\"",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
-    },
-    "../stencil-helpers/dist/index.d.ts::ClassList": {
-      "declaration": "any",
-      "docstring": "",
-      "path": "../stencil-helpers/dist/index.d.ts"
     },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxValue": {
       "declaration": "export interface CheckboxValue {\n  title: string;\n  value: boolean | null;\n  disabled?: boolean;\n  required?: boolean;\n}",

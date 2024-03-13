@@ -47,3 +47,8 @@
 :host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
   margin-left: 3rem;
 }
+
+:host(.mg-c-input.mg-c-input--fieldset) .mg-c-input__input {
+  align-items: flex-start;
+  min-height: unset;
+}

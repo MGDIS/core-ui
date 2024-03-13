@@ -293,7 +293,7 @@ export class MgInputPassword {
       <mg-input
         label={this.label}
         identifier={this.identifier}
-        classCollection={this.classCollection}
+        class={this.classCollection.join()}
         ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}

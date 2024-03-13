@@ -79,6 +79,7 @@
   }
 
   &.mg-c-input--is-append-input-slot-content:not(.mg-c-input--readonly) ::slotted([slot='append-input']) {
+    align-self: start;
     padding-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
   }
 }

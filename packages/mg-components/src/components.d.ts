@@ -12,7 +12,6 @@ import { VariantStyleType, VariantType as VariantType1 } from "./components/atom
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { ClassList } from "@mgdis/stencil-helpers";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -36,7 +35,6 @@ export { VariantStyleType, VariantType as VariantType1 } from "./components/atom
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { ClassList } from "@mgdis/stencil-helpers";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
@@ -255,10 +253,6 @@ export namespace Components {
           * Define aria-describedby ids to link with
          */
         "ariaDescribedbyIDs": string[];
-        /**
-          * Component classes
-         */
-        "classCollection": ClassList;
         /**
           * Define error message to display
          */
@@ -2226,10 +2220,6 @@ declare namespace LocalJSX {
           * Define aria-describedby ids to link with
          */
         "ariaDescribedbyIDs"?: string[];
-        /**
-          * Component classes
-         */
-        "classCollection"?: ClassList;
         /**
           * Define error message to display
          */

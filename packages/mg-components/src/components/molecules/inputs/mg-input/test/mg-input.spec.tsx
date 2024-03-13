@@ -2,8 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
-import { ClassList } from '@mgdis/stencil-helpers';
-import { classDisabled, classFieldset, classReadonly } from '../mg-input.conf';
+import { classDisabled, classFieldset, classReadonly, classVerticalList } from '../mg-input.conf';
 
 const baseArgs = {
   label: 'label',
@@ -29,26 +28,30 @@ describe('mg-input', () => {
   describe('render', () => {
     test.each([
       {},
-      { classCollection: new ClassList([]) },
+      { class: '' },
       { labelOnTop: true },
       { labelHide: true },
       { required: true },
       { helpText },
       { errorMessage },
       // fieldset
-      { classCollection: new ClassList([classFieldset]) },
+      { class: classFieldset },
       // readonly
-      { readonlyValue: 'batman', classCollection: new ClassList([classReadonly]) },
-      { readonlyValue: ['batman', 'joker', 'bane'], classCollection: new ClassList([classReadonly]) },
-      { errorMessage, classCollection: new ClassList([classReadonly]) },
-      { classCollection: new ClassList([classReadonly]) },
-      { classCollection: new ClassList([classReadonly]), inputVerticalList: true },
-      { required: true, classCollection: new ClassList([classReadonly]), helpText },
-      { classCollection: new ClassList([classReadonly]), labelOnTop: true, tooltip },
+      { class: classReadonly, readonlyValue: 'batman' },
+      { class: classReadonly, readonlyValue: ['batman'] },
+      { class: classReadonly, readonlyValue: ['batman', 'joker', 'bane'] },
+      { class: [classReadonly, classVerticalList].join(' '), readonlyValue: 'batman' },
+      { class: [classReadonly, classVerticalList].join(' '), readonlyValue: ['batman', 'joker', 'bane'] },
+      { class: [classReadonly, classVerticalList].join(' '), readonlyValue: ['batman'] },
+      { class: classReadonly, errorMessage },
+      { class: classReadonly },
+      { class: classReadonly, inputVerticalList: true },
+      { class: classReadonly, required: true, helpText },
+      { class: classReadonly, labelOnTop: true, tooltip },
       // disabled
-      { required: true, classCollection: new ClassList([classDisabled]), helpText },
-      { errorMessage, classCollection: new ClassList([classDisabled]) },
-      { classCollection: new ClassList([classDisabled]) },
+      { class: classDisabled },
+      { class: classDisabled, required: true, helpText },
+      { class: classDisabled, errorMessage },
       // tooltip
       { tooltip },
       { tooltip, tooltipPosition: 'label' },

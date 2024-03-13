@@ -772,6 +772,9 @@ exports[`mg-input-textarea display error message with locale: fr 1`] = `
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -785,9 +788,6 @@ exports[`mg-input-textarea display error message with locale: fr 1`] = `
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -813,6 +813,9 @@ exports[`mg-input-textarea display error message with locale: xx 1`] = `
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -826,9 +829,6 @@ exports[`mg-input-textarea display error message with locale: xx 1`] = `
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -889,6 +889,9 @@ exports[`mg-input-textarea display error with displayError component's public me
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -902,9 +905,6 @@ exports[`mg-input-textarea display error with displayError component's public me
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -1035,6 +1035,9 @@ exports[`mg-input-textarea should display override error with setError component
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1048,9 +1051,6 @@ exports[`mg-input-textarea should display override error with setError component
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -1076,6 +1076,9 @@ exports[`mg-input-textarea validity, case next state is disabled validity ({ val
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1084,9 +1087,6 @@ exports[`mg-input-textarea validity, case next state is disabled validity ({ val
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -1142,6 +1142,9 @@ exports[`mg-input-textarea validity, case next state is readonly validity ({ val
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1150,9 +1153,6 @@ exports[`mg-input-textarea validity, case next state is readonly validity ({ val
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-textarea>
@@ -1174,13 +1174,13 @@ exports[`mg-input-textarea validity, case next state is readonly validity ({ val
       <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
         <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
       </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <span class="mg-c-input-title" htmlfor="identifier">
           <span class="mg-c-input-title__text">
             label
           </span>
-        </label>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>

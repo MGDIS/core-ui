@@ -975,6 +975,9 @@ exports[`mg-input-text display error message with locale: fr 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -988,9 +991,6 @@ exports[`mg-input-text display error message with locale: fr 1`] = `
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1018,6 +1018,9 @@ exports[`mg-input-text display error message with locale: xx 1`] = `
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1031,9 +1034,6 @@ exports[`mg-input-text display error message with locale: xx 1`] = `
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1098,6 +1098,9 @@ exports[`mg-input-text display error with displayError component's public method
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1111,9 +1114,6 @@ exports[`mg-input-text display error with displayError component's public method
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1252,6 +1252,9 @@ exports[`mg-input-text should display override error with setError component's p
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1265,9 +1268,6 @@ exports[`mg-input-text should display override error with setError component's p
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1295,6 +1295,9 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1303,9 +1306,6 @@ exports[`mg-input-text validity, case next state is disabled validity ({ validit
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1365,6 +1365,9 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1373,9 +1376,6 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-text>
@@ -1399,13 +1399,13 @@ exports[`mg-input-text validity, case next state is readonly validity ({ validit
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <span class="mg-c-input-title" htmlfor="identifier">
           <span class="mg-c-input-title__text">
             label
           </span>
-        </label>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>

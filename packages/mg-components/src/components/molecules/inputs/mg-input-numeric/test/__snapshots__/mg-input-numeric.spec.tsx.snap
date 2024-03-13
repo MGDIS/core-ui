@@ -135,6 +135,9 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -148,9 +151,6 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -175,6 +175,9 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -188,9 +191,6 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -317,6 +317,9 @@ exports[`mg-input-numeric should display override error with setError component'
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -330,9 +333,6 @@ exports[`mg-input-numeric should display override error with setError component'
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -1461,6 +1461,9 @@ exports[`mg-input-numeric type currency display error with displayError componen
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1474,9 +1477,6 @@ exports[`mg-input-numeric type currency display error with displayError componen
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -1501,6 +1501,9 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1509,9 +1512,6 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -1565,6 +1565,9 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -1573,9 +1576,6 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -1596,13 +1596,13 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
       </mock:shadow-root>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <span class="mg-c-input-title" htmlfor="identifier">
           <span class="mg-c-input-title__text">
             label
           </span>
-        </label>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -2732,6 +2732,9 @@ exports[`mg-input-numeric type decimal display error with displayError component
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -2745,9 +2748,6 @@ exports[`mg-input-numeric type decimal display error with displayError component
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -2772,6 +2772,9 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -2780,9 +2783,6 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -2836,6 +2836,9 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -2844,9 +2847,6 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -2867,13 +2867,13 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
       </mock:shadow-root>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <span class="mg-c-input-title" htmlfor="identifier">
           <span class="mg-c-input-title__text">
             label
           </span>
-        </label>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -4003,6 +4003,9 @@ exports[`mg-input-numeric type integer display error with displayError component
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -4016,9 +4019,6 @@ exports[`mg-input-numeric type integer display error with displayError component
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -4043,6 +4043,9 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -4051,9 +4054,6 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -4107,6 +4107,9 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -4115,9 +4118,6 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -4138,13 +4138,13 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
       </mock:shadow-root>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
+        <span class="mg-c-input-title" htmlfor="identifier">
           <span class="mg-c-input-title__text">
             label
           </span>
-        </label>
+        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>
@@ -4344,6 +4344,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="1">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        The value cannot be less than 2
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -4352,9 +4355,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        The value cannot be less than 2
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>
@@ -4466,6 +4466,9 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
       </mock:shadow-root>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="3">
       <slot name="append-input"></slot>
+      <div id="identifier-error" slot="error">
+        The value cannot be greater than 2
+      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
         <!---->
         <label class="mg-c-input-title" htmlfor="identifier">
@@ -4474,9 +4477,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
           </span>
         </label>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        The value cannot be greater than 2
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-numeric>

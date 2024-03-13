@@ -304,7 +304,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -363,7 +363,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--label-on-top mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -561,7 +561,7 @@ exports[`mg-input-radio Should render with args {
 }: 1`] = `
 <mg-input-radio>
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -1395,6 +1395,9 @@ exports[`mg-input-radio display error message with locale: fr 1`] = `
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        Ce champ est obligatoire.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1408,9 +1411,6 @@ exports[`mg-input-radio display error message with locale: fr 1`] = `
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Ce champ est obligatoire.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1465,6 +1465,9 @@ exports[`mg-input-radio display error message with locale: xx 1`] = `
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1478,9 +1481,6 @@ exports[`mg-input-radio display error message with locale: xx 1`] = `
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1599,6 +1599,9 @@ exports[`mg-input-radio display error with displayError component's public metho
       <div id="identifier-help-text" slot="help-text">
         My help text
       </div>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1612,9 +1615,6 @@ exports[`mg-input-radio display error with displayError component's public metho
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1837,6 +1837,9 @@ exports[`mg-input-radio should display override error with setError component's 
           </label>
         </li>
       </ul>
+      <div id="identifier-error" slot="error">
+        Override error
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1850,9 +1853,6 @@ exports[`mg-input-radio should display override error with setError component's 
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        Override error
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1901,6 +1901,9 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
           </label>
         </li>
       </ul>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1909,9 +1912,6 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -1957,6 +1957,9 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
           </label>
         </li>
       </ul>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -1965,9 +1968,6 @@ exports[`mg-input-radio validity, case next state is disabled validity ({ validi
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -2016,6 +2016,9 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
           </label>
         </li>
       </ul>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
         <!---->
         <legend class="mg-c-input-title" id="identifier-title">
@@ -2024,9 +2027,6 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
           </span>
         </legend>
       </mg-input-title>
-      <div id="identifier-error" slot="error">
-        This field is required.
-      </div>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>
@@ -2035,7 +2035,7 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
 exports[`mg-input-radio validity, case next state is readonly validity ({ validity: false, valueMissing: true }), valueMissing (%s) 2`] = `
 <mg-input-radio patternerrormessage="Non">
   <mock:shadow-root>
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio mg-c-input--readonly" role="group">
+    <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--has-error mg-c-input--radio mg-c-input--readonly">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -2071,17 +2071,17 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
           </label>
         </li>
       </ul>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
       <div id="identifier-error" slot="error">
         This field is required.
       </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
     </mg-input>
   </mock:shadow-root>
 </mg-input-radio>

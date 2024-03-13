@@ -317,7 +317,7 @@ export class MgInputToggle {
         label={this.label}
         helpText={this.helpText}
         identifier={this.identifier}
-        classCollection={this.classCollection}
+        class={this.classCollection.join()}
         ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}

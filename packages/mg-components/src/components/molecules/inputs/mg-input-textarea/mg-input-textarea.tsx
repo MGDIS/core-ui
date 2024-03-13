@@ -374,7 +374,7 @@ export class MgInputTextarea {
       <mg-input
         label={this.label}
         identifier={this.identifier}
-        classCollection={this.classCollection}
+        class={this.classCollection.join()}
         ariaDescribedbyIDs={[this.characterLeftId]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}

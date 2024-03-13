@@ -41,6 +41,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </label>
           </li>
         </ul>
+        <div id="mg-input-checkbox-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -54,9 +57,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </legend>
         </mg-input-title>
-        <div id="mg-input-checkbox-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-checkbox>
@@ -90,6 +90,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
           </span>
           (ex: 12/24/2023)
         </div>
+        <div id="mg-input-date-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-date">
@@ -103,9 +106,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-date-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-date>
@@ -127,6 +127,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         </mock:shadow-root>
         <input aria-describedby="mg-input-numeric-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
+        <div id="mg-input-numeric-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-numeric">
@@ -140,9 +143,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-numeric-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-numeric>
@@ -163,6 +163,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
           </div>
         </mock:shadow-root>
         <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <div id="mg-input-password-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -176,9 +179,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-password-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-password>
@@ -224,6 +224,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </label>
           </li>
         </ul>
+        <div id="mg-input-radio-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -237,9 +240,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </legend>
         </mg-input-title>
-        <div id="mg-input-radio-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-radio>
@@ -276,6 +276,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             blo
           </option>
         </select>
+        <div id="mg-input-select-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-select">
@@ -289,9 +292,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-select-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-select>
@@ -316,6 +316,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
+        <div id="mg-input-text-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-text">
@@ -329,9 +332,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-text-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-text>
@@ -354,6 +354,9 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
         <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
+        <div id="mg-input-textarea-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-textarea">
@@ -367,9 +370,6 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-textarea-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-textarea>
@@ -423,7 +423,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -545,7 +545,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5364,7 +5364,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -5486,7 +5486,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6323,7 +6323,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mock:shadow-root>
   <mg-input-checkbox>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-checkbox-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -6445,7 +6445,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
   </mg-input-password>
   <mg-input-radio>
     <mock:shadow-root>
-      <mg-input aria-labelledby="mg-input-radio-title" class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
+      <mg-input class="mg-c-input mg-c-input--fieldset mg-c-input--radio mg-c-input--readonly">
         <mock:shadow-root>
           <div class="mg-c-input__title">
             <slot name="label"></slot>
@@ -8607,6 +8607,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </label>
           </li>
         </ul>
+        <div id="mg-input-checkbox-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -8620,9 +8623,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </legend>
         </mg-input-title>
-        <div id="mg-input-checkbox-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-checkbox>
@@ -8656,6 +8656,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
           </span>
           (ex&nbsp;: 12/24/2023)
         </div>
+        <div id="mg-input-date-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-date">
@@ -8669,9 +8672,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-date-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-date>
@@ -8693,6 +8693,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
         </mock:shadow-root>
         <input aria-describedby="mg-input-numeric-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
+        <div id="mg-input-numeric-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-numeric">
@@ -8706,9 +8709,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-numeric-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-numeric>
@@ -8729,6 +8729,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
           </div>
         </mock:shadow-root>
         <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <div id="mg-input-password-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -8742,9 +8745,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-password-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-password>
@@ -8790,6 +8790,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </label>
           </li>
         </ul>
+        <div id="mg-input-radio-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -8803,9 +8806,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </legend>
         </mg-input-title>
-        <div id="mg-input-radio-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-radio>
@@ -8842,6 +8842,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
             blo
           </option>
         </select>
+        <div id="mg-input-select-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-select">
@@ -8855,9 +8858,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-select-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-select>
@@ -8882,6 +8882,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
+        <div id="mg-input-text-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-text">
@@ -8895,9 +8898,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-text-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-text>
@@ -8920,6 +8920,9 @@ exports[`mg-form display error message with locale: fr 1`] = `
         <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
+        <div id="mg-input-textarea-error" slot="error">
+          Ce champ est obligatoire.
+        </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-textarea">
@@ -8933,9 +8936,6 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-textarea-error" slot="error">
-          Ce champ est obligatoire.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-textarea>
@@ -9021,6 +9021,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </label>
           </li>
         </ul>
+        <div id="mg-input-checkbox-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-checkbox" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-checkbox-title">
@@ -9034,9 +9037,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </legend>
         </mg-input-title>
-        <div id="mg-input-checkbox-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-checkbox>
@@ -9070,6 +9070,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
           </span>
           (ex: 12/24/2023)
         </div>
+        <div id="mg-input-date-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-date" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-date">
@@ -9083,9 +9086,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-date-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-date>
@@ -9107,6 +9107,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
         </mock:shadow-root>
         <input aria-describedby="mg-input-numeric-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-numeric" name="mg-input-numeric" required="" type="text">
         <slot name="append-input"></slot>
+        <div id="mg-input-numeric-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-numeric" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-numeric">
@@ -9120,9 +9123,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-numeric-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-numeric>
@@ -9143,6 +9143,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
           </div>
         </mock:shadow-root>
         <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <div id="mg-input-password-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -9156,9 +9159,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-password-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-password>
@@ -9204,6 +9204,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </label>
           </li>
         </ul>
+        <div id="mg-input-radio-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-radio" is-legend="true" readonly="false" required="true" slot="label">
           <!---->
           <legend class="mg-c-input-title" id="mg-input-radio-title">
@@ -9217,9 +9220,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </legend>
         </mg-input-title>
-        <div id="mg-input-radio-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-radio>
@@ -9256,6 +9256,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
             blo
           </option>
         </select>
+        <div id="mg-input-select-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-select" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-select">
@@ -9269,9 +9272,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-select-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-select>
@@ -9296,6 +9296,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
           <mg-character-left identifier="mg-input-text-character-left" maxlength="400"></mg-character-left>
         </div>
         <slot name="append-input"></slot>
+        <div id="mg-input-text-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-text" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-text">
@@ -9309,9 +9312,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-text-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-text>
@@ -9334,6 +9334,9 @@ exports[`mg-form display error message with locale: xx 1`] = `
         <div class="mg-c-input__with-character-left"><textarea aria-describedby="mg-input-textarea-character-left mg-input-textarea-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-textarea" maxlength="4000" name="mg-input-textarea" required="" rows="3"></textarea>
           <mg-character-left identifier="mg-input-textarea-character-left" maxlength="4000"></mg-character-left>
         </div>
+        <div id="mg-input-textarea-error" slot="error">
+          This field is required.
+        </div>
         <mg-input-title identifier="mg-input-textarea" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-textarea">
@@ -9347,9 +9350,6 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </span>
           </label>
         </mg-input-title>
-        <div id="mg-input-textarea-error" slot="error">
-          This field is required.
-        </div>
       </mg-input>
     </mock:shadow-root>
   </mg-input-textarea>

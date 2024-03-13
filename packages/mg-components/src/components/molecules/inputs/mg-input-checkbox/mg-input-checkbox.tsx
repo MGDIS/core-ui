@@ -3,8 +3,7 @@ import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method 
 import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
 import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset } from '../mg-input/mg-input.conf';
-import type { MgInput } from '../mg-input/mg-input';
+import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -42,7 +41,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   // style
   private readonly baseClassName = 'mg-c-input--checkbox';
   private readonly classTypeMulti = 'mg-c-input--checkbox-multi';
-  private readonly classVerticalList = 'mg-c-input--vertical-list';
   private readonly classWithValues = 'mg-c-input--with-values';
   private readonly classSearchMode = 'mg-c-input--search-mode';
 
@@ -141,8 +139,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop() inputVerticalList = false;
   @Watch('inputVerticalList')
   watchInputVerticalList(newValue: MgInputCheckbox['inputVerticalList']): void {
-    if (newValue || this.type === 'multi') this.classCollection.add(this.classVerticalList);
-    else this.classCollection.delete(this.classVerticalList);
+    if (newValue || this.type === 'multi') this.classCollection.add(classVerticalList);
+    else this.classCollection.delete(classVerticalList);
   }
 
   /**
@@ -447,18 +445,6 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
-   * Get readonly values
-   * @returns formated readonly value
-   */
-  private getReadonlyValues = (): MgInput['readonlyValue'] =>
-    this.inputVerticalList
-      ? this.value.filter(({ value }) => value).map(({ title }) => title)
-      : this.value
-          .filter(({ value }) => value)
-          .map(({ title }) => title)
-          .join(', ');
-
-  /**
    * has invalid input
    * @returns true if at least one input is invalid
    */
@@ -696,12 +682,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       <mg-input
         label={this.label}
         identifier={this.identifier}
-        classCollection={this.classCollection}
+        class={this.classCollection.join()}
         ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        readonlyValue={this.getReadonlyValues()}
+        readonlyValue={this.value.filter(({ value }) => value).map(({ title }) => title)}
         tooltip={!this.readonly ? this.tooltip : undefined}
         tooltipPosition={this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
