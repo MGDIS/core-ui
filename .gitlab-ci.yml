@@ -13,6 +13,8 @@ stages:
 # Extends #
 ###########
 
+# ! Ensure to use !reference when extending multiple rules
+
 # Rule to execute job only on mg-components folder content changes
 .rules:changes:mg-components:
   rules:
@@ -55,6 +57,11 @@ stages:
   rules:
     - changes:
         - 'packages/stencil-helpers/**/*'
+
+# Rule to execute job only in merge request
+.rules:mr:
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
 
 # Rule to execute job only if in tag creation pipeline
 .rules:tags:
@@ -125,10 +132,11 @@ test:e2e:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   parallel: 7
+  rules:
+    - !reference [.rules:changes:mg-components, rules]
+    - !reference [.rules:changes:styles, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:mg-components
-    - .rules:changes:styles
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm test:e2e --filter='./packages/*' --filter=\!@mgdis/notification-center -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
@@ -149,9 +157,10 @@ test:e2e:
 test:e2e:notification-center:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  rules:
+    - !reference [.rules:changes:notification-center, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:notification-center
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm test:e2e --filter=@mgdis/notification-center
@@ -185,7 +194,7 @@ auto-review:
   variables:
     DANGER_GITLAB_USE_THREADS: '1'
   rules:
-    - if: $CI_MERGE_REQUEST_ID
+    - !reference [.rules:mr, rules]
     - if: $CI_COMMIT_BRANCH =~ /^renovate\// # Exclude renovate MRs from thread creation
       variables:
         DANGER_GITLAB_USE_THREADS: '0'
@@ -286,9 +295,10 @@ doc:artifact:
 
 mg-components:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:mg-components, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:mg-components
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
@@ -300,9 +310,9 @@ mg-components:artifact:
 storybook-mr:
   stage: mg-components
   rules:
-    - if: $CI_MERGE_REQUEST_ID
+    - !reference [.rules:changes:mg-components, rules]
+    - !reference [.rules:mr, rules]
   extends:
-    - .rules:changes:mg-components
     - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
@@ -341,9 +351,10 @@ mg-components:npmjs:
 
 notification-center:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:notification-center, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:notification-center
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm build --filter=@mgdis/notification-center
@@ -358,9 +369,10 @@ notification-center:artifact:
 
 linting-stencil:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:linting-stencil, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:linting-stencil
-    - .rules:except-tags
     - .install:dependencies
   script:
     - cd packages/linting-stencil
@@ -380,9 +392,10 @@ linting-stencil:artifact:
 
 img:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:img, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:img
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.img:build, script]
@@ -409,9 +422,10 @@ img:npmjs:
 
 styles:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:styles, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:styles
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.styles:build, script]
@@ -433,9 +447,10 @@ styles:npmjs:
 
 playwright-helpers:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:playwright-helpers, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:playwright-helpers
-    - .rules:except-tags
     - .install:dependencies
   script:
     - cd packages/playwright-helpers
@@ -455,9 +470,10 @@ playwright-helpers:artifact:
 
 stencil-helpers:artifact:
   stage: artifacts
+  rules:
+    - !reference [.rules:changes:stencil-helpers, rules]
+    - !reference [.rules:except-tags, rules]
   extends:
-    - .rules:changes:stencil-helpers
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.stencil-helpers, script]
