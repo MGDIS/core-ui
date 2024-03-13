@@ -1,5 +1,20 @@
 # @mgdis/mg-components
 
+## 5.26.0
+
+### Minor Changes
+
+- a4091b3: Provide autocompletion
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+- Updated dependencies [a4091b3]
+- Updated dependencies [fbdf99a]
+  - @mgdis/stencil-helpers@1.1.0
+  - @mgdis/img@1.7.1
+  - @mgdis/styles@1.2.2
+
 ## 5.25.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.5
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 1.0.4
 
 ### Patch Changes

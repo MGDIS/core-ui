@@ -1,5 +1,13 @@
 # eslint-config-stencil
 
+## 1.1.6
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+- Updated dependencies [fbdf99a]
+  - eslint-config-custom@1.0.5
+
 ## 1.1.5
 
 ### Patch Changes

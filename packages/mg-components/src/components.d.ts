@@ -84,7 +84,7 @@ export namespace Components {
          */
         "value": string | number;
         /**
-          * Define button variant
+          * Define badge variant
          */
         "variant"?: BadgeVariantType;
     }
@@ -2039,7 +2039,7 @@ declare namespace LocalJSX {
          */
         "value": string | number;
         /**
-          * Define button variant
+          * Define badge variant
          */
         "variant"?: BadgeVariantType;
     }

@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.0.2
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+  - @mgdis/eslint-plugin-html@4.0.0
+
 ## 4.0.1
 
 ### Patch Changes
