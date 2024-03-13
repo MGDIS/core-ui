@@ -35,8 +35,11 @@
   /**
   * Variations
   */
-  &.mg-c-input--vertical-list .mg-c-input__input-group-container {
-    flex-direction: column;
+  &.mg-c-input--vertical-list,
+  &.mg-c-input--checkbox-multi {
+    .mg-c-input__input-group-container {
+      flex-direction: column;
+    }
   }
 
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {
@@ -49,6 +52,6 @@
 }
 
 :host(.mg-c-input.mg-c-input--fieldset) .mg-c-input__input {
-  align-items: flex-start;
   min-height: unset;
+  align-items: flex-start;
 }

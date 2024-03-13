@@ -139,7 +139,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop() inputVerticalList = false;
   @Watch('inputVerticalList')
   watchInputVerticalList(newValue: MgInputCheckbox['inputVerticalList']): void {
-    if (newValue || this.type === 'multi') this.classCollection.add(classVerticalList);
+    if (newValue) this.classCollection.add(classVerticalList);
     else this.classCollection.delete(classVerticalList);
   }
 
