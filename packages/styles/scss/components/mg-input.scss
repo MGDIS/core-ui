@@ -170,6 +170,10 @@ mg-icon {
   white-space: pre-line;
 }
 
+:host(.mg-c-input.mg-c-input--checkbox, .mg-c-input.mg-c-input--radio) .mg-c-input__input {
+  min-height: unset;
+}
+
 :host(.mg-c-input.mg-c-input--label-on-top) {
   @include label-on-top-styles;
 }

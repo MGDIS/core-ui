@@ -3,7 +3,6 @@ import { renderProperties, renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInput } from '../mg-input';
 import { ClassList } from '@mgdis/stencil-helpers';
-// import { TooltipPosition, classDisabled, classFieldset, classReadonly } from '../mg-input.conf';
 import { TooltipPosition, classFieldset, classReadonly, classVerticalList } from '../mg-input.conf';
 
 type PropsType = Partial<MgInput & { class: string }>;

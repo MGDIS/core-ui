@@ -51,7 +51,10 @@
   margin-left: 3rem;
 }
 
-:host(.mg-c-input.mg-c-input--fieldset) .mg-c-input__input {
-  min-height: unset;
-  align-items: flex-start;
+:host(.mg-c-input.mg-c-input--checkbox),
+:host(.mg-c-input.mg-c-input--radio) {
+  .mg-c-input__input {
+    min-height: unset;
+    align-items: flex-start;
+  }
 }
