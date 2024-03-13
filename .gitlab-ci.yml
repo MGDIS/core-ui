@@ -56,11 +56,6 @@ stages:
     - changes:
         - 'packages/stencil-helpers/**/*'
 
-# Rule to execute job only in merge request
-.rules:mr:
-  rules:
-    - if: $CI_MERGE_REQUEST_ID
-
 # Rule to execute job only if in tag creation pipeline
 .rules:tags:
   rules:
@@ -187,13 +182,16 @@ sonar:
 
 auto-review:
   stage: tests
-  extends:
-    - .rules:mr
+  variables:
+    DANGER_GITLAB_USE_THREADS: '1'
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
+    - if: $CI_COMMIT_BRANCH =~ /^renovate\// # Exclude renovate MRs from thread creation
+      variables:
+        DANGER_GITLAB_USE_THREADS: '0'
   script:
     # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
     - mg-danger
-  variables:
-    DANGER_GITLAB_USE_THREADS: '1'
   allow_failure: true
   needs:
     - sonar
@@ -301,9 +299,10 @@ mg-components:artifact:
 
 storybook-mr:
   stage: mg-components
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
   extends:
     - .rules:changes:mg-components
-    - .rules:mr
     - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
