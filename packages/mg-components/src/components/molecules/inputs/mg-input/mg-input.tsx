@@ -12,7 +12,7 @@ export class MgInput {
    * Internal *
    ************/
 
-  // HTML selector
+  // HTML selectors
   private helpTextId: string;
   private helpTextErrorId: string;
   private readonly slotLabel = 'label';

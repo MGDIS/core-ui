@@ -2,7 +2,6 @@ import { expect } from '@playwright/test';
 import { renderProperties, renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInput } from '../mg-input';
-import { ClassList } from '@mgdis/stencil-helpers';
 import { TooltipPosition, classFieldset, classReadonly, classVerticalList } from '../mg-input.conf';
 
 type PropsType = Partial<MgInput & { class: string }>;
@@ -32,7 +31,7 @@ const setPageContent = async (page, args?: PropsType, slot?: string) => {
 };
 
 test.describe('mg-input', () => {
-  [{}, { classCollection: new ClassList([]) }, { labelHide: true }, { required: true }, { helpText }, { errorMessage }, { helpText, errorMessage }].forEach((args, identifier) => {
+  [{}, { class: '' }, { labelHide: true }, { required: true }, { helpText }, { errorMessage }, { helpText, errorMessage }].forEach((args, identifier) => {
     test(`Render without tooltip ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
       await setPageContent(page, args);
 
