@@ -49,22 +49,22 @@ test.describe('mg-input', () => {
   });
 
   // tooltip
-  [true, false]
-    .flatMap(labelOnTop => [
+  [true, false].forEach(labelOnTop => {
+    [
       { labelOnTop },
       { labelOnTop, required: true },
       { labelOnTop, tooltipPosition: 'label' as TooltipPosition },
       { labelOnTop, tooltipPosition: 'label' as TooltipPosition, required: true },
       { labelOnTop, tooltipPosition: 'input' as TooltipPosition },
       { labelOnTop, tooltipPosition: 'input' as TooltipPosition, required: true },
-    ])
-    .forEach((args, identifier) => {
+    ].forEach((args, identifier) => {
       test(`Render with tooltip ${renderAttributes({ ...args, identifier })}`, async ({ page }) => {
         await setPageContent(page, { tooltip, ...args });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
     });
+  });
 
   // tooltip-position
   [true, false]
