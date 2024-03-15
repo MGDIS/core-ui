@@ -97,13 +97,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     } else if (newValue === undefined) {
       this.mode = 'auto';
       this.type = checkboxTypes[0];
+    } else if (newValue === 'multi') {
+      this.classCollection.add(this.classTypeMulti);
+      this.element.dataset.mgPopoverGuard = this.getMgPopoverIdentifier();
     } else {
-      if (newValue === 'multi') {
-        this.classCollection.add(this.classTypeMulti);
-        this.element.dataset.mgPopoverGuard = this.getMgPopoverIdentifier();
-      } else {
-        this.classCollection.delete(this.classTypeMulti);
-      }
+      this.classCollection.delete(this.classTypeMulti);
     }
   }
 

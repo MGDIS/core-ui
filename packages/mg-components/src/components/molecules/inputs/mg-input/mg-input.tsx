@@ -284,14 +284,12 @@ export class MgInput {
   private getReadonlyValues = (): string | string[] => {
     if (Array.isArray(this.readonlyValue) && !this.isVerticalList) {
       return this.readonlyValue.join(', ');
+    } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length > 1) {
+      return this.readonlyValue;
+    } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length === 1) {
+      return this.readonlyValue[0];
     } else {
-      if (Array.isArray(this.readonlyValue) && this.readonlyValue.length > 1) {
-        return this.readonlyValue;
-      } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length === 1) {
-        return this.readonlyValue[0];
-      } else {
-        return this.readonlyValue?.length > 0 ? this.readonlyValue : '';
-      }
+      return this.readonlyValue?.length > 0 ? this.readonlyValue : '';
     }
   };
 
@@ -350,7 +348,7 @@ export class MgInput {
           {this.isReadonly
             ? [
                 Array.isArray(readonlyValue) ? (
-                  <ul>
+                  <ul key="readonly-value-list">
                     {readonlyValue.map(value => (
                       <li key={value}>
                         <strong>{value}</strong>
@@ -358,22 +356,22 @@ export class MgInput {
                     ))}
                   </ul>
                 ) : (
-                  <strong>{readonlyValue}</strong>
+                  <strong key="readonly-value">{readonlyValue}</strong>
                 ),
-                <slot></slot>,
+                <slot key="default-slot"></slot>,
               ]
             : [
-                <div class="mg-c-input__input">
+                <div class="mg-c-input__input" key="tooltip">
                   <slot></slot>
                   {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
                 </div>,
                 this.helpText && (
-                  <div class="mg-c-input__help-text">
+                  <div class="mg-c-input__help-text" key="help-text">
                     <slot name={this.slotHelpText}></slot>
                   </div>
                 ),
                 !this.isDisabled && this.errorMessage && (
-                  <div class="mg-c-input__error" aria-live="assertive">
+                  <div class="mg-c-input__error" aria-live="assertive" key="error-message">
                     <slot name={this.slotError}></slot>
                   </div>
                 ),

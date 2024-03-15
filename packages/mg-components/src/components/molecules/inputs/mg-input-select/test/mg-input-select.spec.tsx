@@ -6,7 +6,7 @@ import messages from '../../../../../locales/en/messages.json';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
-const getPage = async args => {
+const getPage = args => {
   const page = newSpecPage({
     components: [MgInputSelect, MgInput, MgInputTitle],
     template: () => <mg-input-select {...args}></mg-input-select>,
