@@ -67,35 +67,41 @@ test.describe('mg-input', () => {
   });
 
   // tooltip-position
-  [true, false]
-    .flatMap(labelOnTop => [
-      { labelOnTop },
-      { labelOnTop, tooltipPosition: 'label' as MgInput['tooltipPosition'] },
-      { labelOnTop, tooltipPosition: 'input' as MgInput['tooltipPosition'] },
-    ])
-    .forEach(args => {
-      test(`Render tooltip-position with args: ${renderAttributes(args)}`, async ({ page }) => {
-        await setPageContent(page, { tooltip, ...args });
+  [true, false].forEach(labelOnTop => {
+    test.describe(`label-on-top="${labelOnTop}"`, () => {
+      [{ labelOnTop }, { labelOnTop, tooltipPosition: 'label' as MgInput['tooltipPosition'] }, { labelOnTop, tooltipPosition: 'input' as MgInput['tooltipPosition'] }].forEach(
+        args => {
+          test(`Render tooltip-position with args: ${renderAttributes(args)}`, async ({ page }) => {
+            await setPageContent(page, { tooltip, ...args });
 
-        await page.locator('mg-input.hydrated').waitFor();
+            await page.locator('mg-input.hydrated').waitFor();
 
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+            await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          });
+        },
+      );
+    });
+  });
+
+  [
+    // readonly and required
+    (true, false),
+  ].forEach(required => {
+    test.describe(`required="${required}"`, () => {
+      [{ required }, { required, helpText }, { required, errorMessage }, { required, helpText, errorMessage }].forEach((args, identifier) => {
+        test(`Render readonly and required with args ${renderAttributes({ ...args, identifier })}, case class: ${classReadonly}`, async ({ page }) => {
+          await setPageContent(page, { class: classReadonly, readonlyValue: 'batman', ...args });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
       });
     });
+  });
 
-  // readonly and required
-  [true, false]
-    .flatMap(required => [{ required }, { required, helpText }, { required, errorMessage }, { required, helpText, errorMessage }])
-    .forEach((args, identifier) => {
-      test(`Render readonly and required with args ${renderAttributes({ ...args, identifier })}, case class: ${classReadonly}`, async ({ page }) => {
-        await setPageContent(page, { class: classReadonly, readonlyValue: 'batman', ...args });
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-    });
-
-  // readonly-value
-  [undefined, classVerticalList].map(className =>
+  [
+    // readonly-value
+    (undefined, classVerticalList),
+  ].map(className =>
     [
       { class: className },
       { class: className, readonlyValue: 'batman' },
