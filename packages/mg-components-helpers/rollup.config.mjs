@@ -24,7 +24,7 @@ const setCommonJs = ({ path }) => ({
 });
 
 const setUMD = ({ path }) => ({
-  input: ['src', path, 'index.ts'].join('/'),
+  input: `src/${path}/index.ts`,
   output: {
     file: ['dist', path, 'index.umd.js'].join('/'),
     format: 'umd',
