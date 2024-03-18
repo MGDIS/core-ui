@@ -23,6 +23,17 @@ const setCommonJs = ({ path }) => ({
   plugins: [typescript(), nodeResolve(), commonjs()],
 });
 
+const setUMD = ({ path }) => ({
+  input: ['src', path, 'index.ts'].join('/'),
+  output: {
+    file: ['dist', path, 'index.umd.js'].join('/'),
+    format: 'umd',
+    name: `MgComponentsHelpers.${path}`,
+    sourcemap: true,
+  },
+  plugins: [typescript(), nodeResolve(), commonjs()],
+});
+
 const setTypes = ({ path }) => ({
   input: ['src', path, 'index.ts'].join('/'),
   output: {
@@ -32,4 +43,4 @@ const setTypes = ({ path }) => ({
   plugins: [dts()],
 });
 
-export default ['angular', 'vue'].flatMap(path => [setEsModule({ path }), setCommonJs({ path }), setTypes({path})]);
+export default ['angular', 'vue'].flatMap(path => [setEsModule({ path }), setCommonJs({ path }), setUMD({ path }), setTypes({ path })]);
