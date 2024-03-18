@@ -83,10 +83,8 @@ test.describe('mg-input', () => {
     });
   });
 
-  [
-    // readonly and required
-    (true, false),
-  ].forEach(required => {
+  // readonly and required
+  [true, false].forEach(required => {
     test.describe(`required="${required}"`, () => {
       [{ required }, { required, helpText }, { required, errorMessage }, { required, helpText, errorMessage }].forEach((args, identifier) => {
         test(`Render readonly and required with args ${renderAttributes({ ...args, identifier })}, case class: ${classReadonly}`, async ({ page }) => {
@@ -98,10 +96,8 @@ test.describe('mg-input', () => {
     });
   });
 
-  [
-    // readonly-value
-    (undefined, classVerticalList),
-  ].map(className =>
+  // readonly-value
+  [undefined, classVerticalList].map(className =>
     [
       { class: className },
       { class: className, readonlyValue: 'batman' },
