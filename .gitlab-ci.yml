@@ -185,10 +185,10 @@ auto-review:
   variables:
     DANGER_GITLAB_USE_THREADS: '1'
   rules:
-    - if: $CI_MERGE_REQUEST_ID
-    - if: $CI_COMMIT_BRANCH =~ /^renovate\// # Exclude renovate MRs from thread creation
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^renovate\// # Exclude renovate MRs from thread creation
       variables:
         DANGER_GITLAB_USE_THREADS: '0'
+    - if: $CI_MERGE_REQUEST_ID
   script:
     # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
     - mg-danger
