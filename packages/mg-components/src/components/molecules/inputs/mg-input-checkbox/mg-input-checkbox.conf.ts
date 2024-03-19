@@ -59,8 +59,6 @@ export interface IMgInputCheckboxBase {
  * mg-input-checkbox-list interface
  */
 export interface MgInputCheckboxListProps extends IMgInputCheckboxBase {
-  inputVerticalList: boolean;
-  type: CheckboxType;
   displaySearchInput: boolean;
   messages: Record<string, unknown>;
   checkboxes: CheckboxItem[];

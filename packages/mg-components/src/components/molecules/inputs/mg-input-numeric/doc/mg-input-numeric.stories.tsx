@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { types } from '../mg-input-numeric.conf';
 import type { MgInputNumeric as MgInputNumericType } from '../mg-input-numeric';
-import { tooltipPositions } from '../../MgInput.conf';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-numeric',

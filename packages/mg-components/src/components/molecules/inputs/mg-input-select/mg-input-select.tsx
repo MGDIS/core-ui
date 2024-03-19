@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
-import { initLocales } from '../../../../locales';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
+import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { initLocales } from '../../../../locales';
 
 /**
  * Check if item is a well configured option
@@ -180,6 +179,11 @@ export class MgInputSelect {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputSelect['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
@@ -199,10 +203,26 @@ export class MgInputSelect {
     }
   }
 
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputSelect['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop({ reflect: true }) mgWidth: Width;
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputSelect['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(`mg-c-input--width-${width}`);
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+  }
 
   /**
    * Add a tooltip message next to the input
@@ -319,7 +339,7 @@ export class MgInputSelect {
    * @param item - item to compare with
    * @returns truthy if input.value is an item
    */
-  private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
+  private isInputValue = (item: SelectOption): boolean => item.title === this.input.value;
 
   /**
    * value props setter
@@ -368,7 +388,7 @@ export class MgInputSelect {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true)));
+    this.setValidity(!this.isDisabledValue() && (this.readonly || this.disabled || this.input.checkValidity()));
   };
 
   /**
@@ -401,6 +421,9 @@ export class MgInputSelect {
     // Validate
     this.validateItems(this.items);
     this.validateValue(this.value);
+    this.watchMgWidth(this.mgWidth);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
     // Set default placeholder
     if (this.placeholder === undefined || this.placeholder === '') {
       this.placeholder = this.messages.input.select.placeholder;
@@ -430,24 +453,19 @@ export class MgInputSelect {
    */
   render(): HTMLElement {
     return (
-      <MgInput
-        identifier={this.identifier}
-        classCollection={this.classCollection}
-        ariaDescribedbyIDs={[]}
+      <mg-input
         label={this.label}
+        identifier={this.identifier}
+        class={this.classCollection.join()}
+        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={this.mgWidth}
-        disabled={this.disabled}
-        value={undefined}
         readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <select
           class="mg-c-input__box"
@@ -478,7 +496,7 @@ export class MgInputSelect {
             ),
           )}
         </select>
-      </MgInput>
+      </mg-input>
     );
   }
 }

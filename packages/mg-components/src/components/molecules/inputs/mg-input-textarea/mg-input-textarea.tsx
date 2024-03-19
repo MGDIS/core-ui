@@ -1,7 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { type TooltipPosition, type Width, Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -15,8 +14,8 @@ export class MgInputTextarea {
    ************/
 
   // Classes
-  private classFocus = 'mg-u-is-focused';
-  private classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
+  private readonly classFocus = 'mg-u-is-focused';
+  private readonly classHasDisplayCharacterLeft = 'mg-c-input--has-display-character-left';
 
   // IDs
   private characterLeftId;
@@ -96,6 +95,11 @@ export class MgInputTextarea {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputTextarea['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
@@ -115,10 +119,26 @@ export class MgInputTextarea {
     }
   }
 
+  @Watch('disabled')
+  validateDisabled(newValue: MgInputTextarea['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop() mgWidth: Width = 'full';
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputTextarea['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(`mg-c-input--width-${width}`);
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+  }
 
   /**
    * Define input pattern to validate
@@ -293,7 +313,7 @@ export class MgInputTextarea {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined && this.input.checkValidity() && this.getPatternValidity()));
+    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && this.getPatternValidity()));
   };
 
   /**
@@ -333,6 +353,10 @@ export class MgInputTextarea {
     this.validateDisplayCharacterLeft(this.displayCharacterLeft);
     this.validatePattern(this.pattern);
     this.validatePattern(this.patternErrorMessage);
+    this.watchMgWidth(this.mgWidth);
+    this.watchReadonly(this.readonly);
+    this.validateDisabled(this.disabled);
+
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -347,29 +371,25 @@ export class MgInputTextarea {
    */
   render(): HTMLElement {
     return (
-      <MgInput
-        identifier={this.identifier}
-        classCollection={this.classCollection}
-        ariaDescribedbyIDs={[this.characterLeftId]}
+      <mg-input
         label={this.label}
+        identifier={this.identifier}
+        class={this.classCollection.join()}
+        ariaDescribedbyIDs={[this.characterLeftId]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={this.mgWidth}
-        disabled={this.disabled}
-        value={this.value}
-        readonlyValue={undefined}
+        readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <div class="mg-c-input__with-character-left">
           <textarea
             class={{
               'mg-c-input__box': true,
+              'mg-c-input__box--width': true,
               'mg-c-input__box--resizable': this.resizable === 'both',
               'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
               'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
@@ -395,7 +415,7 @@ export class MgInputTextarea {
             <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
           )}
         </div>
-      </MgInput>
+      </mg-input>
     );
   }
 }

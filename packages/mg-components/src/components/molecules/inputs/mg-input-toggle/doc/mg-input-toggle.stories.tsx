@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputToggle as MgInputToggleType } from '../mg-input-toggle';
 import { ToggleValue } from '../mg-input-toggle.conf';
-import { tooltipPositions } from '../../MgInput.conf';
+import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-toggle',
@@ -26,7 +26,7 @@ const args = {
   identifier: 'identifier',
   name: 'input-name',
   // Label
-  label: 'Option',
+  label: 'Label',
   labelOnTop: false,
   labelHide: false,
   // toggle
@@ -65,7 +65,7 @@ export const MgInputToggle = {
  * @returns HTMLElement
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TemplateIcon = (args: MgInputToggleType): HTMLElement => (
+const TemplateIcon = (args: MgInputToggleType): HTMLMgInputToggleElement => (
   <mg-input-toggle {...filterArgs(args)}>
     <span slot="item-1">
       <mg-icon icon="cross"></mg-icon>
