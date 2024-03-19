@@ -9,6 +9,10 @@ stages:
   - mg-components
   - release
 
+##############
+# References #
+##############
+
 .changes:
   img: 'packages/img/**/*'
   linting-stencil: 'packages/linting-stencil/**/*'
@@ -18,10 +22,6 @@ stages:
   playwright-helpers: 'packages/playwright-helpers/**/*'
   stencil-helpers: 'packages/stencil-helpers/**/*'
   styles: 'packages/styles/**/*'
-
-##############
-# References #
-##############
 
 .rules:changes:
   img:
