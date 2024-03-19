@@ -47,7 +47,7 @@
     ]
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --fix --ignore-path .gitignore",
+    "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
     "*.{json,yaml,yml,md,mdx}": "prettier --write"
   },
   "dependencies": {
