@@ -785,7 +785,7 @@ describe('mg-input-checkbox', () => {
       const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
 
       const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
-      
+
       mgPopover.display = true;
       await page.waitForChanges();
       jest.runOnlyPendingTimers();
