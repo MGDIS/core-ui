@@ -338,7 +338,6 @@ chromatic:publish:
 
 mg-components:npmjs:
   extends:
-    # - .rules:changes:mg-components
     - .npmjs
   script:
     - !reference [.mg-components:build, script]
@@ -405,7 +404,6 @@ img:artifact:
 
 img:npmjs:
   extends:
-    # - .rules:changes:img
     - .npmjs
   script:
     - !reference [.img:build, script]
@@ -435,7 +433,6 @@ styles:artifact:
 
 styles:npmjs:
   extends:
-    # - .rules:changes:styles
     - .npmjs
   script:
     - !reference [.styles:build, script]
@@ -483,7 +480,6 @@ stencil-helpers:artifact:
 
 stencil-helpers:npmjs:
   extends:
-    # - .rules:changes:stencil-helpers
     - .npmjs
   script:
     - !reference [.stencil-helpers, script]
