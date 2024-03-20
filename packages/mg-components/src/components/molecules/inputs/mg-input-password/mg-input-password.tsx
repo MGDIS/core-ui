@@ -60,7 +60,7 @@ export class MgInputPassword {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -71,7 +71,7 @@ export class MgInputPassword {
    * Input placeholder.
    * It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
    */
-  @Prop() placeholder: string;
+  @Prop() placeholder?: string;
 
   /**
    * Define if input is required
@@ -130,7 +130,7 @@ export class MgInputPassword {
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -140,7 +140,7 @@ export class MgInputPassword {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Define input valid state

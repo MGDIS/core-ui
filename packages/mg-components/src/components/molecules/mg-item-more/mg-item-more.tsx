@@ -54,7 +54,7 @@ export class MgItemMore {
   /**
    * Define component child menu size.
    */
-  @Prop() size: SizeType;
+  @Prop() size?: SizeType;
   @Watch('size')
   validateSize(newValue: MgItemMore['size']): void {
     if (newValue && typeof newValue !== 'string') throw new Error(`<${this.name}> prop "size" must match MgItemMore['size'] type.`);
@@ -120,6 +120,7 @@ export class MgItemMore {
 
   /**
    * Ensure parent DOM is fully rendered with timeout method before parse elements
+   * @returns timeout
    */
   componentDidLoad(): ReturnType<typeof setTimeout> {
     // ensure parent menu is fully rendered
