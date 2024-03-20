@@ -98,7 +98,7 @@ test.describe('mg-input-password', () => {
     { value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
     { value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
   ].forEach(args => {
-    test.only(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
+    test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
       console.log(html);
 
