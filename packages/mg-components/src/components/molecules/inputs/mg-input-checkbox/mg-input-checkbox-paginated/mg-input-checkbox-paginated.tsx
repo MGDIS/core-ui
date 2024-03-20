@@ -164,24 +164,24 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    */
   render(): HTMLElement {
     const getText = (checkboxes: CheckboxItem[]): HTMLElement => (
-      <em class="mg-c-input__input-checkbox-multi-section-header-label">{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>
+      <em class="mg-c-input__section-header-title-label">{`${this.messages[checkboxes.length > 1 ? 'titlePlurial' : 'title']} (${checkboxes.length})`}</em>
     );
     const [from, to] = this.getFromToIndexes();
     const itemsContainerId = `items-${this.sectionKind}-container`;
 
     return (
       <Host hidden={this.checkboxes.length < 1}>
-        <div class="mg-c-input__input-checkbox-multi-section-header">
+        <div class="mg-c-input__section-header">
           {this.titleKind === SectionTitleKind.BUTTON ? (
             <mg-button variant="flat" onClick={this.handleToggleClick} aria-controls={itemsContainerId} aria-expanded={this.expanded.toString()}>
               <mg-icon icon={this.expanded ? 'chevron-up' : 'chevron-down'} size="small"></mg-icon>
-              <span class="mg-c-input__input-checkbox-multi-text">{getText(this.checkboxes)}</span>
+              <span class="mg-c-input__section-header-title">{getText(this.checkboxes)}</span>
             </mg-button>
           ) : (
-            <p class="mg-c-input__input-checkbox-multi-title">{getText(this.checkboxes)}</p>
+            <p class="mg-c-input__section-header-title mg-c-input__section-header-title--static">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.expanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
-            <mg-tooltip class="mg-c-input__input-checkbox-multi-section-header-tootlip" message={this.messages.tooltip} data-popper-strategy="absolute">
+            <mg-tooltip class="mg-c-input__section-header-tootlip" message={this.messages.tooltip} data-popper-strategy="absolute">
               <mg-button variant="link" onClick={this.massActionHandler}>
                 {this.messages.action}
               </mg-button>
@@ -199,11 +199,9 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             ></mg-pagination>
           )}
         </div>
-        <div hidden={!this.expanded} id={itemsContainerId} class="mg-c-input__input-checkbox-multi-section-content">
+        <div hidden={!this.expanded} id={itemsContainerId} class="mg-c-input__section-content">
           <MgInputCheckboxList
             checkboxes={this.getArrayRange(this.checkboxes, from, to)}
-            inputVerticalList={true}
-            type={'multi'}
             displaySearchInput={true}
             messages={this.messages}
             id={`items-${this.sectionKind}`}

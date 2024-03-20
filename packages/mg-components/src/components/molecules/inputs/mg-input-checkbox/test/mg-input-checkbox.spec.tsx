@@ -13,12 +13,13 @@ import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
+import { MgInput } from '../../mg-input/mg-input';
 
 mockWindowFrames();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle],
+    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle, MgInput],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 
@@ -677,9 +678,9 @@ describe('mg-input-checkbox', () => {
       expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(21);
       expect(page.root).toMatchSnapshot();
 
-      const unselectAllButton = Array.from(
-        mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-c-input__input-checkbox-multi-section-header mg-button:last-of-type'),
-      ).find(button => button.textContent === 'Unselect all');
+      const unselectAllButton = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-c-input__section-header mg-button:last-of-type')).find(
+        button => button.textContent === 'Unselect all',
+      );
       unselectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -709,7 +710,7 @@ describe('mg-input-checkbox', () => {
 
       for (const [i, section] of sections.entries()) {
         const firstButton = section.querySelector('mg-button');
-        const sectionContent = section.querySelector('.mg-c-input__input-checkbox-multi-section-content');
+        const sectionContent = section.querySelector('.mg-c-input__section-content');
         expect(sectionContent).not.toHaveAttribute('hidden');
 
         firstButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));

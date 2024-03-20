@@ -2,11 +2,10 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
-import { initLocales } from '../../../../locales';
 import { RadioOption } from './mg-input-radio.conf';
-import { Handler, type TooltipPosition } from '../MgInput.conf';
+import { Handler, classReadonly, type TooltipPosition, classDisabled, classFieldset } from '../mg-input/mg-input.conf';
+import { initLocales } from '../../../../locales';
 
 /**
  * type Option validation function
@@ -27,6 +26,9 @@ export class MgInputRadio {
 
   // HTML selector
   private inputs: HTMLInputElement[] = [];
+
+  // classes
+  private readonly classVerticalList = 'mg-c-input--vertical-list';
 
   // Locales
   private messages;
@@ -105,6 +107,11 @@ export class MgInputRadio {
    * Define if inputs are display verticaly
    */
   @Prop() inputVerticalList = false;
+  @Watch('inputVerticalList')
+  watchInputVerticalList(newValue: MgInputRadio['inputVerticalList']): void {
+    if (newValue) this.classCollection.add(this.classVerticalList);
+    else this.classCollection.delete(this.classVerticalList);
+  }
 
   /**
    * Define if input is required
@@ -115,7 +122,11 @@ export class MgInputRadio {
    * Define if input is readonly
    */
   @Prop() readonly = false;
-
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputRadio['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
   /**
    * Define if input is disabled
    */
@@ -132,6 +143,12 @@ export class MgInputRadio {
       this.setErrorMessage();
       this.hasDisplayedError = false;
     }
+  }
+
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputRadio['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
   }
 
   /**
@@ -162,7 +179,7 @@ export class MgInputRadio {
   /**
    * Component classes
    */
-  @State() classCollection: ClassList = new ClassList(['mg-c-input--radio']);
+  @State() classCollection: ClassList = new ClassList(['mg-c-input--radio', classFieldset]);
 
   /**
    * Error message to display
@@ -291,6 +308,9 @@ export class MgInputRadio {
     this.messages = initLocales(this.element).messages;
     // Validate
     this.validateItems(this.items);
+    this.watchInputVerticalList(this.inputVerticalList);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -305,26 +325,21 @@ export class MgInputRadio {
    */
   render(): HTMLElement {
     return (
-      <MgInput
-        identifier={this.identifier}
-        classCollection={this.classCollection}
-        ariaDescribedbyIDs={[]}
+      <mg-input
         label={this.label}
+        identifier={this.identifier}
+        class={this.classCollection.join()}
+        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        disabled={this.disabled}
-        readonly={this.readonly}
-        mgWidth={undefined}
-        value={this.value as string}
-        readonlyValue={this.value as string}
+        readonlyValue={this.value?.toString()}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={true}
       >
-        <ul class={{ 'mg-c-input__input-group-container': true, 'mg-c-input__input-group-container--vertical': this.inputVerticalList }} role="list">
+        <ul class="mg-c-input__input-group-container" role="list">
           {this.options.map((input, index) => (
             <li key={input.title} class={{ 'mg-c-input__input-group': true, 'mg-c-input__input-group--disabled': this.disabled || input.disabled }}>
               <input
@@ -345,7 +360,7 @@ export class MgInputRadio {
             </li>
           ))}
         </ul>
-      </MgInput>
+      </mg-input>
     );
   }
 }

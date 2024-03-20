@@ -8,7 +8,7 @@ export default {
   title: 'Molecules/mg-form',
   parameters: { actions: { handles: ['form-valid', 'form-submit'] } },
   argTypes: {
-    type: {
+    ariaRole: {
       options: [undefined, ...roles],
       control: { type: 'select' },
     },
