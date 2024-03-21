@@ -52,7 +52,7 @@ export class MgCard {
   @State() classCollection: ClassList = new ClassList([this.classBase]);
 
   /**
-   * Methode to set default varianStyle props
+   * Method to set default varianStyle props
    * needeed has stencil doesn't know that props is mutated when updated in prop watcher
    */
   private setDefaultVariantStyle = (): void => {

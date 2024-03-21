@@ -87,7 +87,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -233,7 +233,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -408,7 +408,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -451,7 +451,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -494,7 +494,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -530,7 +530,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -823,7 +823,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1093,7 +1093,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1179,7 +1179,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1255,7 +1255,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1485,7 +1485,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1535,16 +1535,10 @@
         "mg-action-more",
         "mg-button",
         "mg-details",
+        "mg-input",
         "mg-input-checkbox",
         "mg-input-checkbox-paginated",
-        "mg-input-date",
-        "mg-input-numeric",
-        "mg-input-password",
-        "mg-input-radio",
-        "mg-input-select",
         "mg-input-text",
-        "mg-input-textarea",
-        "mg-input-toggle",
         "mg-item-more",
         "mg-loader",
         "mg-menu-item",
@@ -1566,34 +1560,16 @@
         "mg-details": [
           "mg-icon"
         ],
+        "mg-input": [
+          "mg-icon"
+        ],
         "mg-input-checkbox": [
           "mg-icon"
         ],
         "mg-input-checkbox-paginated": [
           "mg-icon"
         ],
-        "mg-input-date": [
-          "mg-icon"
-        ],
-        "mg-input-numeric": [
-          "mg-icon"
-        ],
-        "mg-input-password": [
-          "mg-icon"
-        ],
-        "mg-input-radio": [
-          "mg-icon"
-        ],
-        "mg-input-select": [
-          "mg-icon"
-        ],
         "mg-input-text": [
-          "mg-icon"
-        ],
-        "mg-input-textarea": [
-          "mg-icon"
-        ],
-        "mg-input-toggle": [
           "mg-icon"
         ],
         "mg-item-more": [
@@ -1700,6 +1676,323 @@
       "dependencyGraph": {}
     },
     {
+      "filePath": "src/components/molecules/inputs/mg-input/mg-input.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-input",
+      "readme": "\n## UX\n\n### Label\n\n- The label is located on the left of the input field.\n- The text is to be right aligned.\n- The label can be on one or more lines.\n- The label can be positioned above the input field.\n\n### Input help\n\nThe message displayed indicates the format expected by the input field \"example: email@provider.com\" or \"expected format: DD/MM/YYYY (ex: 13/04/2019)\"\n\n### Message order\n\nWhen the messages are displayed under the field the order is as follows:\n\n1. input help\n2. error\n\n### Placeholder\n\nThe placeholder should not be used as an input help.  \n♿ RGAA: The placeholder is not considered a valid label under the RGAA so is not subject to a contrast ratio.\n\n### Read only\n\n- The value is no longer editable.\n- The input field no longer has a border or background.\n- The value is displayed in bold.\n- If there is no value entered, nothing is displayed.\n\n### Required field\n\nThe asterisk is displayed regardless of the status of the field: input, read-only, disabled.\n\n### Pattern\n\nPlease ensure to consider this when using regular expressions in your components.\n\nSince mid-2023, there have been updates to the regular expressions used in native inputs. Browsers now uses the 'v' flag instead of the 'u' flag.  \nConsequently, all literal characters must be escaped, and there's no longer a need to use the `^` and `$` characters to indicate the start and end of the string.\n\nFor exemple this RegExp working using the 'u' flag `^[\\d ()+]*$` should be converted to the corresponding 'v' flag `[\\d\\s\\(\\)\\+]` on our components. You can get more info on the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern#overview).\n\nIf needed, this library has been identified for converting regular expressions: [regexpu-core](https://www.npmjs.com/package/regexpu-core).\n\n## Specs\n\n### Positioning of \"i\" icon\n\n![](./doc/img/mg-input-tooltip-position.png)\n\nBy default, the \"i\" icon is positioned next to the input field.\n\nYou can position it next to the label by using the `tooltip-placement` prop with the value `label`.\n\nWhen `label-on-top` is enabled, the \"i\" icon moves next to the label, overriding the `tooltip-placement` setting.\n\nWhen the `label-hide` prop is enabled, the \"i\" icon moves next to the input, overriding the `tooltip-placement` setting.\n\n### Value positioning\n\nBy default, the value is left aligned, you can change the CSS variable `--mg-inputs-text-align` to right align.\n\n### Responsive\n\n![](./doc/img/mg-input-responsive.png)\n\nWhen the viewport width is less than 768px, the label is stacked above the input field.\n\nIf you are creating a form that combines mg-components inputs with inputs from one of our legacy libraries (such as form, ui-components, ui-components-vuejs), please refer to [this section on mg-form](.?path=/docs/molecules-mg-form--docs#combining-mg-input--with-legacy-libraries).\n\n### Errors\n\nInput field border and error message text are in [@color-danger](./?path=/docs/style-colors--docs).  \nError message background is a variant of [@color-danger](./?path=/docs/style-colors--docs) : #FEF6F6 or HSL (357,80%,98%).\n\n## Behavior\n\n### Errors\n\nError is triggered and displayed when we leave the input field.\n\nWhen we enter in an input field with an error its state is checked everytime the user update its content, when the error is fixed the message disapears.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`\n- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`\n- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`\n- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`\n- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`\n- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`\n- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`\n- `--mg-inputs-title-width`: Define input label width, default: `23rem`\n- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`\n- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`\n\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`\n- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`\n- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`\n- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`\n- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`\n- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`\n- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`\n- `--mg-inputs-title-width`: Define input label width, default: `23rem`\n- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`\n- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "ariaDescribedbyIDs",
+          "type": "string[]",
+          "complexType": {
+            "original": "string[]",
+            "resolved": "string[]",
+            "references": {}
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define aria-describedby ids to link with",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "errorMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "error-message",
+          "reflectToAttr": false,
+          "docs": "Define error message to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "helpText",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "help-text",
+          "reflectToAttr": false,
+          "docs": "Define help text to display",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "identifier",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "identifier",
+          "reflectToAttr": false,
+          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label",
+          "reflectToAttr": false,
+          "docs": "Define input label",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": true
+        },
+        {
+          "name": "labelHide",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label-hide",
+          "reflectToAttr": false,
+          "docs": "Define if label is visible",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "labelOnTop",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "label-on-top",
+          "reflectToAttr": false,
+          "docs": "Define if label is displayed on top",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "readonlyValue",
+          "type": "string | string[]",
+          "complexType": {
+            "original": "string | string[]",
+            "resolved": "string | string[]",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "readonly-value",
+          "reflectToAttr": false,
+          "docs": "Defines value to display in readonly mode",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "string[]"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "required",
+          "reflectToAttr": false,
+          "docs": "Define if input is required",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "tooltip",
+          "reflectToAttr": false,
+          "docs": "Add a tooltip message next to the input",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "tooltipPosition",
+          "type": "\"input\" | \"label\"",
+          "complexType": {
+            "original": "TooltipPosition",
+            "resolved": "\"input\" | \"label\"",
+            "references": {
+              "TooltipPosition": {
+                "location": "import",
+                "path": "./mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "tooltip-position",
+          "reflectToAttr": false,
+          "docs": "Define tooltip position",
+          "docsTags": [],
+          "default": "'input'",
+          "values": [
+            {
+              "value": "input",
+              "type": "string"
+            },
+            {
+              "value": "label",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [
+        "mg-input-checkbox",
+        "mg-input-date",
+        "mg-input-numeric",
+        "mg-input-password",
+        "mg-input-radio",
+        "mg-input-select",
+        "mg-input-text",
+        "mg-input-textarea",
+        "mg-input-toggle"
+      ],
+      "dependencies": [
+        "mg-tooltip",
+        "mg-icon",
+        "mg-input-title"
+      ],
+      "dependencyGraph": {
+        "mg-input": [
+          "mg-tooltip",
+          "mg-icon",
+          "mg-input-title"
+        ],
+        "mg-tooltip": [
+          "mg-tooltip-content"
+        ],
+        "mg-input-checkbox": [
+          "mg-input"
+        ],
+        "mg-input-date": [
+          "mg-input"
+        ],
+        "mg-input-numeric": [
+          "mg-input"
+        ],
+        "mg-input-password": [
+          "mg-input"
+        ],
+        "mg-input-radio": [
+          "mg-input"
+        ],
+        "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input-text": [
+          "mg-input"
+        ],
+        "mg-input-textarea": [
+          "mg-input"
+        ],
+        "mg-input-toggle": [
+          "mg-input"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-checkbox",
@@ -1748,7 +2041,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1769,7 +2062,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1897,7 +2190,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1984,7 +2277,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -1996,8 +2289,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -2232,8 +2525,7 @@
         "mg-button",
         "mg-icon",
         "mg-input-text",
-        "mg-tooltip",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-checkbox": [
@@ -2242,8 +2534,7 @@
           "mg-button",
           "mg-icon",
           "mg-input-text",
-          "mg-tooltip",
-          "mg-input-title"
+          "mg-input"
         ],
         "mg-input-checkbox-paginated": [
           "mg-button",
@@ -2263,6 +2554,9 @@
           "mg-input-select"
         ],
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -2276,10 +2570,9 @@
           "mg-icon"
         ],
         "mg-input-text": [
+          "mg-input",
           "mg-icon",
-          "mg-character-left",
-          "mg-tooltip",
-          "mg-input-title"
+          "mg-character-left"
         ]
       }
     },
@@ -2359,7 +2652,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2380,7 +2673,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2426,7 +2719,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2447,7 +2740,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2477,7 +2770,7 @@
               "type": "SectionKind.SELECTED"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -2535,6 +2828,9 @@
           "mg-input-select"
         ],
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -2593,7 +2889,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2699,7 +2995,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2720,7 +3016,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2741,7 +3037,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2828,7 +3124,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -2840,8 +3136,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -3034,12 +3330,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-date": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -3179,7 +3476,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3307,7 +3604,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3328,7 +3625,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3340,8 +3637,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -3368,7 +3665,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3389,7 +3686,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3432,7 +3729,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3497,7 +3794,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3509,8 +3806,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -3735,12 +4032,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-numeric": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -3799,7 +4097,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3905,7 +4203,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -3917,8 +4215,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -3989,7 +4287,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4054,7 +4352,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4066,8 +4364,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -4260,12 +4558,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-password": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -4324,7 +4623,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4569,7 +4868,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4581,8 +4880,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -4775,12 +5074,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-radio": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -4839,7 +5139,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4974,7 +5274,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -4986,8 +5286,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -5166,7 +5466,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5178,8 +5478,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -5374,12 +5674,13 @@
         "mg-pagination"
       ],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -5483,7 +5784,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5504,7 +5805,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5610,7 +5911,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5644,8 +5945,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -5716,7 +6017,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5737,7 +6038,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5758,7 +6059,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5823,7 +6124,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -5835,8 +6136,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -6087,16 +6388,19 @@
         "mg-panel"
       ],
       "dependencies": [
+        "mg-input",
         "mg-icon",
-        "mg-character-left",
-        "mg-tooltip",
-        "mg-input-title"
+        "mg-character-left"
       ],
       "dependencyGraph": {
         "mg-input-text": [
+          "mg-input",
           "mg-icon",
-          "mg-character-left",
+          "mg-character-left"
+        ],
+        "mg-input": [
           "mg-tooltip",
+          "mg-icon",
           "mg-input-title"
         ],
         "mg-tooltip": [
@@ -6181,7 +6485,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6287,7 +6591,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6321,8 +6625,8 @@
             "references": {
               "Width": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::Width"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width"
               }
             }
           },
@@ -6393,7 +6697,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6414,7 +6718,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6435,7 +6739,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6557,7 +6861,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6569,8 +6873,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -6763,14 +7067,15 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-character-left",
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input",
+        "mg-character-left"
       ],
       "dependencyGraph": {
         "mg-input-textarea": [
-          "mg-character-left",
+          "mg-input",
+          "mg-character-left"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -6850,7 +7155,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -6871,7 +7176,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -6882,43 +7187,11 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "mg-input-checkbox",
-        "mg-input-date",
-        "mg-input-numeric",
-        "mg-input-password",
-        "mg-input-radio",
-        "mg-input-select",
-        "mg-input-text",
-        "mg-input-textarea",
-        "mg-input-toggle"
+        "mg-input"
       ],
       "dependencies": [],
       "dependencyGraph": {
-        "mg-input-checkbox": [
-          "mg-input-title"
-        ],
-        "mg-input-date": [
-          "mg-input-title"
-        ],
-        "mg-input-numeric": [
-          "mg-input-title"
-        ],
-        "mg-input-password": [
-          "mg-input-title"
-        ],
-        "mg-input-radio": [
-          "mg-input-title"
-        ],
-        "mg-input-select": [
-          "mg-input-title"
-        ],
-        "mg-input-text": [
-          "mg-input-title"
-        ],
-        "mg-input-textarea": [
-          "mg-input-title"
-        ],
-        "mg-input-toggle": [
+        "mg-input": [
           "mg-input-title"
         ]
       }
@@ -6972,7 +7245,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7130,7 +7403,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7195,7 +7468,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7207,8 +7480,8 @@
             "references": {
               "TooltipPosition": {
                 "location": "import",
-                "path": "../MgInput.conf",
-                "id": "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition"
+                "path": "../mg-input/mg-input.conf",
+                "id": "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition"
               }
             }
           },
@@ -7349,12 +7622,13 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-tooltip",
-        "mg-icon",
-        "mg-input-title"
+        "mg-input"
       ],
       "dependencyGraph": {
         "mg-input-toggle": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -7433,7 +7707,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7527,7 +7801,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7548,7 +7822,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -7610,10 +7884,10 @@
         },
         {
           "name": "itemmore",
-          "type": "{ size: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
+          "type": "{ size?: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
           "complexType": {
             "original": "ItemMoreType",
-            "resolved": "{ size: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
+            "resolved": "{ size?: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
             "references": {
               "ItemMoreType": {
                 "location": "import",
@@ -7628,7 +7902,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ size: \"regular\""
+              "type": "{ size?: \"regular\""
             },
             {
               "value": "medium",
@@ -7638,7 +7912,7 @@
               "type": "\"large\"; icon: IconType; slotlabel: SlotLabelType; }"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7769,7 +8043,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7995,7 +8269,7 @@
               "type": "number"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8060,7 +8334,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8394,7 +8668,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8415,7 +8689,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8523,6 +8797,9 @@
           "mg-icon"
         ],
         "mg-input-select": [
+          "mg-input"
+        ],
+        "mg-input": [
           "mg-tooltip",
           "mg-icon",
           "mg-input-title"
@@ -8562,7 +8839,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8703,7 +8980,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8724,7 +9001,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8824,9 +9101,13 @@
           "mg-icon"
         ],
         "mg-input-text": [
+          "mg-input",
           "mg-icon",
-          "mg-character-left",
+          "mg-character-left"
+        ],
+        "mg-input": [
           "mg-tooltip",
+          "mg-icon",
           "mg-input-title"
         ],
         "mg-tooltip": [
@@ -9433,7 +9714,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9454,7 +9735,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -9706,16 +9987,8 @@
       "slots": [],
       "parts": [],
       "dependents": [
-        "mg-input-checkbox",
-        "mg-input-checkbox-paginated",
-        "mg-input-date",
-        "mg-input-numeric",
-        "mg-input-password",
-        "mg-input-radio",
-        "mg-input-select",
-        "mg-input-text",
-        "mg-input-textarea",
-        "mg-input-toggle"
+        "mg-input",
+        "mg-input-checkbox-paginated"
       ],
       "dependencies": [
         "mg-tooltip-content"
@@ -9724,34 +9997,10 @@
         "mg-tooltip": [
           "mg-tooltip-content"
         ],
-        "mg-input-checkbox": [
+        "mg-input": [
           "mg-tooltip"
         ],
         "mg-input-checkbox-paginated": [
-          "mg-tooltip"
-        ],
-        "mg-input-date": [
-          "mg-tooltip"
-        ],
-        "mg-input-numeric": [
-          "mg-tooltip"
-        ],
-        "mg-input-password": [
-          "mg-tooltip"
-        ],
-        "mg-input-radio": [
-          "mg-tooltip"
-        ],
-        "mg-input-select": [
-          "mg-tooltip"
-        ],
-        "mg-input-text": [
-          "mg-tooltip"
-        ],
-        "mg-input-textarea": [
-          "mg-tooltip"
-        ],
-        "mg-input-toggle": [
           "mg-tooltip"
         ]
       }
@@ -9895,6 +10144,11 @@
       "docstring": "",
       "path": "src/components/atoms/mg-tag/mg-tag.conf.ts"
     },
+    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::TooltipPosition": {
+      "declaration": "\"input\" | \"label\"",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
+    },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxValue": {
       "declaration": "export interface CheckboxValue {\n  title: string;\n  value: boolean | null;\n  disabled?: boolean;\n  required?: boolean;\n}",
       "docstring": "interface CheckboxValue\nuse to match returned value",
@@ -9904,11 +10158,6 @@
       "declaration": "\"checkbox\" | \"multi\"",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
-    },
-    "src/components/molecules/inputs/MgInput.conf.ts::TooltipPosition": {
-      "declaration": "\"input\" | \"label\"",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/MgInput.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem": {
       "declaration": "export interface CheckboxItem extends CheckboxValue {\n  _id: string;\n  _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;\n  _handleBlur: () => void;\n  _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;\n}",
@@ -9920,10 +10169,10 @@
       "docstring": "mg-input-checkbox-paginated section kind",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
-    "src/components/molecules/inputs/MgInput.conf.ts::Width": {
+    "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width": {
       "declaration": "2 | 4 | 16 | \"full\"",
       "docstring": "",
-      "path": "src/components/molecules/inputs/MgInput.conf.ts"
+      "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::NumericType": {
       "declaration": "\"decimal\" | \"integer\" | \"currency\"",

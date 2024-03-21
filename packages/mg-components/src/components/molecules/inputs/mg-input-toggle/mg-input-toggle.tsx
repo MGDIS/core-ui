@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component, Event, h, Prop, EventEmitter, State, Watch, Element, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { ToggleValue } from './mg-input-toggle.conf';
-import { type TooltipPosition } from '../MgInput.conf';
+import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/mg-input.conf';
 
 /**
  * type Option validation function
@@ -25,10 +24,9 @@ export class MgInputToggle {
    ************/
 
   // Classes
-  private classDisabled = 'mg-c-input--toggle-disabled';
-  private classIsActive = 'mg-c-input--toggle-is-active';
-  private classOnOff = 'mg-c-input--toggle-on-off';
-  private classIcon = 'mg-c-input--toggle-icon';
+  private readonly classIsActive = 'mg-c-input--toggle-is-active';
+  private readonly classOnOff = 'mg-c-input--toggle-on-off';
+  private readonly classIcon = 'mg-c-input--toggle-icon';
 
   /**************
    * Decorators *
@@ -91,7 +89,7 @@ export class MgInputToggle {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -103,7 +101,7 @@ export class MgInputToggle {
    */
   @Prop() isOnOff = false;
   @Watch('isOnOff')
-  handleIsOnOff(newValue: MgInputToggle['isOnOff']): void {
+  watchIsOnOff(newValue: MgInputToggle['isOnOff']): void {
     if (newValue) this.classCollection.add(this.classOnOff);
     else this.classCollection.delete(this.classOnOff);
   }
@@ -113,7 +111,7 @@ export class MgInputToggle {
    */
   @Prop() isIcon = false;
   @Watch('isIcon')
-  handleIsIcon(newValue: MgInputToggle['isIcon']): void {
+  watchIsIcon(newValue: MgInputToggle['isIcon']): void {
     if (newValue) this.classCollection.add(this.classIcon);
     else this.classCollection.delete(this.classIcon);
   }
@@ -122,21 +120,26 @@ export class MgInputToggle {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputToggle['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
    */
   @Prop() disabled = false;
   @Watch('disabled')
-  handleDisabled(newValue: MgInputToggle['disabled']): void {
-    if (newValue) this.classCollection.add(this.classDisabled);
-    else this.classCollection.delete(this.classDisabled);
+  watchDisabled(newValue: MgInputToggle['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
   }
 
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -146,7 +149,7 @@ export class MgInputToggle {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Component classes
@@ -249,7 +252,7 @@ export class MgInputToggle {
 
   /**
    * Get checked item
-   * @param checked
+   * @param checked - checked item
    * @returns toggle value
    */
   private getCheckedItem = (checked: MgInputToggle['checked']): ToggleValue => {
@@ -298,9 +301,10 @@ export class MgInputToggle {
     // init checked value
     this.setChecked();
     // apply handler
-    this.handleIsOnOff(this.isOnOff);
-    this.handleIsIcon(this.isIcon);
-    this.handleDisabled(this.disabled);
+    this.watchIsIcon(this.isIcon);
+    this.watchIsOnOff(this.isOnOff);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
   }
 
   /**
@@ -309,24 +313,19 @@ export class MgInputToggle {
    */
   render(): HTMLElement {
     return (
-      <MgInput
-        identifier={this.identifier}
-        classCollection={this.classCollection}
-        ariaDescribedbyIDs={[]}
+      <mg-input
         label={this.label}
+        helpText={this.helpText}
+        identifier={this.identifier}
+        class={this.classCollection.join()}
+        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={undefined}
-        readonly={this.readonly}
-        mgWidth={undefined}
-        disabled={this.disabled}
-        value={this.value?.toString()}
         readonlyValue={this.getCheckedItem(this.checked)?.title}
         tooltip={!this.readonly && this.tooltip}
         tooltipPosition={this.tooltipPosition}
-        helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <button
           type="button"
@@ -345,7 +344,7 @@ export class MgInputToggle {
             <slot name="item-2"></slot>
           </span>
         </button>
-      </MgInput>
+      </mg-input>
     );
   }
 }
