@@ -12,9 +12,7 @@ export type SlotLabelType = {
 /**
  * icon prop type
  */
-export type IconType = {
-  icon: MgIcon['icon'];
-};
+export type IconType = Pick<MgIcon, 'icon'>;
 
 /**
  * size type

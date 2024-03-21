@@ -61,9 +61,20 @@ export class MgActionMore {
   @Element() element: HTMLMgActionMoreElement;
 
   /**
+   * Define the menu-items elements
+   */
+  @Prop() items!: MgActionMoreItemType[];
+  @Watch('items')
+  validateItems(newValue: MgActionMore['items']): void {
+    if (!isMgActionMoreItems(newValue)) {
+      throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType.`);
+    }
+  }
+
+  /**
    * Define displayed icon
    */
-  @Prop({ mutable: true }) icon: MgActionMoreIconType;
+  @Prop({ mutable: true }) icon?: MgActionMoreIconType;
   @Watch('icon')
   validateIcon(newValue: MgActionMore['icon']): void {
     if (newValue && !isMgActionMoreIcon(newValue)) {
@@ -76,22 +87,11 @@ export class MgActionMore {
   /**
    * Define button properties
    */
-  @Prop() button: MgActionMoreButtonType = { variant: 'flat', isIcon: true };
+  @Prop() button?: MgActionMoreButtonType = { variant: 'flat', isIcon: true };
   @Watch('button')
   validateButton(newValue: MgActionMore['button']): void {
     if (newValue && !isMgActionMoreButton(newValue)) {
       throw new Error(`<${this.name}> prop button must match MgActionMoreButtonType.`);
-    }
-  }
-
-  /**
-   * Define the menu-items elements
-   */
-  @Prop() items!: MgActionMoreItemType[];
-  @Watch('items')
-  validateItems(newValue: MgActionMore['items']): void {
-    if (!isMgActionMoreItems(newValue)) {
-      throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType.`);
     }
   }
 

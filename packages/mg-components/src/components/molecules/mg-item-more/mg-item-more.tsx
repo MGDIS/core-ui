@@ -34,7 +34,7 @@ export class MgItemMore {
   /**
    * Define icon
    */
-  @Prop() icon: IconType = { icon: 'ellipsis-vertical' };
+  @Prop() icon?: IconType = { icon: 'ellipsis-vertical' };
   @Watch('icon')
   validateIcon(newValue: MgItemMore['icon']): void {
     if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.icon !== 'string'))
@@ -44,7 +44,7 @@ export class MgItemMore {
   /**
    * Define slot label element
    */
-  @Prop() slotlabel: SlotLabelType = { display: false };
+  @Prop() slotlabel?: SlotLabelType = { display: false };
   @Watch('slotlabel')
   validateSlotLabel(newValue: MgItemMore['slotlabel']): void {
     if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.display !== 'boolean'))

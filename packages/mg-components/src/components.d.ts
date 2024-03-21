@@ -56,7 +56,7 @@ export namespace Components {
         /**
           * Define button properties
          */
-        "button": MgActionMoreButtonType;
+        "button"?: MgActionMoreButtonType;
         /**
           * Define if chevron is display
          */
@@ -64,7 +64,7 @@ export namespace Components {
         /**
           * Define displayed icon
          */
-        "icon": MgActionMoreIconType;
+        "icon"?: MgActionMoreIconType;
         /**
           * Define the menu-items elements
          */
@@ -96,7 +96,7 @@ export namespace Components {
         /**
           * Disable button
          */
-        "disabled": boolean;
+        "disabled"?: boolean;
         /**
           * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
          */
@@ -1125,7 +1125,7 @@ export namespace Components {
         /**
           * Define icon
          */
-        "icon": IconType;
+        "icon"?: IconType;
         /**
           * Define component child menu size.
          */
@@ -1133,7 +1133,7 @@ export namespace Components {
         /**
           * Define slot label element
          */
-        "slotlabel": SlotLabelType;
+        "slotlabel"?: SlotLabelType;
     }
     interface MgLoader {
         /**
@@ -1167,7 +1167,7 @@ export namespace Components {
         /**
           * Define menu-item content expanded.
          */
-        "expanded": boolean;
+        "expanded"?: boolean;
         /**
           * Define menu-item href when defined menu-item contain an anchor instead of button
          */
@@ -1179,11 +1179,11 @@ export namespace Components {
         /**
           * Define menu-item status.
          */
-        "status": Status;
+        "status"?: Status;
         /**
           * Define target type
          */
-        "target": TargetType;
+        "target"?: TargetType;
     }
     interface MgMessage {
         /**

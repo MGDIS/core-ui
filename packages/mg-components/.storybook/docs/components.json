@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-19T16:16:44",
+  "timestamp": "2024-03-21T09:05:24",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.6",
@@ -17,10 +17,10 @@
       "props": [
         {
           "name": "button",
-          "type": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; disabled?: boolean; }",
+          "type": "{ label?: string; disabled?: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; isIcon: boolean; }",
           "complexType": {
             "original": "MgActionMoreButtonType",
-            "resolved": "{ isIcon: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; label?: string; disabled?: boolean; }",
+            "resolved": "{ label?: string; disabled?: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; isIcon: boolean; }",
             "references": {
               "MgActionMoreButtonType": {
                 "location": "import",
@@ -36,7 +36,7 @@
           "default": "{ variant: 'flat', isIcon: true }",
           "values": [
             {
-              "type": "{ isIcon: boolean; variant: \"flat\""
+              "type": "{ label?: string; disabled?: boolean; variant: \"flat\""
             },
             {
               "value": "info",
@@ -63,10 +63,10 @@
               "type": "string"
             },
             {
-              "type": "\"danger-alt\"; label?: string; disabled?: boolean; }"
+              "type": "\"danger-alt\"; isIcon: boolean; }"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -113,7 +113,7 @@
               "type": "{ icon: string; }"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -387,7 +387,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7671,7 +7671,7 @@
               "type": "{ icon: string; }"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -7734,7 +7734,7 @@
               "type": "{ label?: string; display?: boolean; }"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -7884,10 +7884,10 @@
         },
         {
           "name": "itemmore",
-          "type": "{ size?: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
+          "type": "{ size?: \"regular\" | \"medium\" | \"large\"; icon?: IconType; slotlabel?: SlotLabelType; }",
           "complexType": {
             "original": "ItemMoreType",
-            "resolved": "{ size?: \"regular\" | \"medium\" | \"large\"; icon: IconType; slotlabel: SlotLabelType; }",
+            "resolved": "{ size?: \"regular\" | \"medium\" | \"large\"; icon?: IconType; slotlabel?: SlotLabelType; }",
             "references": {
               "ItemMoreType": {
                 "location": "import",
@@ -7909,7 +7909,7 @@
               "type": "string"
             },
             {
-              "type": "\"large\"; icon: IconType; slotlabel: SlotLabelType; }"
+              "type": "\"large\"; icon?: IconType; slotlabel?: SlotLabelType; }"
             }
           ],
           "optional": true,
@@ -8022,7 +8022,7 @@
               "type": "boolean"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8102,7 +8102,7 @@
               "type": "Status.VISIBLE"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         },
         {
@@ -8142,7 +8142,7 @@
               "type": "string"
             }
           ],
-          "optional": false,
+          "optional": true,
           "required": false
         }
       ],
@@ -10100,7 +10100,7 @@
       "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
     },
     "src/components/molecules/mg-item-more/mg-item-more.conf.ts::IconType": {
-      "declaration": "{\n  icon: MgIcon['icon'];\n}",
+      "declaration": "{\n    [P in K]: T[P];\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
     },
@@ -10204,18 +10204,18 @@
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts"
     },
+    "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
+      "declaration": "export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n};",
+      "docstring": "",
+      "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreIconType": {
-      "declaration": "{\n  icon: MgIcon['icon'];\n}",
+      "declaration": "{\n    [P in K]: T[P];\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreButtonType": {
-      "declaration": "{\n  isIcon: MgButton['isIcon'];\n  variant: MgButton['variant'];\n  label?: MgButton['label'];\n  disabled?: MgButton['disabled'];\n}",
-      "docstring": "",
-      "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
-    },
-    "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
-      "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n  target?: TargetType;\n}",
+      "declaration": "{\n    [P in K]: T[P];\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },

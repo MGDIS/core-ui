@@ -10,7 +10,7 @@ type MgActionMoreType = Partial<MgActionMore>;
 
 const createHTML = (args: MgActionMoreType) => `<mg-action-more ${renderAttributes(args)}></mg-action-more>`;
 
-const setPageContent = async (page, args) => {
+const renderHTML = async (page, args) => {
   const id = `mg-action-more-${createID()}`;
   await page.setContent(createHTML({ ...args, id }));
   await page.addScriptTag({ content: renderProperties(args, `#${id}`) });
@@ -118,7 +118,7 @@ test.describe('mg-action-more', () => {
       },
     ].forEach((args, index) => {
       test(`Should render ${renderAttributes(args)} - ${index}`, async ({ page }) => {
-        await setPageContent(page, args);
+        await renderHTML(page, args);
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
@@ -128,7 +128,7 @@ test.describe('mg-action-more', () => {
   test.describe('navigation', () => {
     ['mouse', 'keyboard'].forEach(navigation => {
       test(`Should toggle button menu, case ${navigation}`, async ({ page }) => {
-        await setPageContent(page, { items });
+        await renderHTML(page, { items });
 
         await page.setViewportSize(defaultViewPortSize);
 
@@ -152,7 +152,7 @@ test.describe('mg-action-more', () => {
     });
 
     test('Should toggle button chevron menu', async ({ page }) => {
-      await setPageContent(page, {
+      await renderHTML(page, {
         items,
         displayChevron: true,
         button: {

@@ -49,7 +49,7 @@ export class MgMenuItem {
   /**
    * Define target type
    */
-  @Prop() target: TargetType;
+  @Prop() target?: TargetType;
   @Watch('target')
   watchTarget(newValue: MgMenuItem['target']): void {
     if (newValue && !targets.includes(newValue)) {
@@ -60,7 +60,7 @@ export class MgMenuItem {
   /**
    * Define menu-item status.
    */
-  @Prop({ reflect: true, mutable: true }) status: Status = Status.VISIBLE;
+  @Prop({ reflect: true, mutable: true }) status?: Status = Status.VISIBLE;
   @Watch('status')
   validateStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
     if (oldValue !== undefined) {
@@ -73,7 +73,7 @@ export class MgMenuItem {
   /**
    * Define menu-item content expanded.
    */
-  @Prop({ mutable: true }) expanded = false;
+  @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
   validateExpanded(newValue: MgMenuItem['expanded']): void {
     if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean.`);
