@@ -50,9 +50,9 @@ export enum SectionTitleKind {
  * Base mg-input-checkbox interface
  */
 export interface IMgInputCheckboxBase {
-  disabled: boolean;
-  name: string;
-  invalid: boolean;
+  disabled?: boolean;
+  name?: string;
+  invalid?: boolean;
 }
 
 /**

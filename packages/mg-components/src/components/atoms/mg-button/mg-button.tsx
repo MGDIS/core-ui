@@ -45,18 +45,18 @@ export class MgButton {
   /**
    * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
    */
-  @Prop() identifier: string;
+  @Prop() identifier?: string;
 
   /**
    * aria-label
    * In case button text is not explicit enough
    */
-  @Prop() label: string;
+  @Prop() label?: string;
 
   /**
    * Define button type
    */
-  @Prop() type: ButtonType;
+  @Prop() type?: ButtonType;
 
   /**
    * Set button to full-width
@@ -77,7 +77,7 @@ export class MgButton {
    * Define form id to attach button with.
    * If this attribute is not set, the <button> is associated with its ancestor <form> element.
    */
-  @Prop() form: string;
+  @Prop() form?: string;
 
   /**
    * Disable button

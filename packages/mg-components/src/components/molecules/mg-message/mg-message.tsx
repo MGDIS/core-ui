@@ -49,7 +49,7 @@ export class MgMessage {
    * Add a delay to hide/close message when it passed
    * Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
    */
-  @Prop() delay: number;
+  @Prop() delay?: number;
   @Watch('delay')
   validateDelay(newValue: MgMessage['delay']): void {
     if (newValue !== undefined && newValue < 2) {
@@ -122,7 +122,7 @@ export class MgMessage {
    * By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role.
    * Be careful to set the mode according to the context needs.
    */
-  @Prop() noAriaRole: boolean;
+  @Prop() noAriaRole?: boolean;
 
   /**
    * Component classes

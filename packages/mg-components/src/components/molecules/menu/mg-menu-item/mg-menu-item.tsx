@@ -44,7 +44,7 @@ export class MgMenuItem {
    * Define menu-item href
    * when defined menu-item contain an anchor instead of button
    */
-  @Prop() href: string;
+  @Prop() href?: string;
 
   /**
    * Define menu-item status.

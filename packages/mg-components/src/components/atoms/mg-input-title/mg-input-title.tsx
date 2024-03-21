@@ -21,12 +21,12 @@ export class MgInputTitle {
   /**
    * If input is required an asterisk is added at the end of the label
    */
-  @Prop() required: boolean;
+  @Prop() required?: boolean;
 
   /**
    * If input is required an asterisk is added at the end of the label
    */
-  @Prop() readonly: boolean;
+  @Prop() readonly?: boolean;
 
   /**
    * Switch from label to fieldset sementic

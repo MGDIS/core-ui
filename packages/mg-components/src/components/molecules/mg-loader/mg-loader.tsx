@@ -27,7 +27,7 @@ export class MgLoader {
   /**
    * Override loader message
    */
-  @Prop() message: string;
+  @Prop() message?: string;
   @Watch('message')
   watchMessage(newValue: MgLoader['message']): void {
     if (newValue && !isValidString(newValue)) throw new Error('<mg-loader> prop "message" must be a valid string.');
@@ -36,7 +36,7 @@ export class MgLoader {
   /**
    * Hide message
    */
-  @Prop() messageHide: boolean;
+  @Prop() messageHide?: boolean;
 
   /*************
    * Lifecycle *
