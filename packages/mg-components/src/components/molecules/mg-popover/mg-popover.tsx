@@ -133,7 +133,7 @@ export class MgPopover {
 
   /**
    * Manage all clickOustside listeners
-   * @param action top process on elements listeners
+   * @param action - top process on elements listeners
    */
   private manageClickOutsideListeners = (action: 'removeEventListener' | 'addEventListener'): void => {
     // clickOutside listeners need to bind windows

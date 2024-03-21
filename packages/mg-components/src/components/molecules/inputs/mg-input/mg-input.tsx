@@ -59,7 +59,7 @@ export class MgInput {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
   @Watch('labelOnTop')
   watchLabelOnTop(newValue: MgInput['labelOnTop']): void {
     if (newValue) {
@@ -84,7 +84,7 @@ export class MgInput {
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -110,7 +110,7 @@ export class MgInput {
   /**
    * Define error message to display
    */
-  @Prop() errorMessage: string;
+  @Prop() errorMessage?: string;
   @Watch('errorMessage')
   watchErrorMessage(newValue: MgInput['errorMessage']): void {
     if (newValue) {
@@ -126,7 +126,7 @@ export class MgInput {
   /**
    * Define help text to display
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
   @Watch('helpText')
   watchHelpText(newValue: MgInput['helpText']): void {
     if (newValue) {

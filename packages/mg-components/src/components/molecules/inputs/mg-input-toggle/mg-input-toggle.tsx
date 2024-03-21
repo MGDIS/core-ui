@@ -89,7 +89,7 @@ export class MgInputToggle {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -139,7 +139,7 @@ export class MgInputToggle {
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -149,7 +149,7 @@ export class MgInputToggle {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Component classes
@@ -252,7 +252,7 @@ export class MgInputToggle {
 
   /**
    * Get checked item
-   * @param checked
+   * @param checked - checked item
    * @returns toggle value
    */
   private getCheckedItem = (checked: MgInputToggle['checked']): ToggleValue => {

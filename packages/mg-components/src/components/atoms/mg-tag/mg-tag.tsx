@@ -43,7 +43,7 @@ export class MgTag {
   /**
    * Define if tag is using outline style
    */
-  @Prop() outline: boolean;
+  @Prop() outline?: boolean;
   @Watch('outline')
   validateOutline(newValue: MgTag['outline']): void {
     if (newValue) this.classCollection.add(this.classOutline);
@@ -53,7 +53,7 @@ export class MgTag {
   /**
    * Define if tag is using soft style
    */
-  @Prop() soft: boolean;
+  @Prop() soft?: boolean;
   @Watch('soft')
   validateSoft(newValue: MgTag['soft']): void {
     // usage validation
