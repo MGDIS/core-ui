@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-12T13:02:20",
+  "timestamp": "2024-03-19T16:16:44",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.6",
@@ -7830,6 +7830,46 @@
           ],
           "optional": false,
           "required": false
+        },
+        {
+          "name": "target",
+          "type": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\"",
+          "complexType": {
+            "original": "TargetType",
+            "resolved": "\"_blank\" | \"_parent\" | \"_self\" | \"_top\"",
+            "references": {
+              "TargetType": {
+                "location": "import",
+                "path": "./mg-menu-item.conf",
+                "id": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::TargetType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "target",
+          "reflectToAttr": false,
+          "docs": "Define target type",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "_blank",
+              "type": "string"
+            },
+            {
+              "value": "_parent",
+              "type": "string"
+            },
+            {
+              "value": "_self",
+              "type": "string"
+            },
+            {
+              "value": "_top",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -9830,6 +9870,11 @@
       "docstring": "",
       "path": "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts"
     },
+    "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::TargetType": {
+      "declaration": "\"_blank\" | \"_self\" | \"_parent\" | \"_top\"",
+      "docstring": "",
+      "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
+    },
     "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status": {
       "declaration": "export enum Status {\n  VISIBLE = 'visible',\n  HIDDEN = 'hidden',\n  DISABLED = 'disabled',\n  ACTIVE = 'active',\n}",
       "docstring": "Available menu item status",
@@ -9921,7 +9966,7 @@
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
-      "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n}",
+      "declaration": "{\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  status?: MgMenuItem['status'];\n  icon?: MgIcon['icon'];\n  href?: MgMenuItem['href'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n  target?: TargetType;\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },

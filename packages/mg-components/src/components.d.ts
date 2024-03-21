@@ -20,7 +20,7 @@ import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-t
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-import { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
@@ -43,7 +43,7 @@ export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-t
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-export { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
@@ -1134,6 +1134,10 @@ export namespace Components {
           * Define menu-item status.
          */
         "status": Status;
+        /**
+          * Define target type
+         */
+        "target": TargetType;
     }
     interface MgMessage {
         /**
@@ -3042,6 +3046,10 @@ declare namespace LocalJSX {
           * Define menu-item status.
          */
         "status"?: Status;
+        /**
+          * Define target type
+         */
+        "target"?: TargetType;
     }
     interface MgMessage {
         /**

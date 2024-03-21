@@ -1,9 +1,10 @@
 import { Component, h, Element, Prop, Watch, State, Host } from '@stencil/core';
-import { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreMessageType } from './mg-action-more.conf';
-import { initLocales } from '../../../locales';
+import { createID } from '@mgdis/stencil-helpers';
 import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
-import { createID } from '@mgdis/stencil-helpers';
+import { initLocales } from '../../../locales';
+import type { MessageType } from '../../../locales/index.conf';
+import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType } from './mg-action-more.conf';
 
 /**
  * MgActionMore['items'] type guard
@@ -48,7 +49,7 @@ export class MgActionMore {
   private readonly name = 'mg-action-more';
   private readonly classBase = 'mg-c-action-more';
   private readonly mgPopoverIdentifier = createID(this.name);
-  private messages: MgActionMoreMessageType;
+  private messages: MessageType;
 
   /**************
    * Decorators *
@@ -153,7 +154,7 @@ export class MgActionMore {
    * Validate props
    */
   componentWillLoad(): void {
-    this.messages = initLocales(this.element).messages.actionMore as MgActionMoreMessageType;
+    this.messages = initLocales(this.element).messages.actionMore as MessageType;
     this.validateItems(this.items);
     this.validateButton(this.button);
     this.validateIcon(this.icon);
@@ -193,7 +194,13 @@ export class MgActionMore {
               <mg-menu direction={Direction.VERTICAL} label={this.messages.label}>
                 {this.items.map(item => (
                   // eslint-disable-next-line react/jsx-no-bind
-                  <mg-menu-item key={item.label} status={item.status || Status.VISIBLE} onClick={e => this.handleItemClick(e, item.mouseEventHandler)} href={item.href}>
+                  <mg-menu-item
+                    key={item.label}
+                    status={item.status || Status.VISIBLE}
+                    target={item.target}
+                    href={item.href}
+                    onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
+                  >
                     {item.icon && <mg-icon icon={item.icon} slot="image"></mg-icon>}
                     <span slot="label">{item.label}</span>
                     {item.badge?.label && <mg-badge label={item.badge.label} value={item.badge.value} slot="information" variant="text-color"></mg-badge>}
