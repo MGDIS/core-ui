@@ -4,10 +4,12 @@ import { MgInputText } from '../mg-input-text';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import messages from '../../../../../locales/en/messages.json';
+import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/mg-input-title/mg-input-title';
 
 const getPage = (args, content?) => {
   const page = newSpecPage({
-    components: [MgInputText, MgButton, MgIcon],
+    components: [MgInputText, MgButton, MgIcon, MgInput, MgInputTitle],
     template: () => <mg-input-text {...args}>{content}</mg-input-text>,
   });
 

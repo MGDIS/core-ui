@@ -47,12 +47,12 @@ export class MgPanel {
   /**
    * Panel title pattern
    */
-  @Prop() titlePattern: string;
+  @Prop() titlePattern?: string;
 
   /**
    * Panel title pattern error message
    */
-  @Prop() titlePatternErrorMessage: string;
+  @Prop() titlePatternErrorMessage?: string;
   @Watch('titlePattern')
   @Watch('titlePatternErrorMessage')
   validateTitlePattern(newValue: string): void {
@@ -95,7 +95,7 @@ export class MgPanel {
   /**
    * Disable possibility to toggle expand
    */
-  @Prop() expandToggleDisabled: boolean;
+  @Prop() expandToggleDisabled?: boolean;
 
   /**
    * Component classes

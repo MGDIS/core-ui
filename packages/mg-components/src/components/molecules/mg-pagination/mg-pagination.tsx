@@ -63,12 +63,12 @@ export class MgPagination {
   /**
    * Hide navigation label
    */
-  @Prop() hideNavigationLabels: boolean;
+  @Prop() hideNavigationLabels?: boolean;
 
   /**
    * Hide select input
    */
-  @Prop() hidePageCount: boolean;
+  @Prop() hidePageCount?: boolean;
 
   /**
    * Component total pages

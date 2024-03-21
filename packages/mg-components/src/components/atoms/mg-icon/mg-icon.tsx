@@ -47,7 +47,7 @@ export class MgIcon {
   /**
    * Define icon variant color
    */
-  @Prop() variant: IconVariantType;
+  @Prop() variant?: IconVariantType;
   @Watch('variant')
   validateVariant(newValue: MgIcon['variant'], oldValue?: MgIcon['variant']): void {
     if (newValue) {

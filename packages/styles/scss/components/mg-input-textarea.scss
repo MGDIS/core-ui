@@ -1,6 +1,5 @@
 @import 'mg-input';
 @import 'mg-input-box';
-@import 'mg-input-width';
 @import 'mg-input-character-left';
 @import '../utils/a11y';
 
@@ -23,10 +22,6 @@
       resize: vertical;
     }
   }
-
-  &.mg-c-input--readonly .mg-c-input__input-container {
-    white-space: pre-line;
-  }
 }
 
 /**
@@ -34,8 +29,6 @@
   */
 
 .mg-c-input__with-character-left {
-  width: 100%;
-
   mg-character-left {
     display: block;
     margin-top: 0.2rem;

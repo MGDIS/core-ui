@@ -2,7 +2,7 @@ import { renderAttributes } from '@mgdis/playwright-helpers';
 import { PageType, describe, describeEach, expect, setPageContent, testEach, test } from '../../../../../utils/playwright.e2e.test.utils';
 
 const TIMEOUT = 1000;
-import { widths } from '../../MgInput.conf';
+import { widths } from '../../mg-input/mg-input.conf';
 
 describe('mg-input-select', () => {
   describeEach([true, false])('without tooltip, case label on top %s', labelOnTop => {

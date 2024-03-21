@@ -97,7 +97,7 @@ export class MgActionMore {
   /**
    * Define if chevron is display
    */
-  @Prop() displayChevron: boolean;
+  @Prop() displayChevron?: boolean;
   @Watch('displayChevron')
   validateDisplayChevron(newValue: MgActionMore['displayChevron']): void {
     if (newValue && this.button.isIcon === true) {
