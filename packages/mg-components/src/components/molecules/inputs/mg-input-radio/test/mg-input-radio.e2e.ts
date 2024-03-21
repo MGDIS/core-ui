@@ -105,7 +105,7 @@ test.describe('mg-input-radio', () => {
     });
   });
 
-  test('render longer intems list inline', async ({ page }) => {
+  test('render longer items list inline', async ({ page }) => {
     const componentArgs = {
       ...baseArgs,
       items: ['batman', 'robin', 'joker', 'bane', 'ironman', 'spiderman', 'captain america', 'thor', 'vision', 'antman', 'black widow', 'black panther'],
