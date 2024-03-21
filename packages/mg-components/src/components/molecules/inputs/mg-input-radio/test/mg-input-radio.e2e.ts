@@ -137,7 +137,7 @@ test.describe('mg-input-radio', () => {
     });
   });
 
-  [{}, { required: true, lang: 'fr' }].forEach(args => {
+  [{}, { lang: 'fr' }].forEach(args => {
     test(`Should render error when leaving an empty input ${renderAttributes(args)}`, async ({ page }) => {
       const componentArgs = { ...baseArgs, ...args, required: true };
       const html = createHTML(componentArgs);
