@@ -377,6 +377,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   private handleSearchChange = (event: CustomEvent): void => {
     this.searchValue = event.detail;
+    event.stopPropagation();
   };
 
   /**
