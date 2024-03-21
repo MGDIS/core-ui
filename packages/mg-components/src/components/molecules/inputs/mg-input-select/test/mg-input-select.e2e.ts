@@ -17,7 +17,6 @@ test.describe('mg-input-select', () => {
       test(`Should render with template`, async ({ page }) => {
         const componentArgs = { ...baseArgs, labelOnTop };
         const html = createHTML(componentArgs);
-        console.log(html);
 
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
