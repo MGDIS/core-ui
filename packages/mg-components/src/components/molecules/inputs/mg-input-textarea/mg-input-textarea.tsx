@@ -68,7 +68,7 @@ export class MgInputTextarea {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -79,7 +79,7 @@ export class MgInputTextarea {
    * Input placeholder.
    * It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
    */
-  @Prop() placeholder: string;
+  @Prop() placeholder?: string;
 
   /**
    * Input max length
@@ -144,12 +144,12 @@ export class MgInputTextarea {
    * Define input pattern to validate
    * Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
    */
-  @Prop() pattern: string;
+  @Prop() pattern?: string;
 
   /**
    * Define input pattern error message
    */
-  @Prop() patternErrorMessage: string;
+  @Prop() patternErrorMessage?: string;
   @Watch('pattern')
   @Watch('patternErrorMessage')
   validatePattern(newValue: string): void {
@@ -166,7 +166,7 @@ export class MgInputTextarea {
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -189,7 +189,7 @@ export class MgInputTextarea {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Define input valid state

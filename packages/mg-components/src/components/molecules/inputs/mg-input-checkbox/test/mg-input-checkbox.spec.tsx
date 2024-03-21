@@ -784,6 +784,8 @@ describe('mg-input-checkbox', () => {
       const searchInput = mgInputCheckbox.shadowRoot.querySelector('mg-input-text');
       const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
 
+      const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
+
       mgPopover.display = true;
       await page.waitForChanges();
       jest.runOnlyPendingTimers();
@@ -799,6 +801,8 @@ describe('mg-input-checkbox', () => {
       searchInput.dispatchEvent(new CustomEvent('value-change', { detail: '2' }));
       await page.waitForChanges();
 
+      expect(valueChangeSpy).not.toHaveBeenCalled(); // Ensure search input event propagation is stopped
+
       resultList = getResultList(mgInputCheckbox);
       expect(resultList).toHaveLength(4);
       expect(resultList.filter(item => item.value === 'true').length).toEqual(0);
@@ -806,6 +810,8 @@ describe('mg-input-checkbox', () => {
       // Select All
       selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
+
+      expect(valueChangeSpy).toHaveBeenCalledTimes(1);
 
       // Should have all value selected
       resultList = getResultList(mgInputCheckbox);
