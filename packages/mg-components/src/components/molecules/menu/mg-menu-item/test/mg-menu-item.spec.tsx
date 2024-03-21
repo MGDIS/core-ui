@@ -159,7 +159,7 @@ describe('mg-menu-item', () => {
   });
 
   describe('errors', () => {
-    test('Should throw an error when missing slot label %s', async () => {
+    test('Should throw an error when missing slot label', async () => {
       expect.assertions(1);
 
       try {
@@ -169,7 +169,7 @@ describe('mg-menu-item', () => {
       }
     });
 
-    test('Should throw an error when missing slot label text content %s', async () => {
+    test('Should throw an error when missing slot label text content', async () => {
       expect.assertions(1);
 
       try {
@@ -179,7 +179,7 @@ describe('mg-menu-item', () => {
       }
     });
 
-    test('Should throw an error with expanded and sub-menu %s', async () => {
+    test('Should throw an error with expanded and sub-menu', async () => {
       expect.assertions(1);
 
       try {

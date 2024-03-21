@@ -403,9 +403,9 @@ export class MgMenuItem {
               </span>
             )}
             {this.target === '_blank' && [
-              <mg-icon key="icon-new-window" class={`${this.navigationButton}-new-window`} icon="arrow-up-right-square"></mg-icon>,
-              <span key="a11y-new-window" class="mg-u-visually-hidden">
-                {this.messages.openNewWindow}
+              <mg-icon key="icon-new-tab" class={`${this.navigationButton}-new-tab`} icon="arrow-up-right-square"></mg-icon>,
+              <span key="a11y-new-tab" class="mg-u-visually-hidden">
+                {this.messages.openNewTab}
               </span>,
             ]}
           </div>
