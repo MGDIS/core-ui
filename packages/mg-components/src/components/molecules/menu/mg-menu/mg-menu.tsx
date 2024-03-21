@@ -52,7 +52,7 @@ export class MgMenu {
    * Customize "mg-item-more" element
    * Used with direction: 'vertical' to manage overflow
    */
-  @Prop() itemmore: ItemMoreType;
+  @Prop() itemmore?: ItemMoreType;
   @Watch('itemmore')
   validateItemMore(newValue: MgMenu['itemmore']): void {
     if (newValue !== undefined && this.direction !== Direction.HORIZONTAL) {

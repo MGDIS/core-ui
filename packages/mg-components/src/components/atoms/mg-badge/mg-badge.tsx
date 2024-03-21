@@ -60,7 +60,7 @@ export class MgBadge {
   /**
    * Define if button is using outline style
    */
-  @Prop() outline: boolean;
+  @Prop() outline?: boolean;
   @Watch('outline')
   validateOutline(newValue: MgBadge['outline']): void {
     if (newValue) this.classCollection.add(this.classOutline);

@@ -26,7 +26,7 @@ export class MgCharacterLeft {
    * Sets an `id` attribute.
    * Needed by the input for accessibility `aria-decribedby`.
    */
-  @Prop() identifier: string;
+  @Prop() identifier?: string;
 
   /**
    * Sets the characters to count

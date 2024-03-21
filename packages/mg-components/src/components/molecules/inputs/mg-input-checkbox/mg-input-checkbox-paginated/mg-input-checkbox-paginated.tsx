@@ -23,22 +23,22 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /**
    * Define if mg-input-checkbox-list is readonly
    */
-  @Prop() readonly: boolean;
+  @Prop() readonly?: boolean;
 
   /**
    * Define if mg-input-checkbox-list is disabled
    */
-  @Prop() disabled: boolean;
+  @Prop() disabled?: boolean;
 
   /**
    * Define mg-input-checkbox input name
    */
-  @Prop() name: string;
+  @Prop() name?: string;
 
   /**
    * Define mg-input-checkbox input invalid
    */
-  @Prop() invalid: boolean;
+  @Prop() invalid?: boolean;
 
   /**
    * Current page
@@ -67,7 +67,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
   /**
    * Define section kind
    */
-  @Prop() sectionKind: SectionKind;
+  @Prop() sectionKind?: SectionKind;
   @Watch('sectionKind')
   validateSectionKind(newValue: MgInputCheckboxPaginated['sectionKind']): void {
     if (newValue === SectionKind.SELECTED) this.titleKind = SectionTitleKind.BUTTON;

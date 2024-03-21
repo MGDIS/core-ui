@@ -58,7 +58,7 @@ export class MgForm {
    * As **this element is an accessibility requirement in the view**,
    * you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
    */
-  @Prop() requiredMessage: RequiredMessageStatusType;
+  @Prop() requiredMessage?: RequiredMessageStatusType;
   @Watch('requiredMessage')
   validateRequiredMessage(newValue): void {
     if (newValue && !requiredMessageStatus.includes(newValue)) {
@@ -70,7 +70,7 @@ export class MgForm {
    * Define `<form/>` element aria role
    * see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
    */
-  @Prop() ariaRole: AriaRoleType;
+  @Prop() ariaRole?: AriaRoleType;
   @Watch('ariaRole')
   validateAriaRole(newValue: MgForm['ariaRole']) {
     if (newValue && !roles.includes(newValue)) {
@@ -81,7 +81,7 @@ export class MgForm {
   /**
    * Define if slotted mg-component's label are displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
   @Watch('labelOnTop')
   handlelabelOnTop(newValue: MgForm['labelOnTop']) {
     if (newValue) {

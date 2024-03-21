@@ -69,7 +69,7 @@ export class MgInputDate {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -95,13 +95,13 @@ export class MgInputDate {
    * Define input minimum date
    * format: yyyy-mm-dd
    */
-  @Prop() min: string;
+  @Prop() min?: string;
 
   /**
    * Define input maximum date
    * format: yyyy-mm-dd
    */
-  @Prop() max: string;
+  @Prop() max?: string;
   @Watch('min')
   @Watch('max')
   validateMinMax(newValue: string): void {
@@ -139,7 +139,7 @@ export class MgInputDate {
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -154,7 +154,7 @@ export class MgInputDate {
    *  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.
    * ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Define input valid state
