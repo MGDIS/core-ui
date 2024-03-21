@@ -15,7 +15,14 @@ export const renderAttributes = (args: Record<string, unknown>): string =>
     typeof args === 'object' &&
     Object.keys(args)
       .filter(key => ![null, undefined, false].includes((args as Record<string, never>)[key]) && !['object', 'function'].includes(typeof (args as Record<string, never>)[key]))
-      .map(key => `${key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()}="${(args as Record<string, never>)[key]}"`)
+      .map(key => {
+        const attribute: string = key.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+        let attributeValue: string = (args as Record<string, never>)[key] || '';
+        if (typeof attributeValue === 'string') {
+          attributeValue = attributeValue.replace(/"/g, "'");
+        }
+        return `${attribute}="${attributeValue}"`;
+      })
       .join(' ')) ||
   '';
 
