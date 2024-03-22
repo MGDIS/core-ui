@@ -1,6 +1,6 @@
 import { expect } from '@playwright/test';
 import { test } from '../../../../../utils/playwright.fixture';
-import { renderAttributes } from '@mgdis/playwright-helpers';
+import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 
 const createHTML = props => {
   const slot = props.slot;
@@ -217,6 +217,7 @@ test.describe('mg-input-text', () => {
     const componentsProps = { ...defaultProps, datalistoptions: ['batman', 'robin'] };
     const html = createHTML(componentsProps);
     await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
 
     await page.waitForSelector('mg-input-text.hydrated');
 
