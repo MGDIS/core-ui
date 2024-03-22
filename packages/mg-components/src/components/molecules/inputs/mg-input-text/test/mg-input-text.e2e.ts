@@ -57,7 +57,7 @@ test.describe('mg-input-text', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
 
-      test('inside a div.mg-form-group %s', async ({ page }) => {
+      test('inside a div.mg-form-group', async ({ page }) => {
         const componentsProps = {
           ...defaultProps,
           tooltip: 'Tooltip message',
@@ -86,7 +86,7 @@ test.describe('mg-input-text', () => {
         });
       });
 
-      test('Ensure component fit in width 200px with label-on-top: %s', async ({ page }) => {
+      test('Ensure component fit in width 200px with label-on-top', async ({ page }) => {
         const componentsProps = {
           ...defaultProps,
           labelOnTop,
