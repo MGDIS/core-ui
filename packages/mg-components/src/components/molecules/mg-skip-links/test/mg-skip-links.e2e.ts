@@ -1,23 +1,27 @@
-import { describe, expect, setPageContent, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
+import { renderProperties } from '@mgdis/playwright-helpers';
 
-describe('mg-skip-links', () => {
+test.describe.only('mg-skip-links', () => {
   test('Should render', async ({ page }) => {
-    await setPageContent(
-      page,
-      `<mg-skip-links></mg-skip-links>
-    <style>body{background:#999;}</style>
-    <script>
-      const mgSkipLinks = document.querySelector('mg-skip-links');
-      mgSkipLinks.links = [
-        { href: '#content', label: 'Content' },
-        { href: '#menu', label: 'Menu' },
-        { href: '#search', label: 'Search' },
-        { href: '#footer', label: 'Footer' },
-      ];
-    </script>`,
-    );
+    await page.setContent('<mg-skip-links></mg-skip-links>');
+    await page.addScriptTag({
+      content: renderProperties(
+        {
+          links: [
+            { href: '#content', label: 'Content' },
+            { href: '#menu', label: 'Menu' },
+            { href: '#search', label: 'Search' },
+            { href: '#footer', label: 'Footer' },
+          ],
+        },
+        `mg-skip-links`,
+      ),
+    });
 
     const mgSkipLinks = page.locator('mg-skip-links.hydrated');
+
+    await mgSkipLinks.waitFor({ state: 'attached' });
 
     await expect(mgSkipLinks).not.toBeVisible();
 
