@@ -10,7 +10,7 @@ const createHTML = props => {
 
 const defaultProps = { identifier: 'identifier', label: 'label' };
 
-test.describe.only('mg-input-text', () => {
+test.describe('mg-input-text', () => {
   [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(args => {
     test(`without tooltip ${renderAttributes(args)}`, async ({ page }) => {
       const componentsProps = { ...defaultProps, ...args };
