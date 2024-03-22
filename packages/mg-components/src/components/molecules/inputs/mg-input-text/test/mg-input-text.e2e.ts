@@ -8,13 +8,12 @@ const createHTML = props => {
   return `<mg-input-text ${renderAttributes(props)}>${slot}</mg-input-text>`;
 };
 
-const defaultProps = { identifier: 'identifier', label: 'label' };
+const baseArgs = { identifier: 'identifier', label: 'label' };
 
 test.describe('mg-input-text', () => {
   [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(args => {
     test(`without tooltip ${renderAttributes(args)}`, async ({ page }) => {
-      const componentsProps = { ...defaultProps, ...args };
-      const html = createHTML(componentsProps);
+      const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);
 
       await page.waitForSelector('mg-input-text.hydrated');
@@ -22,7 +21,7 @@ test.describe('mg-input-text', () => {
       const input = page.locator('mg-input-text input');
 
       // Hide caret for screenshots
-      await page.locator('mg-input-text input').evaluate(element => (element.style.caretColor = 'transparent'));
+      await page.locator('mg-input-text input').evaluate(elm => (elm.style.caretColor = 'transparent'));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -41,8 +40,7 @@ test.describe('mg-input-text', () => {
   [true, false].forEach(labelOnTop => {
     test.describe(`labelOnTop: ${labelOnTop}`, () => {
       test('with tooltip', async ({ page }) => {
-        const componentsProps = { ...defaultProps, tooltip: 'Tooltip message', labelOnTop };
-        const html = createHTML(componentsProps);
+        const html = createHTML({ ...baseArgs, tooltip: 'Tooltip message', labelOnTop });
         await page.setContent(html);
 
         await page.waitForSelector('mg-input-text.hydrated');
@@ -58,14 +56,12 @@ test.describe('mg-input-text', () => {
       });
 
       test('inside a div.mg-form-group', async ({ page }) => {
-        const componentsProps = {
-          ...defaultProps,
+        const html = createHTML({
+          ...baseArgs,
           tooltip: 'Tooltip message',
           label: 'long label long label long label long label long label long label long label long label long label long label long label',
-
           labelOnTop,
-        };
-        const html = createHTML(componentsProps);
+        });
         await page.setContent(`<div class="mg-form-group">${html}</div>`);
 
         await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, height: 100, width: 500 } });
@@ -73,13 +69,12 @@ test.describe('mg-input-text', () => {
 
       [16, 4, 2].forEach(mgWidth => {
         test(`with mgWidth ${mgWidth}`, async ({ page }) => {
-          const componentsProps = {
-            ...defaultProps,
+          const html = createHTML({
+            ...baseArgs,
             value: 'bruce',
             mgWidth,
             labelOnTop,
-          };
-          const html = createHTML(componentsProps);
+          });
           await page.setContent(html);
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -87,11 +82,10 @@ test.describe('mg-input-text', () => {
       });
 
       test('Ensure component fit in width 200px with label-on-top', async ({ page }) => {
-        const componentsProps = {
-          ...defaultProps,
+        const html = createHTML({
+          ...baseArgs,
           labelOnTop,
-        };
-        const html = createHTML(componentsProps);
+        });
         await page.setContent(html);
 
         await page.setViewportSize({ height: 100, width: 200 });
@@ -116,8 +110,7 @@ test.describe('mg-input-text', () => {
     { value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
-      const componentsProps = { ...defaultProps, ...args };
-      const html = createHTML(componentsProps);
+      const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -126,8 +119,7 @@ test.describe('mg-input-text', () => {
 
   [{}, { lang: 'fr' }].forEach(args => {
     test(`Should render error when leaving an empty required input ${renderAttributes(args)}`, async ({ page }) => {
-      const componentsProps = { ...defaultProps, ...args };
-      const html = createHTML(componentsProps);
+      const html = createHTML({ ...baseArgs, ...args, required: true });
       await page.setContent(html);
 
       await page.waitForSelector('mg-input-text.hydrated');
@@ -141,13 +133,12 @@ test.describe('mg-input-text', () => {
 
   [16, 'full'].forEach(mgWidth => {
     test(`Should render error when leaving input with a non matching pattern value, mg-width: ${mgWidth}`, async ({ page }) => {
-      const componentsProps = {
-        ...defaultProps,
+      const html = createHTML({
+        ...baseArgs,
         mgWidth,
         pattern: '[a-z]*',
         patternErrorMessage: 'Vous ne pouvez saisir que des lettres minuscules.',
-      };
-      const html = createHTML(componentsProps);
+      });
       await page.setContent(html);
 
       await page.waitForSelector('mg-input-text.hydrated');
@@ -197,14 +188,13 @@ test.describe('mg-input-text', () => {
         },
       ].forEach(args => {
         test(`render slot ${renderAttributes(args)}`, async ({ page }) => {
-          const componentsProps = {
-            ...defaultProps,
+          const html = createHTML({
+            ...baseArgs,
             ...args,
             placeholder: 'placeholder',
             value: 'bruce',
             readonly,
-          };
-          const html = createHTML(componentsProps);
+          });
           await page.setContent(html);
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -214,7 +204,7 @@ test.describe('mg-input-text', () => {
   });
 
   test('Should display datalist', async ({ page }) => {
-    const componentsProps = { ...defaultProps, datalistoptions: ['batman', 'robin'] };
+    const componentsProps = { ...baseArgs, datalistoptions: ['batman', 'robin'] };
     const html = createHTML(componentsProps);
     await page.setContent(html);
     await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
@@ -229,8 +219,7 @@ test.describe('mg-input-text', () => {
   test.describe('Responsive', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
       test(`Should display label on top on responsive breakpoint with tooltip: ${renderAttributes(args)}`, async ({ page }) => {
-        const componentsProps = { ...defaultProps, ...args };
-        const html = createHTML(componentsProps);
+        const html = createHTML({ ...baseArgs, ...args });
         await page.setContent(html);
 
         // Initial state
