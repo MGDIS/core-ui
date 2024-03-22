@@ -81,6 +81,18 @@ test.describe('mg-input-password', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
+
+      test(`render inside a div.mg-form-group`, async ({ page }) => {
+        const html = createHTML({
+          ...baseArgs,
+          tooltip: 'Tooltip message',
+          labelOnTop,
+          label: 'long label long label long label long label long label long label long label long label long label long label long label',
+        });
+        await page.setContent(`<div class="mg-form-group">${html}</div>`);
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 
@@ -119,22 +131,6 @@ test.describe('mg-input-password', () => {
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
-  [
-    { label: 'long label long label long label long label long label long label long label long label long label long label long label', tooltip: 'tooltip message' },
-    {
-      label: 'long label long label long label long label long label long label long label long label long label long label long label',
-      tooltip: 'tooltip message',
-      labelOnTop: true,
-    },
-  ].forEach(args => {
-    test(`render inside a div.mg-form-group ${renderAttributes(args)}`, async ({ page }) => {
-      const html = createHTML({ ...baseArgs, ...args });
-      await page.setContent(`<div class="mg-form-group">${html}</div>`);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
