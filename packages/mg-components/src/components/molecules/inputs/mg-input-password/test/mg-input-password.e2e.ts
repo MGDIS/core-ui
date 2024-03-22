@@ -112,7 +112,6 @@ test.describe('mg-input-password', () => {
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
-      console.log(html);
 
       await page.setContent(html);
 
