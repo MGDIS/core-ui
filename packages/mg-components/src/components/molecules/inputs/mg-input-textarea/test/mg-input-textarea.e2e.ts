@@ -14,7 +14,7 @@ test.describe('mg-input-textarea', () => {
       const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-textarea.hydrated');
+      await page.locator('mg-input-textarea.hydrated').waitFor();
 
       const input = page.locator('textarea');
 
@@ -41,7 +41,7 @@ test.describe('mg-input-textarea', () => {
         const html = createHTML({ ...baseArgs, tooltip: 'Tooltip message', labelOnTop });
         await page.setContent(html);
 
-        await page.waitForSelector('mg-input-textarea.hydrated');
+        await page.locator('mg-input-textarea.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -120,7 +120,7 @@ test.describe('mg-input-textarea', () => {
       const html = createHTML({ ...baseArgs, ...args, required: true });
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-textarea.hydrated');
+      await page.locator('mg-input-textarea.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
@@ -137,7 +137,7 @@ test.describe('mg-input-textarea', () => {
     });
     await page.setContent(html);
 
-    await page.waitForSelector('mg-input-textarea.hydrated');
+    await page.locator('mg-input-textarea.hydrated').waitFor();
 
     const input = page.locator('mg-input-textarea textarea');
 
@@ -178,7 +178,7 @@ test.describe('mg-input-textarea', () => {
     const html = createHTML({ ...baseArgs, value: 'Blu\nBli\nBla\nBlo' });
     await page.setContent(html);
 
-    await page.waitForSelector('mg-input-textarea.hydrated');
+    await page.locator('mg-input-textarea.hydrated').waitFor();
 
     // Initial state
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
