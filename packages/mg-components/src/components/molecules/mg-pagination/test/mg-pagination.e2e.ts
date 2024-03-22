@@ -1,39 +1,46 @@
-import { setPageContent, expect, describe, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/playwright-helpers';
-import { MgPagination } from '../mg-pagination';
 
 const createHTML = args => `<mg-pagination ${renderAttributes(args)}></mg-pagination>`;
 
-describe('mg-pagination', () => {
-  describe('template', () => {
-    testEach(
-      [1, 2, 3].flatMap(totalPages => [true, false].flatMap(hidePageCount => [true, false].map(hideNavigationLabels => ({ totalPages, hideNavigationLabels, hidePageCount })))),
-    )('render %s', async (page: PageType, args: Partial<MgPagination>) => {
-      await setPageContent(page, createHTML(args));
+test.describe('mg-pagination', () => {
+  test.describe('template', () => {
+    [1, 2, 3]
+      .flatMap(totalPages => [true, false].flatMap(hidePageCount => [true, false].map(hideNavigationLabels => ({ totalPages, hideNavigationLabels, hidePageCount }))))
+      .forEach(args => {
+        test(`render ${renderAttributes(args)}`, async ({ page }) => {
+          const html = createHTML(args);
+          await page.setContent(html);
 
-      if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      else expect(await page.locator('mg-pagination').isVisible()).toBe(false);
-    });
+          if (args.totalPages > 1) await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          else expect(await page.locator('mg-pagination').isVisible()).toBe(false);
+        });
+      });
   });
 
-  describe('navigation', () => {
-    testEach([2, 3, 10])('should success mouse navigation %s', async (page: PageType, totalPages: number) => {
-      await setPageContent(page, createHTML({ totalPages }));
+  test.describe('navigation', () => {
+    [2, 3, 10].forEach(totalPages => {
+      test(`should success mouse navigation totalPages: ${totalPages}`, async ({ page }) => {
+        const html = createHTML({ totalPages });
+        await page.setContent(html);
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      const actions = [...Array(totalPages - 1).keys()];
-
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      for (const _ of actions) {
-        const nextButton = page.locator('mg-pagination mg-button:last-of-type');
-        await nextButton.click();
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      }
+
+        const actions = [...Array(totalPages - 1).keys()];
+
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        for (const _ of actions) {
+          const nextButton = page.locator('mg-pagination mg-button:last-of-type');
+          await nextButton.click();
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        }
+      });
     });
 
     test('should success keyboard navigation', async ({ page }) => {
-      await setPageContent(page, createHTML({ totalPages: 5 }));
+      const html = createHTML({ totalPages: 5 });
+      await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -66,9 +73,10 @@ describe('mg-pagination', () => {
     });
   });
 
-  describe('locales', () => {
-    test('render with locale: %s', async ({ page }) => {
-      await setPageContent(page, createHTML({ totalPages: 5, lang: 'fr' }));
+  test.describe('locales', () => {
+    test('render with locale fr', async ({ page }) => {
+      const html = createHTML({ totalPages: 5, lang: 'fr' });
+      await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
