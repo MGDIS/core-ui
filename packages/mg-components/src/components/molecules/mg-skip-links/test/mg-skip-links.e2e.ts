@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { renderProperties } from '@mgdis/playwright-helpers';
 
-test.describe.only('mg-skip-links', () => {
+test.describe('mg-skip-links', () => {
   test('Should render', async ({ page }) => {
     await page.setContent('<mg-skip-links></mg-skip-links>');
     await page.addScriptTag({
