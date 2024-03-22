@@ -17,7 +17,7 @@ export const test = base.extend<{ page: void }>({
     await page.addStyleTag({ content: '.e2e-screenshot{display:inline-block}' });
     // Make sure everything is loaded
     await page.waitForLoadState('networkidle');
-    await page.waitForSelector('html.hydrated');
+    await page.locator('html.hydrated');
     // Use extended page
     await use(page);
   },

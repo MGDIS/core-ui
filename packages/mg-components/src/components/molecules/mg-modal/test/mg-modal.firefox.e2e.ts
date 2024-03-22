@@ -1,12 +1,13 @@
-import { setPageContent, expect, describe, test, devices } from '../../../../utils/playwright.e2e.test.utils';
-import { createHTML } from './mg-modal.e2e.template';
+import { expect, devices } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
+import { setPageContent } from './mg-modal.e2e.template';
 
 test.use({ ...devices['Desktop Firefox'] });
 
-describe('mg-modal, firefox', () => {
-  describe('navigation', () => {
+test.describe('mg-modal, firefox', () => {
+  test.describe('navigation', () => {
     test('Should navigate with keyboard', async ({ page }) => {
-      await setPageContent(page, createHTML({ closeButton: true, hide: true }, { action: true, content: 'short' }));
+      await setPageContent(page, { closeButton: true, hide: true }, { action: true, content: 'short' });
       await expect(page.locator('body')).toHaveScreenshot();
 
       // open modal

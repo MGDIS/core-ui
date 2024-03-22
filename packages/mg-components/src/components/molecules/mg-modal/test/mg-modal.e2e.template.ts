@@ -38,15 +38,19 @@ export const createSlots = ({ content, action }: SlotType): string => {
   return slots;
 };
 
-export const createHTML = (args: MgModalType, slots: SlotType = {}): string => {
+const createHTML = (args: MgModalType & { triggerModalId: string }, slots: SlotType = {}): string => {
+  return `<mg-button id="${args.triggerModalId}">Open modal</mg-button>
+  <mg-modal ${renderAttributes({ modalTitle: 'Modal title', ...args })}>${createSlots(slots)}</mg-modal>`;
+};
+
+export const setPageContent = async (page, args, slots?) => {
   const triggerModalId = 'modal-button';
-  return `<mg-button id="${triggerModalId}">Open modal</mg-button>
-  <mg-modal ${renderAttributes({ modalTitle: 'Modal title', ...args })}>${createSlots(slots)}</mg-modal>
-  <script>
-    document.getElementById('${triggerModalId}').addEventListener('click', () => {
-      const mgModal = document.querySelector('mg-modal');
-      mgModal.hide = !mgModal.hide;
-    });
-  </script>
-  `;
+
+  await page.setContent(createHTML({ ...args, triggerModalId }, slots));
+  await page.addScriptTag({
+    content: `document.getElementById('${triggerModalId}').addEventListener('click', () => {
+    const mgModal = document.querySelector('mg-modal');
+    mgModal.hide = !mgModal.hide;
+  });`,
+  });
 };
