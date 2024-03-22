@@ -1,9 +1,10 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
-import { initLocales } from '../../../locales';
-import { OverflowBehavior } from '../../../utils/behaviors.utils';
-import { Direction } from '../menu/mg-menu/mg-menu.conf';
-import type { IconType, MessageType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import { isValidString } from '@mgdis/stencil-helpers';
+import { Direction } from '../menu/mg-menu/mg-menu.conf';
+import { OverflowBehavior } from '../../../utils/behaviors.utils';
+import { initLocales } from '../../../locales';
+import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
+import type { MessageType } from '../../../locales/index.conf';
 
 @Component({
   tag: 'mg-item-more',
@@ -33,7 +34,7 @@ export class MgItemMore {
   /**
    * Define icon
    */
-  @Prop() icon: IconType = { icon: 'ellipsis-vertical' };
+  @Prop() icon?: IconType = { icon: 'ellipsis-vertical' };
   @Watch('icon')
   validateIcon(newValue: MgItemMore['icon']): void {
     if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.icon !== 'string'))
@@ -43,12 +44,12 @@ export class MgItemMore {
   /**
    * Define slot label element
    */
-  @Prop() slotlabel: SlotLabelType = { display: false };
+  @Prop() slotlabel?: SlotLabelType = { display: false };
   @Watch('slotlabel')
   validateSlotLabel(newValue: MgItemMore['slotlabel']): void {
     if (typeof newValue !== 'object' || (typeof newValue === 'object' && typeof newValue.display !== 'boolean'))
       throw new Error(`<${this.name}> prop "slotlabel" must match MgItemMore['slotlabel'] type.`);
-    else if (typeof newValue.label !== 'string') this.slotlabel.label = this.messages.moreLabel;
+    else if (typeof newValue.label !== 'string') this.slotlabel.label = this.messages.menuLabel;
   }
 
   /**
@@ -110,7 +111,7 @@ export class MgItemMore {
    */
   componentWillLoad(): void {
     // init variables
-    this.messages = (initLocales(this.element).messages as { plusMenu: MessageType }).plusMenu;
+    this.messages = initLocales(this.element).messages.itemMore as MessageType;
 
     // validate props
     this.validateIcon(this.icon);
@@ -166,7 +167,7 @@ export class MgItemMore {
             <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
               {this.slotlabel.label}
             </span>
-            <mg-menu direction={Direction.VERTICAL} label={this.messages.moreLabel} size={this.size}></mg-menu>
+            <mg-menu direction={Direction.VERTICAL} label={this.messages.menuLabel} size={this.size}></mg-menu>
           </mg-menu-item>
         )}
       </Host>

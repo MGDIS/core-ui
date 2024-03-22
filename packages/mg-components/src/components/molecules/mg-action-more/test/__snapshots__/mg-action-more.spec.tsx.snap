@@ -113,6 +113,29 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -235,6 +258,29 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -355,6 +401,29 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -482,6 +551,29 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -605,6 +697,29 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -732,6 +847,29 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -854,6 +992,29 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -974,6 +1135,29 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -1099,6 +1283,29 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -1227,6 +1434,29 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -1348,6 +1578,29 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -1472,6 +1725,29 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -1592,6 +1868,29 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -1716,6 +2015,29 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -1836,6 +2158,29 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -1960,6 +2305,29 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -2080,6 +2448,29 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -2207,6 +2598,29 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -2330,6 +2744,29 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -2458,6 +2895,29 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -2584,6 +3044,29 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -2705,6 +3188,29 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -2830,6 +3336,29 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -2950,6 +3479,29 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>
@@ -3074,6 +3626,29 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -3196,6 +3771,29 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   bane
                 </span>
               </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
+                </span>
+              </mg-menu-item>
             </mg-menu>
           </div>
         </mg-popover-content>
@@ -3316,6 +3914,29 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                 <mg-icon icon="user" slot="image"></mg-icon>
                 <span slot="label" title="bane">
                   bane
+                </span>
+              </mg-menu-item>
+              <mg-menu-item role="listitem" status="visible">
+                <mock:shadow-root>
+                  <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="/" target="_blank">
+                    <slot name="image"></slot>
+                    <div class="mg-c-menu-item__navigation-button-center">
+                      <div class="mg-c-menu-item__navigation-button-text-content">
+                        <slot name="label"></slot>
+                        <slot name="information"></slot>
+                        <mg-icon class="mg-c-menu-item__navigation-button-new-tab" icon="arrow-up-right-square"></mg-icon>
+                        <span class="mg-u-visually-hidden">
+                          Open link in a new tab
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="mg-c-menu-item__collapse-container" hidden="">
+                    <slot></slot>
+                  </div>
+                </mock:shadow-root>
+                <span slot="label" title="Ra's al Ghul">
+                  Ra's al Ghul
                 </span>
               </mg-menu-item>
             </mg-menu>

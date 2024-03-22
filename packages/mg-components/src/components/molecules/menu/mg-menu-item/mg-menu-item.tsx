@@ -2,11 +2,11 @@ import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } 
 import { ClassList, createID, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { Direction } from '../mg-menu/mg-menu.conf';
-import { Status } from './mg-menu-item.conf';
-import type { MessageType } from '../../mg-item-more/mg-item-more.conf';
+import { Status, targets } from './mg-menu-item.conf';
 import type { MenuSizeType } from '../mg-menu/mg-menu.conf';
-import type { DirectionType } from './mg-menu-item.conf';
+import type { DirectionType, TargetType } from './mg-menu-item.conf';
 import type { MgPopover } from '../../mg-popover/mg-popover';
+import type { MessageType } from '../../../../locales/index.conf';
 
 @Component({
   tag: 'mg-menu-item',
@@ -20,7 +20,7 @@ export class MgMenuItem {
 
   private readonly name = 'mg-menu-item';
   private readonly navigationButton = 'mg-c-menu-item__navigation-button';
-  private badgeLabel: string;
+  private messages: MessageType;
 
   /**************
    * Decorators *
@@ -47,9 +47,20 @@ export class MgMenuItem {
   @Prop() href?: string;
 
   /**
+   * Define target type
+   */
+  @Prop() target?: TargetType;
+  @Watch('target')
+  watchTarget(newValue: MgMenuItem['target']): void {
+    if (newValue && !targets.includes(newValue)) {
+      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}`);
+    }
+  }
+
+  /**
    * Define menu-item status.
    */
-  @Prop({ reflect: true, mutable: true }) status: Status = Status.VISIBLE;
+  @Prop({ reflect: true, mutable: true }) status?: Status = Status.VISIBLE;
   @Watch('status')
   validateStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
     if (oldValue !== undefined) {
@@ -62,7 +73,7 @@ export class MgMenuItem {
   /**
    * Define menu-item content expanded.
    */
-  @Prop({ mutable: true }) expanded = false;
+  @Prop({ mutable: true }) expanded? = false;
   @Watch('expanded')
   validateExpanded(newValue: MgMenuItem['expanded']): void {
     if (typeof newValue !== 'boolean') throw new Error(`<${this.name}> prop "expanded" must be a boolean.`);
@@ -309,12 +320,13 @@ export class MgMenuItem {
     // has children items that is NOT [slot='image' | 'information' | 'label' | 'metadata'] element
     // we store only matching elements
     this.hasChildren = Array.from(this.element.children).some(child => !['image', 'information', 'label', 'metadata'].includes(child.getAttribute('slot')));
-    this.badgeLabel = (initLocales(this.element).messages as { plusMenu: MessageType }).plusMenu.badgeLabel;
+    this.messages = initLocales(this.element).messages.menuItem as MessageType;
     this.isItemMore = this.element.dataset.overflowMore !== undefined;
 
     // Validate props
     this.validateStatus(this.status);
     this.validateExpanded(this.expanded);
+    this.watchTarget(this.target);
 
     // Validate states
     this.validateSize(this.size);
@@ -375,6 +387,7 @@ export class MgMenuItem {
         tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
+        target={this.href && this.target ? this.target : undefined}
         aria-expanded={this.hasChildren && this.expanded.toString()}
         aria-current={this.status === Status.ACTIVE && 'page'}
         onClick={this.handleElementCLick}
@@ -386,9 +399,15 @@ export class MgMenuItem {
             {!this.displayNotificationBadge && <slot name="information"></slot>}
             {this.displayNotificationBadge && (
               <span class={`${this.navigationButton}-text-content-notification`}>
-                <mg-badge label={this.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
+                <mg-badge label={this.messages.badgeLabel} value="!" variant="text-color" slot="information"></mg-badge>
               </span>
             )}
+            {this.target === '_blank' && [
+              <mg-icon key="icon-new-tab" class={`${this.navigationButton}-new-tab`} icon="arrow-up-right-square"></mg-icon>,
+              <span key="a11y-new-tab" class="mg-u-visually-hidden">
+                {this.messages.openNewTab}
+              </span>,
+            ]}
           </div>
           {this.size !== 'regular' && <slot name="metadata"></slot>}
         </div>

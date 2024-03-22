@@ -82,7 +82,7 @@ export class MgButton {
   /**
    * Disable button
    */
-  @Prop({ mutable: true }) disabled: boolean;
+  @Prop({ mutable: true }) disabled?: boolean;
   @Watch('disabled')
   disabledHandler(isDisabled: MgButton['disabled']): void {
     // Remove loading when enable
