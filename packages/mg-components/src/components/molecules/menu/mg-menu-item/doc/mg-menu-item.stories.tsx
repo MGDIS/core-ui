@@ -31,6 +31,15 @@ export const MgMenuItemAsLink = {
   },
 };
 
+export const MgMenuItemAsExternalLink = {
+  render: Template,
+  args: {
+    href: './',
+    target: '_blank',
+    ...MgMenuItem.args,
+  },
+};
+
 export const MgMenuItemWhitIcon = {
   render: Template,
   args: {

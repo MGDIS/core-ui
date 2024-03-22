@@ -22,3 +22,13 @@ export enum Status {
  * Direction type
  */
 export type DirectionType = MgMenu['direction'];
+
+/**
+ * List of all possibles target
+ */
+export const targets = ['_blank', '_self', '_parent', '_top'] as const;
+
+/**
+ * VariantType type from link target
+ */
+export type TargetType = (typeof targets)[number];
