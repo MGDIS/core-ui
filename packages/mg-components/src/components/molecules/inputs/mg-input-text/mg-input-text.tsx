@@ -3,6 +3,7 @@ import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { TextType } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
+import { IconType } from '../../../../components';
 
 const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
@@ -80,7 +81,7 @@ export class MgInputText {
   /**
    * Input icon
    */
-  @Prop() icon?: string;
+  @Prop() icon?: IconType;
   @Watch('icon')
   validateIcon(newValue: string): void {
     if (newValue !== undefined) {

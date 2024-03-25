@@ -2,12 +2,12 @@ import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../utils/playwright.fixture';
 import { sizes, variantStyles, variants } from '../mg-icon.conf';
-import icons from '@mgdis/img/dist/icons/index.json';
+import { icons } from '../../../../assets/icons';
 
 const createHTML = args => `<mg-icon ${renderAttributes(args)}></mg-icon>`;
 
 test.describe('mg-icon', () => {
-  icons.forEach((icon: string) => {
+  Object.keys(icons).forEach((icon: string) => {
     test(`render icon ${icon}`, async ({ page }) => {
       const html = createHTML({ icon, size: 'extra-large' });
 

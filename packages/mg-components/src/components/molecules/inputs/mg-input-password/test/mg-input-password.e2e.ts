@@ -23,7 +23,7 @@ test.describe('mg-input-password', () => {
       const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-password.hydrated');
+      await page.locator('mg-input-password.hydrated').waitFor();
 
       const input = page.locator('input');
 
@@ -52,7 +52,7 @@ test.describe('mg-input-password', () => {
         const html = createHTML({ ...baseArgs, tooltip: 'Tooltip message', labelOnTop });
         await page.setContent(html);
 
-        await page.waitForSelector('mg-input-password.hydrated');
+        await page.locator('mg-input-password.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -116,7 +116,7 @@ test.describe('mg-input-password', () => {
 
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-password.hydrated');
+      await page.locator('mg-input-password.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -166,7 +166,7 @@ test.describe('mg-input-password', () => {
       const html = createHTML({ ...baseArgs, ...args, required: true });
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-password.hydrated');
+      await page.locator('mg-input-password.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
