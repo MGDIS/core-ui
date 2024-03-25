@@ -16,7 +16,7 @@ test.describe('mg-input-radio', () => {
     await page.setContent(html);
     await page.addScriptTag({ content: renderProperties(baseArgs, `[identifier="${baseArgs.identifier}"]`) });
 
-    await page.waitForSelector('mg-input-radio.hydrated');
+    await page.locator('mg-input-radio.hydrated').waitFor();
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -64,7 +64,7 @@ test.describe('mg-input-radio', () => {
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-        await page.waitForSelector('mg-input-radio.hydrated');
+        await page.locator('mg-input-radio.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -87,7 +87,7 @@ test.describe('mg-input-radio', () => {
         await page.setContent(`<div class="mg-form-group">${html}</div>`);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-        await page.waitForSelector('mg-input-radio.hydrated');
+        await page.locator('mg-input-radio.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
@@ -144,7 +144,7 @@ test.describe('mg-input-radio', () => {
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-      await page.waitForSelector('mg-input-radio.hydrated');
+      await page.locator('mg-input-radio.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
