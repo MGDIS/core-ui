@@ -123,22 +123,41 @@ test.describe('mg-input-password', () => {
   });
 
   test.describe('display password', () => {
-    [true, false].forEach(disabled => {
-      test(`Should ${disabled ? 'NOT' : ''} toggle display password with click on eye`, async ({ page }) => {
-        await page.setContent(createHTML({ ...baseArgs, value: 'batman', disabled }));
+    test(`Should toggle display password with click on eye`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman' }));
 
-        await page.locator('mg-input-password.hydrated').waitFor();
+      await page.locator('mg-input-password.hydrated').waitFor();
 
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-        const isDisabled = await page.locator('mg-button').isDisabled();
+      await page.locator('mg-button').click();
 
-        if (!isDisabled) {
-          await page.locator('mg-button').click();
-        }
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
 
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
+    test(`Should navigate with keyboard on "eye" button`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman', tooltip: "I'm not a Marvel" }));
+
+      await page.locator('mg-input-password.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
