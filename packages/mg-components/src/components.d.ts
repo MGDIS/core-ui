@@ -10,15 +10,16 @@ import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
-import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -33,15 +34,16 @@ export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
-export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-export { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -220,7 +222,7 @@ export namespace Components {
         /**
           * Icon to display.
          */
-        "icon": string;
+        "icon": IconType;
         /**
           * Define icon size
          */
@@ -855,7 +857,7 @@ export namespace Components {
         /**
           * Input icon
          */
-        "icon"?: string;
+        "icon"?: IconType1;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -1125,7 +1127,7 @@ export namespace Components {
         /**
           * Define icon
          */
-        "icon"?: IconType;
+        "icon"?: IconType2;
         /**
           * Define component child menu size.
          */
@@ -2191,7 +2193,7 @@ declare namespace LocalJSX {
         /**
           * Icon to display.
          */
-        "icon": string;
+        "icon": IconType;
         /**
           * Define icon size
          */
@@ -2814,7 +2816,7 @@ declare namespace LocalJSX {
         /**
           * Input icon
          */
-        "icon"?: string;
+        "icon"?: IconType1;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -3082,7 +3084,7 @@ declare namespace LocalJSX {
         /**
           * Define icon
          */
-        "icon"?: IconType;
+        "icon"?: IconType2;
         /**
           * Define component child menu size.
          */
