@@ -163,7 +163,7 @@ export class MgInputPassword {
   @State() errorMessage: string;
 
   /**
-   * Input should display password to user
+   * Indicates if password is displayed or not
    */
   @State() displayPassword = false;
 
