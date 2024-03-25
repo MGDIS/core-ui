@@ -1,0 +1,185 @@
+@import '../utils/a11y';
+@import 'mg-input-width';
+@import 'mg-input-fieldset';
+
+/**
+ * Common style for MGDIS inputs
+ */
+$mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
+
+:host {
+  display: block;
+}
+
+mg-icon {
+  .mg-c-input__input &,
+  .mg-c-input__error & {
+    display: flex;
+  }
+}
+
+/* Label-on-top */
+@mixin label-on-top-styles {
+  flex-direction: column;
+
+  .mg-c-input__title {
+    width: 100%;
+    flex: 0;
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0.3rem;
+    text-align: left;
+
+    ::slotted(mg-input-title) {
+      flex-shrink: 1;
+    }
+  }
+}
+
+.mg-c-input {
+  display: flex;
+  min-height: var(--mg-b-default-size);
+  align-items: flex-start;
+  margin-bottom: var(--mg-c-input-margin-bottom, 0);
+
+  &__input-container {
+    min-height: var(--mg-b-default-size);
+
+    /* Readonly */
+    & > ul {
+      display: flex;
+      flex-flow: column wrap;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      row-gap: 0.8rem;
+    }
+
+    & > strong {
+      display: inline-block;
+    }
+
+    & > strong,
+    & > ul {
+      min-height: var(--mg-b-font-size);
+      margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+    }
+
+    mg-tooltip {
+      display: inline-flex;
+      width: var(--mg-c-icon-regular-size);
+      height: var(--mg-c-icon-regular-size);
+      margin-left: var(--mg-c-input-spacer);
+    }
+  }
+
+  &__input {
+    display: flex;
+    min-height: var(--mg-b-default-size);
+    align-items: center;
+    justify-content: start;
+
+    mg-tooltip {
+      align-self: baseline;
+      margin-top: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2);
+    }
+
+    /* Set custom opacity on disabled input */
+    .mg-c-input__box:disabled,
+    ::slotted(.mg-c-input__button-toggle:disabled),
+    &-group--disabled label,
+    .mg-c-input.mg-c-input--checkbox-multi.mg-c-input--disabled &-container strong {
+      opacity: var(--mg-b-disabled-opacity);
+    }
+  }
+
+  /* Label */
+  &__title {
+    display: flex;
+    width: var(--mg-c-input-title-width, auto);
+    flex-shrink: 0;
+    align-items: baseline;
+    justify-content: flex-end;
+    margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+    margin-right: var(--mg-c-input-title-horizontal-space, var(--mg-c-input-spacer));
+    text-align: right;
+
+    slot[name='label'] + mg-tooltip {
+      margin-left: 0.4rem;
+    }
+
+    mg-icon {
+      display: inline-flex;
+      vertical-align: text-bottom;
+    }
+  }
+
+  &__error {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 0.3rem;
+    background: var(--mg-c-input-error-bg-color);
+    color: var(--mg-b-color-danger);
+  }
+
+  &__error,
+  &__help-text {
+    /* Manage slot style */
+    ::slotted(*) {
+      font-size: 1.2rem;
+      text-align: start;
+    }
+  }
+
+  &__help-text + &__error {
+    margin-top: 0.2rem;
+  }
+
+  /* Manage space between input and first message */
+  :host(:not(&--textarea)) &__input + .mg-c-input {
+    &__error,
+    &__help-text {
+      margin-top: 0.5rem;
+    }
+  }
+
+  /**
+  * Readonly variation
+  */
+  &.mg-c-input--readonly {
+    > *:not([slot='label'], [name='append-input']),
+    ::slotted(mg-button[slot='append-input']) {
+      display: none;
+    }
+  }
+
+  /**
+  * Error variation
+  */
+  &.mg-c-input--has-error .mg-c-input__box {
+    border-color: var(--mg-b-color-danger);
+  }
+}
+
+:host(.mg-c-input) {
+  display: flex;
+}
+
+:host(.mg-c-input.mg-c-input--textarea.mg-c-input--readonly) .mg-c-input__input-container {
+  white-space: pre-line;
+}
+
+:host(.mg-c-input.mg-c-input--checkbox, .mg-c-input.mg-c-input--radio) .mg-c-input__input {
+  min-height: unset;
+}
+
+:host(.mg-c-input.mg-c-input--label-on-top) {
+  @include label-on-top-styles;
+}
+
+@media screen and (max-width: ($mg-input-breakpoint - 1px)) {
+  :host(.mg-c-input) {
+    @include label-on-top-styles;
+  }
+}

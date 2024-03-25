@@ -1,24 +1,17 @@
-import { MgBadge } from '../../atoms/mg-badge/mg-badge';
-import { MgButton } from '../../atoms/mg-button/mg-button';
-import { MgIcon } from '../../atoms/mg-icon/mg-icon';
-import { MgMenuItem } from '../menu/mg-menu-item/mg-menu-item';
+import type { MgBadge } from '../../atoms/mg-badge/mg-badge';
+import type { MgButton } from '../../atoms/mg-button/mg-button';
+import type { MgIcon } from '../../atoms/mg-icon/mg-icon';
+import type { MgMenuItem } from '../menu/mg-menu-item/mg-menu-item';
 
 /**
  * prop icon type
  */
-export type MgActionMoreIconType = {
-  icon: MgIcon['icon'];
-};
+export type MgActionMoreIconType = Pick<MgIcon, 'icon'>;
 
 /**
  * prop button type
  */
-export type MgActionMoreButtonType = {
-  isIcon: MgButton['isIcon'];
-  variant: MgButton['variant'];
-  label?: MgButton['label'];
-  disabled?: MgButton['disabled'];
-};
+export type MgActionMoreButtonType = Pick<MgButton, 'isIcon' | 'variant' | 'label' | 'disabled'>;
 
 /**
  * locals message type
@@ -28,12 +21,10 @@ export type MgActionMoreMessageType = { label: string };
 /**
  * prop item type
  */
-export type MgActionMoreItemType = {
+export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {
   label: string;
   mouseEventHandler: IMouseEventHandler;
-  status?: MgMenuItem['status'];
   icon?: MgIcon['icon'];
-  href?: MgMenuItem['href'];
   badge?: Pick<MgBadge, 'value' | 'label'>;
 };
 

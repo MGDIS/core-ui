@@ -2,15 +2,15 @@
  * Set mg-character-left with inputs
  */
 
-.mg-c-input {
+.mg-c-input.mg-c-input--display-character-left {
   mg-character-left {
     font-size: 1.1rem;
     opacity: 0.6;
   }
 
-  &.mg-c-input--display-character-left .mg-c-input__input {
-    & + .mg-c-input__help-text,
-    & + .mg-c-input__error {
+  .mg-c-input__input {
+    & + .mg-c-input__help-text ::slotted(*),
+    & + .mg-c-input__error ::slotted(*) {
       margin-top: 0;
     }
   }

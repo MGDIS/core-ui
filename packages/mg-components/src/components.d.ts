@@ -10,17 +10,18 @@ import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
-import { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-import { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-import { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-import { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
@@ -33,17 +34,18 @@ export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
-export { IconSizeType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
-export { TooltipPosition, Width } from "./components/molecules/inputs/MgInput.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-export { IconType, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-export { Status } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
@@ -56,15 +58,15 @@ export namespace Components {
         /**
           * Define button properties
          */
-        "button": MgActionMoreButtonType;
+        "button"?: MgActionMoreButtonType;
         /**
           * Define if chevron is display
          */
-        "displayChevron": boolean;
+        "displayChevron"?: boolean;
         /**
           * Define displayed icon
          */
-        "icon": MgActionMoreIconType;
+        "icon"?: MgActionMoreIconType;
         /**
           * Define the menu-items elements
          */
@@ -78,13 +80,13 @@ export namespace Components {
         /**
           * Define if button is using outline style
          */
-        "outline": boolean;
+        "outline"?: boolean;
         /**
           * Badge value
          */
         "value": string | number;
         /**
-          * Define button variant
+          * Define badge variant
          */
         "variant"?: BadgeVariantType;
     }
@@ -96,11 +98,11 @@ export namespace Components {
         /**
           * Disable button
          */
-        "disabled": boolean;
+        "disabled"?: boolean;
         /**
           * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
          */
-        "form": string;
+        "form"?: string;
         /**
           * Set button to full-width
          */
@@ -112,11 +114,11 @@ export namespace Components {
         /**
           * aria-label In case button text is not explicit enough
          */
-        "label": string;
+        "label"?: string;
         /**
           * Define button type
          */
-        "type": ButtonType;
+        "type"?: ButtonType;
         /**
           * Define button variant
          */
@@ -140,7 +142,7 @@ export namespace Components {
         /**
           * Sets an `id` attribute. Needed by the input for accessibility `aria-decribedby`.
          */
-        "identifier": string;
+        "identifier"?: string;
         /**
           * Add maximum length
          */
@@ -174,7 +176,7 @@ export namespace Components {
         /**
           * Define `<form/>` element aria role see more about aria roles use case: https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles
          */
-        "ariaRole": AriaRoleType;
+        "ariaRole"?: AriaRoleType;
         /**
           * Define if form is disabled
          */
@@ -194,7 +196,7 @@ export namespace Components {
         /**
           * Define if slotted mg-component's label are displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -206,7 +208,7 @@ export namespace Components {
         /**
           * Define when required message is display. When it is unset, component use it internal logic to manage "required message" help text display. When you set the prop to `default`, you override the component internal logique to torce it display "required message" help text. When you set the prop to `hide`, it will prevent the rendering of the message in the component's DOM. As **this element is an accessibility requirement in the view**, you **MUST*** re-implement this message on your own and display it when your form contains required inputs.
          */
-        "requiredMessage": RequiredMessageStatusType;
+        "requiredMessage"?: RequiredMessageStatusType;
         /**
           * Define form valid state
          */
@@ -216,7 +218,7 @@ export namespace Components {
         /**
           * Icon to display.
          */
-        "icon": string;
+        "icon": IconType;
         /**
           * Define icon size
          */
@@ -228,7 +230,7 @@ export namespace Components {
         /**
           * Define icon variant color
          */
-        "variant": IconVariantType;
+        "variant"?: IconVariantType;
         /**
           * Define icon color variant style Add a color to the icon based on variant color with given style 'full': Used to set a circular background with variant soft color and icon variant color 'background': Used to set a circular background with variant soft color 'icon': Used to set a color only to the icon
          */
@@ -244,6 +246,52 @@ export namespace Components {
          */
         "size": 'regular' | 'small';
     }
+    interface MgInput {
+        /**
+          * Define aria-describedby ids to link with
+         */
+        "ariaDescribedbyIDs": string[];
+        /**
+          * Define error message to display
+         */
+        "errorMessage"?: string;
+        /**
+          * Define help text to display
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide": boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Defines value to display in readonly mode
+         */
+        "readonlyValue": string | string[];
+        /**
+          * Define if input is required
+         */
+        "required": boolean;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition": TooltipPosition;
+    }
     interface MgInputCheckbox {
         /**
           * Define if input is disabled
@@ -256,11 +304,11 @@ export namespace Components {
         /**
           * Display selected values list in "multi" type This prop is only applied with prop type "multi" or when an "unset" mode render a "multi" type.
          */
-        "displaySelectedValues": boolean;
+        "displaySelectedValues"?: boolean;
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -284,7 +332,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Define input name If not set the value equals the identifier
          */
@@ -306,7 +354,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -339,11 +387,11 @@ export namespace Components {
         /**
           * Define if mg-input-checkbox-list is disabled
          */
-        "disabled": boolean;
+        "disabled"?: boolean;
         /**
           * Define mg-input-checkbox input invalid
          */
-        "invalid": boolean;
+        "invalid"?: boolean;
         /**
           * Define component message
          */
@@ -351,15 +399,15 @@ export namespace Components {
         /**
           * Define mg-input-checkbox input name
          */
-        "name": string;
+        "name"?: string;
         /**
           * Define if mg-input-checkbox-list is readonly
          */
-        "readonly": boolean;
+        "readonly"?: boolean;
         /**
           * Define section kind
          */
-        "sectionKind": SectionKind;
+        "sectionKind"?: SectionKind;
     }
     interface MgInputDate {
         /**
@@ -373,7 +421,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example Available string variables:  - `{pattern}`: render innerHTML pattern based on system  - `{date}`: render innerText date with a pattern base format.  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text. ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -393,15 +441,15 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Define input maximum date format: yyyy-mm-dd
          */
-        "max": string;
+        "max"?: string;
         /**
           * Define input minimum date format: yyyy-mm-dd
          */
-        "min": string;
+        "min"?: string;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -423,7 +471,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -461,7 +509,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -485,19 +533,19 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Maximum value
          */
-        "max": number;
+        "max"?: number;
         /**
           * Define input width
          */
-        "mgWidth": Width;
+        "mgWidth"?: Width;
         /**
           * Minimum value
          */
-        "min": number;
+        "min"?: number;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -505,7 +553,7 @@ export namespace Components {
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Define if input is readonly
          */
@@ -523,7 +571,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -553,7 +601,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -573,7 +621,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Define input width
          */
@@ -585,7 +633,7 @@ export namespace Components {
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Define if input is readonly
          */
@@ -603,7 +651,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -629,7 +677,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -679,7 +727,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -705,7 +753,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -729,7 +777,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Define input width
          */
@@ -767,7 +815,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -801,11 +849,11 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Input icon
          */
-        "icon": string;
+        "icon"?: IconType1;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -825,7 +873,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Input max length
          */
@@ -841,15 +889,15 @@ export namespace Components {
         /**
           * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
-        "pattern": string;
+        "pattern"?: string;
         /**
           * Define input pattern error message
          */
-        "patternErrorMessage": string;
+        "patternErrorMessage"?: string;
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Define if input is readonly
          */
@@ -871,7 +919,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -905,7 +953,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -925,7 +973,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Input max length
          */
@@ -941,15 +989,15 @@ export namespace Components {
         /**
           * Define input pattern to validate Please refer to the Pattern section in the input documentation for detailed information on using regular expressions in components.
          */
-        "pattern": string;
+        "pattern"?: string;
         /**
           * Define input pattern error message
          */
-        "patternErrorMessage": string;
+        "patternErrorMessage"?: string;
         /**
           * Input placeholder. It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
          */
-        "placeholder": string;
+        "placeholder"?: string;
         /**
           * Define if input is readonly
          */
@@ -975,7 +1023,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -1001,11 +1049,11 @@ export namespace Components {
         /**
           * If input is required an asterisk is added at the end of the label
          */
-        "readonly": boolean;
+        "readonly"?: boolean;
         /**
           * If input is required an asterisk is added at the end of the label
          */
-        "required": boolean;
+        "required"?: boolean;
     }
     interface MgInputToggle {
         /**
@@ -1015,7 +1063,7 @@ export namespace Components {
         /**
           * Add a help text under the input, usually expected data format and example
          */
-        "helpText": string;
+        "helpText"?: string;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -1043,7 +1091,7 @@ export namespace Components {
         /**
           * Define if label is displayed on top
          */
-        "labelOnTop": boolean;
+        "labelOnTop"?: boolean;
         /**
           * Input name If not set the value equals the identifier
          */
@@ -1061,7 +1109,7 @@ export namespace Components {
         /**
           * Add a tooltip message next to the input
          */
-        "tooltip": string;
+        "tooltip"?: string;
         /**
           * Define tooltip position
          */
@@ -1075,25 +1123,25 @@ export namespace Components {
         /**
           * Define icon
          */
-        "icon": IconType;
+        "icon"?: IconType2;
         /**
           * Define component child menu size.
          */
-        "size": SizeType;
+        "size"?: SizeType;
         /**
           * Define slot label element
          */
-        "slotlabel": SlotLabelType;
+        "slotlabel"?: SlotLabelType;
     }
     interface MgLoader {
         /**
           * Override loader message
          */
-        "message": string;
+        "message"?: string;
         /**
           * Hide message
          */
-        "messageHide": boolean;
+        "messageHide"?: boolean;
     }
     interface MgMenu {
         /**
@@ -1103,7 +1151,7 @@ export namespace Components {
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */
-        "itemmore": ItemMoreType;
+        "itemmore"?: ItemMoreType;
         /**
           * Menu label. Include short menu description. Required for accessibility
          */
@@ -1117,11 +1165,11 @@ export namespace Components {
         /**
           * Define menu-item content expanded.
          */
-        "expanded": boolean;
+        "expanded"?: boolean;
         /**
           * Define menu-item href when defined menu-item contain an anchor instead of button
          */
-        "href": string;
+        "href"?: string;
         /**
           * Identifier is used to control mg-popover
          */
@@ -1129,7 +1177,11 @@ export namespace Components {
         /**
           * Define menu-item status.
          */
-        "status": Status;
+        "status"?: Status;
+        /**
+          * Define target type
+         */
+        "target"?: TargetType;
     }
     interface MgMessage {
         /**
@@ -1139,7 +1191,7 @@ export namespace Components {
         /**
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
          */
-        "delay": number;
+        "delay"?: number;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -1147,7 +1199,7 @@ export namespace Components {
         /**
           * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
          */
-        "noAriaRole": boolean;
+        "noAriaRole"?: boolean;
         /**
           * Message variant
          */
@@ -1179,11 +1231,11 @@ export namespace Components {
         /**
           * Hide navigation label
          */
-        "hideNavigationLabels": boolean;
+        "hideNavigationLabels"?: boolean;
         /**
           * Hide select input
          */
-        "hidePageCount": boolean;
+        "hidePageCount"?: boolean;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
          */
@@ -1201,7 +1253,7 @@ export namespace Components {
         /**
           * Disable possibility to toggle expand
          */
-        "expandToggleDisabled": boolean;
+        "expandToggleDisabled"?: boolean;
         /**
           * Define expand toggle button display
          */
@@ -1225,11 +1277,11 @@ export namespace Components {
         /**
           * Panel title pattern
          */
-        "titlePattern": string;
+        "titlePattern"?: string;
         /**
           * Panel title pattern error message
          */
-        "titlePatternErrorMessage": string;
+        "titlePatternErrorMessage"?: string;
         /**
           * Define title position
          */
@@ -1299,11 +1351,11 @@ export namespace Components {
         /**
           * Define if tag is using outline style
          */
-        "outline": boolean;
+        "outline"?: boolean;
         /**
           * Define if tag is using soft style
          */
-        "soft": boolean;
+        "soft"?: boolean;
         /**
           * Define tag variant
          */
@@ -1520,6 +1572,12 @@ declare global {
     var HTMLMgIllustratedMessageElement: {
         prototype: HTMLMgIllustratedMessageElement;
         new (): HTMLMgIllustratedMessageElement;
+    };
+    interface HTMLMgInputElement extends Components.MgInput, HTMLStencilElement {
+    }
+    var HTMLMgInputElement: {
+        prototype: HTMLMgInputElement;
+        new (): HTMLMgInputElement;
     };
     interface HTMLMgInputCheckboxElementEventMap {
         "value-change": HTMLMgInputCheckboxElement['value'];
@@ -1913,6 +1971,7 @@ declare global {
         "mg-form": HTMLMgFormElement;
         "mg-icon": HTMLMgIconElement;
         "mg-illustrated-message": HTMLMgIllustratedMessageElement;
+        "mg-input": HTMLMgInputElement;
         "mg-input-checkbox": HTMLMgInputCheckboxElement;
         "mg-input-checkbox-paginated": HTMLMgInputCheckboxPaginatedElement;
         "mg-input-date": HTMLMgInputDateElement;
@@ -1974,7 +2033,7 @@ declare namespace LocalJSX {
          */
         "value": string | number;
         /**
-          * Define button variant
+          * Define badge variant
          */
         "variant"?: BadgeVariantType;
     }
@@ -2118,7 +2177,7 @@ declare namespace LocalJSX {
         /**
           * Icon to display.
          */
-        "icon": string;
+        "icon": IconType;
         /**
           * Define icon size
          */
@@ -2145,6 +2204,52 @@ declare namespace LocalJSX {
           * Define illustration size
          */
         "size"?: 'regular' | 'small';
+    }
+    interface MgInput {
+        /**
+          * Define aria-describedby ids to link with
+         */
+        "ariaDescribedbyIDs"?: string[];
+        /**
+          * Define error message to display
+         */
+        "errorMessage"?: string;
+        /**
+          * Define help text to display
+         */
+        "helpText"?: string;
+        /**
+          * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
+         */
+        "identifier": string;
+        /**
+          * Define input label
+         */
+        "label": string;
+        /**
+          * Define if label is visible
+         */
+        "labelHide"?: boolean;
+        /**
+          * Define if label is displayed on top
+         */
+        "labelOnTop"?: boolean;
+        /**
+          * Defines value to display in readonly mode
+         */
+        "readonlyValue"?: string | string[];
+        /**
+          * Define if input is required
+         */
+        "required"?: boolean;
+        /**
+          * Add a tooltip message next to the input
+         */
+        "tooltip"?: string;
+        /**
+          * Define tooltip position
+         */
+        "tooltipPosition"?: TooltipPosition;
     }
     interface MgInputCheckbox {
         /**
@@ -2695,7 +2800,7 @@ declare namespace LocalJSX {
         /**
           * Input icon
          */
-        "icon"?: string;
+        "icon"?: IconType1;
         /**
           * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
          */
@@ -2963,7 +3068,7 @@ declare namespace LocalJSX {
         /**
           * Define icon
          */
-        "icon"?: IconType;
+        "icon"?: IconType2;
         /**
           * Define component child menu size.
          */
@@ -3026,6 +3131,10 @@ declare namespace LocalJSX {
           * Define menu-item status.
          */
         "status"?: Status;
+        /**
+          * Define target type
+         */
+        "target"?: TargetType;
     }
     interface MgMessage {
         /**
@@ -3288,6 +3397,7 @@ declare namespace LocalJSX {
         "mg-form": MgForm;
         "mg-icon": MgIcon;
         "mg-illustrated-message": MgIllustratedMessage;
+        "mg-input": MgInput;
         "mg-input-checkbox": MgInputCheckbox;
         "mg-input-checkbox-paginated": MgInputCheckboxPaginated;
         "mg-input-date": MgInputDate;
@@ -3330,6 +3440,7 @@ declare module "@stencil/core" {
             "mg-form": LocalJSX.MgForm & JSXBase.HTMLAttributes<HTMLMgFormElement>;
             "mg-icon": LocalJSX.MgIcon & JSXBase.HTMLAttributes<HTMLMgIconElement>;
             "mg-illustrated-message": LocalJSX.MgIllustratedMessage & JSXBase.HTMLAttributes<HTMLMgIllustratedMessageElement>;
+            "mg-input": LocalJSX.MgInput & JSXBase.HTMLAttributes<HTMLMgInputElement>;
             "mg-input-checkbox": LocalJSX.MgInputCheckbox & JSXBase.HTMLAttributes<HTMLMgInputCheckboxElement>;
             /**
              * Internal component use to manage sections instances

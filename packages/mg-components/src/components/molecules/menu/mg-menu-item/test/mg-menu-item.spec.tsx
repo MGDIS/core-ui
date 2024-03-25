@@ -4,7 +4,7 @@ import { MgBadge } from '../../../../atoms/mg-badge/mg-badge';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
 import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 import { MgMenu } from '../../mg-menu/mg-menu';
-import { Status } from '../mg-menu-item.conf';
+import { Status, targets } from '../mg-menu-item.conf';
 import { Direction } from '../../mg-menu/mg-menu.conf';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
@@ -75,6 +75,7 @@ describe('mg-menu-item', () => {
       { label: 'Batman', badge: true },
       { label: 'Batman', metadata: true },
       { label: 'Batman', href: '#link' },
+      { label: 'Batman', href: '#link', target: '_blank' },
       { label: 'Batman', overflow: true },
     ])('with args %s', async args => {
       const { root } = await getPage(templateDefault(args));
@@ -158,7 +159,7 @@ describe('mg-menu-item', () => {
   });
 
   describe('errors', () => {
-    test('throw errors missing slot label %s', async () => {
+    test('Should throw an error when missing slot label', async () => {
       expect.assertions(1);
 
       try {
@@ -168,7 +169,7 @@ describe('mg-menu-item', () => {
       }
     });
 
-    test('throw errors missing slot label %s', async () => {
+    test('Should throw an error when missing slot label text content', async () => {
       expect.assertions(1);
 
       try {
@@ -178,7 +179,7 @@ describe('mg-menu-item', () => {
       }
     });
 
-    test('with expanded and sub-menu %s', async () => {
+    test('Should throw an error with expanded and sub-menu', async () => {
       expect.assertions(1);
 
       try {
@@ -188,7 +189,17 @@ describe('mg-menu-item', () => {
       }
     });
 
-    test('with expanded type mismatch', async () => {
+    test.each([' ', 'batman'])('Should throw an error with invalid target="%s"', async target => {
+      expect.assertions(1);
+
+      try {
+        await getPage(menuItem({ label: 'label', href: '#', target }));
+      } catch (err) {
+        expect(err.message).toBe(`<mg-link> prop "target" must be one of: ${targets.join(', ')}`);
+      }
+    });
+
+    test('Should throw an error with expanded type mismatch', async () => {
       expect.assertions(1);
 
       try {

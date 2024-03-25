@@ -3,28 +3,40 @@
 exports[`mg-input-toggle Should trigger events for items with inputValue: { items: [Array], expected: 'a', value: 'b' } 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          My help text
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -38,28 +50,40 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 exports[`mg-input-toggle Should trigger events for items with inputValue: { items: [Array], expected: 'b', value: undefined } 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          My help text
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -73,28 +97,40 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 exports[`mg-input-toggle Should trigger events for items with inputValue: { items: [Array], expected: 2, value: 1 } 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          My help text
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -108,28 +144,40 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 exports[`mg-input-toggle Should trigger events for items with inputValue: { items: [Array], expected: false, value: true } 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          My help text
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -143,28 +191,40 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 exports[`mg-input-toggle Should trigger events for items with inputValue: { items: [Array], expected: true, value: false } 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          My help text
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -178,25 +238,34 @@ exports[`mg-input-toggle Should trigger events for items with inputValue: { item
 exports[`mg-input-toggle setError should display override error with setError component's public method 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -210,28 +279,40 @@ exports[`mg-input-toggle setError should display override error with setError co
 exports[`mg-input-toggle setError should display override error with setError component's public method 2`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input mg-c-input__input--has-error">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div aria-live="assertive" class="mg-c-input__error" id="identifier-error">
-          error Batman
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="identifier-error" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-error" slot="error">
+        error Batman
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -250,25 +331,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -287,28 +377,40 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          Hello Joker
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        Hello Joker
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -328,25 +430,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -379,25 +490,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -430,28 +550,40 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          Hello Joker
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        Hello Joker
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -484,25 +616,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title mg-u-visually-hidden">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -535,25 +676,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -586,18 +736,35 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier" readonly="">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <strong>
-          Oui
-        </strong>
-      </div>
-    </div>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <strong>
+            Oui
+          </strong>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -630,34 +797,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -691,34 +867,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -753,34 +938,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -814,34 +1008,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-icon mg-c-input--toggle-on-off">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1">
     <mg-icon>
@@ -872,25 +1075,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -910,25 +1122,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -948,28 +1169,40 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          Hello Joker
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        Hello Joker
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -989,25 +1222,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title mg-u-visually-hidden">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1027,25 +1269,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1065,18 +1316,35 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier" readonly="">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <strong>
-          Batman
-        </strong>
-      </div>
-    </div>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <strong>
+            Batman
+          </strong>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1096,34 +1364,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1144,34 +1421,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1193,34 +1479,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1241,34 +1536,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1287,25 +1591,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title mg-u-visually-hidden">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1324,25 +1637,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1361,18 +1683,35 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier" readonly="">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <strong>
-          Batman
-        </strong>
-      </div>
-    </div>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <strong>
+            Batman
+          </strong>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1391,34 +1730,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1438,34 +1786,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1486,34 +1843,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1533,34 +1899,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1580,25 +1955,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1618,28 +2002,40 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          Hello Joker
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        Hello Joker
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1659,25 +2055,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title mg-u-visually-hidden">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1697,25 +2102,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1735,18 +2149,35 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier" readonly="">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <strong>
-          Joker
-        </strong>
-      </div>
-    </div>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <strong>
+            Joker
+          </strong>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1766,34 +2197,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1814,34 +2254,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1863,34 +2312,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1911,34 +2369,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1957,25 +2424,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -1995,25 +2471,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2033,28 +2518,40 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          Hello Joker
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        Hello Joker
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2074,25 +2571,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title mg-u-visually-hidden">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2112,25 +2618,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2150,18 +2665,35 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier" readonly="">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <strong>
-          Joker
-        </strong>
-      </div>
-    </div>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <strong>
+            Joker
+          </strong>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2181,34 +2713,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2229,34 +2770,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2278,34 +2828,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2326,34 +2885,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2372,25 +2940,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2410,25 +2987,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-disabled mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2448,28 +3034,40 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-        <div class="mg-c-input__help-text" id="identifier-help-text">
-          Hello Joker
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="identifier-help-text" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <div id="identifier-help-text" slot="help-text">
+        Hello Joker
       </div>
-    </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2489,25 +3087,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title mg-u-visually-hidden">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2527,25 +3134,34 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2565,18 +3181,35 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier" readonly="">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <strong>
-          Joker
-        </strong>
-      </div>
-    </div>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <strong>
+            Joker
+          </strong>
+          <slot></slot>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" aria-readonly="" class="mg-c-input__button-toggle" disabled="" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2596,34 +3229,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2644,34 +3286,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2693,34 +3344,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2741,34 +3401,43 @@ exports[`mg-input-toggle template Should render with args {
 }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-        <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-          <mg-icon>
-            <mock:shadow-root>
-              <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-              </svg>
-            </mock:shadow-root>
-          </mg-icon>
-        </mg-tooltip>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2782,25 +3451,34 @@ exports[`mg-input-toggle template Should render with args {
 exports[`mg-input-toggle template Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="false" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="false" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman
@@ -2814,25 +3492,34 @@ exports[`mg-input-toggle template Should render with args { label: 'label', iden
 exports[`mg-input-toggle template Should render with args { label: 'label', identifier: 'identifier', items: [Array], value: '' }: 1`] = `
 <mg-input-toggle>
   <mock:shadow-root>
-    <div class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
-      <div class="mg-c-input__title">
-        <mg-input-title identifier="identifier">
-          label
-        </mg-input-title>
-      </div>
-      <div class="mg-c-input__input-container">
-        <div class="mg-c-input__input">
-          <button aria-checked="true" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-1"></slot>
-            </span>
-            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-              <slot name="item-2"></slot>
-            </span>
-          </button>
+    <mg-input class="mg-c-input mg-c-input--toggle mg-c-input--toggle-is-active">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
         </div>
-      </div>
-    </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <button aria-checked="true" aria-describedby="" class="mg-c-input__button-toggle" id="identifier" role="switch" type="button">
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-1"></slot>
+        </span>
+        <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+          <slot name="item-2"></slot>
+        </span>
+      </button>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
   </mock:shadow-root>
   <span slot="item-1" title="Batman">
     Batman

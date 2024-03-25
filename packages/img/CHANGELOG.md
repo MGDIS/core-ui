@@ -1,5 +1,20 @@
 # @mgdis/img
 
+## 1.7.1
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
+## 1.7.0
+
+### Minor Changes
+
+- 1ba2d2a: Add illustrations
+- 1cab7cf: Add icons
+- 1cab7cf: Add illustrations
+- 2ed265a: Add dynamic-color illustration class
+
 ## 1.6.1
 
 ### Patch Changes

@@ -2,10 +2,12 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputToggle } from '../mg-input-toggle';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
+import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 
 const getPage = (args, customSlots?) =>
   newSpecPage({
-    components: [MgInputToggle, MgIcon],
+    components: [MgInputToggle, MgIcon, MgInput, MgInputTitle],
     template: () => (
       <mg-input-toggle {...args}>
         {customSlots

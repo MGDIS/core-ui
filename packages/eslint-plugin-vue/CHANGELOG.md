@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.1
+
+### Patch Changes
+
+- fbdf99a: Update dependencies
+
 ## 4.0.0
 
 ### Major Changes

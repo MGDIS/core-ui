@@ -1,10 +1,5 @@
-import { MgIcon } from '../../atoms/mg-icon/mg-icon';
-import { MgMenu } from '../menu/mg-menu/mg-menu';
-
-/**
- * message type
- */
-export type MessageType = { moreLabel: string; badgeLabel: string };
+import type { MgIcon } from '../../atoms/mg-icon/mg-icon';
+import type { MgMenu } from '../menu/mg-menu/mg-menu';
 
 /**
  * SlotLabel prop type
@@ -17,9 +12,7 @@ export type SlotLabelType = {
 /**
  * icon prop type
  */
-export type IconType = {
-  icon: MgIcon['icon'];
-};
+export type IconType = Pick<MgIcon, 'icon'>;
 
 /**
  * size type

@@ -5,10 +5,12 @@ import { MgPanel } from '../mg-panel';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgInputText } from '../../inputs/mg-input-text/mg-input-text';
 import { expandToggleDisplays, titlePositions } from '../mg-panel.conf';
+import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
+import { MgInput } from '../../inputs/mg-input/mg-input';
 
 const getPage = (args, slot?) =>
   newSpecPage({
-    components: [MgPanel, MgButton, MgInputText],
+    components: [MgPanel, MgButton, MgInputText, MgInputTitle, MgInput],
     template: () => <mg-panel {...args}>{slot}</mg-panel>,
   });
 

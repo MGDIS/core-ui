@@ -101,6 +101,7 @@
    */
 
   // Shadow
+  // To avoid being cropped in mg-modal, box-shadow properties must not exceed 1rem.
   --mg-b-box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 15%);
 
   // default height for inputs and buttons

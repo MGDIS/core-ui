@@ -4,14 +4,27 @@ import { MgPagination } from '../mg-pagination';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 import { MgInputSelect } from '../../inputs/mg-input-select/mg-input-select';
+import { MgInput } from '../../inputs/mg-input/mg-input';
+import { MgInputTitle } from '../../../atoms/internals/mg-input-title/mg-input-title';
 
-const getPage = args =>
-  newSpecPage({
-    components: [MgPagination, MgButton, MgIcon, MgInputSelect],
+const getPage = async args => {
+  const page = await newSpecPage({
+    components: [MgPagination, MgButton, MgIcon, MgInputSelect, MgInput, MgInputTitle],
     template: () => <mg-pagination {...args}></mg-pagination>,
   });
 
+  jest.runAllTimers();
+
+  return page;
+};
+
 describe('mg-pagination', () => {
+  beforeEach(() => {
+    jest.useFakeTimers({ legacyFakeTimers: true });
+  });
+  afterEach(() => {
+    jest.runOnlyPendingTimers();
+  });
   describe('Should render', () => {
     test.each([1, 2, 3, 10])('with totalPages %s', async totalPages => {
       const page = await getPage({ totalPages, identifier: 'id' });

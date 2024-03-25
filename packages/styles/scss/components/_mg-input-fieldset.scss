@@ -3,21 +3,7 @@
  */
 
 /* input group container */
-.mg-c-input__input-group-container {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
-  margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
-  gap: 1rem 2.3rem;
-  list-style: none;
-
-  &--vertical {
-    flex-direction: column;
-  }
-}
-
-fieldset.mg-c-input {
+.mg-c-input.mg-c-input--fieldset {
   padding: 0;
   border: 0;
   margin-right: 0;
@@ -31,17 +17,44 @@ fieldset.mg-c-input {
     margin: calc((var(--mg-b-font-size) * var(--mg-b-line-height) - var(--mg-c-input-check-size)) / 2) 0.6rem 0 0;
   }
 
+  .mg-c-input__input-group {
+    display: flex;
+    align-items: start;
+
+    &-container {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+      margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+      gap: 1rem 2.3rem;
+      list-style: none;
+    }
+  }
+
+  /**
+  * Variations
+  */
+  &.mg-c-input--vertical-list,
+  &.mg-c-input--checkbox-multi {
+    .mg-c-input__input-group-container {
+      flex-direction: column;
+    }
+  }
+
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {
     margin-top: 0.7rem;
   }
 }
 
-.mg-c-input__input-container mg-tooltip {
+:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
   margin-left: 3rem;
 }
 
-/* input group */
-.mg-c-input__input-group {
-  display: flex;
-  align-items: start;
+:host(.mg-c-input.mg-c-input--checkbox),
+:host(.mg-c-input.mg-c-input--radio) {
+  .mg-c-input__input {
+    min-height: unset;
+    align-items: flex-start;
+  }
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "globalEnv": ["GITLAB_CI", "CI", "NODE_ENV", "FIGMA_ACCESS_TOKEN", "FIGMA_FILE_KEY", "FIGMA_PAGE_ID"],
+  "globalEnv": ["GITLAB_CI", "CI", "NODE_ENV", "FIGMA_ACCESS_TOKEN", "FIGMA_FILE_KEY", "FIGMA_ICONS_PAGE_ID", "FIGMA_ILLUSTRATIONS_PAGE_ID"],
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],

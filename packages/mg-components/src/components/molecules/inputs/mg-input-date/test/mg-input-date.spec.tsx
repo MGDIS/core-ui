@@ -3,10 +3,12 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgInputDate } from '../mg-input-date';
 import messages from '../../../../../locales/en/messages.json';
 import { localeDate } from '@mgdis/stencil-helpers';
+import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputDate],
+    components: [MgInputDate, MgInput, MgInputTitle],
     template: () => <mg-input-date {...args}></mg-input-date>,
   });
   jest.runAllTimers();

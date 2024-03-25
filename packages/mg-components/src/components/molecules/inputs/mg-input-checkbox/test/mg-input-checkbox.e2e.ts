@@ -105,7 +105,7 @@ test.describe('mg-input-checkbox', () => {
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(args, `[identifier="${args.identifier}"]`) });
 
-          await page.waitForSelector('mg-input-checkbox.hydrated');
+          await page.locator('mg-input-checkbox.hydrated').waitFor();
 
           // Screenshot with focus on first item
           if (type === 'multi') {
@@ -174,7 +174,7 @@ test.describe('mg-input-checkbox', () => {
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(args, `[identifier="${args.identifier}"]`) });
 
-          await page.waitForSelector('mg-input-checkbox.hydrated');
+          await page.locator('mg-input-checkbox.hydrated').waitFor();
 
           // when multi open checkbox in popover
           if (type === 'multi') {
@@ -223,7 +223,7 @@ test.describe('mg-input-checkbox', () => {
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-          await page.waitForSelector('mg-input-checkbox.hydrated');
+          await page.locator('mg-input-checkbox.hydrated').waitFor();
 
           await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
         });
@@ -236,7 +236,7 @@ test.describe('mg-input-checkbox', () => {
           await page.setContent(html);
           await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-          await page.waitForSelector('mg-input-checkbox.hydrated');
+          await page.locator('mg-input-checkbox.hydrated').waitFor();
 
           await page.setViewportSize({ width: 200, height: 100 });
 
@@ -445,7 +445,6 @@ test.describe('mg-input-checkbox', () => {
       test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
         const componentArgs = { ...baseArgs, ...args };
         const html = createHTML(componentArgs);
-        console.log(html);
 
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });

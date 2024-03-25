@@ -30,7 +30,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `label` _(required)_ | `label`   | Badge label. Include short description. Required for accessibility | `string`                                                                                   | `undefined`   |
 | `outline`            | `outline` | Define if button is using outline style                            | `boolean`                                                                                  | `undefined`   |
 | `value` _(required)_ | `value`   | Badge value                                                        | `number \| string`                                                                         | `undefined`   |
-| `variant`            | `variant` | Define button variant                                              | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "text-color" \| "warning"` | `variants[0]` |
+| `variant`            | `variant` | Define badge variant                                               | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "text-color" \| "warning"` | `variants[0]` |
 
 
 ## Dependencies

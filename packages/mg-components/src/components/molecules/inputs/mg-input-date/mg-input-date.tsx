@@ -1,9 +1,8 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { InputError } from './mg-input-date.conf';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
+import { InputError } from './mg-input-date.conf';
+import { Handler, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
-import { Handler, type TooltipPosition } from '../MgInput.conf';
 
 @Component({
   tag: 'mg-input-date',
@@ -70,7 +69,7 @@ export class MgInputDate {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -86,18 +85,23 @@ export class MgInputDate {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputDate['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define input minimum date
    * format: yyyy-mm-dd
    */
-  @Prop() min: string;
+  @Prop() min?: string;
 
   /**
    * Define input maximum date
    * format: yyyy-mm-dd
    */
-  @Prop() max: string;
+  @Prop() max?: string;
   @Watch('min')
   @Watch('max')
   validateMinMax(newValue: string): void {
@@ -126,10 +130,16 @@ export class MgInputDate {
     }
   }
 
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputDate['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -144,7 +154,7 @@ export class MgInputDate {
    *  - `{defaultHelpText}`: render default `helpText` usefull to concat helpText local with your custom text.
    * ex: `Input use {pattern} pattern` as `helpText` prop value will be render as `Input use mm/dd/yyyy pattern`
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Define input valid state
@@ -258,7 +268,7 @@ export class MgInputDate {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
+    this.setValidity(this.readonly || this.disabled || this.input.checkValidity());
   };
 
   /**
@@ -340,6 +350,8 @@ export class MgInputDate {
     this.validateValue(this.value);
     this.validateMinMax(this.min);
     this.validateMinMax(this.max);
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -367,24 +379,19 @@ export class MgInputDate {
    */
   render(): HTMLElement {
     return (
-      <MgInput
-        identifier={this.identifier}
-        classCollection={this.classCollection}
-        ariaDescribedbyIDs={[]}
+      <mg-input
         label={this.label}
+        identifier={this.identifier}
+        class={this.classCollection.join()}
+        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={undefined}
-        disabled={this.disabled}
-        value={this.value}
         readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
         <input
           type="date"
@@ -403,7 +410,7 @@ export class MgInputDate {
             if (el !== null) this.input = el;
           }}
         />
-      </MgInput>
+      </mg-input>
     );
   }
 }

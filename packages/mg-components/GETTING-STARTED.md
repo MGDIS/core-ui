@@ -151,6 +151,30 @@ In some cases, binding **a string or a number** won't work ([#191](https://gitla
 <mg-input-text ng-prop-value="user.firstname" label="Firstname" ng-on-value-change="user.firstname = $event.detail"></mg-input-text>
 ```
 
+## Code Completion
+
+### VS Code
+
+mg-components provides a custom data file that can be used to describe its custom elements to Visual Studio Code. This enables code completion for mg-components components. To enable it, you need to specify the location of the data file in VS Code.
+
+In your project using mg-components:
+
+1. If it doesn't already exist, create a folder named `.vscode` at the root of your project.
+2. If it doesn't already exist, create a file named `settings.json` inside that folder.
+3. Add the following line to the `settings.json` file:
+
+```js
+{
+  "html.customData": ["./node_modules/@mgdis/mg-components/ide/vscode/html-custom-data.json"]
+}
+```
+
+If `settings.json` already exists, simply add the above line to the root of the object. Note that you may need to restart VS Code for the changes to take effect.
+
+### JetBrains IDEs
+
+If you are using a JetBrains IDE, such as WebStorm, the editor will automatically detect the `web-types.json` file from the package, and you should immediately see component information in your editor.
+
 ## Events
 
 If you are using component events, the value is accessed through `$event.detail` and not `$event.target.value`.

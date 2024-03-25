@@ -3,10 +3,12 @@ import { newSpecPage } from '@stencil/core/testing';
 import { MgInputRadio } from '../mg-input-radio';
 import { RadioOption } from '../mg-input-radio.conf';
 import messages from '../../../../../locales/en/messages.json';
+import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputRadio],
+    components: [MgInputRadio, MgInput, MgInputTitle],
     template: () => <mg-input-radio {...args}></mg-input-radio>,
   });
 

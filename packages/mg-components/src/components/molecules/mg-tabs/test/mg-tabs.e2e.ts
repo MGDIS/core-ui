@@ -1,7 +1,6 @@
-import { setPageContent, expect, describe, describeEach, testEach, PageType, test } from '../../../../utils/playwright.e2e.test.utils';
-import { createID } from '@mgdis/stencil-helpers';
+import { expect } from '@playwright/test';
+import { test } from '../../../../utils/playwright.fixture';
 import { sizes } from '../mg-tabs.conf';
-import { MgTabs } from '../mg-tabs';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
 
 const defaultArgs = {
@@ -24,66 +23,67 @@ enum Key {
   ENTER = 'Enter',
 }
 
-const createHTML = args => {
-  const id = createID();
-  return `<mg-tabs id="${id}" ${renderAttributes({ ...args })}">${createSlot(args.items)}</mg-tabs><script>${renderProperties(args, `#${id}`)}</script>`;
-};
+const createHTML = args => `<mg-tabs ${renderAttributes(args)}">${createSlot(args.items)}</mg-tabs>`;
 
-describe('mg-tabs', () => {
-  describeEach(sizes)('size %s', async size => {
-    testEach([
-      { items: ['Batman', 'Joker', 'Bane'] },
-      {
-        items: [
-          { label: 'Batman', icon: 'check' },
-          { label: 'Joker', icon: 'cross', status: 'disabled' },
-          { label: 'Bane', icon: 'cross', status: 'hidden' },
-        ],
-      },
-      {
-        items: [
-          { label: 'Batman', badge: { label: 'count', value: 1 } },
-          { label: 'Joker', badge: { label: 'count', value: 1 }, status: 'disabled' },
-          { label: 'Bane', icon: 'cross', status: 'hidden' },
-        ],
-      },
-      {
-        items: [
-          { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99 } },
-          { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99 }, status: 'disabled' },
-          { label: 'Bane', icon: 'cross', status: 'hidden' },
-        ],
-      },
-      {
-        items: [
-          { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99, role: 'notification' } },
-          { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99, role: 'information' }, status: 'disabled' },
-          { label: 'Bane', icon: 'cross', status: 'hidden' },
-        ],
-      },
-    ])(`render %s`, async (page: PageType, args: Partial<MgTabs>) => {
-      await setPageContent(
-        page,
-        createHTML({
-          ...defaultArgs,
-          ...args,
-          size,
-        }),
-      );
+test.describe('mg-tabs', () => {
+  sizes.forEach(size => {
+    test.describe(`size ${size}`, () => {
+      [
+        { items: ['Batman', 'Joker', 'Bane'] },
+        {
+          items: [
+            { label: 'Batman', icon: 'check' },
+            { label: 'Joker', icon: 'cross', status: 'disabled' },
+            { label: 'Bane', icon: 'cross', status: 'hidden' },
+          ],
+        },
+        {
+          items: [
+            { label: 'Batman', badge: { label: 'count', value: 1 } },
+            { label: 'Joker', badge: { label: 'count', value: 1 }, status: 'disabled' },
+            { label: 'Bane', icon: 'cross', status: 'hidden' },
+          ],
+        },
+        {
+          items: [
+            { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99 } },
+            { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99 }, status: 'disabled' },
+            { label: 'Bane', icon: 'cross', status: 'hidden' },
+          ],
+        },
+        {
+          items: [
+            { label: 'Batman', icon: 'check', badge: { label: 'count', value: 99, role: 'notification' } },
+            { label: 'Joker', icon: 'cross', badge: { label: 'count', value: 99, role: 'information' }, status: 'disabled' },
+            { label: 'Bane', icon: 'cross', status: 'hidden' },
+          ],
+        },
+      ].forEach((args, index) => {
+        test(`render ${index + 1}`, async ({ page }) => {
+          const componentArgs = {
+            ...defaultArgs,
+            ...args,
+            size,
+          };
+          const html = createHTML(componentArgs);
+          await page.setContent(html);
+          await page.addScriptTag({ content: renderProperties(componentArgs, `mg-tabs`) });
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
     });
   });
 
-  describe('navigation', () => {
-    test('Should go to next tab on click event', async ({ page }) => {
-      await setPageContent(
-        page,
-        createHTML({
-          ...defaultArgs,
-          items: ['Batman', 'Joker', 'Bane'],
-        }),
-      );
+  test.describe('navigation', () => {
+    test('should go to next tab on click event', async ({ page }) => {
+      const componentArgs = {
+        ...defaultArgs,
+        items: ['Batman', 'Joker', 'Bane'],
+      };
+      const html = createHTML(componentArgs);
+      await page.setContent(html);
+      await page.addScriptTag({ content: renderProperties(componentArgs, `mg-tabs`) });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
