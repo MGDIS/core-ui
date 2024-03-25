@@ -59,6 +59,7 @@ test.describe('mg-input-password', () => {
         await page.keyboard.down('Tab');
         if (!labelOnTop) {
           await page.keyboard.down('Tab');
+          await page.keyboard.down('Tab');
         }
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -121,6 +122,26 @@ test.describe('mg-input-password', () => {
     });
   });
 
+  test.describe('display password', () => {
+    [true, false].forEach(disabled => {
+      test(`Should ${disabled ? 'NOT' : ''} toggle display password with click on eye`, async ({ page }) => {
+        await page.setContent(createHTML({ ...baseArgs, value: 'batman', disabled }));
+
+        await page.locator('mg-input-password.hydrated').waitFor();
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+        const isDisabled = await page.locator('mg-button').isDisabled();
+
+        if (!isDisabled) {
+          await page.locator('mg-button').click();
+        }
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
+
   [{}, { lang: 'fr' }].forEach(args => {
     test(`Should render error when leaving an empty input ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args, required: true });
@@ -128,6 +149,7 @@ test.describe('mg-input-password', () => {
 
       await page.waitForSelector('mg-input-password.hydrated');
 
+      await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
 
