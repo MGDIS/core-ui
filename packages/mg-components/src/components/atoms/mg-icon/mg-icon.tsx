@@ -108,7 +108,7 @@ export class MgIcon {
    * Render icon in shadowroot
    * @param icon - icon to render
    */
-  private renderIcon = (icon: string): void => {
+  private renderIcon = (icon: IconType): void => {
     this.element.shadowRoot.innerHTML = icons[icon];
     this.svg = this.element.shadowRoot.querySelector('svg');
     // update svg attributes
