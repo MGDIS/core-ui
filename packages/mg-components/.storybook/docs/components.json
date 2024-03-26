@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-21T09:05:24",
+  "timestamp": "2024-03-26T10:11:57",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.6",
@@ -8160,6 +8160,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when item is loaded",
+          "docsTags": []
+        },
+        {
+          "event": "item-updated",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when item is updated",
           "docsTags": []
         },
         {

@@ -90,10 +90,16 @@ export class MgItemMore {
         if (navElement instanceof HTMLButtonElement || navElement instanceof HTMLAnchorElement) navElement.click();
       });
 
+      // uipdate properties and DOM when proxyfied item is updated
+      allMenuItem[index].addEventListener('item-updated', (event: CustomEvent & { target: HTMLElement }) => {
+        Object.assign(proxy, event.target);
+        proxy.innerHTML = event.target.innerHTML;
+      });
+
       // add id suffix to prevent duplicate key. default html id is: '';
       if (isValidString(proxy.id)) proxy.id = `${proxy.id}-proxy`;
 
-      // manage status change miror in proxy
+      // manage status change miror in proxyfied element
       allMenuItem[index].addEventListener('status-change', (event: CustomEvent) => {
         proxy.setAttribute('status', event.detail);
       });

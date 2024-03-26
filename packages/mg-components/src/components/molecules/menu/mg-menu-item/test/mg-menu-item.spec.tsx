@@ -384,7 +384,7 @@ describe('mg-menu-item', () => {
 
       await page.waitForChanges();
 
-      expect(menuItemElement).toHaveProperty('status', from);
+      expect(menuItemElement).toHaveProperty('status', to === Status.ACTIVE ? to : from);
       expect(page.root).toMatchSnapshot();
     });
 

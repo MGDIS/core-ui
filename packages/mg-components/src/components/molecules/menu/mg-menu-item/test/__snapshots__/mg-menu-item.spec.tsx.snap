@@ -91,6 +91,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
         </mock:shadow-root>
       </mg-badge>
     </mg-menu-item>
+    <mg-item-more></mg-item-more>
   </mg-menu>
   <span slot="label" title="batman">
     batman
@@ -176,6 +177,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
         </mock:shadow-root>
       </mg-badge>
     </mg-menu-item>
+    <mg-item-more></mg-item-more>
   </mg-menu>
   <span slot="label" title="batman">
     batman
@@ -296,6 +298,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
         child menu
       </span>
     </mg-menu-item>
+    <mg-item-more></mg-item-more>
   </mg-menu>
   <span slot="label" title="Batman">
     Batman
@@ -304,14 +307,14 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
 `;
 
 exports[`mg-menu-item MutationObserver Should update status with child title "attribute" mutation, from status { from: 'visible', to: 'active' } 1`] = `
-<mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
+<mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
   <mock:shadow-root>
     <mg-popover>
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -350,9 +353,9 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
     <mock:shadow-root>
       <slot></slot>
     </mock:shadow-root>
-    <mg-menu-item data-style-direction="horizontal" hidden="" label="child menu" role="listitem" status="visible">
+    <mg-menu-item data-style-direction="horizontal" hidden="" label="child menu" role="listitem" status="active">
       <mock:shadow-root>
-        <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -369,6 +372,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
         child menu
       </span>
     </mg-menu-item>
+    <mg-item-more></mg-item-more>
   </mg-menu>
   <span slot="label" title="Batman">
     Batman
@@ -442,6 +446,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
         child menu
       </span>
     </mg-menu-item>
+    <mg-item-more></mg-item-more>
   </mg-menu>
   <span slot="label" title="Batman">
     Batman
@@ -540,6 +545,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
         </mock:shadow-root>
       </mg-badge>
     </mg-menu-item>
+    <mg-item-more></mg-item-more>
   </mg-menu>
   <span slot="label" title="Batman">
     Batman
@@ -733,12 +739,12 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -812,12 +818,12 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -937,6 +943,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -947,7 +954,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1067,6 +1073,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -1077,7 +1084,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1197,6 +1203,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -1207,7 +1214,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1327,6 +1333,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -1337,7 +1344,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1593,12 +1599,12 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1672,12 +1678,12 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1797,6 +1803,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -1807,7 +1814,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1927,6 +1933,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -1937,7 +1944,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2057,6 +2063,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -2067,7 +2074,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2187,6 +2193,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -2197,7 +2204,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2453,12 +2459,12 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2532,12 +2538,12 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2657,6 +2663,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -2667,7 +2674,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2787,6 +2793,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -2797,7 +2804,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2917,6 +2923,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -2927,7 +2934,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3047,6 +3053,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               level 3
             </span>
           </mg-menu-item>
+          <mg-item-more></mg-item-more>
         </mg-menu>
         <span slot="label" title="level 2">
           level 2
@@ -3057,7 +3064,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3533,12 +3539,12 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3612,12 +3618,12 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3691,12 +3697,12 @@ exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3770,12 +3776,12 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3849,12 +3855,12 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3928,12 +3934,12 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
           child menu item
         </span>
       </mg-menu-item>
+      <mg-item-more></mg-item-more>
     </mg-menu>
     <span slot="label" title="Batman">
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 

@@ -110,7 +110,7 @@ export class MgMenu {
    */
   private setItemListener = (item: HTMLMgMenuItemElement, index: MgMenu['focusedMenuItem']): void => {
     ['click', 'focus'].forEach(trigger => {
-      (item.shadowRoot.querySelector('button') || item.shadowRoot.querySelector('a')).addEventListener(trigger, () => {
+      item.shadowRoot.querySelector('button,a').addEventListener(trigger, () => {
         this.focusedMenuItem = index;
         // reset expanded on previous active menu item
         (this.getItemMoreMenuItem() ? [...this.menuItems, this.getItemMoreMenuItem()] : this.menuItems).forEach((item, index) => {
@@ -141,13 +141,23 @@ export class MgMenu {
    * render mg-item-more
    */
   private renderMgItemMore = (): void => {
+    const item = 'mg-item-more';
+    let mgItemMore = this.getItemMore();
+    if (this.direction !== Direction.HORIZONTAL && this.isChildMenu) {
+      mgItemMore?.remove();
+      return;
+    }
+
     // /!\ externalise item tag name to get a string type and bypass type checking when value is used in next createElement
     // by doing this we prevent stencil to generate a circular dependencies graph at build time with mg-item-more component.
-    const item = 'mg-item-more';
-    const mgItemMore = document.createElement(item);
-    Object.assign(mgItemMore, this.itemmore);
-    mgItemMore.addEventListener('item-loaded', this.handleItemLoaded);
-    this.element.appendChild(mgItemMore);
+    if (!mgItemMore) {
+      mgItemMore = document.createElement(item);
+      mgItemMore.addEventListener('item-loaded', this.handleItemLoaded);
+      Object.assign(mgItemMore, this.itemmore || {});
+      this.element.appendChild(mgItemMore);
+    } else {
+      Object.defineProperties(mgItemMore, this.itemmore || {});
+    }
   };
 
   /*************
@@ -178,21 +188,13 @@ export class MgMenu {
       this.isChildMenu = this.element.closest('mg-menu-item') !== null;
 
       // add mg-item-more to manage OverflowBehavior
-      if (this.direction === Direction.HORIZONTAL && !this.isChildMenu) this.renderMgItemMore();
-
-      // use mutation observer to improve reactivity
-      new MutationObserver(entries => {
-        const mgItemMore = this.getItemMore();
-        // prevent infinit loop by exclude mg-item-more deletion entry
-        if (entries.some(entry => entry.type === 'childList' && Array.from(entry.removedNodes).some(node => node.nodeName === 'MG-ITEM-MORE'))) return;
-        else if (mgItemMore !== null) {
-          // render a new mg-item-more
-          mgItemMore.remove();
-          mgItemMore.removeEventListener('item-loaded', this.handleItemLoaded);
-          this.renderMgItemMore();
-        }
-      }).observe(this.element, { childList: true, characterData: true, subtree: true });
-    }, 0);
+      // when all props, states and DOM are already rendered we can render the mg-item-more
+      this.renderMgItemMore();
+      // then use mutation observer on children to improve reactivity
+      new MutationObserver(() => {
+        this.renderMgItemMore();
+      }).observe(this.element, { childList: true });
+    });
   }
 
   /**

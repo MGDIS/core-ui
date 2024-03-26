@@ -1,10 +1,15 @@
 <div>
-  <a id="vite-link" href="https://vitejs.dev" target="_blank">
-    <img src="/vite.svg" class="logo" alt="Vite logo" />
-  </a>
-  <a id="angular-link" href="https://angularjs.org/" target="_blank">
-    <img src="/angular.svg" class="logo vanilla" alt="AngularJS logo" />
-  </a>
+  <mg-menu label="test">
+    <mg-menu-item href="https://angularjs.org/">
+      <span slot="label">AngularJS</span>
+      <img slot="image" src="/angular.svg" class="logo vanilla" alt="AngularJS logo" />
+    </mg-menu-item>
+    <mg-menu-item href="https://vitejs.dev" status="active">
+      <span slot="label">viteJS</span>
+      <img slot="image" src="/vite.svg" class="logo" alt="Vite logo" />
+      <mg-badge slot="information" label="badge" value="{{$ctrl.counter}}"></mg-badge>
+    </mg-menu-item>
+  </mg-menu>
   <h1>Hello Vite!</h1>
   <div class="card">
     <mg-button id="button" type="button" ng-click="$ctrl.handleClick()" variant="secondary"

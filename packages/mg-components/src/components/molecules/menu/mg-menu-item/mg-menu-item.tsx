@@ -1,5 +1,5 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { ClassList, createID, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, createID, isValidString, nextTick } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 import { Direction } from '../mg-menu/mg-menu.conf';
 import { Status, targets } from './mg-menu-item.conf';
@@ -110,6 +110,11 @@ export class MgMenuItem {
    * Emited event when item is loaded
    */
   @Event({ eventName: 'item-loaded' }) itemLoaded: EventEmitter<void>;
+
+  /**
+   * Emited event when item is updated
+   */
+  @Event({ eventName: 'item-updated' }) itemUpdated: EventEmitter<void>;
 
   /**********
    * States *
@@ -367,9 +372,10 @@ export class MgMenuItem {
       this.itemLoaded.emit();
 
       new MutationObserver(mutationsList => {
-        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus();
+        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus([Status.ACTIVE]);
         if (mutationsList.some(mutation => mutation.type === 'characterData')) this.validateSlot();
         this.updateDisplayNotificationBadge();
+        this.itemUpdated.emit();
       }).observe(this.element, { attributes: true, childList: true, characterData: true, subtree: true });
     }, 0);
   }
@@ -430,6 +436,15 @@ export class MgMenuItem {
    * @returns HTML Element
    */
   private renderSlot = (): HTMLElement => <slot></slot>;
+
+  /**
+   * Emit event when component is updated
+   */
+  componentShouldUpdate(): Promise<void> {
+    return nextTick(() => {
+      this.itemUpdated.emit();
+    })
+  }
 
   /**
    * Render
