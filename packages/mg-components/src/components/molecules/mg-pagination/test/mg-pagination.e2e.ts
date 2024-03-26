@@ -21,7 +21,7 @@ test.describe('mg-pagination', () => {
 
   test.describe('navigation', () => {
     [2, 3, 10].forEach(totalPages => {
-      test(`should success mouse navigation totalPages: ${totalPages}`, async ({ page }) => {
+      test(`Should success mouse navigation totalPages: ${totalPages}`, async ({ page }) => {
         const html = createHTML({ totalPages });
         await page.setContent(html);
 
@@ -38,7 +38,7 @@ test.describe('mg-pagination', () => {
       });
     });
 
-    test('should success keyboard navigation', async ({ page }) => {
+    test('Should success keyboard navigation', async ({ page }) => {
       const html = createHTML({ totalPages: 5 });
       await page.setContent(html);
 
