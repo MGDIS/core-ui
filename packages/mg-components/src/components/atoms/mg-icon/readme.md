@@ -37,7 +37,7 @@ Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs)
 
 ![](./doc/img/mg-icon-styling-variant.png) 
 
-"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--docs) or "app color" to the background of the icon with Lightness set to 90% 
+"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or "app color" to the background of the icon with Lightness set to 90% 
 You can select "variant style" to apply "variant" on the icon or the background or both.
 
 # File naming
@@ -81,6 +81,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-input](../../molecules/inputs/mg-input)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
  - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - [mg-input-password](../../molecules/inputs/mg-input-password)
  - [mg-input-text](../../molecules/inputs/mg-input-text)
  - [mg-item-more](../../molecules/mg-item-more)
  - [mg-loader](../../molecules/mg-loader)
@@ -101,6 +102,7 @@ graph TD;
   mg-input --> mg-icon
   mg-input-checkbox --> mg-icon
   mg-input-checkbox-paginated --> mg-icon
+  mg-input-password --> mg-icon
   mg-input-text --> mg-icon
   mg-item-more --> mg-icon
   mg-loader --> mg-icon

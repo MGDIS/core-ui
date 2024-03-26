@@ -59,6 +59,7 @@ test.describe('mg-input-password', () => {
         await page.keyboard.down('Tab');
         if (!labelOnTop) {
           await page.keyboard.down('Tab');
+          await page.keyboard.down('Tab');
         }
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -121,6 +122,45 @@ test.describe('mg-input-password', () => {
     });
   });
 
+  test.describe('display password', () => {
+    test(`Should toggle display password with click on eye`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman' }));
+
+      await page.locator('mg-input-password.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.locator('mg-button').click();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.locator('mg-button').click();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+
+    test(`Should navigate with keyboard on "eye" button`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman' }));
+
+      await page.locator('mg-input-password.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
   [{}, { lang: 'fr' }].forEach(args => {
     test(`Should render error when leaving an empty input ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args, required: true });
@@ -128,6 +168,7 @@ test.describe('mg-input-password', () => {
 
       await page.locator('mg-input-password.hydrated').waitFor();
 
+      await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
 

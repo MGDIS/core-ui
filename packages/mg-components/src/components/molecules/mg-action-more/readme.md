@@ -22,7 +22,7 @@ In addition of the standard popover's behavior, when an item of the menu is clic
 
 ![](./doc/img/mg-action-more-options-variant.png)
 
-It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs)).
+It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs)).
 
 ### Icon
 

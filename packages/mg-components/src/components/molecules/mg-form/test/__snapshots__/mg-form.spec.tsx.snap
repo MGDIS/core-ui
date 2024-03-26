@@ -162,7 +162,19 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <div id="mg-input-password-error" slot="error">
           This field is required.
         </div>
@@ -531,7 +543,19 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="true" required="true" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-password">
@@ -876,7 +900,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -1244,7 +1280,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -1582,7 +1630,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -1979,7 +2039,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -2320,7 +2392,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -2681,7 +2765,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -3012,7 +3108,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -3395,7 +3503,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -3739,7 +3859,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="true" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -4107,7 +4239,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -4445,7 +4589,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -4831,7 +4987,19 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -5154,7 +5322,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -5472,7 +5652,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="true" required="false" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-password">
@@ -5791,7 +5983,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="true" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--disabled mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -6114,7 +6318,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -6431,7 +6647,19 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="true" required="false" slot="label">
           <!---->
           <span class="mg-c-input-title" htmlfor="mg-input-password">
@@ -6751,7 +6979,19 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -7074,7 +7314,19 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -7397,7 +7649,19 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -7720,7 +7984,19 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -8043,7 +8319,19 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -8366,7 +8654,19 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <mg-input-title identifier="mg-input-password" is-legend="false" readonly="false" required="false" slot="label">
           <!---->
           <label class="mg-c-input-title" htmlfor="mg-input-password">
@@ -8728,7 +9028,19 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Afficher le mot de passe" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <div id="mg-input-password-error" slot="error">
           Ce champ est obligatoire.
         </div>
@@ -9142,7 +9454,19 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+        <span class="mg-c-input__input-group">
+          <input aria-describedby="mg-input-password-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="mg-input-password" name="mg-input-password" required="" type="password">
+          <mg-button aria-disabled="false" aria-label="Display password value" class="mg-c-input__append-button" is-icon="" role="button" tabindex="0">
+            <mock:shadow-root>
+              <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </mock:shadow-root>
+            <mg-icon icon="eye"></mg-icon>
+          </mg-button>
+        </span>
         <div id="mg-input-password-error" slot="error">
           This field is required.
         </div>
