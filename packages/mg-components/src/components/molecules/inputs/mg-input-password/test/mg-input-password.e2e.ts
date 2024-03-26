@@ -133,10 +133,14 @@ test.describe('mg-input-password', () => {
       await page.locator('mg-button').click();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.locator('mg-button').click();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
 
     test(`Should navigate with keyboard on "eye" button`, async ({ page }) => {
-      await page.setContent(createHTML({ ...baseArgs, value: 'batman', tooltip: "I'm not a Marvel" }));
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman' }));
 
       await page.locator('mg-input-password.hydrated').waitFor();
 
@@ -144,10 +148,6 @@ test.describe('mg-input-password', () => {
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-
-      await page.keyboard.down('Enter');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
