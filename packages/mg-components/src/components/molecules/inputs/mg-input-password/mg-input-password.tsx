@@ -163,6 +163,11 @@ export class MgInputPassword {
   @State() errorMessage: string;
 
   /**
+   * Indicates if password is displayed or not
+   */
+  @State() displayPassword = false;
+
+  /**
    * Emited event when value change
    */
   @Event({ eventName: 'value-change' }) valueChange: EventEmitter<HTMLMgInputPasswordElement['value']>;
@@ -238,6 +243,13 @@ export class MgInputPassword {
   };
 
   /**
+   * Toggle display-pasword value
+   */
+  private toggleDisplayPassword = (): void => {
+    this.displayPassword = !this.displayPassword;
+  };
+
+  /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
@@ -304,23 +316,35 @@ export class MgInputPassword {
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <input
-          type="password"
-          class="mg-c-input__box mg-c-input__box--width"
-          value={this.value}
-          id={this.identifier}
-          name={this.name}
-          placeholder={this.placeholder}
-          title={this.placeholder}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-          ref={(el: HTMLInputElement) => {
-            if (el !== null) this.input = el;
-          }}
-        />
+        <span class="mg-c-input__input-group">
+          <input
+            type={this.displayPassword ? 'text' : 'password'}
+            class="mg-c-input__box mg-c-input__box--width"
+            value={this.value}
+            id={this.identifier}
+            name={this.name}
+            placeholder={this.placeholder}
+            title={this.placeholder}
+            disabled={this.disabled}
+            required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
+            onInput={this.handleInput}
+            onBlur={this.handleBlur}
+            ref={(el: HTMLInputElement) => {
+              if (el !== null) this.input = el;
+            }}
+          />
+          <mg-button
+            label={this.messages.input.password[this.displayPassword ? 'hide' : 'display']}
+            disabled={this.disabled}
+            variant="flat"
+            class="mg-c-input__append-button"
+            is-icon
+            onClick={this.toggleDisplayPassword}
+          >
+            <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+          </mg-button>
+        </span>
       </mg-input>
     );
   }

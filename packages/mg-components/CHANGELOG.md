@@ -59,7 +59,7 @@
 - 0f8510e: [mg-inputs](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Add responsive behavior
 - 99e1b92: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use mg-input-\*\* readonly style
 - 331ed0c: [`<mg-form>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs) Add `label-on-top` prop.
-- d72667f: [**`<mg-loader>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-loader--docs) add mg-loader component
+- d72667f: [**`<mg-loader>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-loader--docs) add mg-loader component
 - d360050: [**`<mg-input-toggle>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-toggle--docs) use mg-input-\*\* readonly style
 - b9938ee: [`mg-input-numeric`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs) Add format prop
 
@@ -104,7 +104,7 @@
 
 ### Minor Changes
 
-- e48bd9c: [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-date--docs) add default help-text with pattern based on user OS
+- e48bd9c: [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-date--docs) add default help-text with pattern based on user OS
 
 ### Patch Changes
 
@@ -117,7 +117,7 @@
 
 ### Minor Changes
 
-- bb1cca4: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) update "select all" action to only apply select/unselect on filtered results
+- bb1cca4: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) update "select all" action to only apply select/unselect on filtered results
 
 ### Patch Changes
 
@@ -224,7 +224,7 @@
 
 ### Minor Changes
 
-- 1d96c0e: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use automatic type only when prop 'type' is undefined
+- 1d96c0e: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) use automatic type only when prop 'type' is undefined
 
 ### Patch Changes
 
@@ -325,17 +325,17 @@
 
 ### Patch Changes
 
-- c433c00: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-details--docs) update media query
+- c433c00: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) update media query
 
 ## 5.12.0
 
 ### Minor Changes
 
-- 354ea9a: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-details--docs) hide summary text when width is under 600px and add variable to customize space between summary and details
-- 0fc473e: Add `<small/>` style [typography](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-typography--docs)
-- 4e5ef64: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) add search input in "multi" mode
+- 354ea9a: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) hide summary text when width is under 600px and add variable to customize space between summary and details
+- 0fc473e: Add `<small/>` style [typography](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-typography--docs)
+- 4e5ef64: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) add search input in "multi" mode
 - a4c96b1: use @mgdis/img package
-- 2d7d7b2: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) add "display-values" props
+- 2d7d7b2: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) add "display-values" props
 
 ### Patch Changes
 
@@ -352,7 +352,7 @@
 
 ### Minor Changes
 
-- 1d7137d: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs) add "multi" type behavior
+- 1d7137d: [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs) add "multi" type behavior
 
 ### Patch Changes
 
@@ -389,11 +389,11 @@
 
 ### Minor Changes
 
-- 5a18625: [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-popover--docs) add max-width CSS variable.
-- 5c8001b: [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-card--docs) add `variant` and `variantStyle` props
-- b4b8c1b: Added variants to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
-- 9ae6765: Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
-- d382117: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-details--docs) use small "chevron" icon
+- 5a18625: [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) add max-width CSS variable.
+- 5c8001b: [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) add `variant` and `variantStyle` props
+- b4b8c1b: Added variants to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
+- 9ae6765: Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
+- d382117: [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) use small "chevron" icon
 
 ## 5.8.2
 
@@ -413,7 +413,7 @@
 
 ### Minor Changes
 
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
 
 ### Patch Changes
 
@@ -429,9 +429,9 @@
 
 ### Minor Changes
 
-- [**`<mg-action-more>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-action-more--docs) new component
-- [**`<mg-pagination>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-pagination--docs) Add prop `hideNavigationLabels` to hide "next/previous" labels in navigation.
-- [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-form--docs) Update required message when single.
+- [**`<mg-action-more>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-action-more--docs) new component
+- [**`<mg-pagination>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-pagination--docs) Add prop `hideNavigationLabels` to hide "next/previous" labels in navigation.
+- [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs) Update required message when single.
 - Set opacity to 40% on `<mg-input-*>` and `<mg-button>` when disabled.
 
 ### Patch Changes
@@ -449,9 +449,9 @@
 
 ### Minor Changes
 
-- [**`<mg-menu>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/beta-menus-mg-menu--docs) Add overflow behavior.
-- [**`<mg-tooltip>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-tooltip--docs) Add `max-width`.
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
+- [**`<mg-menu>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/beta-menus-mg-menu--docs) Add overflow behavior.
+- [**`<mg-tooltip>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-tooltip--docs) Add `max-width`.
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
 - Locale methods are now exported
 
 ### Patch Changes
@@ -490,11 +490,11 @@
 
 ### Minor Changes
 
-- [**`<mg-skip-links>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-skip-links--docs) new component
+- [**`<mg-skip-links>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-skip-links--docs) new component
 - Move to Node 18
-- [**`<mg-tag>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-tag--docs) Add `soft` props and `<mg-icon>` display rules.
-- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs) added `link` variant.
-- [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-illustrated-message--docs) max-height set to 184px in regular size.
+- [**`<mg-tag>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-tag--docs) Add `soft` props and `<mg-icon>` display rules.
+- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs) added `link` variant.
+- [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) max-height set to 184px in regular size.
 
 ### Patch Changes
 
@@ -505,8 +505,8 @@
 
 ### Minor Changes
 
-- [**`<mg-badge>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-badge--docs) allows to add a `+` character after number.
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
+- [**`<mg-badge>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-badge--docs) allows to add a `+` character after number.
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
 - Remove CSS animations if the user has requested that the system minimize the amount of non-essential motion it uses (`prefers-reduced-motion`).
 
 ### Patch Changes
@@ -518,15 +518,15 @@
 
 ### Minor Changes
 
-- [**`<mg-menu>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/beta-menus-mg-menu--docs) new component **BETA**
-- [**`<mg-menu-item>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/beta-menus-mg-menu-item--docs) new component **BETA**
-- [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-tabs--docs) Update component spacings.
+- [**`<mg-menu>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/beta-menus-mg-menu--docs) new component **BETA**
+- [**`<mg-menu-item>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/beta-menus-mg-menu-item--docs) new component **BETA**
+- [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-tabs--docs) Update component spacings.
 
 ## 5.2.0
 
 ### Minor Changes
 
-- [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-form--docs) Does not display required message when all fields are required but disabled or in readonly.
+- [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs) Does not display required message when all fields are required but disabled or in readonly.
 - **`<mg-input-*>`** Does not display asterisk when required but disabled or in readonly.
 
 ### Patch Changes
@@ -542,11 +542,11 @@
 
 ### Minor Changes
 
-- [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-card--docs) new component
-- [**`<mg-divider>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-divider--docs) new component
-- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs) added `full-width` property.
-- [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-details--docs) added `hide-summary` property to hide summary text.
-- [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-popover--docs) enable close button even if disabled.
+- [**`<mg-card>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-card--docs) new component
+- [**`<mg-divider>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-divider--docs) new component
+- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs) added `full-width` property.
+- [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) added `hide-summary` property to hide summary text.
+- [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs) enable close button even if disabled.
 
 ### Patch Changes
 
@@ -566,8 +566,8 @@
 
 ### Minor Changes
 
-- [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-illustrated-message--docs) can be displayed horizontally.
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
+- [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) can be displayed horizontally.
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
 
 ### Patch Changes
 
@@ -609,13 +609,13 @@
 
 ### Minor Changes
 
-- [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-details--docs) new component
-- [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-illustrated-message--docs) new component
+- [**`<mg-details>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-details--docs) new component
+- [**`<mg-illustrated-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-illustrated-message--docs) new component
 - Storybook component code example improvements:
   - boolean true values are displayed without the empty String: `=""`
   - when a props is using its default value the attribute is not displayed
   - when a component has object props we display a message to remind it won't be rendered
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
 
 ### Patch Changes
 
@@ -632,7 +632,7 @@
 
 ### Patch Changes
 
-- Fix classes problem in [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-panel--docs)
+- Fix classes problem in [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs)
 - Remove exports from `package.json`
 
 ## 4.0.0
@@ -653,14 +653,14 @@
   - Changed **`<mg-input-*>`** error behavior.
   - Content default alignment can be changed using `--mg-inputs-text-align` CSS variable.
 - Changed danger color to `#db1f29`.
-- Added `resizable` props on [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-textarea--docs).
-- Added `small` (12px) icon size to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
-- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs) border color can be changed using CSS variables.
-- Changed backdrop color opacity on [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-modal--docs)
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs).
-- Changed required message font size on [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-form--docs)
-- Changed [**`<mg-character-left>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-character-left--docs) layout
-- Added [documentation about CSS variable](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/css-variables--docs)
+- Added `resizable` props on [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs).
+- Added `small` (12px) icon size to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
+- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs) border color can be changed using CSS variables.
+- Changed backdrop color opacity on [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-modal--docs)
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs).
+- Changed required message font size on [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs)
+- Changed [**`<mg-character-left>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-character-left--docs) layout
+- Added [documentation about CSS variable](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/css-variables--docs)
 
 ### Patch Changes
 
@@ -673,16 +673,16 @@
 
 ### Minor Changes
 
-- [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-panel--docs)
+- [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs)
   - Added `expanded-change` event
   - Added `title-pattern`, `title-pattern-error-message` and `expand-toggle-disabled` props
   - Changed edit button variant
-- [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-tabs--docs)
+- [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-tabs--docs)
   - Added `active-tab-change` event
   - Changed font sizes
-- Added `success` variant on [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs)
-- Changed backdrop color on [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-modal--docs)
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs)
+- Added `success` variant on [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs)
+- Changed backdrop color on [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-modal--docs)
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs)
 
 ### Patch Changes
 
@@ -693,11 +693,11 @@
 
 ### Minor Changes
 
-- [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-form--docs)
-- [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-modal--docs)
-- [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-panel--docs)
-- Added `size` to [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-tabs--docs)
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs)
+- [**`<mg-form>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-form--docs)
+- [**`<mg-modal>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-modal--docs)
+- [**`<mg-panel>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-panel--docs)
+- Added `size` to [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-tabs--docs)
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs)
 - Components events are now displayed in Storybook
 - Removed the `not-allowed` cursor on disabled components
 - E2E test screenshots no longer allow difference pixels
@@ -728,12 +728,12 @@
 
 ### Minor Changes
 
-- [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-popover--docs)
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs)
-- Added `component-hide` & `component-show` events on [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-message--docs)
+- [**`<mg-popover>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-popover--docs)
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs)
+- Added `component-hide` & `component-show` events on [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
 - Added `width` attribute on `<mg-input-...>` to override default behavior
 - Added `append-input` slot on `<mg-input-numeric>` & `<mg-input-text>`
-- Added `type` and `icon` attributes on [**`<mg-input-text>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-text--docs) to get an a search input
+- Added `type` and `icon` attributes on [**`<mg-input-text>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-text--docs) to get an a search input
 
 ### Patch Changes
 
@@ -756,11 +756,11 @@
 
 ### Minor Changes
 
-- [**`<mg-pagination>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-pagination--docs)
-- [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-tabs--docs)
-- [**`<mg-badge>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-badge--docs)
+- [**`<mg-pagination>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-pagination--docs)
+- [**`<mg-tabs>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-tabs--docs)
+- [**`<mg-badge>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-badge--docs)
 - In addition to the `SCSS`, variables are now also available with a `CSS` file.
-- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs)
+- Added icons to [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs)
 
 ### Patch Changes
 
@@ -777,20 +777,20 @@
 
 ### Major Changes
 
-- [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs)
+- [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs)
   - icons names changed following naming convention described in [PDA9-744](https://jira.mgdis.fr/browse/PDA9-744)
   - icons sizes are now `regular` (default), `large` and `extra-large`
 - Custom event names are now in kebab-case: `valueChange` changed to `value-change`
 
 ### Minor Changes
 
-- [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-checkbox--docs)
-- [**`<mg-input-password>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-password--docs)
+- [**`<mg-input-checkbox>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-checkbox--docs)
+- [**`<mg-input-password>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-password--docs)
 - [**`<mg-input-toggle>`**](?/path=story/molecules-inputs-mg-input-toggle--docs)
 - All inputs also refers to [PDA9-723](https://jira.mgdis.fr/browse/PDA9-723).
-- [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs) for accessibility, sometimes we need to add a background on icons, it is now possible with the attribute `variant`
-- [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-message--docs) can now be hidden after a defined delay using the `delay` attribute
-- [**`<mg-input-...>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input--docs) Tooltip icon moved next to label when used with the attribute `label-on-top`
+- [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs) for accessibility, sometimes we need to add a background on icons, it is now possible with the attribute `variant`
+- [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs) can now be hidden after a defined delay using the `delay` attribute
+- [**`<mg-input-...>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) Tooltip icon moved next to label when used with the attribute `label-on-top`
 
 ### Patch Changes
 
@@ -817,27 +817,27 @@ First release of the component library 🎉
 
 #### Atoms
 
-- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs)
-- [**`<mg-character-left>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-character-left--docs)
-- [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-icon--docs)
-- [**`<mg-input-title>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-input-title--docs)
-- [**`<mg-tag>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-tag--docs)
-- [**`<mg-tooltip>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-tooltip--docs)
+- [**`<mg-button>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs)
+- [**`<mg-character-left>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-character-left--docs)
+- [**`<mg-icon>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-icon--docs)
+- [**`<mg-input-title>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-input-title--docs)
+- [**`<mg-tag>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-tag--docs)
+- [**`<mg-tooltip>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-tooltip--docs)
 
 (1) : Used in inputs molecules.
 
 #### Molecules
 
-- [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-message--docs)
+- [**`<mg-message>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--docs)
 
 ##### Inputs
 
-- [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-date--docs)
-- [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-numeric--docs)
-- [**`<mg-input-radio>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-radio--docs)
-- [**`<mg-input-select>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-select--docs)
-- [**`<mg-input-text>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-text--docs)
-- [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-textarea--docs)
+- [**`<mg-input-date>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-date--docs)
+- [**`<mg-input-numeric>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-numeric--docs)
+- [**`<mg-input-radio>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-radio--docs)
+- [**`<mg-input-select>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-select--docs)
+- [**`<mg-input-text>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-text--docs)
+- [**`<mg-input-textarea>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-textarea--docs)
 
 All inputs also refers to [PDA9-723](https://jira.mgdis.fr/browse/PDA9-723).
 
@@ -845,10 +845,10 @@ All inputs also refers to [PDA9-723](https://jira.mgdis.fr/browse/PDA9-723).
 
 Dedicated stories to show how to setup :
 
-- [Email](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-text--docs#email)
-- [Emails](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-text--docs#emails)
-- [RNA](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-text--docs#rna)
-- [URL](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-inputs-mg-input-text--docs#url)
+- [Email](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-text--docs#email)
+- [Emails](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-text--docs#emails)
+- [RNA](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-text--docs#rna)
+- [URL](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-text--docs#url)
 
 #### More stories
 
@@ -858,11 +858,11 @@ Dedicated stories to show how to setup :
 
 MG Components also provide a stylesheet.
 
-- A dedicated story to [typography](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-typography--docs)
-- A dedicated story to [grids](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-layout-grid--docs)
+- A dedicated story to [typography](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-typography--docs)
+- A dedicated story to [grids](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-layout-grid--docs)
 
 The stylesheet to make native elements look like our design system expectations.
 
-- [`.mg-button`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-buttons--docs)
-- [`.mg-message`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-messages--docs)
-- [`.mg-tag`](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-tags--docs)
+- [`.mg-button`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-buttons--docs)
+- [`.mg-message`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-messages--docs)
+- [`.mg-tag`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-tags--docs)

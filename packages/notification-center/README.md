@@ -21,7 +21,7 @@ It has some concistency issues.
 
 The idea is to load the library on every frontend projects, if it's loaded in the top window it will listen to messages, so even if you are running your project localy, the notification will be displayed.
 
-The library display notifications using [mg-message](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/molecules-mg-message--mg-message) from [mg-components](http://core.pages.mgdis.fr/core-ui/core-ui/).
+The library display notifications using [mg-message](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-message--mg-message) from [mg-components](http://core.pages.mgdis.fr/core-ui/core-ui/).
 
 ### Include the lib
 

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-25T09:17:53",
+  "timestamp": "2024-03-26T07:00:22",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.12.6",
@@ -10,7 +10,7 @@
       "filePath": "src/components/molecules/mg-action-more/mg-action-more.tsx",
       "encapsulation": "shadow",
       "tag": "mg-action-more",
-      "readme": "## Anatomy\n\n![](./doc/img/mg-action-more-anatomy.png)\n\n## Specifications\n\n![](./doc/img/mg-action-more-popover-spacing.png)\n\n### Spacing\n\nPopover padding should be 10px up/down, 0px left/right.\n\n## Behavior\n\n### Action\n\nIn addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.\n\n## Items\n\n### Button's variant\n\n![](./doc/img/mg-action-more-options-variant.png)\n\nIt is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/atoms-mg-button--docs)).\n\n### Icon\n\n![](./doc/img/mg-action-more-options-icon.png)\n\nIt is possible to set another icon\n\n### Label\n\n![](./doc/img/mg-action-more-options-label.png)\n\nIt is possible to set another label.\n\n### Chevron\n\n![](./doc/img/mg-action-more-options-chevron.png)\n\nIt is possible to display a chevron on the label right side, it make a 180 degree rotation on click.\n",
+      "readme": "## Anatomy\n\n![](./doc/img/mg-action-more-anatomy.png)\n\n## Specifications\n\n![](./doc/img/mg-action-more-popover-spacing.png)\n\n### Spacing\n\nPopover padding should be 10px up/down, 0px left/right.\n\n## Behavior\n\n### Action\n\nIn addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.\n\n## Items\n\n### Button's variant\n\n![](./doc/img/mg-action-more-options-variant.png)\n\nIt is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs)).\n\n### Icon\n\n![](./doc/img/mg-action-more-options-icon.png)\n\nIt is possible to set another icon\n\n### Label\n\n![](./doc/img/mg-action-more-options-label.png)\n\nIt is possible to set another label.\n\n### Chevron\n\n![](./doc/img/mg-action-more-options-chevron.png)\n\nIt is possible to display a chevron on the label right side, it make a 180 degree rotation on click.\n",
       "docs": "![](./doc/img/mg-action-more-anatomy.png)",
       "docsTags": [],
       "usage": {},
@@ -92,10 +92,10 @@
         },
         {
           "name": "icon",
-          "type": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
+          "type": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
           "complexType": {
             "original": "MgActionMoreIconType",
-            "resolved": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
+            "resolved": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
             "references": {
               "MgActionMoreIconType": {
                 "location": "import",
@@ -217,22 +217,6 @@
               "type": "string"
             },
             {
-              "value": "arrow-up",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right-square",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-z-a",
-              "type": "string"
-            },
-            {
               "value": "arrows-compare",
               "type": "string"
             },
@@ -250,6 +234,22 @@
             },
             {
               "value": "arrows-rotate-backward",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right-square",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-z-a",
               "type": "string"
             },
             {
@@ -581,15 +581,15 @@
               "type": "string"
             },
             {
-              "value": "folder-star",
-              "type": "string"
-            },
-            {
               "value": "folders",
               "type": "string"
             },
             {
               "value": "folders-outline",
+              "type": "string"
+            },
+            {
+              "value": "folder-star",
               "type": "string"
             },
             {
@@ -713,15 +713,15 @@
               "type": "string"
             },
             {
+              "value": "paperclip",
+              "type": "string"
+            },
+            {
               "value": "paper-plane",
               "type": "string"
             },
             {
               "value": "paper-plane-slash",
-              "type": "string"
-            },
-            {
-              "value": "paperclip",
               "type": "string"
             },
             {
@@ -829,19 +829,19 @@
               "type": "string"
             },
             {
-              "value": "thumb-up",
-              "type": "string"
-            },
-            {
-              "value": "thumb-up-outline",
-              "type": "string"
-            },
-            {
               "value": "thumbtack",
               "type": "string"
             },
             {
               "value": "thumbtack-outline",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up-outline",
               "type": "string"
             },
             {
@@ -905,11 +905,11 @@
               "type": "string"
             },
             {
-              "value": "user-shield-outline",
+              "value": "users",
               "type": "string"
             },
             {
-              "value": "users",
+              "value": "user-shield-outline",
               "type": "string"
             },
             {
@@ -1432,6 +1432,7 @@
         "mg-action-more",
         "mg-input-checkbox",
         "mg-input-checkbox-paginated",
+        "mg-input-password",
         "mg-message",
         "mg-modal",
         "mg-pagination",
@@ -1452,6 +1453,9 @@
           "mg-button"
         ],
         "mg-input-checkbox-paginated": [
+          "mg-button"
+        ],
+        "mg-input-password": [
           "mg-button"
         ],
         "mg-message": [
@@ -2162,17 +2166,17 @@
       "filePath": "src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
-      "readme": "## Specifications\n\n### Sizing\n\n![](./doc/img/mg-icon-sizing.png) \n\nSizes (px):\n\n- small: 12x12\n- regular: 16x16\n- medium: 20x20\n- large: 24x24\n- extra-large: 32x32\n\n### With \"variant\" applied\n\n![](./doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))\n\n### Variant style\n\n\n### Variant\n![](./doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/?path=/docs/style-colors--docs) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator: \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant: \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex: check-circle, check-circle-outline*\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--mg-icon-medium-size`: Define medium icon size, default: `2rem`\n- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n- `--mg-icon-border-radius`: Define icon border radiys, default: `50%`\n",
+      "readme": "## Specifications\n\n### Sizing\n\n![](./doc/img/mg-icon-sizing.png) \n\nSizes (px):\n\n- small: 12x12\n- regular: 16x16\n- medium: 20x20\n- large: 24x24\n- extra-large: 32x32\n\n### With \"variant\" applied\n\n![](./doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))\n\n### Variant style\n\n\n### Variant\n![](./doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator: \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant: \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex: check-circle, check-circle-outline*\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-icon-small-size`: Define small icon size, default: `1.2rem`\n- `--mg-icon-regular-size`: Define regular icon size, default: `1.6rem`\n- `--mg-icon-medium-size`: Define medium icon size, default: `2rem`\n- `--mg-icon-large-size`: Define large icon size, default: `2.4rem`\n- `--mg-icon-extra-large-size`: Define extra large icon size, default: `3.6rem`\n- `--mg-icon-border-radius`: Define icon border radiys, default: `50%`\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
         {
           "name": "icon",
-          "type": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
+          "type": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
           "complexType": {
             "original": "IconType",
-            "resolved": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
+            "resolved": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
             "references": {
               "IconType": {
                 "location": "import",
@@ -2296,22 +2300,6 @@
               "type": "string"
             },
             {
-              "value": "arrow-up",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right-square",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-z-a",
-              "type": "string"
-            },
-            {
               "value": "arrows-compare",
               "type": "string"
             },
@@ -2329,6 +2317,22 @@
             },
             {
               "value": "arrows-rotate-backward",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right-square",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-z-a",
               "type": "string"
             },
             {
@@ -2660,15 +2664,15 @@
               "type": "string"
             },
             {
-              "value": "folder-star",
-              "type": "string"
-            },
-            {
               "value": "folders",
               "type": "string"
             },
             {
               "value": "folders-outline",
+              "type": "string"
+            },
+            {
+              "value": "folder-star",
               "type": "string"
             },
             {
@@ -2792,15 +2796,15 @@
               "type": "string"
             },
             {
+              "value": "paperclip",
+              "type": "string"
+            },
+            {
               "value": "paper-plane",
               "type": "string"
             },
             {
               "value": "paper-plane-slash",
-              "type": "string"
-            },
-            {
-              "value": "paperclip",
               "type": "string"
             },
             {
@@ -2908,19 +2912,19 @@
               "type": "string"
             },
             {
-              "value": "thumb-up",
-              "type": "string"
-            },
-            {
-              "value": "thumb-up-outline",
-              "type": "string"
-            },
-            {
               "value": "thumbtack",
               "type": "string"
             },
             {
               "value": "thumbtack-outline",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up-outline",
               "type": "string"
             },
             {
@@ -2984,11 +2988,11 @@
               "type": "string"
             },
             {
-              "value": "user-shield-outline",
+              "value": "users",
               "type": "string"
             },
             {
-              "value": "users",
+              "value": "user-shield-outline",
               "type": "string"
             },
             {
@@ -3168,6 +3172,7 @@
         "mg-input",
         "mg-input-checkbox",
         "mg-input-checkbox-paginated",
+        "mg-input-password",
         "mg-input-text",
         "mg-item-more",
         "mg-loader",
@@ -3197,6 +3202,9 @@
           "mg-icon"
         ],
         "mg-input-checkbox-paginated": [
+          "mg-icon"
+        ],
+        "mg-input-password": [
           "mg-icon"
         ],
         "mg-input-text": [
@@ -6188,11 +6196,15 @@
       "parts": [],
       "dependents": [],
       "dependencies": [
-        "mg-input"
+        "mg-input",
+        "mg-button",
+        "mg-icon"
       ],
       "dependencyGraph": {
         "mg-input-password": [
-          "mg-input"
+          "mg-input",
+          "mg-button",
+          "mg-icon"
         ],
         "mg-input": [
           "mg-tooltip",
@@ -6201,6 +6213,9 @@
         ],
         "mg-tooltip": [
           "mg-tooltip-content"
+        ],
+        "mg-button": [
+          "mg-icon"
         ]
       }
     },
@@ -7419,10 +7434,10 @@
         },
         {
           "name": "icon",
-          "type": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
+          "type": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
           "complexType": {
             "original": "IconType",
-            "resolved": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
+            "resolved": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
             "references": {
               "IconType": {
                 "location": "import",
@@ -7546,22 +7561,6 @@
               "type": "string"
             },
             {
-              "value": "arrow-up",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right-square",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-z-a",
-              "type": "string"
-            },
-            {
               "value": "arrows-compare",
               "type": "string"
             },
@@ -7579,6 +7578,22 @@
             },
             {
               "value": "arrows-rotate-backward",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right-square",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-z-a",
               "type": "string"
             },
             {
@@ -7910,15 +7925,15 @@
               "type": "string"
             },
             {
-              "value": "folder-star",
-              "type": "string"
-            },
-            {
               "value": "folders",
               "type": "string"
             },
             {
               "value": "folders-outline",
+              "type": "string"
+            },
+            {
+              "value": "folder-star",
               "type": "string"
             },
             {
@@ -8042,15 +8057,15 @@
               "type": "string"
             },
             {
+              "value": "paperclip",
+              "type": "string"
+            },
+            {
               "value": "paper-plane",
               "type": "string"
             },
             {
               "value": "paper-plane-slash",
-              "type": "string"
-            },
-            {
-              "value": "paperclip",
               "type": "string"
             },
             {
@@ -8158,19 +8173,19 @@
               "type": "string"
             },
             {
-              "value": "thumb-up",
-              "type": "string"
-            },
-            {
-              "value": "thumb-up-outline",
-              "type": "string"
-            },
-            {
               "value": "thumbtack",
               "type": "string"
             },
             {
               "value": "thumbtack-outline",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up-outline",
               "type": "string"
             },
             {
@@ -8234,11 +8249,11 @@
               "type": "string"
             },
             {
-              "value": "user-shield-outline",
+              "value": "users",
               "type": "string"
             },
             {
-              "value": "users",
+              "value": "user-shield-outline",
               "type": "string"
             },
             {
@@ -10098,10 +10113,10 @@
       "props": [
         {
           "name": "icon",
-          "type": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
+          "type": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
           "complexType": {
             "original": "IconType",
-            "resolved": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
+            "resolved": "{ icon: \"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"; }",
             "references": {
               "IconType": {
                 "location": "import",
@@ -10224,22 +10239,6 @@
               "type": "string"
             },
             {
-              "value": "arrow-up",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-right-square",
-              "type": "string"
-            },
-            {
-              "value": "arrow-up-z-a",
-              "type": "string"
-            },
-            {
               "value": "arrows-compare",
               "type": "string"
             },
@@ -10257,6 +10256,22 @@
             },
             {
               "value": "arrows-rotate-backward",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-right-square",
+              "type": "string"
+            },
+            {
+              "value": "arrow-up-z-a",
               "type": "string"
             },
             {
@@ -10588,15 +10603,15 @@
               "type": "string"
             },
             {
-              "value": "folder-star",
-              "type": "string"
-            },
-            {
               "value": "folders",
               "type": "string"
             },
             {
               "value": "folders-outline",
+              "type": "string"
+            },
+            {
+              "value": "folder-star",
               "type": "string"
             },
             {
@@ -10720,15 +10735,15 @@
               "type": "string"
             },
             {
+              "value": "paperclip",
+              "type": "string"
+            },
+            {
               "value": "paper-plane",
               "type": "string"
             },
             {
               "value": "paper-plane-slash",
-              "type": "string"
-            },
-            {
-              "value": "paperclip",
               "type": "string"
             },
             {
@@ -10836,19 +10851,19 @@
               "type": "string"
             },
             {
-              "value": "thumb-up",
-              "type": "string"
-            },
-            {
-              "value": "thumb-up-outline",
-              "type": "string"
-            },
-            {
               "value": "thumbtack",
               "type": "string"
             },
             {
               "value": "thumbtack-outline",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up",
+              "type": "string"
+            },
+            {
+              "value": "thumb-up-outline",
               "type": "string"
             },
             {
@@ -10912,11 +10927,11 @@
               "type": "string"
             },
             {
-              "value": "user-shield-outline",
+              "value": "users",
               "type": "string"
             },
             {
-              "value": "users",
+              "value": "user-shield-outline",
               "type": "string"
             },
             {
@@ -13330,7 +13345,7 @@
       "path": "src/components/atoms/mg-button/mg-button.conf.ts"
     },
     "src/components/atoms/mg-icon/mg-icon.conf.ts::IconType": {
-      "declaration": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folder-star\" | \"folders\" | \"folders-outline\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paper-plane\" | \"paper-plane-slash\" | \"paperclip\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"user-shield-outline\" | \"users\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
+      "declaration": "\"filter\" | \"copy\" | \"link\" | \"picture\" | \"table\" | \"circle\" | \"download\" | \"history\" | \"location\" | \"key\" | \"loader\" | \"address-card\" | \"align-center\" | \"align-justify\" | \"align-left\" | \"align-right\" | \"api\" | \"archive\" | \"archive-outline\" | \"arrow-clock\" | \"arrow-down\" | \"arrow-down-a-z\" | \"arrow-down-right\" | \"arrow-left\" | \"arrow-right\" | \"arrow-rotate\" | \"arrow-rotate-backward\" | \"arrows-compare\" | \"arrows-right-down\" | \"arrows-right-left\" | \"arrows-rotate\" | \"arrows-rotate-backward\" | \"arrow-up\" | \"arrow-up-right\" | \"arrow-up-right-square\" | \"arrow-up-z-a\" | \"ban\" | \"bell\" | \"bell-outline\" | \"book\" | \"book-outline\" | \"briefcase\" | \"briefcase-outline\" | \"building-outline\" | \"calculator\" | \"calendar\" | \"calendar-euro\" | \"calendar-euro-outline\" | \"calendar-outline\" | \"check\" | \"check-circle\" | \"check-circle-outline\" | \"chevron-down\" | \"chevron-down-circle\" | \"chevron-left\" | \"chevron-left-circle\" | \"chevron-right\" | \"chevron-right-circle\" | \"chevron-up\" | \"chevron-up-circle\" | \"clock\" | \"clock-outline\" | \"code-square-outline\" | \"cog\" | \"cog-outline\" | \"comment\" | \"comment-outline\" | \"comment-sms\" | \"conversation\" | \"conversation-outline\" | \"copy-file\" | \"copy-file-outline\" | \"copy-outline\" | \"credit-card\" | \"cross\" | \"cross-circle\" | \"cross-circle-outline\" | \"dashboard\" | \"dashboard-outline\" | \"earth\" | \"earth-outline\" | \"ellipsis\" | \"ellipsis-vertical\" | \"euro\" | \"euro-circle\" | \"exclamation-circle\" | \"exclamation-circle-outline\" | \"exclamation-stamp\" | \"exclamation-triangle\" | \"exclamation-triangle-outline\" | \"eye\" | \"eye-slash\" | \"fax\" | \"fax-outline\" | \"file\" | \"file-cog\" | \"file-download\" | \"file-excel\" | \"file-excel-outline\" | \"file-outline\" | \"file-pdf\" | \"file-pdf-outline\" | \"file-text\" | \"file-text-outline\" | \"file-upload\" | \"file-word\" | \"file-word-outline\" | \"filter-outline\" | \"floppy-disk\" | \"floppy-disk-outline\" | \"folder\" | \"folder-check\" | \"folder-check-outline\" | \"folder-lines\" | \"folder-lines-outline\" | \"folder-link\" | \"folder-link-outline\" | \"folder-outline\" | \"folders\" | \"folders-outline\" | \"folder-star\" | \"gavel\" | \"gavel-outline\" | \"graduation-cap\" | \"graduation-cap-outline\" | \"hand-up\" | \"home\" | \"home-outline\" | \"info-circle\" | \"info-circle-outline\" | \"interrogation-circle\" | \"interrogation-circle-outline\" | \"laptop\" | \"life-ring\" | \"lines-rectangle\" | \"lines-rectangle-outline\" | \"list\" | \"location-outline\" | \"lock\" | \"lock-outline\" | \"log-in\" | \"log-out\" | \"magnifying-glass\" | \"mail\" | \"mail-outline\" | \"messages-square\" | \"messages-square-outline\" | \"mobile\" | \"mobile-outline\" | \"notes\" | \"notes-outline\" | \"paperclip\" | \"paper-plane\" | \"paper-plane-slash\" | \"pen\" | \"pen-circle\" | \"pen-fancy\" | \"pen-fancy-files-outline\" | \"pen-fancy-outline\" | \"pen-outline\" | \"phone\" | \"phone-outline\" | \"picture-outline\" | \"play-circle\" | \"plus\" | \"plus-circle\" | \"question-circle\" | \"share\" | \"share-outline\" | \"shuffle\" | \"sitemap\" | \"sliders\" | \"sliders-outline\" | \"squares\" | \"star\" | \"star-outline\" | \"tag\" | \"tags\" | \"thumb-down\" | \"thumb-down-outline\" | \"thumbtack\" | \"thumbtack-outline\" | \"thumb-up\" | \"thumb-up-outline\" | \"trash\" | \"trash-outline\" | \"universal-access\" | \"unlink\" | \"unlock\" | \"unlock-outline\" | \"upload\" | \"user\" | \"user-circle\" | \"user-group\" | \"user-lock\" | \"user-outline\" | \"user-pen-fancy-outline\" | \"user-plus\" | \"user-question-outline\" | \"users\" | \"user-shield-outline\" | \"users-outline\" | \"wallet\" | \"wallet-outline\"",
       "docstring": "",
       "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
     },
