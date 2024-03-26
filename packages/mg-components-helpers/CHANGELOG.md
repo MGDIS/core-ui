@@ -1,5 +1,15 @@
 # Changelog
 
+## 4.1.0
+
+### Minor Changes
+
+- 15bb138: [#475](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/475) [mg-components-helper] add UMD export in dist
+
+### Patch Changes
+
+- a8d2eea: Update dependencies
+
 ## 4.0.2
 
 ### Patch Changes

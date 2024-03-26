@@ -1,5 +1,27 @@
 # @mgdis/mg-components
 
+## 5.27.0
+
+### Minor Changes
+
+- ad35587: Add icon type
+- 227f361: [**`<mg-input-password>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-password--docs) add display password feature
+- 9bc3223: [**`<mg-input>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input--docs) add mg-input component
+- 215c537: [`<mg-action-more>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-mg-action-more--docs) [`<mg-menu-item>`](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-menus-mg-menu-item--docs) auto add "open in new tab" icon for links that open in a new tab
+
+### Patch Changes
+
+- 208d83c: [#476](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/476) Stop search event propagation
+- a8d2eea: Update dependencies
+- 1c07c3b: [#474](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/474) clearly define optional props
+- Updated dependencies [a8d2eea]
+- Updated dependencies [227f361]
+- Updated dependencies [fd7f36c]
+- Updated dependencies [9bc3223]
+- Updated dependencies [215c537]
+  - @mgdis/stencil-helpers@1.1.1
+  - @mgdis/styles@1.3.0
+
 ## 5.26.0
 
 ### Minor Changes
