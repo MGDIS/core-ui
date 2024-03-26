@@ -1,5 +1,20 @@
 # stencil
 
+## 0.0.14
+
+### Patch Changes
+
+- a8d2eea: Update dependencies
+- 1c07c3b: [#474](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/474) clearly define optional props
+- Updated dependencies [208d83c]
+- Updated dependencies [a8d2eea]
+- Updated dependencies [1c07c3b]
+- Updated dependencies [ad35587]
+- Updated dependencies [227f361]
+- Updated dependencies [9bc3223]
+- Updated dependencies [215c537]
+  - @mgdis/mg-components@5.27.0
+
 ## 0.0.13
 
 ### Patch Changes

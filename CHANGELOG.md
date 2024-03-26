@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2024-03-26-15-16_Disturbed-Desert-Sand-Dugong)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2024-03-12-14-48_Misty-Maroon-Magpie)
 
 ### Packages released
