@@ -2,13 +2,16 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInputPassword } from '../mg-input-password';
 import messages from '../../../../../locales/en/messages.json';
+import { MgInput } from '../../mg-input/mg-input';
+import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { MgButton } from '../../../../atoms/mg-button/mg-button';
 
-const getPage = args => {
-  const page = newSpecPage({
-    components: [MgInputPassword],
+const getPage = async args => {
+  const page = await newSpecPage({
+    components: [MgInputPassword, MgInput, MgInputTitle, MgButton],
     template: () => <mg-input-password {...args}></mg-input-password>,
   });
-  jest.runAllTimers();
+  jest.runOnlyPendingTimers();
   return page;
 };
 
@@ -247,6 +250,19 @@ describe('mg-input-password', () => {
 
     await element.displayError();
 
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should display password when button is clicked', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', required: true, value: 'password' });
+
+    expect(page.root).toMatchSnapshot();
+
+    const element = page.doc.querySelector('mg-input-password');
+    const button = element.shadowRoot.querySelector('mg-button');
+    button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();

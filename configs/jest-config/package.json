@@ -1,7 +1,7 @@
 {
   "name": "jest-config",
   "private": true,
-  "version": "1.0.1",
+  "version": "1.0.3",
   "license": "ISC",
   "scripts": {
     "lint": "pnpm lint:es && pnpm lint:prettier",
@@ -12,7 +12,7 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "@swc/core": "1.4.2",
+    "@swc/core": "1.4.11",
     "@swc/jest": "0.2.36",
     "jest": "29.7.0",
     "jest-junit": "16.0.0"

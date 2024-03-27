@@ -51,6 +51,12 @@ const items = [
     icon: 'user',
     href: '#',
   },
+  {
+    label: "Ra's al Ghul",
+    mouseEventHandler,
+    href: '/',
+    target: '_blank',
+  },
 ];
 
 Object.defineProperty(window, 'frames', {

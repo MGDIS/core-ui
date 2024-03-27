@@ -13,12 +13,13 @@ import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgInputCheckboxPaginated } from '../mg-input-checkbox-paginated/mg-input-checkbox-paginated';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
+import { MgInput } from '../../mg-input/mg-input';
 
 mockWindowFrames();
 
 const getPage = args => {
   const page = newSpecPage({
-    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle],
+    components: [MgInputCheckbox, MgPopover, MgPopoverContent, MgInputText, MgMessage, MgPagination, MgButton, MgInputCheckboxPaginated, MgInputTitle, MgInput],
     template: () => <mg-input-checkbox {...args}></mg-input-checkbox>,
   });
 
@@ -677,9 +678,9 @@ describe('mg-input-checkbox', () => {
       expect(mgInputCheckbox.value.filter(item => item.value).length).toEqual(21);
       expect(page.root).toMatchSnapshot();
 
-      const unselectAllButton = Array.from(
-        mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-c-input__input-checkbox-multi-section-header mg-button:last-of-type'),
-      ).find(button => button.textContent === 'Unselect all');
+      const unselectAllButton = Array.from(mgInputCheckbox.shadowRoot.querySelectorAll('mg-input-checkbox-paginated .mg-c-input__section-header mg-button:last-of-type')).find(
+        button => button.textContent === 'Unselect all',
+      );
       unselectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
 
@@ -709,7 +710,7 @@ describe('mg-input-checkbox', () => {
 
       for (const [i, section] of sections.entries()) {
         const firstButton = section.querySelector('mg-button');
-        const sectionContent = section.querySelector('.mg-c-input__input-checkbox-multi-section-content');
+        const sectionContent = section.querySelector('.mg-c-input__section-content');
         expect(sectionContent).not.toHaveAttribute('hidden');
 
         firstButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
@@ -783,6 +784,8 @@ describe('mg-input-checkbox', () => {
       const searchInput = mgInputCheckbox.shadowRoot.querySelector('mg-input-text');
       const selectAllButton = mgInputCheckbox.shadowRoot.querySelector('mg-input-checkbox-paginated:last-of-type mg-button');
 
+      const valueChangeSpy = jest.spyOn(page.rootInstance.valueChange, 'emit');
+
       mgPopover.display = true;
       await page.waitForChanges();
       jest.runOnlyPendingTimers();
@@ -798,6 +801,8 @@ describe('mg-input-checkbox', () => {
       searchInput.dispatchEvent(new CustomEvent('value-change', { detail: '2' }));
       await page.waitForChanges();
 
+      expect(valueChangeSpy).not.toHaveBeenCalled(); // Ensure search input event propagation is stopped
+
       resultList = getResultList(mgInputCheckbox);
       expect(resultList).toHaveLength(4);
       expect(resultList.filter(item => item.value === 'true').length).toEqual(0);
@@ -805,6 +810,8 @@ describe('mg-input-checkbox', () => {
       // Select All
       selectAllButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
       await page.waitForChanges();
+
+      expect(valueChangeSpy).toHaveBeenCalledTimes(1);
 
       // Should have all value selected
       resultList = getResultList(mgInputCheckbox);

@@ -72,17 +72,21 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [mg-tooltip](../../../atoms/mg-tooltip)
+- [mg-input](../mg-input)
+- [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-input-title](../../../atoms/internals/mg-input-title)
 
 ### Graph
 ```mermaid
 graph TD;
-  mg-input-password --> mg-tooltip
+  mg-input-password --> mg-input
+  mg-input-password --> mg-button
   mg-input-password --> mg-icon
-  mg-input-password --> mg-input-title
+  mg-input --> mg-tooltip
+  mg-input --> mg-icon
+  mg-input --> mg-input-title
   mg-tooltip --> mg-tooltip-content
+  mg-button --> mg-icon
   style mg-input-password fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -50,6 +50,12 @@ export const MgActionMoreIcon = {
         mouseEventHandler,
         href: '#',
       },
+      {
+        label: 'element 5',
+        mouseEventHandler,
+        href: '/',
+        target: '_blank',
+      },
     ],
     displayChevron: false,
   },

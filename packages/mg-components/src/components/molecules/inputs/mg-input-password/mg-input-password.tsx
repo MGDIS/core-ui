@@ -1,7 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { MgInput } from '../MgInput';
-import { Handler, type TooltipPosition, type Width } from '../MgInput.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -61,7 +60,7 @@ export class MgInputPassword {
   /**
    * Define if label is displayed on top
    */
-  @Prop() labelOnTop: boolean;
+  @Prop() labelOnTop?: boolean;
 
   /**
    * Define if label is visible
@@ -72,7 +71,7 @@ export class MgInputPassword {
    * Input placeholder.
    * It should be a word or short phrase that demonstrates the expected type of data, not a replacement for labels or help text.
    */
-  @Prop() placeholder: string;
+  @Prop() placeholder?: string;
 
   /**
    * Define if input is required
@@ -83,6 +82,11 @@ export class MgInputPassword {
    * Define if input is readonly
    */
   @Prop() readonly = false;
+  @Watch('readonly')
+  watchReadonly(newValue: MgInputPassword['readonly']): void {
+    if (newValue) this.classCollection.add(classReadonly);
+    else this.classCollection.delete(classReadonly);
+  }
 
   /**
    * Define if input is disabled
@@ -102,15 +106,31 @@ export class MgInputPassword {
     }
   }
 
+  @Watch('disabled')
+  watchDisabled(newValue: MgInputPassword['disabled']): void {
+    if (newValue) this.classCollection.add(classDisabled);
+    else this.classCollection.delete(classDisabled);
+  }
+
   /**
    * Define input width
    */
   @Prop() mgWidth: Width = 'full';
+  @Watch('mgWidth')
+  watchMgWidth(newValue: MgInputPassword['mgWidth']): void {
+    // reset width class
+    widths.forEach(width => {
+      this.classCollection.delete(`mg-c-input--width-${width}`);
+    });
+
+    // apply new width
+    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+  }
 
   /**
    * Add a tooltip message next to the input
    */
-  @Prop() tooltip: string;
+  @Prop() tooltip?: string;
 
   /**
    * Define tooltip position
@@ -120,7 +140,7 @@ export class MgInputPassword {
   /**
    * Add a help text under the input, usually expected data format and example
    */
-  @Prop() helpText: string;
+  @Prop() helpText?: string;
 
   /**
    * Define input valid state
@@ -141,6 +161,11 @@ export class MgInputPassword {
    * Error message to display
    */
   @State() errorMessage: string;
+
+  /**
+   * Indicates if password is displayed or not
+   */
+  @State() displayPassword = false;
 
   /**
    * Emited event when value change
@@ -218,10 +243,17 @@ export class MgInputPassword {
   };
 
   /**
+   * Toggle display-pasword value
+   */
+  private toggleDisplayPassword = (): void => {
+    this.displayPassword = !this.displayPassword;
+  };
+
+  /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input?.checkValidity !== undefined ? this.input.checkValidity() : true));
+    this.setValidity(this.readonly || this.disabled || this.input.checkValidity());
   };
 
   /**
@@ -253,6 +285,9 @@ export class MgInputPassword {
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
     this.messages = initLocales(this.element).messages;
+    this.watchReadonly(this.readonly);
+    this.watchDisabled(this.disabled);
+    this.watchMgWidth(this.mgWidth);
     // Check validity when component is ready
     // return a promise to process action only in the FIRST render().
     // https://stenciljs.com/docs/component-lifecycle#componentwillload
@@ -267,43 +302,50 @@ export class MgInputPassword {
    */
   render(): HTMLElement {
     return (
-      <MgInput
-        identifier={this.identifier}
-        classCollection={this.classCollection}
-        ariaDescribedbyIDs={[]}
+      <mg-input
         label={this.label}
+        identifier={this.identifier}
+        class={this.classCollection.join()}
+        ariaDescribedbyIDs={[]}
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonly={this.readonly}
-        mgWidth={this.mgWidth}
-        disabled={this.disabled}
-        value={this.value}
         readonlyValue={this.value !== undefined ? '•'.repeat(this.value.length) : undefined}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
-        isFieldset={false}
       >
-        <input
-          type="password"
-          class="mg-c-input__box"
-          value={this.value}
-          id={this.identifier}
-          name={this.name}
-          placeholder={this.placeholder}
-          title={this.placeholder}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-          ref={(el: HTMLInputElement) => {
-            if (el !== null) this.input = el;
-          }}
-        />
-      </MgInput>
+        <span class="mg-c-input__input-group">
+          <input
+            type={this.displayPassword ? 'text' : 'password'}
+            class="mg-c-input__box mg-c-input__box--width"
+            value={this.value}
+            id={this.identifier}
+            name={this.name}
+            placeholder={this.placeholder}
+            title={this.placeholder}
+            disabled={this.disabled}
+            required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
+            onInput={this.handleInput}
+            onBlur={this.handleBlur}
+            ref={(el: HTMLInputElement) => {
+              if (el !== null) this.input = el;
+            }}
+          />
+          <mg-button
+            label={this.messages.input.password[this.displayPassword ? 'hide' : 'display']}
+            disabled={this.disabled}
+            variant="flat"
+            class="mg-c-input__append-button"
+            is-icon
+            onClick={this.toggleDisplayPassword}
+          >
+            <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+          </mg-button>
+        </span>
+      </mg-input>
     );
   }
 }

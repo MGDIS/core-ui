@@ -3,13 +3,17 @@ import { renderAttributes, renderProperties } from '.';
 
 describe('utils', () => {
   describe('renderAttributes', () => {
-    test.each([undefined, null, {}, { name: 'batman' }, { name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], function: () => {} }])(
-      'Should render attributes',
-      args => {
-        const res = renderAttributes(args as Record<string, unknown>);
-        expect(res).toMatchSnapshot();
-      },
-    );
+    test.each([
+      undefined,
+      null,
+      {},
+      { name: 'batman' },
+      { name: '<div class="blu">blu</div>' },
+      { name: 'batman', user: 'bruce', active: true, id: 1, object: {}, array: [], function: () => {} },
+    ])('Should render attributes', args => {
+      const res = renderAttributes(args as Record<string, unknown>);
+      expect(res).toMatchSnapshot();
+    });
   });
 
   describe('renderProperties', () => {

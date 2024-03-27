@@ -1,6 +1,7 @@
-import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
-import { expect, describe, testEach, PageType } from '../../../../utils/playwright.e2e.test.utils';
+import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
+import { test } from '../../../../utils/playwright.fixture';
+import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
 
@@ -64,37 +65,46 @@ const createHTML = args => `
   </style>
   `;
 
-describe('mg-item-more', () => {
-  describe('mg-menu', () => {
-    testEach(sizes)(`should renders, case direction ${Direction.VERTICAL} size %s with small screen`, async (page: PageType, size: string) => {
-      await page.setContent(createHTML({ direction: Direction.VERTICAL, size }), verticalFrameSizes[size]);
+const setPageContent = async (page, args, viewPortSize) => {
+  await page.setContent(createHTML(args));
+  await page.addStyleTag({ content: 'body{padding-left: 2rem;}' });
+  await page.setViewportSize(viewPortSize);
+};
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+test.describe('mg-item-more', () => {
+  test.describe('mg-menu', () => {
+    sizes.forEach(size => {
+      test(`should renders, case direction ${Direction.VERTICAL} size="${size}" with small screen`, async ({ page }) => {
+        await setPageContent(page, { direction: Direction.VERTICAL, size }, verticalFrameSizes[size]);
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
 
-    testEach([true, false])('should renders with overflow, case badge %s', async (page: PageType, badge) => {
-      await page.setContent(createHTML({ direction: Direction.HORIZONTAL, badge }));
-      await page.setViewportSize({ width: 400, height: 250 });
+    [true, false].forEach(badge => {
+      test(`should renders with overflow, case badge="${badge}"`, async ({ page }) => {
+        await setPageContent(page, { direction: Direction.HORIZONTAL, badge }, { width: 400, height: 250 });
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await page.$eval(
-        `[${OverflowBehaviorElements.BASE_INDEX}="0"]`,
-        (elm, status) => {
-          elm.setAttribute('status', status as string);
-        },
-        Status.VISIBLE,
-      );
+        await page.$eval(
+          `[${OverflowBehaviorElements.BASE_INDEX}="0"]`,
+          (elm, status) => {
+            elm.setAttribute('status', status as string);
+          },
+          Status.VISIBLE,
+        );
 
-      await page.$eval(
-        `[${OverflowBehaviorElements.BASE_INDEX}="2"]`,
-        (elm, status) => {
-          elm.setAttribute('status', status as string);
-        },
-        Status.ACTIVE,
-      );
+        await page.$eval(
+          `[${OverflowBehaviorElements.BASE_INDEX}="2"]`,
+          (elm, status) => {
+            elm.setAttribute('status', status as string);
+          },
+          Status.ACTIVE,
+        );
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
     });
   });
 });

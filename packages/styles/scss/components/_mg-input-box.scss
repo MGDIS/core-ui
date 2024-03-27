@@ -7,89 +7,79 @@
  * - select
  */
 
-.mg-c-input__box {
-  height: var(--mg-b-default-size);
-  box-sizing: border-box;
-  padding: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-c-input-spacer);
-  border-width: var(--mg-c-input-border-width);
-  border-style: solid;
-  border-color: var(--mg-c-input-color);
-  border-radius: var(--mg-c-input-border-radius);
-  background-color: var(--mg-b-color-light);
-  color: var(--mg-b-color-dark);
-  font-family: inherit;
-  font-size: var(--mg-b-font-size);
-  text-align: var(--mg-c-input-text-align, left);
+.mg-c-input {
+  &__box {
+    height: var(--mg-b-default-size);
+    box-sizing: border-box;
+    padding: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-c-input-spacer);
+    border-width: var(--mg-c-input-border-width);
+    border-style: solid;
+    border-color: var(--mg-c-input-color);
+    border-radius: var(--mg-c-input-border-radius);
+    background-color: var(--mg-b-color-light);
+    color: var(--mg-b-color-dark);
+    font-family: inherit;
+    font-size: var(--mg-b-font-size);
+    text-align: var(--mg-c-input-text-align, left);
 
-  // placeholder
-  &::placeholder {
-    color: var(--mg-c-input-color);
-    font-style: italic;
-  }
+    // placeholder
+    &::placeholder {
+      color: var(--mg-c-input-color);
+      font-style: italic;
+    }
 
-  &:focus {
-    box-shadow: 0 0 0.6rem var(--mg-c-input-color-shadow-focus);
-  }
+    &:focus {
+      box-shadow: 0 0 0.6rem var(--mg-c-input-color-shadow-focus);
+    }
 
-  // disabled
-  &:disabled {
-    opacity: 0.3;
-  }
-}
-
-/**
-* Variations
-*/
-
-.mg-c-input.mg-c-input--label-on-top .mg-c-input__box {
-  width: auto;
-  max-width: 100%;
-}
-
-.mg-c-input.mg-c-input--is-input-group-append {
-  // Input group button
-  --mg-c-button-border-radius-top-left: 0;
-  --mg-c-button-border-radius-bottom-left: 0;
-
-  /**
-  * Append input slot
-  */
-  .mg-c-input__box {
-    margin-right: -0.1rem;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-
-    &:focus-visible {
-      outline-offset: -0.2rem;
-      outline-style: solid;
-      outline-width: 0.2rem;
+    // disabled
+    &:disabled {
+      opacity: 0.3;
     }
   }
 
   /**
-  * Readonly variation
+  * Variations
   */
-  &.mg-c-input--readonly slot[name='append-input'] {
-    display: none;
-  }
-}
+  &.mg-c-input--is-input-group-append {
+    // Input group button
+    --mg-c-button-border-radius-top-left: 0;
+    --mg-c-button-border-radius-bottom-left: 0;
 
-.mg-c-input.mg-c-input--has-buttons-group-append {
-  ::slotted([slot='append-input']) {
-    --mg-c-button-border-radius-top-right: 0;
-    --mg-c-button-border-radius-bottom-right: 0;
+    /**
+    * Append input slot
+    */
+    .mg-c-input__box {
+      margin-right: -0.1rem;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
+
+      &:focus-visible {
+        outline-offset: -0.2rem;
+        outline-style: solid;
+        outline-width: 0.2rem;
+      }
+    }
   }
 
-  ::slotted([slot='append-input']:not(:last-of-type)) {
-    --mg-c-button-border-right-width: 0;
+  &.mg-c-input--has-buttons-group-append {
+    ::slotted([slot='append-input']) {
+      --mg-c-button-border-radius-top-right: 0;
+      --mg-c-button-border-radius-bottom-right: 0;
+    }
+
+    ::slotted([slot='append-input']:not(:last-of-type)) {
+      --mg-c-button-border-right-width: 0;
+    }
+
+    ::slotted([slot='append-input']:last-of-type) {
+      --mg-c-button-border-radius-top-right: var(--mg-c-input-border-radius);
+      --mg-c-button-border-radius-bottom-right: var(--mg-c-input-border-radius);
+    }
   }
 
-  ::slotted([slot='append-input']:last-of-type) {
-    --mg-c-button-border-radius-top-right: var(--mg-c-input-border-radius);
-    --mg-c-button-border-radius-bottom-right: var(--mg-c-input-border-radius);
+  &.mg-c-input--is-append-input-slot-content:not(.mg-c-input--readonly) ::slotted([slot='append-input']) {
+    align-self: start;
+    padding-top: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2);
   }
-}
-
-.mg-c-input.mg-c-input--is-append-input-slot-content:not(.mg-c-input--readonly) ::slotted([slot='append-input']) {
-  padding-top: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2);
 }

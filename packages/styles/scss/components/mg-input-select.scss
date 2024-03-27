@@ -1,15 +1,15 @@
 @import 'mg-input';
 @import 'mg-input-box';
-@import 'mg-input-width';
 @import '../utils/a11y';
 
 .mg-c-input__box {
-  width: 100%;
   padding-top: 0;
   padding-right: 1rem;
   padding-bottom: 0;
 }
 
-:host(:not([mg-width])) .mg-c-input--select:not(.mg-c-input--label-on-top) .mg-c-input__box {
-  max-width: unset;
+@media screen and (max-width: ($mg-input-breakpoint - 1px)) {
+  .mg-c-input__box {
+    width: 100%;
+  }
 }

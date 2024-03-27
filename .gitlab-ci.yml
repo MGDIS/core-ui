@@ -9,67 +9,70 @@ stages:
   - mg-components
   - release
 
+##############
+# References #
+##############
+
+.changes:
+  img: 'packages/img/**/*'
+  linting-stencil: 'packages/linting-stencil/**/*'
+  mg-components: 'packages/mg-components/**/*'
+  notification-center: 'packages/notification-center/**/*'
+  notification-center:app: 'apps/notification-center/**/*'
+  playwright-helpers: 'packages/playwright-helpers/**/*'
+  stencil-helpers: 'packages/stencil-helpers/**/*'
+  styles: 'packages/styles/**/*'
+
+.rules:changes:
+  img:
+    changes:
+      - !reference [.changes, img]
+  linting-stencil:
+    changes:
+      - !reference [.changes, linting-stencil]
+  mg-components:
+    changes:
+      - !reference [.changes, mg-components]
+      - !reference [.changes, img]
+      - !reference [.changes, stencil-helpers]
+      - !reference [.changes, styles]
+  notification-center:
+    changes:
+      - !reference [.changes, notification-center]
+      - !reference [.changes, notification-center:app]
+  playwright-helpers:
+    changes:
+      - !reference [.changes, playwright-helpers]
+  stencil-helpers:
+    changes:
+      - !reference [.changes, stencil-helpers]
+  styles:
+    changes:
+      - !reference [.changes, styles]
+
+.rules:if:
+  except-tags: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID)
+  mr: $CI_MERGE_REQUEST_ID
+  tags: $CI_COMMIT_TAG
+
 ###########
 # Extends #
 ###########
 
-# Rule to execute job only on mg-components folder content changes
-.rules:changes:mg-components:
-  rules:
-    - changes:
-        - 'packages/mg-components/**/*'
-
-# Rule to execute job only on notification-center folder content changes
-.rules:changes:notification-center:
-  rules:
-    - changes:
-        - 'packages/notification-center/**/*'
-        - 'apps/notification-center/**/*'
-
-# Rule to execute job only on linting-stencil folder content changes
-.rules:changes:linting-stencil:
-  rules:
-    - changes:
-        - 'packages/linting-stencil/**/*'
-
-# Rule to execute job only on img folder content changes
-.rules:changes:img:
-  rules:
-    - changes:
-        - 'packages/img/**/*'
-
-# Rule to execute job only on styles folder content changes
-.rules:changes:styles:
-  rules:
-    - changes:
-        - 'packages/styles/**/*'
-
-# Rule to execute job only on playwright-helpers folder content changes
-.rules:changes:playwright-helpers:
-  rules:
-    - changes:
-        - 'packages/playwright-helpers/**/*'
-
-# Rule to execute job only on stencil-helpers folder content changes
-.rules:changes:stencil-helpers:
-  rules:
-    - changes:
-        - 'packages/stencil-helpers/**/*'
-
 # Rule to execute job only in merge request
 .rules:mr:
   rules:
-    - if: $CI_MERGE_REQUEST_ID
+    - if: !reference [.rules:if, mr]
 
 # Rule to execute job only if in tag creation pipeline
 .rules:tags:
   rules:
-    - if: $CI_COMMIT_TAG
+    - if: !reference [.rules:if, tags]
 
 # Rule to execute job only if not in tag creation pipeline and on master or in merge request
 .rules:except-tags:
   rules:
-    - if: $CI_COMMIT_TAG == null && ($CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_MERGE_REQUEST_ID)
+    - if: !reference [.rules:if, except-tags]
 
 # install dependencies
 .install:dependencies:
@@ -130,10 +133,10 @@ test:e2e:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
   parallel: 7
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, mg-components, changes]
   extends:
-    - .rules:changes:mg-components
-    - .rules:changes:styles
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm test:e2e --filter='./packages/*' --filter=\!@mgdis/notification-center -- --shard=$CI_NODE_INDEX/$CI_NODE_TOTAL
@@ -154,9 +157,10 @@ test:e2e:
 test:e2e:notification-center:
   stage: tests
   image: registre.mgcloud.fr/mgdis/playwright-baseimage:master
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, notification-center, changes]
   extends:
-    - .rules:changes:notification-center
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm test:e2e --filter=@mgdis/notification-center
@@ -187,8 +191,13 @@ sonar:
 
 auto-review:
   stage: tests
-  extends:
-    - .rules:mr
+  variables:
+    DANGER_GITLAB_USE_THREADS: '1'
+  rules:
+    - if: $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME =~ /^renovate\// # Exclude renovate MRs from thread creation
+      variables:
+        DANGER_GITLAB_USE_THREADS: '0'
+    - if: $CI_MERGE_REQUEST_ID
   script:
     # use https://gitlab.mgdis.fr/build/gitlab/mg-danger
     - mg-danger
@@ -286,9 +295,10 @@ doc:artifact:
 
 mg-components:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, mg-components, changes]
   extends:
-    - .rules:changes:mg-components
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.mg-components:build, script]
@@ -299,9 +309,10 @@ mg-components:artifact:
 
 storybook-mr:
   stage: mg-components
+  rules:
+    - if: !reference [.rules:if, mr]
+      changes: !reference [.rules:changes, mg-components, changes]
   extends:
-    - .rules:changes:mg-components
-    - .rules:mr
     - .install:dependencies
     - .mg-components:build:storybook
   artifacts:
@@ -327,7 +338,6 @@ chromatic:publish:
 
 mg-components:npmjs:
   extends:
-    - .rules:changes:mg-components
     - .npmjs
   script:
     - !reference [.mg-components:build, script]
@@ -340,9 +350,10 @@ mg-components:npmjs:
 
 notification-center:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, notification-center, changes]
   extends:
-    - .rules:changes:notification-center
-    - .rules:except-tags
     - .install:dependencies
   script:
     - pnpm build --filter=@mgdis/notification-center
@@ -357,9 +368,10 @@ notification-center:artifact:
 
 linting-stencil:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, linting-stencil, changes]
   extends:
-    - .rules:changes:linting-stencil
-    - .rules:except-tags
     - .install:dependencies
   script:
     - cd packages/linting-stencil
@@ -379,9 +391,10 @@ linting-stencil:artifact:
 
 img:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, img, changes]
   extends:
-    - .rules:changes:img
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.img:build, script]
@@ -391,7 +404,6 @@ img:artifact:
 
 img:npmjs:
   extends:
-    - .rules:changes:img
     - .npmjs
   script:
     - !reference [.img:build, script]
@@ -408,9 +420,10 @@ img:npmjs:
 
 styles:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, styles, changes]
   extends:
-    - .rules:changes:styles
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.styles:build, script]
@@ -420,7 +433,6 @@ styles:artifact:
 
 styles:npmjs:
   extends:
-    - .rules:changes:styles
     - .npmjs
   script:
     - !reference [.styles:build, script]
@@ -432,9 +444,10 @@ styles:npmjs:
 
 playwright-helpers:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, playwright-helpers, changes]
   extends:
-    - .rules:changes:playwright-helpers
-    - .rules:except-tags
     - .install:dependencies
   script:
     - cd packages/playwright-helpers
@@ -454,9 +467,10 @@ playwright-helpers:artifact:
 
 stencil-helpers:artifact:
   stage: artifacts
+  rules:
+    - if: !reference [.rules:if, except-tags]
+      changes: !reference [.rules:changes, stencil-helpers, changes]
   extends:
-    - .rules:changes:stencil-helpers
-    - .rules:except-tags
     - .install:dependencies
   script:
     - !reference [.stencil-helpers, script]
@@ -466,7 +480,6 @@ stencil-helpers:artifact:
 
 stencil-helpers:npmjs:
   extends:
-    - .rules:changes:stencil-helpers
     - .npmjs
   script:
     - !reference [.stencil-helpers, script]

@@ -1,3 +1,9 @@
+import { icons } from '../../../assets/icons';
+/**
+ * List of all possibles icons
+ */
+export type IconType = keyof typeof icons;
+
 /**
  * List of all possibles sizes
  */

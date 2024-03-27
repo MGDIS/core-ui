@@ -1,6 +1,5 @@
 @import 'mg-input';
 @import 'mg-input-box';
-@import 'mg-input-width';
 @import 'mg-input-character-left';
 @import '../utils/a11y';
 
@@ -9,11 +8,7 @@
 */
 .mg-c-input__with-character-left {
   position: relative;
-  display: inline-flex;
-
-  .mg-c-input--width-full & {
-    width: 100%;
-  }
+  width: 100%;
 
   .mg-c-input.mg-u-is-focused & .mg-c-input__box {
     padding-right: calc(var(--mg-c-character-left-message-length) * 1ch + 0.8rem);

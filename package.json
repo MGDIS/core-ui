@@ -1,7 +1,7 @@
 {
   "name": "core-ui",
   "license": "BSD-3-Clause",
-  "packageManager": "pnpm@8.15.4",
+  "packageManager": "pnpm@8.15.5",
   "engineStrict": true,
   "engines": {
     "pnpm": ">=8",
@@ -48,17 +48,17 @@
     ]
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "eslint --fix --ignore-path .gitignore",
+    "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
     "*.{json,yaml,yml,md,mdx}": "prettier --write"
   },
   "dependencies": {
     "@changesets/cli": "2.27.1",
-    "@manypkg/cli": "0.21.2",
+    "@manypkg/cli": "0.21.3",
     "codename": "0.0.6",
     "eslint-config-custom": "workspace:*",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier-config": "workspace:*",
-    "turbo": "1.12.4"
+    "turbo": "1.13.0"
   }
 }

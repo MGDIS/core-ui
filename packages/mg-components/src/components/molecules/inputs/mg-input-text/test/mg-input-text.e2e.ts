@@ -1,31 +1,27 @@
+import { expect } from '@playwright/test';
+import { test } from '../../../../../utils/playwright.fixture';
 import { renderAttributes, renderProperties } from '@mgdis/playwright-helpers';
-import { expect, describe, test, testEach, PageType, describeEach } from '../../../../../utils/playwright.e2e.test.utils';
-import { MgInputText } from '../mg-input-text';
 
-const creatHtml = (props: Partial<MgInputText & { slot: string }>) => {
+const createHTML = props => {
   const slot = props.slot;
   delete props.slot;
-  return `<mg-input-text ${renderAttributes(props)}>${slot}</mg-input-text><script>${renderProperties(props, `[identifier="${props.identifier}"]`)}</script>`;
+  return `<mg-input-text ${renderAttributes(props)}>${slot}</mg-input-text>`;
 };
 
-const defaultProps = { identifier: 'identifier', label: 'label' };
+const baseArgs = { identifier: 'identifier', label: 'label' };
 
-describe('mg-input-text', () => {
-  describe('render', () => {
-    testEach([
-      { ...defaultProps },
-      { ...defaultProps, labelOnTop: true },
-      { ...defaultProps, labelHide: true },
-      { ...defaultProps, placeholder: 'placeholder', helpText: 'HelpText Message' },
-    ])('without tooltip %s', async (page: PageType, props: MgInputText) => {
-      await page.setContent(creatHtml(props));
+test.describe('mg-input-text', () => {
+  [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(args => {
+    test(`without tooltip ${renderAttributes(args)}`, async ({ page }) => {
+      const html = createHTML({ ...baseArgs, ...args });
+      await page.setContent(html);
 
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
+      await page.locator('mg-input-text.hydrated').waitFor();
+
       const input = page.locator('mg-input-text input');
 
       // Hide caret for screenshots
-      await page.locator('mg-input-text input').evaluate(element => (element.style.caretColor = 'transparent'));
+      await page.locator('mg-input-text input').evaluate(elm => (elm.style.caretColor = 'transparent'));
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -39,76 +35,115 @@ describe('mg-input-text', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+  });
 
-    testEach([true, false])('with tooltip, case label-on-top %s', async (page: PageType, labelOnTop: boolean) => {
-      const args: Partial<MgInputText> = { ...defaultProps, tooltip: 'Tooltip message', labelOnTop };
-      await page.setContent(creatHtml(args));
+  [true, false].forEach(labelOnTop => {
+    test.describe(`labelOnTop: ${labelOnTop}`, () => {
+      test('with tooltip', async ({ page }) => {
+        const html = createHTML({ ...baseArgs, tooltip: 'Tooltip message', labelOnTop });
+        await page.setContent(html);
 
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
+        await page.locator('mg-input-text.hydrated').waitFor();
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-      await page.keyboard.down('Tab');
-      if (!labelOnTop) {
         await page.keyboard.down('Tab');
-      }
+        if (!labelOnTop) {
+          await page.keyboard.down('Tab');
+        }
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      test('inside a div.mg-form-group', async ({ page }) => {
+        const html = createHTML({
+          ...baseArgs,
+          tooltip: 'Tooltip message',
+          label: 'long label long label long label long label long label long label long label long label long label long label long label',
+          labelOnTop,
+        });
+        await page.setContent(`<div class="mg-form-group">${html}</div>`);
+
+        await expect(page).toHaveScreenshot({ clip: { x: 0, y: 0, height: 100, width: 500 } });
+      });
+
+      [16, 4, 2].forEach(mgWidth => {
+        test(`with mgWidth ${mgWidth}`, async ({ page }) => {
+          const html = createHTML({
+            ...baseArgs,
+            value: 'bruce',
+            mgWidth,
+            labelOnTop,
+          });
+          await page.setContent(html);
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
+
+      test('Ensure component fit in width 200px with label-on-top', async ({ page }) => {
+        const html = createHTML({
+          ...baseArgs,
+          labelOnTop,
+        });
+        await page.setContent(html);
+
+        await page.setViewportSize({ height: 100, width: 200 });
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+    });
+  });
+
+  [
+    { readonly: true },
+    { value: 'blu' },
+    { value: 'blu', readonly: true },
+    { value: 'blu', readonly: true, labelOnTop: true },
+    { disabled: true },
+    { value: 'blu', disabled: true },
+    { value: 'batman', helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
+    { value: 'blu', helpText: 'HelpText Message', required: true },
+    { value: 'blu', helpText: 'HelpText Message', required: true, readonly: true },
+    { value: 'blu', helpText: 'HelpText Message', required: true, disabled: true },
+    { value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
+    { value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
+  ].forEach(args => {
+    test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
+      const html = createHTML({ ...baseArgs, ...args });
+      await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+  });
 
-    testEach([
-      { ...defaultProps, readonly: true },
-      { ...defaultProps, value: 'blu' },
-      { ...defaultProps, value: 'blu', readonly: true },
-      { ...defaultProps, value: 'blu', readonly: true, labelOnTop: true },
-      { ...defaultProps, disabled: true },
-      { ...defaultProps, value: 'blu', disabled: true },
-      { ...defaultProps, value: 'batman', helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
-      { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true },
-      { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, readonly: true },
-      { ...defaultProps, value: 'blu', helpText: 'HelpText Message', required: true, disabled: true },
-      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'label' },
-      { ...defaultProps, value: 'blu', tooltip: 'blu', tooltipPosition: 'input', labelOnTop: true },
-    ])('Should render with template %s', async (page: PageType, args) => {
-      await page.setContent(creatHtml(args));
+  [{}, { lang: 'fr' }].forEach(args => {
+    test(`Should render error when leaving an empty required input ${renderAttributes(args)}`, async ({ page }) => {
+      const html = createHTML({ ...baseArgs, ...args, required: true });
+      await page.setContent(html);
 
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-
-    testEach([
-      { ...defaultProps, required: true },
-      { ...defaultProps, required: true, lang: 'fr' },
-    ])('Should render error when leaving an empty required input %s', async (page: PageType, args) => {
-      await page.setContent(creatHtml(args));
-
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
+      await page.locator('mg-input-text.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+  });
 
-    testEach([16, 'full'])('Should render error when leaving input with a non matching pattern value, mg-width: %s', async (page: PageType, mgWidth: MgInputText['mgWidth']) => {
-      await page.setContent(
-        creatHtml({
-          ...defaultProps,
-          mgWidth,
-          pattern: '[a-z]*',
-          patternErrorMessage: 'Vous ne pouvez saisir que des lettres minuscules.',
-        }),
-      );
+  [16, 'full'].forEach(mgWidth => {
+    test(`Should render error when leaving input with a non matching pattern value, mg-width: ${mgWidth}`, async ({ page }) => {
+      const html = createHTML({
+        ...baseArgs,
+        mgWidth,
+        pattern: '[a-z]*',
+        patternErrorMessage: 'Vous ne pouvez saisir que des lettres minuscules.',
+      });
+      await page.setContent(html);
 
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
+      await page.locator('mg-input-text.hydrated').waitFor();
+
       const input = page.locator('mg-input-text input');
-
-      expect(element).toHaveClass('hydrated');
 
       await page.keyboard.down('Tab');
 
@@ -125,101 +160,67 @@ describe('mg-input-text', () => {
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
+  });
 
-    describeEach([true, false])('using append-input slot, case readonly %s', (readonly: boolean) => {
-      testEach([
+  [true, false].forEach(readonly => {
+    test.describe(`using append-input slot, case readonly: ${readonly}`, () => {
+      [
         {
-          ...defaultProps,
           type: 'search',
           slot: `<mg-button slot="append-input" label="search">
-          <mg-icon icon="magnifying-glass"></mg-icon> Search
-        </mg-button>`,
+            <mg-icon icon="magnifying-glass"></mg-icon> Search
+          </mg-button>`,
           icon: 'magnifying-glass',
         },
         {
-          ...defaultProps,
           type: 'text',
           slot: '<span slot="append-input">@dc.comics</span>',
         },
         {
-          ...defaultProps,
           type: 'text',
           slot: `<mg-button is-icon slot="append-input" label="cancel" variant="secondary">
-          <mg-icon icon="cross"></mg-icon>
-        </mg-button>
-        <mg-button is-icon slot="append-input" label="validate" variant="secondary">
-          <mg-icon icon="check"></mg-icon>
-        </mg-button>
-        `,
+            <mg-icon icon="cross"></mg-icon>
+          </mg-button>
+          <mg-button is-icon slot="append-input" label="validate" variant="secondary">
+            <mg-icon icon="check"></mg-icon>
+          </mg-button>
+          `,
         },
-      ])('render slot %s', async (page: PageType, props: Record<string, unknown>) => {
-        await page.setContent(
-          creatHtml({
-            ...props,
+      ].forEach(args => {
+        test(`render slot ${renderAttributes(args)}`, async ({ page }) => {
+          const html = createHTML({
+            ...baseArgs,
+            ...args,
             placeholder: 'placeholder',
             value: 'bruce',
             readonly,
-          }),
-        );
+          });
+          await page.setContent(html);
 
-        const element = page.locator('mg-input-text.hydrated');
-        await element.waitFor({ timeout: 1000 });
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
       });
-    });
-
-    describeEach([16, 4, 2])('with custom width: %s', (mgWidth: MgInputText['mgWidth']) => {
-      testEach([false, true])('with label on top: %s', async (page: PageType, labelOnTop: MgInputText['labelOnTop']) => {
-        await page.setContent(
-          creatHtml({
-            ...defaultProps,
-            value: 'bruce',
-            mgWidth,
-            labelOnTop,
-          }),
-        );
-
-        const element = page.locator('mg-input-text.hydrated');
-        await element.waitFor({ timeout: 1000 });
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-    });
-
-    testEach([false, true])('Ensure component fit in width 200px with label-on-top: %s', async (page: PageType, labelOnTop: MgInputText['labelOnTop']) => {
-      await page.setContent(
-        creatHtml({
-          ...defaultProps,
-          labelOnTop,
-        }),
-      );
-
-      const element = page.locator('mg-input-text.hydrated');
-      await element.waitFor({ timeout: 1000 });
-
-      await page.setViewportSize({ height: 100, width: 200 });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 
-  describe('datalist', () => {
-    test('Should display datalist', async ({ page }) => {
-      const props = { identifier: 'identifier', label: 'label', datalistoptions: ['batman', 'robin'] };
-      await page.setContent(creatHtml(props));
+  test('Should display datalist', async ({ page }) => {
+    const componentsProps = { ...baseArgs, datalistoptions: ['batman', 'robin'] };
+    const html = createHTML(componentsProps);
+    await page.setContent(html);
+    await page.addScriptTag({ content: renderProperties(componentsProps, `[identifier="${componentsProps.identifier}"]`) });
 
-      await page.keyboard.down('Tab');
+    await page.locator('mg-input-text.hydrated').waitFor();
 
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
+    await page.keyboard.down('Tab');
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
   test.describe('Responsive', () => {
     [{}, { tooltip: 'blu' }, { tooltip: 'blu', tooltipPosition: 'label' }].forEach(args => {
-      test(`Should display label on top on responsive breakpoint with tooltip message: ${renderAttributes(args)}`, async ({ page }) => {
-        const props = { identifier: 'identifier', label: 'label', ...args };
-        await page.setContent(creatHtml(props));
+      test(`Should display label on top on responsive breakpoint with tooltip: ${renderAttributes(args)}`, async ({ page }) => {
+        const html = createHTML({ ...baseArgs, ...args });
+        await page.setContent(html);
 
         // Initial state
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
