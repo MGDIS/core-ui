@@ -7,6 +7,7 @@ It can be used in vueJS and angularJS projects.
 ## Requirements
 
 **NodeJS v14.x or higher.**
+**Webpack@5 or higher or viteJS bundler or UMD support.**
 
 ## Installation
 
@@ -51,6 +52,10 @@ Mostly used when your project doesn't have a bundler but uses scripts to compile
 ```html
 <!-- Use un in angular project -->
 <script src="/node_modules/@mgdis/mg-components-helpers/dist/angular/index.umd.js"></script>
+<script>
+  // Disable some console error
+  MgComponentsHelpers.angular.setMgAngularLogger({ level: 'log' });
+</script>
 <!-- Use un in VUE project -->
 <script src="/node_modules/@mgdis/mg-components-helpers/dist/vue/index.umd.js"></script>
 ```
