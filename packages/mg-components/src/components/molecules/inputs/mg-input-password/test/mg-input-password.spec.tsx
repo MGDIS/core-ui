@@ -39,6 +39,15 @@ describe('mg-input-password', () => {
     expect(root).toMatchSnapshot();
   });
 
+  test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
+    expect.assertions(1);
+    try {
+      await getPage({ identifier });
+    } catch (err) {
+      expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+    }
+  });
+
   test.each(['', ' ', undefined])('Should throw error with invalid label property: %s', async label => {
     expect.assertions(1);
     try {

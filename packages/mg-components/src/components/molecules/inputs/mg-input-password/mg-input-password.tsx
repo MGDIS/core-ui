@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { ClassList, createID, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -44,7 +44,7 @@ export class MgInputPassword {
   /**
    * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
    */
-  @Prop() identifier: string = createID();
+  @Prop() identifier!: string;
 
   /**
    * Input name
