@@ -1,11 +1,10 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
-import { MgInputDate } from '../mg-input-date';
 
 const baseProps = { identifier: 'identifier', label: 'label' };
 
-const createHTML = (args: Partial<MgInputDate & { lang: string }>) => `<mg-input-date ${renderAttributes(args)}></mg-input-date>`;
+const createHTML = args => `<mg-input-date ${renderAttributes(args)}></mg-input-date>`;
 
 test.describe('mg-input-date', () => {
   [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(props => {

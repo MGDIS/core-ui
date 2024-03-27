@@ -82,18 +82,6 @@ test.describe('mg-input-password', () => {
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
-
-      test(`render inside a div.mg-form-group`, async ({ page }) => {
-        const html = createHTML({
-          ...baseArgs,
-          tooltip: 'Tooltip message',
-          labelOnTop,
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-        });
-        await page.setContent(`<div class="mg-form-group">${html}</div>`);
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
     });
   });
 

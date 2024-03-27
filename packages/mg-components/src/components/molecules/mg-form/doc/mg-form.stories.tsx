@@ -78,7 +78,7 @@ const Template = (args: MgFormType): HTMLElement => {
         <span slot="item-1">non</span>
         <span slot="item-2">oui</span>
       </mg-input-toggle>
-      <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
+      <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
         <mg-button
           id="can-submit"
           disabled={canSubmit}

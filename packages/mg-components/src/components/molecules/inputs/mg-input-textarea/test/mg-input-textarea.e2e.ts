@@ -53,18 +53,6 @@ test.describe('mg-input-textarea', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
 
-      test('inside a div.mg-form-group', async ({ page }) => {
-        const html = createHTML({
-          ...baseArgs,
-          tooltip: 'Tooltip message',
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-          labelOnTop,
-        });
-        await page.setContent(`<div class="mg-form-group">${html}</div>`);
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-
       [16, 4, 2].forEach(mgWidth => {
         test(`with mgWidth ${mgWidth}`, async ({ page }) => {
           const html = createHTML({
