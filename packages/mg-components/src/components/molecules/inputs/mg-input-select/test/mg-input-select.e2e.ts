@@ -21,7 +21,7 @@ test.describe('mg-input-select', () => {
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-        await page.waitForSelector('mg-input-select.hydrated');
+        await page.locator('mg-input-select.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -60,7 +60,7 @@ test.describe('mg-input-select', () => {
         await page.setContent(html);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-        await page.waitForSelector('mg-input-select.hydrated');
+        await page.locator('mg-input-select.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
@@ -83,7 +83,7 @@ test.describe('mg-input-select', () => {
         await page.setContent(`<div class="mg-form-group">${html}</div>`);
         await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-        await page.waitForSelector('mg-input-select.hydrated');
+        await page.locator('mg-input-select.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
@@ -147,7 +147,7 @@ test.describe('mg-input-select', () => {
       await page.setContent(html);
       await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-      await page.waitForSelector('mg-input-select.hydrated');
+      await page.locator('mg-input-select.hydrated').waitFor();
 
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
@@ -172,7 +172,7 @@ test.describe('mg-input-select', () => {
     await page.setContent(html);
     await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
 
-    await page.waitForSelector('mg-input-select.hydrated');
+    await page.locator('mg-input-select.hydrated').waitFor();
 
     await page.keyboard.down('Tab');
     await page.keyboard.down('Space');

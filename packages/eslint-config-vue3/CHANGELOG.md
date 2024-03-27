@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.3
+
+### Patch Changes
+
+- a8d2eea: Update dependencies
+- Updated dependencies [a8d2eea]
+  - @mgdis/eslint-plugin-vue@4.0.2
+
 ## 2.0.2
 
 ### Patch Changes

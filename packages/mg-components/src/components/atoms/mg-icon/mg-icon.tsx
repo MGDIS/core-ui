@@ -1,7 +1,6 @@
 import { Component, Prop, Watch, State, Element } from '@stencil/core';
-import { sizes, variants, IconVariantType, IconSizeType, IconVariantStyleType, variantStyles } from './mg-icon.conf';
+import { type IconType, sizes, type IconSizeType, variants, type IconVariantType, variantStyles, type IconVariantStyleType } from './mg-icon.conf';
 import { ClassList } from '@mgdis/stencil-helpers';
-import iconList from '@mgdis/img/dist/icons/index.json';
 import { icons } from '../../../assets/icons';
 
 @Component({
@@ -20,10 +19,10 @@ export class MgIcon {
   /**
    * Icon to display.
    */
-  @Prop() icon!: string;
+  @Prop() icon!: IconType;
   @Watch('icon')
   validateIcon(newValue: MgIcon['icon'], oldValue?: MgIcon['icon']): void {
-    if (!iconList.includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${iconList.join(', ')}`);
+    if (!Object.keys(icons).includes(newValue)) throw new Error(`<mg-icon> prop "icon" must be one of: ${Object.keys(icons).join(', ')}`);
     else {
       if (oldValue !== undefined) this.classCollection.delete(`mg-c-icon--${oldValue}`);
       this.classCollection.add(`mg-c-icon--${newValue}`);
@@ -109,7 +108,7 @@ export class MgIcon {
    * Render icon in shadowroot
    * @param icon - icon to render
    */
-  private renderIcon = icon => {
+  private renderIcon = (icon: IconType): void => {
     this.element.shadowRoot.innerHTML = icons[icon];
     this.svg = this.element.shadowRoot.querySelector('svg');
     // update svg attributes

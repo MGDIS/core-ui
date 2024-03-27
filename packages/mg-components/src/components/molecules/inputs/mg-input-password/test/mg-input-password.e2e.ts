@@ -23,7 +23,7 @@ test.describe('mg-input-password', () => {
       const html = createHTML({ ...baseArgs, ...args });
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-password.hydrated');
+      await page.locator('mg-input-password.hydrated').waitFor();
 
       const input = page.locator('input');
 
@@ -52,12 +52,13 @@ test.describe('mg-input-password', () => {
         const html = createHTML({ ...baseArgs, tooltip: 'Tooltip message', labelOnTop });
         await page.setContent(html);
 
-        await page.waitForSelector('mg-input-password.hydrated');
+        await page.locator('mg-input-password.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
         await page.keyboard.down('Tab');
         if (!labelOnTop) {
+          await page.keyboard.down('Tab');
           await page.keyboard.down('Tab');
         }
 
@@ -115,7 +116,46 @@ test.describe('mg-input-password', () => {
 
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-password.hydrated');
+      await page.locator('mg-input-password.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+  });
+
+  test.describe('display password', () => {
+    test(`Should toggle display password with click on eye`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman' }));
+
+      await page.locator('mg-input-password.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.locator('mg-button').click();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.locator('mg-button').click();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+    });
+
+    test(`Should navigate with keyboard on "eye" button`, async ({ page }) => {
+      await page.setContent(createHTML({ ...baseArgs, value: 'batman' }));
+
+      await page.locator('mg-input-password.hydrated').waitFor();
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
+      await page.keyboard.down('Tab');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Enter');
+
+      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+
+      await page.keyboard.down('Tab');
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
@@ -126,8 +166,9 @@ test.describe('mg-input-password', () => {
       const html = createHTML({ ...baseArgs, ...args, required: true });
       await page.setContent(html);
 
-      await page.waitForSelector('mg-input-password.hydrated');
+      await page.locator('mg-input-password.hydrated').waitFor();
 
+      await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
       await page.keyboard.down('Tab');
 

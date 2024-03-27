@@ -121,7 +121,7 @@
   --color-secondary: hsl(var(--color-neutral));
 
   /* Shadow */
-  --box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--color-dark) / 15%);
+  --box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--color-dark) / 15%); // To avoid being cropped in mg-modal, box-shadow properties must not exceed 1rem.
 
   /* Soft style */
   --mg-color-soft-l: 90%;

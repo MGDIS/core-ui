@@ -1,5 +1,12 @@
 # @mgdis/playwright-helpers
 
+## 1.0.4
+
+### Patch Changes
+
+- a8d2eea: Update dependencies
+- 7800e0a: fix renderAttributes when contains double quotes
+
 ## 1.0.3
 
 ### Patch Changes
