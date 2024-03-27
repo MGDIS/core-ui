@@ -1,5 +1,5 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { ClassList, createID, isValidString } from '@mgdis/stencil-helpers';
 import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
@@ -44,7 +44,7 @@ export class MgInputPassword {
   /**
    * Identifier is used for the element ID (id is a reserved prop in Stencil.js)
    */
-  @Prop() identifier!: string;
+  @Prop() identifier: string = createID();
 
   /**
    * Input name
@@ -341,6 +341,7 @@ export class MgInputPassword {
             class="mg-c-input__append-button"
             is-icon
             onClick={this.toggleDisplayPassword}
+            aria-controls={this.identifier}
           >
             <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
           </mg-button>
