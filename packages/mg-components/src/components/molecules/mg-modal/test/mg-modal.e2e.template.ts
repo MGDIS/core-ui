@@ -25,15 +25,8 @@ export const createSlots = ({ content, action }: SlotType): string => {
       ${content}
     </div>`;
   }
-
   if (action) {
-    slots += `
-   <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
-     <mg-button>Primary</mg-button>
-     <mg-button variant="secondary" identifier="identifier">
-       Secondary
-     </mg-button>
-   </div>`;
+    slots += `<mg-button type="button" slot="actions">Button</mg-button>`;
   }
   return slots;
 };

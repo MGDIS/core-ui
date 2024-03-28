@@ -42,7 +42,7 @@ test.describe('mg-modal', () => {
         },
       );
 
-      await page.addStyleTag({ content: '.custom-modal-card {--mg-c-card-background:var(--mg-b-color-danger)}' });
+      await page.addStyleTag({ content: '.custom-modal-card{--mg-c-card-background:var(--mg-b-color-danger)}' });
 
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
     });
@@ -89,7 +89,6 @@ test.describe('mg-modal', () => {
       // loop in modal
       await page.keyboard.press('Tab');
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
-      await page.keyboard.press('Tab');
       await page.keyboard.press('Tab');
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 

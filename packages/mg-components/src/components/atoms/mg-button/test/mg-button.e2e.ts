@@ -54,8 +54,8 @@ test.describe('mg-button', () => {
 
       // Remove spinner annimation for screenshot
       const svg = page.locator('svg').first();
-      await svg.evaluate(element => {
-        element.classList.remove('mg-c-icon--spin');
+      await svg.evaluate(elm => {
+        elm.classList.remove('mg-c-icon--spin');
       });
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
