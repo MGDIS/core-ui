@@ -443,7 +443,7 @@ export class MgMenuItem {
   componentShouldUpdate(): Promise<void> {
     return nextTick(() => {
       this.itemUpdated.emit();
-    })
+    });
   }
 
   /**

@@ -83,6 +83,7 @@ export class MgItemMore {
     const allMenuItem = Array.from(this.parentMenu.querySelectorAll('mg-menu-item:not([data-overflow-more])'));
 
     Array.from(this.moreElementMenuItem.querySelectorAll('mg-menu-item:not([data-overflow-more])')).forEach((proxy, index) => {
+      const proxified = allMenuItem[index];
       // manage click on proxy to mirror it on initial element
       proxy.addEventListener('click', () => {
         // be carefull to use element.click() method instead of dispatchEvent to ensure bubbles outside shadowDom
@@ -90,17 +91,17 @@ export class MgItemMore {
         if (navElement instanceof HTMLButtonElement || navElement instanceof HTMLAnchorElement) navElement.click();
       });
 
-      // uipdate properties and DOM when proxyfied item is updated
-      allMenuItem[index].addEventListener('item-updated', (event: CustomEvent & { target: HTMLElement }) => {
+      // add id suffix to prevent duplicate key. default html id is: '';
+      if (isValidString(proxy.id)) proxy.id = `${proxy.id}-proxy`;
+
+      // update properties and DOM when proxyfied item is updated
+      proxified.addEventListener('item-updated', (event: CustomEvent & { target: HTMLElement }) => {
         Object.assign(proxy, event.target);
         proxy.innerHTML = event.target.innerHTML;
       });
 
-      // add id suffix to prevent duplicate key. default html id is: '';
-      if (isValidString(proxy.id)) proxy.id = `${proxy.id}-proxy`;
-
       // manage status change miror in proxyfied element
-      allMenuItem[index].addEventListener('status-change', (event: CustomEvent) => {
+      proxified.addEventListener('status-change', (event: CustomEvent) => {
         proxy.setAttribute('status', event.detail);
       });
     });
