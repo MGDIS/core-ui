@@ -63,7 +63,7 @@ const getPage = async args => {
 };
 
 describe('mg-item-more', () => {
-  beforeEach(() => {
+  let fireMo = beforeEach(() => {
     id = 1;
     jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
@@ -72,7 +72,9 @@ describe('mg-item-more', () => {
     });
     setupMutationObserverMock({
       disconnect: () => null,
-      observe: () => null,
+      observe: function () {
+        fireMo = this.cb;
+      },
       takeRecords: () => null,
     });
   });
@@ -120,6 +122,25 @@ describe('mg-item-more', () => {
       mgMenuItemBase.dispatchEvent(new CustomEvent('status-change', { bubbles: true, detail: Status.ACTIVE }));
 
       await page.waitForChanges();
+      expect(mgMenuItemProxy).toHaveProperty('status', Status.ACTIVE);
+
+      udpateItemMorePopoverId(page);
+      expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should update proxy property when base item MutationObserver was trigger', async () => {
+      const page = await getPage({ label: 'batman' });
+
+      expect(page.root).toMatchSnapshot();
+
+      const mgMenuItemBase = page.doc.querySelector('mg-menu-item');
+      const mgMenuItemProxy = page.doc.querySelector('mg-item-more').shadowRoot.querySelector('mg-menu mg-menu-item');
+      expect(mgMenuItemBase).toHaveProperty('status', Status.VISIBLE);
+      mgMenuItemBase.status = Status.ACTIVE;
+
+      await page.waitForChanges();
+      fireMo([]);
+
       expect(mgMenuItemProxy).toHaveProperty('status', Status.ACTIVE);
 
       udpateItemMorePopoverId(page);

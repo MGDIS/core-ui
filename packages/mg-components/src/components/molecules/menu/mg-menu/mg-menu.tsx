@@ -141,17 +141,15 @@ export class MgMenu {
    * render mg-item-more
    */
   private renderMgItemMore = (): void => {
-    const item = 'mg-item-more';
-    let mgItemMore = this.getItemMore();
-    if (this.direction !== Direction.HORIZONTAL && this.isChildMenu) {
-      mgItemMore?.remove();
+    if (this.direction !== Direction.HORIZONTAL || this.isChildMenu) {
       return;
     }
 
     // /!\ externalise item tag name to get a string type and bypass type checking when value is used in next createElement
     // by doing this we prevent stencil to generate a circular dependencies graph at build time with mg-item-more component.
+    let mgItemMore = this.getItemMore();
     if (!mgItemMore) {
-      mgItemMore = document.createElement(item);
+      mgItemMore = document.createElement('mg-item-more');
       mgItemMore.addEventListener('item-loaded', this.handleItemLoaded);
       Object.assign(mgItemMore, this.itemmore || {});
       this.element.appendChild(mgItemMore);
