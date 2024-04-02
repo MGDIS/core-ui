@@ -503,7 +503,7 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+          * Set local formatting. Numbers are formatted based on the locale.
          */
         "format": Format;
         /**
@@ -2458,7 +2458,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+          * Set local formatting. Numbers are formatted based on the locale.
          */
         "format"?: Format;
         /**

@@ -126,3 +126,14 @@ No more `variables.scss` export, only `variables.css`.
   <!-- in v6 -->
   <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
   ```
+
+### Changes in `mg-input-numeric`
+
+- The `currency` type has been moved to the `format` attribute.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-numeric identifier="blu" label="non" type="currency"></mg-input-numeric>
+  <!-- in v6 -->
+  <mg-input-numeric identifier="blu" label="non" format="currency"></mg-input-numeric>
+  ```
