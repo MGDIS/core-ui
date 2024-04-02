@@ -1,11 +1,10 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
-import { MgInputDate } from '../mg-input-date';
 
 const baseProps = { identifier: 'identifier', label: 'label' };
 
-const createHTML = (args: Partial<MgInputDate & { lang: string }>) => `<mg-input-date ${renderAttributes(args)}></mg-input-date>`;
+const createHTML = args => `<mg-input-date ${renderAttributes(args)}></mg-input-date>`;
 
 test.describe('mg-input-date', () => {
   [{}, { labelOnTop: true }, { labelHide: true }, { placeholder: 'placeholder', helpText: 'HelpText Message' }].forEach(props => {
@@ -105,26 +104,10 @@ test.describe('mg-input-date', () => {
     });
   });
 
-  [true, false].forEach(labelOnTop => {
-    test(`render inside a div.mg-form-group, label-on-top="${labelOnTop}"`, async ({ page }) => {
-      await page.setContent(
-        `<div class="mg-form-group">${createHTML({
-          ...baseProps,
-          labelOnTop,
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-          tooltip: 'tooltip message',
-        })}</div>`,
-      );
-      await page.locator('mg-input-date.hydrated').waitFor();
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-    });
-  });
-
   [false, true].forEach(labelOnTop => {
     test(`Ensure component fit in width 200px, label-on-top="${labelOnTop}"`, async ({ page }) => {
       await page.setContent(createHTML({ ...baseProps, labelOnTop }));
-      page.setViewportSize({ width: 200, height: 100 });
+      await page.setViewportSize({ width: 200, height: 100 });
       await page.locator('mg-input-date.hydrated').waitFor();
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

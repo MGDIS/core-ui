@@ -1,3 +1,6 @@
+/**
+  Components custom properties
+*/
 :root {
   /**
     Base custom properties
@@ -89,10 +92,8 @@
 
   --mg-b-font-size: 1.3rem;
   --mg-b-line-height: 1.4;
-
   --mg-b-font-family: 'Open Sans', sans-serif; // Open Sans is used for the body (mostly all texts)
   --mg-b-font-family-heading: var(--mg-b-font-family); // Headings (h1 to h6) font can be customized
-
   --mg-b-color-font-light: var(--mg-b-color-light);
   --mg-b-color-font-dark: var(--mg-b-color-dark);
 
@@ -133,6 +134,7 @@
   --mg-c-button-primary-color-s: var(--mg-b-color-dark-s);
   --mg-c-button-primary-color-l: var(--mg-b-color-dark-l);
   --mg-c-button-primary-font-color: var(--mg-b-color-neutral);
+
   // mg-button Secondary
   --mg-c-button-secondary-color-h: var(--mg-b-color-neutral-h);
   --mg-c-button-secondary-color-s: var(--mg-b-color-neutral-s);
@@ -189,11 +191,6 @@
   --mg-c-divider-vertical-spacing: 4rem;
 
   /*
-    Layout
-   */
-  --mg-l-grid-spacing: 1rem;
-
-  /*
     Forms
    */
 
@@ -213,7 +210,7 @@
   /* rgb(0, 221, 255); */
 
   /* hsl(188, 100%, 50%); */
-  --mg-c-input-color-shadow-focus: hsl(188 100% 50% / 50%);
+  --mg-c-input-color-shadow-focus: hsl(188deg 100% 50% / 50%);
 
   // mg-input-toggle
   --mg-c-input-toggle-border-radius-ratio: 2;

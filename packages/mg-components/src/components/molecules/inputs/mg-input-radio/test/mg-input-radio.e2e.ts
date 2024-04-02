@@ -76,22 +76,6 @@ test.describe('mg-input-radio', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
 
-      test(`render inside a div.mg-form-group`, async ({ page }) => {
-        const componentArgs = {
-          ...baseArgs,
-          tooltip: 'Tooltip message',
-          labelOnTop,
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-        };
-        const html = createHTML(componentArgs);
-        await page.setContent(`<div class="mg-form-group">${html}</div>`);
-        await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
-
-        await page.locator('mg-input-radio.hydrated').waitFor();
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-
       test('Ensure component fit in width 200px', async ({ page }) => {
         const componentArgs = { ...baseArgs, labelOnTop };
         const html = createHTML(componentArgs);

@@ -4,23 +4,21 @@ import { test } from '../../../../../utils/playwright.fixture';
 import { MgInputToggle } from '../mg-input-toggle';
 import { ToggleValue } from '../mg-input-toggle.conf';
 
-type PropsType = Partial<MgInputToggle>;
-
 const getItemsFromStrings = (items: string[]): ToggleValue[] => items.map((item, index) => ({ title: item, value: index === 1 }));
 
 const defaultItems = getItemsFromStrings(['Choix A', 'Choix B']);
 
-const defaultProps: PropsType = {
+const defaultProps = {
   identifier: 'identifier',
   label: 'label',
   items: defaultItems,
 };
 
-const getProps = (args: PropsType = {}): PropsType => ({ ...defaultProps, ...args });
+const getProps = args => ({ ...defaultProps, ...args });
 
 const renderSlot = (title: string, index: number) => `<span slot="item-${index + 1}">${title}</span>`;
 
-const createHTML = (props: PropsType) => {
+const createHTML = props => {
   return `<mg-input-toggle ${renderAttributes(props)}>${
     props.isIcon
       ? ['cross', 'check'].map(
@@ -33,7 +31,7 @@ const createHTML = (props: PropsType) => {
   }}</mg-input-toggle>`;
 };
 
-const setPageContent = async (page, args?: PropsType) => {
+const setPageContent = async (page, args?) => {
   const props = getProps(args);
   await page.setContent(createHTML(props));
   await page.addScriptTag({ content: renderProperties(props, `[identifier="${props.identifier}"]`) });
@@ -136,23 +134,6 @@ test.describe('mg-input-toggle', () => {
     .forEach(args => {
       test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
         await setPageContent(page, args);
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-    });
-
-  [true, false]
-    .map(labelOnTop => ({
-      label: 'long label long label long label long label long label long label long label long label long label long label long label',
-      tooltip: 'tooltip message',
-      labelOnTop,
-    }))
-    .forEach(args => {
-      test(`render inside a div.mg-form-group ${renderAttributes(args)}`, async ({ page }) => {
-        const props = getProps(args);
-        await page.setContent(`<div class="mg-form-group">${createHTML(props)}</div>`);
-        await page.addScriptTag({ content: renderProperties(props, `[identifier="${props.identifier}"]`) });
-        await page.locator('mg-input-toggle.hydrated').waitFor();
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });

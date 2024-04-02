@@ -5,6 +5,8 @@ services:
     image: 'coreui-e2e:latest'
     ports:
       - 3333:3333
+    # environment:
+    #   - DEBUG=* # Get Docker full logs
     volumes:
       - ./packages/mg-components/src:/app/packages/mg-components/src
       - ./packages/mg-components/playwright-report:/app/packages/mg-components/playwright-report

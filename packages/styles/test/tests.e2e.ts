@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
-  page.setViewportSize({ width: 1280, height: 800 });
+  await page.setViewportSize({ width: 1280, height: 800 });
 });
 
 test('Base', async ({ page }) => {

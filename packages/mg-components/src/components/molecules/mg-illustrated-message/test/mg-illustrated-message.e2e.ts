@@ -38,7 +38,7 @@ test.describe('mg-illustrated-message', () => {
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
 
-    page.setViewportSize({ width: 600, height: 600 });
+    await page.setViewportSize({ width: 600, height: 600 });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

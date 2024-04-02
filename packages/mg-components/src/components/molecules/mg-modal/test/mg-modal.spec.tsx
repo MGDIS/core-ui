@@ -18,7 +18,7 @@ const getPage = (args, slots?) =>
           </p>
         )}
         {slots?.actions && (
-          <div slot="actions" class="mg-group-elements mg-group-elements--align-right">
+          <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
             <mg-button>Primary</mg-button>
             <mg-button variant="secondary">Secondary</mg-button>
           </div>

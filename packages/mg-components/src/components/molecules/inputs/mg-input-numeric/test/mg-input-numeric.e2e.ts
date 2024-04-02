@@ -184,18 +184,6 @@ test.describe('mg-input-numeric', () => {
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });
 
-      test(`render inside a div.mg-form-group`, async ({ page }) => {
-        const args = {
-          ...baseArgs,
-          ...addedArgs,
-          label: 'long label long label long label long label long label long label long label long label long label long label long label',
-        };
-        const html = createHTML(args);
-        await page.setContent(`<div class="mg-form-group">${html}</div>`);
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-
       [{ mgWidth: 'full' }, { mgWidth: 16 }, { mgWidth: 4 }, { mgWidth: 2 }].forEach(widthArgs => {
         test(`with custom width ${renderAttributes(widthArgs)}`, async ({ page }) => {
           const args = { ...baseArgs, ...addedArgs, ...widthArgs };

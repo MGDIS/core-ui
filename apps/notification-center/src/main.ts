@@ -1,6 +1,6 @@
 import { NotificationCenter } from '@mgdis/notification-center';
-
 import '@mgdis/mg-components/dist/mg-components/mg-components.css';
+import '@mgdis/styles/dist/styles.css'; // TODO Added to get few changes at first, next MR should remove it
 import '@mgdis/mg-components/dist/components';
 import { defineCustomElements } from '@mgdis/mg-components/loader';
 

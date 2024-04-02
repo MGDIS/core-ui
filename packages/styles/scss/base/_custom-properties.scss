@@ -1,0 +1,116 @@
+/**
+ * Base custom properties
+ * Must start with `--mg-b-`
+ */
+:root {
+  /**
+   * Colors
+   * https://jira.mgdis.fr/browse/PDA9-690
+   *
+   * We are using HSL for colors.
+   * In some cases, we need to create a variant of a color. In this case, we are using the h, s, or l parameters.
+   */
+
+  // Color Info
+  --mg-b-color-info-h: 204;
+  --mg-b-color-info-s: 100%;
+  --mg-b-color-info-l: 30.6%;
+  --mg-b-color-info: hsl(var(--mg-b-color-info-h) var(--mg-b-color-info-s) var(--mg-b-color-info-l));
+
+  // Color Warning
+  --mg-b-color-warning-h: 41;
+  --mg-b-color-warning-s: 100%;
+  --mg-b-color-warning-l: 62.2%;
+  --mg-b-color-warning: hsl(var(--mg-b-color-warning-h) var(--mg-b-color-warning-s) var(--mg-b-color-warning-l));
+
+  // Success
+  --mg-b-color-success-h: 159;
+  --mg-b-color-success-s: 66%;
+  --mg-b-color-success-l: 51.6%;
+  --mg-b-color-success: hsl(var(--mg-b-color-success-h) var(--mg-b-color-success-s) var(--mg-b-color-success-l));
+
+  // Color Danger
+  --mg-b-color-danger-h: 357;
+  --mg-b-color-danger-s: 75%;
+  --mg-b-color-danger-l: 49%;
+  --mg-b-color-danger: hsl(var(--mg-b-color-danger-h) var(--mg-b-color-danger-s) var(--mg-b-color-danger-l));
+
+  // Color Neutral
+  --mg-b-color-neutral-h: 0;
+  --mg-b-color-neutral-s: 0%;
+  --mg-b-color-neutral-l: 99.6%;
+  --mg-b-color-neutral: hsl(var(--mg-b-color-neutral-h) var(--mg-b-color-neutral-s) var(--mg-b-color-neutral-l));
+
+  // Color Dark
+  --mg-b-color-dark-h: 194;
+  --mg-b-color-dark-s: 37.3%;
+  --mg-b-color-dark-l: 13.1%;
+  --mg-b-color-dark: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l));
+
+  // Color dark-40
+  --mg-b-color-dark-40: hsl(var(--mg-b-color-dark-h) 7% 43%);
+
+  // Color dark-5
+  --mg-b-color-dark-5: hsl(var(--mg-b-color-dark-h) 9% 96%);
+
+  // Color dark-soft
+  --mg-b-color-dark-soft: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) 90%);
+
+  // Color Light
+  --mg-b-color-light-h: 0;
+  --mg-b-color-light-s: 0%;
+  --mg-b-color-light-l: 100%;
+  --mg-b-color-light: hsl(var(--mg-b-color-light-h) var(--mg-b-color-light-s) var(--mg-b-color-light-l));
+
+  // Color App
+  --mg-b-color-app-h: var(--mg-b-color-info-h);
+  --mg-b-color-app-s: var(--mg-b-color-info-s);
+  --mg-b-color-app-l: var(--mg-b-color-info-l);
+  --mg-b-color-app: hsl(var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l));
+
+  /* Primary */
+  --mg-b-color-primary-h: var(--mg-b-color-dark-h);
+  --mg-b-color-primary-s: var(--mg-b-color-dark-s);
+  --mg-b-color-primary-l: var(--mg-b-color-dark-l);
+  --mg-b-color-primary: var(--mg-b-color-dark);
+
+  /* Secondary */
+  --mg-b-color-secondary-h: var(--mg-b-color-neutral-h);
+  --mg-b-color-secondary-s: var(--mg-b-color-neutral-s);
+  --mg-b-color-secondary-l: var(--mg-b-color-neutral-l);
+  --mg-b-color-secondary: var(--mg-b-color-neutral);
+
+  /* Soft style */
+  --mg-b-color-soft-l: 90%;
+
+  /**
+   * Fonts
+   */
+
+  // Font size
+  --mg-b-font-size: 1.3rem;
+
+  // Font family
+  --mg-b-font-family: 'Open Sans', sans-serif; // Open Sans is used for the body (mostly all texts)
+  --mg-b-font-family-heading: var(--mg-b-font-family); // Headings (h1 to h6) font can be customized
+
+  // Line height
+  --mg-b-line-height: 1.4;
+
+  // Font color
+  --mg-b-color-font-light: var(--mg-b-color-light);
+  --mg-b-color-font-dark: var(--mg-b-color-dark);
+
+  /**
+   * Others
+   */
+
+  // Shadow
+  --mg-b-box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 15%);
+
+  // default height for inputs and buttons
+  --mg-b-default-size: 3.5rem;
+
+  // Opacity for disabled elements
+  --mg-b-disabled-opacity: 0.4;
+}
