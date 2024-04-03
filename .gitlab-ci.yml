@@ -227,17 +227,15 @@ chromatic:mr:
   needs:
     - chromatic:publish
 
-npm-publish:
-  stage: release
+.npmjs:
   image: node:20 ## use official image to avoid the .npmrc present in our images
+  stage: release
   extends:
     - .rules:tags
-  script:
+  before_script:
     - !reference [.install:dependencies, before_script]
     - !reference [.install:jq, script]
     - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
-    - pnpm build:packages
-    - pnpm changeset publish
   needs:
     - release
 
@@ -338,6 +336,14 @@ chromatic:publish:
     - cd packages/mg-components
     - pnpm dlx chromatic --only-changed --project-token=$CHROMATIC_PROJECT_TOKEN --branch-name $CI_DEFAULT_BRANCH --build-script-name storybook:build
 
+mg-components:npmjs:
+  extends:
+    - .npmjs
+  script:
+    - !reference [.mg-components:build, script]
+    - cd packages/mg-components
+    - pnpm publish --no-git-checks --access public
+
 #######################
 # notification-center #
 #######################
@@ -378,6 +384,11 @@ linting-stencil:artifact:
 # img #
 #######
 
+.img:build:
+  script:
+    - cd packages/img
+    - pnpm build
+
 img:artifact:
   stage: artifacts
   rules:
@@ -386,15 +397,26 @@ img:artifact:
   extends:
     - .install:dependencies
   script:
-    - cd packages/img
-    - pnpm build
+    - !reference [.img:build, script]
     - !reference [.artifact, script]
   needs:
     - lint
 
+img:npmjs:
+  extends:
+    - .npmjs
+  script:
+    - !reference [.img:build, script]
+    - pnpm publish --no-git-checks --access public
+
 ##########
 # styles #
 ##########
+
+.styles:build:
+  script:
+    - cd packages/styles
+    - pnpm build
 
 styles:artifact:
   stage: artifacts
@@ -404,11 +426,17 @@ styles:artifact:
   extends:
     - .install:dependencies
   script:
-    - cd packages/styles
-    - pnpm build
+    - !reference [.styles:build, script]
     - !reference [.artifact, script]
   needs:
     - lint
+
+styles:npmjs:
+  extends:
+    - .npmjs
+  script:
+    - !reference [.styles:build, script]
+    - pnpm publish --no-git-checks --access public
 
 ######################
 # Playwright helpers #
@@ -432,6 +460,11 @@ playwright-helpers:artifact:
 # Stencil helpers #
 ###################
 
+.stencil-helpers:
+  script:
+    - cd packages/stencil-helpers
+    - pnpm build
+
 stencil-helpers:artifact:
   stage: artifacts
   rules:
@@ -440,8 +473,14 @@ stencil-helpers:artifact:
   extends:
     - .install:dependencies
   script:
-    - cd packages/stencil-helpers
-    - pnpm build
+    - !reference [.stencil-helpers, script]
     - !reference [.artifact, script]
   needs:
     - lint
+
+stencil-helpers:npmjs:
+  extends:
+    - .npmjs
+  script:
+    - !reference [.stencil-helpers, script]
+    - pnpm publish --no-git-checks --access public
