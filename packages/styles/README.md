@@ -75,12 +75,12 @@ All custom properties **MUST** start with `--mg-`.
 
 ### Prefixes
 
-In addition to a global namespace, we added prefixes to each custom properties to make it more apparent what job that custom properties is doing. Here’s the prefixes:
+In addition to a global namespace, we have added prefixes to each custom property to indicate its purpose more clearly. Here are the prefixes:
 
-- `b-` for base custom properties, such as `font-size` will be `--mg-b-font-size`.
-- `c-` for components custom properties, such as the `min-width` variable of the `mg-card` components will be `--mg-c-card-min-width`.
-- `l-` for layout-related custom properties, such as `--mg-l-grid-spacing`.
-- `u-` for utilities custom properties, such as ``
+- `b-` for base custom properties, such as `font-size`, which will be `--mg-b-font-size`.
+- `c-` for component-specific custom properties, such as the `min-width` variable of the `mg-card` component, which will be `--mg-c-card-min-width`.
+- `l-` for layout-related custom properties, such as grid spacing, which will be `--mg-l-grid-spacing`.
+- `u-` for utility custom properties.
 
 ## Lint
 
