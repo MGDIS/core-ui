@@ -1788,6 +1788,7 @@ declare global {
     interface HTMLMgMenuItemElementEventMap {
         "status-change": HTMLMgMenuItemElement['status'];
         "item-loaded": void;
+        "item-updated": void;
     }
     interface HTMLMgMenuItemElement extends Components.MgMenuItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgMenuItemElementEventMap>(type: K, listener: (this: HTMLMgMenuItemElement, ev: MgMenuItemCustomEvent<HTMLMgMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -3123,6 +3124,10 @@ declare namespace LocalJSX {
           * Emited event when item is loaded
          */
         "onItem-loaded"?: (event: MgMenuItemCustomEvent<void>) => void;
+        /**
+          * Emited event when item is updated
+         */
+        "onItem-updated"?: (event: MgMenuItemCustomEvent<void>) => void;
         /**
           * Emited event when status change
          */

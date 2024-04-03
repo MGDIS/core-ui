@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-03-27T11:24:34",
+  "timestamp": "2024-04-03T06:43:36",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.13.0",
@@ -984,6 +984,14 @@
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-menu": [
+          "mg-item-more"
+        ],
+        "mg-item-more": [
+          "mg-menu-item",
+          "mg-icon",
+          "mg-menu"
         ],
         "mg-menu-item": [
           "mg-badge",
@@ -10982,7 +10990,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "mg-menu"
+      ],
       "dependencies": [
         "mg-menu-item",
         "mg-icon",
@@ -11009,6 +11019,9 @@
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-menu": [
+          "mg-item-more"
         ]
       }
     },
@@ -11222,12 +11235,33 @@
         "mg-action-more",
         "mg-item-more"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "mg-item-more"
+      ],
       "dependencyGraph": {
-        "mg-action-more": [
-          "mg-menu"
+        "mg-menu": [
+          "mg-item-more"
         ],
         "mg-item-more": [
+          "mg-menu"
+        ],
+        "mg-menu-item": [
+          "mg-badge",
+          "mg-icon",
+          "mg-popover"
+        ],
+        "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-action-more": [
           "mg-menu"
         ]
       }
@@ -11398,6 +11432,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when item is loaded",
+          "docsTags": []
+        },
+        {
+          "event": "item-updated",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when item is updated",
           "docsTags": []
         },
         {

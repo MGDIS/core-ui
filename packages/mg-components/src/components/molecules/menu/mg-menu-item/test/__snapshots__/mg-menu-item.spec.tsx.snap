@@ -304,14 +304,14 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
 `;
 
 exports[`mg-menu-item MutationObserver Should update status with child title "attribute" mutation, from status { from: 'visible', to: 'active' } 1`] = `
-<mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
+<mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
   <mock:shadow-root>
     <mg-popover>
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -350,9 +350,9 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
     <mock:shadow-root>
       <slot></slot>
     </mock:shadow-root>
-    <mg-menu-item data-style-direction="horizontal" hidden="" label="child menu" role="listitem" status="visible">
+    <mg-menu-item data-style-direction="horizontal" hidden="" label="child menu" role="listitem" status="active">
       <mock:shadow-root>
-        <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
