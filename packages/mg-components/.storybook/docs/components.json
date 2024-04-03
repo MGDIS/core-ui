@@ -11438,6 +11438,20 @@
           "docsTags": []
         },
         {
+          "event": "item-updated",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when item is updated",
+          "docsTags": []
+        },
+        {
           "event": "status-change",
           "detail": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
           "bubbles": true,
