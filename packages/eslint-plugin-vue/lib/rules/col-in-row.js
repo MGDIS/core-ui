@@ -10,6 +10,10 @@ module.exports = {
       recommended: false,
     },
     schema: [],
+    messages: {
+      rowRequiredCol: 'All row class children must have a col-* class',
+      colChildrenRow: 'col-* classes must be immediate children of rows',
+    },
   },
 
   create(context) {
@@ -18,7 +22,7 @@ module.exports = {
     const ignoreChildNodeType = ['VText'];
 
     return VueUtils.defineTemplateBodyVisitor(context, {
-      "VElement"(node) {
+      VElement(node) {
         /**
          * Content should be placed within columns, and only columns may be immediate children of rows.
          * https://getbootstrap.com/docs/3.4/css/#grid
@@ -31,15 +35,15 @@ module.exports = {
             if (
               className === classRow &&
               !node.children
-                .filter((childNode) => !ignoreChildNodeType.includes(childNode.type))
-                .every((childNode) => {
+                .filter(childNode => !ignoreChildNodeType.includes(childNode.type))
+                .every(childNode => {
                   const childClassesAttribute = getAttributeValue(attribute(childNode, 'class'))?.split(' ') || [];
-                  return childClassesAttribute.some((classAttribute) => classAttribute.startsWith(classColStartsWith));
+                  return childClassesAttribute.some(classAttribute => classAttribute.startsWith(classColStartsWith));
                 })
             ) {
               context.report({
                 node,
-                message: 'All row class children must have a col-* class',
+                messageId: 'rowRequiredCol',
               });
             }
             // Check if row class immediate children have a col class
@@ -48,7 +52,7 @@ module.exports = {
               if (!parentClassesAttribute || !getAttributeValue(parentClassesAttribute).split(' ').includes(classRow)) {
                 context.report({
                   node,
-                  message: 'col-* classes must be immediate children of rows',
+                  messageId: 'colChildrenRow',
                 });
               }
             }
