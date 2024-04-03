@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { forcePopoverId } from '../../../../utils/unit.test.utils';
-import { setupResizeObserverMock } from '@mgdis/stencil-helpers';
+import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
 import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { MgButton } from '../../../atoms/mg-button/mg-button';
 import { MgPopover } from '../../mg-popover/mg-popover';
@@ -65,9 +65,15 @@ Object.defineProperty(window, 'frames', {
 
 describe('mg-action-more', () => {
   beforeEach(() => {
+    jest.useFakeTimers({ legacyFakeTimers: true });
     setupResizeObserverMock({
       observe: () => null,
       disconnect: () => null,
+    });
+    setupMutationObserverMock({
+      disconnect: () => null,
+      observe: () => null,
+      takeRecords: () => null,
     });
   });
   describe.each([

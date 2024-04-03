@@ -14,6 +14,10 @@
 
 ## Dependencies
 
+### Used by
+
+ - [mg-menu](../menu/mg-menu)
+
 ### Depends on
 
 - [mg-menu-item](../menu/mg-menu-item)
@@ -34,6 +38,7 @@ graph TD;
   mg-popover-content --> mg-button
   mg-popover-content --> mg-icon
   mg-button --> mg-icon
+  mg-menu --> mg-item-more
   style mg-item-more fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
