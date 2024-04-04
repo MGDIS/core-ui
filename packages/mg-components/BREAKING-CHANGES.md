@@ -74,9 +74,10 @@ No more `variables.scss` export, only `variables.css`.
 
 - [Changes in `mg-icon`](#changes-in-mg-icon)
 - [Changes in `mg-button`](#changes-in-mg-button)
+- [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
+- [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Hide Components](#hide-components)
 - [Internal components](#internal-components)
-- [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Stylesheet](#stylesheet)
 
 ### Changes in `mg-icon`
@@ -101,6 +102,29 @@ No more `variables.scss` export, only `variables.css`.
   <mg-button id="blu">Non</mg-button>
   ```
 
+### Changes in `mg-input-numeric`
+
+- The `currency` type has been moved to the `format` attribute.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-numeric identifier="blu" label="non" type="currency"></mg-input-numeric>
+  <!-- in v6 -->
+  <mg-input-numeric identifier="blu" label="non" format="currency"></mg-input-numeric>
+  ```
+
+### Changes in `mg-input-text` and `mg-input-textarea`
+
+- Renammed `display-character-left` prop to `character-left-hide`.  
+  The `display-character-left` prop was inconsistent with standard boolean attributes as it requires setting a "false" value explicitly. It should align with standard boolean attributes, which are considered false when the attribute is missing.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-text identifier="blu" label="non" display-character-left="false"></mg-input-text>
+  <!-- in v6 -->
+  <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
+  ```
+
 ### Hide components
 
 - `mg-message` and `mg-modal` no longer use the `hide` prop for visibility. Use the native `hidden` attribute.
@@ -117,18 +141,6 @@ No more `variables.scss` export, only `variables.css`.
 ### Internal components
 
 - `mg-input-title` and `mg-character-left` components are now considered internal and should not be used outside of `mg-components`. Dedicated stories for these components have been removed.
-
-### Changes in `mg-input-text` and `mg-input-textarea`
-
-- Renammed `display-character-left` prop to `character-left-hide`.  
-  The `display-character-left` prop was inconsistent with standard boolean attributes as it requires setting a "false" value explicitly. It should align with standard boolean attributes, which are considered false when the attribute is missing.
-
-  ```html
-  <!-- in v5 -->
-  <mg-input-text identifier="blu" label="non" display-character-left="false"></mg-input-text>
-  <!-- in v6 -->
-  <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
-  ```
 
 ### Stylesheet
 

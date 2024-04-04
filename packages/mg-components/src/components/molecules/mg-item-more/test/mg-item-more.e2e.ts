@@ -69,6 +69,7 @@ const setPageContent = async (page, args, viewPortSize) => {
   await page.setContent(createHTML(args));
   await page.addStyleTag({ content: 'body{padding-left: 2rem;}' });
   await page.setViewportSize(viewPortSize);
+  await page.locator('mg-menu.hydrated').first().waitFor();
 };
 
 test.describe('mg-item-more', () => {

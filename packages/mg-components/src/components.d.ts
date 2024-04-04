@@ -503,7 +503,7 @@ export namespace Components {
          */
         "displayError": () => Promise<void>;
         /**
-          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+          * Set local formatting. Numbers are formatted based on the locale.
          */
         "format": Format;
         /**
@@ -1788,6 +1788,7 @@ declare global {
     interface HTMLMgMenuItemElementEventMap {
         "status-change": HTMLMgMenuItemElement['status'];
         "item-loaded": void;
+        "item-updated": void;
     }
     interface HTMLMgMenuItemElement extends Components.MgMenuItem, HTMLStencilElement {
         addEventListener<K extends keyof HTMLMgMenuItemElementEventMap>(type: K, listener: (this: HTMLMgMenuItemElement, ev: MgMenuItemCustomEvent<HTMLMgMenuItemElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
@@ -2458,7 +2459,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Set local formatting. Numbers are formatted based on the locale. When type is set to `currency`, formatting has no effect.
+          * Set local formatting. Numbers are formatted based on the locale.
          */
         "format"?: Format;
         /**
@@ -3123,6 +3124,10 @@ declare namespace LocalJSX {
           * Emited event when item is loaded
          */
         "onItem-loaded"?: (event: MgMenuItemCustomEvent<void>) => void;
+        /**
+          * Emited event when item is updated
+         */
+        "onItem-updated"?: (event: MgMenuItemCustomEvent<void>) => void;
         /**
           * Emited event when status change
          */

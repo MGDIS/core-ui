@@ -1,9 +1,9 @@
 {
-  "timestamp": "2024-03-27T11:24:34",
+  "timestamp": "2024-04-03T09:08:05",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.13.0",
-    "typescriptVersion": "5.4.2"
+    "version": "4.14.0",
+    "typescriptVersion": "5.4.3"
   },
   "components": [
     {
@@ -984,6 +984,14 @@
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-menu": [
+          "mg-item-more"
+        ],
+        "mg-item-more": [
+          "mg-menu-item",
+          "mg-icon",
+          "mg-menu"
         ],
         "mg-menu-item": [
           "mg-badge",
@@ -5044,10 +5052,10 @@
               }
             }
           },
-          "mutable": true,
+          "mutable": false,
           "attr": "format",
           "reflectToAttr": false,
-          "docs": "Set local formatting.\nNumbers are formatted based on the locale.\nWhen type is set to `currency`, formatting has no effect.",
+          "docs": "Set local formatting.\nNumbers are formatted based on the locale.",
           "docsTags": [],
           "default": "'number'",
           "values": [
@@ -5441,10 +5449,10 @@
         },
         {
           "name": "type",
-          "type": "\"currency\" | \"decimal\" | \"integer\"",
+          "type": "\"decimal\" | \"integer\"",
           "complexType": {
             "original": "NumericType",
-            "resolved": "\"currency\" | \"decimal\" | \"integer\"",
+            "resolved": "\"decimal\" | \"integer\"",
             "references": {
               "NumericType": {
                 "location": "import",
@@ -5460,10 +5468,6 @@
           "docsTags": [],
           "default": "'decimal'",
           "values": [
-            {
-              "value": "currency",
-              "type": "string"
-            },
             {
               "value": "decimal",
               "type": "string"
@@ -10982,7 +10986,9 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "mg-menu"
+      ],
       "dependencies": [
         "mg-menu-item",
         "mg-icon",
@@ -11009,6 +11015,9 @@
         ],
         "mg-button": [
           "mg-icon"
+        ],
+        "mg-menu": [
+          "mg-item-more"
         ]
       }
     },
@@ -11222,12 +11231,33 @@
         "mg-action-more",
         "mg-item-more"
       ],
-      "dependencies": [],
+      "dependencies": [
+        "mg-item-more"
+      ],
       "dependencyGraph": {
-        "mg-action-more": [
-          "mg-menu"
+        "mg-menu": [
+          "mg-item-more"
         ],
         "mg-item-more": [
+          "mg-menu"
+        ],
+        "mg-menu-item": [
+          "mg-badge",
+          "mg-icon",
+          "mg-popover"
+        ],
+        "mg-popover": [
+          "mg-popover-content"
+        ],
+        "mg-popover-content": [
+          "mg-card",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ],
+        "mg-action-more": [
           "mg-menu"
         ]
       }
@@ -11398,6 +11428,20 @@
           "cancelable": true,
           "composed": true,
           "docs": "Emited event when item is loaded",
+          "docsTags": []
+        },
+        {
+          "event": "item-updated",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when item is updated",
           "docsTags": []
         },
         {
@@ -13375,7 +13419,7 @@
       "path": "src/components/molecules/inputs/mg-input/mg-input.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts::NumericType": {
-      "declaration": "\"decimal\" | \"integer\" | \"currency\"",
+      "declaration": "\"decimal\" | \"integer\"",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf.ts"
     },

@@ -52,11 +52,11 @@ test.describe('mg-input-numeric', () => {
     { disabled: true },
     { value: '123,45', disabled: true },
     { value: '123,45', lang: 'fr' },
-    { value: '123,45', lang: 'fr', type: 'currency' },
-    { value: '123,45', lang: 'fr', type: 'currency', currency: 'EUR' },
+    { value: '123,45', lang: 'fr', format: 'currency' },
+    { value: '123,45', lang: 'fr', format: 'currency', currency: 'EUR' },
     { value: '123,45', readonly: true, lang: 'fr' },
-    { value: '123,45', readonly: true, lang: 'fr', type: 'currency' },
-    { value: '123,45', readonly: true, lang: 'fr', type: 'currency', currency: 'EUR' },
+    { value: '123,45', readonly: true, lang: 'fr', format: 'currency' },
+    { value: '123,45', readonly: true, lang: 'fr', format: 'currency', currency: 'EUR' },
     { value: '123,45', helpText: '<mg-icon icon="user" size="small"></mg-icon> Welcome batman' },
     { value: '123,45', helpText: 'HelpText Message', required: true },
     { value: '123,45', helpText: 'HelpText Message', required: true, readonly: true },
@@ -74,7 +74,7 @@ test.describe('mg-input-numeric', () => {
   });
 
   test('Should render currency symbol', async ({ page }) => {
-    const args = { ...baseArgs, type: 'currency' };
+    const args = { ...baseArgs, format: 'currency' };
     const html = createHTML(args);
     await page.setContent(html);
 
@@ -254,6 +254,7 @@ test.describe('mg-input-numeric', () => {
           };
           test(`format value ${renderAttributes(addedArgs)}`, async ({ page }) => {
             const args = { ...baseArgs, ...addedArgs };
+
             const html = createHTML(args);
             await page.setContent(html);
 
