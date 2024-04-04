@@ -9,6 +9,10 @@ module.exports = {
       recommended: false,
     },
     schema: [],
+    messages: {
+      rowRequiredCol: 'All row class children must have a col-* class',
+      colChildrenRow: 'col-* classes must be immediate children of rows',
+    },
   },
 
   create(context) {
@@ -30,15 +34,15 @@ module.exports = {
             if (
               className === classRow &&
               !node.childNodes
-                .filter((childNode) => !ignoreChildNodeType.includes(childNode.type))
-                .every((childNode) => {
+                .filter(childNode => !ignoreChildNodeType.includes(childNode.type))
+                .every(childNode => {
                   const childClassesAttribute = attribute(childNode, 'class')?.value.split(' ') || [];
-                  return childClassesAttribute.some((classAttribute) => classAttribute.startsWith(classColStartsWith));
+                  return childClassesAttribute.some(classAttribute => classAttribute.startsWith(classColStartsWith));
                 })
             ) {
               context.report({
                 node,
-                message: 'All row class children must have a col-* class',
+                messageId: 'rowRequiredCol',
               });
             }
             // Check if row class immediate children have a col class
@@ -47,7 +51,7 @@ module.exports = {
               if (!parentClassesAttribute || !parentClassesAttribute.value.includes(classRow))
                 context.report({
                   node,
-                  message: 'col-* classes must be immediate children of rows',
+                  messageId: 'colChildrenRow',
                 });
             }
           }
