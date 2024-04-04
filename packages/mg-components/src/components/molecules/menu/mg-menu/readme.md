@@ -102,6 +102,13 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 | `size`               | `size`      | Define mg-menu size                                                                 | `"large" \| "medium" \| "regular"`                                                         | `'regular'`            |
 
 
+## Slots
+
+| Slot | Description  |
+| ---- | ------------ |
+|      | Menu content |
+
+
 ## Dependencies
 
 ### Used by

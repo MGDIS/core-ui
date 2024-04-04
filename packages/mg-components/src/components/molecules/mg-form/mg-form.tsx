@@ -4,6 +4,10 @@ import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/mg-input/mg-input.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
 
+/*
+ * @slot - Form content
+ * @slot actions - Actions content
+ */
 @Component({
   tag: 'mg-form',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-form.css',

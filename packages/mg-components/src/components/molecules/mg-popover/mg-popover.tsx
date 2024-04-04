@@ -2,6 +2,10 @@ import { Component, Element, Host, h, Prop, Watch, EventEmitter, Event } from '@
 import { createID, getWindows } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement } from '@popperjs/core';
 
+/**
+ * @slot - Element that will display the popover
+ * @slot content - popover content
+ */
 @Component({
   tag: 'mg-popover',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-popover.css',

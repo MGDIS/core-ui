@@ -3,6 +3,10 @@ import { createID, ClassList, focusableElements, isValidString } from '@mgdis/st
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
+/*
+ * @slot content - Modal content
+ * @slot actions - Actions content
+ */
 @Component({
   tag: 'mg-modal',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-modal.css',
