@@ -7,8 +7,8 @@
 You can install the library using jsDelivr CDN by adding those script in the HTML header.
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@5/dist/mg-components/variables.css" />
-<script type="module" src="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@5/dist/mg-components/mg-components.esm.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.css" />
+<script type="module" src="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.esm.js"></script>
 ```
 
 ### Vue.js
@@ -19,10 +19,12 @@ Add MG Components to your project.
 npm install @mgdis/mg-components
 ```
 
-Add the following line in the client `jest.conf.js`:
+You need now to import the stylesheet who came with in the `App.vue` file:
 
-```js
-transformIgnorePatterns: ['/node_modules/@mgdis/(?!mg-components)'],
+```html
+<style>
+  @use '~@mgdis/mg-components/dist/mg-components/mg-components.css';
+</style>
 ```
 
 Import the needed components in your views/components like this:
@@ -35,27 +37,15 @@ import '@mgdis/mg-components/dist/components/mg-button';
 import '@mgdis/mg-components/dist/components/mg-message';
 ```
 
-You need now to import the components style by adding the mg-components variables or directly the stylesheet who came with in the `App.vue` file:
-
-```html
-<style>
-  @use '~@mgdis/mg-components/dist/mg-components/variables.css';
-</style>
-```
-
 [Read more about our CSS variables](./?path=/docs/css-variables--docs).
 
-You also can import the mg-components CSS file if you want to use our grid layout or some helpers.
-
-```html
-<style>
-  @use '~@mgdis/mg-components/dist/mg-components/mg-components.css';
-</style>
-```
-
-If you are already using a CSS framwork you may face some problem.
-
 #### Tests
+
+Add the following line in the client `jest.conf.js`:
+
+```js
+transformIgnorePatterns: ['/node_modules/@mgdis/(?!mg-components)'],
+```
 
 During test custom elements are not registered, to prevent Jest to log errors you'll need to add the ignoredElements Vue.js config in the jest setup file:
 
@@ -75,6 +65,12 @@ Add MG Components to your project.
 npm install @mgdis/mg-components
 ```
 
+You need now to import the stylesheet who came with in the `app.js` file:
+
+```js
+import '@mgdis/mg-components/dist/mg-components/mg-components.css';
+```
+
 Components can now be imported into your developments.
 
 ```js
@@ -83,13 +79,6 @@ import '@mgdis/mg-components/dist/components/mg-input-date';
 import '@mgdis/mg-components/dist/components/mg-input-textarea';
 import '@mgdis/mg-components/dist/components/mg-button';
 import '@mgdis/mg-components/dist/components/mg-message';
-```
-
-You need now to import the components style by adding the mg-components variables or directly the stylesheet who came with in the `app.js` file:
-
-```js
-import '@mgdis/mg-components/dist/mg-components/variables.css';
-import '@mgdis/mg-components/dist/mg-components/mg-components.css'; // if needed
 ```
 
 ## Use the Lib
