@@ -97,7 +97,7 @@ Type: `Promise<void>`
 ### Depends on
 
 - [mg-input](../mg-input)
-- [mg-character-left](../../../atoms/internals/mg-character-left)
+- mg-character-left
 
 ### Graph
 ```mermaid

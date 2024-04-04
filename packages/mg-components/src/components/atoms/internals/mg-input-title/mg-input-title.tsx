@@ -1,6 +1,9 @@
 import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
 
+/**
+ * @internal
+ */
 @Component({
   tag: 'mg-input-title',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-title.css',
