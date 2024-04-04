@@ -9,6 +9,10 @@ module.exports = {
       recommended: true,
     },
     schema: [],
+    messages: {
+      notSpan: 'Icons must use the span element instead of {{ tag }}',
+      missingAriaHidden: 'Icon aria-hidden attribute is missing',
+    },
   },
 
   create(context) {
@@ -19,7 +23,7 @@ module.exports = {
           if (node.tagName !== 'span') {
             context.report({
               node,
-              message: 'Icons must use the span element instead of {{ tag }}',
+              messageId: 'notSpan',
               data: {
                 tag: node.tagName,
               },
@@ -30,7 +34,7 @@ module.exports = {
           if (attribute(node, 'aria-hidden')?.value !== 'true') {
             context.report({
               node,
-              message: 'Icon aria-hidden attribute is missing',
+              messageId: 'missingAriaHidden',
             });
           }
         }
