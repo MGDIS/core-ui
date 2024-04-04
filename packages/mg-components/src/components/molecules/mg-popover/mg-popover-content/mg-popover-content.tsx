@@ -2,6 +2,9 @@ import { Component, Element, Host, h, Prop, EventEmitter, Event, State } from '@
 import { isTagName, ClassList } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
 
+/**
+ * @internal
+ */
 @Component({
   tag: 'mg-popover-content',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-popover-content.css',

@@ -8,6 +8,13 @@ import type { DirectionType, TargetType } from './mg-menu-item.conf';
 import type { MgPopover } from '../../mg-popover/mg-popover';
 import type { MessageType } from '../../../../locales/index.conf';
 
+/**
+ * @slot - Menu item content
+ * @slot image - Menu item image content
+ * @slot label - Menu item label content
+ * @slot information - Menu item information content
+ * @slot metadata - Menu item metadata content
+ */
 @Component({
   tag: 'mg-menu-item',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-menu-item.css',

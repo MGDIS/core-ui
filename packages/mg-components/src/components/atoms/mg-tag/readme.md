@@ -66,6 +66,13 @@ Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be c
 | `variant` | `variant` | Define tag variant                   | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "warning"` | `variants[0]` |
 
 
+## Slots
+
+| Slot | Description |
+| ---- | ----------- |
+|      | Tag content |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
