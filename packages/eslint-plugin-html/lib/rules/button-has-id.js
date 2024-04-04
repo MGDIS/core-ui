@@ -9,6 +9,9 @@ module.exports = {
       recommended: true,
     },
     schema: [],
+    messages: {
+      idRequired: 'Buttons and Anchors must have an ID',
+    },
   },
 
   create(context) {
@@ -17,7 +20,7 @@ module.exports = {
         if (!attribute(node, 'id')) {
           context.report({
             node,
-            message: 'Buttons and Anchors must have an ID',
+            messageId: 'idRequired',
           });
         }
       },

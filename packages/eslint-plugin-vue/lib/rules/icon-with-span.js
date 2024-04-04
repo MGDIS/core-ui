@@ -10,17 +10,21 @@ module.exports = {
       recommended: true,
     },
     schema: [],
+    messages: {
+      notSpan: 'Icons must use the span element instead of {{ tag }}',
+      missingAriaHidden: 'Icon aria-hidden attribute is missing',
+    },
   },
 
   create(context) {
     return VueUtils.defineTemplateBodyVisitor(context, {
-      "VElement"(node) {
+      VElement(node) {
         if (hasClass(node, 'fa')) {
           // Check if it's a span
           if (node.name !== 'span') {
             context.report({
               node,
-              message: 'Icons must use the span element instead of {{ tag }}',
+              messageId: 'notSpan',
               data: {
                 tag: node.name,
               },
@@ -31,7 +35,7 @@ module.exports = {
           if (getAttributeValue(attribute(node, 'aria-hidden')) !== 'true') {
             context.report({
               node,
-              message: 'Icon aria-hidden attribute is missing',
+              messageId: 'missingAriaHidden',
             });
           }
         }

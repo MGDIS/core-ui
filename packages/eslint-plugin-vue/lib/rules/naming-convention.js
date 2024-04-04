@@ -10,6 +10,10 @@ module.exports = {
       recommended: true,
     },
     schema: [],
+    messages: {
+      notBEMClass: 'Class must follow BEM convention',
+      notKebabCaseId: 'ID must be in kebab-case',
+    },
   },
 
   create(context) {
@@ -20,11 +24,11 @@ module.exports = {
        * https://gist.github.com/Potherca/f2a65491e63338659c3a0d2b07eee382
        */
       'VAttribute[key.argument.name="class"], VAttribute[key.name="class"]'(node) {
-        for (const classAttribute of (getAttributeValue(node)?.split(' ') || [])) {
+        for (const classAttribute of getAttributeValue(node)?.split(' ') || []) {
           if (!/^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$/.test(classAttribute)) {
             context.report({
               node,
-              message: 'Class must follow BEM convention',
+              messageId: 'notBEMClass',
             });
           }
         }
@@ -38,7 +42,7 @@ module.exports = {
         if (!/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(getAttributeValue(node))) {
           context.report({
             node,
-            message: 'ID must be in kebab-case',
+            messageId: 'notKebabCaseId',
           });
         }
       },
