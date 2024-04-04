@@ -183,17 +183,14 @@ export class MgInputNumeric {
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
       throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
-    } else if (newValue === 'currency') {
-      this.format = 'currency';
     }
   }
 
   /**
    * Set local formatting.
    * Numbers are formatted based on the locale.
-   * When type is set to `currency`, formatting has no effect.
    */
-  @Prop({ mutable: true }) format: Format = 'number'; // eslint-disable-line @stencil-community/strict-mutable
+  @Prop() format: Format = 'number';
   @Watch('format')
   watchFormat(newValue: MgInputNumeric['format']): void {
     if (!formats.includes(newValue)) {
