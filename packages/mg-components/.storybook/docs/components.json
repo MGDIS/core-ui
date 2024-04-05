@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-03T08:50:58",
+  "timestamp": "2024-04-04T13:43:35",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.14.0",
@@ -1163,7 +1163,12 @@
       "tag": "mg-button",
       "readme": "## Usage\n\nA primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".\n\n## Specs\n\n![](./doc/img/mg-button-specs.png)\n\n## Placement\n\n![](./doc/img/mg-button-placement.png)\n\n## Theming\n\n![](./doc/img/mg-button-styles.png)\n\nFocused `mg-button` style is the one from the browser (outline).\n\n## Attributes combination: `disable-on-click` and `disabled`\n\nWhen a click is triggered, the component sets the `disabled` prop to true.\n\nTo benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.\n\nTo reset the loader after the process has completed, you need to set the `disabled` prop asynchronously.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n### Global\n\n- `--mg-button-border-radius`: define button border radius, default: `0.3rem`\n- `--mg-button-icon-border-radius`: define button border radius in icon mode, default: `--default-size`\n- `--mg-button-disabled-opacity`: define button opacity when disabled, default: `--mg-disabled-opacity`\n- `--mg-button-gradient`: define if button use gradient, possible values 0 (no gradient) or 1 (with gradient), default: `1`\n- `--mg-button-border-variation`: define if button has a border based on background color, possible values 0 (no border) or 1 (with border), default: `1`\n\n### Variant\n\nVariants `danger`, `danger-alt`, `info` and `success` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).\n\n#### Primary\n\n- `--mg-button-primary-color-h`: define hue color value for primary button, default: `--color-dark-h`\n- `--mg-button-primary-color-s`: define saturation color value for primary button, default: `--color-dark-s`\n- `--mg-button-primary-color-l`: define lightness color value for primary button, default: `--color-dark-l`\n- `--mg-button-primary-font-color`: define font color for primary button, default: `--color-neutral`\n\n#### Secondary\n\n- `--mg-button-secondary-color-h`: define hue color value for secondary button, default: `--color-neutral-h`\n- `--mg-button-secondary-color-s`: define saturation color value for secondary button, default: `--color-neutral-s`\n- `--mg-button-secondary-color-l`: define lightness color value for secondary button, default: `--color-neutral-l`\n- `--mg-button-secondary-font-color`: define font color for secondary button, default: `--color-dark`\n",
       "docs": "A primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Button content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1434,7 +1439,12 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Button content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-action-more",
@@ -1489,7 +1499,12 @@
       "tag": "mg-card",
       "readme": "## Specifications\n\n### Style\n\n![](./doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--docs)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--docs)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are:\n\n- info\n- success\n- warning\n- danger\n- app\n\n![](./doc/img/mg-card-variant.png)\n\n_exemple of \"app color\" for the last one_\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--docs)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--docs)**\n\n### Spacing\n\n![](./doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-card-padding`: define car padding, default: `1.6rem`\n- `--mg-card-border-radius`: define card border radius, default: `0.5rem`\n- `--mg-card-background`: define card background, default: `hsl(var(--color-light))`\n- `--mg-card-border`: define card border, default: `0.1rem solid hsla(var(--color-dark), 5%)`\n- `--mg-card-box-shadow`: define card shadow, default: `var(--box-shadow)`\n- `--mg-card-box-overflow`: define card overflow, default: `unset`\n- `--mg-card-max-width`: define card max-width, default: `unset`\n- `--mg-card-min-width`: define card min-width, default: `unset`\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Card content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -1573,7 +1588,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Card content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-message",
@@ -3327,7 +3347,24 @@
       "tag": "mg-input",
       "readme": "\n## UX\n\n### Label\n\n- The label is located on the left of the input field.\n- The text is to be right aligned.\n- The label can be on one or more lines.\n- The label can be positioned above the input field.\n\n### Input help\n\nThe message displayed indicates the format expected by the input field \"example: email@provider.com\" or \"expected format: DD/MM/YYYY (ex: 13/04/2019)\"\n\n### Message order\n\nWhen the messages are displayed under the field the order is as follows:\n\n1. input help\n2. error\n\n### Placeholder\n\nThe placeholder should not be used as an input help.  \n♿ RGAA: The placeholder is not considered a valid label under the RGAA so is not subject to a contrast ratio.\n\n### Read only\n\n- The value is no longer editable.\n- The input field no longer has a border or background.\n- The value is displayed in bold.\n- If there is no value entered, nothing is displayed.\n\n### Required field\n\nThe asterisk is displayed regardless of the status of the field: input, read-only, disabled.\n\n### Pattern\n\nPlease ensure to consider this when using regular expressions in your components.\n\nSince mid-2023, there have been updates to the regular expressions used in native inputs. Browsers now uses the 'v' flag instead of the 'u' flag.  \nConsequently, all literal characters must be escaped, and there's no longer a need to use the `^` and `$` characters to indicate the start and end of the string.\n\nFor exemple this RegExp working using the 'u' flag `^[\\d ()+]*$` should be converted to the corresponding 'v' flag `[\\d\\s\\(\\)\\+]` on our components. You can get more info on the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern#overview).\n\nIf needed, this library has been identified for converting regular expressions: [regexpu-core](https://www.npmjs.com/package/regexpu-core).\n\n## Specs\n\n### Positioning of \"i\" icon\n\n![](./doc/img/mg-input-tooltip-position.png)\n\nBy default, the \"i\" icon is positioned next to the input field.\n\nYou can position it next to the label by using the `tooltip-placement` prop with the value `label`.\n\nWhen `label-on-top` is enabled, the \"i\" icon moves next to the label, overriding the `tooltip-placement` setting.\n\nWhen the `label-hide` prop is enabled, the \"i\" icon moves next to the input, overriding the `tooltip-placement` setting.\n\n### Value positioning\n\nBy default, the value is left aligned, you can change the CSS variable `--mg-inputs-text-align` to right align.\n\n### Responsive\n\n![](./doc/img/mg-input-responsive.png)\n\nWhen the viewport width is less than 768px, the label is stacked above the input field.\n\nIf you are creating a form that combines mg-components inputs with inputs from one of our legacy libraries (such as form, ui-components, ui-components-vuejs), please refer to [this section on mg-form](.?path=/docs/molecules-mg-form--docs#combining-mg-input--with-legacy-libraries).\n\n### Errors\n\nInput field border and error message text are in [@color-danger](./?path=/docs/style-colors--docs).  \nError message background is a variant of [@color-danger](./?path=/docs/style-colors--docs) : #FEF6F6 or HSL (357,80%,98%).\n\n## Behavior\n\n### Errors\n\nError is triggered and displayed when we leave the input field.\n\nWhen we enter in an input field with an error its state is checked everytime the user update its content, when the error is fixed the message disapears.\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`\n- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`\n- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`\n- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`\n- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`\n- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`\n- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`\n- `--mg-inputs-title-width`: Define input label width, default: `23rem`\n- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`\n- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`\n\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-inputs-text-align`: Define input text alignement, numeric input default is `right`, others inputs default is `left`\n- `--mg-inputs-border-width`: Define input border witdh, default: `0.1rem`\n- `--mg-inputs-border-radius`: Define input border radius, default: `0.3rem`\n- `--mg-inputs-color`: Define input border an placeholder color, default: `#b5c2c9`\n- `--mg-inputs-spacer`: Define input space between label, input, tooltip, etc., default: `1rem`\n- `--mg-inputs-error-bg-color`: Define input error message backround color, default: `var(--color-danger-h), calc(var(--color-danger-s) + 5%), calc(var(--color-danger-l) + 49%)`\n- `--mg-inputs-color-shadow-focus-hsl`: Define input shadow when focused, default: `188, 100%, 50%`\n- `--mg-inputs-title-width`: Define input label width, default: `23rem`\n- `--mg-inputs-margin-bottom`: Define input bottom margin, default: `1.5rem`\n- `--mg-inputs-title-horizontal-space`: Define space between label and input when inside a `mg-form`, default: `3rem`\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Input content"
+        },
+        {
+          "name": "slot",
+          "text": "label - Label content"
+        },
+        {
+          "name": "slot",
+          "text": "help-text - Help text content"
+        },
+        {
+          "name": "slot",
+          "text": "error - error content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -3582,7 +3619,24 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Input content"
+        },
+        {
+          "name": "error",
+          "docs": "error content"
+        },
+        {
+          "name": "help-text",
+          "docs": "Help text content"
+        },
+        {
+          "name": "label",
+          "docs": "Label content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-input-checkbox",
@@ -4998,7 +5052,12 @@
       "tag": "mg-input-numeric",
       "readme": "## Usage\n\nAn amount field is a numeric field.  \nBy default it is limited to 16 characters (including comma).\n\nIt is not possible to enter characters other than numbers, \",\" or \".\".\n\nRounding is to two digits after the decimal point.  \nIt is not possible to enter more than two digits after the decimal point.\n\nIt is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.\n\n## Specs\n\n### Positioning\n\nBy default, the value is right aligned.\n\n![](./doc/img/mg-input-numeric-positioning-default.png)\n\nYou can change the CSS variable `--mg-inputs-text-align` to left align.\n\n![](./doc/img/mg-input-numeric-positioning-custom.png)\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n### Unit positioning\n\n![](./doc/img/mg-input-numeric-unit.png)\n\nUnit term must be placed into the field slot using a \"space\" character before the unit term.\n",
       "docs": "An amount field is a numeric field.  \nBy default it is limited to 16 characters (including comma).\n\nIt is not possible to enter characters other than numbers, \",\" or \".\".\n\nRounding is to two digits after the decimal point.  \nIt is not possible to enter more than two digits after the decimal point.\n\nIt is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "append-input - Content to display next to the input"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -5674,7 +5733,12 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "append-input",
+          "docs": "Content to display next to the input"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -7352,7 +7416,12 @@
       "tag": "mg-input-text",
       "readme": "## Design\n\n### Indication of the number of characters left\n\n- when the focus is on the input field, the `mg-character-left` component is displayed\n- when the focus is no longer on the input field, the message disappears\n- by default limited to 400 alpha numeric characters\n\n#### Font\n\n![](./doc/img/mg-input-text-fonts.png)\n\nOpen Sans, regular, 11px  \nColor: [@color-dark](./?path=/docs/style-colors--docs), opacity: 0.6\n\n#### Spacing\n\n![](./doc/img/mg-input-text-spacing.png)\n\n#### Position\n\n![](./doc/img/mg-input-text-position.png)\n\nPosition: center\n\n## Use as `search` input\n\nDue to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type=\"search\" />` must be used within a `<form role=\"search\" />` we recommend using mg-input-text as in dedicated story.\n\nThe \"search\" role can only be used when the input field is the main website search field.\n\n## Display a `datalist`\n\nThe `datalist` behavior is set with `datalistoptions` prop to initalize options list.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "append-input - Content to display next to the input"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -8853,7 +8922,12 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "append-input",
+          "docs": "Content to display next to the input"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-input-checkbox",
@@ -9563,7 +9637,12 @@
       "tag": "mg-input-title",
       "readme": "## Design\n\n### Label\n\nThe label can be on more than one line.\n\n### Styles\n\n![](./doc/img/mg-input-title.png)\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Title content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -9656,7 +9735,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Title content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-input"
@@ -9674,7 +9758,16 @@
       "tag": "mg-input-toggle",
       "readme": "## Usage\n\nClicking anywhere on the entire component area toggles the selected value.\n\nThe first value is always selected by default.\n\nWhen the \"on/off\" property is used, the first value is always the disabled value and the style is adjusted.\n\nThe values must be transcribed by texts or icons.\n\n### Types\n\n![](./doc/img/mg-input-toggle-use.png)\n\n### Specs\n\n![](./doc/img/mg-input-toggle-specs.png)\n\n### Readonly\n\n![](./doc/img/mg-input-toggle-readonly.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-input-toggle-border-radius-ratio`: Define input border radius ration, default: `2`\n",
       "docs": "Clicking anywhere on the entire component area toggles the selected value.\n\nThe first value is always selected by default.\n\nWhen the \"on/off\" property is used, the first value is always the disabled value and the style is adjusted.\n\nThe values must be transcribed by texts or icons.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "item-1 - Left option toggle content"
+        },
+        {
+          "name": "slot",
+          "text": "item-2 - Right option toggle content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -10090,7 +10183,16 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "item-1",
+          "docs": "Left option toggle content"
+        },
+        {
+          "name": "item-2",
+          "docs": "Right option toggle content"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -11136,7 +11238,12 @@
       "tag": "mg-menu",
       "readme": "## Horizontal\n\n### Use\n\n![](./doc/img/mg-menu-horizontal-exemple.png)\n\nHorizontal menu is used with large (\"desktop\") resolutions, it is placed in the upper area of the screen.\n\n### Anatomy\n\n![](./doc/img/mg-menu-horizontal-anatomy.png)\n\n![](./doc/img/mg-menu-horizontal-item-anatomy.png)\n\n### Behavior\n\n#### Sizing\n\n![](./doc/img/mg-menu-horizontal-sizing.png)\n\nA horizontal menu can display different item sizes: regular, medium, large.\n\n![](./doc/img/mg-menu-horizontal-sizing-itemmaxwidth.png)\n\nThe content of the element determines its width, but to handle the case where the content is too large (long label), it is possible to specify a maximum width for the element._Label_ and _Meta_ are then truncated.\n\n#### Sub-content\n\n![](./doc/img/mg-menu-horizontal-subcontent-submenu.png)\n\n![](./doc/img/mg-menu-horizontal-subcontent-slot.png)\n\nA \"submenu\" or a \"free content\" can be set to the item.\nAn icon \"chevron-down\" at the right of the item informs the user.\n\n##### Badge\n\n![](./doc/img/mg-menu-horizontal-subcontent-badge.png)\n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./doc/img/mg-menu-horizontal-plus.png)\n\nWhen not all items can be displayed due to the width of the menu container, the items are grouped into a \"plus item\".\n\n## Vertical\n\n### Use\n\n![](./doc/img/mg-menu-vertical-use.png)\n\nThe horizontal menu is used with large resolutions (\"desktop\"), it is mainly placed in the left area of the screen.\n\n### Anatomy\n\n![](./doc/img/mg-menu-vertical-anatomy.png)\n\n![](./doc/img/mg-menu-vertical-item-anatomy.png)\n\n### Behavior\n\n#### Sub content\n\nAn item can display a sub content which can be another vertical menu.\nThis item displays a chevron to its right.\nThe submenu is displayed by clicking on the item.\n\n##### Badge\n\n![](./doc/img/mg-menu-vertical-subcontent-badge.png)\n\nIf at least one sub-item has a badge, the item displays a badge with an exclamation symbol.\n\n#### Overflow\n\n![](./doc/img/mg-menu-vertical-scroll.png)\n\nWhen not all items can be displayed due to the height of the menu container, a scroll bar helps to see hidden items.\n\n**🔺child mg-menu-item slots image / information**\n\nWith a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attributes** instead, because the behavior uses the [cloneNode](https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode) method which breaks properties.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-background-color-hsl`: define mg-menu background color. Default: `--color-light`.\n",
       "docs": "",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Menu content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -11266,7 +11373,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Menu content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-action-more",
@@ -11309,7 +11421,28 @@
       "tag": "mg-menu-item",
       "readme": "## Use\n\nItem menu is used with horizontal or vertical menus.\n\n## Anatomy\n\n![](./doc/img/mg-menu-item-anatomy.png)\n\nAn item must have a label.\nAn icon can be added before the text.\nA badge can be added after the text.\nWhen a submenu is available, a chevron is displayed (in horizontal and vertical menus) to indicate its presence.\n\n## Specs\n\nItem's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical).\n\n### Spacing\n\n![](./doc/img/mg-menu-item-spacing.png)\n\n### Sizing\n\n#### Horizontal menu\n\n![](./doc/img/mg-menu-item-sizing-horizontal.png)\n\nWidth of the item depends on its content.\n\n![](./doc/img/mg-menu-item-sizing-maxwidth.png)\n\nIf a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-sizing-vertical.png)\n\nWidth of the item is 100% width of the menu.\n\n### Alignment\n\n#### Horizontal and vertical menus\n\n![](./doc/img/mg-menu-item-alignment.png)\n\nAll contents are aligned vertically.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-alignment-vertical.png)\n\nAll items are aligned to left.\nThe chevron is aligned to the right of the item.\n\n### Styling\n\n![](./doc/img/mg-menu-item-horizontal-menu-styling.png)\n\n![](./doc/img/mg-menu-item-vertical-menu-styling.png)\n\nHover item: the background is colored\nActive item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal, at the left of the item for vertical menus.\n\n#### Colors\n\nStandard color is @color-dark.\nActive color is the color of the app.\nHover color is the color of the app with an opacity set to 10%.\nDisabled item's opacity is set to 40%.\n\n#### Fonts\n\nFamily: Open Sans\nRegular size: 13px\nMedium/Large size: 15px\n\n#### Icons\n\nRegular/Medium/Large menus: regular size\n\n## Behavior\n\n### Click\n\nClick on an item of the menu can:\n\n- redirect to a url\n- display child content (see below)\n\nIf child content is available, an icon \"chevron-down\" is displayed at the right of the item.\nWhen opening the child content, the chevron makes a 180° rotation.\nWhen closing the child content, the chevron returns to position 0°.\n\n## Child content\n\n### Horizontal and vertical menus\n\nChild content is displayed\n\n- by clicking on the item\n- by pressing the space or enter key\n\nIt is closed\n\n- by clicking on the item\n- by pressing the space or enter key\n- by clicking outside of the child content if the menu is horizontal\n\nThe child content can be:\n\n- another horizontal or vertical menu with sub items\n- a slot for HTML content\n\n#### In an horizontal menu\n\n![](./doc/img/mg-menu-submenu-alignment.png)\n\nChild content is displayed in a floating component over the content (like a popover).\nIt is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.\n\nIf the floating component is higher than the screen size, there is no overflow, user has to scroll the page.\n\n![](./doc/img/mg-menu-item-child-styling.png)\n\nThe floating component has a _@color-light_ background and a _@shadow_.\n\n![](./doc/img/mg-menu-item-child-menu-spacing.png)\n\nIf the floating component displays a submenu, there are top and bottom spacing of 10px.\n\n![](./doc/img/mg-menu-item-child-slot-spacing.png)\n\nIf the floating component displays a slot, there is no spacing.\n\n![](./doc/img/mg-menu-submenu-slot.png)\n\nThe minimal width of the submenu is the item's width.\nWidth of the submenu is determined by the width of the largest item or the content of the slot.\n\n#### In a vertical menu\n\n![](./doc/img/mg-menu-submenu-vertical-menu.png)\n\nMenu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**\nIdem for the slot.\nThere is no space to display child content.\nItems below are pushed to bottom.\n\n##### Spacing\n\nSub-items add to their left spacing the spacing between left border and content of their parent's item.\n\n## Slots\n\n### Image\n\nRecommanded element is an icon or a SVG.\n\n### Information\n\nRecommanded element is a mg-badge. Use it when you need to notify new events in this section.\n\n## CSS Variables\n\n### global\n\n- `--mg-menu-item-focused-background-color-hsl`: define mg-menu-item focused background color. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-border-color-active-hsl`: define mg-menu-item border color. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-color-hsl`: define mg-menu-item font color. default: `--mg-color-dark`.\n- `--mg-menu-item-color-active-hsl`: define mg-menu-item font color active. default: `--mg-color-app-hsl`.\n- `--mg-menu-item-navigation-button-column-gap`: define mg-menu-item button column gap. default: `unset`.\n\n### navigation-button\n\n- `--mg-menu-item-navigation-button-max-width`: define mg-menu-item button max-width. Useful to apply `text-overflow: ellipsis;` on `mg-menu-item__navigation-button-text` element. default: `unset`.\n",
       "docs": "Item menu is used with horizontal or vertical menus.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Menu item content"
+        },
+        {
+          "name": "slot",
+          "text": "image - Menu item image content"
+        },
+        {
+          "name": "slot",
+          "text": "label - Menu item label content"
+        },
+        {
+          "name": "slot",
+          "text": "information - Menu item information content"
+        },
+        {
+          "name": "slot",
+          "text": "metadata - Menu item metadata content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -11507,7 +11640,28 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Menu item content"
+        },
+        {
+          "name": "image",
+          "docs": "Menu item image content"
+        },
+        {
+          "name": "information",
+          "docs": "Menu item information content"
+        },
+        {
+          "name": "label",
+          "docs": "Menu item label content"
+        },
+        {
+          "name": "metadata",
+          "docs": "Menu item metadata content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-action-more",
@@ -12444,7 +12598,16 @@
       "tag": "mg-popover",
       "readme": "## Usage\n\nA popover is more enhanced than a tooltip but less blocking than a modal.\n\n## Behavior\n\nThe window is displayed when clicking on its trigger.\n\nThe window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.\n\nThe window closes:\n\n- when clicking on its trigger\n- clicking outside the window\n- when the ESC key is pressed\n- when clicking on the close button at the top right corner\n\nThe size of the window is determined by the content (set a maximum size to avoid problems).\n\nThe title and the close button are optional.\n\n## Specs\n\n### Fonts\n\n![](./doc/img/mg-popover-fonts.png)\n\n### Spacing\n\n![](./doc/img/mg-popover-spacing.png)\n\n### Sizing\n\n![](./doc/img/mg-popover-sizing.png)\n\nDefault max-width: 400px\nThe value of the max-width can be modified according to the case via the CSS variable.\n\n### Alignments\n\n![](./doc/img/mg-popover-align.png)\n\n### Positioning\n\n#### Item\n\n![](./doc/img/mg-popover-position.png)\n\n#### Screen\n\n![](./doc/img/mg-popover-position-screen.png)\n\n### Style\n\n![](./doc/img/mg-popover-style.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-popover-background-color`: Define popover background color, default: `var(--color-light)`\n- `--mg-popover-font-color`: Define popover font color, default: `var(--color-font-dark)`\n- `--mg-popover-title-font-size`: Define popover title font size, default: `1.4rem`\n- `--mg-popover-padding-vertical`: Define popover vertical padding, default: `1.5rem`\n- `--mg-popover-padding-horizontal`: Define popover horizontal padding, default: `--mg-popover-padding-vertical`\n- `--mg-popover-max-width`: Define the popover max-width. Default: `40rem`;\n- `--mg-popover-min-width`: Define the popover min-width. Default: `unset`;\n\nPlease note that the mg-popover component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-card) to customize mg-popover. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-popover to your design.\n",
       "docs": "A popover is more enhanced than a tooltip but less blocking than a modal.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Element that will display the popover"
+        },
+        {
+          "name": "slot",
+          "text": "content - popover content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -12667,7 +12830,16 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Element that will display the popover"
+        },
+        {
+          "name": "content",
+          "docs": "popover content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-action-more",
@@ -12697,81 +12869,6 @@
         ],
         "mg-menu-item": [
           "mg-popover"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/molecules/mg-popover/mg-popover-content/mg-popover-content.tsx",
-      "encapsulation": "shadow",
-      "tag": "mg-popover-content",
-      "readme": "# mg-popover-content\n\nIn order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.\n",
-      "docs": "In order to adhere to the ARIA popover pattern, which is essential for accessibility, we need to retrieve the popover content from outside the `mg-popover` shadow root.\n\nThe `mg-popover-content` component is appended to the `mg-popover` component as a slot when the component is loaded. It receives the popover content as slots and manages the popover's style.",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "closeButton",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "close-button",
-          "reflectToAttr": false,
-          "docs": "Define if popover has a cross button",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "hide-content",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emited event when close button is clicked",
-          "docsTags": []
-        }
-      ],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "mg-popover"
-      ],
-      "dependencies": [
-        "mg-card",
-        "mg-button",
-        "mg-icon"
-      ],
-      "dependencyGraph": {
-        "mg-popover-content": [
-          "mg-card",
-          "mg-button",
-          "mg-icon"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-popover": [
-          "mg-popover-content"
         ]
       }
     },
@@ -12842,7 +12939,12 @@
       "tag": "mg-tabs",
       "readme": "## Anatomy\n\n![](./doc/img/mg-tabs-anatomy.png)\n\n## Specs\n\n### Spacing\n\n- Regular\n  - X = 20px;\n  - Y = 10px;\n- Large\n  - X = 30px;\n  - Y = 15px;\n\n![](./doc/img/mg-tabs-spacing.png)\n\n- if only text, no extra spacing,\n- if no badge: no extra spacing on the right\n- if only icon: no extra spacing on the right\n\n### Sizing\n\n![](./doc/img/mg-tabs-sizing.png)\n\nThe header bottom border is 100% wide, 1px sizing and its color is @color-dark-soft. You can override it with [CSS variable](./?path=/docs/molecules-mg-tabs--docs#css-variables).\n\n![](./doc/img/mg-tabs-header-border.png)\n\n### States\n\n![](./doc/img/mg-tabs-states.png)\n\n### Responsive\n\n#### Line breaks (current management)\n\n![](./doc/img/mg-tabs-responsive.png)\n\n## CSS variables\n\nIf needed some [variables](./?path=/story/css-variables--page) are available to customize the component:\n\n- `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.\n",
       "docs": "![](./doc/img/mg-tabs-anatomy.png)",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "tab_content-n - Tab content, where `n` represents the position of the tab content. It starts at 1."
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -12996,7 +13098,12 @@
       ],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "tab_content-n",
+          "docs": "Tab content, where `n` represents the position of the tab content. It starts at 1."
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [
@@ -13016,7 +13123,12 @@
       "tag": "mg-tag",
       "readme": "## Specs\n\n![](./doc/img/mg-tag-specs.png)\n\n### Fill / Outline tags\n\n#### Colors\n\n![](./doc/img/mg-tag-colors.png)\n\nIcons take the color of the label.\n\n### Soft tags\n\n#### Font\n\n![](./doc/img/mg-tag-font.png)\n\nThey are not on SemiBold but **Regular**.\n\n#### Colors\n\n![](./doc/img/mg-tag-icons-colors.png)\n\n1. Icons takes the color of the tag variant.\n2. Labels are [**@color-dark**](./?path=/docs/style-colors--docs) for all.\n3. Color background is **[**soft color**](./?path=/docs/style-colors--docs)** of the tag variant.\n\n#### Rules\n\n![](./doc/img/mg-tag-use.png)\n\nFor accessibility, soft variant tags cannot use an icon on its own.\n\n## Theming\n\n![](./doc/img/mg-tag-variants.png)\n\n### With Icons\n\n![](./doc/img/mg-tag-icons.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n### Global\n\n- `--mg-tag-height`: Define tag min height, default: `2.3rem`\n- `--mg-tag-border-radius`: Define tag border radius, default: `0.5rem`\n- `--mg-tag-font-size`: Define tag font size, default: `1.2rem`\n\n### Variant\n\nVariants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).\n",
       "docs": "![](./doc/img/mg-tag-specs.png)",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Tag content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -13115,7 +13227,12 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Tag content"
+        }
+      ],
       "parts": [],
       "dependents": [],
       "dependencies": [],
@@ -13127,7 +13244,16 @@
       "tag": "mg-tooltip",
       "readme": "## Usage\n\nTooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.\n\n## Behavior\n\nThe tooltip must be displayed when the element that allows its display:\n\n- Is hovered over by the mouse.\n- Takes the keyboard focus.\n\nThe tooltip must be hidden when the element that allows its display:\n\n- Is no longer hovered over by the mouse.\n- Loses the keyboard focus.\n- Pressing the Escape key must hide the tooltip.\n\nThe tooltip must remain displayed when its content is hovered over by the mouse.\n\nThe tooltip can be placed above, to the right, below or to the left of the element it describes.\n\nBy default, the message is displayed at the bottom of the element.\n\nIf the element is located at the edge of the screen, the tooltip is shifted to be always visible.\n\n## Specs\n\n### Shapes\n\n![](./doc/img/mg-tooltip-shape.png)\n\n### Fonts\n\n![](./doc/img/mg-tooltip-font.png)\n\n### Spacing\n\n![](./doc/img/mg-tooltip-spaces.png)\n\n### Alignments\n\n![](./doc/img/mg-tooltip-alignments-text.png)\n\n### Positioning\n\nTriangle is always centered on the call component\n\n![](./doc/img/mg-tooltip-positioning.png)\n![](./doc/img/mg-tooltip-positioning2.png)\n\n### Colors\n\n![](./doc/img/mg-tooltip-colors.png)\n\n### Sizes\n\n![](./doc/img/mg-tooltip-sizing.png)\n\nComponent's max-width is 400px.\n\n![](./doc/img/mg-tooltip-max-width.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`\n- `--mg-tooltip-background-color`: Define tooltip background color, default: `--color-dark`\n- `--mg-tooltip-font-color`: Define tooltip font color, default: `--color-font-light`\n",
       "docs": "Tooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.",
-      "docsTags": [],
+      "docsTags": [
+        {
+          "name": "slot",
+          "text": "- Element that will display the tooltip"
+        },
+        {
+          "name": "slot",
+          "text": "content - Tooltip content"
+        }
+      ],
       "usage": {},
       "props": [
         {
@@ -13307,7 +13433,16 @@
       "events": [],
       "listeners": [],
       "styles": [],
-      "slots": [],
+      "slots": [
+        {
+          "name": "",
+          "docs": "Element that will display the tooltip"
+        },
+        {
+          "name": "content",
+          "docs": "Tooltip content"
+        }
+      ],
       "parts": [],
       "dependents": [
         "mg-input",
@@ -13325,53 +13460,6 @@
         ],
         "mg-input-checkbox-paginated": [
           "mg-tooltip"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/atoms/mg-tooltip/mg-tooltip-content/mg-tooltip-content.tsx",
-      "encapsulation": "shadow",
-      "tag": "mg-tooltip-content",
-      "readme": "# mg-tooltip-content\n\nIn order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.\n",
-      "docs": "In order to adhere to the ARIA tooltip pattern, which is essential for accessibility, we need to retrieve the tooltip content from outside the `mg-tooltip` shadow root.\n\nThe `mg-tooltip-content` component is appended to the `mg-tooltip` component as a slot when the component is loaded. It receives the tooltip content as props and manages the tooltip's style.",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "message",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "message",
-          "reflectToAttr": false,
-          "docs": "Displayed message in the tooltip",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": true
-        }
-      ],
-      "methods": [],
-      "events": [],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "mg-tooltip"
-      ],
-      "dependencies": [],
-      "dependencyGraph": {
-        "mg-tooltip": [
-          "mg-tooltip-content"
         ]
       }
     }

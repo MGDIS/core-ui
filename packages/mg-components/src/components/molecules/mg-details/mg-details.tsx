@@ -1,6 +1,10 @@
 import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
 
+/*
+ * @slot summary - Summary content
+ * @slot details - Details content
+ */
 @Component({
   tag: 'mg-details',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-details.css',

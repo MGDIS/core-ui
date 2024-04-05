@@ -10,6 +10,10 @@ import { Guard } from './mg-tooltip.conf';
  */
 const isButton = (element: unknown): element is HTMLMgButtonElement => typeof element === 'object' && ['MG-BUTTON', 'BUTTON'].includes((element as Element).tagName);
 
+/**
+ * @slot - Element that will display the tooltip
+ * @slot content - Tooltip content
+ */
 @Component({
   tag: 'mg-tooltip',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tooltip.css',
