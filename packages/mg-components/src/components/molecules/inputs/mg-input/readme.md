@@ -152,7 +152,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 - [mg-tooltip](../../../atoms/mg-tooltip)
 - [mg-icon](../../../atoms/mg-icon)
-- [mg-input-title](../../../atoms/internals/mg-input-title)
+- mg-input-title
 
 ### Graph
 ```mermaid
