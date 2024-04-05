@@ -64,6 +64,13 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | `active-tab-change` | Emited event when active tab change | `CustomEvent<number>` |
 
 
+## Slots
+
+| Slot              | Description                                                                        |
+| ----------------- | ---------------------------------------------------------------------------------- |
+| `"tab_content-n"` | Tab content, where `n` represents the position of the tab content. It starts at 1. |
+
+
 ## Dependencies
 
 ### Depends on

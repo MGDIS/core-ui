@@ -134,6 +134,16 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"` | `'input'`   |
 
 
+## Slots
+
+| Slot          | Description       |
+| ------------- | ----------------- |
+|               | Input content     |
+| `"error"`     | error content     |
+| `"help-text"` | Help text content |
+| `"label"`     | Label content     |
+
+
 ## Dependencies
 
 ### Used by

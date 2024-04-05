@@ -120,6 +120,13 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot             | Description                          |
+| ---------------- | ------------------------------------ |
+| `"append-input"` | Content to display next to the input |
+
+
 ## Dependencies
 
 ### Used by

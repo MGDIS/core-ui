@@ -4,6 +4,9 @@ import { types, InputError, type NumericType, type Format, formats } from './mg-
 import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
 
+/**
+ * @slot append-input - Content to display next to the input
+ */
 @Component({
   tag: 'mg-input-numeric',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-numeric.css',

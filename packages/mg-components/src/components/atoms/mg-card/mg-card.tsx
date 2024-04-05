@@ -2,6 +2,9 @@ import { Component, h, Prop, State, Watch } from '@stencil/core';
 import { ClassList } from '@mgdis/stencil-helpers';
 import { type VariantStyleType, variantStyles, type VariantType, variants } from './mg-card.conf';
 
+/**
+ * @slot - Card content
+ */
 @Component({
   tag: 'mg-card',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-card.css',

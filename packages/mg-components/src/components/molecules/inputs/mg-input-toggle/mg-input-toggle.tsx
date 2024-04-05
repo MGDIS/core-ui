@@ -13,6 +13,10 @@ import { classDisabled, classReadonly, type TooltipPosition } from '../mg-input/
 const isOption = (option: unknown): option is ToggleValue =>
   typeof option === 'object' && typeof (option as ToggleValue).title === 'string' && (option as ToggleValue).value !== undefined;
 
+/**
+ * @slot item-1 - Left option toggle content
+ * @slot item-2 - Right option toggle content
+ */
 @Component({
   tag: 'mg-input-toggle',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-toggle.css',

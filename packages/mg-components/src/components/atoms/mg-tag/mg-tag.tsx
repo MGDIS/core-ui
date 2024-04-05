@@ -1,6 +1,9 @@
 import { Component, h, Prop, State, Watch, Element } from '@stencil/core';
 import { TagVariantType, variants } from './mg-tag.conf';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
+/**
+ * @slot - Tag content
+ */
 @Component({
   tag: 'mg-tag',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tag.css',
