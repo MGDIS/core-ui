@@ -74,7 +74,11 @@ No more `variables.scss` export, only `variables.css`.
 
 - [Changes in `mg-icon`](#changes-in-mg-icon)
 - [Changes in `mg-button`](#changes-in-mg-button)
+- [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
+- [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Hide Components](#hide-components)
+- [Internal components](#internal-components)
+- [Stylesheet](#stylesheet)
 
 ### Changes in `mg-icon`
 
@@ -98,6 +102,29 @@ No more `variables.scss` export, only `variables.css`.
   <mg-button id="blu">Non</mg-button>
   ```
 
+### Changes in `mg-input-numeric`
+
+- The `currency` type has been moved to the `format` attribute.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-numeric identifier="blu" label="non" type="currency"></mg-input-numeric>
+  <!-- in v6 -->
+  <mg-input-numeric identifier="blu" label="non" format="currency"></mg-input-numeric>
+  ```
+
+### Changes in `mg-input-text` and `mg-input-textarea`
+
+- Renammed `display-character-left` prop to `character-left-hide`.  
+  The `display-character-left` prop was inconsistent with standard boolean attributes as it requires setting a "false" value explicitly. It should align with standard boolean attributes, which are considered false when the attribute is missing.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-text identifier="blu" label="non" display-character-left="false"></mg-input-text>
+  <!-- in v6 -->
+  <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
+  ```
+
 ### Hide components
 
 - `mg-message` and `mg-modal` no longer use the `hide` prop for visibility. Use the native `hidden` attribute.
@@ -115,25 +142,35 @@ No more `variables.scss` export, only `variables.css`.
 
 - `mg-input-title` and `mg-character-left` components are now considered internal and should not be used outside of `mg-components`. Dedicated stories for these components have been removed.
 
-### Changes in `mg-input-text` and `mg-input-textarea`
+### Stylesheet
 
-- Renammed `display-character-left` prop to `character-left-hide`.  
-  The `display-character-left` prop was inconsistent with standard boolean attributes as it requires setting a "false" value explicitly. It should align with standard boolean attributes, which are considered false when the attribute is missing.
+- We now only have a `mg-components.css` file that contains all the variables and the minimum styles needed to make mg-components work. Other stylesheets can be found in the `@mgdis/styles` package.
+
+  Using CDN:
 
   ```html
-  <!-- in v5 -->
-  <mg-input-text identifier="blu" label="non" display-character-left="false"></mg-input-text>
-  <!-- in v6 -->
-  <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.css" />
+  <!-- If other stylesheets are needed -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/styles@2/dist/styles.css" />
   ```
 
-### Changes in `mg-input-numeric`
+  Using a build tool:
 
-- The `currency` type has been moved to the `format` attribute.
+  ```TS
+  import '@mgdis/mg-components/dist/mg-components/mg-components.css';
+  import '@mgdis/styles/dist/styles.css'; // If other stylesheets are needed
+  ```
 
-  ```html
-  <!-- in v5 -->
-  <mg-input-numeric identifier="blu" label="non" type="currency"></mg-input-numeric>
-  <!-- in v6 -->
-  <mg-input-numeric identifier="blu" label="non" format="currency"></mg-input-numeric>
+- All custom properties, a.k.a. CSS variables, have been prefixed with `mg-` to avoid collisions with other CSS frameworks or your own variables. Additionally, we have prefixed them to indicate their purpose more clearly: `b-` for base, `c-` for component-specific, `l-` for layout-related, and `u-` for utility custom properties.
+
+  ```CSS
+  /* in v5 */
+  --font-size: 1.3rem;
+  --mg-button-border-radius: 0.3rem;
+  --mg-grid-spacing: 1rem;
+
+  /* in v6 */
+  --mg-b-font-size: 1.3rem;
+  --mg-c-button-border-radius: 0.3rem;
+  --mg-l-grid-spacing: 1rem;
   ```

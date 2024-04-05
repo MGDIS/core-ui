@@ -103,7 +103,7 @@ test.describe('mg-panel', () => {
         await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
         // Hide caret for screenshots
-        await page.locator('mg-panel input').evaluate(element => (element.style.caretColor = 'transparent'));
+        await page.locator('mg-panel input').evaluate(elm => (elm.style.caretColor = 'transparent'));
 
         await expect(page.locator('mg-panel')).toHaveScreenshot();
 
@@ -136,7 +136,7 @@ test.describe('mg-panel', () => {
       await page.locator('.mg-c-panel__header-title mg-button:last-of-type').click();
 
       // Hide caret for screenshots
-      await page.locator('mg-panel input').evaluate(element => (element.style.caretColor = 'transparent'));
+      await page.locator('mg-panel input').evaluate(elm => (elm.style.caretColor = 'transparent'));
 
       await expect(page.locator('mg-panel')).toHaveScreenshot();
 

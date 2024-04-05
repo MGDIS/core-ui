@@ -20,7 +20,6 @@ test.describe('mg-modal, firefox', () => {
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
       await page.keyboard.press('Tab');
-      await page.keyboard.press('Tab');
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
 
       // close modal
