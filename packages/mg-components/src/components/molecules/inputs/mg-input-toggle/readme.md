@@ -80,6 +80,14 @@ Type: `Promise<void>`
 
 
 
+## Slots
+
+| Slot       | Description                 |
+| ---------- | --------------------------- |
+| `"item-1"` | Left option toggle content  |
+| `"item-2"` | Right option toggle content |
+
+
 ## Dependencies
 
 ### Depends on

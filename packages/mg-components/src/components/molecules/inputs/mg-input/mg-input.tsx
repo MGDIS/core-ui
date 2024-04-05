@@ -2,6 +2,12 @@ import { Component, h, Prop, Element, Watch, Host, State } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
 import { tooltipPositions, type TooltipPosition, classFieldset, classReadonly, classDisabled, classVerticalList } from './mg-input.conf';
 
+/**
+ * @slot - Input content
+ * @slot label - Label content
+ * @slot help-text - Help text content
+ * @slot error - error content
+ */
 @Component({
   tag: 'mg-input',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input.css',

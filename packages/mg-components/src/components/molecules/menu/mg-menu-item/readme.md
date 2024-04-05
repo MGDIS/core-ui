@@ -197,6 +197,17 @@ Recommanded element is a mg-badge. Use it when you need to notify new events in 
 | `status-change` | Emited event when status change   | `CustomEvent<Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE>` |
 
 
+## Slots
+
+| Slot            | Description                   |
+| --------------- | ----------------------------- |
+|                 | Menu item content             |
+| `"image"`       | Menu item image content       |
+| `"information"` | Menu item information content |
+| `"label"`       | Menu item label content       |
+| `"metadata"`    | Menu item metadata content    |
+
+
 ## Dependencies
 
 ### Used by

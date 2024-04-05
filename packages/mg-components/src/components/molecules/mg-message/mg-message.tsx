@@ -4,6 +4,10 @@ import { variants, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
+/*
+ * @slot - Message content
+ * @slot actions - Actions content
+ */
 @Component({
   tag: 'mg-message',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-message.css',

@@ -2,6 +2,9 @@ import { Component, h, Prop, State, Element, Watch, Host } from '@stencil/core';
 import { Direction, sizes } from './mg-menu.conf';
 import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
 
+/**
+ * @slot - Menu content
+ */
 @Component({
   tag: 'mg-menu',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-menu.css',

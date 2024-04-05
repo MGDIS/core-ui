@@ -90,6 +90,14 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 | `display-change` | Emited event when display value change | `CustomEvent<boolean>` |
 
 
+## Slots
+
+| Slot        | Description                           |
+| ----------- | ------------------------------------- |
+|             | Element that will display the popover |
+| `"content"` | popover content                       |
+
+
 ## Dependencies
 
 ### Used by
@@ -100,7 +108,7 @@ Please note that the mg-popover component uses the [mg-card](./?path=/docs/atoms
 
 ### Depends on
 
-- [mg-popover-content](mg-popover-content)
+- mg-popover-content
 
 ### Graph
 ```mermaid

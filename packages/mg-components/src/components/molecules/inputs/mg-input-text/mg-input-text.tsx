@@ -5,8 +5,17 @@ import { type TooltipPosition, type Width, Handler, widths, classReadonly, class
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
 
+/**
+ * Check if datalist options are well structured.
+ *
+ * @param options - Datalist options to check.
+ * @returns True if datalist is well structured.
+ */
 const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
 
+/**
+ * @slot append-input - Content to display next to the input
+ */
 @Component({
   tag: 'mg-input-text',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-input-text.css',

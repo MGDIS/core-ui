@@ -2,6 +2,9 @@ import { Component, Element, h, Prop, State, Watch, Host, EventEmitter, Event } 
 import { variants, VariantType, ButtonType } from './mg-button.conf';
 import { ClassList, isValidString, nextTick } from '@mgdis/stencil-helpers';
 
+/**
+ * @slot - Button content
+ */
 @Component({
   tag: 'mg-button',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-button.css',
