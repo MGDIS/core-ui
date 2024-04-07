@@ -750,11 +750,11 @@ importers:
         specifier: workspace:*
         version: link:../../configs/tsconfig
       typedoc:
-        specifier: 0.25.12
-        version: 0.25.12(typescript@5.4.3)
+        specifier: 0.25.13
+        version: 0.25.13(typescript@5.4.3)
       typedoc-plugin-markdown:
         specifier: 3.17.1
-        version: 3.17.1(typedoc@0.25.12)
+        version: 3.17.1(typedoc@0.25.13)
       vitest:
         specifier: 1.4.0
         version: 1.4.0(@types/node@20.12.5)(jsdom@24.0.0)(sass@1.72.0)
@@ -882,11 +882,11 @@ importers:
         specifier: workspace:*
         version: link:../../configs/tsconfig
       typedoc:
-        specifier: 0.25.12
-        version: 0.25.12(typescript@5.4.3)
+        specifier: 0.25.13
+        version: 0.25.13(typescript@5.4.3)
       typedoc-plugin-markdown:
         specifier: 3.17.1
-        version: 3.17.1(typedoc@0.25.12)
+        version: 3.17.1(typedoc@0.25.13)
       typescript:
         specifier: 5.4.3
         version: 5.4.3
@@ -18964,17 +18964,17 @@ packages:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  /typedoc-plugin-markdown@3.17.1(typedoc@0.25.12):
+  /typedoc-plugin-markdown@3.17.1(typedoc@0.25.13):
     resolution: {integrity: sha512-QzdU3fj0Kzw2XSdoL15ExLASt2WPqD7FbLeaqwT70+XjKyTshBnUlQA5nNREO1C2P8Uen0CDjsBLMsCQ+zd0lw==}
     peerDependencies:
       typedoc: '>=0.24.0'
     dependencies:
       handlebars: 4.7.8
-      typedoc: 0.25.12(typescript@5.4.3)
+      typedoc: 0.25.13(typescript@5.4.3)
     dev: true
 
-  /typedoc@0.25.12(typescript@5.4.3):
-    resolution: {integrity: sha512-F+qhkK2VoTweDXd1c42GS/By2DvI2uDF4/EpG424dTexSHdtCH52C6IcAvMA6jR3DzAWZjHpUOW+E02kyPNUNw==}
+  /typedoc@0.25.13(typescript@5.4.3):
+    resolution: {integrity: sha512-pQqiwiJ+Z4pigfOnnysObszLiU3mVLWAExSPf+Mu06G/qsc3wzbuM56SZQvONhHLncLUhYzOVkjFFpFfL5AzhQ==}
     engines: {node: '>= 16'}
     hasBin: true
     peerDependencies:
