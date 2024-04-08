@@ -220,6 +220,7 @@ describe('mg-input-numeric', () => {
       { label: 'label', identifier: 'identifier', type, min: 10, max: 20, value: 25 },
     ])('Should return error when value does not match min and max setting (%s)', async args => {
       const page = await getPage(args);
+      const decimalLeft = type === 'decimal' ? 2 : undefined;
 
       const element = page.doc.querySelector('mg-input-numeric');
       const input = element.shadowRoot.querySelector('input');
@@ -232,20 +233,20 @@ describe('mg-input-numeric', () => {
       if (args.min !== undefined && args.max === undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
           messages.errors.numeric.min
-            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en')}`)
-            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en')}`),
+            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en', decimalLeft)}`)
+            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en', decimalLeft)}`),
         );
       } else if (args.min === undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
           messages.errors.numeric.max
-            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en')}`)
-            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en')}`),
+            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en', decimalLeft)}`)
+            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en', decimalLeft)}`),
         );
       } else if (args.min !== undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
           messages.errors.numeric.minMax
-            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en')}`)
-            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en')}`),
+            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en', decimalLeft)}`)
+            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en', decimalLeft)}`),
         );
       }
 
@@ -522,7 +523,7 @@ describe('mg-input-numeric', () => {
 
     for await (const newValue of ['-', '-5']) {
       await updateInputValue(newValue);
-      expect(input.value).toEqual(newValue === '-' ? '' : '-5');
+      expect(input.value).toEqual(newValue === '-' ? '' : '-5.00');
       expect(page.rootInstance.valid).toEqual(true);
       expect(page.rootInstance.invalid).toEqual(false);
     }
