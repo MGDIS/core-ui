@@ -21,6 +21,17 @@ describe('locale', () => {
         const formatedCurrency = localeNumber(1234567890.12, locale);
         expect(formatedCurrency).toEqual(locale === 'en' ? '1,234,567,890.12' : '1 234 567 890,12');
       });
+      test('Should Format number to the locale and manage 00 in decimal returned value', () => {
+        const formatedCurrency = localeNumber(1234567890, locale, 2);
+        expect(formatedCurrency).toEqual(locale === 'en' ? '1,234,567,890.00' : '1 234 567 890,00');
+      });
+      test.each([0, 5])('Should Format number to the locale and format the decimal length, case length %s', length => {
+        const formatedCurrency = localeNumber(1234567890, locale, length);
+        const decimal = length > 0 ? '00000' : null;
+        const localePoint = locale === 'en' ? '.' : ',';
+        const integer = locale === 'en' ? '1,234,567,890' : '1 234 567 890';
+        expect(formatedCurrency).toEqual(integer + (decimal ? localePoint + decimal : ''));
+      });
     });
 
     describe('getLocaleDatePattern', () => {
