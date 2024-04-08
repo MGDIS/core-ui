@@ -66,6 +66,13 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `variantStyle` | `variant-style` | Define variantStyle prop | `"bar-left" \| "fill"`                                  | `undefined` |
 
 
+## Slots
+
+| Slot | Description  |
+| ---- | ------------ |
+|      | Card content |
+
+
 ## Dependencies
 
 ### Used by
@@ -73,7 +80,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
+ - mg-popover-content
 
 ### Graph
 ```mermaid

@@ -190,10 +190,22 @@ Recommanded element is a mg-badge. Use it when you need to notify new events in 
 
 ## Events
 
-| Event           | Description                      | Type                                                                               |
-| --------------- | -------------------------------- | ---------------------------------------------------------------------------------- |
-| `item-loaded`   | Emited event when item is loaded | `CustomEvent<void>`                                                                |
-| `status-change` | Emited event when status change  | `CustomEvent<Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE>` |
+| Event           | Description                       | Type                                                                               |
+| --------------- | --------------------------------- | ---------------------------------------------------------------------------------- |
+| `item-loaded`   | Emited event when item is loaded  | `CustomEvent<void>`                                                                |
+| `item-updated`  | Emited event when item is updated | `CustomEvent<void>`                                                                |
+| `status-change` | Emited event when status change   | `CustomEvent<Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE>` |
+
+
+## Slots
+
+| Slot            | Description                   |
+| --------------- | ----------------------------- |
+|                 | Menu item content             |
+| `"image"`       | Menu item image content       |
+| `"information"` | Menu item information content |
+| `"label"`       | Menu item label content       |
+| `"metadata"`    | Menu item metadata content    |
 
 
 ## Dependencies

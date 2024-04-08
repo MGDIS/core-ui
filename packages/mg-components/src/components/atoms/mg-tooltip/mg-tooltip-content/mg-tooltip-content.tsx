@@ -1,5 +1,8 @@
 import { Component, h, Host, Prop } from '@stencil/core';
 
+/**
+ * @internal
+ */
 @Component({
   tag: 'mg-tooltip-content',
   styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-tooltip-content.css',

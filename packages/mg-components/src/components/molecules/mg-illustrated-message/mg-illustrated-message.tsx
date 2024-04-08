@@ -1,6 +1,11 @@
 import { Component, Element, h, Prop } from '@stencil/core';
 import { isTagName } from '@mgdis/stencil-helpers';
 
+/*
+ * @slot illustration - Illustration content
+ * @slot title - Title content
+ * @slot details - Details content
+ */
 @Component({
   tag: 'mg-illustrated-message',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-illustrated-message.css',

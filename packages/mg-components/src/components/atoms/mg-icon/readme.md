@@ -90,7 +90,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
+ - mg-popover-content
  - [mg-tabs](../../molecules/mg-tabs)
 
 ### Graph

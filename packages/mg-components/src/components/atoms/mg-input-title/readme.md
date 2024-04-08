@@ -21,6 +21,13 @@ The label can be on more than one line.
 | `required`                | `required`   | If input is required an asterisk is added at the end of the label | `boolean` | `undefined` |
 
 
+## Slots
+
+| Slot | Description   |
+| ---- | ------------- |
+|      | Title content |
+
+
 ## Dependencies
 
 ### Used by

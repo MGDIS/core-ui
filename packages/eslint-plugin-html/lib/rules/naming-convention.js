@@ -9,24 +9,15 @@ module.exports = {
       recommended: true,
     },
     schema: [],
+    messages: {
+      notBEMClass: 'Class must follow BEM convention',
+      notKebabCaseId: 'ID must be in kebab-case',
+    },
   },
 
   create(context) {
     return {
       '[attrs]'(node) {
-        /**
-         * Check #id
-         * Must be in kebab-case
-         * https://stylelint.io/user-guide/rules/regex/
-         */
-        const idAttribute = attribute(node, 'id');
-        if (idAttribute && !/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(idAttribute.value)) {
-          context.report({
-            node,
-            message: 'ID must be in kebab-case',
-          });
-        }
-
         /**
          * Check .class
          * Must follow BEM convention
@@ -38,10 +29,22 @@ module.exports = {
             if (!/^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$/.test(classAttribute)) {
               context.report({
                 node,
-                message: 'Class must follow BEM convention',
+                messageId: 'notBEMClass',
               });
             }
           }
+        }
+        /**
+         * Check #id
+         * Must be in kebab-case
+         * https://stylelint.io/user-guide/rules/regex/
+         */
+        const idAttribute = attribute(node, 'id');
+        if (idAttribute && !/^([a-z][a-z0-9]*)(-[a-z0-9]+)*$/.test(idAttribute.value)) {
+          context.report({
+            node,
+            messageId: 'notKebabCaseId',
+          });
         }
       },
     };

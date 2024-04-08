@@ -6,7 +6,7 @@ import type { MgMenuItem as MgMenuItemType } from '../mg-menu-item';
 export default {
   component: 'mg-menu-item',
   title: 'Molecules/Menus/mg-menu-item',
-  parameters: { actions: { handles: ['item-loaded'] } },
+  parameters: { actions: { handles: ['item-loaded', 'item-updated'] } },
 };
 
 /**

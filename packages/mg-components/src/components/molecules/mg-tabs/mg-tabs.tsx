@@ -9,6 +9,9 @@ import { TabItem, sizes, Status, SizeType } from './mg-tabs.conf';
  */
 const isTabItem = (tab: unknown): tab is TabItem => typeof tab === 'object' && typeof (tab as TabItem).label === 'string';
 
+/**
+ * @slot tab_content-n - Tab content, where `n` represents the position of the tab content. It starts at 1.
+ */
 @Component({
   tag: 'mg-tabs',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-tabs.css',

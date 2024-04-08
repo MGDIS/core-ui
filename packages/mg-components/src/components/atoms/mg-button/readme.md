@@ -86,6 +86,13 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
 | `disabled-change` | Emmited event when disabled change | `CustomEvent<boolean>` |
 
 
+## Slots
+
+| Slot | Description    |
+| ---- | -------------- |
+|      | Button content |
+
+
 ## Dependencies
 
 ### Used by
@@ -98,7 +105,7 @@ Variants `danger`, `danger-alt`, `info` and `success` can be customized by chang
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
- - [mg-popover-content](../../molecules/mg-popover/mg-popover-content)
+ - mg-popover-content
 
 ### Depends on
 

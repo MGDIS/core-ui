@@ -34,7 +34,7 @@ const converter = new showdown.Converter();
         break;
       }
       if (sectionStart && line.length) {
-        changelog.push(line);
+        changelog.push(line.replace('packages/', 'https://gitlab.mgdis.fr/core/core-ui/core-ui/-/tree/master/packages/'));
         changelog.push('\n');
       }
     }
