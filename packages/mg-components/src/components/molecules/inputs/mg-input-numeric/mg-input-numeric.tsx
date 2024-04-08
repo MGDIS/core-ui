@@ -449,7 +449,7 @@ export class MgInputNumeric {
   private formatValue = (value: number): string => {
     switch (this.format) {
       case 'number':
-        return localeNumber(value, this.locale);
+        return localeNumber(value, this.locale, this.type === 'decimal' ? this.decimalLength : undefined);
       case 'currency':
         return localeCurrency(value, this.locale, this.currency);
       case 'none':

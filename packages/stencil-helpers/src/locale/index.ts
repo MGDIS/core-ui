@@ -66,13 +66,15 @@ export const localeCurrency = (number: number, locale: string, currency: string)
  * Format number to locale
  * @param number - number to format
  * @param locale - locale to apply
+ * @param decimalLength - decimal length to apply
  * @returns formatted number
  * @example
  * ```ts
  * localeNumber(1234567890.12, 'fr') // 1 234 567 890,12
  * ```
  */
-export const localeNumber = (number: number, locale: string): string => new Intl.NumberFormat(locale).format(number);
+export const localeNumber = (number: number, locale: string, decimalLength: number = 0): string =>
+  new Intl.NumberFormat(locale, { minimumFractionDigits: decimalLength }).format(decimalLength > 0 ? Number(number?.toFixed(decimalLength)) : number);
 
 /**
  * Date RegExp, usefull to test if string is a follow the date pattern

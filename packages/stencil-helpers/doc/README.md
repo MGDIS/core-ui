@@ -55,7 +55,7 @@ dateRegExp.test('2020-12-31') // true
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:85
+packages/stencil-helpers/src/locale/index.ts:87
 
 ___
 
@@ -238,7 +238,7 @@ export const initLocales = defineLocales(messages, defaultLocale);
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:122
+packages/stencil-helpers/src/locale/index.ts:124
 
 ___
 
@@ -507,22 +507,23 @@ localeDate('2022-06-02', 'fr') // '02/06/2022'
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:97
+packages/stencil-helpers/src/locale/index.ts:99
 
 ___
 
 ### localeNumber
 
-▸ **localeNumber**(`number`, `locale`): `string`
+▸ **localeNumber**(`number`, `locale`, `decimalLength?`): `string`
 
 Format number to locale
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `number` | `number` | number to format |
-| `locale` | `string` | locale to apply |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `number` | `number` | `undefined` | number to format |
+| `locale` | `string` | `undefined` | locale to apply |
+| `decimalLength` | `number` | `0` | decimal length to apply |
 
 #### Returns
 
@@ -538,7 +539,7 @@ localeNumber(1234567890.12, 'fr') // 1 234 567 890,12
 
 #### Defined in
 
-packages/stencil-helpers/src/locale/index.ts:75
+packages/stencil-helpers/src/locale/index.ts:76
 
 ___
 
