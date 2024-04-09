@@ -279,7 +279,7 @@ export class MgInputDate {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (!Boolean(this.value) || this.isValidPattern(this.value))));
+    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (!this.value || this.isValidPattern(this.value))));
   };
 
   /**
