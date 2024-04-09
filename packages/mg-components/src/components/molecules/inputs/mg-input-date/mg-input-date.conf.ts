@@ -3,4 +3,5 @@ export enum InputError {
   MAX = 'max',
   MINMAX = 'minMax',
   REQUIRED = 'required',
+  PATTERN = 'badInput',
 }

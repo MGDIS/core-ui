@@ -79,7 +79,7 @@ exports[`mg-form Should display components errors (readonly: false) 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -484,7 +484,7 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -829,7 +829,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -1214,7 +1214,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -1569,7 +1569,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -1978,7 +1978,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -2321,7 +2321,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -2699,7 +2699,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -3047,7 +3047,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -3442,7 +3442,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -3788,7 +3788,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -4173,7 +4173,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -4528,7 +4528,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -4926,7 +4926,7 @@ exports[`mg-form Should render with args {
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -5261,7 +5261,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' } }:
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -5593,7 +5593,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -5922,7 +5922,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', dis
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -6257,7 +6257,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', lab
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -6588,7 +6588,7 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
             <slot></slot>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -6918,7 +6918,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -7253,7 +7253,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 2`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -7588,7 +7588,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 3`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -7923,7 +7923,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 4`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -8258,7 +8258,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 5`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -8593,7 +8593,7 @@ exports[`mg-form Should set form element role from "ariaRole" prop 6`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" type="date">
+        <input aria-describedby="mg-input-date-help-text" aria-invalid="false" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
@@ -8945,7 +8945,7 @@ exports[`mg-form display error message with locale: fr 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Format attendu&nbsp;:
           <span aria-hidden="true">
@@ -9371,7 +9371,7 @@ exports[`mg-form display error message with locale: xx 1`] = `
             </div>
           </div>
         </mock:shadow-root>
-        <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" name="mg-input-date" required="" type="date">
+        <input aria-describedby="mg-input-date-help-text mg-input-date-error" aria-invalid="true" class="mg-c-input__box" id="mg-input-date" max="9999-12-31" name="mg-input-date" required="" type="date">
         <div id="mg-input-date-help-text" slot="help-text">
           Expected format:
           <span aria-hidden="true">
