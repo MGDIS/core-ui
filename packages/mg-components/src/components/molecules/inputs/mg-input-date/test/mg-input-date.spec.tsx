@@ -162,6 +162,74 @@ describe('mg-input-date', () => {
     expect(inputValidSpy).toHaveBeenCalledTimes(1);
   });
 
+  test.each(['Delete', 'Backspace'])('Should override %s keyboard event', async key => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', value: '2021-10-14' });
+
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn(() => true);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: false,
+        badInput: false,
+      })),
+    });
+
+    const inputValidSpy = jest.spyOn(page.rootInstance.inputValid, 'emit');
+    const spyInputEvent = jest.spyOn(element, 'oninput');
+
+    input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot(); //Snapshot on focus
+
+    input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key }));
+    await page.waitForChanges();
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(input.checkValidity).toHaveBeenCalledTimes(2);
+    expect(inputValidSpy).toHaveBeenCalledTimes(1);
+    expect(inputValidSpy).toHaveBeenCalledWith(true);
+    expect(input.value).toEqual('');
+    expect(spyInputEvent).not.toHaveBeenCalled();
+  });
+
+  test('Should override keyboard event even if display error', async () => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', value: '20212-10-14' });
+
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn(() => true);
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        valueMissing: false,
+        badInput: false,
+      })),
+    });
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot(); //Snapshot on focus
+
+    input.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+
+    input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Delete' }));
+    await page.waitForChanges();
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot(); // No error should be display
+  });
+
   describe.each(['readonly', 'disabled'])('validity, case next state is %s', nextState => {
     test.each([
       { validity: true, valueMissing: false, badInput: false },
