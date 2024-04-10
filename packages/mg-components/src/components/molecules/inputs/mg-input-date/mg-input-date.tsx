@@ -276,6 +276,23 @@ export class MgInputDate {
   };
 
   /**
+   * Handle keydown event
+   * @param event - input keydown event
+   */
+  private handleKeyDown = (event: KeyboardEvent): void => {
+    // bypass the native "Delete" action wich trigger an "input" event with "checkValidty() => false" with a falsy badInput = true,
+    // when we reset the field we need to test a blank value.
+    if (['Delete', 'Backspace'].includes(event.key)) {
+      event.preventDefault();
+      this.value = '';
+      this.checkValidity();
+      if (this.hasDisplayedError) {
+        this.setErrorMessage();
+      }
+    }
+  };
+
+  /**
    * Check if input is valid
    */
   private checkValidity = (): void => {
@@ -421,6 +438,7 @@ export class MgInputDate {
           aria-invalid={(this.invalid === true).toString()}
           onInput={this.handleInput}
           onBlur={this.handleBlur}
+          onKeyDown={this.handleKeyDown}
           ref={(el: HTMLInputElement) => {
             if (el !== null) this.input = el;
           }}
