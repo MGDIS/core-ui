@@ -222,7 +222,7 @@ export class MgInputDate {
   }
 
   /**
-   * Methode to validate date pattern string
+   * Method to validate date pattern string
    * @param value - value to test
    * @returns truthy when value match the pattern
    */
