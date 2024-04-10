@@ -43,10 +43,14 @@ export class MgInputDate {
   validateValue(newValue: MgInputDate['value']): void {
     // When the input is not fully completed or has been cleared, the value becomes an empty string.
     if (newValue === '') newValue = null;
-    if (newValue !== undefined && newValue !== null && (typeof newValue !== 'string' || !dateRegExp.test(newValue))) {
-      throw new Error("<mg-input-date> props 'value' doesn't match pattern: yyyy-mm-dd");
-    } else {
+
+    // check value validity
+    if (newValue && !isValidString(newValue)) {
+      throw new Error("<mg-input-date> props 'value' must be a valid string");
+    } else if (!newValue || (newValue && this.isValidPattern(newValue))) {
       this.valueChange.emit(newValue);
+    } else {
+      console.error("<mg-input-date> props 'value' doesn't match pattern: yyyy-mm-dd");
     }
   }
 
@@ -101,11 +105,11 @@ export class MgInputDate {
    * Define input maximum date
    * format: yyyy-mm-dd
    */
-  @Prop() max?: string;
+  @Prop() max?: string = '9999-12-31';
   @Watch('min')
   @Watch('max')
   validateMinMax(newValue: string): void {
-    if (newValue?.length === 0 || (newValue?.length > 0 && !(typeof newValue === 'string' && dateRegExp.test(newValue)))) {
+    if (newValue && !this.isValidPattern(newValue)) {
       throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
     }
   }
@@ -218,6 +222,13 @@ export class MgInputDate {
   }
 
   /**
+   * Method to validate date pattern string
+   * @param value - value to test
+   * @returns truthy when value match the pattern
+   */
+  private isValidPattern = (value: string): boolean => isValidString(value) && dateRegExp.test(value);
+
+  /**
    * Format help text to display
    * @param helpText - help text format
    * @returns formated pattern help text. Ex: Format attendu : jj/mm/aaaa (ex : 20/12/2020)
@@ -285,7 +296,7 @@ export class MgInputDate {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || this.input.checkValidity());
+    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (!this.value || this.isValidPattern(this.value))));
   };
 
   /**
@@ -299,15 +310,19 @@ export class MgInputDate {
     if (this.input.validity.valueMissing) {
       inputError = InputError.REQUIRED;
     }
+    // pattern
+    else if (this.value && !this.isValidPattern(this.value)) {
+      inputError = InputError.PATTERN;
+    }
     // min & max
-    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max?.length > 0) {
+    else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
       inputError = InputError.MINMAX;
     }
     // min
     else if (this.input.validity.rangeUnderflow) {
       inputError = InputError.MIN;
     }
-    //max
+    // max
     else if (this.input.validity.rangeOverflow) {
       inputError = InputError.MAX;
     }

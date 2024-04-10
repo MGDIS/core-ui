@@ -21,6 +21,10 @@ const date = {
   last: '2023-01-01',
 };
 
+const rangeUnderflow = ({ value, min }: HTMLInputElement): boolean => [value, min].every(attr => Boolean(attr)) && new Date(value) < new Date(min);
+const rangeOverflow = ({ value, max }: HTMLInputElement): boolean => [value, max].every(attr => Boolean(attr)) && new Date(value) > new Date(max);
+const checkValidityFromRange = (input: HTMLInputElement): boolean => !(rangeUnderflow(input) || rangeOverflow(input));
+
 describe('mg-input-date', () => {
   beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
   afterEach(() => {
@@ -91,12 +95,12 @@ describe('mg-input-date', () => {
     }
   });
 
-  test.each([2021, '31-12-2022', '2022-02-24T08:01:44.460Z'])('Should throw an error with invalid value property: %s', async value => {
+  test.each([' ', new Date('31-12-2022')])('Should throw an error with invalid value property: %s', async value => {
     expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', label: 'label', value });
     } catch (err) {
-      expect(err.message).toMatch("<mg-input-date> props 'value' doesn't match pattern: yyyy-mm-dd");
+      expect(err.message).toMatch("<mg-input-date> props 'value' must be a valid string");
     }
   });
 
@@ -304,13 +308,11 @@ describe('mg-input-date', () => {
       const input = element.shadowRoot.querySelector('input');
 
       //mock validity
-      const rangeUnderflow = () => input.min === '' || new Date(input.value) >= new Date(input.min);
-      const rangeOverflow = () => input.max === '' || new Date(input.value) <= new Date(input.max);
-      input.checkValidity = jest.fn(() => rangeUnderflow() && rangeOverflow());
+      input.checkValidity = jest.fn(() => checkValidityFromRange(input));
       Object.defineProperty(input, 'validity', {
         get: jest.fn(() => ({
-          rangeUnderflow: rangeUnderflow(),
-          rangeOverflow: rangeOverflow(),
+          rangeUnderflow: rangeUnderflow(input),
+          rangeOverflow: rangeOverflow(input),
         })),
       });
 
@@ -342,28 +344,58 @@ describe('mg-input-date', () => {
     });
   });
 
-  test.each([
-    { label: 'label', identifier: 'identifier', min: date.middle, max: undefined, value: date.first },
-    { label: 'label', identifier: 'identifier', min: undefined, max: date.middle, value: date.last },
-    { label: 'label', identifier: 'identifier', min: date.middle, max: date.last, value: date.first },
-    { label: 'label', identifier: 'identifier', min: date.first, max: date.middle, value: date.last },
-  ])('Should return error when value does not match min and max setting (%s)', async args => {
-    const page = await getPage(args);
+  test.each([2020, '2021', '31-12-2022', '2022-02-24T08:01:44.460Z'])('Should display error with invalid value, case value="%s"', async value => {
+    const page = await getPage({ label: 'label', identifier: 'identifier' });
 
     const element = page.doc.querySelector('mg-input-date');
     const input = element.shadowRoot.querySelector('input');
 
-    const rangeUnderflow = new Date(args.value) < new Date(args.min);
-    const rangeOverflow = new Date(args.value) > new Date(args.max);
-
     //mock validity
-    input.checkValidity = jest.fn(() => !(rangeUnderflow || rangeOverflow));
+    input.checkValidity = jest.fn(() => checkValidityFromRange(input));
     Object.defineProperty(input, 'validity', {
       get: jest.fn(() => ({
-        rangeUnderflow,
-        rangeOverflow,
+        rangeUnderflow: rangeUnderflow(input),
+        rangeOverflow: rangeOverflow(input),
       })),
     });
+
+    jest.runOnlyPendingTimers();
+
+    expect(element.valid).toEqual(true);
+    expect(page.root).toMatchSnapshot(); // no error displayed
+
+    input.value = value as string;
+    input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+    await page.waitForChanges();
+
+    input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(element.valid).toEqual(false);
+    expect(page.root).toMatchSnapshot(); // error displayed
+  });
+
+  test.each([
+    { min: date.middle, max: undefined, value: date.first },
+    { min: undefined, max: date.middle, value: date.last },
+    { min: date.middle, max: date.last, value: date.first },
+    { min: date.first, max: date.middle, value: date.last },
+  ])('Should return error when value does not match min and max setting (%s)', async args => {
+    const page = await getPage({ label: 'label', identifier: 'identifier', ...args });
+
+    const element = page.doc.querySelector('mg-input-date');
+    const input = element.shadowRoot.querySelector('input');
+
+    //mock validity
+    input.checkValidity = jest.fn(() => checkValidityFromRange(input));
+    Object.defineProperty(input, 'validity', {
+      get: jest.fn(() => ({
+        rangeUnderflow: rangeUnderflow(input),
+        rangeOverflow: rangeOverflow(input),
+      })),
+    });
+
+    jest.runOnlyPendingTimers();
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
@@ -382,11 +414,9 @@ describe('mg-input-date', () => {
     expect(page.rootInstance.invalid).toEqual(true);
   });
   test.each([
-    { min: '', max: undefined },
     { min: '2022/01/01', max: undefined },
     { min: '01/01/2022', max: undefined },
     { min: '2022', max: undefined },
-    { min: undefined, max: '' },
     { min: undefined, max: '2022/01/01' },
     { min: undefined, max: '01/01/2022' },
     { min: undefined, max: '2022' },
