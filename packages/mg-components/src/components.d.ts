@@ -449,11 +449,11 @@ export namespace Components {
         /**
           * Define input maximum date format: yyyy-mm-dd
          */
-        "max": string;
+        "max"?: string;
         /**
           * Define input minimum date format: yyyy-mm-dd
          */
-        "min": string;
+        "min"?: string;
         /**
           * Input name If not set the value equals the identifier
          */
