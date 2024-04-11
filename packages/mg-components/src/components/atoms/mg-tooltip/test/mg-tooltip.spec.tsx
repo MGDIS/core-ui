@@ -323,7 +323,7 @@ describe('mg-tooltip', () => {
     expect(page.root).toMatchSnapshot();
   });
 
-  test('Should update %s wrapper dynamically', async () => {
+  test('Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click />', async () => {
     const page = await getPage(
       { identifier: 'identifier', message: 'My tooltip message' },
       <mg-button identifier="identifier" disableOnClick={true}>
