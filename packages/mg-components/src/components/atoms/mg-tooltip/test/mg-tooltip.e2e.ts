@@ -131,6 +131,48 @@ test.describe('mg-tooltip', () => {
     expect(await tooltip.getAttribute('data-show')).toEqual(null);
   });
 
+  test('Should keep tooltip displayed when mg-button is disableOnClick', async ({ page }) => {
+    const html = createHTML({ message: 'message' }, '<mg-button disable-on-click>disable on click</mg-button>');
+    await page.addScriptTag({
+      content: `document.querySelector('mg-button').addEventListener('click', (event) => {
+      setTimeout(() => {
+        event.target.disabled = false;
+      }, 1000)
+    })`,
+    });
+    await page.setContent(html);
+
+    const mgButton = page.locator('mg-button');
+    await mgButton.waitFor();
+
+    const tooltip = page.locator('mg-tooltip-content');
+    await mgButton.waitFor();
+
+    // 1. take focus on mgButton and display tooltip
+    await mgButton.focus();
+
+    expect(await tooltip.getAttribute('data-show')).toEqual('');
+
+    // 2. mouseenter on mgButton and tooltip stay displayed
+    await mgButton.hover();
+
+    expect(await tooltip.getAttribute('data-show')).toEqual('');
+
+    // 3. click on mgButton and tooltip stay displayed
+    await mgButton.click();
+
+    expect(await tooltip.getAttribute('data-show')).toEqual('');
+
+    // 4. wait loading mock with timeout ending while disable on click
+    await mgButton.waitFor({ timeout: 2000 });
+    expect(await tooltip.getAttribute('data-show')).toEqual('');
+
+    // 5. presse tab key and tooltip is hidden
+    await mgButton.blur();
+
+    expect(await tooltip.getAttribute('data-show')).toEqual(null);
+  });
+
   test('Should keep tooltip arrow when update message', async ({ page }) => {
     page.addStyleTag({ content: '.e2e-screenshot{display:block}' });
     const html = createHTML({ message: 'Batman tooltip' }, '<mg-icon icon="user"></mg-icon>');
