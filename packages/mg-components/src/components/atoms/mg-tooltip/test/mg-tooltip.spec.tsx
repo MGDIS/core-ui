@@ -323,6 +323,42 @@ describe('mg-tooltip', () => {
     expect(page.root).toMatchSnapshot();
   });
 
+  test('Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click />', async () => {
+    const page = await getPage(
+      { identifier: 'identifier', message: 'My tooltip message' },
+      <mg-button identifier="identifier" disableOnClick={true}>
+        mgButton.disableOnClick
+      </mg-button>,
+    );
+
+    const mgButton = page.doc.querySelector('mg-button');
+    const mgTooltip = page.doc.querySelector('mg-tooltip');
+    mgButton.dispatchEvent(new MouseEvent('focus', { bubbles: true }));
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+
+    // Mock replaceWith
+    mgTooltip.firstElementChild.replaceWith = jest.fn(element => {
+      mgTooltip.innerHTML = (element as Node).parentElement.innerHTML;
+    });
+
+    mgButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    fireMo([{ attributeName: 'aria-disabled' }]);
+    await page.waitForChanges();
+
+    expect(mgButton.disabled).toEqual(true);
+    expect(mgTooltip.display).toEqual(true);
+    expect(page.root).toMatchSnapshot();
+
+    mgButton.disabled = false;
+    fireMo([{ attributeName: 'aria-disabled' }]);
+    await page.waitForChanges();
+
+    expect(mgTooltip.display).toEqual(true);
+    expect(page.root).toMatchSnapshot();
+  });
+
   test('Should update popper instance when "message" prop change', async () => {
     const page = await getPage(
       { identifier: 'identifier', message: 'My tooltip message' },
@@ -340,7 +376,7 @@ describe('mg-tooltip', () => {
     expect(spy).toHaveBeenCalled();
   });
 
-  test('Should update mg-popover-content id when "identifier" is updated', async () => {
+  test('Should update mg-tooltip-content id when "identifier" is updated', async () => {
     const page = await getPage(
       { identifier: 'identifier', message: 'My tooltip message' },
       <mg-button identifier="identifier" disabled>
