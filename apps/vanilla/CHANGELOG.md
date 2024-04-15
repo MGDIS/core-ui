@@ -1,5 +1,20 @@
 # vanilla
 
+## 0.0.20
+
+### Patch Changes
+
+- Updated dependencies [17399c8]
+- Updated dependencies [3f8fbfa]
+- Updated dependencies [f228d36]
+- Updated dependencies [0c93b4e]
+- Updated dependencies [28b0455]
+- Updated dependencies [140a4ab]
+- Updated dependencies [f1f76dc]
+- Updated dependencies [3d998cc]
+  - @mgdis/mg-components@5.27.1
+  - @mgdis/notification-center@1.1.9
+
 ## 0.0.19
 
 ### Patch Changes

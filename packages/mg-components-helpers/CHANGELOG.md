@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.1
+
+### Patch Changes
+
+- 140a4ab: Update dependencies
+
 ## 4.1.0
 
 ### Minor Changes

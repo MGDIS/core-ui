@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.4
+
+### Patch Changes
+
+- 140a4ab: Update dependencies
+
 ## 2.0.3
 
 ### Patch Changes

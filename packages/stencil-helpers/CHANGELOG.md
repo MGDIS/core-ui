@@ -1,5 +1,12 @@
 # @mgdis/stencil-helpers
 
+## 1.1.2
+
+### Patch Changes
+
+- 28b0455: [#482](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/482) mg-input-numeric: "0" are not displayed in decimal
+- 140a4ab: Update dependencies
+
 ## 1.1.1
 
 ### Patch Changes
