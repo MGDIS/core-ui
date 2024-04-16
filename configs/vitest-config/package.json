@@ -1,0 +1,22 @@
+{
+  "name": "vitest-config",
+  "private": true,
+  "version": "0.0.0",
+  "license": "ISC",
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "pnpm lint:es && pnpm lint:prettier",
+    "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
+    "lint:es": "eslint '**/*.js' --ignore-path ../../.gitignore",
+    "lint:es:fix": "eslint '**/*.js' --fix --ignore-path ../../.gitignore",
+    "lint:prettier": "prettier --check '**/*.{js,ts,json}' --ignore-path ../../.gitignore",
+    "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
+  },
+  "dependencies": {
+    "vitest": "1.5.0"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "prettier-config": "workspace:*"
+  }
+}
