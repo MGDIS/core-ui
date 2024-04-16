@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.0.3
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 4.0.2
 
 ### Patch Changes

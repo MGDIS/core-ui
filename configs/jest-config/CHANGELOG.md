@@ -1,5 +1,11 @@
 # jest-config
 
+## 1.0.4
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 1.0.3
 
 ### Patch Changes

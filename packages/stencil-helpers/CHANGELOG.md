@@ -1,5 +1,11 @@
 # @mgdis/stencil-helpers
 
+## 1.1.3
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 1.1.2
 
 ### Patch Changes

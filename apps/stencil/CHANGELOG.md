@@ -1,5 +1,13 @@
 # stencil
 
+## 0.0.16
+
+### Patch Changes
+
+- d674c81: Update dependencies
+- Updated dependencies [d674c81]
+  - @mgdis/mg-components@5.27.2
+
 ## 0.0.15
 
 ### Patch Changes

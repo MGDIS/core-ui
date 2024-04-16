@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.10
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 1.1.9
 
 ### Patch Changes

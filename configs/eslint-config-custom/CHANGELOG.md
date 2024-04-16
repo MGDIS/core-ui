@@ -1,5 +1,11 @@
 # eslint-config-custom
 
+## 1.0.8
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 1.0.7
 
 ### Patch Changes

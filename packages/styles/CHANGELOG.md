@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.3.2
+
+### Patch Changes
+
+- d674c81: Update dependencies
+
 ## 1.3.1
 
 ### Patch Changes
