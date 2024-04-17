@@ -169,7 +169,7 @@ export class MgTooltip {
    */
   private tooltipMouseListenerAction = (elementGuard: Guard, isMouseenter: boolean, conditionalGuard: Guard): void => {
     // we mutate elementGuard
-    if (this.guard !== Guard.FOCUS) {
+    if (![Guard.FOCUS, Guard.DISABLE_ON_CLICK].includes(this.guard)) {
       this.guard = elementGuard;
       if (!isMouseenter) {
         // process action in the next event loop macro task
@@ -251,6 +251,13 @@ export class MgTooltip {
           },
         },
       ],
+    });
+
+    // Manage tooltipedElement focus/blur events
+    this.tooltipedElement.addEventListener('disabled-change', (event: CustomEvent & { target: HTMLMgButtonElement }) => {
+      if (event.target.disableOnClick) {
+        this.guard = event.detail ? Guard.DISABLE_ON_CLICK : null;
+      }
     });
 
     // Manage tooltipedElement focus/blur events
@@ -349,7 +356,7 @@ export class MgTooltip {
     // In this case we wrap the mg-button into a div to enable the tooltip
     if (isButton(slotElement)) {
       new MutationObserver(mutationList => {
-        if (mutationList.some(mutation => ['aria-disabled', 'disabled'].includes(mutation.attributeName))) {
+        if (mutationList.some(mutation => ['aria-disabled', 'disabled'].includes(mutation.attributeName)) && this.guard !== Guard.DISABLE_ON_CLICK) {
           this.setMgButtonWrapper(slotElement);
           // Since Firefox doesn't trigger a "blur" event when the "disabled" attribute is added or removed from a button
           // we have to manually unlock the guard because the "blur" handler of the tooltipedElement won't do it.

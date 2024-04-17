@@ -1,5 +1,31 @@
 # @mgdis/mg-components
 
+## 5.27.2
+
+### Patch Changes
+
+- d674c81: Update dependencies
+- Updated dependencies [d674c81]
+  - @mgdis/stencil-helpers@1.1.3
+  - @mgdis/styles@1.3.2
+
+## 5.27.1
+
+### Patch Changes
+
+- 17399c8: [#477](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/477) mg-menu - item-more menu content doesn't stay in sync with main menu content
+- 3f8fbfa: [#480](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/480) mg-input-date: Display message on invalid value pattern
+- f228d36: [#479](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/479) mg-input-date: input size change depending on props 'max' presence
+- 0c93b4e: [#484](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/484) mg-tooltip: Glitch with `<mg-button disable-on-click />`
+- 28b0455: [#482](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/482) mg-input-numeric: "0" are not displayed in decimal
+- 140a4ab: Update dependencies
+- f1f76dc: [**`<mg-input-password>`**](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/molecules-inputs-mg-input-password--docs) add missing aria pattern
+- 3d998cc: [#483](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/483) mg-input-date: Input valid event is not correct when clearing field
+- Updated dependencies [28b0455]
+- Updated dependencies [140a4ab]
+  - @mgdis/stencil-helpers@1.1.2
+  - @mgdis/styles@1.3.1
+
 ## 5.27.0
 
 ### Minor Changes

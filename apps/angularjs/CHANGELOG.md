@@ -1,5 +1,32 @@
 # angularjs
 
+## 0.0.21
+
+### Patch Changes
+
+- d674c81: Update dependencies
+- Updated dependencies [d674c81]
+  - @mgdis/mg-components-helpers@4.1.2
+  - @mgdis/notification-center@1.1.10
+  - @mgdis/mg-components@5.27.2
+
+## 0.0.20
+
+### Patch Changes
+
+- 17399c8: [#477](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/477) mg-menu - item-more menu content doesn't stay in sync with main menu content
+- Updated dependencies [17399c8]
+- Updated dependencies [3f8fbfa]
+- Updated dependencies [f228d36]
+- Updated dependencies [0c93b4e]
+- Updated dependencies [28b0455]
+- Updated dependencies [140a4ab]
+- Updated dependencies [f1f76dc]
+- Updated dependencies [3d998cc]
+  - @mgdis/mg-components@5.27.1
+  - @mgdis/mg-components-helpers@4.1.1
+  - @mgdis/notification-center@1.1.9
+
 ## 0.0.19
 
 ### Patch Changes
