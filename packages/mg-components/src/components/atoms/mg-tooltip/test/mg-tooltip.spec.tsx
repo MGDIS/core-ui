@@ -292,12 +292,7 @@ describe('mg-tooltip', () => {
   });
 
   test.each(['button', 'mg-button'])('Should update %s wrapper dynamically', async TagName => {
-    const page = await getPage(
-      { identifier: 'identifier', message: 'My tooltip message' },
-      <TagName identifier="identifier" disabled>
-        {TagName}.disabled
-      </TagName>,
-    );
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <TagName disabled>{TagName}.disabled</TagName>);
 
     expect(page.root).toMatchSnapshot();
 
