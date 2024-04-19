@@ -1,0 +1,201 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ide > vsCodeGenerator > Should generate VScode custom data 1`] = `
+{
+  "globalAttributes": [],
+  "tags": [
+    {
+      "attributes": [
+        {
+          "description": "docs
+
+Type: \`string\`",
+          "name": "prop",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": undefined,
+        },
+        {
+          "description": "docs
+
+Type: \`string\`",
+          "name": "attr",
+          "references": [
+            {
+              "name": "Storybook",
+              "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+            },
+            {
+              "name": "Sources",
+              "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+            },
+          ],
+          "values": [
+            {
+              "name": "blu",
+            },
+            {
+              "name": "bli",
+            },
+          ],
+        },
+      ],
+      "description": "Attributes:
+- \`prop\`: docs
+
+Properties:
+- \`attr\`: docs
+
+Methods:
+- \`method\`: docs
+
+Events:
+- \`event\`: docs
+
+Listeners:
+- \`keydown\`
+
+Slots:
+- \`\`: 
+
+",
+      "name": "my-comp",
+      "references": [
+        {
+          "name": "Storybook",
+          "url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+        },
+        {
+          "name": "Sources",
+          "url": "http://sources.test/src/components/atoms/my-comp/my-comp.tsx",
+        },
+      ],
+    },
+    {
+      "attributes": [],
+      "description": "overview
+
+",
+      "name": "my-comp",
+      "references": [
+        {
+          "name": "Storybook",
+          "url": undefined,
+        },
+        {
+          "name": "Sources",
+          "url": undefined,
+        },
+      ],
+    },
+  ],
+  "valueSets": [],
+  "version": "1.0.0",
+}
+`;
+
+exports[`ide > webTypesGenerator > Should generate web types 1`] = `
+{
+  "$schema": "https://json.schemastore.org/web-types",
+  "contributions": {
+    "html": {
+      "elements": [
+        {
+          "attributes": [
+            {
+              "description": "docs
+
+Type: \`string\`",
+              "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+              "name": "prop",
+              "value": {
+                "default": undefined,
+                "required": true,
+                "type": "string",
+              },
+            },
+          ],
+          "description": "Attributes:
+- \`prop\`: docs
+
+Properties:
+- \`attr\`: docs
+
+Methods:
+- \`method\`: docs
+
+Events:
+- \`event\`: docs
+
+Listeners:
+- \`keydown\`
+
+Slots:
+- \`\`: 
+
+",
+          "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+          "js": {
+            "events": [
+              {
+                "description": "docs",
+                "name": "event",
+              },
+            ],
+            "properties": [
+              {
+                "description": "docs
+
+Type: \`string\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "prop",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "string",
+                },
+              },
+              {
+                "description": "docs
+
+Type: \`string\`",
+                "doc-url": "http://sb.test/?path=/docs/atoms-my-comp--docs",
+                "name": "attr",
+                "value": {
+                  "default": undefined,
+                  "required": true,
+                  "type": "string",
+                },
+              },
+            ],
+          },
+          "name": "my-comp",
+        },
+        {
+          "attributes": [],
+          "description": "overview
+
+",
+          "doc-url": undefined,
+          "js": {
+            "events": [],
+            "properties": [],
+          },
+          "name": "my-comp",
+        },
+      ],
+    },
+  },
+  "description-markup": "markdown",
+  "name": "test",
+  "version": "1.0.0",
+}
+`;

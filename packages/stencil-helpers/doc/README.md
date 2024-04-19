@@ -760,7 +760,7 @@ custom HTML datasets
 | Name | Type |
 | :------ | :------ |
 | `globalAttributes` | `never`[] |
-| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: `undefined` \| \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[]  }[] |
+| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[]  }[] |
 | `valueSets` | `never`[] |
 | `version` | `string` |
 
@@ -772,7 +772,7 @@ const customDataJson = vsCodeGenerator('1.0.0', jsonDocs, 'https://storybook.exa
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:189
+packages/stencil-helpers/src/ide/index.ts:187
 
 ___
 
@@ -815,4 +815,4 @@ const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:102
+packages/stencil-helpers/src/ide/index.ts:103

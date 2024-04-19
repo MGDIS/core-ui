@@ -98,7 +98,6 @@ const getAttributeDescription = (prop: JsonDocsProp): string => {
  * const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs, 'https://storybook.example.com');
  * ```
  */
-
 export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonDocs, storybookBaseUrl: string) => ({
   '$schema': 'https://json.schemastore.org/web-types',
   name,
@@ -153,9 +152,6 @@ export const webTypesGenerator = (name: string, version: string, jsonDocs: JsonD
  * @returns Storybook Reference
  */
 const getReferences = (storybookBaseUrl: string, sourceBaseUrl: string, filePath: string | undefined) => {
-  if (!filePath) {
-    return;
-  }
   return [
     { name: 'Storybook', url: getStorybookUrl(storybookBaseUrl, filePath) },
     { name: 'Sources', url: getSourcesUrl(sourceBaseUrl, filePath) },
