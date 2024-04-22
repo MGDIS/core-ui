@@ -41,15 +41,15 @@ import { defineCustomElements } from '@mgdis/mg-components/loader';
 defineCustomElements();
 ```
 
-You need now to import the components style by adding the mg-components variables or directly including the stylesheet that comes with it in the main stylesheet file:
+You need now to import the components style by adding the mg-components variables or directly including the stylesheet that comes with it in the main app file:
 
-```css
-// src/styles.css
+```js
+// src/main.js
 
 // Only include variables
-@import '@mgdis/mg-components/dist/mg-components/variables.css';
+import '@mgdis/mg-components/dist/mg-components/variables.css';
 // Include variables, layout, helpers style.
-@import '@mgdis/mg-components/dist/mg-components/mg-components.css'; // if needeed
+import '@mgdis/mg-components/dist/mg-components/mg-components.css'; // if needeed
 ```
 
 [Read more about our CSS variables](./?path=/docs/css-variables--docs).
