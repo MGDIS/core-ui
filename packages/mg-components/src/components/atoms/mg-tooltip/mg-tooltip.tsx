@@ -254,13 +254,6 @@ export class MgTooltip {
     });
 
     // Manage tooltipedElement focus/blur events
-    this.tooltipedElement.addEventListener('disabled-change', (event: CustomEvent & { target: HTMLMgButtonElement }) => {
-      if (event.target.disableOnClick) {
-        this.guard = event.detail ? Guard.DISABLE_ON_CLICK : null;
-      }
-    });
-
-    // Manage tooltipedElement focus/blur events
     this.tooltipedElement.addEventListener('focus', () => {
       this.guard = Guard.FOCUS;
       this.setDisplay(true);
@@ -356,13 +349,23 @@ export class MgTooltip {
     // In this case we wrap the mg-button into a div to enable the tooltip
     if (isButton(slotElement)) {
       new MutationObserver(mutationList => {
-        if (mutationList.some(mutation => ['aria-disabled', 'disabled'].includes(mutation.attributeName)) && this.guard !== Guard.DISABLE_ON_CLICK) {
-          this.setMgButtonWrapper(slotElement);
-          // Since Firefox doesn't trigger a "blur" event when the "disabled" attribute is added or removed from a button
-          // we have to manually unlock the guard because the "blur" handler of the tooltipedElement won't do it.
-          this.resetGuard();
-          this.initTooltip(slotElement, interactiveElement);
+        // stop process when none of mutations attributed is disabled
+        if (!mutationList.some(mutation => ['aria-disabled', 'disabled'].includes(mutation.attributeName))) return;
+
+        // set guard when one of mutations is for a disabled with disabled-on-click
+        if (mutationList.some((mutation: MutationRecord & { target: HTMLMgButtonElement }) => mutation.target.disabled && mutation.target.disableOnClick)) {
+          this.guard = Guard.DISABLE_ON_CLICK;
         }
+
+        // when the disabled-on-click guard is running we stop process
+        if (this.guard === Guard.DISABLE_ON_CLICK) return;
+
+        // update tooltip
+        this.setMgButtonWrapper(slotElement);
+        // Since Firefox doesn't trigger a "blur" event when the "disabled" attribute is added or removed from a button
+        // we have to manually unlock the guard because the "blur" handler of the tooltipedElement won't do it.
+        this.resetGuard();
+        this.initTooltip(slotElement, interactiveElement);
       }).observe(slotElement, { attributes: true });
       this.setMgButtonWrapper(slotElement);
     }
