@@ -187,7 +187,13 @@ export class MgTooltip {
    * Method to reset guard value
    */
   private resetGuard = (): void => {
-    this.guard = undefined;
+    if (this.guard === Guard.DISABLE_ON_CLICK) {
+      nextTick(() => {
+        this.guard = undefined;
+      });
+    } else {
+      this.guard = undefined;
+    }
   };
 
   /**
@@ -247,7 +253,7 @@ export class MgTooltip {
         {
           name: 'flip',
           options: {
-            fallbackPlacements: ['auto'],
+            fallbackPlacements: this.guard !== Guard.DISABLE_ON_CLICK ? ['auto'] : undefined,
           },
         },
       ],
