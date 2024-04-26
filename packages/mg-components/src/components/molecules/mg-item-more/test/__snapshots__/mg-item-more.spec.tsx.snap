@@ -439,7 +439,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -765,7 +765,7 @@ exports[`mg-item-more events Should update proxy status when base item status-ch
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -937,7 +937,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -1109,7 +1109,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
     <mock:shadow-root>
       <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" role="presentation" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
