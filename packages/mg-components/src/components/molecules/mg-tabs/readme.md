@@ -42,6 +42,8 @@ The header bottom border is 100% wide, 1px sizing and its color is @color-dark-s
 If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
 
 - `--mg-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem hsl(var(--mg-color-dark-soft-hsl))`.
+- `--mg-c-tabs-navigation-button-spacing-y`: override tabs navigation button vertical spacing. Default: Defined size spacing.
+- `--mg-c-tabs-navigation-button-spacing-x`: override tabs navigation button horizontal spacing. Default: Defined size spacing.
 
 <!-- Auto Generated Below -->
 

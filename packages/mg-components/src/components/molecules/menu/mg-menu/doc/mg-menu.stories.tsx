@@ -106,11 +106,11 @@ interface IGetMenuArgs {
  * @param size - menu size. Default: 'regular'
  * @returns menu formated args object
  */
-const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'regular') => ({
+const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'large') => ({
   label: 'Batman menu',
   direction,
   size,
-  itemmore: undefined,
+  itemmore: { size },
   slot: {
     items: [
       getItemArgs({

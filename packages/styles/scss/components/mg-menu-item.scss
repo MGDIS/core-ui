@@ -73,6 +73,7 @@ $navigation-button-sizes: (
     }
 
     &-chevron {
+      display: var(--mg-c-mg-menu-item-chevron-display, 'inline');
       margin-left: auto;
 
       @include rotate('.mg-c-menu-item__navigation-button-chevron', 200ms);
@@ -117,7 +118,7 @@ $navigation-button-sizes: (
 
   .mg-c-menu-item__navigation-button {
     &-chevron {
-      display: none;
+      --mg-c-mg-menu-item-chevron-display: none;
     }
 
     &-text-content ::slotted([slot='information']) {

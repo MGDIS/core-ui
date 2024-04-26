@@ -93,6 +93,31 @@ test.describe('mg-menu-item', () => {
         await expect(page.locator('body')).toHaveScreenshot();
       });
 
+      test('Should render slot image only with submenu', async ({ page }) => {
+        await page.setContent(createHTML({ expanded: true, size: 'large' }, slotContent + slotImage, direction));
+        await page.setViewportSize(defaultViewPortSize);
+        await page.keyboard.press('Tab');
+
+        await expect(page.locator('body')).toHaveScreenshot();
+
+        // update css variables
+        await page.addStyleTag({
+          content: `
+          mg-menu {
+            --mg-c-mg-menu-item-chevron-display: none;
+            --mg-menu-item-navigation-button-column-gap: 0;
+            --mg-c-menu-item-navigation-button-spacing-y: 1rem;
+            --mg-c-menu-item-navigation-button-spacing-x: 1rem;
+          }
+          [slot="label"] {
+            display: none;
+          }
+        `,
+        });
+
+        await expect(page.locator('body')).toHaveScreenshot();
+      });
+
       [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED].forEach(status => {
         test(`Should manage keyboard navigation, case status="${status}"`, async ({ page }) => {
           await page.setContent(createHTML({ status }, slotMenuItem, direction));
