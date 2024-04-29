@@ -13,7 +13,7 @@
         @if $name == 'regular' {
           font-size: var(--mg-b-font-size);
         } @else {
-          font-size: calc(var(--mg-b-font-size) + 0.2rem);
+          font-size: var(--mg-b-font-size-h4);
         }
       }
       &.#{$prefix}__navigation-button--horizontal {

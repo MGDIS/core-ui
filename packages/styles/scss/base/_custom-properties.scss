@@ -116,8 +116,15 @@
    * Fonts
    */
 
-  // Font size
-  --mg-b-font-size: 1.3rem;
+  // Font sizes
+  --mg-b-font-size: 1.3rem; // 13px
+  --mg-b-font-size-h1: calc(var(--mg-b-font-size) * 1.85); // 24.05px
+  --mg-b-font-size-h2: calc(var(--mg-b-font-size) * 1.65); // 21.45px
+  --mg-b-font-size-h3: calc(var(--mg-b-font-size) * 1.35); // 17.55px
+  --mg-b-font-size-h4: calc(var(--mg-b-font-size) * 1.2); // 15.6px
+  --mg-b-font-size-h5: calc(var(--mg-b-font-size) * 1.1); // 14.3px
+  --mg-b-font-size-h6: calc(var(--mg-b-font-size) * 0.8); // 10.4px
+  --mg-b-font-size-small: 0.9em; // the `<small>` tag reduces the font size to 90%.
 
   // Font family
   --mg-b-font-family: 'Open Sans', sans-serif; // Open Sans is used for the body (mostly all texts)

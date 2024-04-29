@@ -14,11 +14,7 @@ enum Key {
   ENTER = 'Enter',
 }
 
-const getSubMenuSize = (size: MenuSizeType): MenuSizeType => {
-  if (size === 'large') return 'medium';
-  else if (size === 'medium') return 'regular';
-  else return 'regular';
-};
+const getSubMenuSize = (size: MenuSizeType): MenuSizeType => (size === 'large' ? 'medium' : 'regular');
 
 const getViewportSize = (direction: Direction, size?: MenuSizeType): { width: number; height: number } =>
   direction === Direction.VERTICAL
@@ -59,8 +55,7 @@ const createHTML = (args, containerSize?): string => `
 const setPageContent = async (page, args, viewport) => {
   await page.setContent(createHTML(args));
   await page.setViewportSize(viewport);
-  await page.addStyleTag({ content: '    .menu-container.menu-container--vertical-small {width: 180px;}' });
-  await page.locator('mg-menu.hydrated').first();
+  await page.locator('mg-menu.hydrated').first().waitFor();
 };
 
 test.describe('mg-menu', () => {
