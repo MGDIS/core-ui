@@ -2,7 +2,7 @@
 @import 'mixins/mg-icon-animation';
 
 :host {
-  --mg-c-popover-padding-vertical: 1rem;
+  --mg-c-popover-padding-vertical: var(--mg-b-size-w);
   --mg-c-popover-padding-horizontal: 0;
   --mg-c-popover-max-width: unset;
 }

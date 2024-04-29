@@ -1,9 +1,5 @@
 @use 'sass:map';
 
-$border-bottom-size: 0.3rem;
-$font-size-large: calc(var(--mg-b-font-size) + 0.2rem);
-$navigation-button-column-gap: 1rem;
-
 @mixin navigation-button($prefix, $button-sizes) {
   @each $name, $size in $button-sizes {
     .#{$prefix}.#{$prefix}--size-#{$name} .#{$prefix}__navigation-button,
@@ -17,14 +13,14 @@ $navigation-button-column-gap: 1rem;
         @if $name == 'regular' {
           font-size: var(--mg-b-font-size);
         } @else {
-          font-size: $font-size-large;
+          font-size: calc(var(--mg-b-font-size) + 0.2rem);
         }
       }
       &.#{$prefix}__navigation-button--horizontal {
-        padding-bottom: calc(#{map.get($size, 'vertical')} - #{$border-bottom-size});
+        padding-bottom: #{map.get($size, 'vertical')};
       }
       &.#{$prefix}__navigation-button--vertical {
-        padding-left: calc(#{map.get($size, 'horizontal')} - #{$border-bottom-size});
+        padding-left: #{map.get($size, 'horizontal')};
       }
     }
   }
@@ -36,7 +32,7 @@ $navigation-button-column-gap: 1rem;
     border: none;
     background-color: unset;
     color: var(--#{$prefix}-color, var(--mg-b-color-dark));
-    column-gap: var(--#{$prefix}-navigation-button-column-gap, $navigation-button-column-gap);
+    column-gap: var(--#{$prefix}-navigation-button-column-gap, var(--mg-b-size-w));
     cursor: pointer;
     font-family: var(--mg-b-font-family);
     font-weight: 400;
@@ -61,20 +57,14 @@ $navigation-button-column-gap: 1rem;
       color: var(--#{$prefix}-color-active);
       font-weight: 600;
       &.#{$prefix}__navigation-button--horizontal {
-        border-bottom-color: var(--#{$prefix}-border-color-active);
+        box-shadow: inset 0 calc(-1 * var(--mg-b-size-v)) var(--#{$prefix}-border-color-active);
       }
       &.#{$prefix}__navigation-button--vertical {
-        border-left-color: var(--#{$prefix}-border-color-active);
+        box-shadow: inset var(--mg-b-size-v) 0 var(--#{$prefix}-border-color-active);
       }
     }
     &.#{$prefix}__navigation-button--hidden {
       display: none;
-    }
-    &.#{$prefix}__navigation-button--horizontal {
-      border-bottom: $border-bottom-size solid transparent;
-    }
-    &.#{$prefix}__navigation-button--vertical {
-      border-left: $border-bottom-size solid transparent;
     }
   }
 }

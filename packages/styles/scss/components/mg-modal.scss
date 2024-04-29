@@ -3,7 +3,7 @@
 :host {
   // Set mg-card variables
   --mg-c-card-border-radius: var(--mg-c-modal-border-radius);
-  --mg-c-card-padding: 1.5rem 2.5rem;
+  --mg-c-card-padding: var(--mg-b-size-2w) var(--mg-b-size-3w);
   --mg-c-card-border: none;
 }
 
@@ -13,13 +13,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem 0;
+  padding: var(--mg-b-size-3w) 0;
   background-color: hsl(var(--mg-b-color-light-h) var(--mg-b-color-light-s) var(--mg-b-color-light-l) / 85%);
   inset: 0;
 
   mg-card {
     display: flex;
-    width: 60rem;
+    width: calc(75 * var(--mg-b-size-w)); // 600px
     max-width: 100%;
     max-height: 100%;
   }
@@ -31,11 +31,7 @@
     max-height: 100%;
     flex-direction: column;
     align-self: center;
-    row-gap: 3rem;
-  }
-
-  &__header {
-    margin-bottom: 0.5rem;
+    row-gap: var(--mg-b-size-3w);
   }
 
   &__title {
@@ -47,14 +43,15 @@
 
   &__close-button {
     height: var(--mg-c-modal-title-font-size);
-    margin-top: calc((var(--mg-b-default-size) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
-    margin-right: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2 * -1); // -10px;
+    margin-top: calc((var(--mg-b-size-min-height) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
+    margin-right: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-regular-size)) / 2 * -1); // -10px;
+    margin-left: var(--mg-b-size-2w);
     float: right;
   }
 
   &__content {
-    padding: 1rem;
-    margin: -1rem;
+    padding: var(--mg-b-size-2w);
+    margin: calc(var(--mg-b-size-2w) * -1);
     overflow-y: auto;
 
     &::slotted(*) {

@@ -114,11 +114,11 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 ### Used by
 
  - [mg-action-more](../../mg-action-more)
- - [mg-item-more](../../mg-item-more)
+ - mg-item-more
 
 ### Depends on
 
-- [mg-item-more](../../mg-item-more)
+- mg-item-more
 
 ### Graph
 ```mermaid

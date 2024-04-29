@@ -1,9 +1,7 @@
-$mg-popover-padding-vertical: var(--mg-c-popover-padding-vertical, 1.5rem);
-
 :host {
-  --mg-c-card-padding: #{$mg-popover-padding-vertical} var(--mg-c-popover-padding-horizontal, #{$mg-popover-padding-vertical});
+  --mg-c-card-padding: var(--mg-c-popover-padding-vertical, var(--mg-b-size-2w)) var(--mg-c-popover-padding-horizontal, var(--mg-b-size-2w));
   --mg-c-card-border: none;
-  --mg-c-card-border-radius: 0.5rem;
+  --mg-c-card-border-radius: var(--mg-b-size-radius);
   --mg-c-card-background: var(--mg-c-popover-background-color);
 
   position: relative;

@@ -18,12 +18,12 @@
 
 .mg-c-message {
   display: inline-block;
-  min-height: var(--mg-b-default-size);
+  min-height: var(--mg-b-size-min-height);
 
   @include message-variants('info', 'warning', 'success', 'danger');
 
   &.mg-c-message--close-button {
-    --mg-c-card-padding: 0 3.4rem 0 0;
+    --mg-c-card-padding: 0 var(--mg-b-size-min-height) 0 0;
   }
 
   ::slotted(*) {
@@ -35,31 +35,31 @@
 
   &__icon {
     position: absolute;
-    top: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2);
-    left: 1.3rem;
+    top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-regular-size)) / 2);
+    left: calc(var(--mg-b-size-v) + var(--mg-b-size-w)); // vertical bar + spacing
     line-height: 1;
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 1rem 0 3.8rem;
+    padding: 0 var(--mg-b-size-w) 0 calc(var(--mg-b-size-v) + var(--mg-b-size-w) + var(--mg-c-icon-regular-size) + var(--mg-b-size-w)); // vertical bar + spacing + icon + spacing;
     place-content: stretch flex-end;
   }
 
   &__content-slot {
     flex-grow: 1;
-    margin: 0.84rem 0;
+    margin: var(--mg-b-size-w) 0;
   }
 
   &__content-separator {
     display: inline-block;
-    width: 4.5rem;
+    width: var(--mg-b-size-5w);
     height: 0;
   }
 
   &__content-actions-slot {
-    padding: 1rem 0;
+    padding: var(--mg-b-size-w) 0;
     text-align: right;
   }
 

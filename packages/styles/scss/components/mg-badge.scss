@@ -1,8 +1,5 @@
 @import '../utils/a11y';
 
-/* Variables */
-$mg-badge-border-width: 0.1rem;
-
 /* Mixins */
 @mixin badge-variant($name, $backgroundColor, $color) {
   &.mg-c-badge--#{$name} {
@@ -38,8 +35,8 @@ $mg-badge-border-width: 0.1rem;
   min-width: var(--mg-c-badge-size);
   height: var(--mg-c-badge-size);
   box-sizing: border-box;
-  padding: 0 0.4rem;
-  border: $mg-badge-border-width solid;
+  padding: 0 var(--mg-b-size-v);
+  border: var(--mg-b-size-border) solid;
   border-radius: calc(var(--mg-c-badge-size) / 2);
   font-size: var(--mg-c-badge-font-size);
   font-weight: 600;

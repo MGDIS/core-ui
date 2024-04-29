@@ -3,22 +3,21 @@
 @import 'mixins/navigation-button';
 @import 'mixins/mg-icon-animation';
 
-$navigation-vertical-spacing: 1rem;
 $navigation-button-sizes: (
   'regular': (
-    'vertical': $navigation-vertical-spacing,
-    'horizontal': 2rem,
-    'height': 3.8rem,
+    'vertical': var(--mg-b-size-3v),
+    'horizontal': var(--mg-b-size-2w),
+    'height': var(--mg-b-size-5w),
   ),
   'medium': (
-    'vertical': $navigation-vertical-spacing,
-    'horizontal': 3rem,
-    'height': 5.1rem,
+    'vertical': var(--mg-b-size-3v),
+    'horizontal': var(--mg-b-size-4w),
+    'height': var(--mg-b-size-6w),
   ),
   'large': (
-    'vertical': $navigation-vertical-spacing,
-    'horizontal': 4rem,
-    'height': 7.1rem,
+    'vertical': var(--mg-b-size-3v),
+    'horizontal': var(--mg-b-size-5w),
+    'height': var(--mg-b-size-9w),
   ),
 );
 
@@ -28,12 +27,12 @@ $navigation-button-sizes: (
     @for $i from 1 through 6 {
       :host([data-style-direction='vertical'][data-level='#{$i}']) {
         .mg-c-menu-item__navigation-button.mg-c-menu-item__navigation-button--size-#{$name} {
-          padding-left: calc(#{$i} * #{map.get($size, 'horizontal')} - 0.3rem);
+          padding-left: calc(#{$i} * #{map.get($size, 'horizontal')});
         }
       }
       :host([data-level='#{$i}']) {
         .mg-c-menu-item__collapse-container {
-          z-index: calc(#{$i} * 10);
+          z-index: #{calc($i * 10)};
         }
       }
     }
@@ -63,13 +62,13 @@ $navigation-button-sizes: (
 
       &-notification,
       ::slotted([slot='information']) {
-        margin-left: 1rem;
+        margin-left: var(--mg-b-size-w);
         font-size: var(--mg-b-font-size);
       }
     }
 
     &-new-tab {
-      margin-left: 0.6rem;
+      margin-left: var(--mg-b-size-v);
     }
 
     &-chevron {
@@ -126,7 +125,7 @@ $navigation-button-sizes: (
   }
 
   ::slotted(mg-menu) {
-    --mg-c-menu-item-navigation-button-column-gap: #{$navigation-button-column-gap};
+    --mg-c-menu-item-navigation-button-column-gap: var(--mg-b-size-w);
   }
 }
 
@@ -137,7 +136,7 @@ $navigation-button-sizes: (
     background-color: var(--mg-b-color-light);
 
     ::slotted(mg-menu) {
-      padding: 1rem 0;
+      padding: var(--mg-b-size-w) 0;
     }
   }
 }

@@ -1,8 +1,5 @@
 @import 'mixins/reset-mg-card-slotted-variables';
 
-$spacer-default: 1rem;
-$spacer-small: 0.3rem;
-
 :host {
   --mg-c-card-border: none;
   --mg-c-card-padding: 0;
@@ -13,41 +10,34 @@ $spacer-small: 0.3rem;
 
 .mg-c-panel {
   &__header {
-    $padding-value: 0 $spacer-default 0 $spacer-small;
-
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    padding: $padding-value;
-
-    &.mg-c-panel__header--reverse {
-      padding-right: $spacer-small;
-      padding-left: $spacer-default;
-    }
+    padding: 0 var(--mg-b-size-v);
   }
 
   &__header-title,
   &__header-content {
     display: flex;
-    margin: $spacer-small 0;
+    margin: var(--mg-b-size-v) 0;
   }
 
   &__header-content {
-    min-height: var(--mg-b-default-size);
+    min-height: var(--mg-b-size-min-height);
     flex: 1 auto;
     align-items: center;
-    padding-left: $spacer-small;
+    padding-left: var(--mg-b-size-v);
   }
 
   &__header-title {
     mg-input-text {
       flex-grow: 1;
-      margin-left: $spacer-small;
+      margin-left: var(--mg-b-size-v);
     }
 
     mg-button + mg-button:not([slot='append-input']) {
-      margin-left: $spacer-small;
+      margin-left: var(--mg-b-size-v);
     }
 
     &.mg-c-panel__header-title--full {
@@ -74,7 +64,7 @@ $spacer-small: 0.3rem;
     display: flex;
     flex-wrap: wrap;
     margin-left: auto;
-    gap: $spacer-default;
+    gap: var(--mg-b-spacing-actions);
   }
 
   @include reset-slot-card-variables;

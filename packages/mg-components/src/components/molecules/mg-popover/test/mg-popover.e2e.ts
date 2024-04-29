@@ -42,7 +42,7 @@ test.describe('mg-popover', () => {
           );
           await page.setContent(html);
 
-          page.setViewportSize({ height: 900, width: 900 });
+          page.setViewportSize({ height: 700, width: 1000 });
 
           await page.addStyleTag({ content: 'mg-button{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}' });
 

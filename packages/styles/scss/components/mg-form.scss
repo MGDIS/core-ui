@@ -1,16 +1,16 @@
 @import 'form';
 
 .mg-c-form {
-  --mg-c-input-title-width: var(--mg-c-form-inputs-title-width, 23rem);
-  --mg-c-input-margin-bottom: 1.5rem;
-  --mg-c-input-title-horizontal-space: 3rem;
+  --mg-c-input-title-width: var(--mg-c-form-inputs-title-width, calc(28 * var(--mg-b-size-w)));
+  --mg-c-input-margin-bottom: var(--mg-b-size-2w);
+  --mg-c-input-title-horizontal-space: var(--mg-b-size-4w);
 
   &.mg-c-form--all-required {
     --mg-c-input-title-display: none;
   }
 
   &.mg-c-form--label-on-top {
-    --mg-c-input-margin-bottom: 2.5rem;
+    --mg-c-input-margin-bottom: var(--mg-b-size-3w);
   }
 
   & > p {
