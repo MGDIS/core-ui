@@ -38,7 +38,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 ### Global
 
 - `--mg-c-button-border-radius`: define button border radius, default: `0.3rem`
-- `--mg-c-button-icon-border-radius`: define button border radius in icon mode, default: `--mg-b-default-size`
+- `--mg-c-button-icon-border-radius`: define button border radius in icon mode, default: `--mg-b-size-min-height`
 - `--mg-c-button-disabled-opacity`: define button opacity when disabled, default: `--mg-b-disabled-opacity`
 - `--mg-c-button-gradient`: define if button use gradient, possible values 0 (no gradient) or 1 (with gradient), default: `1`
 - `--mg-c-button-border-variation`: define if button has a border based on background color, possible values 0 (no border) or 1 (with border), default: `1`

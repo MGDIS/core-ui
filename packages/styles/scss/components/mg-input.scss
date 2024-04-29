@@ -28,7 +28,7 @@ mg-icon {
     justify-content: flex-start;
     margin-top: 0;
     margin-right: 0;
-    margin-bottom: 0.3rem;
+    margin-bottom: var(--mg-b-size-v);
     text-align: left;
 
     ::slotted(mg-input-title) {
@@ -39,12 +39,12 @@ mg-icon {
 
 .mg-c-input {
   display: flex;
-  min-height: var(--mg-b-default-size);
+  min-height: var(--mg-b-size-min-height);
   align-items: flex-start;
   margin-bottom: var(--mg-c-input-margin-bottom, 0);
 
   &__input-container {
-    min-height: var(--mg-b-default-size);
+    min-height: var(--mg-b-size-min-height);
 
     /* Readonly */
     & > ul {
@@ -53,7 +53,7 @@ mg-icon {
       padding: 0;
       margin: 0;
       list-style: none;
-      row-gap: 0.8rem;
+      row-gap: var(--mg-b-size-w);
     }
 
     & > strong {
@@ -63,7 +63,7 @@ mg-icon {
     & > strong,
     & > ul {
       min-height: var(--mg-b-font-size);
-      margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
     }
 
     mg-tooltip {
@@ -76,13 +76,13 @@ mg-icon {
 
   &__input {
     display: flex;
-    min-height: var(--mg-b-default-size);
+    min-height: var(--mg-b-size-min-height);
     align-items: center;
     justify-content: start;
 
     mg-tooltip {
       align-self: baseline;
-      margin-top: calc((var(--mg-b-default-size) - var(--mg-c-icon-regular-size)) / 2);
+      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-regular-size)) / 2);
     }
 
     /* Set custom opacity on disabled input */
@@ -101,12 +101,12 @@ mg-icon {
     flex-shrink: 0;
     align-items: baseline;
     justify-content: flex-end;
-    margin-top: calc((var(--mg-b-default-size) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+    margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
     margin-right: var(--mg-c-input-title-horizontal-space, var(--mg-c-input-spacer));
     text-align: right;
 
     slot[name='label'] + mg-tooltip {
-      margin-left: 0.4rem;
+      margin-left: var(--mg-b-size-v);
     }
 
     mg-icon {
@@ -117,8 +117,8 @@ mg-icon {
 
   &__error {
     display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 0.3rem;
+    padding: var(--mg-b-size-v) var(--mg-b-size-w);
+    border-radius: var(--mg-b-size-radius);
     background: var(--mg-c-input-error-bg-color);
     color: var(--mg-b-color-danger);
   }
@@ -132,15 +132,11 @@ mg-icon {
     }
   }
 
-  &__help-text + &__error {
-    margin-top: 0.2rem;
-  }
-
   /* Manage space between input and first message */
   :host(:not(&--textarea)) &__input + .mg-c-input {
     &__error,
     &__help-text {
-      margin-top: 0.5rem;
+      margin-top: var(--mg-b-size-v);
     }
   }
 

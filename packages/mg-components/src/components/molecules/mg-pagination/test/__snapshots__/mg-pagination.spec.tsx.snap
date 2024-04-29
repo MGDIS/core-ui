@@ -20,44 +20,44 @@ exports[`mg-pagination Should render Should hide navigation labels 1`] = `
           </mock:shadow-root>
         </mg-icon>
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
@@ -100,44 +100,44 @@ exports[`mg-pagination Should render Should hide navigation labels 2`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -181,12 +181,6 @@ exports[`mg-pagination Should render Should hide page select 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span class="mg-u-visually-hidden">
-        / 2 pages
-      </span>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -230,44 +224,44 @@ exports[`mg-pagination Should render Should hide page select 2`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -311,44 +305,44 @@ exports[`mg-pagination Should render Should set custom label 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -392,44 +386,44 @@ exports[`mg-pagination Should render with locale: fr 1`] = `
         </mg-icon>
         précédent
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Sélectionner la page à afficher.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Sélectionner la page à afficher.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Page suivante" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -473,44 +467,44 @@ exports[`mg-pagination Should render with locale: xx 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -554,41 +548,41 @@ exports[`mg-pagination Should render with totalPages 1 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 1 page
-      </span>
+      </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
@@ -632,44 +626,44 @@ exports[`mg-pagination Should render with totalPages 2 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -713,44 +707,44 @@ exports[`mg-pagination Should render with totalPages 2 2`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option selected="" value="2">
-                2
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 2
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option selected="" value="2">
+                  2
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 2
+        </span>
         / 2 pages
-      </span>
+      </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
@@ -794,47 +788,47 @@ exports[`mg-pagination Should render with totalPages 3 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 3 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -878,47 +872,47 @@ exports[`mg-pagination Should render with totalPages 3 2`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option selected="" value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 2
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option selected="" value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 2
+        </span>
         / 3 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -962,47 +956,47 @@ exports[`mg-pagination Should render with totalPages 3 3`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option selected="" value="3">
-                3
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 3
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option selected="" value="3">
+                  3
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 3
+        </span>
         / 3 pages
-      </span>
+      </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
@@ -1046,68 +1040,68 @@ exports[`mg-pagination Should render with totalPages 10 1`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1151,68 +1145,68 @@ exports[`mg-pagination Should render with totalPages 10 2`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option selected="" value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 2
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option selected="" value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 2
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1256,68 +1250,68 @@ exports[`mg-pagination Should render with totalPages 10 3`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option selected="" value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 3
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option selected="" value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 3
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1361,68 +1355,68 @@ exports[`mg-pagination Should render with totalPages 10 4`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option selected="" value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 4
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option selected="" value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 4
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1466,68 +1460,68 @@ exports[`mg-pagination Should render with totalPages 10 5`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option selected="" value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 5
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option selected="" value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 5
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1571,68 +1565,68 @@ exports[`mg-pagination Should render with totalPages 10 6`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option selected="" value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 6
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option selected="" value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 6
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1676,68 +1670,68 @@ exports[`mg-pagination Should render with totalPages 10 7`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option selected="" value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 7
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option selected="" value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 7
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1781,68 +1775,68 @@ exports[`mg-pagination Should render with totalPages 10 8`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option selected="" value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 8
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option selected="" value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 8
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1886,68 +1880,68 @@ exports[`mg-pagination Should render with totalPages 10 9`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option selected="" value="9">
-                9
-              </option>
-              <option value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 9
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option selected="" value="9">
+                  9
+                </option>
+                <option value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 9
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -1991,68 +1985,68 @@ exports[`mg-pagination Should render with totalPages 10 10`] = `
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-              <option value="6">
-                6
-              </option>
-              <option value="7">
-                7
-              </option>
-              <option value="8">
-                8
-              </option>
-              <option value="9">
-                9
-              </option>
-              <option selected="" value="10">
-                10
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 10
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+                <option value="6">
+                  6
+                </option>
+                <option value="7">
+                  7
+                </option>
+                <option value="8">
+                  8
+                </option>
+                <option value="9">
+                  9
+                </option>
+                <option selected="" value="10">
+                  10
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 10
+        </span>
         / 10 pages
-      </span>
+      </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
@@ -2096,53 +2090,53 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -2186,53 +2180,53 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -2276,53 +2270,53 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option selected="" value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 2
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option selected="" value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 2
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -2366,53 +2360,53 @@ exports[`mg-pagination navigation navigate with next and previous, case totalPag
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -2456,53 +2450,53 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -2546,53 +2540,53 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option selected="" value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 5
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option selected="" value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 5
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="true" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
@@ -2636,53 +2630,53 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="1">
-                1
-              </option>
-              <option selected="" value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 2
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="1">
+                  1
+                </option>
+                <option selected="" value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 2
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">
@@ -2726,56 +2720,56 @@ exports[`mg-pagination navigation navigate with select from 1 to 5 to 1, case to
         </mg-icon>
         previous
       </mg-button>
-      <mg-input-select label-hide="" placeholder-hide="">
-        <mock:shadow-root>
-          <mg-input class="mg-c-input mg-c-input--select">
-            <mock:shadow-root>
-              <div class="mg-c-input__title mg-u-visually-hidden">
-                <slot name="label"></slot>
-              </div>
-              <div class="mg-c-input__input-container">
-                <div class="mg-c-input__input">
-                  <slot></slot>
+      <div class="mg-c-pagination__page-count">
+        <mg-input-select label-hide="" placeholder-hide="">
+          <mock:shadow-root>
+            <mg-input class="mg-c-input mg-c-input--select">
+              <mock:shadow-root>
+                <div class="mg-c-input__title mg-u-visually-hidden">
+                  <slot name="label"></slot>
                 </div>
-              </div>
-            </mock:shadow-root>
-            <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
-              <option value="">
-                Select a value
-              </option>
-              <option selected="" value="1">
-                1
-              </option>
-              <option value="2">
-                2
-              </option>
-              <option value="3">
-                3
-              </option>
-              <option value="4">
-                4
-              </option>
-              <option value="5">
-                5
-              </option>
-            </select>
-            <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
-              <!---->
-              <label class="mg-c-input-title" htmlfor="id-select">
-                <span class="mg-c-input-title__text">
-                  Select the page to display.
-                </span>
-              </label>
-            </mg-input-title>
-          </mg-input>
-        </mock:shadow-root>
-      </mg-input-select>
-      <span class="mg-u-visually-hidden">
-        page 1
-      </span>
-      <span>
+                <div class="mg-c-input__input-container">
+                  <div class="mg-c-input__input">
+                    <slot></slot>
+                  </div>
+                </div>
+              </mock:shadow-root>
+              <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="id-select" name="id-select" title="Select a value">
+                <option value="">
+                  Select a value
+                </option>
+                <option selected="" value="1">
+                  1
+                </option>
+                <option value="2">
+                  2
+                </option>
+                <option value="3">
+                  3
+                </option>
+                <option value="4">
+                  4
+                </option>
+                <option value="5">
+                  5
+                </option>
+              </select>
+              <mg-input-title identifier="id-select" is-legend="false" readonly="false" required="false" slot="label">
+                <!---->
+                <label class="mg-c-input-title" htmlfor="id-select">
+                  <span class="mg-c-input-title__text">
+                    Select the page to display.
+                  </span>
+                </label>
+              </mg-input-title>
+            </mg-input>
+          </mock:shadow-root>
+        </mg-input-select>
+        <span class="mg-u-visually-hidden">
+          page 1
+        </span>
         / 5 pages
-      </span>
+      </div>
       <mg-button aria-disabled="false" aria-label="Next page" role="button" tabindex="0">
         <mock:shadow-root>
           <div class="mg-c-button mg-c-button--flat">

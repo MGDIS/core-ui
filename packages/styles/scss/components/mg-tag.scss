@@ -1,7 +1,3 @@
-/* Variables */
-$mg-tag-border-width: 0.1rem;
-$mg-tag-padding-horizontal: 0.7rem;
-
 /* Mixins */
 @mixin tag-variant($name, $backgroundColor, $color) {
   &.mg-c-tag--#{$name} {
@@ -39,15 +35,15 @@ $mg-tag-padding-horizontal: 0.7rem;
 
 /* Styles */
 .mg-c-tag {
-  $padding-value: calc((var(--mg-c-tag-height) - (2 * $mg-tag-border-width) - (var(--mg-c-tag-font-size) * var(--mg-b-line-height))) / 2)
-    ($mg-tag-padding-horizontal - $mg-tag-border-width);
+  $padding-vertical: calc((var(--mg-c-tag-height) - (2 * var(--mg-b-size-border)) - (var(--mg-c-tag-font-size) * var(--mg-b-line-height))) / 2);
+  $padding-horizontal: calc(var(--mg-b-size-w) - var(--mg-b-size-border));
 
   display: inline-flex;
   min-height: var(--mg-c-tag-height);
   box-sizing: border-box;
   align-items: center;
-  padding: $padding-value;
-  border: $mg-tag-border-width solid;
+  padding: $padding-vertical $padding-horizontal;
+  border: var(--mg-b-size-border) solid;
   border-radius: var(--mg-c-tag-border-radius);
   font-size: var(--mg-c-tag-font-size);
   font-weight: 600;
@@ -64,7 +60,7 @@ $mg-tag-padding-horizontal: 0.7rem;
 }
 
 ::slotted(mg-icon) {
-  margin-right: 0.4rem;
+  margin-right: var(--mg-b-size-v);
 }
 
 slot {

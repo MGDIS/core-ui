@@ -1,18 +1,19 @@
 /**
-  Components custom properties
+  * Components custom properties
+  * Must start with `--mg-c-`
 */
 :root {
-  // mg-icon
-  --mg-c-icon-small-size: 1.2rem;
-  --mg-c-icon-regular-size: 1.6rem;
-  --mg-c-icon-medium-size: 2rem;
-  --mg-c-icon-large-size: 2.4rem;
-  --mg-c-icon-extra-large-size: 3.2rem;
-  --mg-c-icon-border-radius: 50%;
+  /**
+   * Atoms
+   */
+
+  // mg-badge
+  --mg-c-badge-size: var(--mg-b-size-2w);
+  --mg-c-badge-font-size: 1.1rem;
 
   // mg-button
-  --mg-c-button-border-radius: 0.3rem;
-  --mg-c-button-icon-border-radius: var(--mg-b-default-size);
+  --mg-c-button-border-radius: var(--mg-b-size-radius-legacy);
+  --mg-c-button-icon-border-radius: var(--mg-b-size-min-height);
   --mg-c-button-disabled-opacity: var(--mg-b-disabled-opacity);
   --mg-c-button-gradient: 1; /* Can only be 1 or 0 to enable disable gradient */
   --mg-c-button-border-variation: 1; /* Can only be 1 or 0 to enable disable border variation */
@@ -29,60 +30,51 @@
   --mg-c-button-secondary-color-l: var(--mg-b-color-neutral-l);
   --mg-c-button-secondary-font-color: var(--mg-b-color-dark);
 
-  // mg-tag
-  --mg-c-tag-height: 2.3rem;
-  --mg-c-tag-border-radius: 0.5rem;
-  --mg-c-tag-font-size: 1.2rem;
-
-  // mg-badge
-  --mg-c-badge-size: 1.6rem;
-  --mg-c-badge-font-size: 1.1rem;
-
-  // mg-tooltip
-  --mg-c-tooltip-border-radius: 0.5rem;
-  --mg-c-tooltip-background-color: var(--mg-b-color-dark);
-  --mg-c-tooltip-font-color: var(--mg-b-color-font-light);
-
-  // mg-popover
-  --mg-c-popover-background-color: var(--mg-b-color-light);
-  --mg-c-popover-font-color: var(--mg-b-color-font-dark);
-  --mg-c-popover-title-font-size: 1.4rem;
-  --mg-c-popover-max-width: 40rem;
-
-  // mg-message
-  --mg-c-message-border-radius: 0.3rem;
-
-  // mg-modal
-  --mg-c-modal-border-radius: 0.5rem;
-  --mg-c-modal-title-font-size: 1.8rem;
-  --mg-c-modal-content-font-size: 1.2rem;
-
-  // mg-panel
-  --mg-c-panel-border-radius: 0.5rem;
-  --mg-c-panel-background: hsl(var(--mg-b-color-info-h) var(--mg-b-color-info-s) calc(var(--mg-b-color-info-l) + 68%));
-  --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
-  --mg-c-panel-content-padding: 1.5rem;
-
-  // mg-illustrated-message
-  --mg-c-illustrated-message-padding-vertical: 4rem;
-
   // mg-card
-  --mg-c-card-padding-default: 1.6rem;
-  --mg-c-card-border-radius-default: 0.5rem;
+  --mg-c-card-padding-default: var(--mg-b-size-2w);
+  --mg-c-card-border-radius-default: var(--mg-b-size-radius);
   --mg-c-card-background-default: var(--mg-b-color-light);
-  --mg-c-card-border-default: 0.1rem solid hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 5%);
+  --mg-c-card-border-default: var(--mg-b-size-border) solid hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 5%);
   --mg-c-card-box-shadow-default: var(--mg-b-box-shadow);
 
   // mg-divider
   --mg-c-divider-background-color: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 15%);
-  --mg-c-divider-thickness: 0.1rem;
-  --mg-c-divider-vertical-spacing: 4rem;
+  --mg-c-divider-thickness: var(--mg-b-size-border);
+  --mg-c-divider-vertical-spacing: var(--mg-b-size-5w);
+
+  // mg-icon
+  --mg-c-icon-small-size: var(--mg-b-size-3v);
+  --mg-c-icon-regular-size: var(--mg-b-size-2w);
+  --mg-c-icon-medium-size: var(--mg-b-size-5v);
+  --mg-c-icon-large-size: var(--mg-b-size-3w);
+  --mg-c-icon-extra-large-size: var(--mg-b-size-4w);
+  --mg-c-icon-border-radius: 50%;
+
+  // mg-tag
+  --mg-c-tag-height: var(--mg-b-size-3w);
+  --mg-c-tag-border-radius: var(--mg-b-size-radius);
+  --mg-c-tag-font-size: 1.2rem;
+
+  // mg-tooltip
+  --mg-c-tooltip-border-radius: var(--mg-b-size-radius);
+  --mg-c-tooltip-background-color: var(--mg-b-color-dark);
+  --mg-c-tooltip-font-color: var(--mg-b-color-font-light);
+
+  /**
+   * Molecules
+   */
+
+  // mg-details
+  --mg-c-details-spacing: var(--mg-b-size-w);
+
+  // mg-illustrated-message
+  --mg-c-illustrated-message-padding-vertical: var(--mg-b-size-5w);
 
   // mg-input-...
-  --mg-c-input-border-width: 0.1rem;
-  --mg-c-input-border-radius: 0.3rem;
-  --mg-c-input-color: #b5c2c9;
-  --mg-c-input-spacer: 1rem;
+  --mg-c-input-border-width: var(--mg-b-size-border);
+  --mg-c-input-border-radius: var(--mg-b-size-radius-legacy);
+  --mg-c-input-color: hsl(201deg 16% 75%);
+  --mg-c-input-spacer: var(--mg-b-size-w);
 
   /* Error message background */
   --mg-c-input-error-bg-color: hsl(var(--mg-b-color-danger-h) calc(var(--mg-b-color-danger-s) + 5%) calc(var(--mg-b-color-danger-l) + 49%));
@@ -94,19 +86,36 @@
   --mg-c-input-toggle-border-radius-ratio: 2;
 
   // mg-input-checkbox
-  --mg-c-input-check-size: 1.3rem;
+  --mg-c-input-check-size: var(--mg-b-size-2w);
 
   // mg-menu-item
   --mg-c-menu-item-focused-background-color: hsl(var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l) / 10%);
   --mg-c-menu-item-border-color-active: var(--mg-b-color-app);
   --mg-c-menu-item-color-active: var(--mg-b-color-app);
 
+  // mg-message
+  --mg-c-message-border-radius: var(--mg-b-size-radius);
+
+  // mg-modal
+  --mg-c-modal-border-radius: var(--mg-b-size-radius);
+  --mg-c-modal-title-font-size: 1.8rem;
+  --mg-c-modal-content-font-size: 1.2rem;
+
+  // mg-panel
+  --mg-c-panel-border-radius: var(--mg-b-size-radius);
+  --mg-c-panel-background: hsl(var(--mg-b-color-info-h) var(--mg-b-color-info-s) calc(var(--mg-b-color-info-l) + 68%));
+  --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
+  --mg-c-panel-content-padding: var(--mg-b-size-2w);
+
+  // mg-popover
+  --mg-c-popover-background-color: var(--mg-b-color-light);
+  --mg-c-popover-font-color: var(--mg-b-color-font-dark);
+  --mg-c-popover-title-font-size: 1.4rem;
+  --mg-c-popover-max-width: var(--mg-b-size-floating-element-max-width);
+
   // mg-tabs
   --mg-c-tabs-focused-background-color: hsl(var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l) / 10%);
   --mg-c-tabs-border-color-active: var(--mg-b-color-app);
   --mg-c-tabs-color-active: var(--mg-b-color-app);
-  --mg-c-tabs-border-bottom: solid 0.1rem var(--mg-b-color-dark-soft);
-
-  // mg-details
-  --mg-c-details-spacing: 1.5rem;
+  --mg-c-tabs-border-bottom: var(--mg-b-size-border) solid var(--mg-b-color-dark-soft);
 }

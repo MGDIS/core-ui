@@ -213,7 +213,7 @@ Recommanded element is a mg-badge. Use it when you need to notify new events in 
 ### Used by
 
  - [mg-action-more](../../mg-action-more)
- - [mg-item-more](../../mg-item-more)
+ - mg-item-more
 
 ### Depends on
 

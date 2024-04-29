@@ -1,8 +1,3 @@
-/* Variables */
-$mg-button-border-width: 0.1rem;
-$mg-button-padding-horizontal: 1.1rem;
-$button-column-gap: 0.6rem;
-
 /* Mixins */
 @mixin style-gradient($name, $background-color, $font-color, $has-variable: false) {
   @if $has-variable {
@@ -72,21 +67,21 @@ $button-column-gap: 0.6rem;
 
 /* Styles */
 .mg-c-button {
-  $padding-value: calc((var(--mg-b-default-size) - (2 * $mg-button-border-width) - (var(--mg-b-font-size) * var(--mg-b-line-height))) / 2) $mg-button-padding-horizontal;
+  $padding-value: calc((var(--mg-b-size-min-height) - (2 * var(--mg-b-size-border)) - (var(--mg-b-font-size) * var(--mg-b-line-height))) / 2) var(--mg-b-size-3v);
 
   position: relative;
   display: inline-flex;
-  min-height: var(--mg-b-default-size);
+  min-height: var(--mg-b-size-min-height);
   box-sizing: border-box;
   align-items: center;
   padding: $padding-value;
-  border-width: var(--mg-c-button-border-top-width, $mg-button-border-width) var(--mg-c-button-border-right-width, $mg-button-border-width)
-    var(--mg-c-button-border-bottom-width, $mg-button-border-width) var(--mg-c-button-border-left-width, $mg-button-border-width);
+  border-width: var(--mg-c-button-border-top-width, var(--mg-b-size-border)) var(--mg-c-button-border-right-width, var(--mg-b-size-border))
+    var(--mg-c-button-border-bottom-width, var(--mg-b-size-border)) var(--mg-c-button-border-left-width, var(--mg-b-size-border));
   border-style: solid;
   border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-top-right, var(--mg-c-button-border-radius))
     var(--mg-c-button-border-radius-bottom-right, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-bottom-left, var(--mg-c-button-border-radius));
   background-image: none;
-  column-gap: $button-column-gap;
+  column-gap: var(--mg-b-size-w);
   cursor: pointer;
   touch-action: manipulation;
 
@@ -101,8 +96,8 @@ $button-column-gap: 0.6rem;
 
   // Icon only button
   &.mg-c-button--icon {
-    width: var(--mg-b-default-size);
-    height: var(--mg-b-default-size);
+    width: var(--mg-b-size-min-height);
+    height: var(--mg-b-size-min-height);
     justify-content: center;
     padding: 0;
     border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-icon-border-radius))
@@ -124,7 +119,7 @@ $button-column-gap: 0.6rem;
 
     display: flex;
     align-items: center;
-    column-gap: $button-column-gap;
+    column-gap: var(--mg-b-size-w);
   }
 
   // Link variant
@@ -161,7 +156,7 @@ $button-column-gap: 0.6rem;
 
   // loading style
   &.mg-c-button--loading {
-    > mg-icon:first-of-type {
+    & > mg-icon:first-of-type {
       position: absolute;
       top: 50%;
       left: 50%;

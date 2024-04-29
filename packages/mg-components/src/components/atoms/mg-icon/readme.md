@@ -83,7 +83,7 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
  - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
  - [mg-input-text](../../molecules/inputs/mg-input-text)
- - [mg-item-more](../../molecules/mg-item-more)
+ - mg-item-more
  - [mg-loader](../../molecules/mg-loader)
  - [mg-menu-item](../../molecules/menu/mg-menu-item)
  - [mg-message](../../molecules/mg-message)

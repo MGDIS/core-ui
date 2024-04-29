@@ -1,9 +1,9 @@
 :host {
   z-index: 1000;
   display: none;
-  max-width: 40rem;
+  max-width: var(--mg-b-size-floating-element-max-width);
   box-sizing: border-box;
-  padding: 0.5rem 0.8rem;
+  padding: var(--mg-b-size-v) var(--mg-b-size-w);
   border-radius: var(--mg-c-tooltip-border-radius);
   background-color: var(--mg-c-tooltip-background-color);
   color: var(--mg-c-tooltip-font-color);
@@ -30,24 +30,24 @@
   &::before {
     position: absolute;
     z-index: 9999;
-    width: 0.8rem;
-    height: 0.8rem;
+    width: var(--mg-b-size-w);
+    height: var(--mg-b-size-w);
     background-color: var(--mg-c-tooltip-background-color);
   }
 
   :host([data-popper-placement^='top']) > & {
-    bottom: -0.4rem;
+    bottom: calc(-1 * var(--mg-b-size-v));
   }
 
   :host([data-popper-placement^='bottom']) > & {
-    top: -0.4rem;
+    top: calc(-1 * var(--mg-b-size-v));
   }
 
   :host([data-popper-placement^='left']) > & {
-    right: -0.4rem;
+    right: calc(-1 * var(--mg-b-size-v));
   }
 
   :host([data-popper-placement^='right']) > & {
-    left: -0.4rem;
+    left: calc(-1 * var(--mg-b-size-v));
   }
 }

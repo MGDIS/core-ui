@@ -6,6 +6,9 @@ import { initLocales } from '../../../locales';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../locales/index.conf';
 
+/**
+ * @internal
+ */
 @Component({
   tag: 'mg-item-more',
   styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-item-more.css',

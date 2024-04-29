@@ -4,6 +4,35 @@
  */
 :root {
   /**
+   * Sizes
+   */
+  --mg-b-size-v: 0.4rem; // 4px
+  --mg-b-size-w: calc(2 * var(--mg-b-size-v)); // 8px
+  --mg-b-size-3v: calc(3 * var(--mg-b-size-v)); // 12px
+  --mg-b-size-2w: calc(2 * var(--mg-b-size-w)); // 16px
+  --mg-b-size-5v: calc(5 * var(--mg-b-size-v)); // 20px
+  --mg-b-size-3w: calc(3 * var(--mg-b-size-w)); // 24px
+  --mg-b-size-4w: calc(4 * var(--mg-b-size-w)); // 32px
+  --mg-b-size-5w: calc(5 * var(--mg-b-size-w)); // 40px
+  --mg-b-size-6w: calc(6 * var(--mg-b-size-w)); // 48px
+  --mg-b-size-7w: calc(7 * var(--mg-b-size-w)); // 56px
+  --mg-b-size-8w: calc(8 * var(--mg-b-size-w)); // 64px
+  --mg-b-size-9w: calc(9 * var(--mg-b-size-w)); // 72px
+  --mg-b-size-15w: calc(15 * var(--mg-b-size-w)); // 120px
+  --mg-b-size-border: 0.1rem;
+  --mg-b-size-radius: var(--mg-b-size-v); // 4px
+  --mg-b-size-radius-legacy: 0.3rem; // 3px
+  --mg-b-size-floating-element-max-width: calc(50 * var(--mg-b-size-w)); // 400px
+
+  // default height for inputs, buttons, and mg-message
+  --mg-b-size-min-height: 3.5rem; // 35px
+
+  /**
+   * Spacings
+   */
+  --mg-b-spacing-actions: var(--mg-b-size-w); // 8px
+
+  /**
    * Colors
    * https://jira.mgdis.fr/browse/PDA9-690
    *
@@ -107,9 +136,6 @@
 
   // Shadow
   --mg-b-box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 15%);
-
-  // default height for inputs and buttons
-  --mg-b-default-size: 3.5rem;
 
   // Opacity for disabled elements
   --mg-b-disabled-opacity: 0.4;
