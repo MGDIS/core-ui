@@ -106,7 +106,7 @@ interface IGetMenuArgs {
  * @param size - menu size. Default: 'regular'
  * @returns menu formated args object
  */
-const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'large') => ({
+const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'regular') => ({
   label: 'Batman menu',
   direction,
   size,

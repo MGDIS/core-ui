@@ -104,7 +104,7 @@ test.describe('mg-menu-item', () => {
         await page.addStyleTag({
           content: `
           mg-menu {
-            --mg-c-mg-menu-item-chevron-display: none;
+            --mg-c-menu-item-chevron-display: none;
             --mg-menu-item-navigation-button-column-gap: 0;
             --mg-c-menu-item-navigation-button-spacing-y: 1rem;
             --mg-c-menu-item-navigation-button-spacing-x: 1rem;
