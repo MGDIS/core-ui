@@ -772,7 +772,7 @@ const customDataJson = vsCodeGenerator('1.0.0', jsonDocs, 'https://storybook.exa
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:187
+packages/stencil-helpers/src/ide/index.ts:185
 
 ___
 
@@ -815,4 +815,4 @@ const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs
 
 #### Defined in
 
-packages/stencil-helpers/src/ide/index.ts:103
+packages/stencil-helpers/src/ide/index.ts:101
