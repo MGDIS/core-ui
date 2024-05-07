@@ -466,7 +466,14 @@ export class MgMenuItem {
     return (
       <Host role={this.isItemMore ? 'presentation' : 'listitem'}>
         {this.displayPopover() ? (
-          <mg-popover display={this.expanded} placement="bottom-start" arrowHide={true} onDisplay-change={this.handlePopoverDisplay} identifier={this.getPopoverIdentifier()}>
+          <mg-popover
+            display={this.expanded}
+            placement="bottom-start"
+            arrowHide={true}
+            onDisplay-change={this.handlePopoverDisplay}
+            identifier={this.getPopoverIdentifier()}
+            data-fallback-placement="bottom-end" // use for the last element of the menu if it is placed on the right side
+          >
             {this.renderInteractiveElement()}
             <div class={getContainerClasses()} slot="content">
               {this.renderSlot()}
