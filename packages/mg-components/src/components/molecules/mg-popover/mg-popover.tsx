@@ -222,6 +222,10 @@ export class MgPopover {
     // Add aria attributes
     interactiveElement.setAttribute('aria-controls', this.identifier);
     interactiveElement.setAttribute('aria-expanded', `${this.display}`);
+    const fallbackPlacements = [];
+    if (this.element.dataset.fallbackPlacement) {
+      fallbackPlacements.push(this.element.dataset.fallbackPlacement);
+    }
 
     // Create popperjs popover
     this.popper = createPopper(interactiveElement, this.mgPopover, {
@@ -237,7 +241,7 @@ export class MgPopover {
         {
           name: 'flip',
           options: {
-            fallbackPlacements: ['auto'],
+            fallbackPlacements: [...fallbackPlacements, 'auto'],
           },
         },
       ],

@@ -1,6 +1,6 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
-import { Direction } from '../menu/mg-menu/mg-menu.conf';
+import { Direction, sizes } from '../menu/mg-menu/mg-menu.conf';
 import { OverflowBehavior } from '../../../utils/behaviors.utils';
 import { initLocales } from '../../../locales';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
@@ -61,7 +61,7 @@ export class MgItemMore {
   @Prop() size?: SizeType;
   @Watch('size')
   validateSize(newValue: MgItemMore['size']): void {
-    if (newValue && typeof newValue !== 'string') throw new Error(`<${this.name}> prop "size" must match MgItemMore['size'] type.`);
+    if (newValue && !sizes.includes(newValue)) throw new Error(`<${this.name}> prop "size" must match MgItemMore['size'] type.`);
   }
 
   /**
@@ -173,7 +173,7 @@ export class MgItemMore {
               if (el) this.moreElementMenuItem = el;
             }}
           >
-            <mg-icon icon={this.icon.icon} slot="image"></mg-icon>
+            <mg-icon icon={this.icon.icon} size={this.size} slot="image"></mg-icon>
             <span class={{ 'mg-u-visually-hidden': !this.slotlabel.display }} slot="label">
               {this.slotlabel.label}
             </span>

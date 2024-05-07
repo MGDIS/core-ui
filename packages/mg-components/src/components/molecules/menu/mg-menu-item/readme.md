@@ -169,6 +169,7 @@ Recommanded element is a mg-badge. Use it when you need to notify new events in 
 - `--mg-c-menu-item-color-hsl`: define mg-menu-item font color. default: `--mg-b-color-dark`.
 - `--mg-c-menu-item-color-active-hsl`: define mg-menu-item font color active. default: `--mg-b-color-app-hsl`.
 - `--mg-c-menu-item-navigation-button-column-gap`: define mg-menu-item button column gap. default: `unset`.
+- `--mg-c-menu-item-chevron-display`: override chevron display.
 
 ### navigation-button
 
