@@ -9,8 +9,7 @@ $navigation-button-column-gap: 1rem;
     .#{$component-class-prefix}.#{$component-class-prefix}--size-#{$name} .#{$component-class-prefix}__navigation-button,
     .#{$component-class-prefix}__navigation-button.#{$component-class-prefix}__navigation-button--size-#{$name} {
       height: #{map.get($size, 'height')};
-      padding: var(--#{$component-class-prefix}-navigation-button-spacing-y, #{map.get($size, 'vertical')})
-        var(--#{$component-class-prefix}-navigation-button-spacing-x, #{map.get($size, 'horizontal')});
+      padding: #{map.get($size, 'vertical')} #{map.get($size, 'horizontal')};
 
       &,
       ::slotted([slot='label']),

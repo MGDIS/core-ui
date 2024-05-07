@@ -106,8 +106,6 @@ test.describe('mg-menu-item', () => {
           mg-menu {
             --mg-c-menu-item-chevron-display: none;
             --mg-menu-item-navigation-button-column-gap: 0;
-            --mg-c-menu-item-navigation-button-spacing-y: 1rem;
-            --mg-c-menu-item-navigation-button-spacing-x: 1rem;
           }
           [slot="label"] {
             display: none;
