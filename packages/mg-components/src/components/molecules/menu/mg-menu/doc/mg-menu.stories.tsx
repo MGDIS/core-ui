@@ -110,7 +110,7 @@ const getMenuArgs: IGetMenuArgs = (direction, level = 0, size = 'regular') => ({
   label: 'Batman menu',
   direction,
   size,
-  itemmore: undefined,
+  itemmore: { size },
   slot: {
     items: [
       getItemArgs({

@@ -104,8 +104,8 @@ describe('mg-menu', () => {
   afterEach(() => jest.clearAllTimers());
 
   describe('render', () => {
-    test.each([{ label: 'batman menu' }, { label: 'batman menu', direction: 'horizontal' }, { label: 'batman menu', direction: 'vertical' }])('with args %s', async args => {
-      const { root } = await getPage(args);
+    test.each([{}, { direction: 'horizontal' }, { direction: 'vertical' }, { itemmore: { icon: 'user' } }])('with args %s', async args => {
+      const { root } = await getPage({ label: 'batman menu', ...args });
 
       expect(root).toMatchSnapshot();
     });
@@ -201,6 +201,24 @@ describe('mg-menu', () => {
   });
 
   describe('mg-item-more', () => {
+    test('should manage "itemmore" prop update', async () => {
+      const page = await getPage({ label: 'batman menu' }, { submenu: false, itemMore: true });
+
+      const mgMenu = page.doc.querySelector('mg-menu');
+      const mgItemMore = page.doc.querySelector('mg-item-more');
+      mgItemMore.dispatchEvent(new CustomEvent('item-loaded', { bubbles: true }));
+
+      await page.flushQueue();
+      await page.waitForChanges();
+
+      mgMenu.itemmore = { icon: { icon: 'user' } };
+
+      await page.flushQueue();
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot();
+    });
+
     test.each(['click', 'focus'])('should manage "mg-item-more" event %s', async event => {
       const page = await getPage({ label: 'batman menu' }, { submenu: false, itemMore: true });
 
