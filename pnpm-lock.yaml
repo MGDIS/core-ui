@@ -766,8 +766,8 @@ importers:
         specifier: 0.25.13
         version: 0.25.13(typescript@5.4.5)
       typedoc-plugin-markdown:
-        specifier: 3.17.1
-        version: 3.17.1(typedoc@0.25.13)
+        specifier: 4.0.0
+        version: 4.0.0(typedoc@0.25.13)
       vitest:
         specifier: 1.6.0
         version: 1.6.0(@types/node@20.12.10)(jsdom@24.0.0)(sass@1.75.0)
@@ -904,8 +904,8 @@ importers:
         specifier: 0.25.13
         version: 0.25.13(typescript@5.4.5)
       typedoc-plugin-markdown:
-        specifier: 3.17.1
-        version: 3.17.1(typedoc@0.25.13)
+        specifier: 4.0.0
+        version: 4.0.0(typedoc@0.25.13)
       typescript:
         specifier: 5.4.5
         version: 5.4.5
@@ -18385,12 +18385,11 @@ packages:
       is-typed-array: 1.1.13
       possible-typed-array-names: 1.0.0
 
-  /typedoc-plugin-markdown@3.17.1(typedoc@0.25.13):
-    resolution: {integrity: sha512-QzdU3fj0Kzw2XSdoL15ExLASt2WPqD7FbLeaqwT70+XjKyTshBnUlQA5nNREO1C2P8Uen0CDjsBLMsCQ+zd0lw==}
+  /typedoc-plugin-markdown@4.0.0(typedoc@0.25.13):
+    resolution: {integrity: sha512-7cNKIGxGq1w9IvwWbm6jAASUCvlJeaANJXCOH+Fcvz2JrNIIMVbRu4j2Nq2zpDDaBHsrUmKVaz+F5vroMU8u4A==}
     peerDependencies:
-      typedoc: '>=0.24.0'
+      typedoc: 0.25.x
     dependencies:
-      handlebars: 4.7.8
       typedoc: 0.25.13(typescript@5.4.5)
     dev: true
 
