@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.0.6
+
+### Patch Changes
+
+- 38ba699: Use vitest-config package
+
 ## 1.0.5
 
 ### Patch Changes

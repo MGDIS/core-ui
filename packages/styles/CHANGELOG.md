@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.3.3
+
+### Patch Changes
+
+- 5b5de24: [#486](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/486) mg-menu: error with itemmore config
+
 ## 1.3.2
 
 ### Patch Changes
