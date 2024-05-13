@@ -95,7 +95,7 @@ test.describe('mg-menu-item', () => {
 
       test('Should render slot image only with submenu', async ({ page }) => {
         await page.setContent(createHTML({ expanded: true, size: 'large' }, slotContent + slotImage, direction));
-        await page.setViewportSize(defaultViewPortSize);
+        await page.setViewportSize({ ...defaultViewPortSize, width: 170 });
         await page.keyboard.press('Tab');
 
         await expect(page.locator('body')).toHaveScreenshot();
