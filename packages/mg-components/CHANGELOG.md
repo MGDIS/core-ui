@@ -1,5 +1,18 @@
 # @mgdis/mg-components
 
+## 5.27.3
+
+### Patch Changes
+
+- 5b5de24: [#486](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/486) mg-menu: error with itemmore config
+- 3bb7043: [#485](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/485) mg-menu: sub-item repositionning mistake
+- 253c7a6: Update dependencies
+- Updated dependencies [5b5de24]
+- Updated dependencies [38ba699]
+- Updated dependencies [253c7a6]
+  - @mgdis/styles@1.3.3
+  - @mgdis/stencil-helpers@1.1.4
+
 ## 5.27.2
 
 ### Patch Changes
