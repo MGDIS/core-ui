@@ -18,6 +18,7 @@ export class MgMenu {
   private readonly name = 'mg-menu';
   private menuItems: HTMLMgMenuItemElement[] = [];
   private focusedMenuItem = 0;
+  private itemMoreElement: HTMLMgItemMoreElement;
 
   /**************
    * Decorators *
@@ -60,6 +61,8 @@ export class MgMenu {
   validateItemMore(newValue: MgMenu['itemmore']): void {
     if (newValue !== undefined && this.direction !== Direction.HORIZONTAL) {
       throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${Direction.HORIZONTAL}.`);
+    } else if (newValue) {
+      this.renderMgItemMore();
     }
   }
 
@@ -95,16 +98,10 @@ export class MgMenu {
   };
 
   /**
-   * get mg-item-more element
-   * @returns mg-item-more element
-   */
-  private getItemMore = (): HTMLMgItemMoreElement => this.element.querySelector('mg-item-more');
-
-  /**
    * get mg-item-more child mg-menu-item element
    * @returns mg-menu-item element
    */
-  private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.getItemMore()?.shadowRoot?.querySelector('mg-menu-item');
+  private getItemMoreMenuItem = (): HTMLMgMenuItemElement => this.itemMoreElement?.shadowRoot?.querySelector('mg-menu-item');
 
   /**
    * Set item listend
@@ -144,20 +141,26 @@ export class MgMenu {
    * render mg-item-more
    */
   private renderMgItemMore = (): void => {
-    if (this.direction !== Direction.HORIZONTAL || this.isChildMenu) {
+    if (this.direction !== Direction.HORIZONTAL || this.isChildMenu || this.element.children.length <= 1) {
       return;
     }
 
-    // /!\ externalise item tag name to get a string type and bypass type checking when value is used in next createElement
-    // by doing this we prevent stencil to generate a circular dependencies graph at build time with mg-item-more component.
-    let mgItemMore = this.getItemMore();
-    if (!mgItemMore) {
-      mgItemMore = document.createElement('mg-item-more');
-      mgItemMore.addEventListener('item-loaded', this.handleItemLoaded);
-      Object.assign(mgItemMore, this.itemmore || {});
-      this.element.appendChild(mgItemMore);
-    } else {
-      Object.defineProperties(mgItemMore, this.itemmore || {});
+    // Insert mg-item-more outside the mg-menu shadowdom
+    if (!this.itemMoreElement) {
+      this.itemMoreElement = document.createElement('mg-item-more');
+      this.itemMoreElement.addEventListener('item-loaded', this.handleItemLoaded);
+      this.element.appendChild(this.itemMoreElement);
+    }
+
+    // update mg-item-more props
+    for (const attribute in this.itemmore) {
+      const newValue = this.itemmore[attribute];
+      // to improve rendering we use HTML attributes as much as possible
+      if (['string', 'number'].includes(typeof newValue)) {
+        this.itemMoreElement.setAttribute(attribute, newValue);
+      } else {
+        this.itemMoreElement[attribute] = newValue;
+      }
     }
   };
 

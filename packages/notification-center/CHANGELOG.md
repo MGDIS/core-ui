@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.11
+
+### Patch Changes
+
+- 253c7a6: Update dependencies
+
 ## 1.1.10
 
 ### Patch Changes

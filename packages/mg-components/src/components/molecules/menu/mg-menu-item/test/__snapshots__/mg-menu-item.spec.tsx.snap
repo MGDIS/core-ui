@@ -3,7 +3,7 @@
 exports[`mg-menu-item MutationObserver Should update display notifiaction badge with "attribute" mutation, from status %s 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="batman" role="listitem" status="visible">
   <mock:shadow-root>
-    <mg-popover>
+    <mg-popover data-fallback-placement="bottom-end">
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
@@ -101,7 +101,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
 exports[`mg-menu-item MutationObserver Should update display notifiaction badge with "attribute" mutation, from status %s 2`] = `
 <mg-menu-item data-style-direction="horizontal" label="batman" role="listitem" status="visible">
   <mock:shadow-root>
-    <mg-popover>
+    <mg-popover data-fallback-placement="bottom-end">
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
@@ -233,7 +233,7 @@ exports[`mg-menu-item MutationObserver Should update status with child "characte
 exports[`mg-menu-item MutationObserver Should update status with child title "attribute" mutation, from status { from: 'active', to: 'visible' } 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
   <mock:shadow-root>
-    <mg-popover>
+    <mg-popover data-fallback-placement="bottom-end">
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
@@ -306,7 +306,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
 exports[`mg-menu-item MutationObserver Should update status with child title "attribute" mutation, from status { from: 'visible', to: 'active' } 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
   <mock:shadow-root>
-    <mg-popover>
+    <mg-popover data-fallback-placement="bottom-end">
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
@@ -379,7 +379,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
 exports[`mg-menu-item MutationObserver should update notification badge with args false 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
   <mock:shadow-root>
-    <mg-popover>
+    <mg-popover data-fallback-placement="bottom-end">
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
@@ -452,7 +452,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
 exports[`mg-menu-item MutationObserver should update notification badge with args true 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
   <mock:shadow-root>
-    <mg-popover>
+    <mg-popover data-fallback-placement="bottom-end">
       <mock:shadow-root>
         <slot></slot>
         <slot name="content"></slot>
@@ -554,7 +554,7 @@ exports[`mg-menu-item events popover Should prevent "expanded" to be update to "
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -603,7 +603,6 @@ exports[`mg-menu-item events popover Should prevent "expanded" to be update to "
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -631,7 +630,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -659,7 +657,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -670,7 +667,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -738,7 +735,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -749,7 +745,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -817,7 +813,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -828,7 +823,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -874,7 +869,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -947,7 +942,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -958,7 +952,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1004,7 +998,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -1077,7 +1071,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1088,7 +1081,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1134,7 +1127,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -1207,7 +1200,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1218,7 +1210,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1264,7 +1256,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -1337,7 +1329,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1348,7 +1339,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1400,7 +1391,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1411,7 +1401,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1463,7 +1453,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1491,7 +1480,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1519,7 +1507,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1530,7 +1517,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1598,7 +1585,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1609,7 +1595,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1677,7 +1663,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1688,7 +1673,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1734,7 +1719,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -1807,7 +1792,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1818,7 +1802,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1864,7 +1848,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -1937,7 +1921,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -1948,7 +1931,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -1994,7 +1977,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -2067,7 +2050,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2078,7 +2060,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2124,7 +2106,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -2197,7 +2179,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2208,7 +2189,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2260,7 +2241,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2271,7 +2251,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2323,7 +2303,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2351,7 +2330,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2379,7 +2357,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2390,7 +2367,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2458,7 +2435,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2469,7 +2445,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2537,7 +2513,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2548,7 +2523,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2594,7 +2569,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -2667,7 +2642,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2678,7 +2652,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2724,7 +2698,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -2797,7 +2771,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2808,7 +2781,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2854,7 +2827,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -2927,7 +2900,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -2938,7 +2910,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -2984,7 +2956,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="level 2" role="listitem" status="active">
         <mock:shadow-root>
-          <mg-popover>
+          <mg-popover data-fallback-placement="bottom-end">
             <mock:shadow-root>
               <slot></slot>
               <slot name="content"></slot>
@@ -3057,7 +3029,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3068,7 +3039,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3120,7 +3091,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3131,7 +3101,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3183,7 +3153,6 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3258,7 +3227,6 @@ exports[`mg-menu-item render with args { label: 'Batman' } 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3298,7 +3266,6 @@ exports[`mg-menu-item render with args { label: 'Batman', badge: true } 1`] = `
       </mock:shadow-root>
     </mg-badge>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3326,7 +3293,6 @@ exports[`mg-menu-item render with args { label: 'Batman', href: '#link' } 1`] = 
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3364,7 +3330,6 @@ exports[`mg-menu-item render with args { label: 'Batman', href: '#link', target:
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3399,7 +3364,6 @@ exports[`mg-menu-item render with args { label: 'Batman', icon: true } 1`] = `
       </mock:shadow-root>
     </mg-icon>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3430,7 +3394,6 @@ exports[`mg-menu-item render with args { label: 'Batman', metadata: true } 1`] =
       my metadata
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3459,7 +3422,6 @@ exports[`mg-menu-item render with args { label: 'Batman', overflow: true } 1`] =
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3470,7 +3432,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3538,7 +3500,6 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3549,7 +3510,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3617,7 +3578,6 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3628,7 +3588,7 @@ exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3696,7 +3656,6 @@ exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3707,7 +3666,7 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3775,7 +3734,6 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3786,7 +3744,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3854,7 +3812,6 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3865,7 +3822,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -3933,7 +3890,6 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3961,7 +3917,6 @@ exports[`mg-menu-item render with expanded false 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -3989,7 +3944,6 @@ exports[`mg-menu-item render with expanded false 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4017,7 +3971,6 @@ exports[`mg-menu-item render with expanded true 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4045,7 +3998,6 @@ exports[`mg-menu-item render with expanded true 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4073,7 +4025,6 @@ exports[`mg-menu-item render with expanded undefined 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4101,7 +4052,6 @@ exports[`mg-menu-item render with expanded undefined 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4129,7 +4079,6 @@ exports[`mg-menu-item render with menuIndex 0 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4157,7 +4106,6 @@ exports[`mg-menu-item render with menuIndex 5 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4185,7 +4133,6 @@ exports[`mg-menu-item render with menuIndex undefined 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4214,7 +4161,6 @@ exports[`mg-menu-item render with size large, { label: 'Batman' } 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4255,7 +4201,6 @@ exports[`mg-menu-item render with size large, { label: 'Batman', badge: true } 1
       </mock:shadow-root>
     </mg-badge>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4284,7 +4229,6 @@ exports[`mg-menu-item render with size large, { label: 'Batman', href: '#link' }
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4320,7 +4264,6 @@ exports[`mg-menu-item render with size large, { label: 'Batman', icon: true } 1`
       </mock:shadow-root>
     </mg-icon>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4352,7 +4295,6 @@ exports[`mg-menu-item render with size large, { label: 'Batman', metadata: true 
       my metadata
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4380,7 +4322,6 @@ exports[`mg-menu-item render with status active 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4408,7 +4349,6 @@ exports[`mg-menu-item render with status active 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4436,7 +4376,6 @@ exports[`mg-menu-item render with status disabled 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4464,7 +4403,6 @@ exports[`mg-menu-item render with status disabled 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4492,7 +4430,6 @@ exports[`mg-menu-item render with status hidden 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4520,7 +4457,6 @@ exports[`mg-menu-item render with status hidden 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4548,7 +4484,6 @@ exports[`mg-menu-item render with status visible 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4576,7 +4511,6 @@ exports[`mg-menu-item render with status visible 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4587,7 +4521,7 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -4688,7 +4622,6 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;
 
@@ -4699,7 +4632,7 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <mg-popover>
+      <mg-popover data-fallback-placement="bottom-end">
         <mock:shadow-root>
           <slot></slot>
           <slot name="content"></slot>
@@ -4800,6 +4733,5 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
       Batman
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
 </mg-menu>
 `;

@@ -366,6 +366,48 @@ exports[`mg-popover Should render with element 8`] = `
 </mg-popover>
 `;
 
+exports[`mg-popover Should render with element 9`] = `
+<mg-popover data-fallback-placement="left">
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
+  </mock:shadow-root>
+  <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
+    <mock:shadow-root>
+      <div class="mg-c-button mg-c-button--primary">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </mock:shadow-root>
+    mg-button
+  </mg-button>
+  <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <mg-card class="mg-c-popover-content">
+        <mock:shadow-root>
+          <div class="mg-c-card">
+            <slot></slot>
+          </div>
+        </mock:shadow-root>
+        <div class="mg-c-popover-content__title">
+          <slot name="title"></slot>
+        </div>
+        <slot name="content"></slot>
+      </mg-card>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    <h2 slot="title">
+      Blu bli blo bla
+    </h2>
+    <p slot="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+  </mg-popover-content>
+</mg-popover>
+`;
+
 exports[`mg-popover Should update mg-popover-content id when identifier is updated 1`] = `
 <mg-popover>
   <mock:shadow-root>

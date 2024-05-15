@@ -1,5 +1,15 @@
 # vue-3
 
+## 0.0.22
+
+### Patch Changes
+
+- Updated dependencies [5b5de24]
+- Updated dependencies [3bb7043]
+- Updated dependencies [253c7a6]
+  - @mgdis/mg-components@5.27.3
+  - @mgdis/notification-center@1.1.11
+
 ## 0.0.21
 
 ### Patch Changes
