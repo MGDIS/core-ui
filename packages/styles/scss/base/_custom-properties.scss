@@ -1,3 +1,6 @@
+@use '../variables' as variables;
+@use '../functions' as functions;
+
 /**
  * Base custom properties
  * Must start with `--mg-b-`
@@ -29,87 +32,44 @@
   /**
    * Spacings
    */
+
   --mg-b-spacing-actions: var(--mg-b-size-w); // 8px
 
   /**
    * Colors
-   * https://jira.mgdis.fr/browse/PDA9-690
-   *
-   * We are using HSL for colors.
-   * In some cases, we need to create a variant of a color. In this case, we are using the h, s, or l parameters.
    */
 
-  // Color Info
-  --mg-b-color-info-h: 204;
-  --mg-b-color-info-s: 100%;
-  --mg-b-color-info-l: 30.6%;
-  --mg-b-color-info: hsl(var(--mg-b-color-info-h) var(--mg-b-color-info-s) var(--mg-b-color-info-l));
+  /* Palettes */
 
-  // Color Warning
-  --mg-b-color-warning-h: 41;
-  --mg-b-color-warning-s: 100%;
-  --mg-b-color-warning-l: 62.2%;
-  --mg-b-color-warning: hsl(var(--mg-b-color-warning-h) var(--mg-b-color-warning-s) var(--mg-b-color-warning-l));
+  @each $palette, $indexes in variables.$palettes {
+    @each $index, $color in $indexes {
+      --mg-b-color-#{$palette}-#{$index}: #{$color};
+    }
+  }
 
-  // Success
-  --mg-b-color-success-h: 159;
-  --mg-b-color-success-s: 66%;
-  --mg-b-color-success-l: 51.6%;
-  --mg-b-color-success: hsl(var(--mg-b-color-success-h) var(--mg-b-color-success-s) var(--mg-b-color-success-l));
+  /* Neutral colors */
 
-  // Color Danger
-  --mg-b-color-danger-h: 357;
-  --mg-b-color-danger-s: 75%;
-  --mg-b-color-danger-l: 49%;
-  --mg-b-color-danger: hsl(var(--mg-b-color-danger-h) var(--mg-b-color-danger-s) var(--mg-b-color-danger-l));
+  @each $name, $index in variables.$neutrals {
+    --mg-b-color-#{$name}: var(--mg-b-color-neutral-#{$index});
+  }
 
-  // Color Neutral
-  --mg-b-color-neutral-h: 0;
-  --mg-b-color-neutral-s: 0%;
-  --mg-b-color-neutral-l: 99.6%;
-  --mg-b-color-neutral: hsl(var(--mg-b-color-neutral-h) var(--mg-b-color-neutral-s) var(--mg-b-color-neutral-l));
+  /* Semantic colors */
 
-  // Color Dark
-  --mg-b-color-dark-h: 194;
-  --mg-b-color-dark-s: 37.3%;
-  --mg-b-color-dark-l: 13.1%;
-  --mg-b-color-dark: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l));
+  @each $semantic, $palette, $index in variables.$semantics {
+    --mg-b-color-#{$semantic}: var(--mg-b-color-#{$palette}-#{$index});
+    --mg-b-color-#{$semantic}-text: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
+  }
 
-  // Color dark-40
-  --mg-b-color-dark-40: hsl(var(--mg-b-color-dark-h) 7% 43%);
+  /* Brand colors */
 
-  // Color dark-5
-  --mg-b-color-dark-5: hsl(var(--mg-b-color-dark-h) 9% 96%);
+  // App
+  --mg-b-color-#{nth(variables.$app, 1)}: var(--mg-b-color-#{nth(variables.$app, 2)}-#{nth(variables.$app, 3)});
 
-  // Color dark-soft
-  --mg-b-color-dark-soft: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) 90%);
-
-  // Color Light
-  --mg-b-color-light-h: 0;
-  --mg-b-color-light-s: 0%;
-  --mg-b-color-light-l: 100%;
-  --mg-b-color-light: hsl(var(--mg-b-color-light-h) var(--mg-b-color-light-s) var(--mg-b-color-light-l));
-
-  // Color App
-  --mg-b-color-app-h: var(--mg-b-color-info-h);
-  --mg-b-color-app-s: var(--mg-b-color-info-s);
-  --mg-b-color-app-l: var(--mg-b-color-info-l);
-  --mg-b-color-app: hsl(var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l));
-
-  /* Primary */
-  --mg-b-color-primary-h: var(--mg-b-color-dark-h);
-  --mg-b-color-primary-s: var(--mg-b-color-dark-s);
-  --mg-b-color-primary-l: var(--mg-b-color-dark-l);
-  --mg-b-color-primary: var(--mg-b-color-dark);
-
-  /* Secondary */
-  --mg-b-color-secondary-h: var(--mg-b-color-neutral-h);
-  --mg-b-color-secondary-s: var(--mg-b-color-neutral-s);
-  --mg-b-color-secondary-l: var(--mg-b-color-neutral-l);
-  --mg-b-color-secondary: var(--mg-b-color-neutral);
-
-  /* Soft style */
-  --mg-b-color-soft-l: 90%;
+  // Brand
+  @each $brand, $palette, $index in variables.$brands {
+    --mg-b-color-#{$brand}: var(--mg-b-color-#{$palette}-#{$index});
+    --mg-b-color-#{$brand}-text: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
+  }
 
   /**
    * Fonts
@@ -132,16 +92,12 @@
   // Line height
   --mg-b-line-height: 1.4;
 
-  // Font color
-  --mg-b-color-font-light: var(--mg-b-color-light);
-  --mg-b-color-font-dark: var(--mg-b-color-dark);
-
   /**
    * Others
    */
 
   // Shadow
-  --mg-b-box-shadow: 0 0.3rem 0.8rem 0 hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 15%);
+  --mg-b-box-shadow: 0 0.3rem 0.8rem 0 color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
 
   // Opacity for disabled elements
   --mg-b-disabled-opacity: 0.4;

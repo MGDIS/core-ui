@@ -1,0 +1,105 @@
+/**
+ * Match semantic name to a color and palette value
+ */
+$semantics:
+  'danger' 'red' 80,
+  'info' 'blue' 90,
+  'success' 'green' 70,
+  'warning' 'yellow' 60;
+
+/**
+ * Define brand colors and palette values
+ */
+$brands:
+  'primary' 'neutral' 110,
+  'secondary' 'neutral' 10;
+
+/**
+ * Define the app color and palette value
+ */
+$app: 'app' 'blue' 90;
+
+/**
+ * Define neutral colors and palette values
+ */
+$neutrals:
+  'dark' 110,
+  'light' 0;
+
+/**
+ * Define the color palette index to use for light colors
+ */
+$palette-index-light: 30;
+
+/**
+ * Define color palettes
+ */
+$palettes: (
+  'blue': (
+    10: rgb(248 251 252),
+    20: rgb(235 242 247),
+    30: rgb(222 234 242),
+    40: rgb(191 215 230),
+    50: rgb(148 187 213),
+    60: rgb(117 168 202),
+    70: rgb(87 149 190),
+    80: rgb(46 123 174),
+    90: rgb(0 94 156),
+    100: rgb(0 67 111),
+    110: rgb(0 39 66),
+  ),
+  'green': (
+    10: rgb(247 253 251),
+    20: rgb(234 251 244),
+    30: rgb(212 247 234),
+    40: rgb(181 240 219),
+    50: rgb(144 232 202),
+    60: rgb(97 223 179),
+    70: rgb(50 213 156),
+    80: rgb(46 194 142),
+    90: rgb(36 151 111),
+    100: rgb(21 89 66),
+    110: rgb(13 54 40),
+  ),
+  'red': (
+    10: rgb(254 246 246),
+    20: rgb(251 233 234),
+    30: rgb(248 216 217),
+    40: rgb(242 174 178),
+    50: rgb(236 134 139),
+    60: rgb(229 96 103),
+    70: rgb(221 42 52),
+    80: rgb(219 31 41),
+    90: rgb(152 21 28),
+    100: rgb(120 17 23),
+    110: rgb(92 13 13),
+  ),
+  'yellow': (
+    10: rgb(255 253 247),
+    20: rgb(255 247 230),
+    30: rgb(255 240 207),
+    40: rgb(255 226 162),
+    50: rgb(255 212 118),
+    60: rgb(255 195 62),
+    70: rgb(232 177 56),
+    80: rgb(181 138 44),
+    90: rgb(140 107 34),
+    100: rgb(107 82 26),
+    110: rgb(107 82 26),
+  ),
+  'neutral': (
+    0: rgb(255 255 255),
+    10: rgb(250 251 251),
+    20: rgb(236 238 238),
+    30: rgb(225 227 228),
+    40: rgb(197 201 203),
+    50: rgb(182 188 190),
+    60: rgb(157 165 167),
+    70: rgb(129 139 142),
+    80: rgb(101 113 117),
+    90: rgb(75 89 94),
+    100: rgb(47 64 69),
+    110: rgb(21 40 46),
+    120: rgb(5 9 11),
+  ),
+);

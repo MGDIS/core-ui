@@ -1,12 +1,6 @@
+@use '../variables' as variables;
+@use 'sass:list';
 @import 'mixins/reset-mg-card-slotted-variables';
-
-@mixin message-variants($variants...) {
-  @each $variant in $variants {
-    &.mg-c-message--#{$variant} .mg-c-message__icon {
-      color: var(--mg-b-color-#{$variant});
-    }
-  }
-}
 
 :host {
   // Set mg-card variables
@@ -20,7 +14,12 @@
   display: inline-block;
   min-height: var(--mg-b-size-min-height);
 
-  @include message-variants('info', 'warning', 'success', 'danger');
+  @each $semantic in variables.$semantics {
+    $variant: list.nth($semantic, 1);
+    &.mg-c-message--#{$variant} .mg-c-message__icon {
+      color: var(--mg-b-color-#{$variant});
+    }
+  }
 
   &.mg-c-message--close-button {
     --mg-c-card-padding: 0 var(--mg-b-size-min-height) 0 0;

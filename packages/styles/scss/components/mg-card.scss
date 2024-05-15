@@ -1,28 +1,5 @@
+@use '../variables' as variables;
 @import 'mixins/reset-mg-card-slotted-variables';
-
-@mixin card-variants($variants...) {
-  @each $variant in $variants {
-    &.mg-c-card--#{$variant} {
-      $custom-property-color-h: --mg-b-color-#{$variant}-h;
-      $custom-property-color-s: --mg-b-color-#{$variant}-s;
-
-      overflow: hidden;
-
-      &.mg-c-card--bar-left .mg-c-card__bar {
-        $custom-property-color-l: --mg-b-color-#{$variant}-l;
-        $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var($custom-property-color-l));
-
-        background-color: $background-color-value;
-      }
-
-      &.mg-c-card--fill {
-        $background-color-value: hsl(var($custom-property-color-h), var($custom-property-color-s), var(--mg-b-color-soft-l));
-
-        background-color: $background-color-value;
-      }
-    }
-  }
-}
 
 .mg-c-card {
   position: relative;
@@ -39,7 +16,20 @@
   box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
 
   @include reset-slot-card-variables;
-  @include card-variants('info', 'warning', 'success', 'danger', 'app');
+
+  @each $variant, $color in join(variables.$app, variables.$semantics) {
+    &.mg-c-card--#{$variant} {
+      overflow: hidden;
+
+      &.mg-c-card--bar-left .mg-c-card__bar {
+        background-color: var(--mg-b-color-#{$variant});
+      }
+
+      &.mg-c-card--fill {
+        background-color: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
+      }
+    }
+  }
 
   &__bar {
     position: absolute;

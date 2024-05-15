@@ -12,14 +12,6 @@ The badge displays a number (can be followed by the `+` character) or a punctuat
 
 ![](./doc/img/mg-badge-styles.png)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-badge-size`: define badge height and min-width, default: `1.6rem`
-- `--mg-c-badge-font-size`: define badge font size, default: `1.1rem`
-- `--mg-c-badge-text-color`: define badge color for text-color variant, default: `--mg-b-color-light`
-
 <!-- Auto Generated Below -->
 
 
@@ -31,6 +23,15 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | `outline`            | `outline` | Define if button is using outline style                            | `boolean`                                                                                  | `undefined`   |
 | `value` _(required)_ | `value`   | Badge value                                                        | `number \| string`                                                                         | `undefined`   |
 | `variant`            | `variant` | Define badge variant                                               | `"danger" \| "info" \| "primary" \| "secondary" \| "success" \| "text-color" \| "warning"` | `variants[0]` |
+
+
+## CSS Custom Properties
+
+| Name                      | Description                                                                                                                  |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-badge-font-size`  | Defines badge font size. Default value: `1.1rem`.                                                                            |
+| `--mg-c-badge-size`       | Defines badge height and min-width. Default value: `--mg-b-size-2w`.                                                         |
+| `--mg-c-badge-text-color` | Defines badge font color when used with the `text-color` variant and without `outline`. Default value: `--mg-b-color-light`. |
 
 
 ## Dependencies

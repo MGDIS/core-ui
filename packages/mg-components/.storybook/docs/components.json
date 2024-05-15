@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-04-29T15:44:19",
+  "timestamp": "2024-05-15T15:13:55",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.17.2",
@@ -1004,7 +1004,7 @@
       "filePath": "src/components/atoms/mg-badge/mg-badge.tsx",
       "encapsulation": "shadow",
       "tag": "mg-badge",
-      "readme": "## Design\n\nThe badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.\n\n## Specs\n\n![](./doc/img/mg-badge-specs.png)\n\n## Theming\n\n![](./doc/img/mg-badge-styles.png)\n\n## CSS Variables\n\nIf needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:\n\n- `--mg-c-badge-size`: define badge height and min-width, default: `1.6rem`\n- `--mg-c-badge-font-size`: define badge font size, default: `1.1rem`\n- `--mg-c-badge-text-color`: define badge color for text-color variant, default: `--mg-b-color-light`\n",
+      "readme": "## Design\n\nThe badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.\n\n## Specs\n\n![](./doc/img/mg-badge-specs.png)\n\n## Theming\n\n![](./doc/img/mg-badge-styles.png)\n",
       "docs": "The badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.",
       "docsTags": [],
       "usage": {},
@@ -1132,7 +1132,23 @@
       "methods": [],
       "events": [],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--mg-c-badge-font-size",
+          "annotation": "prop",
+          "docs": "Defines badge font size. Default value: `1.1rem`."
+        },
+        {
+          "name": "--mg-c-badge-size",
+          "annotation": "prop",
+          "docs": "Defines badge height and min-width. Default value: `--mg-b-size-2w`."
+        },
+        {
+          "name": "--mg-c-badge-text-color",
+          "annotation": "prop",
+          "docs": "Defines badge font color when used with the `text-color` variant and without `outline`. Default value: `--mg-b-color-light`."
+        }
+      ],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -1413,7 +1429,163 @@
         }
       ],
       "listeners": [],
-      "styles": [],
+      "styles": [
+        {
+          "name": "--mg-c-button-border-radius",
+          "annotation": "prop",
+          "docs": "Define the button border radius. Default value: `--mg-b-size-radius`."
+        },
+        {
+          "name": "--mg-c-button-danger-alt-background-color",
+          "annotation": "prop",
+          "docs": "Define the danger-alt variant button background color."
+        },
+        {
+          "name": "--mg-c-button-danger-alt-border-color",
+          "annotation": "prop",
+          "docs": "Define the danger-alt variant button border color."
+        },
+        {
+          "name": "--mg-c-button-danger-alt-font-color",
+          "annotation": "prop",
+          "docs": "Define the danger-alt variant button font color."
+        },
+        {
+          "name": "--mg-c-button-danger-alt-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the danger-alt variant button gradient color."
+        },
+        {
+          "name": "--mg-c-button-danger-background-color",
+          "annotation": "prop",
+          "docs": "Define the danger variant button background color."
+        },
+        {
+          "name": "--mg-c-button-danger-border-color",
+          "annotation": "prop",
+          "docs": "Define the danger variant button border color."
+        },
+        {
+          "name": "--mg-c-button-danger-font-color",
+          "annotation": "prop",
+          "docs": "Define the danger variant button font color."
+        },
+        {
+          "name": "--mg-c-button-danger-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the danger variant button gradient color."
+        },
+        {
+          "name": "--mg-c-button-disabled-opacity",
+          "annotation": "prop",
+          "docs": "Define the button opacity when disabled. Default value: `--mg-b-disabled-opacity`."
+        },
+        {
+          "name": "--mg-c-button-icon-border-radius",
+          "annotation": "prop",
+          "docs": "Define the button border radius in icon mode. Default value: `--mg-b-size-min-height`."
+        },
+        {
+          "name": "--mg-c-button-info-background-color",
+          "annotation": "prop",
+          "docs": "Define the info variant button background color."
+        },
+        {
+          "name": "--mg-c-button-info-border-color",
+          "annotation": "prop",
+          "docs": "Define the info variant button border color."
+        },
+        {
+          "name": "--mg-c-button-info-font-color",
+          "annotation": "prop",
+          "docs": "Define the info variant button font color."
+        },
+        {
+          "name": "--mg-c-button-info-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the info variant button gradient color."
+        },
+        {
+          "name": "--mg-c-button-primary-background-color",
+          "annotation": "prop",
+          "docs": "Define the primary variant button background color."
+        },
+        {
+          "name": "--mg-c-button-primary-border-color",
+          "annotation": "prop",
+          "docs": "Define the primary variant button border color."
+        },
+        {
+          "name": "--mg-c-button-primary-font-color",
+          "annotation": "prop",
+          "docs": "Define the primary variant button font color."
+        },
+        {
+          "name": "--mg-c-button-primary-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the primary variant button gradient color."
+        },
+        {
+          "name": "--mg-c-button-secondary-background-color",
+          "annotation": "prop",
+          "docs": "Define the secondary variant button background color."
+        },
+        {
+          "name": "--mg-c-button-secondary-border-color",
+          "annotation": "prop",
+          "docs": "Define the secondary variant button border color."
+        },
+        {
+          "name": "--mg-c-button-secondary-font-color",
+          "annotation": "prop",
+          "docs": "Define the secondary variant button font color."
+        },
+        {
+          "name": "--mg-c-button-secondary-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the secondary variant button gradient color."
+        },
+        {
+          "name": "--mg-c-button-success-background-color",
+          "annotation": "prop",
+          "docs": "Define the success variant button background color."
+        },
+        {
+          "name": "--mg-c-button-success-border-color",
+          "annotation": "prop",
+          "docs": "Define the success variant button border color."
+        },
+        {
+          "name": "--mg-c-button-success-font-color",
+          "annotation": "prop",
+          "docs": "Define the success variant button font color."
+        },
+        {
+          "name": "--mg-c-button-success-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the success variant button gradient color."
+        },
+        {
+          "name": "--mg-c-button-warning-background-color",
+          "annotation": "prop",
+          "docs": "Define the warning variant button background color."
+        },
+        {
+          "name": "--mg-c-button-warning-border-color",
+          "annotation": "prop",
+          "docs": "Define the warning variant button border color."
+        },
+        {
+          "name": "--mg-c-button-warning-font-color",
+          "annotation": "prop",
+          "docs": "Define the warning variant button font color."
+        },
+        {
+          "name": "--mg-c-button-warning-gradient-color",
+          "annotation": "prop",
+          "docs": "Define the warning variant button gradient color."
+        }
+      ],
       "slots": [
         {
           "name": "",

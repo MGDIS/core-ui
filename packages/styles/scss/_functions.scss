@@ -1,0 +1,67 @@
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:math';
+@use 'variables';
+// Theses functions are taken from https://github.com/jhogue/automated-a11y-sass/blob/master/a11y-color.scss
+
+// Function to calculate the power of a number
+@function pow($base, $exponents) {
+  $raised: 1;
+
+  @for $i from 1 through $exponents {
+    $raised: $raised * $base;
+  }
+
+  @return $raised;
+}
+
+// Function to calculate the luminance of a color
+@function luminance($color) {
+  // Thanks voxpelli for a very concise implementation of luminance measure in sass
+  // Adapted from: https://gist.github.com/voxpelli/6304812
+  $rgba: color.red($color), color.green($color), color.blue($color);
+  $rgba2: ();
+
+  @for $i from 1 through 3 {
+    $rgb: list.nth($rgba, $i);
+    $rgb: calc($rgb / 255);
+    $rgb: if($rgb < 0.03928, calc($rgb / 12.92), pow(calc(($rgb + 0.055) / 1.055), 2)); // stylelint-disable-line number-max-precision
+    $rgba2: list.append($rgba2, $rgb);
+  }
+
+  @return (0.2126 * list.nth($rgba2, 1) + 0.7152 * list.nth($rgba2, 2) + 0.0722 * list.nth($rgba2, 3)) * 100;
+}
+
+// Function to calculate the contrast ratio between two colors
+@function contrast-ratio($fg, $bg) {
+  $luminance1: luminance($fg) + 0.05;
+  $luminance2: luminance($bg) + 0.05;
+  $ratio: calc($luminance1 / $luminance2);
+
+  @if $luminance2 > $luminance1 {
+    $ratio: calc(1 / $ratio);
+  }
+
+  // Round to a hundreth because 6.96 should not pass a ratio of 7.0
+  $ratio: calc(math.round($ratio * 100) / 100);
+
+  @return $ratio;
+}
+
+// Function to determine if a color is light or dark
+@function light-or-dark($color) {
+  $light-contrast: contrast-ratio($color, get-color('neutral', 10));
+  $dark-contrast: contrast-ratio($color, get-color('neutral', 110));
+
+  @if $light-contrast > $dark-contrast {
+    // Contrast against white is higher than against black, so, this is a dark color
+    @return 'dark';
+  } @else {
+    @return 'light';
+  }
+}
+
+// Function to get a color from a palette
+@function get-color($palette, $index) {
+  @return map-get(map-get(variables.$palettes, $palette), $index);
+}

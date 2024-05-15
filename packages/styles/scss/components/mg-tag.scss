@@ -1,33 +1,6 @@
-/* Mixins */
-@mixin tag-variant($name, $backgroundColor, $color) {
-  &.mg-c-tag--#{$name} {
-    border-color: var(--mg-b-color-#{$backgroundColor});
-    background-color: var(--mg-b-color-#{$backgroundColor});
-    color: var(--mg-b-color-#{$color});
-
-    &.mg-c-tag--outline {
-      background-color: transparent;
-      color: var(--mg-b-color-#{$backgroundColor});
-    }
-
-    &.mg-c-tag--soft {
-      $fill-color: hsl(var(--mg-b-color-#{$backgroundColor}-h) var(--mg-b-color-#{$backgroundColor}-s) var(--mg-b-color-soft-l));
-
-      border-color: $fill-color;
-      background-color: $fill-color;
-      color: var(--mg-b-color-dark);
-      font-weight: 400;
-
-      ::slotted(mg-icon) {
-        @if $name == 'secondary' {
-          color: var(--mg-b-color-dark);
-        } @else {
-          color: var(--mg-b-color-#{$backgroundColor});
-        }
-      }
-    }
-  }
-}
+@use '../variables' as variables;
+@use '../functions' as functions;
+@use 'sass:string';
 
 :host {
   display: inline-block;
@@ -51,12 +24,39 @@
   vertical-align: middle;
 
   // Variant
-  @include tag-variant('primary', 'dark', 'light');
-  @include tag-variant('secondary', 'light', 'dark');
-  @include tag-variant('success', 'success', 'dark');
-  @include tag-variant('warning', 'warning', 'dark');
-  @include tag-variant('danger', 'danger', 'light');
-  @include tag-variant('info', 'info', 'light');
+  @each $name, $palette, $index in join(variables.$brands, variables.$semantics) {
+    $color: var(--mg-b-color-#{$name});
+
+    @if $palette == 'neutral' {
+      $color: var(--mg-b-color-#{$palette}-#{$index});
+    }
+
+    &.mg-c-tag--#{$name} {
+      border-color: $color;
+      background-color: $color;
+      color: var(--mg-b-color-#{$name}-text);
+
+      &.mg-c-tag--outline {
+        background-color: transparent;
+        color: $color;
+      }
+
+      &.mg-c-tag--soft {
+        border-color: var(--mg-b-color-#{$palette}-#{variables.$palette-index-light});
+        background-color: var(--mg-b-color-#{$palette}-#{variables.$palette-index-light});
+        color: var(--mg-b-color-dark);
+        font-weight: 400;
+
+        ::slotted(mg-icon) {
+          @if $name == 'secondary' {
+            color: var(--mg-b-color-#{$name}-text);
+          } @else {
+            color: $color;
+          }
+        }
+      }
+    }
+  }
 }
 
 ::slotted(mg-icon) {

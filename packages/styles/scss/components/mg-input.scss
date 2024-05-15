@@ -70,7 +70,7 @@ mg-icon {
       display: inline-flex;
       width: var(--mg-c-icon-regular-size);
       height: var(--mg-c-icon-regular-size);
-      margin-left: var(--mg-c-input-spacer);
+      margin-left: var(--mg-b-size-w);
     }
   }
 
@@ -102,7 +102,7 @@ mg-icon {
     align-items: baseline;
     justify-content: flex-end;
     margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
-    margin-right: var(--mg-c-input-title-horizontal-space, var(--mg-c-input-spacer));
+    margin-right: var(--mg-c-input-title-horizontal-space, var(--mg-b-size-w));
     text-align: right;
 
     slot[name='label'] + mg-tooltip {

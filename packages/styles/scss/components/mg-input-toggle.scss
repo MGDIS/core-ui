@@ -5,9 +5,7 @@
 * Toggle
 */
 
-// variables
-$color-light-blue: hsl(var(--mg-b-color-info-h) calc(var(--mg-b-color-info-s) - 64%) calc(var(--mg-b-color-info-l) + 55%));
-$color-light-dark: hsl(var(--mg-b-color-dark-h) calc(var(--mg-b-color-dark-s) - 30%) calc(var(--mg-b-color-dark-l) + 75%));
+$color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
 
 .mg-c-input {
   &__toggle-item-container {
@@ -25,8 +23,8 @@ $color-light-dark: hsl(var(--mg-b-color-dark-h) calc(var(--mg-b-color-dark-s) - 
     white-space: nowrap;
 
     &:first-of-type {
-      background-color: $color-light-blue;
-      color: var(--mg-b-color-info);
+      background-color: $color-app-light;
+      color: var(--mg-b-color-app);
       font-weight: 600;
     }
   }
@@ -72,7 +70,7 @@ $color-light-dark: hsl(var(--mg-b-color-dark-h) calc(var(--mg-b-color-dark-s) - 
       }
 
       &:last-of-type {
-        background-color: $color-light-blue;
+        background-color: $color-app-light;
         color: var(--mg-b-color-info);
         font-weight: 600;
       }
@@ -117,7 +115,7 @@ $color-light-dark: hsl(var(--mg-b-color-dark-h) calc(var(--mg-b-color-dark-s) - 
   &.mg-c-input--toggle-on-off {
     /* stylelint-disable-next-line no-descending-specificity */
     .mg-c-input__toggle-item-container:first-of-type {
-      background-color: $color-light-dark;
+      background-color: var(--mg-b-color-neutral-30);
       color: var(--mg-b-color-dark);
       font-weight: 600;
     }
