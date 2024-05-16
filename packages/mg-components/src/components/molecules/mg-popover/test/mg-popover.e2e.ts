@@ -183,6 +183,28 @@ test.describe('mg-popover', () => {
     await expect(page.locator('body')).toHaveScreenshot();
   });
 
+  test(`should position popover with fallbackplacement when it don't have enough place`, async ({ page }) => {
+    const html = createHTML(
+      {
+        placement: 'bottom-start',
+        dataFallbackPlacement: 'bottom-end',
+      },
+      `<mg-button>Button</mg-button>
+      <p slot="content">
+        Lorem ipsum
+      </p>`,
+    );
+    await page.setViewportSize({ width: 400, height: 200 });
+    await page.setContent(html);
+    await page.locator('mg-popover.hydrated').waitFor();
+    await page.addStyleTag({ content: 'mg-button{margin: 50px 0 0 300px;}' });
+
+    await page.locator('mg-button').click();
+    await page.locator('mg-popover-content').waitFor();
+
+    await expect(page.locator('body')).toHaveScreenshot();
+  });
+
   test.describe('style', () => {
     test('Should render with child mg-card', async ({ page }) => {
       const html = createHTML(

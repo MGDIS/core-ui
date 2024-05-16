@@ -93,6 +93,29 @@ test.describe('mg-menu-item', () => {
         await expect(page.locator('body')).toHaveScreenshot();
       });
 
+      test('Should render slot image only with submenu', async ({ page }) => {
+        await page.setContent(createHTML({ expanded: true, size: 'large' }, slotContent + slotImage, direction));
+        await page.setViewportSize(defaultViewPortSize);
+        await page.keyboard.press('Tab');
+
+        await expect(page.locator('body')).toHaveScreenshot();
+
+        // update css variables
+        await page.addStyleTag({
+          content: `
+          mg-menu {
+            --mg-c-menu-item-chevron-display: none;
+            --mg-menu-item-navigation-button-column-gap: 0;
+          }
+          [slot="label"] {
+            display: none;
+          }
+        `,
+        });
+
+        await expect(page.locator('body')).toHaveScreenshot();
+      });
+
       [Status.ACTIVE, Status.VISIBLE, Status.HIDDEN, Status.DISABLED].forEach(status => {
         test(`Should manage keyboard navigation, case status="${status}"`, async ({ page }) => {
           await page.setContent(createHTML({ status }, slotMenuItem, direction));

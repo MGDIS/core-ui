@@ -10,7 +10,13 @@ import { MgCard } from '../../../atoms/mg-card/mg-card';
 mockWindowFrames();
 
 const getPage = (args, slot, parent?: boolean) => {
-  const popover = () => <mg-popover {...args}>{slot}</mg-popover>;
+  const fallbackPlacement = args.fallbackPlacement;
+  delete args.fallbackPlacement;
+  const popover = () => (
+    <mg-popover {...args} data-fallback-placement={fallbackPlacement}>
+      {slot}
+    </mg-popover>
+  );
   return newSpecPage({
     components: [MgPopover, MgPopoverContent, MgButton, MgCard],
     template: () => (parent ? <mg-card data-mg-popover-guard={args.identifier}>{popover()}</mg-card> : popover()),
@@ -41,6 +47,7 @@ describe('mg-popover', () => {
     { identifier: 'identifier', closeButton: true, lang: 'fr' },
     { identifier: 'identifier', closeButton: true, lang: 'xx' },
     { identifier: 'identifier', arrowHide: true },
+    { identifier: 'identifier', fallbackPlacement: 'left' },
   ])('Should render with element', async args => {
     const { root } = await getPage(args, [
       <h2 slot="title">Blu bli blo bla</h2>,

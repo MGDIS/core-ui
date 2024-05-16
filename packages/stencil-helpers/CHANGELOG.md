@@ -1,5 +1,12 @@
 # @mgdis/stencil-helpers
 
+## 1.1.4
+
+### Patch Changes
+
+- 38ba699: Use vitest-config package
+- 253c7a6: Update dependencies
+
 ## 1.1.3
 
 ### Patch Changes

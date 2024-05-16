@@ -1,7 +1,7 @@
 {
   "name": "vitest-config",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "ISC",
   "main": "./src/index.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "lint:prettier:fix": "prettier --write '**/*.{js,ts,json}' --ignore-path ../../.gitignore"
   },
   "dependencies": {
-    "vitest": "1.5.0"
+    "vitest": "1.6.0"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
