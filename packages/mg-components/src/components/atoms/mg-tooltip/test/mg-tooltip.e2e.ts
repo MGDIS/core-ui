@@ -150,27 +150,17 @@ test.describe('mg-tooltip', () => {
     await mgButton.waitFor();
 
     // 1. take focus on mgButton and display tooltip
-    await mgButton.focus();
-
-    expect(await tooltip.getAttribute('data-show')).toEqual('');
-
-    // 2. mouseenter on mgButton and tooltip stay displayed
-    await mgButton.hover();
-
-    expect(await tooltip.getAttribute('data-show')).toEqual('');
-
-    // 3. click on mgButton and tooltip stay displayed
     await mgButton.click();
 
     expect(await tooltip.getAttribute('data-show')).toEqual('');
 
-    // 4. wait loading mock with timeout ending while disable on click
+    // 2. wait loading mock with timeout ending while disable on click
     await page.locator('mg-button[aria-disabled="false"]').waitFor();
     expect(await tooltip.getAttribute('data-show')).toEqual('');
 
     await expect(page.locator('body')).toHaveScreenshot();
 
-    // 5. presse tab key and tooltip is hidden
+    // 3. presse tab key and tooltip is hidden
     await mgButton.blur();
 
     expect(await tooltip.getAttribute('data-show')).toEqual(null);

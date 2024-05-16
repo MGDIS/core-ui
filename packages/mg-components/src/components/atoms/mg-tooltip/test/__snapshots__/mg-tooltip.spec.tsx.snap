@@ -218,6 +218,101 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 </mg-tooltip>
 `;
 
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 1`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
+  </mock:shadow-root>
+  <span aria-describedby="identifier" role="button" tabindex="0">
+    span
+  </span>
+  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <span class="mg-tooltip-content__message">
+        blu
+      </span>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 2`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
+  </mock:shadow-root>
+  <button aria-describedby="blu identifier">
+    button
+  </button>
+  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <span class="mg-tooltip-content__message">
+        blu
+      </span>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 3`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
+  </mock:shadow-root>
+  <mg-icon aria-describedby="identifier" role="button" tabindex="0">
+    <mock:shadow-root>
+      <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
+      </svg>
+    </mock:shadow-root>
+  </mg-icon>
+  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <span class="mg-tooltip-content__message">
+        blu
+      </span>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
+exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 4`] = `
+<mg-tooltip>
+  <mock:shadow-root>
+    <slot></slot>
+    <slot name="content"></slot>
+  </mock:shadow-root>
+  <mg-button aria-describedby="identifier" role="button" tabindex="0">
+    <mock:shadow-root>
+      <div class="mg-c-button mg-c-button--primary" id="identifier-mg-button">
+        <div class="mg-c-button__content">
+          <slot></slot>
+        </div>
+      </div>
+    </mock:shadow-root>
+    mg-button
+  </mg-button>
+  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <mock:shadow-root>
+      <span class="mg-tooltip-content__message">
+        blu
+      </span>
+      <slot name="arrow"></slot>
+    </mock:shadow-root>
+    <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 1`] = `
 <mg-tooltip>
   <mock:shadow-root>

@@ -87,6 +87,7 @@ describe('mg-tooltip', () => {
   describe.each([
     { eventIn: 'mouseenter', eventOut: 'mouseleave' },
     { eventIn: 'focus', eventOut: 'blur' },
+    { eventIn: 'focus', eventOut: 'mouseleave' },
     { eventIn: 'mouseenter', eventOut: 'clickDocument' },
   ])('Should manage display on events enter with %s, leave with %s', ({ eventIn, eventOut }) => {
     test.each([
@@ -117,7 +118,11 @@ describe('mg-tooltip', () => {
 
       await page.waitForChanges();
 
-      expect(tooltip).not.toHaveAttribute('data-show');
+      if (eventIn === 'focus' && eventOut === 'mouseleave') {
+        expect(tooltip).toHaveAttribute('data-show');
+      } else {
+        expect(tooltip).not.toHaveAttribute('data-show');
+      }
     });
 
     test.each([false, true])('should not call event methods when disabled and display:%s', async display => {
