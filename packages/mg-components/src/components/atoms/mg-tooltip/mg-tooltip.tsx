@@ -171,10 +171,10 @@ export class MgTooltip {
     // active FOCUS guard cancel process
     if ([Guard.FOCUS, Guard.DISABLE_ON_CLICK].includes(this.guard)) {
       return;
-    } else {
-      // Update guard by element guard
-      this.guard = elementGuard;
-    }
+    } 
+
+    // Update guard by element guard
+    this.guard = elementGuard;
 
     if (eventName !== 'mouseenter') {
       // process action in the next event loop macro task
