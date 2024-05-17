@@ -45,12 +45,8 @@ describe('mg-tooltip', () => {
     () => <span>span</span>,
     () => <button aria-describedby="blu">button</button>,
     () => <mg-icon icon="check-circle"></mg-icon>,
-    () => <mg-button identifier="identifier">mg-button</mg-button>,
-    () => (
-      <mg-button identifier="identifier" disabled>
-        mg-button.disabled
-      </mg-button>
-    ),
+    () => <mg-button>mg-button</mg-button>,
+    () => <mg-button disabled>mg-button.disabled</mg-button>,
   ])('render', element => {
     test.each([true, false])('Should render with tooltip', async disabled => {
       const page = await getPage({ identifier: 'identifier', message: 'My tooltip message', disabled }, element());
@@ -144,37 +140,35 @@ describe('mg-tooltip', () => {
     });
   });
 
-  test.each([
-    <span>span</span>,
-    <button aria-describedby="blu">button</button>,
-    <mg-icon icon="check-circle"></mg-icon>,
-    <mg-button identifier="identifier-mg-button">mg-button</mg-button>,
-  ])('should manage cross mouse and keyboard navigation', async element => {
-    const args = { identifier: 'identifier', message: 'blu' };
-    const page = await getPage(args, element);
-    const mgTooltip = page.doc.querySelector('mg-tooltip');
-    const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-    const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+  test.each([<span>span</span>, <button aria-describedby="blu">button</button>, <mg-icon icon="check-circle"></mg-icon>, <mg-button>mg-button</mg-button>])(
+    'should manage cross mouse and keyboard navigation',
+    async element => {
+      const args = { identifier: 'identifier', message: 'blu' };
+      const page = await getPage(args, element);
+      const mgTooltip = page.doc.querySelector('mg-tooltip');
+      const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
-    linkedTooltipElement.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
-    await page.waitForChanges();
-    expect(tooltip).toHaveAttribute('data-show');
+      linkedTooltipElement.dispatchEvent(new CustomEvent('focus', { bubbles: true }));
+      await page.waitForChanges();
+      expect(tooltip).toHaveAttribute('data-show');
 
-    page.doc.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
-    await page.waitForChanges();
-    expect(tooltip).not.toHaveAttribute('data-show');
+      page.doc.dispatchEvent(new KeyboardEvent('keydown', { code: 'Escape' }));
+      await page.waitForChanges();
+      expect(tooltip).not.toHaveAttribute('data-show');
 
-    linkedTooltipElement.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
-    await page.waitForChanges();
-    expect(tooltip).toHaveAttribute('data-show');
+      linkedTooltipElement.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
+      await page.waitForChanges();
+      expect(tooltip).toHaveAttribute('data-show');
 
-    linkedTooltipElement.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
-    // flush windows addEventListener timeout
-    jest.runOnlyPendingTimers();
+      linkedTooltipElement.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
+      // flush windows addEventListener timeout
+      jest.runOnlyPendingTimers();
 
-    await page.waitForChanges();
-    expect(tooltip).not.toHaveAttribute('data-show');
-  });
+      await page.waitForChanges();
+      expect(tooltip).not.toHaveAttribute('data-show');
+    },
+  );
 
   test.each([true, false])('Should toggle tooltip from prop display, case display %s', async display => {
     const args = { identifier: 'identifier', message: 'batman', display };
@@ -311,12 +305,7 @@ describe('mg-tooltip', () => {
   });
 
   test.each(['button', 'mg-button'])('Should NOT update %s wrapper when MutationRecord not match disabled condition', async TagName => {
-    const page = await getPage(
-      { identifier: 'identifier', message: 'My tooltip message' },
-      <TagName identifier="identifier" disabled>
-        {TagName}.disabled
-      </TagName>,
-    );
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <TagName disabled>{TagName}.disabled</TagName>);
 
     expect(page.root).toMatchSnapshot();
 
@@ -327,12 +316,7 @@ describe('mg-tooltip', () => {
   });
 
   test.each(['button', 'mg-button'])('Should update %s wrapper dynamically', async TagName => {
-    const page = await getPage(
-      { identifier: 'identifier', message: 'My tooltip message' },
-      <TagName identifier="identifier" disabled>
-        {TagName}.disabled
-      </TagName>,
-    );
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <TagName disabled>{TagName}.disabled</TagName>);
 
     expect(page.root).toMatchSnapshot();
 
@@ -349,12 +333,7 @@ describe('mg-tooltip', () => {
   });
 
   test('Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click />', async () => {
-    const page = await getPage(
-      { identifier: 'identifier', message: 'My tooltip message' },
-      <mg-button identifier="identifier" disableOnClick={true}>
-        mgButton.disableOnClick
-      </mg-button>,
-    );
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disableOnClick={true}>mgButton.disableOnClick</mg-button>);
 
     const mgButton = page.doc.querySelector('mg-button');
     const mgTooltip = page.doc.querySelector('mg-tooltip');
@@ -386,16 +365,12 @@ describe('mg-tooltip', () => {
 
     mgButton.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
     await page.waitForChanges();
+    expect(mgTooltip.display).toEqual(false);
     expect(page.root).toMatchSnapshot();
   });
 
   test('Should update popper instance when "message" prop change', async () => {
-    const page = await getPage(
-      { identifier: 'identifier', message: 'My tooltip message' },
-      <mg-button identifier="identifier" disabled>
-        mg-button.disabled
-      </mg-button>,
-    );
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disabled>mg-button.disabled</mg-button>);
 
     const spy = jest.spyOn(page.rootInstance.popper, 'update');
     const mgTooltip = page.doc.querySelector('mg-tooltip');
@@ -407,12 +382,7 @@ describe('mg-tooltip', () => {
   });
 
   test('Should update mg-tooltip-content id when "identifier" is updated', async () => {
-    const page = await getPage(
-      { identifier: 'identifier', message: 'My tooltip message' },
-      <mg-button identifier="identifier" disabled>
-        mg-button.disabled
-      </mg-button>,
-    );
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disabled>mg-button.disabled</mg-button>);
 
     expect(page.root).toMatchSnapshot();
 

@@ -171,7 +171,7 @@ export class MgTooltip {
     // active FOCUS guard cancel process
     if ([Guard.FOCUS, Guard.DISABLE_ON_CLICK].includes(this.guard)) {
       return;
-    } 
+    }
 
     // Update guard by element guard
     this.guard = elementGuard;
@@ -380,7 +380,7 @@ export class MgTooltip {
     // Get interactive element
     const interactiveElement: HTMLElement = slotElement.matches(focusableElements) ? slotElement : slotElement.shadowRoot?.querySelector(focusableElements);
 
-    this.setPopperedElement(interactiveElement || slotElement);
+    this.setTooltipedElement(interactiveElement || slotElement);
 
     // Check if slotted element is a disabled mg-button
     // In this case we wrap the mg-button into a div to enable the tooltip
