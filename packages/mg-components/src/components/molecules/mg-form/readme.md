@@ -109,12 +109,6 @@ To succeed the test with the `<mg-form />` property `aria-role`, you need to bin
 
 When you use JS property binding instead of HTML attribute, the component prop isn't rendered in the DOM, which results in a valid HTML DOM semantic, and succeed the test.
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-form-inputs-title-width`: Define slotted input label width, default: `23rem`
-
 ## Example
 
 **Code example does not reflect all the code.**
@@ -159,6 +153,13 @@ Display input error if it exists.
 Type: `Promise<void>`
 
 
+
+
+## CSS Custom Properties
+
+| Name                             | Description                                                                        |
+| -------------------------------- | ---------------------------------------------------------------------------------- |
+| `--mg-c-form-inputs-title-width` | Defines the width of the input title. Fallback on `calc(28 * var(--mg-b-size-w))`. |
 
 
 ----------------------------------------------

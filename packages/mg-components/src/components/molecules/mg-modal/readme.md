@@ -79,16 +79,6 @@ Ex: if I put a check in front of the term "Delete" which is the validation butto
 
 Color: [@color-light](./?path=/docs/style-colors--docs) with an opacity set to 85%.
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-modal-border-radius`: Define border radius modal, default: `0.5rem`
-- `--mg-c-modal-title-font-size`: Define modal title font size, default: `1.8rem`
-- `--mg-c-modal-content-font-size`: Define modall content font size, default: `1.2rem`
-
-Please note that the mg-modal component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) to customize mg-modal. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-modal to your design.
-
 ## Hide component
 
 To hide the component, you must use the native `hidden` attribute.
@@ -112,6 +102,15 @@ To hide the component, you must use the native `hidden` attribute.
 | ---------------- | ------------------------------------ | ------------------- |
 | `component-hide` | Emmited event when modal is hidden   | `CustomEvent<void>` |
 | `component-show` | Emmited event when modal is diplayed | `CustomEvent<void>` |
+
+
+## CSS Custom Properties
+
+| Name                             | Description                                                                     |
+| -------------------------------- | ------------------------------------------------------------------------------- |
+| `--mg-c-modal-border-radius`     | Defines the border radius of the modal. Default value: `--mg-b-size-radius`.    |
+| `--mg-c-modal-content-font-size` | Defines the font size of the modal content. Default value: `1.2rem`.            |
+| `--mg-c-modal-title-font-size`   | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`. |
 
 
 ## Dependencies

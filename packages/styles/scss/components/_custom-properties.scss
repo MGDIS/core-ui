@@ -75,13 +75,9 @@
   /* mg-input-... */
   --mg-c-input-border-width: var(--mg-b-size-border);
   --mg-c-input-border-radius: var(--mg-b-size-radius);
-  --mg-c-input-color: hsl(201deg 16% 75%);
-
-  // Error message background
+  --mg-c-input-color: rgb(181 194 201);
+  --mg-c-input-color-shadow-focus: rgb(0 221 255 / 50%);
   --mg-c-input-error-bg-color: color-mix(in srgb, var(--mg-b-color-danger), white 95%);
-
-  // Input focus shadow
-  --mg-c-input-color-shadow-focus: hsl(188deg 100% 50% / 50%);
 
   /* mg-input-toggle */
   --mg-c-input-toggle-border-radius-ratio: 2;

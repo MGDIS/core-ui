@@ -1,6 +1,10 @@
-@use '../variables' as variables;
 @use 'sass:list';
+@use '../variables' as variables;
 @import 'mixins/reset-mg-card-slotted-variables';
+
+/*!
+ * @prop --mg-c-message-border-radius: Defines the border radius of the message. Default value: `--mg-b-size-radius`.
+ */
 
 :host {
   // Set mg-card variables

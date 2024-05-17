@@ -1,7 +1,11 @@
 @import 'form';
 
+/*!
+ * @prop --mg-c-form-inputs-title-width: Defines the width of the input title. Fallback on `calc(28 * var(--mg-b-size-w))`.
+ */
+
 .mg-c-form {
-  --mg-c-input-title-width: var(--mg-c-form-inputs-title-width, calc(28 * var(--mg-b-size-w)));
+  --mg-c-input-title-width: var(--mg-c-form-inputs-title-width, calc(28 * var(--mg-b-size-w))); // 224px
   --mg-c-input-margin-bottom: var(--mg-b-size-2w);
   --mg-c-input-title-horizontal-space: var(--mg-b-size-4w);
 

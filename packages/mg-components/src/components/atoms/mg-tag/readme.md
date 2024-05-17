@@ -40,20 +40,6 @@ For accessibility, soft variant tags cannot use an icon on its own.
 
 ![](./doc/img/mg-tag-icons.png)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-### Global
-
-- `--mg-c-tag-height`: Define tag min height, default: `2.3rem`
-- `--mg-c-tag-border-radius`: Define tag border radius, default: `0.5rem`
-- `--mg-c-tag-font-size`: Define tag font size, default: `1.2rem`
-
-### Variant
-
-Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be customized by changing the global [colors](./?path=/docs/style-colors--docs).
-
 <!-- Auto Generated Below -->
 
 
@@ -71,6 +57,15 @@ Variants `primary`, `secondary`, `success`, `warning`, `danger`, `info` can be c
 | Slot | Description |
 | ---- | ----------- |
 |      | Tag content |
+
+
+## CSS Custom Properties
+
+| Name                       | Description                                                                  |
+| -------------------------- | ---------------------------------------------------------------------------- |
+| `--mg-c-tag-border-radius` | Defines the border radius of the tag. Default value is `--mg-b-size-radius`. |
+| `--mg-c-tag-font-size`     | Defines the font size of the tag. Default value is `1.2rem`.                 |
+| `--mg-c-tag-height`        | Defines the height of the tag. Default value is `--mg-b-size-3w`.            |
 
 
 ----------------------------------------------

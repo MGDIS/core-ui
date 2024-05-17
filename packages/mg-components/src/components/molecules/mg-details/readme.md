@@ -44,12 +44,6 @@ The icon is displayed in "small" size.
 
 Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--docs).
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-details-spacing`: define space between summary and details, default: `1.5rem`
-
 <!-- Auto Generated Below -->
 
 
@@ -68,6 +62,13 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
+
+
+## CSS Custom Properties
+
+| Name                     | Description                                                                              |
+| ------------------------ | ---------------------------------------------------------------------------------------- |
+| `--mg-c-details-spacing` | Defines the spacing between the summary and the details. Default value: `--mg-b-size-w`. |
 
 
 ## Dependencies

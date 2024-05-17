@@ -37,12 +37,6 @@ The header bottom border is 100% wide, 1px sizing and its color is @color-dark-s
 
 ![](./doc/img/mg-tabs-responsive.png)
 
-## CSS variables
-
-If needed some [variables](./?path=/story/css-variables--page) are available to customize the component:
-
-- `--mg-c-tabs-border-bottom`: define tabs header border-bottom. Default: `solid 0.1rem var(--mg-b-color-dark-soft)`.
-
 <!-- Auto Generated Below -->
 
 
@@ -69,6 +63,16 @@ If needed some [variables](./?path=/story/css-variables--page) are available to 
 | Slot              | Description                                                                        |
 | ----------------- | ---------------------------------------------------------------------------------- |
 | `"tab_content-n"` | Tab content, where `n` represents the position of the tab content. It starts at 1. |
+
+
+## CSS Custom Properties
+
+| Name                                   | Description                                                                                                                |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-tabs-border-bottom`            | Defines the bottom border of tabs. Default value: `--mg-b-border`.                                                         |
+| `--mg-c-tabs-border-color-active`      | Defines the border color of active tabs. Default value: `--mg-b-color-app`.                                                |
+| `--mg-c-tabs-color-active`             | Defines the color of active tabs. Default value: `--mg-b-color-app`.                                                       |
+| `--mg-c-tabs-focused-background-color` | Defines the background color of focused tabs. Default value: `color-mix(in srgb, var(--mg-b-color-app), transparent 90%)`. |
 
 
 ## Dependencies

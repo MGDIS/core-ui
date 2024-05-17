@@ -1,6 +1,22 @@
 @use '../variables' as variables;
 @import 'mixins/reset-mg-card-slotted-variables';
 
+/*!
+ * @prop --mg-c-card-overflow: Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`.
+ * @prop --mg-c-card-overflow-default: Defines the default overflow property for the card. Unset by default.
+ * @prop --mg-c-card-max-width: Defines the max-width property for the card. Unset by default.
+ * @prop --mg-c-card-padding: Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-padding-default`.
+ * @prop --mg-c-card-padding-default: Defines the default padding property for the card. Default value: `--mg-b-size-2w`.
+ * @prop --mg-c-card-border: Defines the border property for the card. Unset by default, fallback on `--mg-c-card-border-default`.
+ * @prop --mg-c-card-border-default: Defines the default border property for the card. Default value: `var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%)`.
+ * @prop --mg-c-card-border-radius: Defines the border radius property for the card. Unset by default, fallback on `--mg-c-card-border-radius-default`.
+ * @prop --mg-c-card-border-radius-default: Defines the default border radius property for the card. Default value: `--mg-b-size-radius`.
+ * @prop --mg-c-card-background: Defines the background property for the card. Unset by default, fallback on `--mg-c-card-background-default`.
+ * @prop --mg-c-card-background-default: Defines the default background property for the card. Default value: `--mg-b-color-light`.
+ * @prop --mg-c-card-box-shadow: Defines the box shadow property for the card. Unset by default, fallback on `--mg-c-card-box-shadow-default`.
+ * @prop --mg-c-card-box-shadow-default: Defines the default box shadow property for the card. Default value: `--mg-b-box-shadow`.
+ */
+
 .mg-c-card {
   position: relative;
   z-index: inherit;
