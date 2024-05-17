@@ -243,7 +243,7 @@ export class MgTooltip {
    * Define selected element to become tooltip selector and init listeners
    * @param element - tooltiped element
    */
-  private setPopperedElement = (element: HTMLElement): void => {
+  private setTooltipedElement = (element: HTMLElement): void => {
     this.tooltipedElement = element;
 
     // Manage tooltipedElement focus events
