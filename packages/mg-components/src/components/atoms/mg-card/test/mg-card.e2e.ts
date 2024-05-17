@@ -18,7 +18,7 @@ test.describe('mg-card', () => {
           ].forEach(slot => {
             test(`Should render with slot ${slot}`, async ({ page }) => {
               if (variant === 'app') {
-                page.addStyleTag({ content: 'mg-card{--mg-b-color-app-h:250}' });
+                page.addStyleTag({ content: 'mg-card{--mg-b-color-app:#190099}' });
               }
               await page.setContent(`<mg-card ${renderAttributes({ variant, variantStyle })}>${slot}</mg-card>`);
 

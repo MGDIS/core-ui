@@ -16,7 +16,7 @@
       width: unset;
       flex: unset;
       flex-wrap: wrap;
-      column-gap: var(--mg-c-input-spacer);
+      column-gap: var(--mg-b-size-w);
 
       &-list {
         display: flex;
@@ -53,7 +53,7 @@
       &-title {
         display: inline;
         margin: 0;
-        color: var(--mg-b-color-dark-40);
+        color: var(--mg-b-color-neutral-80);
 
         &-label {
           font-size: var(--mg-b-font-size);
@@ -74,7 +74,7 @@
       justify-content: center;
       padding: calc((var(--mg-b-size-min-height) - 2 * var(--mg-b-size-border) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-b-size-3v);
       border-radius: var(--mg-b-size-v);
-      background-color: var(--mg-b-color-dark-5);
+      background-color: var(--mg-b-color-neutral-20);
       font-size: var(--mg-b-font-size);
     }
 
@@ -96,7 +96,7 @@
   }
 
   &:not(.mg-c-input--label-on-top) mg-tooltip:not(.mg-c-input__section-header-tootlip) {
-    margin-left: var(--mg-c-input-spacer);
+    margin-left: var(--mg-b-size-w);
   }
 
   mg-popover {

@@ -1,32 +1,10 @@
-/* Mixins */
-@mixin style-gradient($name, $background-color, $font-color, $has-variable: false) {
-  @if $has-variable {
-    $background-color: --mg-c-button-#{$name}-color;
-    $font-color: --mg-c-button-#{$name}-font-color;
-  } @else {
-    $background-color: --mg-b-color-#{$background-color};
-    $font-color: --mg-b-color-#{$font-color};
-  }
-  .mg-c-button.mg-c-button--#{$name} {
-    border-color: var(
-      --mg-c-button-#{$name}-border-color,
-      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-border-variation) * 10%))
-    );
+@use '../variables' as variables;
 
-    // Background
-    background: linear-gradient(
-      to bottom,
-      hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l)),
-      hsl(var(#{$background-color}-h), var(#{$background-color}-s), calc(var(#{$background-color}-l) - var(--mg-c-button-gradient) * 10%))
-    );
-    color: var(#{$font-color});
-  }
-
-  // Only apply if not disabled
-  :host(:hover) .mg-c-button--#{$name}:not(.mg-c-button--disabled) {
-    background: hsl(var(#{$background-color}-h), var(#{$background-color}-s), var(#{$background-color}-l));
-  }
-}
+/*!
+ * @prop --mg-c-button-border-radius: Define the button border radius. Default value: `--mg-b-size-radius`.
+ * @prop --mg-c-button-icon-border-radius: Define the button border radius in icon mode. Default value: `--mg-b-size-min-height`.
+ * @prop --mg-c-button-disabled-opacity: Define the button opacity when disabled. Default value: `--mg-b-disabled-opacity`.
+ */
 
 @mixin font-style() {
   font-family: inherit;
@@ -44,7 +22,7 @@
 
 // Only apply if not disabled
 :host(:hover) .mg-c-button--flat:not(.mg-c-button--disabled) {
-  background: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 10%);
+  background: color-mix(in srgb, var(--mg-b-color-dark), transparent 90%);
 }
 
 :host([full-width]) {
@@ -57,13 +35,24 @@
   pointer-events: none;
 }
 
-// Gradient style
-@include style-gradient('primary', null, null, true);
-@include style-gradient('secondary', null, null, true);
-@include style-gradient('danger', 'danger', 'neutral');
-@include style-gradient('danger-alt', 'neutral', 'danger');
-@include style-gradient('info', 'info', 'neutral');
-@include style-gradient('success', 'success', 'dark');
+@each $name, $palette, $index in join(join(variables.$brands, variables.$semantics), 'danger-alt') {
+  .mg-c-button.mg-c-button--#{$name} {
+    /*!
+   * @prop --mg-c-button-#{$name}-background-color: Define the #{$name} variant button background color.
+   * @prop --mg-c-button-#{$name}-border-color: Define the #{$name} variant button border color.
+   * @prop --mg-c-button-#{$name}-gradient-color: Define the #{$name} variant button gradient color.
+   * @prop --mg-c-button-#{$name}-font-color: Define the #{$name} variant button font color.
+   */
+    border-color: var(--mg-c-button-#{$name}-border-color);
+    background: linear-gradient(to bottom, var(--mg-c-button-#{$name}-background-color), var(--mg-c-button-#{$name}-gradient-color));
+    color: var(--mg-c-button-#{$name}-font-color);
+  }
+
+  // Only apply if not disabled
+  :host(:hover) .mg-c-button.mg-c-button--#{$name}:not(.mg-c-button--disabled) {
+    background: var(--mg-c-button-#{$name}-background-color);
+  }
+}
 
 /* Styles */
 .mg-c-button {

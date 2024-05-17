@@ -1,3 +1,6 @@
+@use '../variables' as variables;
+@use '../functions' as functions;
+
 /**
   * Components custom properties
   * Must start with `--mg-c-`
@@ -7,42 +10,41 @@
    * Atoms
    */
 
-  // mg-badge
+  /* mg-badge */
   --mg-c-badge-size: var(--mg-b-size-2w);
   --mg-c-badge-font-size: 1.1rem;
 
-  // mg-button
+  /* mg-button */
   --mg-c-button-border-radius: var(--mg-b-size-radius);
   --mg-c-button-icon-border-radius: var(--mg-b-size-min-height);
   --mg-c-button-disabled-opacity: var(--mg-b-disabled-opacity);
-  --mg-c-button-gradient: 1; /* Can only be 1 or 0 to enable disable gradient */
-  --mg-c-button-border-variation: 1; /* Can only be 1 or 0 to enable disable border variation */
 
-  // mg-button Primary
-  --mg-c-button-primary-color-h: var(--mg-b-color-dark-h);
-  --mg-c-button-primary-color-s: var(--mg-b-color-dark-s);
-  --mg-c-button-primary-color-l: var(--mg-b-color-dark-l);
-  --mg-c-button-primary-font-color: var(--mg-b-color-neutral);
+  @each $name, $palette, $index in join(variables.$semantics, variables.$brands) {
+    --mg-c-button-#{$name}-background-color: var(--mg-b-color-#{$name});
+    --mg-c-button-#{$name}-border-color: var(--mg-b-color-#{$palette}-#{$index + 10});
+    --mg-c-button-#{$name}-gradient-color: var(--mg-b-color-#{$palette}-#{$index + 10});
+    --mg-c-button-#{$name}-font-color: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
+  }
 
-  // mg-button Secondary
-  --mg-c-button-secondary-color-h: var(--mg-b-color-neutral-h);
-  --mg-c-button-secondary-color-s: var(--mg-b-color-neutral-s);
-  --mg-c-button-secondary-color-l: var(--mg-b-color-neutral-l);
-  --mg-c-button-secondary-font-color: var(--mg-b-color-dark);
+  // Danger Alt
+  --mg-c-button-danger-alt-background-color: var(--mg-b-color-neutral-10);
+  --mg-c-button-danger-alt-border-color: var(--mg-b-color-neutral-20);
+  --mg-c-button-danger-alt-gradient-color: var(--mg-b-color-neutral-20);
+  --mg-c-button-danger-alt-font-color: var(--mg-b-color-danger);
 
-  // mg-card
+  /* mg-card */
   --mg-c-card-padding-default: var(--mg-b-size-2w);
   --mg-c-card-border-radius-default: var(--mg-b-size-radius);
   --mg-c-card-background-default: var(--mg-b-color-light);
-  --mg-c-card-border-default: var(--mg-b-size-border) solid hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 5%);
+  --mg-c-card-border-default: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%);
   --mg-c-card-box-shadow-default: var(--mg-b-box-shadow);
 
-  // mg-divider
-  --mg-c-divider-background-color: hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 15%);
+  /* mg-divider */
+  --mg-c-divider-background-color: color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
   --mg-c-divider-thickness: var(--mg-b-size-border);
   --mg-c-divider-vertical-spacing: var(--mg-b-size-5w);
 
-  // mg-icon
+  /* mg-icon */
   --mg-c-icon-small-size: var(--mg-b-size-3v);
   --mg-c-icon-regular-size: var(--mg-b-size-2w);
   --mg-c-icon-medium-size: var(--mg-b-size-5v);
@@ -50,72 +52,71 @@
   --mg-c-icon-extra-large-size: var(--mg-b-size-4w);
   --mg-c-icon-border-radius: 50%;
 
-  // mg-tag
+  /* mg-tag */
   --mg-c-tag-height: var(--mg-b-size-3w);
   --mg-c-tag-border-radius: var(--mg-b-size-radius);
   --mg-c-tag-font-size: 1.2rem;
 
-  // mg-tooltip
+  /* mg-tooltip */
   --mg-c-tooltip-border-radius: var(--mg-b-size-radius);
   --mg-c-tooltip-background-color: var(--mg-b-color-dark);
-  --mg-c-tooltip-font-color: var(--mg-b-color-font-light);
+  --mg-c-tooltip-font-color: var(--mg-b-color-light);
 
   /**
    * Molecules
    */
 
-  // mg-details
+  /* mg-details */
   --mg-c-details-spacing: var(--mg-b-size-w);
 
-  // mg-illustrated-message
+  /* mg-illustrated-message */
   --mg-c-illustrated-message-padding-vertical: var(--mg-b-size-5w);
 
-  // mg-input-...
+  /* mg-input-... */
   --mg-c-input-border-width: var(--mg-b-size-border);
   --mg-c-input-border-radius: var(--mg-b-size-radius);
   --mg-c-input-color: hsl(201deg 16% 75%);
-  --mg-c-input-spacer: var(--mg-b-size-w);
 
-  /* Error message background */
-  --mg-c-input-error-bg-color: hsl(var(--mg-b-color-danger-h) calc(var(--mg-b-color-danger-s) + 5%) calc(var(--mg-b-color-danger-l) + 49%));
+  // Error message background
+  --mg-c-input-error-bg-color: color-mix(in srgb, var(--mg-b-color-danger), white 95%);
 
-  /* Input focus shadow */
+  // Input focus shadow
   --mg-c-input-color-shadow-focus: hsl(188deg 100% 50% / 50%);
 
-  // mg-input-toggle
+  /* mg-input-toggle */
   --mg-c-input-toggle-border-radius-ratio: 2;
 
-  // mg-input-checkbox
+  /* mg-input-checkbox */
   --mg-c-input-check-size: var(--mg-b-size-2w);
 
-  // mg-menu-item
-  --mg-c-menu-item-focused-background-color: hsl(var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l) / 10%);
+  /* mg-menu-item */
+  --mg-c-menu-item-focused-background-color: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
   --mg-c-menu-item-border-color-active: var(--mg-b-color-app);
   --mg-c-menu-item-color-active: var(--mg-b-color-app);
 
-  // mg-message
+  /* mg-message */
   --mg-c-message-border-radius: var(--mg-b-size-radius);
 
-  // mg-modal
+  /* mg-modal */
   --mg-c-modal-border-radius: var(--mg-b-size-radius);
   --mg-c-modal-title-font-size: var(--mg-b-font-size-h3);
   --mg-c-modal-content-font-size: 1.2rem;
 
-  // mg-panel
+  /* mg-panel */
   --mg-c-panel-border-radius: var(--mg-b-size-radius);
-  --mg-c-panel-background: hsl(var(--mg-b-color-info-h) var(--mg-b-color-info-s) calc(var(--mg-b-color-info-l) + 68%));
+  --mg-c-panel-background: color-mix(in srgb, var(--mg-b-color-info), white 97%);
   --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
   --mg-c-panel-content-padding: var(--mg-b-size-2w);
 
-  // mg-popover
+  /* mg-popover */
   --mg-c-popover-background-color: var(--mg-b-color-light);
-  --mg-c-popover-font-color: var(--mg-b-color-font-dark);
+  --mg-c-popover-font-color: var(--mg-b-color-dark);
   --mg-c-popover-title-font-size: var(--mg-b-font-size-h5);
   --mg-c-popover-max-width: var(--mg-b-size-floating-element-max-width);
 
-  // mg-tabs
-  --mg-c-tabs-focused-background-color: hsl(var(--mg-b-color-app-h) var(--mg-b-color-app-s) var(--mg-b-color-app-l) / 10%);
+  /* mg-tabs */
+  --mg-c-tabs-focused-background-color: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
   --mg-c-tabs-border-color-active: var(--mg-b-color-app);
   --mg-c-tabs-color-active: var(--mg-b-color-app);
-  --mg-c-tabs-border-bottom: var(--mg-b-size-border) solid var(--mg-b-color-dark-soft);
+  --mg-c-tabs-border-bottom: var(--mg-b-size-border) solid var(--mg-b-color-blue-30);
 }
