@@ -15,6 +15,12 @@ const getPage = (args, element) =>
     template: () => <mg-tooltip {...args}>{element}</mg-tooltip>,
   });
 
+const setfirstElementChildReplaceWith = (element: HTMLElement): void => {
+  element.firstElementChild.replaceWith = jest.fn((mockElement: HTMLElement) => {
+    element.innerHTML = (mockElement as Node).parentElement.innerHTML;
+  });
+};
+
 describe('mg-tooltip', () => {
   let fireMo;
 
@@ -77,6 +83,7 @@ describe('mg-tooltip', () => {
   describe.each([
     { eventIn: 'mouseenter', eventOut: 'mouseleave' },
     { eventIn: 'focus', eventOut: 'blur' },
+    { eventIn: 'focus', eventOut: 'mouseleave' },
     { eventIn: 'mouseenter', eventOut: 'clickDocument' },
   ])('Should manage display on events enter with %s, leave with %s', ({ eventIn, eventOut }) => {
     test.each([<span>span</span>, <button aria-describedby="blu">button</button>, <mg-icon icon="check-circle"></mg-icon>, <mg-button>mg-button</mg-button>])(
@@ -104,9 +111,12 @@ describe('mg-tooltip', () => {
 
         await page.waitForChanges();
 
+      if (eventIn === 'focus' && eventOut === 'mouseleave') {
+        expect(tooltip).toHaveAttribute('data-show');
+      } else {
         expect(tooltip).not.toHaveAttribute('data-show');
-      },
-    );
+      }
+    });
 
     test.each([false, true])('should not call event methods when disabled and display:%s', async display => {
       const args = { identifier: 'identifier', message: 'blu', disabled: true, display };
@@ -291,6 +301,17 @@ describe('mg-tooltip', () => {
     expect(tooltip).not.toHaveAttribute('data-show');
   });
 
+  test.each(['button', 'mg-button'])('Should NOT update %s wrapper when MutationRecord not match disabled condition', async TagName => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <TagName disabled>{TagName}.disabled</TagName>);
+
+    expect(page.root).toMatchSnapshot();
+
+    fireMo([{ attributeName: 'class' }]);
+    await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
   test.each(['button', 'mg-button'])('Should update %s wrapper dynamically', async TagName => {
     const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <TagName disabled>{TagName}.disabled</TagName>);
 
@@ -298,13 +319,11 @@ describe('mg-tooltip', () => {
 
     // Mock replaceWith
     const mgTooltip = page.doc.querySelector('mg-tooltip');
-    mgTooltip.firstElementChild.replaceWith = jest.fn(element => {
-      mgTooltip.innerHTML = (element as Node).parentElement.innerHTML;
-    });
+    setfirstElementChildReplaceWith(mgTooltip);
 
     const mgButton: HTMLButtonElement | HTMLMgButtonElement = page.doc.querySelector(TagName);
     mgButton.disabled = false;
-    fireMo([{ attributeName: TagName === 'MG-BUTTON' ? 'aria-disabled' : 'disabled' }]);
+    fireMo([{ attributeName: TagName === 'MG-BUTTON' ? 'aria-disabled' : 'disabled', target: { disabled: true } }]);
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
@@ -315,29 +334,35 @@ describe('mg-tooltip', () => {
 
     const mgButton = page.doc.querySelector('mg-button');
     const mgTooltip = page.doc.querySelector('mg-tooltip');
+    // Mock replaceWith on mg-button
+    setfirstElementChildReplaceWith(mgTooltip);
+
     mgButton.dispatchEvent(new MouseEvent('focus', { bubbles: true }));
     await page.waitForChanges();
 
     expect(page.root).toMatchSnapshot();
 
-    // Mock replaceWith
-    mgTooltip.firstElementChild.replaceWith = jest.fn(element => {
-      mgTooltip.innerHTML = (element as Node).parentElement.innerHTML;
-    });
-
     mgButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
-    fireMo([{ attributeName: 'aria-disabled' }]);
+    fireMo([{ attributeName: 'aria-disabled', target: { disabled: mgButton.disabled, disableOnClick: true } }]);
     await page.waitForChanges();
 
     expect(mgButton.disabled).toEqual(true);
     expect(mgTooltip.display).toEqual(true);
     expect(page.root).toMatchSnapshot();
 
+    // mock replaceWith on div.mg-c-tooltip__mg-button-wrapper
+    setfirstElementChildReplaceWith(mgTooltip);
+
     mgButton.disabled = false;
-    fireMo([{ attributeName: 'aria-disabled' }]);
+    fireMo([{ attributeName: 'aria-disabled', target: { disabled: mgButton.disabled, disableOnClick: true } }]);
     await page.waitForChanges();
 
     expect(mgTooltip.display).toEqual(true);
+    expect(page.root).toMatchSnapshot();
+
+    mgButton.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
+    await page.waitForChanges();
+    expect(mgTooltip.display).toEqual(false);
     expect(page.root).toMatchSnapshot();
   });
 
