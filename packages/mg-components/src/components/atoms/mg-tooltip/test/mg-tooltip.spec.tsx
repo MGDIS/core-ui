@@ -111,12 +111,13 @@ describe('mg-tooltip', () => {
 
         await page.waitForChanges();
 
-      if (eventIn === 'focus' && eventOut === 'mouseleave') {
-        expect(tooltip).toHaveAttribute('data-show');
-      } else {
-        expect(tooltip).not.toHaveAttribute('data-show');
-      }
-    });
+        if (eventIn === 'focus' && eventOut === 'mouseleave') {
+          expect(tooltip).toHaveAttribute('data-show');
+        } else {
+          expect(tooltip).not.toHaveAttribute('data-show');
+        }
+      },
+    );
 
     test.each([false, true])('should not call event methods when disabled and display:%s', async display => {
       const args = { identifier: 'identifier', message: 'blu', disabled: true, display };
