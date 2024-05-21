@@ -65,12 +65,6 @@ The image/illustration and the group tittle/details/action are vertically centre
 
 When there is not enough space the component take is default appearance.
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-illustrated-message-padding-vertical`: define component vertical padding, default: `4rem`
-
 <!-- Auto Generated Below -->
 
 
@@ -80,6 +74,13 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | ----------- | ----------- | ---------------------------- | ---------------------------- | ------------ |
 | `direction` | `direction` | Define component orientation | `"horizontal" \| "vertical"` | `'vertical'` |
 | `size`      | `size`      | Define illustration size     | `"regular" \| "small"`       | `'regular'`  |
+
+
+## CSS Custom Properties
+
+| Name                                          | Description                                                                               |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `--mg-c-illustrated-message-padding-vertical` | Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-5w`. |
 
 
 ----------------------------------------------

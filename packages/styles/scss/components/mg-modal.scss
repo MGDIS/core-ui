@@ -1,5 +1,11 @@
 @import 'mixins/reset-mg-card-slotted-variables';
 
+/*!
+ * @prop --mg-c-modal-border-radius: Defines the border radius of the modal. Default value: `--mg-b-size-radius`.
+ * @prop --mg-c-modal-title-font-size: Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`.
+ * @prop --mg-c-modal-content-font-size: Defines the font size of the modal content. Default value: `1.2rem`.
+ */
+
 :host {
   // Set mg-card variables
   --mg-c-card-border-radius: var(--mg-c-modal-border-radius);

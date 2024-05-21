@@ -160,21 +160,6 @@ Recommanded element is an icon or a SVG.
 
 Recommanded element is a mg-badge. Use it when you need to notify new events in this section.
 
-## CSS Variables
-
-### global
-
-- `--mg-c-menu-item-focused-background-color-hsl`: define mg-menu-item focused background color. default: `--mg-b-color-app-hsl`.
-- `--mg-c-menu-item-border-color-active-hsl`: define mg-menu-item border color. default: `--mg-b-color-app-hsl`.
-- `--mg-c-menu-item-color-hsl`: define mg-menu-item font color. default: `--mg-b-color-dark`.
-- `--mg-c-menu-item-color-active-hsl`: define mg-menu-item font color active. default: `--mg-b-color-app-hsl`.
-- `--mg-c-menu-item-navigation-button-column-gap`: define mg-menu-item button column gap. default: `unset`.
-- `--mg-c-menu-item-chevron-display`: override chevron display.
-
-### navigation-button
-
-- `--mg-c-menu-item-navigation-button-max-width`: define mg-menu-item button max-width. Useful to apply `text-overflow: ellipsis;` on `mg-menu-item__navigation-button-text` element. default: `unset`.
-
 <!-- Auto Generated Below -->
 
 
@@ -207,6 +192,17 @@ Recommanded element is a mg-badge. Use it when you need to notify new events in 
 | `"information"` | Menu item information content |
 | `"label"`       | Menu item label content       |
 | `"metadata"`    | Menu item metadata content    |
+
+
+## CSS Custom Properties
+
+| Name                                           | Description                                                                                                                      |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-menu-item-border-color-active`         | Defines the border color of the active menu item. Default value is `var(--mg-b-color-app)`.                                      |
+| `--mg-c-menu-item-color`                       | Defines the color of the menu item. Unset by default, fallback on `var(--mg-b-color-dark)`.                                      |
+| `--mg-c-menu-item-color-active`                | Defines the color of the active menu item. Default value is `--mg-b-color-app`.                                                  |
+| `--mg-c-menu-item-focused-background-color`    | Defines the background color of the focused menu item. Default value is `color-mix(in srgb, var(--mg-b-color-dark), white 90%)`. |
+| `--mg-c-menu-item-navigation-button-max-width` | Defines the max-width property for the navigation button. Unset by default.                                                      |
 
 
 ## Dependencies

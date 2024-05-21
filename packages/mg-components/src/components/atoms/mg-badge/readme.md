@@ -27,11 +27,11 @@ The badge displays a number (can be followed by the `+` character) or a punctuat
 
 ## CSS Custom Properties
 
-| Name                      | Description                                                                                                                  |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| `--mg-c-badge-font-size`  | Defines badge font size. Default value: `1.1rem`.                                                                            |
-| `--mg-c-badge-size`       | Defines badge height and min-width. Default value: `--mg-b-size-2w`.                                                         |
-| `--mg-c-badge-text-color` | Defines badge font color when used with the `text-color` variant and without `outline`. Default value: `--mg-b-color-light`. |
+| Name                      | Description                                                                                                                                   |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-badge-font-size`  | Defines the font size of the badge. The default value is `1.1rem`.                                                                            |
+| `--mg-c-badge-size`       | Defines the height and minimum width of the badge. The default value is `--mg-b-size-2w`.                                                     |
+| `--mg-c-badge-text-color` | Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`. |
 
 
 ## Dependencies

@@ -83,12 +83,6 @@ When not all items can be displayed due to the height of the menu container, a s
 
 With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attributes** instead, because the behavior uses the [cloneNode](https://developer.mozilla.org/fr/docs/Web/API/Node/cloneNode) method which breaks properties.
 
-## CSS Variables
-
-### global
-
-- `--mg-c-menu-background-color-hsl`: define mg-menu background color. Default: `--mg-b-color-light`.
-
 <!-- Auto Generated Below -->
 
 
@@ -107,6 +101,13 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 | Slot | Description  |
 | ---- | ------------ |
 |      | Menu content |
+
+
+## CSS Custom Properties
+
+| Name                           | Description                                                                                   |
+| ------------------------------ | --------------------------------------------------------------------------------------------- |
+| `--mg-c-menu-background-color` | Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`. |
 
 
 ## Dependencies

@@ -30,17 +30,6 @@ Slot content padding can be customized using the --mg-c-panel-content-padding CS
 
 ![](./doc/img/mg-panel-style.png)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-panel-border-radius`: Define panel border radius, default: `0.5rem`
-- `--mg-c-panel-background`: Define panel background, default: `var(--mg-b-color-info-h) var(--mg-b-color-info-s) calc(var(--mg-b-color-info-l) + 68%)`
-- `--mg-c-panel-box-shadow`: Define panel box shadow, default: `var(--mg-b-box-shadow)`
-- `--mg-c-panel-content-padding`: Define panel content padding, default: `1.5rem`
-
-Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) to customize mg-panel. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-panel to your design.
-
 <!-- Auto Generated Below -->
 
 
@@ -65,6 +54,16 @@ Please note that the mg-panel component uses the [mg-card](./?path=/docs/atoms-m
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
 | `title-change`    | Emmited event when title change    | `CustomEvent<string>`  |
+
+
+## CSS Custom Properties
+
+| Name                           | Description                                                                                                  |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `--mg-c-panel-background`      | Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`. |
+| `--mg-c-panel-border-radius`   | Defines the border radius of the panel. Default value: `--mg-b-size-radius`.                                 |
+| `--mg-c-panel-box-shadow`      | Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.                                     |
+| `--mg-c-panel-content-padding` | Defines the padding of the panel content. Default value: `--mg-b-size-2w`.                                   |
 
 
 ## Dependencies

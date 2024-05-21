@@ -15,14 +15,6 @@ When a trigger (button...) is set up, it can trigger the display of a message. B
 
 ![](./doc/img/mg-message-specs.png)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-message-border-radius`: Define message border radius, default: `0.3rem`
-
-Please note that the mg-message component uses the [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) component. This means that you can benefit from the CSS variables of [mg-card](./?path=/docs/atoms-mg-card--mg-c-card) to customize mg-message. You can easily change padding, border-radius, etc. Use this feature to seamlessly adapt mg-message to your design.
-
 ## Hide component
 
 To hide the component, you must use the native `hidden` attribute.
@@ -47,6 +39,13 @@ To hide the component, you must use the native `hidden` attribute.
 | ---------------- | ------------------------------------- | ------------------- |
 | `component-hide` | Emited event when message is hidden   | `CustomEvent<void>` |
 | `component-show` | Emited event when message is diplayed | `CustomEvent<void>` |
+
+
+## CSS Custom Properties
+
+| Name                           | Description                                                                    |
+| ------------------------------ | ------------------------------------------------------------------------------ |
+| `--mg-c-message-border-radius` | Defines the border radius of the message. Default value: `--mg-b-size-radius`. |
 
 
 ## Dependencies

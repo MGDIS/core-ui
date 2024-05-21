@@ -42,19 +42,6 @@ A padding of 16px is applied around the content
 1. Ajusting with the content
 2. Ajusting with its parent (100%)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-card-padding`: define car padding, default: `1.6rem`
-- `--mg-c-card-border-radius`: define card border radius, default: `0.5rem`
-- `--mg-c-card-background`: define card background, default: `--mg-b-color-light`
-- `--mg-c-card-border`: define card border, default: `0.1rem solid hsl(var(--mg-b-color-dark-h) var(--mg-b-color-dark-s) var(--mg-b-color-dark-l) / 5%)`
-- `--mg-c-card-box-shadow`: define card shadow, default: `--mg-b-box-shadow`
-- `--mg-c-card-box-overflow`: define card overflow, default: `unset`
-- `--mg-c-card-max-width`: define card max-width, default: `unset`
-- `--mg-c-card-min-width`: define card min-width, default: `unset`
-
 <!-- Auto Generated Below -->
 
 
@@ -71,6 +58,25 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | Slot | Description  |
 | ---- | ------------ |
 |      | Card content |
+
+
+## CSS Custom Properties
+
+| Name                                | Description                                                                                                                                                   |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-card-background`            | Defines the background property for the card. Unset by default, fallback on `--mg-c-card-background-default`.                                                 |
+| `--mg-c-card-background-default`    | Defines the default background property for the card. Default value: `--mg-b-color-light`.                                                                    |
+| `--mg-c-card-border`                | Defines the border property for the card. Unset by default, fallback on `--mg-c-card-border-default`.                                                         |
+| `--mg-c-card-border-default`        | Defines the default border property for the card. Default value: `var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%)`. |
+| `--mg-c-card-border-radius`         | Defines the border radius property for the card. Unset by default, fallback on `--mg-c-card-border-radius-default`.                                           |
+| `--mg-c-card-border-radius-default` | Defines the default border radius property for the card. Default value: `--mg-b-size-radius`.                                                                 |
+| `--mg-c-card-box-shadow`            | Defines the box shadow property for the card. Unset by default, fallback on `--mg-c-card-box-shadow-default`.                                                 |
+| `--mg-c-card-box-shadow-default`    | Defines the default box shadow property for the card. Default value: `--mg-b-box-shadow`.                                                                     |
+| `--mg-c-card-max-width`             | Defines the max-width property for the card. Unset by default.                                                                                                |
+| `--mg-c-card-overflow`              | Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`.                                                     |
+| `--mg-c-card-overflow-default`      | Defines the default overflow property for the card. Unset by default.                                                                                         |
+| `--mg-c-card-padding`               | Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-padding-default`.                                                       |
+| `--mg-c-card-padding-default`       | Defines the default padding property for the card. Default value: `--mg-b-size-2w`.                                                                           |
 
 
 ## Dependencies

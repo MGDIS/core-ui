@@ -23,14 +23,6 @@ Default margin applied on top and bottom of the divider is set to 40px.
 
 ![](./doc/img/mg-divider-color.png)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-divider-background-color`: define the divider background color, default: `hsla(var(--mg-b-color-danger), 15%)`
-- `--mg-c-divider-thickness`: define the divider thickness, default: `0.1rem`
-- `--mg-c-divider-vertical-spacing`: define the divider vertical spacing, default: `4rem`
-
 <!-- Auto Generated Below -->
 
 
@@ -39,6 +31,15 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | Property | Attribute | Description           | Type                  | Default     |
 | -------- | --------- | --------------------- | --------------------- | ----------- |
 | `size`   | `size`    | Define component size | `"full" \| "regular"` | `'regular'` |
+
+
+## CSS Custom Properties
+
+| Name                              | Description                                                                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `--mg-c-divider-background-color` | Defines the background color of the divider. The default value is `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`. |
+| `--mg-c-divider-thickness`        | Defines the thickness of the divider. The default value is `--mg-b-size-border`.                                                 |
+| `--mg-c-divider-vertical-spacing` | Defines the vertical spacing of the divider. The default value is `--mg-b-size-5w`.                                              |
 
 
 ----------------------------------------------

@@ -57,12 +57,6 @@ If the space is too narrow the button and values will do a line break.
 
 The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-input-check-size`: Define checkbox size, default: `1.3rem`
-
 ## Warning
 
 Please be aware that this component has a known issue ([#139](https://gitlab.mgdis.fr/core/core-ui/mg-components/-/issues/139)) **when used with the Vue2 framework**. It is essential that your project loads the [mg-model directive](http://core.pages.mgdis.fr/core-back/core/docs/mg-components-helpers/mg-model-vue) and that the component uses it.
@@ -132,6 +126,19 @@ When used to set validity to `false`, you should use this method again to reset 
 Type: `Promise<void>`
 
 
+
+
+## CSS Custom Properties
+
+| Name                                      | Description                                                                                                                          |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `--mg-c-input-border-radius`              | Defines the border radius of the input. Default value is `--mg-b-size-radius`.                                                       |
+| `--mg-c-input-border-width`               | Defines the width of the input border. Default value is `--mg-b-size-border`.                                                        |
+| `--mg-c-input-check-size`                 | Defines the size of the input check. Default value is `--mg-b-size-2w`.                                                              |
+| `--mg-c-input-color`                      | Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`.                                   |
+| `--mg-c-input-color-shadow-focus`         | Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`.                                       |
+| `--mg-c-input-error-bg-color`             | Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`. |
+| `--mg-c-input-toggle-border-radius-ratio` | Defines the border radius ratio of the input toggle. Default value is `2`.                                                           |
 
 
 ## Dependencies

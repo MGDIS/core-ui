@@ -63,14 +63,6 @@ Component's max-width is 400px.
 
 ![](./doc/img/mg-tooltip-max-width.png)
 
-## CSS Variables
-
-If needed some [variables](./?path=/docs/css-variables--docs) are available to customize the component:
-
-- `--mg-c-tooltip-border-radius`: Define tooltip border radius, default: `0.5rem`
-- `--mg-c-tooltip-background-color`: Define tooltip background color, default: `--mg-b-color-dark`
-- `--mg-c-tooltip-font-color`: Define tooltip font color, default: `--mg-b-color-font-light`
-
 <!-- Auto Generated Below -->
 
 
@@ -91,6 +83,15 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 | ----------- | ------------------------------------- |
 |             | Element that will display the tooltip |
 | `"content"` | Tooltip content                       |
+
+
+## CSS Custom Properties
+
+| Name                              | Description                                                                      |
+| --------------------------------- | -------------------------------------------------------------------------------- |
+| `--mg-c-tooltip-background-color` | Defines the background color of the tooltip. Default value: `--mg-b-color-dark`. |
+| `--mg-c-tooltip-border-radius`    | Defines the border radius of the tooltip. Default value: `--mg-b-size-radius`.   |
+| `--mg-c-tooltip-font-color`       | Defines the font color of the tooltip. Default value: `--mg-b-color-light`.      |
 
 
 ## Dependencies
