@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-05-17T16:25:58",
+  "timestamp": "2024-05-21T15:40:04",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.17.2",
+    "version": "4.18.2",
     "typescriptVersion": "5.4.5"
   },
   "components": [
@@ -2023,27 +2023,22 @@
       "usage": {},
       "props": [
         {
-          "name": "size",
-          "type": "\"full\" | \"regular\"",
+          "name": "fullWidth",
+          "type": "boolean",
           "complexType": {
-            "original": "'regular' | 'full'",
-            "resolved": "\"full\" | \"regular\"",
+            "original": "boolean",
+            "resolved": "boolean",
             "references": {}
           },
           "mutable": false,
-          "attr": "size",
+          "attr": "full-width",
           "reflectToAttr": false,
           "docs": "Define component size",
           "docsTags": [],
-          "default": "'regular'",
+          "default": "false",
           "values": [
             {
-              "value": "full",
-              "type": "string"
-            },
-            {
-              "value": "regular",
-              "type": "string"
+              "type": "boolean"
             }
           ],
           "optional": false,

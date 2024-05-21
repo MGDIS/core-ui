@@ -28,9 +28,9 @@ Default margin applied on top and bottom of the divider is set to 40px.
 
 ## Properties
 
-| Property | Attribute | Description           | Type                  | Default     |
-| -------- | --------- | --------------------- | --------------------- | ----------- |
-| `size`   | `size`    | Define component size | `"full" \| "regular"` | `'regular'` |
+| Property    | Attribute    | Description           | Type      | Default |
+| ----------- | ------------ | --------------------- | --------- | ------- |
+| `fullWidth` | `full-width` | Define component size | `boolean` | `false` |
 
 
 ## CSS Custom Properties

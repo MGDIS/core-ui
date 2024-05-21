@@ -5,16 +5,16 @@ import { test } from '../../../../utils/playwright.fixture';
 const createHTML = args => `<mg-divider ${renderAttributes(args)}></mg-divider>`;
 
 test.describe('mg-divider', () => {
-  test(`Should render with size regular`, async ({ page }) => {
-    const html = createHTML({ size: 'regular' });
+  test(`Should render with full-width false`, async ({ page }) => {
+    const html = createHTML({ fullWidth: false });
 
     await page.setContent(html);
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });
 
-  test(`Should render with size full`, async ({ page }) => {
-    const html = createHTML({ size: 'full' });
+  test(`Should render with full-width true`, async ({ page }) => {
+    const html = createHTML({ fullWidth: true });
 
     await page.setContent(html);
 

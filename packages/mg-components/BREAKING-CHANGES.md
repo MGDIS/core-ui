@@ -72,6 +72,7 @@ No more `variables.scss` export, only `variables.css`.
 
 ## mg-components v6.0.0
 
+- [Changes in `mg-divider`](#changes-in-mg-divider)
 - [Changes in `mg-icon`](#changes-in-mg-icon)
 - [Changes in `mg-button`](#changes-in-mg-button)
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
@@ -79,6 +80,17 @@ No more `variables.scss` export, only `variables.css`.
 - [Hide Components](#hide-components)
 - [Internal components](#internal-components)
 - [Stylesheet](#stylesheet)
+
+### Changes in `mg-divider`
+
+- Renamed the `size` prop to `full-width`. No other sizes are planned, and this change ensures consistency with the `mg-button` prop.
+
+```html
+<!-- in v5 -->
+<mg-divider size="full"></mg-divider>
+<!-- in v6 -->
+<mg-divider full-width></mg-divider>
+```
 
 ### Changes in `mg-icon`
 

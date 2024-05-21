@@ -170,7 +170,7 @@ export namespace Components {
         /**
           * Define component size
          */
-        "size": 'regular' | 'full';
+        "fullWidth": boolean;
     }
     interface MgForm {
         /**
@@ -2126,7 +2126,7 @@ declare namespace LocalJSX {
         /**
           * Define component size
          */
-        "size"?: 'regular' | 'full';
+        "fullWidth"?: boolean;
     }
     interface MgForm {
         /**

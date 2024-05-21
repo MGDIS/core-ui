@@ -9,8 +9,8 @@ const getPage = args =>
   });
 
 describe('mg-divider', () => {
-  test.each([undefined, 'regular', 'full'])('size %s', async size => {
-    const { root } = await getPage({ size });
+  test.each([false, true])('full-width %s', async fullWidth => {
+    const { root } = await getPage({ fullWidth });
     expect(root).toMatchSnapshot();
   });
 });

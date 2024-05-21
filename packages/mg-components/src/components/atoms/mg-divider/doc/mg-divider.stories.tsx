@@ -12,11 +12,11 @@ export default {
  * @param args - component arguments
  * @returns HTMLElement
  */
-const Template = (args: MgDividerType): HTMLElement => <mg-divider {...filterArgs(args, { size: 'regular' })}></mg-divider>;
+const Template = (args: MgDividerType): HTMLElement => <mg-divider {...filterArgs(args, { fullWidth: false })}></mg-divider>;
 
 export const MgDivider = {
   render: Template,
   args: {
-    size: 'regular',
+    fullWidth: false,
   },
 };
