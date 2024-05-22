@@ -4,12 +4,11 @@
 
 Two sizes are possible:
 
-- Regular: 120px
-- Full: 100%
+- Default: 120px
+- Full width: 100%
 
 Rules:
 
-- Regular is the default mode.
 - In full mode it takes 100% of its parent.
 - The thickness is 1px.
 

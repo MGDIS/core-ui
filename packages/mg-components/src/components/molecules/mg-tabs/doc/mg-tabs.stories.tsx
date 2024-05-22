@@ -36,7 +36,7 @@ export const MgTabs = {
     items: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
     label: 'Short tabs description. Needed for accessibility',
     activeTab: 2,
-    size: sizes[0], // regular
+    size: sizes[0], // medium
   },
 };
 

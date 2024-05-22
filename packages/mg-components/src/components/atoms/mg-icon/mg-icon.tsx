@@ -33,7 +33,7 @@ export class MgIcon {
   /**
    * Define icon size
    */
-  @Prop() size: IconSizeType = 'regular';
+  @Prop() size: IconSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgIcon['size'], oldValue?: MgIcon['size']): void {
     if (!sizes.includes(newValue)) throw new Error(`<mg-icon> prop "size" must be one of: ${sizes.join(', ')}`);

@@ -13,7 +13,7 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgIllustratedMessageType): HTMLElement => (
-  <mg-illustrated-message {...filterArgs(args, { size: 'regular', direction: 'vertical' })}>
+  <mg-illustrated-message {...filterArgs(args, { size: 'medium', direction: 'vertical' })}>
     <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
       <path
         fill-rule="evenodd"
@@ -35,7 +35,7 @@ const Template = (args: MgIllustratedMessageType): HTMLElement => (
 export const MgIllustratedMessage = {
   render: Template,
   args: {
-    size: 'regular',
+    size: 'medium',
     direction: 'vertical',
   },
 };

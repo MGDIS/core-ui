@@ -1,3 +1,4 @@
+import type { Size } from '../../../types';
 import { MgBadge } from '../../atoms/mg-badge/mg-badge';
 import { MgIcon } from '../../atoms/mg-icon/mg-icon';
 
@@ -25,9 +26,9 @@ export type TabItem = {
 /**
  * List of all possibles sizes
  */
-export const sizes = ['regular', 'large'] as const;
+export const sizes = ['medium', 'large'] as const;
 
 /**
  * Variant type from variants
  */
-export type SizeType = (typeof sizes)[number];
+export type SizeType = Size & (typeof sizes)[number];

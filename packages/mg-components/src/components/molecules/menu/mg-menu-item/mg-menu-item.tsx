@@ -130,7 +130,7 @@ export class MgMenuItem {
   /**
    * Define menu-item size.
    */
-  @State() size: MenuSizeType = 'regular';
+  @State() size: MenuSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgMenuItem['size'], oldValue?: MgMenuItem['size']): void {
     this.navigationButtonClassList.delete(`${this.navigationButton}--size-${oldValue}`);
@@ -422,7 +422,7 @@ export class MgMenuItem {
               </span>,
             ]}
           </div>
-          {this.size !== 'regular' && <slot name="metadata"></slot>}
+          {this.size !== 'medium' && <slot name="metadata"></slot>}
         </div>
         {this.hasChildren && this.href === undefined && (
           <span

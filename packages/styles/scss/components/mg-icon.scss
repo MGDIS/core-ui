@@ -3,10 +3,10 @@
 
 /*!
  * @prop --mg-c-icon-small-size: Defines the size of small icons. Default value is `--mg-b-size-3v`.
- * @prop --mg-c-icon-regular-size: Defines the size of regular icons. Default value is `--mg-b-size-2w`.
- * @prop --mg-c-icon-medium-size: Defines the size of medium icons. Default value is `--mg-b-size-5v`.
- * @prop --mg-c-icon-large-size: Defines the size of large icons. Default value is `--mg-b-size-3w`.
- * @prop --mg-c-icon-extra-large-size: Defines the size of extra large icons. Default value is `--mg-b-size-4w`.
+ * @prop --mg-c-icon-medium-size: Defines the size of medium icons. Default value is `--mg-b-size-2w`.
+ * @prop --mg-c-icon-large-size: Defines the size of large icons. Default value is `--mg-b-size-5v`.
+ * @prop --mg-c-icon-xlarge-size: Defines the size of extra large icons. Default value is `--mg-b-size-3w`.
+ * @prop --mg-c-icon-xxlarge-size: Defines the size of double extra large icons. Default value is `--mg-b-size-4w`.
  * @prop --mg-c-icon-border-radius: Defines the border radius of icons. Default value is `50%`.
  */
 
@@ -18,7 +18,7 @@
 .mg-c-icon {
   color: currentcolor;
 
-  @each $size in 'small', 'regular', 'medium', 'large', 'extra-large' {
+  @each $size in 'small', 'medium', 'large', 'xlarge', 'xxlarge' {
     &[size='#{$size}'],
     &.mg-c-icon--size-#{$size} {
       width: var(--mg-c-icon-#{$size}-size);

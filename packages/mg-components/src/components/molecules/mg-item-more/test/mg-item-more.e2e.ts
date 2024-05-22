@@ -6,25 +6,21 @@ import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
 
 const verticalFrameSizes = {
-  regular: {
+  medium: {
     height: 200,
     width: 180,
   },
-  medium: {
+  large: {
     height: 300,
     width: 180,
   },
-  large: {
+  xlarge: {
     height: 400,
     width: 180,
   },
 };
 
-const getSubMenuSize = (size: MenuSizeType) => {
-  if (size === 'large') return 'medium';
-  else if (size === 'medium') return 'regular';
-  else return 'regular';
-};
+const getSubMenuSize = (size: MenuSizeType) => (size === 'medium' ? 'large' : 'medium');
 
 const createHTML = args => `
   <header class="menu-container menu-container--${args.direction}-small">

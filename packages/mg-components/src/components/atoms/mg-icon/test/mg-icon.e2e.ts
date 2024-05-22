@@ -9,7 +9,7 @@ const createHTML = args => `<mg-icon ${renderAttributes(args)}></mg-icon>`;
 test.describe('mg-icon', () => {
   Object.keys(icons).forEach((icon: string) => {
     test(`render icon ${icon}`, async ({ page }) => {
-      const html = createHTML({ icon, size: 'extra-large' });
+      const html = createHTML({ icon, size: 'xxlarge' });
 
       await page.setContent(html);
 

@@ -11,6 +11,7 @@ import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -35,6 +36,7 @@ export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.
 export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
+export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
 export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
@@ -244,7 +246,7 @@ export namespace Components {
         /**
           * Define illustration size
          */
-        "size": 'regular' | 'small';
+        "size": IllustratedMessageSizeType;
     }
     interface MgInput {
         /**
@@ -2204,7 +2206,7 @@ declare namespace LocalJSX {
         /**
           * Define illustration size
          */
-        "size"?: 'regular' | 'small';
+        "size"?: IllustratedMessageSizeType;
     }
     interface MgInput {
         /**

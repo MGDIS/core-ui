@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { test } from '../../../../utils/playwright.fixture';
 import { renderAttributes } from '@mgdis/playwright-helpers';
 
-const baseArgs = { size: 'regular', direction: 'vertical' };
+const baseArgs = { size: 'medium', direction: 'vertical' };
 
 const createHTML = args => `<mg-illustrated-message ${renderAttributes(args)}>
   <svg slot="illustration" width="190" height="350" viewBox="0 0 190 350" xmlns="http://www.w3.org/2000/svg">
@@ -23,7 +23,7 @@ const createHTML = args => `<mg-illustrated-message ${renderAttributes(args)}>
 </mg-illustrated-message>`;
 
 test.describe('mg-illustrated-message', () => {
-  ['regular', 'small'].forEach(size => {
+  ['medium', 'small'].forEach(size => {
     test(`renders size ${size}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, size });
       await page.setContent(html);

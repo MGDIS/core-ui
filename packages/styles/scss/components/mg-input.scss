@@ -75,8 +75,8 @@ mg-icon {
 
     mg-tooltip {
       display: inline-flex;
-      width: var(--mg-c-icon-regular-size);
-      height: var(--mg-c-icon-regular-size);
+      width: var(--mg-c-icon-medium-size);
+      height: var(--mg-c-icon-medium-size);
       margin-left: var(--mg-b-size-w);
     }
   }
@@ -89,7 +89,7 @@ mg-icon {
 
     mg-tooltip {
       align-self: baseline;
-      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-regular-size)) / 2);
+      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-medium-size)) / 2);
     }
 
     /* Set custom opacity on disabled input */

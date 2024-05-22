@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-21T15:40:04",
+  "timestamp": "2024-05-22T14:21:12",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -2017,8 +2017,8 @@
       "filePath": "src/components/atoms/mg-divider/mg-divider.tsx",
       "encapsulation": "shadow",
       "tag": "mg-divider",
-      "readme": "## Sizing\n\n![](./doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible:\n\n- Regular: 120px\n- Full: 100%\n\nRules:\n\n- Regular is the default mode.\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.\n\n## Spacing\n\n![](./doc/img/mg-divider-spacing.png)\n\nDefault margin applied on top and bottom of the divider is set to 40px.\n\n## Color\n\n![](./doc/img/mg-divider-color.png)\n",
-      "docs": "![](./doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible:\n\n- Regular: 120px\n- Full: 100%\n\nRules:\n\n- Regular is the default mode.\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.",
+      "readme": "## Sizing\n\n![](./doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible:\n\n- Default: 120px\n- Full width: 100%\n\nRules:\n\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.\n\n## Spacing\n\n![](./doc/img/mg-divider-spacing.png)\n\nDefault margin applied on top and bottom of the divider is set to 40px.\n\n## Color\n\n![](./doc/img/mg-divider-color.png)\n",
+      "docs": "![](./doc/img/mg-divider-sizing.png)\n\nTwo sizes are possible:\n\n- Default: 120px\n- Full width: 100%\n\nRules:\n\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2381,7 +2381,7 @@
       "filePath": "src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
-      "readme": "## Specifications\n\n### Sizing\n\n![](./doc/img/mg-icon-sizing.png) \n\nSizes (px):\n\n- small: 12x12\n- regular: 16x16\n- medium: 20x20\n- large: 24x24\n- extra-large: 32x32\n\n### With \"variant\" applied\n\n![](./doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))\n\n### Variant style\n\n\n### Variant\n![](./doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator: \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant: \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex: check-circle, check-circle-outline*\n",
+      "readme": "## Specifications\n\n### Sizing\n\n![](./doc/img/mg-icon-sizing.png) \n\nSizes (px):\n\n- small: 12x12\n- medium: 16x16\n- large: 20x20\n- xlarge: 24x24\n- xxlarge: 32x32\n\n### With \"variant\" applied\n\n![](./doc/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./doc/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))\n\n### Variant style\n\n\n### Variant\n![](./doc/img/mg-icon-styling-iconVariant.png) \n\n\n![](./doc/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator: \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant: \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex: check-circle, check-circle-outline*\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
@@ -3224,10 +3224,10 @@
         },
         {
           "name": "size",
-          "type": "\"extra-large\" | \"large\" | \"medium\" | \"regular\" | \"small\"",
+          "type": "\"large\" | \"medium\" | \"small\" | \"xlarge\"",
           "complexType": {
             "original": "IconSizeType",
-            "resolved": "\"extra-large\" | \"large\" | \"medium\" | \"regular\" | \"small\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | \"xlarge\"",
             "references": {
               "IconSizeType": {
                 "location": "import",
@@ -3241,12 +3241,8 @@
           "reflectToAttr": false,
           "docs": "Define icon size",
           "docsTags": [],
-          "default": "'regular'",
+          "default": "'medium'",
           "values": [
-            {
-              "value": "extra-large",
-              "type": "string"
-            },
             {
               "value": "large",
               "type": "string"
@@ -3256,11 +3252,11 @@
               "type": "string"
             },
             {
-              "value": "regular",
+              "value": "small",
               "type": "string"
             },
             {
-              "value": "small",
+              "value": "xlarge",
               "type": "string"
             }
           ],
@@ -3380,29 +3376,29 @@
           "docs": "Defines the border radius of icons. Default value is `50%`."
         },
         {
-          "name": "--mg-c-icon-extra-large-size",
-          "annotation": "prop",
-          "docs": "Defines the size of extra large icons. Default value is `--mg-b-size-4w`."
-        },
-        {
           "name": "--mg-c-icon-large-size",
           "annotation": "prop",
-          "docs": "Defines the size of large icons. Default value is `--mg-b-size-3w`."
+          "docs": "Defines the size of large icons. Default value is `--mg-b-size-5v`."
         },
         {
           "name": "--mg-c-icon-medium-size",
           "annotation": "prop",
-          "docs": "Defines the size of medium icons. Default value is `--mg-b-size-5v`."
-        },
-        {
-          "name": "--mg-c-icon-regular-size",
-          "annotation": "prop",
-          "docs": "Defines the size of regular icons. Default value is `--mg-b-size-2w`."
+          "docs": "Defines the size of medium icons. Default value is `--mg-b-size-2w`."
         },
         {
           "name": "--mg-c-icon-small-size",
           "annotation": "prop",
           "docs": "Defines the size of small icons. Default value is `--mg-b-size-3v`."
+        },
+        {
+          "name": "--mg-c-icon-xlarge-size",
+          "annotation": "prop",
+          "docs": "Defines the size of extra large icons. Default value is `--mg-b-size-3w`."
+        },
+        {
+          "name": "--mg-c-icon-xxlarge-size",
+          "annotation": "prop",
+          "docs": "Defines the size of double extra large icons. Default value is `--mg-b-size-4w`."
         }
       ],
       "slots": [],
@@ -3519,21 +3515,27 @@
         },
         {
           "name": "size",
-          "type": "\"regular\" | \"small\"",
+          "type": "\"medium\" | \"small\"",
           "complexType": {
-            "original": "'regular' | 'small'",
-            "resolved": "\"regular\" | \"small\"",
-            "references": {}
+            "original": "IllustratedMessageSizeType",
+            "resolved": "\"medium\" | \"small\"",
+            "references": {
+              "IllustratedMessageSizeType": {
+                "location": "import",
+                "path": "./mg-illustrated-message.conf",
+                "id": "src/components/molecules/mg-illustrated-message/mg-illustrated-message.conf.ts::IllustratedMessageSizeType"
+              }
+            }
           },
           "mutable": false,
           "attr": "size",
           "reflectToAttr": false,
           "docs": "Define illustration size",
           "docsTags": [],
-          "default": "'regular'",
+          "default": "'medium'",
           "values": [
             {
-              "value": "regular",
+              "value": "medium",
               "type": "string"
             },
             {
@@ -10779,10 +10781,10 @@
         },
         {
           "name": "itemmore",
-          "type": "{ size?: \"regular\" | \"medium\" | \"large\"; icon?: IconType; slotlabel?: SlotLabelType; }",
+          "type": "{ size?: \"medium\" | \"large\" | \"xlarge\"; icon?: IconType; slotlabel?: SlotLabelType; }",
           "complexType": {
             "original": "ItemMoreType",
-            "resolved": "{ size?: \"regular\" | \"medium\" | \"large\"; icon?: IconType; slotlabel?: SlotLabelType; }",
+            "resolved": "{ size?: \"medium\" | \"large\" | \"xlarge\"; icon?: IconType; slotlabel?: SlotLabelType; }",
             "references": {
               "ItemMoreType": {
                 "location": "import",
@@ -10797,14 +10799,14 @@
           "docsTags": [],
           "values": [
             {
-              "type": "{ size?: \"regular\""
+              "type": "{ size?: \"medium\""
             },
             {
-              "value": "medium",
+              "value": "large",
               "type": "string"
             },
             {
-              "type": "\"large\"; icon?: IconType; slotlabel?: SlotLabelType; }"
+              "type": "\"xlarge\"; icon?: IconType; slotlabel?: SlotLabelType; }"
             }
           ],
           "optional": true,
@@ -10833,10 +10835,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"regular\"",
+          "type": "\"large\" | \"medium\" | \"xlarge\"",
           "complexType": {
             "original": "MenuSizeType",
-            "resolved": "\"large\" | \"medium\" | \"regular\"",
+            "resolved": "\"large\" | \"medium\" | \"xlarge\"",
             "references": {
               "MenuSizeType": {
                 "location": "import",
@@ -10850,7 +10852,7 @@
           "reflectToAttr": false,
           "docs": "Define mg-menu size",
           "docsTags": [],
-          "default": "'regular'",
+          "default": "'medium'",
           "values": [
             {
               "value": "large",
@@ -10861,7 +10863,7 @@
               "type": "string"
             },
             {
-              "value": "regular",
+              "value": "xlarge",
               "type": "string"
             }
           ],
@@ -10925,7 +10927,7 @@
       "filePath": "src/components/molecules/menu/mg-menu-item/mg-menu-item.tsx",
       "encapsulation": "shadow",
       "tag": "mg-menu-item",
-      "readme": "## Use\n\nItem menu is used with horizontal or vertical menus.\n\n## Anatomy\n\n![](./doc/img/mg-menu-item-anatomy.png)\n\nAn item must have a label.\nAn icon can be added before the text.\nA badge can be added after the text.\nWhen a submenu is available, a chevron is displayed (in horizontal and vertical menus) to indicate its presence.\n\n## Specs\n\nItem's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical).\n\n### Spacing\n\n![](./doc/img/mg-menu-item-spacing.png)\n\n### Sizing\n\n#### Horizontal menu\n\n![](./doc/img/mg-menu-item-sizing-horizontal.png)\n\nWidth of the item depends on its content.\n\n![](./doc/img/mg-menu-item-sizing-maxwidth.png)\n\nIf a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-sizing-vertical.png)\n\nWidth of the item is 100% width of the menu.\n\n### Alignment\n\n#### Horizontal and vertical menus\n\n![](./doc/img/mg-menu-item-alignment.png)\n\nAll contents are aligned vertically.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-alignment-vertical.png)\n\nAll items are aligned to left.\nThe chevron is aligned to the right of the item.\n\n### Styling\n\n![](./doc/img/mg-menu-item-horizontal-menu-styling.png)\n\n![](./doc/img/mg-menu-item-vertical-menu-styling.png)\n\nHover item: the background is colored\nActive item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal, at the left of the item for vertical menus.\n\n#### Colors\n\nStandard color is @color-dark.\nActive color is the color of the app.\nHover color is the color of the app with an opacity set to 10%.\nDisabled item's opacity is set to 40%.\n\n#### Fonts\n\nFamily: Open Sans\nRegular size: 13px\nMedium/Large size: 15px\n\n#### Icons\n\nRegular/Medium/Large menus: regular size\n\n## Behavior\n\n### Click\n\nClick on an item of the menu can:\n\n- redirect to a url\n- display child content (see below)\n\nIf child content is available, an icon \"chevron-down\" is displayed at the right of the item.\nWhen opening the child content, the chevron makes a 180° rotation.\nWhen closing the child content, the chevron returns to position 0°.\n\n## Child content\n\n### Horizontal and vertical menus\n\nChild content is displayed\n\n- by clicking on the item\n- by pressing the space or enter key\n\nIt is closed\n\n- by clicking on the item\n- by pressing the space or enter key\n- by clicking outside of the child content if the menu is horizontal\n\nThe child content can be:\n\n- another horizontal or vertical menu with sub items\n- a slot for HTML content\n\n#### In an horizontal menu\n\n![](./doc/img/mg-menu-submenu-alignment.png)\n\nChild content is displayed in a floating component over the content (like a popover).\nIt is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.\n\nIf the floating component is higher than the screen size, there is no overflow, user has to scroll the page.\n\n![](./doc/img/mg-menu-item-child-styling.png)\n\nThe floating component has a _@color-light_ background and a _@shadow_.\n\n![](./doc/img/mg-menu-item-child-menu-spacing.png)\n\nIf the floating component displays a submenu, there are top and bottom spacing of 10px.\n\n![](./doc/img/mg-menu-item-child-slot-spacing.png)\n\nIf the floating component displays a slot, there is no spacing.\n\n![](./doc/img/mg-menu-submenu-slot.png)\n\nThe minimal width of the submenu is the item's width.\nWidth of the submenu is determined by the width of the largest item or the content of the slot.\n\n#### In a vertical menu\n\n![](./doc/img/mg-menu-submenu-vertical-menu.png)\n\nMenu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**\nIdem for the slot.\nThere is no space to display child content.\nItems below are pushed to bottom.\n\n##### Spacing\n\nSub-items add to their left spacing the spacing between left border and content of their parent's item.\n\n## Slots\n\n### Image\n\nRecommanded element is an icon or a SVG.\n\n### Information\n\nRecommanded element is a mg-badge. Use it when you need to notify new events in this section.\n",
+      "readme": "## Use\n\nItem menu is used with horizontal or vertical menus.\n\n## Anatomy\n\n![](./doc/img/mg-menu-item-anatomy.png)\n\nAn item must have a label.\nAn icon can be added before the text.\nA badge can be added after the text.\nWhen a submenu is available, a chevron is displayed (in horizontal and vertical menus) to indicate its presence.\n\n## Specs\n\nItem's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical).\n\n### Spacing\n\n![](./doc/img/mg-menu-item-spacing.png)\n\n### Sizing\n\n#### Horizontal menu\n\n![](./doc/img/mg-menu-item-sizing-horizontal.png)\n\nWidth of the item depends on its content.\n\n![](./doc/img/mg-menu-item-sizing-maxwidth.png)\n\nIf a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-sizing-vertical.png)\n\nWidth of the item is 100% width of the menu.\n\n### Alignment\n\n#### Horizontal and vertical menus\n\n![](./doc/img/mg-menu-item-alignment.png)\n\nAll contents are aligned vertically.\n\n#### Vertical menu\n\n![](./doc/img/mg-menu-item-alignment-vertical.png)\n\nAll items are aligned to left.\nThe chevron is aligned to the right of the item.\n\n### Styling\n\n![](./doc/img/mg-menu-item-horizontal-menu-styling.png)\n\n![](./doc/img/mg-menu-item-vertical-menu-styling.png)\n\nHover item: the background is colored\nActive item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal, at the left of the item for vertical menus.\n\n#### Colors\n\nStandard color is @color-dark.\nActive color is the color of the app.\nHover color is the color of the app with an opacity set to 10%.\nDisabled item's opacity is set to 40%.\n\n#### Fonts\n\nFamily: Open Sans\nRegular size: 13px\nMedium/Large size: 15px\n\n#### Icons\n\nMedium/Large/XLarge menus: regular size\n\n## Behavior\n\n### Click\n\nClick on an item of the menu can:\n\n- redirect to a url\n- display child content (see below)\n\nIf child content is available, an icon \"chevron-down\" is displayed at the right of the item.\nWhen opening the child content, the chevron makes a 180° rotation.\nWhen closing the child content, the chevron returns to position 0°.\n\n## Child content\n\n### Horizontal and vertical menus\n\nChild content is displayed\n\n- by clicking on the item\n- by pressing the space or enter key\n\nIt is closed\n\n- by clicking on the item\n- by pressing the space or enter key\n- by clicking outside of the child content if the menu is horizontal\n\nThe child content can be:\n\n- another horizontal or vertical menu with sub items\n- a slot for HTML content\n\n#### In an horizontal menu\n\n![](./doc/img/mg-menu-submenu-alignment.png)\n\nChild content is displayed in a floating component over the content (like a popover).\nIt is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.\n\nIf the floating component is higher than the screen size, there is no overflow, user has to scroll the page.\n\n![](./doc/img/mg-menu-item-child-styling.png)\n\nThe floating component has a _@color-light_ background and a _@shadow_.\n\n![](./doc/img/mg-menu-item-child-menu-spacing.png)\n\nIf the floating component displays a submenu, there are top and bottom spacing of 10px.\n\n![](./doc/img/mg-menu-item-child-slot-spacing.png)\n\nIf the floating component displays a slot, there is no spacing.\n\n![](./doc/img/mg-menu-submenu-slot.png)\n\nThe minimal width of the submenu is the item's width.\nWidth of the submenu is determined by the width of the largest item or the content of the slot.\n\n#### In a vertical menu\n\n![](./doc/img/mg-menu-submenu-vertical-menu.png)\n\nMenu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**\nIdem for the slot.\nThere is no space to display child content.\nItems below are pushed to bottom.\n\n##### Spacing\n\nSub-items add to their left spacing the spacing between left border and content of their parent's item.\n\n## Slots\n\n### Image\n\nRecommanded element is an icon or a SVG.\n\n### Information\n\nRecommanded element is a mg-badge. Use it when you need to notify new events in this section.\n",
       "docs": "Item menu is used with horizontal or vertical menus.",
       "docsTags": [
         {
@@ -12610,10 +12612,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"regular\"",
+          "type": "\"large\" | \"medium\"",
           "complexType": {
             "original": "SizeType",
-            "resolved": "\"large\" | \"regular\"",
+            "resolved": "\"large\" | \"medium\"",
             "references": {
               "SizeType": {
                 "location": "import",
@@ -12627,14 +12629,14 @@
           "reflectToAttr": false,
           "docs": "Define tabs size",
           "docsTags": [],
-          "default": "'regular'",
+          "default": "'medium'",
           "values": [
             {
               "value": "large",
               "type": "string"
             },
             {
-              "value": "regular",
+              "value": "medium",
               "type": "string"
             }
           ],
@@ -13107,7 +13109,7 @@
       "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
     },
     "src/components/atoms/mg-icon/mg-icon.conf.ts::IconSizeType": {
-      "declaration": "\"small\" | \"regular\" | \"medium\" | \"large\" | \"extra-large\"",
+      "declaration": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
       "docstring": "",
       "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
     },
@@ -13132,7 +13134,7 @@
       "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
     },
     "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::MenuSizeType": {
-      "declaration": "\"regular\" | \"medium\" | \"large\"",
+      "declaration": "\"medium\" | \"large\" | \"xlarge\"",
       "docstring": "",
       "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
     },
@@ -13147,7 +13149,7 @@
       "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
     },
     "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SizeType": {
-      "declaration": "\"regular\" | \"medium\" | \"large\"",
+      "declaration": "\"medium\" | \"large\" | \"xlarge\"",
       "docstring": "",
       "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
     },
@@ -13271,6 +13273,11 @@
       "docstring": "",
       "path": "src/components/molecules/mg-form/mg-form.conf.ts"
     },
+    "src/components/molecules/mg-illustrated-message/mg-illustrated-message.conf.ts::IllustratedMessageSizeType": {
+      "declaration": "\"small\" | \"medium\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-illustrated-message/mg-illustrated-message.conf.ts"
+    },
     "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
       "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
       "docstring": "",
@@ -13297,7 +13304,7 @@
       "path": "src/components/molecules/mg-skip-links/mg-skip-links.conf.tsx"
     },
     "src/components/molecules/mg-tabs/mg-tabs.conf.ts::SizeType": {
-      "declaration": "\"regular\" | \"large\"",
+      "declaration": "\"medium\" | \"large\"",
       "docstring": "",
       "path": "src/components/molecules/mg-tabs/mg-tabs.conf.ts"
     },

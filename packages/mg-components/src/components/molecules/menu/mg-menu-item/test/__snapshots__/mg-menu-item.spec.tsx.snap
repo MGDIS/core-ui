@@ -8,7 +8,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -62,7 +62,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
     </mock:shadow-root>
     <mg-menu-item badge="" data-style-direction="horizontal" label="submenu" role="listitem" status="visible">
       <mock:shadow-root>
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -106,7 +106,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -147,7 +147,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
     </mock:shadow-root>
     <mg-menu-item badge="" data-style-direction="horizontal" hidden="true" label="submenu" role="listitem" status="visible">
       <mock:shadow-root>
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -186,7 +186,7 @@ exports[`mg-menu-item MutationObserver Should update display notifiaction badge 
 exports[`mg-menu-item MutationObserver Should update status with child "characterData" mutation, from status label 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="my label" role="listitem" status="visible">
   <mock:shadow-root>
-    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
       <slot name="image"></slot>
       <div class="mg-c-menu-item__navigation-button-center">
         <div class="mg-c-menu-item__navigation-button-text-content">
@@ -208,7 +208,7 @@ exports[`mg-menu-item MutationObserver Should update status with child "characte
 exports[`mg-menu-item MutationObserver Should update status with child "characterData" mutation, from status metadata 1`] = `
 <mg-menu-item data-style-direction="horizontal" label="Label" metadata="" role="listitem" status="visible">
   <mock:shadow-root>
-    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+    <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
       <slot name="image"></slot>
       <div class="mg-c-menu-item__navigation-button-center">
         <div class="mg-c-menu-item__navigation-button-text-content">
@@ -238,7 +238,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -279,7 +279,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
     </mock:shadow-root>
     <mg-menu-item data-style-direction="horizontal" hidden="" label="child menu" role="listitem" status="visible">
       <mock:shadow-root>
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -311,7 +311,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+      <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -352,7 +352,7 @@ exports[`mg-menu-item MutationObserver Should update status with child title "at
     </mock:shadow-root>
     <mg-menu-item data-style-direction="horizontal" hidden="" label="child menu" role="listitem" status="active">
       <mock:shadow-root>
-        <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -384,7 +384,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -425,7 +425,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
     </mock:shadow-root>
     <mg-menu-item data-style-direction="horizontal" label="child menu" role="listitem" status="visible">
       <mock:shadow-root>
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -457,7 +457,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
         <slot></slot>
         <slot name="content"></slot>
       </mock:shadow-root>
-      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -511,7 +511,7 @@ exports[`mg-menu-item MutationObserver should update notification badge with arg
     </mock:shadow-root>
     <mg-menu-item badge="" data-style-direction="horizontal" label="child menu" role="listitem" status="visible">
       <mock:shadow-root>
-        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -559,7 +559,7 @@ exports[`mg-menu-item events popover Should prevent "expanded" to be update to "
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -613,7 +613,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -640,7 +640,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -672,7 +672,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -713,7 +713,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -750,7 +750,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -791,7 +791,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -828,7 +828,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -874,7 +874,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -915,7 +915,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -957,7 +957,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1003,7 +1003,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1044,7 +1044,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1086,7 +1086,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1132,7 +1132,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1173,7 +1173,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1215,7 +1215,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1261,7 +1261,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1302,7 +1302,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1344,7 +1344,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1406,7 +1406,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1463,7 +1463,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1490,7 +1490,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1522,7 +1522,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1563,7 +1563,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1600,7 +1600,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1641,7 +1641,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1678,7 +1678,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1724,7 +1724,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1765,7 +1765,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1807,7 +1807,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1853,7 +1853,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1894,7 +1894,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1936,7 +1936,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -1982,7 +1982,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2023,7 +2023,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2065,7 +2065,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2111,7 +2111,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2152,7 +2152,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2194,7 +2194,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2256,7 +2256,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2313,7 +2313,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2340,7 +2340,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2372,7 +2372,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2413,7 +2413,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2450,7 +2450,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2491,7 +2491,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2528,7 +2528,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2574,7 +2574,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2615,7 +2615,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2657,7 +2657,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2703,7 +2703,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+            <button aria-controls="mg-popover-test_1" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2744,7 +2744,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2786,7 +2786,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2832,7 +2832,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2873,7 +2873,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2915,7 +2915,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+        <button aria-controls="mg-popover-test_0" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -2961,7 +2961,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
               <slot></slot>
               <slot name="content"></slot>
             </mock:shadow-root>
-            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+            <button aria-controls="mg-popover-test_1" aria-current="page" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
               <slot name="image"></slot>
               <div class="mg-c-menu-item__navigation-button-center">
                 <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3002,7 +3002,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           </mock:shadow-root>
           <mg-menu-item data-style-direction="horizontal" label="level 3" role="listitem" status="active">
             <mock:shadow-root>
-              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+              <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3044,7 +3044,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3106,7 +3106,7 @@ exports[`mg-menu-item mouse navigation should manage toggle expand with template
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3163,7 +3163,7 @@ exports[`mg-menu-item render with 2 menu-items, last items get style modifier 1`
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3182,7 +3182,7 @@ exports[`mg-menu-item render with 2 menu-items, last items get style modifier 1`
   </mg-menu-item>
   <mg-menu-item data-style-direction="horizontal" label="item 2" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3210,7 +3210,7 @@ exports[`mg-menu-item render with args { label: 'Batman' } 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3237,7 +3237,7 @@ exports[`mg-menu-item render with args { label: 'Batman', badge: true } 1`] = `
   </mock:shadow-root>
   <mg-menu-item badge="" data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3276,7 +3276,7 @@ exports[`mg-menu-item render with args { label: 'Batman', href: '#link' } 1`] = 
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="#link">
+      <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#link">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3303,7 +3303,7 @@ exports[`mg-menu-item render with args { label: 'Batman', href: '#link', target:
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible" href="#link" target="_blank">
+      <a class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible" href="#link" target="_blank">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3311,7 +3311,7 @@ exports[`mg-menu-item render with args { label: 'Batman', href: '#link', target:
             <slot name="information"></slot>
             <mg-icon class="mg-c-menu-item__navigation-button-new-tab">
               <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--arrow-up-right-square mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--arrow-up-right-square mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path d="M14.33 3v10c0 .73-.6 1.32-1.33 1.33H3c-.73 0-1.32-.6-1.33-1.33V3c0-.73.6-1.32 1.33-1.33h10c.73 0 1.32.6 1.33 1.33m-2.48.46H8.68c-.37 0-.67.29-.68.66v.04c0 .18.07.35.2.47l.91.91-5.53 5.53c-.13.13-.14.33-.01.47h.01l.87.88c.13.13.33.14.47.01h.01l5.53-5.53.91.9c.26.28.7.29.98.02l.02-.02c.12-.13.19-.3.19-.48V4.15c0-.37-.3-.67-.67-.67z" fill="currentColor"></path>
                 </svg>
               </mock:shadow-root>
@@ -3340,7 +3340,7 @@ exports[`mg-menu-item render with args { label: 'Batman', icon: true } 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" icon="" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3358,7 +3358,7 @@ exports[`mg-menu-item render with args { label: 'Batman', icon: true } 1`] = `
     </span>
     <mg-icon slot="image">
       <mock:shadow-root>
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--size-regular mg-c-icon--user" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--size-medium mg-c-icon--user" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path clip-rule="evenodd" d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6M6 9a4 4 0 0 0-4 4 1 1 0 0 0 1 1h10a1 1 0 0 0 1-1 4 4 0 0 0-4-4z" fill="currentColor" fill-rule="evenodd"></path>
         </svg>
       </mock:shadow-root>
@@ -3374,7 +3374,7 @@ exports[`mg-menu-item render with args { label: 'Batman', metadata: true } 1`] =
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" metadata="" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3437,7 +3437,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3478,7 +3478,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 1`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3515,7 +3515,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3556,7 +3556,7 @@ exports[`mg-menu-item render with expanded and sub-menu false 2`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3593,7 +3593,7 @@ exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3634,7 +3634,7 @@ exports[`mg-menu-item render with expanded and sub-menu true 1`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3671,7 +3671,7 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3712,7 +3712,7 @@ exports[`mg-menu-item render with expanded and sub-menu true 2`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3749,7 +3749,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3790,7 +3790,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 1`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3827,7 +3827,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3868,7 +3868,7 @@ exports[`mg-menu-item render with expanded and sub-menu undefined 2`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="horizontal" label="child menu item" role="listitem" status="visible">
         <mock:shadow-root>
-          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+          <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3900,7 +3900,7 @@ exports[`mg-menu-item render with expanded false 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3927,7 +3927,7 @@ exports[`mg-menu-item render with expanded false 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3954,7 +3954,7 @@ exports[`mg-menu-item render with expanded true 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -3981,7 +3981,7 @@ exports[`mg-menu-item render with expanded true 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4008,7 +4008,7 @@ exports[`mg-menu-item render with expanded undefined 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4035,7 +4035,7 @@ exports[`mg-menu-item render with expanded undefined 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4062,7 +4062,7 @@ exports[`mg-menu-item render with menuIndex 0 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" menuindex="0" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4089,7 +4089,7 @@ exports[`mg-menu-item render with menuIndex 5 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" menuindex="5" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4116,7 +4116,7 @@ exports[`mg-menu-item render with menuIndex undefined 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4258,7 +4258,7 @@ exports[`mg-menu-item render with size large, { label: 'Batman', icon: true } 1`
     </span>
     <mg-icon slot="image">
       <mock:shadow-root>
-        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--size-regular mg-c-icon--user" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+        <svg aria-hidden="true" class="mg-c-icon mg-c-icon--size-medium mg-c-icon--user" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path clip-rule="evenodd" d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6M6 9a4 4 0 0 0-4 4 1 1 0 0 0 1 1h10a1 1 0 0 0 1-1 4 4 0 0 0-4-4z" fill="currentColor" fill-rule="evenodd"></path>
         </svg>
       </mock:shadow-root>
@@ -4305,7 +4305,7 @@ exports[`mg-menu-item render with status active 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4332,7 +4332,7 @@ exports[`mg-menu-item render with status active 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4359,7 +4359,7 @@ exports[`mg-menu-item render with status disabled 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="disabled">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--disabled mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular" disabled="" tabindex="-1">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--disabled mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium" disabled="" tabindex="-1">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4386,7 +4386,7 @@ exports[`mg-menu-item render with status disabled 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4413,7 +4413,7 @@ exports[`mg-menu-item render with status hidden 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="hidden">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular" hidden="" tabindex="-1">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4440,7 +4440,7 @@ exports[`mg-menu-item render with status hidden 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4467,7 +4467,7 @@ exports[`mg-menu-item render with status visible 1`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="visible">
     <mock:shadow-root>
-      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+      <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4494,7 +4494,7 @@ exports[`mg-menu-item render with status visible 2`] = `
   </mock:shadow-root>
   <mg-menu-item data-style-direction="horizontal" label="Batman" role="listitem" status="active">
     <mock:shadow-root>
-      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular">
+      <button aria-current="page" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--active mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium">
         <slot name="image"></slot>
         <div class="mg-c-menu-item__navigation-button-center">
           <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4526,7 +4526,7 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4567,7 +4567,7 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="vertical" direction="vertical" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4595,7 +4595,7 @@ exports[`mg-menu-item render with vertical sub-menu 1`] = `
           </mock:shadow-root>
           <mg-menu-item data-level="2" data-style-direction="vertical" direction="vertical" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4637,7 +4637,7 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
           <slot></slot>
           <slot name="content"></slot>
         </mock:shadow-root>
-        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+        <button aria-controls="mg-popover-test_0" aria-expanded="true" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--visible">
           <slot name="image"></slot>
           <div class="mg-c-menu-item__navigation-button-center">
             <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4678,7 +4678,7 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
       </mock:shadow-root>
       <mg-menu-item data-style-direction="vertical" direction="vertical" label="level 2" role="listitem" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
             <slot name="image"></slot>
             <div class="mg-c-menu-item__navigation-button-center">
               <div class="mg-c-menu-item__navigation-button-text-content">
@@ -4706,7 +4706,7 @@ exports[`mg-menu-item render with vertical sub-menu 2`] = `
           </mock:shadow-root>
           <mg-menu-item data-level="2" data-style-direction="vertical" direction="vertical" label="level 3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
