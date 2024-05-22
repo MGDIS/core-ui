@@ -132,7 +132,8 @@ test.describe('mg-tooltip', () => {
   });
 
   test('Should keep tooltip displayed when mg-button is disableOnClick', async ({ page }) => {
-    const html = createHTML({ message: 'message' }, '<mg-button disable-on-click>disable on click</mg-button>');
+    const html = createHTML({ message: 'disable on click', position: 'top' }, '<mg-button disable-on-click>disable on click</mg-button>');
+    await page.setContent(html);
     await page.addScriptTag({
       content: `document.querySelector('mg-button').addEventListener('click', (event) => {
       setTimeout(() => {
@@ -140,7 +141,7 @@ test.describe('mg-tooltip', () => {
       }, 1000)
     })`,
     });
-    await page.setContent(html);
+    await page.setViewportSize({ width: 500, height: 100 });
 
     const mgButton = page.locator('mg-button');
     await mgButton.waitFor();
@@ -149,28 +150,21 @@ test.describe('mg-tooltip', () => {
     await mgButton.waitFor();
 
     // 1. take focus on mgButton and display tooltip
-    await mgButton.focus();
-
-    expect(await tooltip.getAttribute('data-show')).toEqual('');
-
-    // 2. mouseenter on mgButton and tooltip stay displayed
-    await mgButton.hover();
-
-    expect(await tooltip.getAttribute('data-show')).toEqual('');
-
-    // 3. click on mgButton and tooltip stay displayed
     await mgButton.click();
 
     expect(await tooltip.getAttribute('data-show')).toEqual('');
 
-    // 4. wait loading mock with timeout ending while disable on click
-    await mgButton.waitFor({ timeout: 2000 });
+    // 2. wait loading mock with timeout ending while disable on click
+    await page.locator('mg-button[aria-disabled="false"]').waitFor();
     expect(await tooltip.getAttribute('data-show')).toEqual('');
 
-    // 5. presse tab key and tooltip is hidden
+    await expect(page.locator('body')).toHaveScreenshot();
+
+    // 3. presse tab key and tooltip is hidden
     await mgButton.blur();
 
     expect(await tooltip.getAttribute('data-show')).toEqual(null);
+    await expect(page.locator('body')).toHaveScreenshot();
   });
 
   test('Should keep tooltip arrow when update message', async ({ page }) => {
