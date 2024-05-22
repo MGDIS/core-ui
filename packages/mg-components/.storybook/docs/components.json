@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-22T14:25:10",
+  "timestamp": "2024-05-22T15:21:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -3224,10 +3224,10 @@
         },
         {
           "name": "size",
-          "type": "\"large\" | \"medium\" | \"small\" | \"xlarge\"",
+          "type": "\"large\" | \"medium\" | \"small\" | \"xlarge\" | \"xxlarge\"",
           "complexType": {
             "original": "IconSizeType",
-            "resolved": "\"large\" | \"medium\" | \"small\" | \"xlarge\"",
+            "resolved": "\"large\" | \"medium\" | \"small\" | \"xlarge\" | \"xxlarge\"",
             "references": {
               "IconSizeType": {
                 "location": "import",
@@ -3257,6 +3257,10 @@
             },
             {
               "value": "xlarge",
+              "type": "string"
+            },
+            {
+              "value": "xxlarge",
               "type": "string"
             }
           ],
@@ -13109,7 +13113,7 @@
       "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
     },
     "src/components/atoms/mg-icon/mg-icon.conf.ts::IconSizeType": {
-      "declaration": "\"small\" | \"medium\" | \"large\" | \"xlarge\"",
+      "declaration": "\"small\" | \"medium\" | \"large\" | \"xlarge\" | \"xxlarge\"",
       "docstring": "",
       "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
     },
