@@ -7,7 +7,7 @@ export type IconType = keyof typeof icons;
 /**
  * List of all possibles sizes
  */
-export const sizes = ['small', 'medium', 'large', 'xlarge'] as const;
+export const sizes = ['small', 'medium', 'large', 'xlarge', 'xxlarge'] as const;
 /**
  * Icon Size from sizes
  */
