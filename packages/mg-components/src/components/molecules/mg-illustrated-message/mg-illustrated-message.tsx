@@ -1,5 +1,6 @@
 import { Component, Element, h, Prop } from '@stencil/core';
 import { isTagName } from '@mgdis/stencil-helpers';
+import type { IllustratedMessageSizeType } from './mg-illustrated-message.conf';
 
 /*
  * @slot illustration - Illustration content
@@ -24,7 +25,7 @@ export class MgIllustratedMessage {
   /**
    * Define illustration size
    */
-  @Prop() size: 'regular' | 'small' = 'regular';
+  @Prop() size: IllustratedMessageSizeType = 'medium';
 
   /**
    * Define component orientation

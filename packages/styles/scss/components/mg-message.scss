@@ -38,7 +38,7 @@
 
   &__icon {
     position: absolute;
-    top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-regular-size)) / 2);
+    top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-medium-size)) / 2);
     left: calc(var(--mg-b-size-v) + var(--mg-b-size-w)); // vertical bar + spacing
     line-height: 1;
   }
@@ -46,7 +46,7 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 var(--mg-b-size-w) 0 calc(var(--mg-b-size-v) + var(--mg-b-size-w) + var(--mg-c-icon-regular-size) + var(--mg-b-size-w)); // vertical bar + spacing + icon + spacing;
+    padding: 0 var(--mg-b-size-w) 0 calc(var(--mg-b-size-v) + var(--mg-b-size-w) + var(--mg-c-icon-medium-size) + var(--mg-b-size-w)); // vertical bar + spacing + icon + spacing;
     place-content: stretch flex-end;
   }
 

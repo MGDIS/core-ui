@@ -1,3 +1,4 @@
+import type { Size } from '../../../../types';
 import { MgItemMore } from '../../mg-item-more/mg-item-more';
 
 /**
@@ -16,9 +17,9 @@ export type ItemMoreType = Pick<MgItemMore, 'icon' | 'slotlabel' | 'size'>;
 /**
  * List of all possibles sizes
  */
-export const sizes = ['regular', 'medium', 'large'] as const;
+export const sizes = ['medium', 'large', 'xlarge'] as const;
 
 /**
  * item Size from sizes
  */
-export type MenuSizeType = (typeof sizes)[number];
+export type MenuSizeType = Size & (typeof sizes)[number];

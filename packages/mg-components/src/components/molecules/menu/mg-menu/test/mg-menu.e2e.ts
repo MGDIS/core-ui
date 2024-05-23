@@ -14,12 +14,12 @@ enum Key {
   ENTER = 'Enter',
 }
 
-const getSubMenuSize = (size: MenuSizeType): MenuSizeType => (size === 'large' ? 'medium' : 'regular');
+const getSubMenuSize = (size: MenuSizeType): MenuSizeType => (size === 'large' ? 'large' : 'medium');
 
 const getViewportSize = (direction: Direction, size?: MenuSizeType): { width: number; height: number } =>
   direction === Direction.VERTICAL
-    ? { width: 400, height: ['medium', 'large'].includes(size) ? 400 : 250 }
-    : { width: ['medium', 'large'].includes(size) ? 1200 : 800, height: 200 };
+    ? { width: 400, height: ['large', 'xlarge'].includes(size) ? 400 : 250 }
+    : { width: ['large', 'xlarge'].includes(size) ? 1200 : 800, height: 200 };
 
 const createHTML = (args, containerSize?): string => `
   <header class="menu-container menu-container--${containerSize}">

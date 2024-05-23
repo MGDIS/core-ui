@@ -76,7 +76,7 @@ Medium/Large size: 15px
 
 #### Icons
 
-Regular/Medium/Large menus: regular size
+Medium/Large/XLarge menus: regular size
 
 ## Behavior
 

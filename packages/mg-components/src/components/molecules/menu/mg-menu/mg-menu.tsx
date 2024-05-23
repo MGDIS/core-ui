@@ -69,7 +69,7 @@ export class MgMenu {
   /**
    * Define mg-menu size
    */
-  @Prop() size: MenuSizeType = 'regular';
+  @Prop() size: MenuSizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgMenu['size']): void {
     if (!sizes.includes(newValue)) {

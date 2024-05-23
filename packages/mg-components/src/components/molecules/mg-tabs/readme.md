@@ -48,7 +48,7 @@ The header bottom border is 100% wide, 1px sizing and its color is @color-dark-s
 | `identifier`         | `identifier` | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                | `createID('mg-tabs')` |
 | `items` _(required)_ | --           | Tabs items                                                                                                  | `TabItem[] \| string[]` | `undefined`           |
 | `label` _(required)_ | `label`      | Tabs label. Include short tabs description. Required for accessibility                                      | `string`                | `undefined`           |
-| `size`               | `size`       | Define tabs size                                                                                            | `"large" \| "regular"`  | `'regular'`           |
+| `size`               | `size`       | Define tabs size                                                                                            | `"large" \| "medium"`   | `'medium'`            |
 
 
 ## Events

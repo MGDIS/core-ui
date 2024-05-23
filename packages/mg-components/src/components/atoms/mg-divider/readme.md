@@ -4,12 +4,11 @@
 
 Two sizes are possible:
 
-- Regular: 120px
-- Full: 100%
+- Default: 120px
+- Full width: 100%
 
 Rules:
 
-- Regular is the default mode.
 - In full mode it takes 100% of its parent.
 - The thickness is 1px.
 
@@ -28,9 +27,9 @@ Default margin applied on top and bottom of the divider is set to 40px.
 
 ## Properties
 
-| Property | Attribute | Description           | Type                  | Default     |
-| -------- | --------- | --------------------- | --------------------- | ----------- |
-| `size`   | `size`    | Define component size | `"full" \| "regular"` | `'regular'` |
+| Property    | Attribute    | Description           | Type      | Default |
+| ----------- | ------------ | --------------------- | --------- | ------- |
+| `fullWidth` | `full-width` | Define component size | `boolean` | `false` |
 
 
 ## CSS Custom Properties

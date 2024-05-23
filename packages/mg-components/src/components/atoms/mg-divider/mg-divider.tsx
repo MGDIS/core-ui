@@ -13,7 +13,7 @@ export class MgDivider {
   /**
    * Define component size
    */
-  @Prop() size: 'regular' | 'full' = 'regular';
+  @Prop() fullWidth = false;
 
   /**
    * Render
@@ -24,7 +24,7 @@ export class MgDivider {
       <div
         class={{
           'mg-c-divider': true,
-          'mg-c-divider--full': this.size === 'full',
+          'mg-c-divider--full-width': this.fullWidth,
         }}
       ></div>
     );

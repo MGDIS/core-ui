@@ -72,13 +72,47 @@ No more `variables.scss` export, only `variables.css`.
 
 ## mg-components v6.0.0
 
-- [Changes in `mg-icon`](#changes-in-mg-icon)
+- [`size` prop updates](#size-prop-updates)
 - [Changes in `mg-button`](#changes-in-mg-button)
+- [Changes in `mg-divider`](#changes-in-mg-divider)
+- [Changes in `mg-icon`](#changes-in-mg-icon)
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
+- [Changes in `mg-menu`](#changes-in-mg-menu)
 - [Hide Components](#hide-components)
 - [Internal components](#internal-components)
 - [Stylesheet](#stylesheet)
+
+### `size` prop updates
+
+- Medium is the new regular. The `size` prop is used in `mg-icon`, `mg-menu`, `mg-illustrated-message`, and `mg-tab` components. To ensure consistency and follow standards, we renamed and organized size values as follows:
+
+  | version |       |         |        |        |             |
+  | ------- | ----- | ------- | ------ | ------ | ----------- |
+  | v5      | small | regular | medium | large  | extra-large |
+  | v6      | small | medium  | large  | xlarge | xxlarge     |
+
+### Changes in `mg-button`
+
+- Removed `identifier` prop. Use `id` directly if needed.
+
+  ```html
+  <!-- in v5 -->
+  <mg-button identifier="blu">Non</mg-button>
+  <!-- in v6 -->
+  <mg-button id="blu">Non</mg-button>
+  ```
+
+### Changes in `mg-divider`
+
+- Renamed the `size` prop to `full-width`. No other sizes are planned, and this change ensures consistency with the `mg-button` prop.
+
+  ```html
+  <!-- in v5 -->
+  <mg-divider size="full"></mg-divider>
+  <!-- in v6 -->
+  <mg-divider full-width></mg-divider>
+  ```
 
 ### Changes in `mg-icon`
 
@@ -91,15 +125,17 @@ No more `variables.scss` export, only `variables.css`.
   <mg-icon icon="interrogation-circle"></mg-icon>
   ```
 
-### Changes in `mg-button`
-
-- Removed `identifier` prop. Use `id` directly if needed.
+- Update `size` prop possible values [as described](#size-prop-updates) :
 
   ```html
   <!-- in v5 -->
-  <mg-button identifier="blu">Non</mg-button>
+  <mg-icon icon="api" size="medium"></mg-icon>
+  <mg-icon icon="ban" size="large"></mg-icon>
+  <mg-icon icon="cog" size="extra-large"></mg-icon>
   <!-- in v6 -->
-  <mg-button id="blu">Non</mg-button>
+  <mg-icon icon="api" size="large"></mg-icon>
+  <mg-icon icon="ban" size="xlarge"></mg-icon>
+  <mg-icon icon="cog" size="xxlarge"></mg-icon>
   ```
 
 ### Changes in `mg-input-numeric`
@@ -123,6 +159,19 @@ No more `variables.scss` export, only `variables.css`.
   <mg-input-text identifier="blu" label="non" display-character-left="false"></mg-input-text>
   <!-- in v6 -->
   <mg-input-text identifier="blu" label="non" character-left-hide></mg-input-text>
+  ```
+
+### Changes in `mg-menu`
+
+- Update `size` prop possible values [as described](#size-prop-updates) :
+
+  ```html
+  <!-- in v5 -->
+  <mg-menu size="medium">...</mg-menu>
+  <mg-menu size="large">...</mg-menu>
+  <!-- in v6 -->
+  <mg-menu size="large">...</mg-menu>
+  <mg-menu size="xlarge">...</mg-menu>
   ```
 
 ### Hide components

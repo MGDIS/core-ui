@@ -60,7 +60,7 @@ export class MgTabs {
   /**
    * Define tabs size
    */
-  @Prop() size: SizeType = 'regular';
+  @Prop() size: SizeType = 'medium';
   @Watch('size')
   validateSize(newValue: MgTabs['size']): void {
     if (!sizes.includes(newValue)) {

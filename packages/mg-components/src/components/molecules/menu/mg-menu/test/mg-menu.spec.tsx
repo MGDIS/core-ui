@@ -1,7 +1,7 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgMenu } from '../mg-menu';
-import { Direction } from '../mg-menu.conf';
+import { Direction, sizes } from '../mg-menu.conf';
 import { MgMenuItem } from '../../mg-menu-item/mg-menu-item';
 import { MgPopover } from '../../../mg-popover/mg-popover';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
@@ -117,7 +117,7 @@ describe('mg-menu', () => {
       { props: { direction: 'horizontal' }, error: '<mg-menu> prop "label" is required.' },
       { props: { ...baseProps, direction: 'test' }, error: '<mg-menu> prop "direction" must be one of: horizontal, vertical.' },
       { props: { ...baseProps, direction: Direction.VERTICAL, itemmore: { icon: 'user' } }, error: '<mg-menu> prop "itemmore" must be paired with direction horizontal.' },
-      { props: { ...baseProps, size: 'batman' }, error: '<mg-menu> prop "size" must be one of: regular, medium, large.' },
+      { props: { ...baseProps, size: 'batman' }, error: `<mg-menu> prop "size" must be one of: ${sizes.join(', ')}.` },
     ])('Should throw error when props are invalid, case %s', async ({ props, error }) => {
       expect.assertions(1);
 

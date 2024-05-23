@@ -10,7 +10,7 @@
       &,
       ::slotted([slot='label']),
       ::slotted([slot='metadata']) {
-        @if $name == 'regular' {
+        @if $name == 'medium' {
           font-size: var(--mg-b-font-size);
         } @else {
           font-size: var(--mg-b-font-size-h4);

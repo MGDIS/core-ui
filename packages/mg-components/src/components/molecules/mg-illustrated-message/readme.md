@@ -73,7 +73,7 @@ When there is not enough space the component take is default appearance.
 | Property    | Attribute   | Description                  | Type                         | Default      |
 | ----------- | ----------- | ---------------------------- | ---------------------------- | ------------ |
 | `direction` | `direction` | Define component orientation | `"horizontal" \| "vertical"` | `'vertical'` |
-| `size`      | `size`      | Define illustration size     | `"regular" \| "small"`       | `'regular'`  |
+| `size`      | `size`      | Define illustration size     | `"medium" \| "small"`        | `'medium'`   |
 
 
 ## CSS Custom Properties

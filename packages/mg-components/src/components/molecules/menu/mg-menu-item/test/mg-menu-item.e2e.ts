@@ -50,7 +50,7 @@ test.describe('mg-menu-item', () => {
             .flatMap(submenu => [slotMetadata, ''].map(metadata => ({ label, slot, submenu, metadata })))
             .forEach(({ label, slot, submenu, metadata }) => {
               test(`Should render with slots, props: ${renderAttributes({ slot, submenu, metadata })}`, async ({ page }) => {
-                await page.setContent(createHTML({ label, size: metadata !== '' ? 'medium' : 'regular' }, [slot, metadata, submenu].join(''), direction));
+                await page.setContent(createHTML({ label, size: metadata !== '' ? 'large' : 'medium' }, [slot, metadata, submenu].join(''), direction));
                 await page.setViewportSize(defaultViewPortSize);
 
                 await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
@@ -94,7 +94,7 @@ test.describe('mg-menu-item', () => {
       });
 
       test('Should render slot image only with submenu', async ({ page }) => {
-        await page.setContent(createHTML({ expanded: true, size: 'large' }, slotContent + slotImage, direction));
+        await page.setContent(createHTML({ expanded: true, size: 'xlarge' }, slotContent + slotImage, direction));
         await page.setViewportSize({ ...defaultViewPortSize, width: 170 });
         await page.keyboard.press('Tab');
 
