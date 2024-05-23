@@ -1,40 +1,11 @@
+@use '../variables' as variables;
+@import '../utils/a11y';
+
 /*!
  * @prop --mg-c-badge-size: Defines the height and minimum width of the badge. The default value is `--mg-b-size-16`.
  * @prop --mg-c-badge-font-size: Defines the font size of the badge. The default value is `1.1rem`.
  * @prop --mg-c-badge-text-color: Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`.
  */
-
-@import '../utils/a11y';
-
-/* Mixins */
-@mixin badge-variant($name, $backgroundColor, $color) {
-  &.mg-c-badge--#{$name} {
-    @if $name == 'text-color' {
-      border-color: currentcolor;
-      background-color: currentcolor;
-
-      .mg-c-badge__value {
-        color: var(--mg-c-badge-text-color, var(--mg-b-color-light));
-      }
-    } @else {
-      border-color: var(--mg-b-color-#{$backgroundColor});
-      background-color: var(--mg-b-color-#{$backgroundColor});
-      color: var(--mg-b-color-#{$color});
-    }
-
-    &.mg-c-badge--outline {
-      background-color: transparent;
-
-      @if $name == 'text-color' {
-        .mg-c-badge__value {
-          color: currentcolor;
-        }
-      } @else {
-        color: var(--mg-b-color-#{$backgroundColor});
-      }
-    }
-  }
-}
 
 /* Styles */
 .mg-c-badge {
@@ -50,13 +21,34 @@
   text-align: center;
 
   // Variant
-  @include badge-variant('primary', 'dark', 'light');
-  @include badge-variant('secondary', 'light', 'dark');
-  @include badge-variant('success', 'success', 'dark');
-  @include badge-variant('warning', 'warning', 'dark');
-  @include badge-variant('danger', 'danger', 'light');
-  @include badge-variant('info', 'info', 'light');
-  @include badge-variant('text-color', none, 'light');
+  @each $name, $palette, $index in join(join(variables.$brands, variables.$semantics), 'text-color') {
+    &.mg-c-badge--#{$name} {
+      @if $name == 'text-color' {
+        border-color: currentcolor;
+        background-color: currentcolor;
+
+        .mg-c-badge__value {
+          color: var(--mg-c-badge-text-color, var(--mg-b-color-light));
+        }
+      } @else {
+        border-color: var(--mg-b-color-#{$name});
+        background-color: var(--mg-b-color-#{$name});
+        color: var(--mg-b-color-#{$name}-text);
+      }
+
+      &.mg-c-badge--outline {
+        background-color: transparent;
+
+        @if $name == 'text-color' {
+          .mg-c-badge__value {
+            color: currentcolor;
+          }
+        } @else {
+          color: var(--mg-b-color-#{$name});
+        }
+      }
+    }
+  }
 }
 
 .mg-c-badge,
