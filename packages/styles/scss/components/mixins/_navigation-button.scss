@@ -32,7 +32,7 @@
     border: none;
     background-color: unset;
     color: var(--#{$prefix}-color, var(--mg-b-color-dark));
-    column-gap: var(--#{$prefix}-navigation-button-column-gap, var(--mg-b-size-w));
+    column-gap: var(--#{$prefix}-navigation-button-column-gap, var(--mg-b-size-8));
     cursor: pointer;
     font-family: var(--mg-b-font-family);
     font-weight: 400;
@@ -57,10 +57,10 @@
       color: var(--#{$prefix}-color-active);
       font-weight: 600;
       &.#{$prefix}__navigation-button--horizontal {
-        box-shadow: inset 0 calc(-1 * var(--mg-b-size-v)) var(--#{$prefix}-border-color-active);
+        box-shadow: inset 0 calc(-1 * var(--mg-b-size-4)) var(--#{$prefix}-border-color-active);
       }
       &.#{$prefix}__navigation-button--vertical {
-        box-shadow: inset var(--mg-b-size-v) 0 var(--#{$prefix}-border-color-active);
+        box-shadow: inset var(--mg-b-size-4) 0 var(--#{$prefix}-border-color-active);
       }
     }
     &.#{$prefix}__navigation-button--hidden {

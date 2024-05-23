@@ -68,7 +68,7 @@ Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/styl
 
 | Name                     | Description                                                                              |
 | ------------------------ | ---------------------------------------------------------------------------------------- |
-| `--mg-c-details-spacing` | Defines the spacing between the summary and the details. Default value: `--mg-b-size-w`. |
+| `--mg-c-details-spacing` | Defines the spacing between the summary and the details. Default value: `--mg-b-size-8`. |
 
 
 ## Dependencies

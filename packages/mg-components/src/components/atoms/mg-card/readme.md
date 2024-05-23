@@ -76,7 +76,7 @@ A padding of 16px is applied around the content
 | `--mg-c-card-overflow`              | Defines the overflow property for the card. Unset by default, fallback on `--mg-c-card-overflow-default`.                                                     |
 | `--mg-c-card-overflow-default`      | Defines the default overflow property for the card. Unset by default.                                                                                         |
 | `--mg-c-card-padding`               | Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-padding-default`.                                                       |
-| `--mg-c-card-padding-default`       | Defines the default padding property for the card. Default value: `--mg-b-size-2w`.                                                                           |
+| `--mg-c-card-padding-default`       | Defines the default padding property for the card. Default value: `--mg-b-size-16`.                                                                           |
 
 
 ## Dependencies

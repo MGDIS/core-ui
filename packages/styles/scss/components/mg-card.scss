@@ -6,7 +6,7 @@
  * @prop --mg-c-card-overflow-default: Defines the default overflow property for the card. Unset by default.
  * @prop --mg-c-card-max-width: Defines the max-width property for the card. Unset by default.
  * @prop --mg-c-card-padding: Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-padding-default`.
- * @prop --mg-c-card-padding-default: Defines the default padding property for the card. Default value: `--mg-b-size-2w`.
+ * @prop --mg-c-card-padding-default: Defines the default padding property for the card. Default value: `--mg-b-size-16`.
  * @prop --mg-c-card-border: Defines the border property for the card. Unset by default, fallback on `--mg-c-card-border-default`.
  * @prop --mg-c-card-border-default: Defines the default border property for the card. Default value: `var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%)`.
  * @prop --mg-c-card-border-radius: Defines the border radius property for the card. Unset by default, fallback on `--mg-c-card-border-radius-default`.
@@ -51,7 +51,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: var(--mg-b-size-v);
+    width: var(--mg-b-size-4);
     height: 100%;
   }
 }

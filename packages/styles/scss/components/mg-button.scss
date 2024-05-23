@@ -65,7 +65,7 @@
 
 /* Styles */
 .mg-c-button {
-  $padding-value: calc((var(--mg-b-size-min-height) - (2 * var(--mg-b-size-border)) - (var(--mg-b-font-size) * var(--mg-b-line-height))) / 2) var(--mg-b-size-3v);
+  $padding-value: calc((var(--mg-b-size-min-height) - (2 * var(--mg-b-size-border)) - (var(--mg-b-font-size) * var(--mg-b-line-height))) / 2) var(--mg-b-size-12);
 
   position: relative;
   display: inline-flex;
@@ -79,7 +79,7 @@
   border-radius: var(--mg-c-button-border-radius-top-left, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-top-right, var(--mg-c-button-border-radius))
     var(--mg-c-button-border-radius-bottom-right, var(--mg-c-button-border-radius)) var(--mg-c-button-border-radius-bottom-left, var(--mg-c-button-border-radius));
   background-image: none;
-  column-gap: var(--mg-b-size-w);
+  column-gap: var(--mg-b-size-8);
   cursor: pointer;
   touch-action: manipulation;
 
@@ -117,7 +117,7 @@
 
     display: flex;
     align-items: center;
-    column-gap: var(--mg-b-size-w);
+    column-gap: var(--mg-b-size-8);
   }
 
   // Link variant

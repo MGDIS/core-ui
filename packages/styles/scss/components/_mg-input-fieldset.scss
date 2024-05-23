@@ -14,7 +14,7 @@
     width: var(--mg-c-input-check-size);
     height: var(--mg-c-input-check-size);
     flex-shrink: 0; /* Ensure checkbox won't resize in flex element */
-    margin: calc((var(--mg-b-font-size) * var(--mg-b-line-height) - var(--mg-c-input-check-size)) / 2) var(--mg-b-size-w) 0 0;
+    margin: calc((var(--mg-b-font-size) * var(--mg-b-line-height) - var(--mg-c-input-check-size)) / 2) var(--mg-b-size-8) 0 0;
   }
 
   .mg-c-input__input-group {
@@ -27,7 +27,7 @@
       padding: 0;
       margin: 0;
       margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
-      gap: var(--mg-b-size-3v) var(--mg-b-size-3w);
+      gap: var(--mg-b-size-12) var(--mg-b-size-24);
       list-style: none;
     }
   }
@@ -43,12 +43,12 @@
   }
 
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {
-    margin-top: var(--mg-b-size-w);
+    margin-top: var(--mg-b-size-8);
   }
 }
 
 :host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
-  margin-left: var(--mg-b-size-4w);
+  margin-left: var(--mg-b-size-32);
 }
 
 :host(.mg-c-input.mg-c-input--checkbox),

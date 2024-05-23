@@ -11,7 +11,7 @@
   &__box {
     height: var(--mg-b-size-min-height);
     box-sizing: border-box;
-    padding: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-b-size-w);
+    padding: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-b-size-8);
     border-width: var(--mg-c-input-border-width);
     border-style: solid;
     border-color: var(--mg-c-input-color);
@@ -29,7 +29,7 @@
     }
 
     &:focus {
-      box-shadow: 0 0 var(--mg-b-size-v) var(--mg-c-input-color-shadow-focus);
+      box-shadow: 0 0 var(--mg-b-size-4) var(--mg-c-input-color-shadow-focus);
     }
 
     // disabled

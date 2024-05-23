@@ -159,7 +159,7 @@ Type: `Promise<void>`
 
 | Name                             | Description                                                                        |
 | -------------------------------- | ---------------------------------------------------------------------------------- |
-| `--mg-c-form-inputs-title-width` | Defines the width of the input title. Fallback on `calc(28 * var(--mg-b-size-w))`. |
+| `--mg-c-form-inputs-title-width` | Defines the width of the input title. Fallback on `calc(28 * var(--mg-b-size-8))`. |
 
 
 ----------------------------------------------

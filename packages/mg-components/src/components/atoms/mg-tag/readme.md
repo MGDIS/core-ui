@@ -65,7 +65,7 @@ For accessibility, soft variant tags cannot use an icon on its own.
 | -------------------------- | ---------------------------------------------------------------------------- |
 | `--mg-c-tag-border-radius` | Defines the border radius of the tag. Default value is `--mg-b-size-radius`. |
 | `--mg-c-tag-font-size`     | Defines the font size of the tag. Default value is `1.2rem`.                 |
-| `--mg-c-tag-height`        | Defines the height of the tag. Default value is `--mg-b-size-3w`.            |
+| `--mg-c-tag-height`        | Defines the height of the tag. Default value is `--mg-b-size-24`.            |
 
 
 ----------------------------------------------

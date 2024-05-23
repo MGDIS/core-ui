@@ -92,8 +92,8 @@ The value of the max-width can be modified according to the case via the CSS var
 | `--mg-c-popover-font-color`         | Defines the font color of the popover. Default value: `--mg-b-color-font-dark`.                      |
 | `--mg-c-popover-max-width`          | Defines the max-width of the popover. Default value: `--mg-b-size-floating-element-max-width`.       |
 | `--mg-c-popover-min-width`          | Defines the min-width of the popover. Default value: `unset`.                                        |
-| `--mg-c-popover-padding-horizontal` | Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-2w`. |
-| `--mg-c-popover-padding-vertical`   | Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-2w`.   |
+| `--mg-c-popover-padding-horizontal` | Defines the horizontal padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`. |
+| `--mg-c-popover-padding-vertical`   | Defines the vertical padding of the popover. Default value: `unset`, fallback to `--mg-b-size-16`.   |
 | `--mg-c-popover-title-font-size`    | Defines the font size of the popover title. Default value: `--mg-b-font-size-h5`.                    |
 
 

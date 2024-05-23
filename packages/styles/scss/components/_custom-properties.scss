@@ -11,7 +11,7 @@
    */
 
   /* mg-badge */
-  --mg-c-badge-size: var(--mg-b-size-2w);
+  --mg-c-badge-size: var(--mg-b-size-16);
   --mg-c-badge-font-size: 1.1rem;
 
   /* mg-button */
@@ -33,7 +33,7 @@
   --mg-c-button-danger-alt-font-color: var(--mg-b-color-danger);
 
   /* mg-card */
-  --mg-c-card-padding-default: var(--mg-b-size-2w);
+  --mg-c-card-padding-default: var(--mg-b-size-16);
   --mg-c-card-border-radius-default: var(--mg-b-size-radius);
   --mg-c-card-background-default: var(--mg-b-color-light);
   --mg-c-card-border-default: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%);
@@ -42,18 +42,18 @@
   /* mg-divider */
   --mg-c-divider-background-color: color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
   --mg-c-divider-thickness: var(--mg-b-size-border);
-  --mg-c-divider-vertical-spacing: var(--mg-b-size-5w);
+  --mg-c-divider-vertical-spacing: var(--mg-b-size-40);
 
   /* mg-icon */
-  --mg-c-icon-small-size: var(--mg-b-size-3v);
-  --mg-c-icon-medium-size: var(--mg-b-size-2w);
-  --mg-c-icon-large-size: var(--mg-b-size-5v);
-  --mg-c-icon-xlarge-size: var(--mg-b-size-3w);
-  --mg-c-icon-xxlarge-size: var(--mg-b-size-4w);
+  --mg-c-icon-small-size: var(--mg-b-size-12);
+  --mg-c-icon-medium-size: var(--mg-b-size-16);
+  --mg-c-icon-large-size: var(--mg-b-size-20);
+  --mg-c-icon-xlarge-size: var(--mg-b-size-24);
+  --mg-c-icon-xxlarge-size: var(--mg-b-size-32);
   --mg-c-icon-border-radius: 50%;
 
   /* mg-tag */
-  --mg-c-tag-height: var(--mg-b-size-3w);
+  --mg-c-tag-height: var(--mg-b-size-24);
   --mg-c-tag-border-radius: var(--mg-b-size-radius);
   --mg-c-tag-font-size: 1.2rem;
 
@@ -67,10 +67,10 @@
    */
 
   /* mg-details */
-  --mg-c-details-spacing: var(--mg-b-size-w);
+  --mg-c-details-spacing: var(--mg-b-size-8);
 
   /* mg-illustrated-message */
-  --mg-c-illustrated-message-padding-vertical: var(--mg-b-size-5w);
+  --mg-c-illustrated-message-padding-vertical: var(--mg-b-size-40);
 
   /* mg-input-... */
   --mg-c-input-border-width: var(--mg-b-size-border);
@@ -83,7 +83,7 @@
   --mg-c-input-toggle-border-radius-ratio: 2;
 
   /* mg-input-checkbox */
-  --mg-c-input-check-size: var(--mg-b-size-2w);
+  --mg-c-input-check-size: var(--mg-b-size-16);
 
   /* mg-menu-item */
   --mg-c-menu-item-focused-background-color: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
@@ -102,7 +102,7 @@
   --mg-c-panel-border-radius: var(--mg-b-size-radius);
   --mg-c-panel-background: color-mix(in srgb, var(--mg-b-color-info), white 97%);
   --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
-  --mg-c-panel-content-padding: var(--mg-b-size-2w);
+  --mg-c-panel-content-padding: var(--mg-b-size-16);
 
   /* mg-popover */
   --mg-c-popover-background-color: var(--mg-b-color-light);

@@ -1,11 +1,11 @@
 /*!
  * @prop --mg-c-divider-background-color: Defines the background color of the divider. The default value is `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`.
  * @prop --mg-c-divider-thickness: Defines the thickness of the divider. The default value is `--mg-b-size-border`.
- * @prop --mg-c-divider-vertical-spacing: Defines the vertical spacing of the divider. The default value is `--mg-b-size-5w`.
+ * @prop --mg-c-divider-vertical-spacing: Defines the vertical spacing of the divider. The default value is `--mg-b-size-40`.
  */
 
 .mg-c-divider {
-  width: var(--mg-b-size-15w);
+  width: var(--mg-b-size-120);
   height: var(--mg-c-divider-thickness);
   margin: var(--mg-c-divider-vertical-spacing) auto;
   background-color: var(--mg-c-divider-background-color);

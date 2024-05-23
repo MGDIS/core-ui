@@ -13,19 +13,19 @@
 
 $navigation-button-sizes: (
   'medium': (
-    'vertical': var(--mg-b-size-3v),
-    'horizontal': var(--mg-b-size-2w),
-    'height': var(--mg-b-size-5w),
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-16),
+    'height': var(--mg-b-size-40),
   ),
   'large': (
-    'vertical': var(--mg-b-size-3v),
-    'horizontal': var(--mg-b-size-4w),
-    'height': var(--mg-b-size-6w),
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-32),
+    'height': var(--mg-b-size-48),
   ),
   'xlarge': (
-    'vertical': var(--mg-b-size-3v),
-    'horizontal': var(--mg-b-size-5w),
-    'height': var(--mg-b-size-9w),
+    'vertical': var(--mg-b-size-12),
+    'horizontal': var(--mg-b-size-40),
+    'height': var(--mg-b-size-72),
   ),
 );
 
@@ -70,13 +70,13 @@ $navigation-button-sizes: (
 
       &-notification,
       ::slotted([slot='information']) {
-        margin-left: var(--mg-b-size-w);
+        margin-left: var(--mg-b-size-8);
         font-size: var(--mg-b-font-size);
       }
     }
 
     &-new-tab {
-      margin-left: var(--mg-b-size-v);
+      margin-left: var(--mg-b-size-4);
     }
 
     &-chevron {
@@ -134,7 +134,7 @@ $navigation-button-sizes: (
   }
 
   ::slotted(mg-menu) {
-    --mg-c-menu-item-navigation-button-column-gap: var(--mg-b-size-w);
+    --mg-c-menu-item-navigation-button-column-gap: var(--mg-b-size-8);
   }
 }
 
@@ -145,7 +145,7 @@ $navigation-button-sizes: (
     background-color: var(--mg-b-color-light);
 
     ::slotted(mg-menu) {
-      padding: var(--mg-b-size-w) 0;
+      padding: var(--mg-b-size-8) 0;
     }
   }
 }

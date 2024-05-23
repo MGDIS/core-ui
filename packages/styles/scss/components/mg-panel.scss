@@ -4,7 +4,7 @@
  * @prop --mg-c-panel-border-radius: Defines the border radius of the panel. Default value: `--mg-b-size-radius`.
  * @prop --mg-c-panel-background: Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`.
  * @prop --mg-c-panel-box-shadow: Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.
- * @prop --mg-c-panel-content-padding: Defines the padding of the panel content. Default value: `--mg-b-size-2w`.
+ * @prop --mg-c-panel-content-padding: Defines the padding of the panel content. Default value: `--mg-b-size-16`.
  */
 
 :host {
@@ -21,30 +21,30 @@
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 0 var(--mg-b-size-v);
+    padding: 0 var(--mg-b-size-4);
   }
 
   &__header-title,
   &__header-content {
     display: flex;
-    margin: var(--mg-b-size-v) 0;
+    margin: var(--mg-b-size-4) 0;
   }
 
   &__header-content {
     min-height: var(--mg-b-size-min-height);
     flex: 1 auto;
     align-items: center;
-    padding-left: var(--mg-b-size-v);
+    padding-left: var(--mg-b-size-4);
   }
 
   &__header-title {
     mg-input-text {
       flex-grow: 1;
-      margin-left: var(--mg-b-size-v);
+      margin-left: var(--mg-b-size-4);
     }
 
     mg-button + mg-button:not([slot='append-input']) {
-      margin-left: var(--mg-b-size-v);
+      margin-left: var(--mg-b-size-4);
     }
 
     &.mg-c-panel__header-title--full {

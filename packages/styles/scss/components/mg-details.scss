@@ -1,7 +1,7 @@
 @import '../utils/a11y';
 
 /*!
- * @prop --mg-c-details-spacing: Defines the spacing between the summary and the details. Default value: `--mg-b-size-w`.
+ * @prop --mg-c-details-spacing: Defines the spacing between the summary and the details. Default value: `--mg-b-size-8`.
  */
 
 .mg-c-details {
@@ -17,8 +17,8 @@
     flex-shrink: 0;
     align-items: center;
     align-self: flex-start;
-    margin-left: var(--mg-b-size-2w);
-    gap: var(--mg-b-size-v);
+    margin-left: var(--mg-b-size-16);
+    gap: var(--mg-b-size-4);
 
     &-icon.mg-c-details__toggle-icon--reverse {
       transform: rotate(180deg);
