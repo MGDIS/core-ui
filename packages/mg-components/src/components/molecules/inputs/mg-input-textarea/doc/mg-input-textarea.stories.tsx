@@ -9,10 +9,12 @@ export default {
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
   argTypes: {
     mgWidth: {
+      name: 'mg-width',
       options: [2, 4, 16, 'full'],
       control: { type: 'select' },
     },
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },

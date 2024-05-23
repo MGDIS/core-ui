@@ -12,6 +12,7 @@ export default {
       control: { type: 'select' },
     },
     variantStyle: {
+      name: 'variant-style',
       options: [undefined, ...variantStyles],
       control: { type: 'select' },
     },

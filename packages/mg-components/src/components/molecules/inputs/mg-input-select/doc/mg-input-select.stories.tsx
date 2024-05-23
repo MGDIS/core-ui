@@ -15,6 +15,7 @@ export default {
       },
     },
     mgWidth: {
+      name: 'mg-width',
       options: [undefined, 2, 4, 16, 'full'],
       control: { type: 'select' },
     },
@@ -22,6 +23,7 @@ export default {
       control: 'object',
     },
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },

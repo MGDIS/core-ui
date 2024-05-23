@@ -10,6 +10,7 @@ export default {
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
   argTypes: {
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },
