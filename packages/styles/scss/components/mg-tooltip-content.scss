@@ -3,7 +3,7 @@
   display: none;
   max-width: var(--mg-b-size-floating-element-max-width);
   box-sizing: border-box;
-  padding: var(--mg-b-size-v) var(--mg-b-size-w);
+  padding: var(--mg-b-size-4) var(--mg-b-size-8);
   border-radius: var(--mg-c-tooltip-border-radius);
   background-color: var(--mg-c-tooltip-background-color);
   color: var(--mg-c-tooltip-font-color);
@@ -30,24 +30,24 @@
   &::before {
     position: absolute;
     z-index: 9999;
-    width: var(--mg-b-size-w);
-    height: var(--mg-b-size-w);
+    width: var(--mg-b-size-8);
+    height: var(--mg-b-size-8);
     background-color: var(--mg-c-tooltip-background-color);
   }
 
   :host([data-popper-placement^='top']) > & {
-    bottom: calc(-1 * var(--mg-b-size-v));
+    bottom: calc(-1 * var(--mg-b-size-4));
   }
 
   :host([data-popper-placement^='bottom']) > & {
-    top: calc(-1 * var(--mg-b-size-v));
+    top: calc(-1 * var(--mg-b-size-4));
   }
 
   :host([data-popper-placement^='left']) > & {
-    right: calc(-1 * var(--mg-b-size-v));
+    right: calc(-1 * var(--mg-b-size-4));
   }
 
   :host([data-popper-placement^='right']) > & {
-    left: calc(-1 * var(--mg-b-size-v));
+    left: calc(-1 * var(--mg-b-size-4));
   }
 }

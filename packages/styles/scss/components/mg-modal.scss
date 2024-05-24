@@ -9,7 +9,7 @@
 :host {
   // Set mg-card variables
   --mg-c-card-border-radius: var(--mg-c-modal-border-radius);
-  --mg-c-card-padding: var(--mg-b-size-2w) var(--mg-b-size-3w);
+  --mg-c-card-padding: var(--mg-b-size-16) var(--mg-b-size-24);
   --mg-c-card-border: none;
 }
 
@@ -19,13 +19,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--mg-b-size-3w) 0;
+  padding: var(--mg-b-size-24) 0;
   background-color: color-mix(in srgb, var(--mg-b-color-light), transparent 15%);
   inset: 0;
 
   mg-card {
     display: flex;
-    width: calc(75 * var(--mg-b-size-w)); // 600px
+    width: calc(75 * var(--mg-b-size-8)); // 600px
     max-width: 100%;
     max-height: 100%;
   }
@@ -37,7 +37,7 @@
     max-height: 100%;
     flex-direction: column;
     align-self: center;
-    row-gap: var(--mg-b-size-3w);
+    row-gap: var(--mg-b-size-24);
   }
 
   &__title {
@@ -51,13 +51,13 @@
     height: var(--mg-c-modal-title-font-size);
     margin-top: calc((var(--mg-b-size-min-height) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
     margin-right: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-medium-size)) / 2 * -1); // -10px;
-    margin-left: var(--mg-b-size-2w);
+    margin-left: var(--mg-b-size-16);
     float: right;
   }
 
   &__content {
-    padding: var(--mg-b-size-2w);
-    margin: calc(var(--mg-b-size-2w) * -1);
+    padding: var(--mg-b-size-16);
+    margin: calc(var(--mg-b-size-16) * -1);
     overflow-y: auto;
 
     &::slotted(*) {

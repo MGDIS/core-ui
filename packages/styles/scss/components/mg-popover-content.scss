@@ -1,13 +1,13 @@
 @import 'mixins/reset-mg-card-slotted-variables';
 
-$border-arrow-head: var(--mg-b-size-w) solid var(--mg-c-popover-background-color);
-$border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
+$border-arrow-head: var(--mg-b-size-8) solid var(--mg-c-popover-background-color);
+$border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
 
 :host {
   position: relative;
   z-index: 2000;
   display: none;
-  padding: var(--mg-b-size-w);
+  padding: var(--mg-b-size-8);
   color: var(--mg-c-popover-font-color);
 }
 
@@ -19,7 +19,7 @@ $border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
 :host([data-popper-placement^='left-end']),
 :host([data-popper-placement^='right-start']),
 :host([data-popper-placement^='right-end']) {
-  padding: 0 var(--mg-b-size-w);
+  padding: 0 var(--mg-b-size-8);
 }
 
 .mg-c-popover-content {
@@ -29,12 +29,12 @@ $border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
   mg-button {
     margin-top: calc(-1 * ((var(--mg-b-size-min-height) - var(--mg-c-popover-title-font-size) * var(--mg-b-line-height)) / 2));
     margin-right: calc(-1 * ((var(--mg-b-size-min-height) - var(--mg-c-icon-medium-size)) / 2));
-    margin-left: var(--mg-b-size-4w);
+    margin-left: var(--mg-b-size-32);
     float: right;
   }
 
   &__title ::slotted([slot='title']) {
-    margin: 0 0 var(--mg-b-size-w) !important; /* stylelint-disable-line declaration-no-important */
+    margin: 0 0 var(--mg-b-size-8) !important; /* stylelint-disable-line declaration-no-important */
     font-size: var(--mg-c-popover-title-font-size) !important; /* stylelint-disable-line declaration-no-important */
     font-weight: 600 !important; /* stylelint-disable-line declaration-no-important */
   }
@@ -67,8 +67,8 @@ $border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
 * Arrow style
 */
 ::slotted([slot='arrow']) {
-  $width-value: calc(var(--mg-b-size-3w) + 2 * var(--mg-c-card-border-radius) + 2 * var(--mg-b-size-w));
-  $popover-position: calc(var(--mg-c-card-border-radius) + var(--mg-b-size-w));
+  $width-value: calc(var(--mg-b-size-24) + 2 * var(--mg-c-card-border-radius) + 2 * var(--mg-b-size-8));
+  $popover-position: calc(var(--mg-c-card-border-radius) + var(--mg-b-size-8));
 
   position: absolute;
 
@@ -92,7 +92,7 @@ $border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
   */
   :host([data-popper-placement^='top']) &,
   :host([data-popper-placement^='bottom']) & {
-    height: var(--mg-b-size-w);
+    height: var(--mg-b-size-8);
 
     &::before {
       left: $popover-position;
@@ -121,7 +121,7 @@ $border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
 
   :host([data-popper-placement^='left']) &,
   :host([data-popper-placement^='right']) & {
-    width: var(--mg-b-size-w);
+    width: var(--mg-b-size-8);
 
     &::before {
       top: $popover-position;
@@ -152,7 +152,7 @@ $border-arrow-side: calc(var(--mg-b-size-3w) / 2) solid transparent;
   :host([data-popper-placement^='left-end']) &,
   :host([data-popper-placement^='right-start']) &,
   :host([data-popper-placement^='right-end']) & {
-    $height-value: calc(var(--mg-b-size-3w) + 2 * var(--mg-c-card-border-radius));
+    $height-value: calc(var(--mg-b-size-24) + 2 * var(--mg-c-card-border-radius));
 
     height: $height-value;
 

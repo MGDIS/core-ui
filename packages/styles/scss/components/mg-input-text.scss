@@ -11,13 +11,13 @@
   width: 100%;
 
   .mg-c-input.mg-u-is-focused & .mg-c-input__box {
-    padding-right: calc(var(--mg-c-character-left-message-length) * 1ch + var(--mg-b-size-w));
+    padding-right: calc(var(--mg-c-character-left-message-length) * 1ch + var(--mg-b-size-8));
   }
 
   mg-character-left {
     position: absolute;
     top: 50%;
-    right: var(--mg-b-size-w);
+    right: var(--mg-b-size-8);
     display: none;
     font-size: 1.1rem;
     opacity: 0.6;
@@ -36,12 +36,12 @@
   & > mg-icon {
     position: absolute;
     top: 50%;
-    left: var(--mg-b-size-w);
+    left: var(--mg-b-size-8);
     color: var(--mg-c-input-color);
     transform: translateY(-50%);
   }
 
   .mg-c-input__box {
-    padding-left: calc(var(--mg-c-icon-medium-size) + var(--mg-b-size-w) * 2);
+    padding-left: calc(var(--mg-c-icon-medium-size) + var(--mg-b-size-8) * 2);
   }
 }

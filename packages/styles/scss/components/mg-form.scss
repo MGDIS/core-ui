@@ -1,20 +1,20 @@
 @import 'form';
 
 /*!
- * @prop --mg-c-form-inputs-title-width: Defines the width of the input title. Fallback on `calc(28 * var(--mg-b-size-w))`.
+ * @prop --mg-c-form-inputs-title-width: Defines the width of the input title. Fallback on `calc(28 * var(--mg-b-size-8))`.
  */
 
 .mg-c-form {
-  --mg-c-input-title-width: var(--mg-c-form-inputs-title-width, calc(28 * var(--mg-b-size-w))); // 224px
-  --mg-c-input-margin-bottom: var(--mg-b-size-2w);
-  --mg-c-input-title-horizontal-space: var(--mg-b-size-4w);
+  --mg-c-input-title-width: var(--mg-c-form-inputs-title-width, calc(28 * var(--mg-b-size-8))); // 224px
+  --mg-c-input-margin-bottom: var(--mg-b-size-16);
+  --mg-c-input-title-horizontal-space: var(--mg-b-size-32);
 
   &.mg-c-form--all-required {
     --mg-c-input-title-display: none;
   }
 
   &.mg-c-form--label-on-top {
-    --mg-c-input-margin-bottom: var(--mg-b-size-3w);
+    --mg-c-input-margin-bottom: var(--mg-b-size-24);
   }
 
   & > p {

@@ -9,11 +9,11 @@ $color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
 
 .mg-c-input {
   &__toggle-item-container {
-    $border-radius-value: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-v))) / var(--mg-c-input-toggle-border-radius-ratio));
+    $border-radius-value: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))) / var(--mg-c-input-toggle-border-radius-ratio));
 
     overflow: hidden;
     box-sizing: border-box;
-    padding: var(--mg-b-size-v) var(--mg-b-size-w);
+    padding: var(--mg-b-size-4) var(--mg-b-size-8);
     border: 0;
     border-radius: $border-radius-value;
     background-color: unset;
@@ -32,14 +32,14 @@ $color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
   &__button-toggle {
     /* stylelint-disable scss/operator-no-newline-after */
     $border-radius-value: calc(
-      ((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * ((var(--mg-b-size-v) + var(--mg-b-size-v)) + var(--mg-c-input-border-width)))) /
+      ((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * ((var(--mg-b-size-4) + var(--mg-b-size-4)) + var(--mg-c-input-border-width)))) /
         var(--mg-c-input-toggle-border-radius-ratio)
     );
     /* stylelint-enable scss/operator-no-newline-after */
 
     display: flex;
     min-width: 0;
-    padding: var(--mg-b-size-v);
+    padding: var(--mg-b-size-4);
     border-width: var(--mg-c-input-border-width);
     border-style: solid;
     border-color: var(--mg-c-input-color);
@@ -81,7 +81,7 @@ $color-app-light: color-mix(in srgb, var(--mg-b-color-app), white 80%);
   &.mg-c-input--toggle-icon {
     /* stylelint-disable-next-line no-descending-specificity */
     .mg-c-input__toggle-item-container {
-      $size: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-v))));
+      $size: calc(((var(--mg-b-font-size) * var(--mg-b-line-height)) + (2 * var(--mg-b-size-4))));
 
       display: flex;
       width: $size;

@@ -1,5 +1,5 @@
 /*!
- * @prop --mg-c-badge-size: Defines the height and minimum width of the badge. The default value is `--mg-b-size-2w`.
+ * @prop --mg-c-badge-size: Defines the height and minimum width of the badge. The default value is `--mg-b-size-16`.
  * @prop --mg-c-badge-font-size: Defines the font size of the badge. The default value is `1.1rem`.
  * @prop --mg-c-badge-text-color: Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`.
  */
@@ -41,7 +41,7 @@
   min-width: var(--mg-c-badge-size);
   height: var(--mg-c-badge-size);
   box-sizing: border-box;
-  padding: 0 var(--mg-b-size-v);
+  padding: 0 var(--mg-b-size-4);
   border: var(--mg-b-size-border) solid;
   border-radius: calc(var(--mg-c-badge-size) / 2);
   font-size: var(--mg-c-badge-font-size);

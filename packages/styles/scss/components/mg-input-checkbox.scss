@@ -3,7 +3,7 @@
 .mg-c-input.mg-c-input--checkbox-multi {
   .mg-c-input {
     &__input-group-container {
-      padding: var(--mg-b-size-v) var(--mg-b-size-w);
+      padding: var(--mg-b-size-4) var(--mg-b-size-8);
       margin: 0;
     }
 
@@ -12,21 +12,21 @@
       width: unset;
       flex: unset;
       flex-wrap: wrap;
-      column-gap: var(--mg-b-size-w);
+      column-gap: var(--mg-b-size-8);
 
       &-list {
         display: flex;
         flex-flow: row wrap;
         padding: 0;
         margin: 0;
-        gap: var(--mg-b-size-v);
+        gap: var(--mg-b-size-4);
         list-style: none;
       }
     }
 
     &__sections {
       max-height: 80vh;
-      padding-right: var(--mg-b-size-w);
+      padding-right: var(--mg-b-size-8);
       overflow-y: auto;
     }
 
@@ -36,7 +36,7 @@
       flex-wrap: wrap;
       flex-wrap: nowrap;
       align-items: center;
-      gap: var(--mg-b-size-w);
+      gap: var(--mg-b-size-8);
       text-wrap: nowrap;
 
       &-tootlip {
@@ -56,7 +56,7 @@
         }
 
         &--static.mg-c-input__section-header-title {
-          margin: 0 var(--mg-b-size-3v);
+          margin: 0 var(--mg-b-size-12);
         }
       }
     }
@@ -68,8 +68,8 @@
       box-sizing: border-box;
       align-items: center;
       justify-content: center;
-      padding: calc((var(--mg-b-size-min-height) - 2 * var(--mg-b-size-border) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-b-size-3v);
-      border-radius: var(--mg-b-size-v);
+      padding: calc((var(--mg-b-size-min-height) - 2 * var(--mg-b-size-border) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) var(--mg-b-size-12);
+      border-radius: var(--mg-b-size-4);
       background-color: var(--mg-b-color-neutral-20);
       font-size: var(--mg-b-font-size);
     }
@@ -81,25 +81,25 @@
 
   /* Variations */
   &.mg-c-input--with-values .mg-c-input__input-container {
-    gap: var(--mg-b-size-v);
+    gap: var(--mg-b-size-4);
   }
 
   &.mg-c-input--search-mode .mg-c-input__content {
     display: flex;
-    width: calc(var(--mg-b-size-floating-element-max-width) - var(--mg-b-size-2w));
-    height: calc(50 * var(--mg-b-size-w)); // 400px;
+    width: calc(var(--mg-b-size-floating-element-max-width) - var(--mg-b-size-16));
+    height: calc(50 * var(--mg-b-size-8)); // 400px;
     flex-direction: column;
   }
 
   &:not(.mg-c-input--label-on-top) mg-tooltip:not(.mg-c-input__section-header-tootlip) {
-    margin-left: var(--mg-b-size-w);
+    margin-left: var(--mg-b-size-8);
   }
 
   mg-popover {
-    --mg-c-card-padding: var(--mg-b-size-w);
+    --mg-c-card-padding: var(--mg-b-size-8);
   }
 
   mg-input-text {
-    --mg-c-input-margin-bottom: var(--mg-b-size-w);
+    --mg-c-input-margin-bottom: var(--mg-b-size-8);
   }
 }

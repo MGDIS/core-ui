@@ -3,7 +3,7 @@
 @use 'sass:string';
 
 /*!
- * @prop --mg-c-tag-height: Defines the height of the tag. Default value is `--mg-b-size-3w`.
+ * @prop --mg-c-tag-height: Defines the height of the tag. Default value is `--mg-b-size-24`.
  * @prop --mg-c-tag-border-radius: Defines the border radius of the tag. Default value is `--mg-b-size-radius`.
  * @prop --mg-c-tag-font-size: Defines the font size of the tag. Default value is `1.2rem`.
  */
@@ -15,7 +15,7 @@
 /* Styles */
 .mg-c-tag {
   $padding-vertical: calc((var(--mg-c-tag-height) - (2 * var(--mg-b-size-border)) - (var(--mg-c-tag-font-size) * var(--mg-b-line-height))) / 2);
-  $padding-horizontal: calc(var(--mg-b-size-w) - var(--mg-b-size-border));
+  $padding-horizontal: calc(var(--mg-b-size-8) - var(--mg-b-size-border));
 
   display: inline-flex;
   min-height: var(--mg-c-tag-height);
@@ -66,7 +66,7 @@
 }
 
 ::slotted(mg-icon) {
-  margin-right: var(--mg-b-size-v);
+  margin-right: var(--mg-b-size-4);
 }
 
 slot {
