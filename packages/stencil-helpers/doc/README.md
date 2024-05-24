@@ -345,7 +345,7 @@ Filter default argument on component argument to prevent them to be rendered
 
 all possible args with custom values
 
-• **defaultValues?**: `T`
+• **defaultValues?**: `Partial`\<`T`\>
 
 component default args values
 

@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { variants } from '../mg-message.conf';
+import { variantStyles, variants } from '../mg-message.conf';
 import type { MgMessage as MgMessageType } from '../mg-message';
 
 export default {
@@ -8,10 +8,18 @@ export default {
   title: 'Molecules/mg-message',
   argTypes: {
     variant: {
-      options: variants,
+      options: [undefined, ...variants],
       control: { type: 'select' },
       table: {
         defaultValue: { summary: variants[0] },
+      },
+    },
+    variantStyle: {
+      name: 'variant-style',
+      options: [undefined, ...variantStyles],
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: variantStyles[0] },
       },
     },
   },
@@ -24,7 +32,7 @@ export default {
  * @returns HTMLElement
  */
 const Template = (args: MgMessageType & { slotContent: string; slotActions: string }): HTMLElement => (
-  <mg-message {...filterArgs(args, { variant: variants[0] })}>
+  <mg-message {...filterArgs(args, { variant: variants[0], variantStyle: variantStyles[0] })}>
     {args.slotContent && <span innerHTML={args.slotContent}></span>}
     {args.slotActions && <span slot="actions" innerHTML={args.slotActions}></span>}
   </mg-message>
@@ -37,6 +45,7 @@ export const MgMessage = {
     slotActions: ``,
     identifier: 'identifier',
     variant: variants[0], // info
+    variantStyle: variantStyles[0], // bar-left
     closeButton: false,
     hidden: false,
     delay: undefined,

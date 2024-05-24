@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-23T10:01:46",
+  "timestamp": "2024-05-24T12:21:16",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -1689,7 +1689,7 @@
       "filePath": "src/components/atoms/mg-card/mg-card.tsx",
       "encapsulation": "shadow",
       "tag": "mg-card",
-      "readme": "## Specifications\n\n### Style\n\n![](./doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--docs)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--docs)\n\n### Variant on bar / on background\n\nYou can set variant color on left bar or on background of the card\n\nValues for variant colors are:\n\n- info\n- success\n- warning\n- danger\n- app\n\n![](./doc/img/mg-card-variant.png)\n\n_exemple of \"app color\" for the last one_\n\nVariant applied on the left bar uses **[full colors](./?path=/docs/style-colors--docs)**\n\nVariant applied on the background uses **[soft colors](./?path=/docs/style-colors--docs)**\n\n### Spacing\n\n![](./doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n",
+      "readme": "## Specifications\n\n### Style\n\n![](./doc/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--docs)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--docs)\n\n### Spacing\n\n![](./doc/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./doc/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n",
       "docs": "",
       "docsTags": [
         {
@@ -1698,84 +1698,7 @@
         }
       ],
       "usage": {},
-      "props": [
-        {
-          "name": "variant",
-          "type": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
-          "complexType": {
-            "original": "undefined | VariantType",
-            "resolved": "\"app\" | \"danger\" | \"info\" | \"success\" | \"warning\"",
-            "references": {
-              "VariantType": {
-                "location": "import",
-                "path": "./mg-card.conf",
-                "id": "src/components/atoms/mg-card/mg-card.conf.ts::VariantType"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "variant",
-          "reflectToAttr": false,
-          "docs": "Define variant prop",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "app",
-              "type": "string"
-            },
-            {
-              "value": "danger",
-              "type": "string"
-            },
-            {
-              "value": "info",
-              "type": "string"
-            },
-            {
-              "value": "success",
-              "type": "string"
-            },
-            {
-              "value": "warning",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "variantStyle",
-          "type": "\"bar-left\" | \"fill\"",
-          "complexType": {
-            "original": "undefined | VariantStyleType",
-            "resolved": "\"bar-left\" | \"fill\"",
-            "references": {
-              "VariantStyleType": {
-                "location": "import",
-                "path": "./mg-card.conf",
-                "id": "src/components/atoms/mg-card/mg-card.conf.ts::VariantStyleType"
-              }
-            }
-          },
-          "mutable": true,
-          "attr": "variant-style",
-          "reflectToAttr": false,
-          "docs": "Define variantStyle prop",
-          "docsTags": [],
-          "values": [
-            {
-              "value": "bar-left",
-              "type": "string"
-            },
-            {
-              "value": "fill",
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        }
-      ],
+      "props": [],
       "methods": [],
       "events": [],
       "listeners": [],
@@ -11255,7 +11178,7 @@
           "mutable": true,
           "attr": "close-button",
           "reflectToAttr": false,
-          "docs": "Define if message has a cross button\nRG 01: https://jira.mgdis.fr/browse/PDA9-140",
+          "docs": "Define if message has a cross button",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -11334,7 +11257,7 @@
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
           "complexType": {
-            "original": "VariantType",
+            "original": "undefined | VariantType",
             "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
             "references": {
               "VariantType": {
@@ -11347,9 +11270,9 @@
           "mutable": false,
           "attr": "variant",
           "reflectToAttr": false,
-          "docs": "Message variant",
+          "docs": "Define variant",
           "docsTags": [],
-          "default": "variants[0]",
+          "default": "'info'",
           "values": [
             {
               "value": "danger",
@@ -11365,6 +11288,39 @@
             },
             {
               "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "variantStyle",
+          "type": "\"bar-left\" | \"fill\"",
+          "complexType": {
+            "original": "undefined | VariantStyleType",
+            "resolved": "\"bar-left\" | \"fill\"",
+            "references": {
+              "VariantStyleType": {
+                "location": "import",
+                "path": "./mg-message.conf",
+                "id": "src/components/molecules/mg-message/mg-message.conf.ts::VariantStyleType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant-style",
+          "reflectToAttr": false,
+          "docs": "Define variant style",
+          "docsTags": [],
+          "default": "'bar-left'",
+          "values": [
+            {
+              "value": "bar-left",
+              "type": "string"
+            },
+            {
+              "value": "fill",
               "type": "string"
             }
           ],
@@ -13172,16 +13128,6 @@
       "docstring": "Available menu item status",
       "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
     },
-    "src/components/atoms/mg-card/mg-card.conf.ts::VariantType": {
-      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\" | \"app\"",
-      "docstring": "",
-      "path": "src/components/atoms/mg-card/mg-card.conf.ts"
-    },
-    "src/components/atoms/mg-card/mg-card.conf.ts::VariantStyleType": {
-      "declaration": "\"fill\" | \"bar-left\"",
-      "docstring": "",
-      "path": "src/components/atoms/mg-card/mg-card.conf.ts"
-    },
     "src/components/atoms/mg-tag/mg-tag.conf.ts::TagVariantType": {
       "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\"",
       "docstring": "",
@@ -13284,6 +13230,11 @@
     },
     "src/components/molecules/mg-message/mg-message.conf.ts::VariantType": {
       "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
+      "docstring": "",
+      "path": "src/components/molecules/mg-message/mg-message.conf.ts"
+    },
+    "src/components/molecules/mg-message/mg-message.conf.ts::VariantStyleType": {
+      "declaration": "\"fill\" | \"bar-left\"",
       "docstring": "",
       "path": "src/components/molecules/mg-message/mg-message.conf.ts"
     },

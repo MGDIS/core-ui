@@ -72,16 +72,35 @@ No more `variables.scss` export, only `variables.css`.
 
 ## mg-components v6.0.0
 
-- [`size` prop updates](#size-prop-updates)
-- [Changes in `mg-button`](#changes-in-mg-button)
-- [Changes in `mg-divider`](#changes-in-mg-divider)
-- [Changes in `mg-icon`](#changes-in-mg-icon)
-- [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
-- [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
-- [Changes in `mg-menu`](#changes-in-mg-menu)
-- [Hide Components](#hide-components)
-- [Internal components](#internal-components)
-- [Stylesheet](#stylesheet)
+- [Breaking Changes](#breaking-changes)
+  - [Versions](#versions)
+  - [mg-components v2.0.0](#mg-components-v200)
+    - [mg-icon](#mg-icon)
+    - [Custom Event Names](#custom-event-names)
+  - [mg-components v3.0.0](#mg-components-v300)
+    - [Component Properties](#component-properties)
+  - [mg-components v4.0.0](#mg-components-v400)
+    - [Default Language and Currency](#default-language-and-currency)
+    - [mg-input](#mg-input)
+    - [mg-character-left](#mg-character-left)
+    - [mg-icon](#mg-icon-1)
+  - [mg-components v5.0.0](#mg-components-v500)
+    - [Shadow DOM](#shadow-dom)
+    - [mg-button](#mg-button)
+    - [Mandatory Props](#mandatory-props)
+    - [variables.scss](#variablesscss)
+  - [mg-components v6.0.0](#mg-components-v600)
+    - [`size` prop updates](#size-prop-updates)
+    - [Changes in `mg-button`](#changes-in-mg-button)
+    - [Changes in `mg-divider`](#changes-in-mg-divider)
+    - [Changes in `mg-icon`](#changes-in-mg-icon)
+    - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
+    - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
+    - [Changes in `mg-menu`](#changes-in-mg-menu)
+    - [Changes in `mg-card` and `<mg-message>`](#changes-in-mg-card-and-mg-message)
+    - [Hide components](#hide-components)
+    - [Internal components](#internal-components)
+    - [Stylesheet](#stylesheet)
 
 ### `size` prop updates
 
@@ -173,6 +192,10 @@ No more `variables.scss` export, only `variables.css`.
   <mg-menu size="large">...</mg-menu>
   <mg-menu size="xlarge">...</mg-menu>
   ```
+
+### Changes in `mg-card` and `<mg-message>`
+
+- Move `variant` and `variantStyle` props to `<mg-message>`
 
 ### Hide components
 

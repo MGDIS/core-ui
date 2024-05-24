@@ -1,6 +1,6 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, forceUpdate } from '@stencil/core';
 import { createID, ClassList } from '@mgdis/stencil-helpers';
-import { variants, VariantType } from './mg-message.conf';
+import { variants, variantStyles, VariantStyleType, VariantType } from './mg-message.conf';
 import { initLocales } from '../../../locales';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
@@ -17,6 +17,8 @@ export class MgMessage {
   /************
    * Internal *
    ************/
+
+  private readonly classBase = 'mg-c-message';
 
   // Stored timer setted when hide action is run from setTimeOut
   private storedTimer: ReturnType<typeof setTimeout> = null;
@@ -49,35 +51,46 @@ export class MgMessage {
    */
   @Prop() delay?: number;
   @Watch('delay')
-  validateDelay(newValue: MgMessage['delay']): void {
+  watchDelay(newValue: MgMessage['delay']): void {
     if (newValue !== undefined && newValue < 2) {
       throw new Error(`<mg-message> prop "delay" must be greater than 2 seconds.`);
     }
   }
 
   /**
-   * Message variant
+   * Define variant
    */
-  @Prop() variant: VariantType = variants[0]; // info
+  @Prop() variant: undefined | VariantType = 'info';
   @Watch('variant')
-  validateVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
+  watchVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']) {
     if (!variants.includes(newValue)) {
       throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
-      if (oldValue !== undefined) {
-        this.classCollection.delete(`mg-c-message--${oldValue}`);
-      }
-      this.classCollection.add(`mg-c-message--${newValue}`);
+      if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
+      if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+    }
+  }
+
+  /**
+   * Define variant style
+   */
+  @Prop() variantStyle: undefined | VariantStyleType = 'bar-left';
+  @Watch('variantStyle')
+  watchVariantStyle(newValue: MgMessage['variantStyle'], oldValue?: MgMessage['variantStyle']) {
+    if (!variantStyles.includes(newValue)) {
+      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
+    } else {
+      if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
+      if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
     }
   }
 
   /**
    * Define if message has a cross button
-   * RG 01: https://jira.mgdis.fr/browse/PDA9-140
    */
   @Prop({ mutable: true }) closeButton = false;
   @Watch('closeButton')
-  validateCloseButton(newValue: MgMessage['closeButton']): void {
+  watchCloseButton(newValue: MgMessage['closeButton']): void {
     if (newValue && this.hasActions) {
       this.closeButton = false;
       throw new Error('<mg-message> prop "close-button" can\'t be used with the actions slot.');
@@ -89,7 +102,7 @@ export class MgMessage {
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
   @Watch('hidden')
-  validateHidden(newValue: boolean): void {
+  watchHidden(newValue: boolean): void {
     if (typeof newValue === 'string' && newValue === '') {
       newValue = true;
     }
@@ -217,15 +230,16 @@ export class MgMessage {
     // Get locales
     this.messages = initLocales(this.element).messages;
     // Validate
-    this.validateVariant(this.variant);
+    this.watchVariant(this.variant);
+    this.watchDelay(this.delay);
+    this.watchHidden(this.element.hidden);
+    this.watchVariantStyle(this.variantStyle);
     // Check if close button is an can be activated
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
-    this.validateCloseButton(this.closeButton);
+    this.watchCloseButton(this.closeButton);
     if (this.closeButton) {
       this.classCollection.add('mg-c-message--close-button');
     }
-    this.validateDelay(this.delay);
-    this.validateHidden(this.element.hidden);
   }
 
   /**
@@ -239,7 +253,8 @@ export class MgMessage {
 
     return (
       <div id={this.identifier} class={this.classCollection.join()} role={role}>
-        <mg-card variant={this.variant} variant-style="bar-left">
+        <mg-card>
+          {this.variantStyle.startsWith('bar-') && <span class="mg-c-message__bar"></span>}
           <span class="mg-c-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>
