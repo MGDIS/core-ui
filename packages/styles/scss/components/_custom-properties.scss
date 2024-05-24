@@ -17,39 +17,38 @@
   /* mg-button */
   --mg-c-button-border-radius: var(--mg-b-size-radius);
   --mg-c-button-icon-border-radius: var(--mg-b-size-min-height);
-  --mg-c-button-disabled-opacity: var(--mg-b-disabled-opacity);
 
   @each $name, $palette, $index in join(variables.$semantics, variables.$brands) {
-    --mg-c-button-#{$name}-background-color: var(--mg-b-color-#{$name});
-    --mg-c-button-#{$name}-border-color: var(--mg-b-color-#{$palette}-#{$index + 10});
-    --mg-c-button-#{$name}-gradient-color: var(--mg-b-color-#{$palette}-#{$index + 10});
-    --mg-c-button-#{$name}-font-color: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
+    --mg-c-button-color-background-#{$name}: var(--mg-b-color-#{$name});
+    --mg-c-button-color-border-#{$name}: var(--mg-b-color-#{$palette}-#{$index + 10});
+    --mg-c-button-color-gradient-#{$name}: var(--mg-b-color-#{$palette}-#{$index + 10});
+    --mg-c-button-color-text-#{$name}: var(--mg-b-color-text-on-#{$name});
   }
 
   // Danger Alt
-  --mg-c-button-danger-alt-background-color: var(--mg-b-color-neutral-10);
-  --mg-c-button-danger-alt-border-color: var(--mg-b-color-neutral-20);
-  --mg-c-button-danger-alt-gradient-color: var(--mg-b-color-neutral-20);
-  --mg-c-button-danger-alt-font-color: var(--mg-b-color-danger);
+  --mg-c-button-color-background-danger-alt: var(--mg-b-color-neutral-10);
+  --mg-c-button-color-border-danger-alt: var(--mg-b-color-neutral-20);
+  --mg-c-button-color-gradient-danger-alt: var(--mg-b-color-neutral-20);
+  --mg-c-button-color-text-danger-alt: var(--mg-b-color-danger);
 
   /* mg-card */
-  --mg-c-card-padding-default: var(--mg-b-size-16);
+  --mg-c-card-spacing-default: var(--mg-b-size-16);
   --mg-c-card-border-radius-default: var(--mg-b-size-radius);
-  --mg-c-card-background-default: var(--mg-b-color-light);
+  --mg-c-card-color-background-default: var(--mg-b-color-light);
   --mg-c-card-border-default: var(--mg-b-size-border) solid color-mix(in srgb, var(--mg-b-color-dark), transparent 95%);
   --mg-c-card-box-shadow-default: var(--mg-b-box-shadow);
 
   /* mg-divider */
-  --mg-c-divider-background-color: color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
+  --mg-c-divider-color-background: color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
   --mg-c-divider-thickness: var(--mg-b-size-border);
-  --mg-c-divider-vertical-spacing: var(--mg-b-size-40);
+  --mg-c-divider-spacing-vertical: var(--mg-b-size-40);
 
   /* mg-icon */
-  --mg-c-icon-small-size: var(--mg-b-size-12);
-  --mg-c-icon-medium-size: var(--mg-b-size-16);
-  --mg-c-icon-large-size: var(--mg-b-size-20);
-  --mg-c-icon-xlarge-size: var(--mg-b-size-24);
-  --mg-c-icon-xxlarge-size: var(--mg-b-size-32);
+  --mg-c-icon-size-small: var(--mg-b-size-12);
+  --mg-c-icon-size-medium: var(--mg-b-size-16);
+  --mg-c-icon-size-large: var(--mg-b-size-20);
+  --mg-c-icon-size-xlarge: var(--mg-b-size-24);
+  --mg-c-icon-size-xxlarge: var(--mg-b-size-32);
   --mg-c-icon-border-radius: 50%;
 
   /* mg-tag */
@@ -59,8 +58,8 @@
 
   /* mg-tooltip */
   --mg-c-tooltip-border-radius: var(--mg-b-size-radius);
-  --mg-c-tooltip-background-color: var(--mg-b-color-dark);
-  --mg-c-tooltip-font-color: var(--mg-b-color-light);
+  --mg-c-tooltip-color-background: var(--mg-b-color-dark);
+  --mg-c-tooltip-color-text: var(--mg-b-color-light);
 
   /**
    * Molecules
@@ -70,14 +69,16 @@
   --mg-c-details-spacing: var(--mg-b-size-8);
 
   /* mg-illustrated-message */
-  --mg-c-illustrated-message-padding-vertical: var(--mg-b-size-40);
+  --mg-c-illustrated-message-spacing-vertical: var(--mg-b-size-40);
 
   /* mg-input-... */
   --mg-c-input-border-width: var(--mg-b-size-border);
   --mg-c-input-border-radius: var(--mg-b-size-radius);
-  --mg-c-input-color: rgb(181 194 201);
-  --mg-c-input-color-shadow-focus: rgb(0 221 255 / 50%);
-  --mg-c-input-error-bg-color: color-mix(in srgb, var(--mg-b-color-danger), white 95%);
+  --mg-c-input-color-border: rgb(181 194 201);
+  --mg-c-input-placeholder-color-text: rgb(181 194 201);
+  --mg-c-input-color-icon: rgb(181 194 201);
+  --mg-c-input-color-box-shadow-focus: rgb(0 221 255 / 50%);
+  --mg-c-input-error-color-background: color-mix(in srgb, var(--mg-b-color-danger), white 95%);
 
   /* mg-input-toggle */
   --mg-c-input-toggle-border-radius-ratio: 2;
@@ -86,9 +87,9 @@
   --mg-c-input-check-size: var(--mg-b-size-16);
 
   /* mg-menu-item */
-  --mg-c-menu-item-focused-background-color: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
-  --mg-c-menu-item-border-color-active: var(--mg-b-color-app);
-  --mg-c-menu-item-color-active: var(--mg-b-color-app);
+  --mg-c-menu-item-color-background-focus: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
+  --mg-c-menu-item-color-border-active: var(--mg-b-color-app);
+  --mg-c-menu-item-color-text-active: var(--mg-b-color-app);
 
   /* mg-message */
   --mg-c-message-border-radius: var(--mg-b-size-radius);
@@ -100,19 +101,19 @@
 
   /* mg-panel */
   --mg-c-panel-border-radius: var(--mg-b-size-radius);
-  --mg-c-panel-background: color-mix(in srgb, var(--mg-b-color-info), white 97%);
+  --mg-c-panel-color-background: color-mix(in srgb, var(--mg-b-color-info), white 97%);
   --mg-c-panel-box-shadow: var(--mg-b-box-shadow);
-  --mg-c-panel-content-padding: var(--mg-b-size-16);
+  --mg-c-panel-content-spacing: var(--mg-b-size-16);
 
   /* mg-popover */
-  --mg-c-popover-background-color: var(--mg-b-color-light);
-  --mg-c-popover-font-color: var(--mg-b-color-dark);
+  --mg-c-popover-color-background: var(--mg-b-color-light);
+  --mg-c-popover-color-text: var(--mg-b-color-dark);
   --mg-c-popover-title-font-size: var(--mg-b-font-size-h5);
   --mg-c-popover-max-width: var(--mg-b-size-floating-element-max-width);
 
   /* mg-tabs */
-  --mg-c-tabs-focused-background-color: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
-  --mg-c-tabs-border-color-active: var(--mg-b-color-app);
-  --mg-c-tabs-color-active: var(--mg-b-color-app);
+  --mg-c-tabs-color-background-focus: color-mix(in srgb, var(--mg-b-color-app), transparent 90%);
+  --mg-c-tabs-color-border-active: var(--mg-b-color-app);
+  --mg-c-tabs-color-text-active: var(--mg-b-color-app);
   --mg-c-tabs-border-bottom: var(--mg-b-size-border) solid var(--mg-b-color-blue-30);
 }

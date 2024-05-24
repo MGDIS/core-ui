@@ -9,7 +9,7 @@
 :host {
   // Set mg-card variables
   --mg-c-card-border-radius: var(--mg-c-modal-border-radius);
-  --mg-c-card-padding: var(--mg-b-size-16) var(--mg-b-size-24);
+  --mg-c-card-spacing: var(--mg-b-size-16) var(--mg-b-size-24);
   --mg-c-card-border: none;
 }
 
@@ -50,7 +50,7 @@
   &__close-button {
     height: var(--mg-c-modal-title-font-size);
     margin-top: calc((var(--mg-b-size-min-height) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
-    margin-right: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-medium-size)) / 2 * -1); // -10px;
+    margin-right: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-size-medium)) / 2 * -1); // -10px;
     margin-left: var(--mg-b-size-16);
     float: right;
   }

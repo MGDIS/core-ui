@@ -80,7 +80,7 @@ When there is not enough space the component take is default appearance.
 
 | Name                                          | Description                                                                               |
 | --------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `--mg-c-illustrated-message-padding-vertical` | Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-40`. |
+| `--mg-c-illustrated-message-spacing-vertical` | Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-40`. |
 
 
 ----------------------------------------------

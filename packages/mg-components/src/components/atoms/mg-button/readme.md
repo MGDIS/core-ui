@@ -75,37 +75,36 @@ To reset the loader after the process has completed, you need to set the `disabl
 | `--mg-c-button-border-radius-top-right`     | Defines the top right border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.    |
 | `--mg-c-button-border-right-width`          | Defines the right border width of the button. Unset by default, fallback on `--mg-b-size-border`.                  |
 | `--mg-c-button-border-top-width`            | Defines the top border width of the button. Unset by default, fallback on `--mg-b-size-border`.                    |
-| `--mg-c-button-danger-alt-background-color` | Defines the background color for the danger-alt variant button.                                                    |
-| `--mg-c-button-danger-alt-border-color`     | Defines the border color for the danger-alt variant button.                                                        |
-| `--mg-c-button-danger-alt-font-color`       | Defines the font color for the danger-alt variant button.                                                          |
-| `--mg-c-button-danger-alt-gradient-color`   | Defines the gradient color for the danger-alt variant button.                                                      |
-| `--mg-c-button-danger-background-color`     | Defines the background color for the danger variant button.                                                        |
-| `--mg-c-button-danger-border-color`         | Defines the border color for the danger variant button.                                                            |
-| `--mg-c-button-danger-font-color`           | Defines the font color for the danger variant button.                                                              |
-| `--mg-c-button-danger-gradient-color`       | Defines the gradient color for the danger variant button.                                                          |
-| `--mg-c-button-disabled-opacity`            | Defines the opacity of the button when disabled. The default value is `--mg-b-disabled-opacity`.                   |
+| `--mg-c-button-color-background-danger`     | Defines the background color for the danger variant button.                                                        |
+| `--mg-c-button-color-background-danger-alt` | Defines the background color for the danger-alt variant button.                                                    |
+| `--mg-c-button-color-background-info`       | Defines the background color for the info variant button.                                                          |
+| `--mg-c-button-color-background-primary`    | Defines the background color for the primary variant button.                                                       |
+| `--mg-c-button-color-background-secondary`  | Defines the background color for the secondary variant button.                                                     |
+| `--mg-c-button-color-background-success`    | Defines the background color for the success variant button.                                                       |
+| `--mg-c-button-color-background-warning`    | Defines the background color for the warning variant button.                                                       |
+| `--mg-c-button-color-border-danger`         | Defines the border color for the danger variant button.                                                            |
+| `--mg-c-button-color-border-danger-alt`     | Defines the border color for the danger-alt variant button.                                                        |
+| `--mg-c-button-color-border-info`           | Defines the border color for the info variant button.                                                              |
+| `--mg-c-button-color-border-primary`        | Defines the border color for the primary variant button.                                                           |
+| `--mg-c-button-color-border-secondary`      | Defines the border color for the secondary variant button.                                                         |
+| `--mg-c-button-color-border-success`        | Defines the border color for the success variant button.                                                           |
+| `--mg-c-button-color-border-warning`        | Defines the border color for the warning variant button.                                                           |
+| `--mg-c-button-color-gradient-danger`       | Defines the gradient color for the danger variant button.                                                          |
+| `--mg-c-button-color-gradient-danger-alt`   | Defines the gradient color for the danger-alt variant button.                                                      |
+| `--mg-c-button-color-gradient-info`         | Defines the gradient color for the info variant button.                                                            |
+| `--mg-c-button-color-gradient-primary`      | Defines the gradient color for the primary variant button.                                                         |
+| `--mg-c-button-color-gradient-secondary`    | Defines the gradient color for the secondary variant button.                                                       |
+| `--mg-c-button-color-gradient-success`      | Defines the gradient color for the success variant button.                                                         |
+| `--mg-c-button-color-gradient-warning`      | Defines the gradient color for the warning variant button.                                                         |
+| `--mg-c-button-color-text-danger`           | Defines the font color for the danger variant button.                                                              |
+| `--mg-c-button-color-text-danger-alt`       | Defines the font color for the danger-alt variant button.                                                          |
+| `--mg-c-button-color-text-info`             | Defines the font color for the info variant button.                                                                |
+| `--mg-c-button-color-text-primary`          | Defines the font color for the primary variant button.                                                             |
+| `--mg-c-button-color-text-secondary`        | Defines the font color for the secondary variant button.                                                           |
+| `--mg-c-button-color-text-success`          | Defines the font color for the success variant button.                                                             |
+| `--mg-c-button-color-text-warning`          | Defines the font color for the warning variant button.                                                             |
 | `--mg-c-button-font-weight`                 | Defines the font weight of the button. Unset by default, fallback on `normal`.                                     |
 | `--mg-c-button-icon-border-radius`          | Defines the border radius of the button in icon mode. The default value is `--mg-b-size-min-height`.               |
-| `--mg-c-button-info-background-color`       | Defines the background color for the info variant button.                                                          |
-| `--mg-c-button-info-border-color`           | Defines the border color for the info variant button.                                                              |
-| `--mg-c-button-info-font-color`             | Defines the font color for the info variant button.                                                                |
-| `--mg-c-button-info-gradient-color`         | Defines the gradient color for the info variant button.                                                            |
-| `--mg-c-button-primary-background-color`    | Defines the background color for the primary variant button.                                                       |
-| `--mg-c-button-primary-border-color`        | Defines the border color for the primary variant button.                                                           |
-| `--mg-c-button-primary-font-color`          | Defines the font color for the primary variant button.                                                             |
-| `--mg-c-button-primary-gradient-color`      | Defines the gradient color for the primary variant button.                                                         |
-| `--mg-c-button-secondary-background-color`  | Defines the background color for the secondary variant button.                                                     |
-| `--mg-c-button-secondary-border-color`      | Defines the border color for the secondary variant button.                                                         |
-| `--mg-c-button-secondary-font-color`        | Defines the font color for the secondary variant button.                                                           |
-| `--mg-c-button-secondary-gradient-color`    | Defines the gradient color for the secondary variant button.                                                       |
-| `--mg-c-button-success-background-color`    | Defines the background color for the success variant button.                                                       |
-| `--mg-c-button-success-border-color`        | Defines the border color for the success variant button.                                                           |
-| `--mg-c-button-success-font-color`          | Defines the font color for the success variant button.                                                             |
-| `--mg-c-button-success-gradient-color`      | Defines the gradient color for the success variant button.                                                         |
-| `--mg-c-button-warning-background-color`    | Defines the background color for the warning variant button.                                                       |
-| `--mg-c-button-warning-border-color`        | Defines the border color for the warning variant button.                                                           |
-| `--mg-c-button-warning-font-color`          | Defines the font color for the warning variant button.                                                             |
-| `--mg-c-button-warning-gradient-color`      | Defines the gradient color for the warning variant button.                                                         |
 
 
 ## Dependencies

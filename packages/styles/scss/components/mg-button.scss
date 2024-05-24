@@ -11,7 +11,6 @@
  * @prop --mg-c-button-border-radius-bottom-right: Defines the bottom right border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.
  * @prop --mg-c-button-border-radius-bottom-left: Defines the bottom left border radius of the button. Unset by default, fallback on `--mg-c-button-border-radius`.
  * @prop --mg-c-button-font-weight: Defines the font weight of the button. Unset by default, fallback on `normal`.
- * @prop --mg-c-button-disabled-opacity: Defines the opacity of the button when disabled. The default value is `--mg-b-disabled-opacity`.
  * @prop --mg-c-button-icon-border-radius: Defines the border radius of the button in icon mode. The default value is `--mg-b-size-min-height`.
  */
 
@@ -47,19 +46,19 @@
 @each $name, $palette, $index in join(join(variables.$brands, variables.$semantics), 'danger-alt') {
   .mg-c-button.mg-c-button--#{$name} {
     /*!
-     * @prop --mg-c-button-#{$name}-background-color: Defines the background color for the #{$name} variant button.
-     * @prop --mg-c-button-#{$name}-border-color: Defines the border color for the #{$name} variant button.
-     * @prop --mg-c-button-#{$name}-gradient-color: Defines the gradient color for the #{$name} variant button.
-     * @prop --mg-c-button-#{$name}-font-color: Defines the font color for the #{$name} variant button.
+     * @prop --mg-c-button-color-background-#{$name}: Defines the background color for the #{$name} variant button.
+     * @prop --mg-c-button-color-border-#{$name}: Defines the border color for the #{$name} variant button.
+     * @prop --mg-c-button-color-gradient-#{$name}: Defines the gradient color for the #{$name} variant button.
+     * @prop --mg-c-button-color-text-#{$name}: Defines the font color for the #{$name} variant button.
      */
-    border-color: var(--mg-c-button-#{$name}-border-color);
-    background: linear-gradient(to bottom, var(--mg-c-button-#{$name}-background-color), var(--mg-c-button-#{$name}-gradient-color));
-    color: var(--mg-c-button-#{$name}-font-color);
+    border-color: var(--mg-c-button-color-border-#{$name});
+    background: linear-gradient(to bottom, var(--mg-c-button-color-background-#{$name}), var(--mg-c-button-color-gradient-#{$name}));
+    color: var(--mg-c-button-color-text-#{$name});
   }
 
   // Only apply if not disabled
   :host(:hover) .mg-c-button.mg-c-button--#{$name}:not(.mg-c-button--disabled) {
-    background: var(--mg-c-button-#{$name}-background-color);
+    background: var(--mg-c-button-color-background-#{$name});
   }
 }
 
@@ -89,7 +88,7 @@
   // Disabled style
   &.mg-c-button--disabled {
     cursor: default;
-    opacity: var(--mg-c-button-disabled-opacity);
+    opacity: var(--mg-b-opacity-element-disabled);
   }
 
   // Icon only button

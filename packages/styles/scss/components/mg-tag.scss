@@ -40,7 +40,7 @@
     &.mg-c-tag--#{$name} {
       border-color: $color;
       background-color: $color;
-      color: var(--mg-b-color-#{$name}-text);
+      color: var(--mg-b-color-text-on-#{$name});
 
       &.mg-c-tag--outline {
         background-color: transparent;
@@ -55,7 +55,7 @@
 
         ::slotted(mg-icon) {
           @if $name == 'secondary' {
-            color: var(--mg-b-color-#{$name}-text);
+            color: var(--mg-b-color-text-on-#{$name});
           } @else {
             color: $color;
           }

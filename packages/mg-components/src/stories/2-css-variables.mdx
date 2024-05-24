@@ -24,10 +24,10 @@ For a global customization you will prefer to use the `:root` selector:
   --font-family: 'Ubuntu';
   --font-family-heading: 'Montserrat';
   /* mg-button */
-  --mg-button-border-radius: calc(var(--default-size) / 2);
+  --mg-button-border-radius: var(--mg-b-size-radius);
   /* mg-tooltip */
-  --mg-c-tooltip-border-radius: 1rem;
-  --mg-c-tooltip-background-color: 342, 100%, 97%;
+  --mg-c-tooltip-border-radius: var(--mg-b-size-radius);
+  --mg-c-tooltip-color-background: var(--mg-b-color-dark);
   ...
 }
 ```

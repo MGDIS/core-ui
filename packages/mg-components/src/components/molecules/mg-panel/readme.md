@@ -20,7 +20,7 @@ The right area of the header can accommodate any component.
 
 ![](./doc/img/mg-panel-spacing.png)
 
-Slot content padding can be customized using the --mg-c-panel-content-padding CSS variable, default is 15px.
+Slot content padding can be customized using the --mg-c-panel-content-spacing CSS variable, default is 15px.
 
 ### Alignments
 
@@ -58,12 +58,12 @@ Slot content padding can be customized using the --mg-c-panel-content-padding CS
 
 ## CSS Custom Properties
 
-| Name                           | Description                                                                                                  |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `--mg-c-panel-background`      | Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`. |
-| `--mg-c-panel-border-radius`   | Defines the border radius of the panel. Default value: `--mg-b-size-radius`.                                 |
-| `--mg-c-panel-box-shadow`      | Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.                                     |
-| `--mg-c-panel-content-padding` | Defines the padding of the panel content. Default value: `--mg-b-size-16`.                                   |
+| Name                            | Description                                                                                                  |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `--mg-c-panel-border-radius`    | Defines the border radius of the panel. Default value: `--mg-b-size-radius`.                                 |
+| `--mg-c-panel-box-shadow`       | Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.                                     |
+| `--mg-c-panel-color-background` | Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`. |
+| `--mg-c-panel-content-spacing`  | Defines the padding of the panel content. Default value: `--mg-b-size-16`.                                   |
 
 
 ## Dependencies
