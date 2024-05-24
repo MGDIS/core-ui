@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`mg-message Should render a danger message with args { identifier: 'identifier' } 1`] = `
+exports[`mg-message Render Should render a message with variant danger 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--danger" id="identifier" role="alert">
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--danger">
       <mg-card>
         <span class="mg-c-message__bar"></span>
         <span class="mg-c-message__icon">
@@ -26,129 +26,10 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 </mg-message>
 `;
 
-exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true } 1`] = `
+exports[`mg-message Render Should render a message with variant info 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
-<mg-message lang="fr">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Fermer le message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
-<mg-message lang="xx">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a danger message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--danger" id="identifier">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a info message with args { identifier: 'identifier' } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--info" id="identifier" role="status">
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--info">
       <mg-card>
         <span class="mg-c-message__bar"></span>
         <span class="mg-c-message__icon">
@@ -171,10 +52,62 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 </mg-message>
 `;
 
-exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true } 1`] = `
+exports[`mg-message Render Should render a message with variant success 1`] = `
 <mg-message>
   <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--success">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="check-circle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-message>
+`;
+
+exports[`mg-message Render Should render a message with variant warning 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--warning">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="exclamation-triangle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-message>
+`;
+
+exports[`mg-message Render Should render with action slot 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--info">
       <mg-card>
         <span class="mg-c-message__bar"></span>
         <span class="mg-c-message__icon">
@@ -184,98 +117,9 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
           <span class="mg-c-message__content-slot">
             <slot></slot>
           </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
-<mg-message lang="fr">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="info-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Fermer le message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
-<mg-message lang="xx">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="info-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a info message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--info" id="identifier">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="info-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
+          <span class="mg-c-message__content-separator"></span>
+          <span class="mg-c-message__content-actions-slot">
+            <slot name="actions"></slot>
           </span>
         </div>
       </mg-card>
@@ -287,295 +131,13 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
     </strong>
     content!
   </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a success message with args { identifier: 'identifier' } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--success" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="check-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="check-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
-<mg-message lang="fr">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="check-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Fermer le message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
-<mg-message lang="xx">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="check-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a success message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--success" id="identifier">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="check-circle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a warning message with args { identifier: 'identifier' } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--warning" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-triangle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-triangle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
-<mg-message lang="fr">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-triangle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Fermer le message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
-<mg-message lang="xx">
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-triangle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-        <span class="mg-c-message__close-button">
-          <mg-button is-icon="" label="Close message" variant="flat">
-            <mg-icon icon="cross"></mg-icon>
-          </mg-button>
-        </span>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
-</mg-message>
-`;
-
-exports[`mg-message Should render a warning message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
-<mg-message>
-  <mock:shadow-root>
-    <div class="mg-c-message mg-c-message--bar-left mg-c-message--warning" id="identifier">
-      <mg-card>
-        <span class="mg-c-message__bar"></span>
-        <span class="mg-c-message__icon">
-          <mg-icon icon="exclamation-triangle"></mg-icon>
-        </span>
-        <div class="mg-c-message__content">
-          <span class="mg-c-message__content-slot">
-            <slot></slot>
-          </span>
-        </div>
-      </mg-card>
-    </div>
-  </mock:shadow-root>
-  <p>
-    <strong>
-      Strong
-    </strong>
-    content!
-  </p>
+  <div class="mg-l-group-elements mg-l-group-elements--align-right" slot="actions">
+    <mg-button>
+      Primary
+    </mg-button>
+    <mg-button variant="secondary">
+      Secondary
+    </mg-button>
+  </div>
 </mg-message>
 `;

@@ -16,165 +16,78 @@ const getPage = (args, content) =>
   });
 
 describe('mg-message', () => {
-  beforeEach(() => jest.useFakeTimers({ legacyFakeTimers: true }));
-  afterEach(() => jest.runOnlyPendingTimers());
-  describe.each(variants)('Should render a %s message', variant => {
-    test.each([
-      { identifier: 'identifier' },
-      { identifier: 'identifier', noAriaRole: true },
-      { identifier: 'identifier', closeButton: true },
-      { identifier: 'identifier', closeButton: true, lang: 'fr' },
-      { identifier: 'identifier', closeButton: true, lang: 'xx' },
-    ])('with args %s', async args => {
-      const { root } = await getPage({ ...args, variant }, getDefaultContent());
+  describe('Render', () => {
+    test.each(variants)('Should render a message with variant %s', async variant => {
+      const { root } = await getPage({ variant }, getDefaultContent());
       expect(root).toMatchSnapshot();
     });
-  });
 
-  test('Should replace classes on variant changes', async () => {
-    const page = await getPage({ identifier: 'identifier' }, getDefaultContent());
-    const element = page.doc.querySelector('mg-message');
-    let classInfo = element.shadowRoot.querySelector('.mg-c-message--info');
+    test('Should replace classes on variant changes', async () => {
+      const page = await getPage({ variant: 'info' }, getDefaultContent());
+      const element = page.doc.querySelector('mg-message');
+      let classInfo = element.shadowRoot.querySelector('.mg-c-message--info');
 
-    expect(classInfo).not.toBeNull();
+      expect(classInfo).not.toBeNull();
 
-    element.variant = 'danger';
-    await page.waitForChanges();
+      element.variant = 'danger';
+      await page.waitForChanges();
 
-    classInfo = element.shadowRoot.querySelector('.mg-c-message--info');
-    const classDanger = element.shadowRoot.querySelector('.mg-c-message--danger');
+      classInfo = element.shadowRoot.querySelector('.mg-c-message--info');
+      const classDanger = element.shadowRoot.querySelector('.mg-c-message--danger');
 
-    expect(classInfo).toBeNull();
-    expect(classDanger).not.toBeNull();
-  });
+      expect(classInfo).toBeNull();
+      expect(classDanger).not.toBeNull();
+    });
 
-  test('Should replace classes on variantStyle changes', async () => {
-    const page = await getPage({ identifier: 'identifier' }, getDefaultContent());
-    const element = page.doc.querySelector('mg-message');
-    let classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
-
-    expect(classbarLeft).not.toBeNull();
-
-    element.variantStyle = 'fill';
-    await page.waitForChanges();
-
-    classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
-    const classFill = element.shadowRoot.querySelector('.mg-c-message--fill');
-
-    expect(classbarLeft).toBeNull();
-    expect(classFill).not.toBeNull();
-  });
-
-  test.each(['', 'blu'])('Should throw error with invalid variant property: %s', async variant => {
-    expect.assertions(1);
-    try {
-      await getPage({ identifier: 'identifier', variant }, getDefaultContent());
-    } catch (err) {
-      expect(err.message).toMatch('<mg-message> prop "variant" must be one of:');
-    }
-  });
-
-  test.each(['', 'batman'])('should throw error %s', async variantStyle => {
-    expect.assertions(1);
-    try {
-      await getPage(
-        { identifier: 'identifier', variantStyle },
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-      );
-    } catch (err) {
-      expect(err.message).toMatch('<mg-message> prop "variantStyle" must be one of:');
-    }
-  });
-
-  test('Should throw error with invalid delay property: 50ms', async () => {
-    expect.assertions(1);
-    try {
-      await getPage({ identifier: 'identifier', delay: 1 }, getDefaultContent());
-    } catch (err) {
-      expect(err.message).toMatch('<mg-message> prop "delay" must be greater than 2 seconds.');
-    }
-  });
-
-  test('Should throw error when using prop "close-button" with an action slot', async () => {
-    expect.assertions(1);
-    try {
-      await getPage({ identifier: 'identifier', closeButton: true }, [
+    test('Should render with action slot', async () => {
+      const { root } = await getPage({}, [
         getDefaultContent(),
         <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
           <mg-button>Primary</mg-button>
           <mg-button variant="secondary">Secondary</mg-button>
         </div>,
       ]);
-    } catch (err) {
-      expect(err.message).toMatch('<mg-message> prop "close-button" can\'t be used with the actions slot.');
-    }
+      expect(root).toMatchSnapshot();
+    });
+
+    test('Should replace classes on variantStyle changes', async () => {
+      const page = await getPage({ variantStyle: 'bar-left' }, getDefaultContent());
+      const element = page.doc.querySelector('mg-message');
+      let classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
+
+      expect(classbarLeft).not.toBeNull();
+
+      element.variantStyle = 'fill';
+      await page.waitForChanges();
+
+      classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
+      const classFill = element.shadowRoot.querySelector('.mg-c-message--fill');
+
+      expect(classbarLeft).toBeNull();
+      expect(classFill).not.toBeNull();
+    });
   });
 
-  test('Should hide message on close button', async () => {
-    const args = { identifier: 'identifier', closeButton: true };
-    const page = await getPage(args, getDefaultContent());
+  describe('Errors', () => {
+    test.each(['', 'blu'])('Should throw error with invalid variant property: %s', async variant => {
+      expect.assertions(1);
+      try {
+        await getPage({ variant }, getDefaultContent());
+      } catch (err) {
+        expect(err.message).toMatch('<mg-message> prop "variant" must be one of:');
+      }
+    });
 
-    const element = page.doc.querySelector('mg-message');
-    const button = element.shadowRoot.querySelector('mg-button');
-
-    jest.spyOn(page.rootInstance.componentHide, 'emit');
-
-    button.dispatchEvent(new CustomEvent('click', { bubbles: true }));
-    await page.waitForChanges();
-
-    expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
-    expect(page.rootInstance.element.hidden).toBe(true);
-  });
-
-  test('Should hide message on delay', async () => {
-    const args = { identifier: 'identifier', delay: 2 };
-    const page = await getPage(args, getDefaultContent());
-
-    jest.spyOn(page.rootInstance.componentHide, 'emit');
-    jest.spyOn(page.rootInstance.componentShow, 'emit');
-
-    expect(page.rootInstance.element.hidden).toBe(false);
-
-    jest.advanceTimersByTime(args.delay * 1000);
-
-    expect(page.rootInstance.element.hidden).toBe(true);
-    expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
-
-    page.rootInstance.element.hidden = false;
-    await page.waitForChanges();
-
-    expect(page.rootInstance.componentShow.emit).toHaveBeenCalledTimes(1);
-
-    jest.advanceTimersByTime(args.delay * 1000);
-
-    expect(page.rootInstance.element.hidden).toBe(true);
-    expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(2);
-  });
-
-  test.each(['focus', 'mouse'])('Should manage event %s with delay', async eventType => {
-    const args = { identifier: 'identifier', delay: 2 };
-    const page = await getPage(args, getDefaultContent());
-
-    jest.spyOn(page.rootInstance.componentHide, 'emit');
-    jest.spyOn(page.rootInstance.componentShow, 'emit');
-
-    const element = page.doc.querySelector('mg-message');
-
-    expect(page.rootInstance.element.hidden).toBe(false);
-
-    jest.advanceTimersByTime((args.delay / 2) * 1000);
-
-    element.dispatchEvent(eventType === 'focus' ? new FocusEvent('focusin') : new MouseEvent('mouseenter'));
-
-    jest.advanceTimersByTime(args.delay * 1000);
-
-    expect(page.rootInstance.element.hidden).toBe(false);
-
-    element.dispatchEvent(eventType === 'focus' ? new FocusEvent('focusout') : new MouseEvent('mouseleave'));
-
-    jest.advanceTimersByTime(args.delay * 1000);
-
-    expect(page.rootInstance.element.hidden).toBe(true);
-    expect(page.rootInstance.componentHide.emit).toHaveBeenCalledTimes(1);
+    test.each(['', 'batman'])('should throw error %s', async variantStyle => {
+      expect.assertions(1);
+      try {
+        await getPage(
+          { variantStyle },
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        );
+      } catch (err) {
+        expect(err.message).toMatch('<mg-message> prop "variantStyle" must be one of:');
+      }
+    });
   });
 });

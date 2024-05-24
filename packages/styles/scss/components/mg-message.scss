@@ -35,10 +35,6 @@
     }
   }
 
-  &.mg-c-message--close-button {
-    --mg-c-card-padding: 0 var(--mg-b-size-min-height) 0 0;
-  }
-
   ::slotted(*) {
     padding: 0;
 
@@ -74,12 +70,6 @@
   &__content-actions-slot {
     padding: var(--mg-b-size-8) 0;
     text-align: right;
-  }
-
-  &__close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 
   &__bar {

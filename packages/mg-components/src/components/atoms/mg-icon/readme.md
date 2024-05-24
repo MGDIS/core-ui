@@ -77,6 +77,7 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
 ### Used by
 
  - [mg-action-more](../../molecules/mg-action-more)
+ - [mg-alert](../../molecules/mg-alert)
  - [mg-button](../mg-button)
  - [mg-details](../../molecules/mg-details)
  - [mg-input](../../molecules/inputs/mg-input)
@@ -98,6 +99,7 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
 ```mermaid
 graph TD;
   mg-action-more --> mg-icon
+  mg-alert --> mg-icon
   mg-button --> mg-icon
   mg-details --> mg-icon
   mg-input --> mg-icon

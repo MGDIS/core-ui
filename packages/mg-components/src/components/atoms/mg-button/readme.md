@@ -113,10 +113,10 @@ To reset the loader after the process has completed, you need to set the `disabl
 ### Used by
 
  - [mg-action-more](../../molecules/mg-action-more)
+ - [mg-alert](../../molecules/mg-alert)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
  - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
  - [mg-input-password](../../molecules/inputs/mg-input-password)
- - [mg-message](../../molecules/mg-message)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)
  - [mg-panel](../../molecules/mg-panel)
@@ -131,10 +131,10 @@ To reset the loader after the process has completed, you need to set the `disabl
 graph TD;
   mg-button --> mg-icon
   mg-action-more --> mg-button
+  mg-alert --> mg-button
   mg-input-checkbox --> mg-button
   mg-input-checkbox-paginated --> mg-button
   mg-input-password --> mg-button
-  mg-message --> mg-button
   mg-modal --> mg-button
   mg-pagination --> mg-button
   mg-panel --> mg-button
