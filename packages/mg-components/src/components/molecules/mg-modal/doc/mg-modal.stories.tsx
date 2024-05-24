@@ -9,6 +9,7 @@ export default {
   title: 'Molecules/mg-modal',
   argTypes: {
     dialogRole: {
+      name: 'dialog-role',
       options: [undefined, ...dialogRoles],
       control: { type: 'select' },
     },

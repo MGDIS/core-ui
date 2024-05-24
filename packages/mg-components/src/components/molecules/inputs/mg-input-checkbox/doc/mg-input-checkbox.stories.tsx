@@ -14,6 +14,7 @@ export default {
       control: { type: 'select' },
     },
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },

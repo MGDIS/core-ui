@@ -13,6 +13,7 @@ export default {
       control: { type: 'radio' },
     },
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },

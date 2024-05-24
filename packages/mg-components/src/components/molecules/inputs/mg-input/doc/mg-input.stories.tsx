@@ -8,11 +8,17 @@ export default {
   title: 'Molecules/Inputs/mg-input',
   argTypes: {
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },
     readonlyValue: {
+      name: 'readonly-value',
       control: { type: 'text' },
+    },
+    ariaDescribedbyIDs: {
+      name: 'aria-describedby-ids',
+      control: { type: 'object' },
     },
   },
 };

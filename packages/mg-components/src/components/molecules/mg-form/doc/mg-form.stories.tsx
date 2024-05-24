@@ -9,10 +9,12 @@ export default {
   parameters: { actions: { handles: ['form-valid', 'form-submit'] } },
   argTypes: {
     ariaRole: {
+      name: 'aria-role',
       options: [undefined, ...roles],
       control: { type: 'select' },
     },
     requiredMessage: {
+      name: 'required-message',
       options: [undefined, ...requiredMessageStatus],
       control: { type: 'select' },
     },

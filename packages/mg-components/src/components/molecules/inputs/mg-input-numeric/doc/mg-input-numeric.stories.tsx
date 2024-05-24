@@ -14,10 +14,12 @@ export default {
       control: { type: 'select' },
     },
     mgWidth: {
+      name: 'mg-width',
       options: [undefined, 2, 4, 16, 'full'],
       control: { type: 'select' },
     },
     tooltipPosition: {
+      name: 'tooltip-position',
       options: [undefined, ...tooltipPositions],
       control: { type: 'select' },
     },
