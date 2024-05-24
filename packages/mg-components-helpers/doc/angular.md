@@ -1,32 +1,30 @@
-[@mgdis/mg-components-helpers](../README.md) / angular
+[**@mgdis/mg-components-helpers**](README.md) • **Docs**
 
-# Module: angular
+***
 
-## Table of contents
+[@mgdis/mg-components-helpers](README.md) / angular
 
-### Functions
-
-- [setMgAngularLogger](angular.md#setmgangularlogger)
+# angular
 
 ## Functions
 
-### setMgAngularLogger
+### setMgAngularLogger()
 
-▸ **setMgAngularLogger**(`config?`): `void`
+> **setMgAngularLogger**(`config`): `void`
 
 Set window logger custom rules for angular and mg-components
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `config` | `ConfigType` | logger configuration object |
+• **config**: `ConfigType`= `undefined`
+
+logger configuration object
 
 #### Returns
 
 `void`
 
-**`Example`**
+#### Example
 
 ```js
 // main.js
@@ -38,6 +36,6 @@ setMgAngularLogger({level: 'error'});
 defineCustomElements();
 ```
 
-#### Defined in
+#### Source
 
 angular/mg-angular-logger/mg-angular-logger.ts:17

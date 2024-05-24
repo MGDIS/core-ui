@@ -1,117 +1,199 @@
-@mgdis/stencil-helpers
+**@mgdis/stencil-helpers** • **Docs**
+
+***
 
 # @mgdis/stencil-helpers
 
-## Table of contents
+## Classes
 
-### Classes
+### ClassList
 
-- [ClassList](classes/ClassList.md)
+Class to manage component classlist
 
-### Variables
+#### Constructors
 
-- [dateRegExp](README.md#dateregexp)
-- [focusableElements](README.md#focusableelements)
+##### new ClassList()
 
-### Functions
+> **new ClassList**(`classlist`): [`ClassList`](README.md#classlist)
 
-- [allItemsAreString](README.md#allitemsarestring)
-- [cleanString](README.md#cleanstring)
-- [createID](README.md#createid)
-- [dateToString](README.md#datetostring)
-- [defineLocales](README.md#definelocales)
-- [filterArgs](README.md#filterargs)
-- [getLocaleDatePattern](README.md#getlocaledatepattern)
-- [getParentWindows](README.md#getparentwindows)
-- [getStoryHTML](README.md#getstoryhtml)
-- [getWindows](README.md#getwindows)
-- [isTagName](README.md#istagname)
-- [isValidString](README.md#isvalidstring)
-- [localeCurrency](README.md#localecurrency)
-- [localeDate](README.md#localedate)
-- [localeNumber](README.md#localenumber)
-- [nextTick](README.md#nexttick)
-- [setupMutationObserverMock](README.md#setupmutationobservermock)
-- [setupResizeObserverMock](README.md#setupresizeobservermock)
-- [setupSubmitEventMock](README.md#setupsubmiteventmock)
-- [stencilWrapper](README.md#stencilwrapper)
-- [vsCodeGenerator](README.md#vscodegenerator)
-- [webTypesGenerator](README.md#webtypesgenerator)
+###### Parameters
+
+• **classlist**: `string`[]= `[]`
+
+###### Returns
+
+[`ClassList`](README.md#classlist)
+
+###### Source
+
+packages/stencil-helpers/src/components/index.ts:29
+
+#### Properties
+
+##### classes
+
+> **classes**: `string`[]
+
+Available classes
+
+###### Source
+
+packages/stencil-helpers/src/components/index.ts:27
+
+#### Methods
+
+##### add()
+
+> **add**(`className`): `void`
+
+Add class
+
+###### Parameters
+
+• **className**: `string`
+
+class name to add
+
+###### Returns
+
+`void`
+
+###### Source
+
+packages/stencil-helpers/src/components/index.ts:37
+
+##### delete()
+
+> **delete**(`className`): `void`
+
+Delete class
+
+###### Parameters
+
+• **className**: `string`
+
+class name to delete
+
+###### Returns
+
+`void`
+
+###### Source
+
+packages/stencil-helpers/src/components/index.ts:47
+
+##### has()
+
+> **has**(`className`): `boolean`
+
+Check if class exist in list
+
+###### Parameters
+
+• **className**: `string`
+
+class name to check
+
+###### Returns
+
+`boolean`
+
+class name is in the list
+
+###### Source
+
+packages/stencil-helpers/src/components/index.ts:59
+
+##### join()
+
+> **join**(): `string`
+
+Join classes seperated by spaces
+
+###### Returns
+
+`string`
+
+joined values
+
+###### Source
+
+packages/stencil-helpers/src/components/index.ts:67
 
 ## Variables
 
 ### dateRegExp
 
-• `Const` **dateRegExp**: `RegExp`
+> `const` **dateRegExp**: `RegExp`
 
 Date RegExp, usefull to test if string is a follow the date pattern
 
-**`Example`**
+#### Example
 
 ```ts
 dateRegExp.test('mystring') // false
 dateRegExp.test('2020-12-31') // true
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:87
 
-___
+***
 
 ### focusableElements
 
-• `Const` **focusableElements**: ``"a[href], button, input, textarea, select, details, [tabindex]:not([tabindex=\"-1\"]), [identifier], mg-button"``
+> `const` **focusableElements**: "a\[href\], button, input, textarea, select, details, \[tabindex\]:not(\[tabindex=\"-1\"\]), \[identifier\], mg-button" = `'a[href], button, input, textarea, select, details, [tabindex]:not([tabindex="-1"]), [identifier], mg-button'`
 
 CSS selector to select focusable elements.
 
-**`Example`**
+#### Example
 
 ```ts
 const allFocusableElements: HTMLElement[] = Array.from(this.element.querySelectorAll(focusableElements));
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:96
 
 ## Functions
 
-### allItemsAreString
+### allItemsAreString()
 
-▸ **allItemsAreString**(`items`): items is string[]
+> **allItemsAreString**(`items`): `items is string[]`
 
 Typeguard function to check if all array items are strings.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `items` | `unknown` | items to check |
+• **items**: `unknown`
+
+items to check
 
 #### Returns
 
-items is string[]
+`items is string[]`
 
 `true` if all items are strings
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:77
 
-___
+***
 
-### cleanString
+### cleanString()
 
-▸ **cleanString**(`text`): `string`
+> **cleanString**(`text`): `string`
 
 Cleans string characters by removing special characters and converting to lowercase.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `text` | `string` | text to clean |
+• **text**: `string`
+
+text to clean
 
 #### Returns
 
@@ -119,31 +201,34 @@ Cleans string characters by removing special characters and converting to lowerc
 
 cleaned string
 
-**`Example`**
+#### Example
 
 ```ts
 cleanString('âäàçéèêñù') // 'aaaceeenu'
 cleanString('BATMAN') // 'batman'
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:166
 
-___
+***
 
-### createID
+### createID()
 
-▸ **createID**(`prefix?`, `length?`): `string`
+> **createID**(`prefix`, `length`): `string`
 
 Create random ID
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `prefix` | `string` | `''` | add prefix to created ID |
-| `length` | `number` | `10` | ID length |
+• **prefix**: `string`= `''`
+
+add prefix to created ID
+
+• **length**: `number`= `10`
+
+ID length
 
 #### Returns
 
@@ -151,23 +236,23 @@ Create random ID
 
 ID
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:7
 
-___
+***
 
-### dateToString
+### dateToString()
 
-▸ **dateToString**(`date`): `undefined` \| `string`
+> **dateToString**(`date`): `undefined` \| `string`
 
 Formats a date object to a string with the pattern 'YYYY-MM-DD'.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `date` | `Date` | date to parse |
+• **date**: `Date`
+
+date to parse
 
 #### Returns
 
@@ -175,55 +260,57 @@ Formats a date object to a string with the pattern 'YYYY-MM-DD'.
 
 string date with pattern 'YYYY-MM-DD'
 
-**`Example`**
+#### Example
 
 ```ts
 dateToString(new Date('2023-12-24')) // '2023-12-24'
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:28
 
-___
+***
 
-### defineLocales
+### defineLocales()
 
-▸ **defineLocales**(`messages`, `defaultLocale`): (`element`: `HTMLElement`) => \{ `locale`: `string` ; `messages`: `ObjectType`  }
+> **defineLocales**(`messages`, `defaultLocale`): (`element`) => `object`
 
 Get Intl object
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `messages` | `ObjectType` | locales to render in object format. `ex: { en: { porp: "test" }, fr: { porp: "test" }}`. |
-| `defaultLocale` | `string` | fallback locale to render. `ex: 'en'`. |
+• **messages**: `ObjectType`
+
+locales to render in object format. `ex: { en: { porp: "test" }, fr: { porp: "test" }}`.
+
+• **defaultLocale**: `string`
+
+fallback locale to render. `ex: 'en'`.
 
 #### Returns
 
-`fn`
+`Function`
 
 from the element passed in return function you will get the matching messages object
 
-▸ (`element`): `Object`
-
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `element` | `HTMLElement` |
+• **element**: `HTMLElement`
 
 ##### Returns
 
-`Object`
+`object`
 
-| Name | Type |
-| :------ | :------ |
-| `locale` | `string` |
-| `messages` | `ObjectType` |
+###### locale
 
-**`Example`**
+> **locale**: `string`
+
+###### messages
+
+> **messages**: `ObjectType`
+
+#### Example
 
 ```ts
 import en from './en/messages.json';
@@ -236,30 +323,31 @@ const messages = { en, fr };
 export const initLocales = defineLocales(messages, defaultLocale);
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:124
 
-___
+***
 
-### filterArgs
+### filterArgs()
 
-▸ **filterArgs**\<`T`\>(`args`, `defaultValues?`): `T`
+> **filterArgs**\<`T`\>(`args`, `defaultValues`?): `T`
 
 Filter default argument on component argument to prevent them to be rendered
 
 #### Type parameters
 
-| Name |
-| :------ |
-| `T` |
+• **T**
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `args` | `T` | all possible args with custom values |
-| `defaultValues?` | `T` | component default args values |
+• **args**: `T`
+
+all possible args with custom values
+
+• **defaultValues?**: `T`
+
+component default args values
 
 #### Returns
 
@@ -267,30 +355,30 @@ Filter default argument on component argument to prevent them to be rendered
 
 filtres args
 
-**`Example`**
+#### Example
 
 ```ts
 import { filterArgs } from '@mgdis/stencil-helpers';
 const Template = (args: MgBadgeType): HTMLElement => <mg-badge {...filterArgs(args, { variant: variants[0] })}></mg-badge>;
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/storybook/index.ts:59
 
-___
+***
 
-### getLocaleDatePattern
+### getLocaleDatePattern()
 
-▸ **getLocaleDatePattern**(`locale`): `string`
+> **getLocaleDatePattern**(`locale`): `string`
 
 Gets the date pattern based on the specified locale.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `locale` | `string` | the locale to refer to |
+• **locale**: `string`
+
+the locale to refer to
 
 #### Returns
 
@@ -298,30 +386,33 @@ Gets the date pattern based on the specified locale.
 
 date pattern
 
-**`Example`**
+#### Example
 
 ```ts
 getLocaleDatePattern('fr') // 'dd/mm/yyyy'
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:12
 
-___
+***
 
-### getParentWindows
+### getParentWindows()
 
-▸ **getParentWindows**(`localWindow`, `windows?`): `Window`[]
+> **getParentWindows**(`localWindow`, `windows`): `Window`[]
 
 Get parent windows
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `localWindow` | `Window` | `undefined` | the window we are lookink for parents |
-| `windows` | `Window`[] | `[]` | The list of allready found windows |
+• **localWindow**: `Window`
+
+the window we are lookink for parents
+
+• **windows**: `Window`[]= `[]`
+
+The list of allready found windows
 
 #### Returns
 
@@ -329,24 +420,24 @@ Get parent windows
 
 The list of windows found
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:115
 
-___
+***
 
-### getStoryHTML
+### getStoryHTML()
 
-▸ **getStoryHTML**(`vitualNode`): `string`
+> **getStoryHTML**(`vitualNode`): `string`
 
 Get story HTML from virtual DOM.
 Mainly used to render, component code exemple in stories.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `vitualNode` | `VNode` | story virtual DOM |
+• **vitualNode**: `VNode`
+
+story virtual DOM
 
 #### Returns
 
@@ -354,7 +445,7 @@ Mainly used to render, component code exemple in stories.
 
 stringified rendered HTML
 
-**`Example`**
+#### Example
 
 ```ts
 // .storybook/preview.ts
@@ -369,23 +460,23 @@ export const parameters: Preview['parameters'] = {
 };
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/storybook/index.ts:132
 
-___
+***
 
-### getWindows
+### getWindows()
 
-▸ **getWindows**(`localWindow`): `Window`[]
+> **getWindows**(`localWindow`): `Window`[]
 
 Get windows
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `localWindow` | `Window` | the window we are lookink for other windows |
+• **localWindow**: `Window`
+
+the window we are lookink for other windows
 
 #### Returns
 
@@ -393,24 +484,27 @@ Get windows
 
 The list of windows found
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:103
 
-___
+***
 
-### isTagName
+### isTagName()
 
-▸ **isTagName**(`element`, `tagNames`): `boolean`
+> **isTagName**(`element`, `tagNames`): `boolean`
 
 Check if element belongs to the given tagNames list
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `element` | `Element` | element to check |
-| `tagNames` | `string`[] | allowed tag names list |
+• **element**: `Element`
+
+element to check
+
+• **tagNames**: `string`[]
+
+allowed tag names list
 
 #### Returns
 
@@ -418,23 +512,23 @@ Check if element belongs to the given tagNames list
 
 `true` if element tagName is in the tagNames list
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:85
 
-___
+***
 
-### isValidString
+### isValidString()
 
-▸ **isValidString**(`value`): `boolean`
+> **isValidString**(`value`): `boolean`
 
 Validate string
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `value` | `unknown` | value to check |
+• **value**: `unknown`
+
+value to check
 
 #### Returns
 
@@ -442,25 +536,31 @@ Validate string
 
 `true` if string is valid
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:154
 
-___
+***
 
-### localeCurrency
+### localeCurrency()
 
-▸ **localeCurrency**(`number`, `locale`, `currency`): `string`
+> **localeCurrency**(`number`, `locale`, `currency`): `string`
 
 Format number to the locale currency
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `number` | `number` | number to format |
-| `locale` | `string` | locale to apply |
-| `currency` | `string` | currency to apply |
+• **number**: `number`
+
+number to format
+
+• **locale**: `string`
+
+locale to apply
+
+• **currency**: `string`
+
+currency to apply
 
 #### Returns
 
@@ -468,30 +568,33 @@ Format number to the locale currency
 
 formatted currency
 
-**`Example`**
+#### Example
 
 ```ts
 localeCurrency(1234567890.12, 'fr', 'EUR') // '1 234 567 890,12\xa0€'
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:63
 
-___
+***
 
-### localeDate
+### localeDate()
 
-▸ **localeDate**(`date`, `locale`): `string`
+> **localeDate**(`date`, `locale`): `string`
 
 Locale date format
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `date` | `undefined` \| `string` | date to format |
-| `locale` | `string` | locale to apply |
+• **date**: `undefined` \| `string`
+
+date to format
+
+• **locale**: `string`
+
+locale to apply
 
 #### Returns
 
@@ -499,31 +602,37 @@ Locale date format
 
 formatted date
 
-**`Example`**
+#### Example
 
 ```ts
 localeDate('2022-06-02', 'fr') // '02/06/2022'
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:99
 
-___
+***
 
-### localeNumber
+### localeNumber()
 
-▸ **localeNumber**(`number`, `locale`, `decimalLength?`): `string`
+> **localeNumber**(`number`, `locale`, `decimalLength`): `string`
 
 Format number to locale
 
 #### Parameters
 
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `number` | `number` | `undefined` | number to format |
-| `locale` | `string` | `undefined` | locale to apply |
-| `decimalLength` | `number` | `0` | decimal length to apply |
+• **number**: `number`
+
+number to format
+
+• **locale**: `string`
+
+locale to apply
+
+• **decimalLength**: `number`= `0`
+
+decimal length to apply
 
 #### Returns
 
@@ -531,29 +640,29 @@ Format number to locale
 
 formatted number
 
-**`Example`**
+#### Example
 
 ```ts
 localeNumber(1234567890.12, 'fr') // 1 234 567 890,12
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/locale/index.ts:76
 
-___
+***
 
-### nextTick
+### nextTick()
 
-▸ **nextTick**(`callback`): `Promise`\<`void`\>
+> **nextTick**(`callback`): `Promise`\<`void`\>
 
 Use to process code next tick in the event loop
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callback` | () => `void` | code to excute on next tick |
+• **callback**
+
+code to excute on next tick
 
 #### Returns
 
@@ -561,47 +670,41 @@ Use to process code next tick in the event loop
 
 differed code excution
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/components/index.ts:179
 
-___
+***
 
-### setupMutationObserverMock
+### setupMutationObserverMock()
 
-▸ **setupMutationObserverMock**(`«destructured»`): (`callback`: `MutationCallback`) => `MutationObserver`
+> **setupMutationObserverMock**(`__namedParameters`): (`callback`) => `MutationObserver`
 
 Utility function that mocks the `MutationObserver` API. Recommended to execute inside `beforeEach`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `SetupMutationObserverMockParams` |
+• **\_\_namedParameters**: `SetupMutationObserverMockParams`
 
 #### Returns
 
-`fn`
+`Function`
 
 Mocked MutationObserver
 
-• **new setupMutationObserverMock**(`callback`): `MutationObserver`
-
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `callback` | `MutationCallback` |
+• **callback**: `MutationCallback`
 
 ##### Returns
 
 `MutationObserver`
 
-| Name | Type |
-| :------ | :------ |
-| `prototype` | `MutationObserver` |
+##### prototype
 
-**`Example`**
+> **prototype**: `MutationObserver`
+
+#### Example
 
 ```
 let fireMo;
@@ -614,47 +717,41 @@ setupMutationObserverMock({
 fireMo([{ type: 'childList', addedNodes: [AMockElemenet, AnotherMockElemenet], target: yourMockElemenet }]);;
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/test/unit.ts:23
 
-___
+***
 
-### setupResizeObserverMock
+### setupResizeObserverMock()
 
-▸ **setupResizeObserverMock**(`«destructured»`): (`callback`: `ResizeObserverCallback`) => `ResizeObserver`
+> **setupResizeObserverMock**(`__namedParameters`): (`callback`) => `ResizeObserver`
 
 Utility function that mocks the `ResizeObserver` API. Recommended to execute inside `beforeEach`.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `«destructured»` | `setupResizeObserverMockParams` |
+• **\_\_namedParameters**: `setupResizeObserverMockParams`
 
 #### Returns
 
-`fn`
+`Function`
 
 Mocked ResizeObserver
 
-• **new setupResizeObserverMock**(`callback`): `ResizeObserver`
-
 ##### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `callback` | `ResizeObserverCallback` |
+• **callback**: `ResizeObserverCallback`
 
 ##### Returns
 
 `ResizeObserver`
 
-| Name | Type |
-| :------ | :------ |
-| `prototype` | `ResizeObserver` |
+##### prototype
 
-**`Example`**
+> **prototype**: `ResizeObserver`
+
+#### Example
 
 ```
 let fireRo;
@@ -673,48 +770,51 @@ fireRo([{
 }]);;
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/test/unit.ts:83
 
-___
+***
 
-### setupSubmitEventMock
+### setupSubmitEventMock()
 
-▸ **setupSubmitEventMock**(): typeof `MockCustomEvent`
+> **setupSubmitEventMock**(): *typeof* `MockCustomEvent`
 
 Utility function that mocks the `SubmitEvent` API. Recommended to execute inside `beforeEach`.
 
 #### Returns
 
-typeof `MockCustomEvent`
+*typeof* `MockCustomEvent`
 
 custom event mock
 
-**`Example`**
+#### Example
 
 ```
 setupSubmitEventMock();
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/test/unit.ts:133
 
-___
+***
 
-### stencilWrapper
+### stencilWrapper()
 
-▸ **stencilWrapper**(`storyFn`, `context`): `undefined` \| `Element`
+> **stencilWrapper**(`storyFn`, `context`): `undefined` \| `Element`
 
 Storybook stencil wrapper. Used to target element with `storybook-root` id and render virtual DOM inside.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `storyFn` | (`ctx`: `any`) => `void` | storybook render function |
-| `context` | `ArgsType` | storybook context |
+• **storyFn**
+
+storybook render function
+
+• **context**: `ArgsType`
+
+storybook context
 
 #### Returns
 
@@ -722,7 +822,7 @@ Storybook stencil wrapper. Used to target element with `storybook-root` id and r
 
 rendered element
 
-**`Example`**
+#### Example
 
 ```ts
 // .storybook/preview.ts
@@ -730,89 +830,132 @@ import { stencilWrapper } from '@mgdis/stencil-helpers';
 export const decorators: Preview['decorators'] = [stencilWrapper];
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/storybook/index.ts:90
 
-___
+***
 
-### vsCodeGenerator
+### vsCodeGenerator()
 
-▸ **vsCodeGenerator**(`version`, `jsonDocs`, `storybookBaseUrl`, `sourceBaseUrl`): `Object`
+> **vsCodeGenerator**(`version`, `jsonDocs`, `storybookBaseUrl`, `sourceBaseUrl`): `object`
 
 Generate custom HTML datasets for VS Code
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `version` | `string` | Library version |
-| `jsonDocs` | `JsonDocs` | Stencil JSON doc |
-| `storybookBaseUrl` | `string` | Storybook Base Url |
-| `sourceBaseUrl` | `string` | - |
+• **version**: `string`
+
+Library version
+
+• **jsonDocs**: `JsonDocs`
+
+Stencil JSON doc
+
+• **storybookBaseUrl**: `string`
+
+Storybook Base Url
+
+• **sourceBaseUrl**: `string`
 
 #### Returns
 
-`Object`
+`object`
 
 custom HTML datasets
 
-| Name | Type |
-| :------ | :------ |
-| `globalAttributes` | `never`[] |
-| `tags` | \{ `attributes`: \{ `description`: `string` ; `name`: `string` ; `references`: \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[] ; `values`: `undefined` \| `unknown`[]  }[] ; `description`: `string` ; `name`: `string` = component.tag; `references`: \{ `name`: `string` = 'Storybook'; `url`: `undefined` \| `string`  }[]  }[] |
-| `valueSets` | `never`[] |
-| `version` | `string` |
+##### globalAttributes
 
-**`Example`**
+> **globalAttributes**: `never`[] = `[]`
+
+##### tags
+
+> **tags**: `object`[]
+
+##### valueSets
+
+> **valueSets**: `never`[] = `[]`
+
+##### version
+
+> **version**: `string`
+
+#### Example
 
 ```ts
 const customDataJson = vsCodeGenerator('1.0.0', jsonDocs, 'https://storybook.example.com', 'https://sources.example.com');
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/ide/index.ts:185
 
-___
+***
 
-### webTypesGenerator
+### webTypesGenerator()
 
-▸ **webTypesGenerator**(`name`, `version`, `jsonDocs`, `storybookBaseUrl`): `Object`
+> **webTypesGenerator**(`name`, `version`, `jsonDocs`, `storybookBaseUrl`): `object`
 
 Generate Web Types metadata for IntelliJ's IDE
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `name` | `string` | Library name |
-| `version` | `string` | Library version |
-| `jsonDocs` | `JsonDocs` | Stencil JSON doc |
-| `storybookBaseUrl` | `string` | Storybook Base Url |
+• **name**: `string`
+
+Library name
+
+• **version**: `string`
+
+Library version
+
+• **jsonDocs**: `JsonDocs`
+
+Stencil JSON doc
+
+• **storybookBaseUrl**: `string`
+
+Storybook Base Url
 
 #### Returns
 
-`Object`
+`object`
 
 Web Types metadata
 
-| Name | Type |
-| :------ | :------ |
-| `$schema` | `string` |
-| `contributions` | \{ `html`: \{ `elements`: \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[]  }  } |
-| `contributions.html` | \{ `elements`: \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[]  } |
-| `contributions.html.elements` | \{ `attributes`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `undefined` \| `string` = prop.attr; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[] ; `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `js`: \{ `events`: \{ `description`: `string` = event.docs; `name`: `string` = event.event }[] ; `properties`: \{ `description`: `string` ; `doc-url`: `undefined` \| `string` = docUrl; `name`: `string` = prop.name; `value`: \{ `default`: `undefined` \| `string` = prop.default; `required`: `boolean` = prop.required; `type`: `string` = prop.type }  }[]  } ; `name`: `string` = component.tag }[] |
-| `description-markup` | `string` |
-| `name` | `string` |
-| `version` | `string` |
+##### $schema
 
-**`Example`**
+> **$schema**: `string` = `'https://json.schemastore.org/web-types'`
+
+##### contributions
+
+> **contributions**: `object`
+
+##### contributions.html
+
+> **html**: `object`
+
+##### contributions.html.elements
+
+> **elements**: `object`[]
+
+##### description-markup
+
+> **description-markup**: `string` = `'markdown'`
+
+##### name
+
+> **name**: `string`
+
+##### version
+
+> **version**: `string`
+
+#### Example
 
 ```ts
 const webTypesJson = webTypesGenerator('@mgdis/mg-components', '1.0.0', jsonDocs, 'https://storybook.example.com');
 ```
 
-#### Defined in
+#### Source
 
 packages/stencil-helpers/src/ide/index.ts:101
