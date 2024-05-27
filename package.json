@@ -40,7 +40,12 @@
     "clean": "pnpm /^clean:.*/",
     "clean:lock-file": "rm -f pnpm-lock.yaml",
     "clean:node_modules": "pnpm -r exec rm -rf node_modules && rm -rf node_modules",
-    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist"
+    "clean:dist": "pnpm -r exec rm -rf dist && rm -rf dist",
+    "clean:turbo": "pnpm -r exec rm -rf .turbo && rm -rf .turbo",
+    "clean:build": "pnpm -r exec rm -rf tsconfig.tsbuildinfo && rm -rf tsconfig.tsbuildinfo",
+    "clean:test": "pnpm -r exec rm -rf test-results && rm -rf test-results",
+    "clean:playwright": "pnpm -r exec rm -rf playwright-report && rm -rf playwright-report",
+    "clean:coverage": "pnpm -r exec rm -rf coverage && rm -rf coverage"
   },
   "manypkg": {
     "ignoredRules": [
@@ -57,7 +62,7 @@
     "codename": "0.0.6",
     "eslint-config-custom": "workspace:*",
     "husky": "9.0.11",
-    "lint-staged": "15.2.2",
+    "lint-staged": "15.2.5",
     "prettier-config": "workspace:*",
     "turbo": "1.13.3"
   }
