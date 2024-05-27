@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @import '../utils/a11y';
 
@@ -31,7 +32,7 @@
   }
 
   @each $style in 'icon', 'background', 'full' {
-    @each $variant, $color in join(variables.$app, variables.$semantics) {
+    @each $variant, $color in list.join(variables.$app, variables.$semantics) {
       &.mg-c-icon--variant-#{$variant}.mg-c-icon--variant-style-#{$style} {
         @if $style == 'icon' or $style == 'full' {
           color: var(--mg-b-color-#{$variant});

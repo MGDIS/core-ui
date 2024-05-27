@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @use '../functions' as functions;
 
@@ -18,7 +19,7 @@
   --mg-c-button-border-radius: var(--mg-b-size-radius);
   --mg-c-button-icon-border-radius: var(--mg-b-size-min-height);
 
-  @each $name, $palette, $index in join(variables.$semantics, variables.$brands) {
+  @each $name, $palette, $index in list.join(variables.$semantics, variables.$brands) {
     --mg-c-button-color-background-#{$name}: var(--mg-b-color-#{$name});
     --mg-c-button-color-border-#{$name}: var(--mg-b-color-#{$palette}-#{$index + 10});
     --mg-c-button-color-gradient-#{$name}: var(--mg-b-color-#{$palette}-#{$index + 10});

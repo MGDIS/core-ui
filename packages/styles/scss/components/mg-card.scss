@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @import 'mixins/reset-mg-card-slotted-variables';
 
@@ -33,7 +34,7 @@
 
   @include reset-slot-card-variables;
 
-  @each $variant, $color in join(variables.$app, variables.$semantics) {
+  @each $variant, $color in list.join(variables.$app, variables.$semantics) {
     &.mg-c-card--#{$variant} {
       overflow: hidden;
 

@@ -1,6 +1,7 @@
 @use 'sass:color';
 @use 'sass:list';
 @use 'sass:math';
+@use 'sass:map';
 @use 'variables';
 
 // Theses functions are taken from https://github.com/jhogue/automated-a11y-sass/blob/master/a11y-color.scss
@@ -64,5 +65,5 @@
 
 // Function to get a color from a palette
 @function get-color($palette, $index) {
-  @return map-get(map-get(variables.$palettes, $palette), $index);
+  @return map.get(map.get(variables.$palettes, $palette), $index);
 }
