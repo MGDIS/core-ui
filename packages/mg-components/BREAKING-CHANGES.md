@@ -193,9 +193,9 @@ No more `variables.scss` export, only `variables.css`.
   <mg-menu size="xlarge">...</mg-menu>
   ```
 
-### Changes in `mg-card` and `<mg-message>`
+### Changes in `mg-card` and `mg-message`
 
-- Move `variant` and `variantStyle` props to `<mg-message>`
+- Move `variant` and `variantStyle` props to `mg-message`
 
 ### Hide components
 
