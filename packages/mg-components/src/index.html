@@ -469,10 +469,10 @@
         >
         <style>
           .custom-mg-card--danger {
-            --mg-c-card-background: var(--mg-b-color-danger);
+            --mg-c-card-color-background: var(--mg-b-color-danger);
           }
           .custom-mg-card--info {
-            --mg-c-card-background: var(--mg-b-color-info);
+            --mg-c-card-color-background: var(--mg-b-color-info);
           }
         </style>
       </section>
@@ -531,7 +531,7 @@
         </mg-message>
         <style>
           .custom-message-card {
-            --mg-c-card-background: var(--mg-b-color-danger);
+            --mg-c-card-color-background: var(--mg-b-color-danger);
           }
         </style>
         <script>
@@ -628,7 +628,7 @@
         </mg-panel>
         <style>
           .custom-panel-card {
-            --mg-c-panel-background: var(--mg-b-color-danger);
+            --mg-c-panel-color-background: var(--mg-b-color-danger);
           }
         </style>
 
@@ -642,7 +642,7 @@
           </div>
         </mg-panel>
 
-        <mg-panel panel-title="panel title" title-editable style="--mg-c-panel-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none">
+        <mg-panel panel-title="panel title" title-editable style="--mg-c-panel-color-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none">
           <div>Content</div>
           <div slot="header-right">
             <mg-button variant="secondary"> <mg-icon icon="file-upload"></mg-icon> Upload </mg-button>
@@ -838,11 +838,11 @@
         </mg-popover>
         <style>
           .custom-popover {
-            --mg-c-card-padding: 5rem;
+            --mg-c-card-spacing: 5rem;
             --mg-c-card-border-radius: 5rem;
           }
           .custom-popover--card {
-            --mg-c-popover-background-color: var(--mg-b-color-danger);
+            --mg-c-popover-color-background: var(--mg-b-color-danger);
           }
         </style>
         <iframe src="./iframe.html" title="test popover iframe" frameborder="0"></iframe>

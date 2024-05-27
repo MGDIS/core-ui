@@ -42,7 +42,7 @@ test.describe('mg-modal', () => {
         },
       );
 
-      await page.addStyleTag({ content: '.custom-modal-card{--mg-c-card-background:var(--mg-b-color-danger)}' });
+      await page.addStyleTag({ content: '.custom-modal-card{--mg-c-card-color-background:var(--mg-b-color-danger)}' });
 
       await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
     });

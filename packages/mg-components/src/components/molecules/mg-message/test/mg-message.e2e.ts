@@ -29,7 +29,7 @@ test.describe('mg-message', () => {
     const html = createHTML({}, `<mg-card>child card</mg-card>`);
     await page.setContent(html);
     await page.addStyleTag({
-      content: `mg-message:has(> mg-card){--mg-c-card-background:var(--mg-b-color-danger)}`,
+      content: `mg-message:has(> mg-card){--mg-c-card-color-background:var(--mg-b-color-danger)}`,
     });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

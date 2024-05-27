@@ -2,16 +2,16 @@
 
 /*!
  * @prop --mg-c-panel-border-radius: Defines the border radius of the panel. Default value: `--mg-b-size-radius`.
- * @prop --mg-c-panel-background: Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`.
+ * @prop --mg-c-panel-color-background: Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`.
  * @prop --mg-c-panel-box-shadow: Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`.
- * @prop --mg-c-panel-content-padding: Defines the padding of the panel content. Default value: `--mg-b-size-16`.
+ * @prop --mg-c-panel-content-spacing: Defines the padding of the panel content. Default value: `--mg-b-size-16`.
  */
 
 :host {
   --mg-c-card-border: none;
-  --mg-c-card-padding: 0;
+  --mg-c-card-spacing: 0;
   --mg-c-card-border-radius: var(--mg-c-panel-border-radius);
-  --mg-c-card-background: var(--mg-c-panel-background);
+  --mg-c-card-color-background: var(--mg-c-panel-color-background);
   --mg-c-card-box-shadow: var(--mg-c-panel-box-shadow);
 }
 
@@ -64,7 +64,7 @@
   }
 
   &__content {
-    padding: var(--mg-c-panel-content-padding);
+    padding: var(--mg-c-panel-content-spacing);
   }
 
   ::slotted([slot='header-right']) {
