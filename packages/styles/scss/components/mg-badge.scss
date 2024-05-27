@@ -33,7 +33,7 @@
       } @else {
         border-color: var(--mg-b-color-#{$name});
         background-color: var(--mg-b-color-#{$name});
-        color: var(--mg-b-color-#{$name}-text);
+        color: var(--mg-b-color-text-on-#{$name});
       }
 
       &.mg-c-badge--outline {

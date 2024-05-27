@@ -20,7 +20,7 @@ The right area of the header can accommodate any component.
 
 ![](./doc/img/mg-panel-spacing.png)
 
-Slot content padding can be customized using the --mg-c-panel-content-padding CSS variable, default is 15px.
+Slot content padding can be customized using the --mg-c-panel-content-spacing CSS variable, default is 15px.
 
 ### Alignments
 

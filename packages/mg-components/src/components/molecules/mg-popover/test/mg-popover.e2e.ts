@@ -217,7 +217,7 @@ test.describe('mg-popover', () => {
       await page.setContent(html);
       await page.setViewportSize({ width: 150, height: 180 });
       await page.addStyleTag({
-        content: `mg-popover:has(mg-card){--mg-c-popover-background-color:var(--mg-b-color-danger)}`,
+        content: `mg-popover:has(mg-card){--mg-c-popover-color-background:var(--mg-b-color-danger)}`,
       });
 
       await page.locator('mg-popover.hydrated').waitFor();

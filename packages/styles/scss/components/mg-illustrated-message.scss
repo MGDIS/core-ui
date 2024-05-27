@@ -1,5 +1,5 @@
 /*!
- * @prop --mg-c-illustrated-message-padding-vertical: Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-40`.
+ * @prop --mg-c-illustrated-message-spacing-vertical: Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-40`.
  */
 
 .mg-c-illustrated-message {
@@ -8,7 +8,7 @@
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
-  padding: var(--mg-c-illustrated-message-padding-vertical) var(--mg-b-size-16);
+  padding: var(--mg-c-illustrated-message-spacing-vertical) var(--mg-b-size-16);
   margin: auto;
   gap: var(--mg-b-size-32) var(--mg-b-size-64);
   text-align: center;

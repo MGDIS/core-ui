@@ -8,7 +8,7 @@
 
 :host {
   // Set mg-card variables
-  --mg-c-card-padding: 0;
+  --mg-c-card-spacing: 0;
   --mg-c-card-border-radius: var(--mg-c-message-border-radius);
   --mg-c-card-border: none;
   --mg-c-card-overflow: hidden;
@@ -36,7 +36,7 @@
   }
 
   &.mg-c-message--close-button {
-    --mg-c-card-padding: 0 var(--mg-b-size-min-height) 0 0;
+    --mg-c-card-spacing: 0 var(--mg-b-size-min-height) 0 0;
   }
 
   ::slotted(*) {
@@ -48,7 +48,7 @@
 
   &__icon {
     position: absolute;
-    top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-medium-size)) / 2);
+    top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-size-medium)) / 2);
     left: calc(var(--mg-b-size-4) + var(--mg-b-size-8)); // vertical bar + spacing
     line-height: 1;
   }
@@ -56,7 +56,7 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 var(--mg-b-size-8) 0 calc(var(--mg-b-size-4) + var(--mg-b-size-8) + var(--mg-c-icon-medium-size) + var(--mg-b-size-8)); // vertical bar + spacing + icon + spacing;
+    padding: 0 var(--mg-b-size-8) 0 calc(var(--mg-b-size-4) + var(--mg-b-size-8) + var(--mg-c-icon-size-medium) + var(--mg-b-size-8)); // vertical bar + spacing + icon + spacing;
     place-content: stretch flex-end;
   }
 

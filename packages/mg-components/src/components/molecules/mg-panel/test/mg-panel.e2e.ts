@@ -63,13 +63,13 @@ test.describe('mg-panel', () => {
       panelTitle:
         'very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title very long panel title',
     },
-    { expanded: true, style: '--mg-c-panel-content-padding: 0', slot: '<div>Content without padding.</div>' },
-    { expanded: true, style: '--mg-c-panel-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none', slot: '<div>Transparent mg-panel</div>' },
+    { expanded: true, style: '--mg-c-panel-content-spacing: 0', slot: '<div>Content without padding.</div>' },
+    { expanded: true, style: '--mg-c-panel-color-background: none; --mg-c-panel-border-radius: 0; --mg-c-panel-box-shadow: none', slot: '<div>Transparent mg-panel</div>' },
     {
       expanded: true,
       slot: '<div>header right items should be vertically aligned</div><div slot="header-right"><mg-tag>Label</mg-tag><mg-icon size="small" icon="check-circle" variant="success"></mg-icon></div>',
     },
-    { expanded: true, style: '--mg-c-panel-background:var(--mg-b-color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
+    { expanded: true, style: '--mg-c-panel-color-background:var(--mg-b-color-danger)', slot: '<mg-card>Content with child card.</mg-card>' },
   ].forEach(args => {
     test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
       const html = createHTML({ ...baseArgs, ...args });
