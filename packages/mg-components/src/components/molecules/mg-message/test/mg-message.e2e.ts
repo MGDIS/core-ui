@@ -15,14 +15,11 @@ test.describe('mg-message', () => {
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
           ].forEach(content => {
             ['', `<mg-button slot="actions">Primary</mg-button>`].forEach(actions => {
-              [true, false].forEach(closeButton => {
-                if (actions && closeButton) return; // Close button and slot actions are not allowed
-                test(`Should render variant ${variant} content ${content} with actions ${actions} close-button: ${closeButton}`, async ({ page }) => {
-                  const html = createHTML({ variant, variantStyle, closeButton }, `<p>${content}</p>${actions}`);
-                  await page.setContent(html);
+              test(`Should render variant ${variant} content ${content} with actions ${actions}`, async ({ page }) => {
+                const html = createHTML({ variant, variantStyle }, `<p>${content}</p>${actions}`);
+                await page.setContent(html);
 
-                  await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-                });
+                await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
               });
             });
           });

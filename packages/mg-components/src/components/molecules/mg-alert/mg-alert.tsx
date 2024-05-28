@@ -41,7 +41,7 @@ export class MgAlert {
 
   /**
    * Add a delay to hide/close message when it passed
-   * Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
+   * Value is defined in seconds and must greater than 2 seconds
    */
   @Prop() delay?: number;
   @Watch('delay')
@@ -54,9 +54,9 @@ export class MgAlert {
   /**
    * Define variant
    */
-  @Prop() variant?: undefined | VariantType;
+  @Prop() variant?: VariantType;
   @Watch('variant')
-  watchVariant(newValue: MgAlert['variant']) {
+  watchVariant(newValue: MgAlert['variant']): void {
     if (newValue && !variants.includes(newValue)) {
       throw new Error(`<mg-alert> prop "variant" must be one of: ${variants.join(', ')}`);
     }
@@ -65,9 +65,9 @@ export class MgAlert {
   /**
    * Define variant style
    */
-  @Prop() variantStyle?: undefined | VariantStyleType;
+  @Prop() variantStyle?: VariantStyleType;
   @Watch('variantStyle')
-  watchVariantStyle(newValue: MgAlert['variantStyle']) {
+  watchVariantStyle(newValue: MgAlert['variantStyle']): void {
     if (newValue && !variantStyles.includes(newValue)) {
       throw new Error(`<mg-alert> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
     }
@@ -83,11 +83,7 @@ export class MgAlert {
       this.closeButton = false;
       throw new Error('<mg-alert> prop "close-button" can\'t be used with the actions slot.');
     } else {
-      if (newValue) {
-        this.classCollection.add(this.classCloseButton);
-      } else {
-        this.classCollection.delete(this.classCloseButton);
-      }
+      this.classCollection[newValue ? 'add' : 'delete'](this.classCloseButton);
     }
   }
 
@@ -215,7 +211,11 @@ export class MgAlert {
       <div class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
         <mg-message variant={this.variant} variantStyle={this.variantStyle}>
           <slot></slot>
-          <slot name="actions"></slot>
+          {this.hasActions && (
+            <span slot="actions">
+              <slot name="actions"></slot>
+            </span>
+          )}
           {this.closeButton && (
             <span class="mg-c-alert__close-button">
               <mg-button is-icon variant="flat" label={this.messages.alert.closeButton} onClick={this.handleClose}>

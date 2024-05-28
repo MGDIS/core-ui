@@ -33,7 +33,7 @@ export class MgMessage {
    */
   @Prop() variant: undefined | VariantType = 'info';
   @Watch('variant')
-  watchVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']) {
+  watchVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
     if (!variants.includes(newValue)) {
       throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
     } else {
@@ -47,7 +47,7 @@ export class MgMessage {
    */
   @Prop() variantStyle: undefined | VariantStyleType = 'bar-left';
   @Watch('variantStyle')
-  watchVariantStyle(newValue: MgMessage['variantStyle'], oldValue?: MgMessage['variantStyle']) {
+  watchVariantStyle(newValue: MgMessage['variantStyle'], oldValue?: MgMessage['variantStyle']): void {
     if (!variantStyles.includes(newValue)) {
       throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
     } else {

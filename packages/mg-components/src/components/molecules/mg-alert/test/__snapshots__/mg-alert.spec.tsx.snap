@@ -6,7 +6,6 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="danger">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -30,7 +29,6 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="danger">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -54,7 +52,6 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="danger">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -78,7 +75,6 @@ exports[`mg-alert Render Should render a danger alert with args {} 1`] = `
     <div class="mg-c-alert" role="alert">
       <mg-message variant="danger">
         <slot></slot>
-        <slot name="actions"></slot>
       </mg-message>
     </div>
   </mock:shadow-root>
@@ -97,7 +93,6 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
     <div class="mg-c-alert mg-c-alert--close-button" role="status">
       <mg-message variant="info">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -121,7 +116,6 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
     <div class="mg-c-alert mg-c-alert--close-button" role="status">
       <mg-message variant="info">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -145,7 +139,6 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
     <div class="mg-c-alert mg-c-alert--close-button" role="status">
       <mg-message variant="info">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -169,7 +162,6 @@ exports[`mg-alert Render Should render a info alert with args {} 1`] = `
     <div class="mg-c-alert" role="status">
       <mg-message variant="info">
         <slot></slot>
-        <slot name="actions"></slot>
       </mg-message>
     </div>
   </mock:shadow-root>
@@ -188,7 +180,6 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="success">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -212,7 +203,6 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="success">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -236,7 +226,6 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="success">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -260,7 +249,6 @@ exports[`mg-alert Render Should render a success alert with args {} 1`] = `
     <div class="mg-c-alert" role="alert">
       <mg-message variant="success">
         <slot></slot>
-        <slot name="actions"></slot>
       </mg-message>
     </div>
   </mock:shadow-root>
@@ -279,7 +267,6 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="warning">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -303,7 +290,6 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="warning">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Fermer le message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -327,7 +313,6 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
     <div class="mg-c-alert mg-c-alert--close-button" role="alert">
       <mg-message variant="warning">
         <slot></slot>
-        <slot name="actions"></slot>
         <span class="mg-c-alert__close-button">
           <mg-button is-icon="" label="Close message" variant="flat">
             <mg-icon icon="cross"></mg-icon>
@@ -351,7 +336,6 @@ exports[`mg-alert Render Should render a warning alert with args {} 1`] = `
     <div class="mg-c-alert" role="alert">
       <mg-message variant="warning">
         <slot></slot>
-        <slot name="actions"></slot>
       </mg-message>
     </div>
   </mock:shadow-root>
@@ -370,7 +354,9 @@ exports[`mg-alert Render Should render with action slot 1`] = `
     <div class="mg-c-alert" role="alert">
       <mg-message>
         <slot></slot>
-        <slot name="actions"></slot>
+        <span slot="actions">
+          <slot name="actions"></slot>
+        </span>
       </mg-message>
     </div>
   </mock:shadow-root>
