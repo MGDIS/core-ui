@@ -5,8 +5,8 @@
   box-sizing: border-box;
   padding: var(--mg-b-size-4) var(--mg-b-size-8);
   border-radius: var(--mg-c-tooltip-border-radius);
-  background-color: var(--mg-c-tooltip-background-color);
-  color: var(--mg-c-tooltip-font-color);
+  background-color: var(--mg-c-tooltip-color-background);
+  color: var(--mg-c-tooltip-color-text);
   font-family: var(--mg-b-font-family);
   font-size: var(--mg-b-font-size);
   font-weight: 400;
@@ -32,7 +32,7 @@
     z-index: 9999;
     width: var(--mg-b-size-8);
     height: var(--mg-b-size-8);
-    background-color: var(--mg-c-tooltip-background-color);
+    background-color: var(--mg-c-tooltip-color-background);
   }
 
   :host([data-popper-placement^='top']) > & {

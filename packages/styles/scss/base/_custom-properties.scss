@@ -57,7 +57,7 @@
 
   @each $semantic, $palette, $index in variables.$semantics {
     --mg-b-color-#{$semantic}: var(--mg-b-color-#{$palette}-#{$index});
-    --mg-b-color-#{$semantic}-text: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
+    --mg-b-color-text-on-#{$semantic}: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
   }
 
   /* Brand colors */
@@ -68,7 +68,7 @@
   // Brand
   @each $brand, $palette, $index in variables.$brands {
     --mg-b-color-#{$brand}: var(--mg-b-color-#{$palette}-#{$index});
-    --mg-b-color-#{$brand}-text: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
+    --mg-b-color-text-on-#{$brand}: #{if(functions.light-or-dark(functions.get-color($palette, $index)) == 'dark', 'var(--mg-b-color-light)', 'var(--mg-b-color-dark)')};
   }
 
   /**
@@ -100,5 +100,5 @@
   --mg-b-box-shadow: 0 0.3rem 0.8rem 0 color-mix(in srgb, var(--mg-b-color-dark), transparent 85%);
 
   // Opacity for disabled elements
-  --mg-b-disabled-opacity: 0.4;
+  --mg-b-opacity-element-disabled: 0.4;
 }

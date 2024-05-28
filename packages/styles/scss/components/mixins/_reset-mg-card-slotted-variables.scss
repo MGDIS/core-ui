@@ -1,9 +1,9 @@
 @mixin reset-slot-card-variables() {
   ::slotted(*) {
     --mg-c-card-border: var(--mg-c-card-border-default);
-    --mg-c-card-padding: var(--mg-c-card-padding-default);
+    --mg-c-card-spacing: var(--mg-c-card-spacing-default);
     --mg-c-card-border-radius: var(--mg-c-card-border-radius-default);
-    --mg-c-card-background: var(--mg-c-card-background-default);
+    --mg-c-card-color-background: var(--mg-c-card-color-background-default);
     --mg-c-card-box-shadow: var(--mg-c-card-box-shadow-default);
     --mg-c-card-max-width: unset;
     --mg-c-card-min-width: unset;

@@ -15,7 +15,7 @@ test.describe('mg-card', () => {
     test(`Should render with slot ${slot}`, async ({ page }) => {
       if (slot.includes('</mg-card>')) {
         await page.addStyleTag({
-          content: 'mg-card:has(> mg-card){--mg-c-card-background:var(--mg-b-color-danger)}.custom-card--info{--mg-c-card-background:var(--mg-b-color-info)}',
+          content: 'mg-card:has(> mg-card){--mg-c-card-color-background:var(--mg-b-color-danger)}.custom-card--info{--mg-c-card-color-background:var(--mg-b-color-info)}',
         });
       }
       await page.setContent(`<mg-card>${slot}</mg-card>`);

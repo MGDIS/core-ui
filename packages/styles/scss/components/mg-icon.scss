@@ -1,12 +1,13 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @import '../utils/a11y';
 
 /*!
- * @prop --mg-c-icon-small-size: Defines the size of small icons. Default value is `--mg-b-size-12`.
- * @prop --mg-c-icon-medium-size: Defines the size of medium icons. Default value is `--mg-b-size-16`.
- * @prop --mg-c-icon-large-size: Defines the size of large icons. Default value is `--mg-b-size-20`.
- * @prop --mg-c-icon-xlarge-size: Defines the size of extra large icons. Default value is `--mg-b-size-24`.
- * @prop --mg-c-icon-xxlarge-size: Defines the size of double extra large icons. Default value is `--mg-b-size-32`.
+ * @prop --mg-c-icon-size-small: Defines the size of small icons. Default value is `--mg-b-size-12`.
+ * @prop --mg-c-icon-size-medium: Defines the size of medium icons. Default value is `--mg-b-size-16`.
+ * @prop --mg-c-icon-size-large: Defines the size of large icons. Default value is `--mg-b-size-20`.
+ * @prop --mg-c-icon-size-xlarge: Defines the size of extra large icons. Default value is `--mg-b-size-24`.
+ * @prop --mg-c-icon-size-xxlarge: Defines the size of double extra large icons. Default value is `--mg-b-size-32`.
  * @prop --mg-c-icon-border-radius: Defines the border radius of icons. Default value is `50%`.
  */
 
@@ -21,17 +22,17 @@
   @each $size in 'small', 'medium', 'large', 'xlarge', 'xxlarge' {
     &[size='#{$size}'],
     &.mg-c-icon--size-#{$size} {
-      width: var(--mg-c-icon-#{$size}-size);
-      height: var(--mg-c-icon-#{$size}-size);
+      width: var(--mg-c-icon-size-#{$size});
+      height: var(--mg-c-icon-size-#{$size});
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-        padding: calc(var(--mg-c-icon-#{$size}-size) / 2);
+        padding: calc(var(--mg-c-icon-size-#{$size}) / 2);
       }
     }
   }
 
   @each $style in 'icon', 'background', 'full' {
-    @each $variant, $color in join(variables.$app, variables.$semantics) {
+    @each $variant, $color in list.join(variables.$app, variables.$semantics) {
       &.mg-c-icon--variant-#{$variant}.mg-c-icon--variant-style-#{$style} {
         @if $style == 'icon' or $style == 'full' {
           color: var(--mg-b-color-#{$variant});
