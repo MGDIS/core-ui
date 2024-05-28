@@ -42,7 +42,7 @@ describe('mg-message', () => {
     test('Should render with action slot', async () => {
       const { root } = await getPage({}, [
         getDefaultContent(),
-        <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
+        <div slot="actions">
           <mg-button>Primary</mg-button>
           <mg-button variant="secondary">Secondary</mg-button>
         </div>,

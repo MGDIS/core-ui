@@ -208,23 +208,21 @@ export class MgAlert {
    */
   render(): HTMLElement {
     return (
-      <div class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'}>
-        <mg-message variant={this.variant} variantStyle={this.variantStyle}>
-          <slot></slot>
-          {this.hasActions && (
-            <span slot="actions">
-              <slot name="actions"></slot>
-            </span>
-          )}
-          {this.closeButton && (
-            <span class="mg-c-alert__close-button">
-              <mg-button is-icon variant="flat" label={this.messages.alert.closeButton} onClick={this.handleClose}>
-                <mg-icon icon="cross"></mg-icon>
-              </mg-button>
-            </span>
-          )}
-        </mg-message>
-      </div>
+      <mg-message class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'} variant={this.variant} variantStyle={this.variantStyle}>
+        <slot></slot>
+        {this.hasActions && (
+          <span slot="actions">
+            <slot name="actions"></slot>
+          </span>
+        )}
+        {this.closeButton && (
+          <span class="mg-c-alert__close-button">
+            <mg-button is-icon variant="flat" label={this.messages.alert.closeButton} onClick={this.handleClose}>
+              <mg-icon icon="cross"></mg-icon>
+            </mg-button>
+          </span>
+        )}
+      </mg-message>
     );
   }
 }
