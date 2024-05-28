@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 
 /*!
@@ -43,7 +44,7 @@
   pointer-events: none;
 }
 
-@each $name, $palette, $index in join(join(variables.$brands, variables.$semantics), 'danger-alt') {
+@each $name, $palette, $index in list.join(list.join(variables.$brands, variables.$semantics), 'danger-alt') {
   .mg-c-button.mg-c-button--#{$name} {
     /*!
      * @prop --mg-c-button-color-background-#{$name}: Defines the background color for the #{$name} variant button.

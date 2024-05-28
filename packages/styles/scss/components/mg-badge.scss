@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @import '../utils/a11y';
 
@@ -21,7 +22,7 @@
   text-align: center;
 
   // Variant
-  @each $name, $palette, $index in join(join(variables.$brands, variables.$semantics), 'text-color') {
+  @each $name, $palette, $index in list.join(list.join(variables.$brands, variables.$semantics), 'text-color') {
     &.mg-c-badge--#{$name} {
       @if $name == 'text-color' {
         border-color: currentcolor;

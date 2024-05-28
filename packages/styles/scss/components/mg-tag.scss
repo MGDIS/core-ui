@@ -1,6 +1,7 @@
+@use 'sass:list';
+@use 'sass:string';
 @use '../variables' as variables;
 @use '../functions' as functions;
-@use 'sass:string';
 
 /*!
  * @prop --mg-c-tag-height: Defines the height of the tag. Default value is `--mg-b-size-24`.
@@ -30,7 +31,7 @@
   vertical-align: middle;
 
   // Variant
-  @each $name, $palette, $index in join(variables.$brands, variables.$semantics) {
+  @each $name, $palette, $index in list.join(variables.$brands, variables.$semantics) {
     $color: var(--mg-b-color-#{$name});
 
     @if $palette == 'neutral' {
