@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-28T07:03:41",
+  "timestamp": "2024-05-28T13:33:29",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -1004,8 +1004,8 @@
       "filePath": "src/components/molecules/mg-alert/mg-alert.tsx",
       "encapsulation": "shadow",
       "tag": "mg-alert",
-      "readme": "## Usage\n\nWhen a trigger (button...) is set up, it can trigger the display of a message. By default, the execution of the trigger erases the previous messages in the screen of the same type.\n\n## Hide component\n\nTo hide the component, you must use the native `hidden` attribute.\n",
-      "docs": "When a trigger (button...) is set up, it can trigger the display of a message. By default, the execution of the trigger erases the previous messages in the screen of the same type.",
+      "readme": "## Usage\n\nWhen a trigger (such as a button) is activated, it can display an alert message. By default, activating the trigger erases any previous alert messages of the same type on the screen.\n\n## Hide component\n\nTo hide the component, you must use the native `hidden` attribute.\n",
+      "docs": "When a trigger (such as a button) is activated, it can display an alert message. By default, activating the trigger erases any previous alert messages of the same type on the screen.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -1020,7 +1020,7 @@
           "mutable": true,
           "attr": "close-button",
           "reflectToAttr": false,
-          "docs": "Define if message has a cross button",
+          "docs": "Define if message has a close button",
           "docsTags": [],
           "default": "false",
           "values": [
@@ -1042,7 +1042,7 @@
           "mutable": false,
           "attr": "delay",
           "reflectToAttr": false,
-          "docs": "Add a delay to hide/close message when it passed\nValue is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)",
+          "docs": "Add a delay to hide/close message when it passed\nValue is defined in seconds and must greater than 2 seconds",
           "docsTags": [],
           "values": [
             {
@@ -1056,7 +1056,7 @@
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
           "complexType": {
-            "original": "undefined | VariantType",
+            "original": "VariantType",
             "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
             "references": {
               "VariantType": {
@@ -1096,7 +1096,7 @@
           "name": "variantStyle",
           "type": "\"bar-left\" | \"fill\"",
           "complexType": {
-            "original": "undefined | VariantStyleType",
+            "original": "VariantStyleType",
             "resolved": "\"bar-left\" | \"fill\"",
             "references": {
               "VariantStyleType": {
@@ -1657,49 +1657,144 @@
           "docs": "Defines the top border width of the button. Unset by default, fallback on `--mg-b-size-border`."
         },
         {
-          "name": "--mg-c-button-danger-alt-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color for the danger-alt variant button."
-        },
-        {
-          "name": "--mg-c-button-danger-alt-border-color",
-          "annotation": "prop",
-          "docs": "Defines the border color for the danger-alt variant button."
-        },
-        {
-          "name": "--mg-c-button-danger-alt-font-color",
-          "annotation": "prop",
-          "docs": "Defines the font color for the danger-alt variant button."
-        },
-        {
-          "name": "--mg-c-button-danger-alt-gradient-color",
-          "annotation": "prop",
-          "docs": "Defines the gradient color for the danger-alt variant button."
-        },
-        {
-          "name": "--mg-c-button-danger-background-color",
+          "name": "--mg-c-button-color-background-danger",
           "annotation": "prop",
           "docs": "Defines the background color for the danger variant button."
         },
         {
-          "name": "--mg-c-button-danger-border-color",
+          "name": "--mg-c-button-color-background-danger-alt",
+          "annotation": "prop",
+          "docs": "Defines the background color for the danger-alt variant button."
+        },
+        {
+          "name": "--mg-c-button-color-background-info",
+          "annotation": "prop",
+          "docs": "Defines the background color for the info variant button."
+        },
+        {
+          "name": "--mg-c-button-color-background-primary",
+          "annotation": "prop",
+          "docs": "Defines the background color for the primary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-background-secondary",
+          "annotation": "prop",
+          "docs": "Defines the background color for the secondary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-background-success",
+          "annotation": "prop",
+          "docs": "Defines the background color for the success variant button."
+        },
+        {
+          "name": "--mg-c-button-color-background-warning",
+          "annotation": "prop",
+          "docs": "Defines the background color for the warning variant button."
+        },
+        {
+          "name": "--mg-c-button-color-border-danger",
           "annotation": "prop",
           "docs": "Defines the border color for the danger variant button."
         },
         {
-          "name": "--mg-c-button-danger-font-color",
+          "name": "--mg-c-button-color-border-danger-alt",
           "annotation": "prop",
-          "docs": "Defines the font color for the danger variant button."
+          "docs": "Defines the border color for the danger-alt variant button."
         },
         {
-          "name": "--mg-c-button-danger-gradient-color",
+          "name": "--mg-c-button-color-border-info",
+          "annotation": "prop",
+          "docs": "Defines the border color for the info variant button."
+        },
+        {
+          "name": "--mg-c-button-color-border-primary",
+          "annotation": "prop",
+          "docs": "Defines the border color for the primary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-border-secondary",
+          "annotation": "prop",
+          "docs": "Defines the border color for the secondary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-border-success",
+          "annotation": "prop",
+          "docs": "Defines the border color for the success variant button."
+        },
+        {
+          "name": "--mg-c-button-color-border-warning",
+          "annotation": "prop",
+          "docs": "Defines the border color for the warning variant button."
+        },
+        {
+          "name": "--mg-c-button-color-gradient-danger",
           "annotation": "prop",
           "docs": "Defines the gradient color for the danger variant button."
         },
         {
-          "name": "--mg-c-button-disabled-opacity",
+          "name": "--mg-c-button-color-gradient-danger-alt",
           "annotation": "prop",
-          "docs": "Defines the opacity of the button when disabled. The default value is `--mg-b-disabled-opacity`."
+          "docs": "Defines the gradient color for the danger-alt variant button."
+        },
+        {
+          "name": "--mg-c-button-color-gradient-info",
+          "annotation": "prop",
+          "docs": "Defines the gradient color for the info variant button."
+        },
+        {
+          "name": "--mg-c-button-color-gradient-primary",
+          "annotation": "prop",
+          "docs": "Defines the gradient color for the primary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-gradient-secondary",
+          "annotation": "prop",
+          "docs": "Defines the gradient color for the secondary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-gradient-success",
+          "annotation": "prop",
+          "docs": "Defines the gradient color for the success variant button."
+        },
+        {
+          "name": "--mg-c-button-color-gradient-warning",
+          "annotation": "prop",
+          "docs": "Defines the gradient color for the warning variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-danger",
+          "annotation": "prop",
+          "docs": "Defines the font color for the danger variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-danger-alt",
+          "annotation": "prop",
+          "docs": "Defines the font color for the danger-alt variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-info",
+          "annotation": "prop",
+          "docs": "Defines the font color for the info variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-primary",
+          "annotation": "prop",
+          "docs": "Defines the font color for the primary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-secondary",
+          "annotation": "prop",
+          "docs": "Defines the font color for the secondary variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-success",
+          "annotation": "prop",
+          "docs": "Defines the font color for the success variant button."
+        },
+        {
+          "name": "--mg-c-button-color-text-warning",
+          "annotation": "prop",
+          "docs": "Defines the font color for the warning variant button."
         },
         {
           "name": "--mg-c-button-font-weight",
@@ -1710,106 +1805,6 @@
           "name": "--mg-c-button-icon-border-radius",
           "annotation": "prop",
           "docs": "Defines the border radius of the button in icon mode. The default value is `--mg-b-size-min-height`."
-        },
-        {
-          "name": "--mg-c-button-info-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color for the info variant button."
-        },
-        {
-          "name": "--mg-c-button-info-border-color",
-          "annotation": "prop",
-          "docs": "Defines the border color for the info variant button."
-        },
-        {
-          "name": "--mg-c-button-info-font-color",
-          "annotation": "prop",
-          "docs": "Defines the font color for the info variant button."
-        },
-        {
-          "name": "--mg-c-button-info-gradient-color",
-          "annotation": "prop",
-          "docs": "Defines the gradient color for the info variant button."
-        },
-        {
-          "name": "--mg-c-button-primary-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color for the primary variant button."
-        },
-        {
-          "name": "--mg-c-button-primary-border-color",
-          "annotation": "prop",
-          "docs": "Defines the border color for the primary variant button."
-        },
-        {
-          "name": "--mg-c-button-primary-font-color",
-          "annotation": "prop",
-          "docs": "Defines the font color for the primary variant button."
-        },
-        {
-          "name": "--mg-c-button-primary-gradient-color",
-          "annotation": "prop",
-          "docs": "Defines the gradient color for the primary variant button."
-        },
-        {
-          "name": "--mg-c-button-secondary-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color for the secondary variant button."
-        },
-        {
-          "name": "--mg-c-button-secondary-border-color",
-          "annotation": "prop",
-          "docs": "Defines the border color for the secondary variant button."
-        },
-        {
-          "name": "--mg-c-button-secondary-font-color",
-          "annotation": "prop",
-          "docs": "Defines the font color for the secondary variant button."
-        },
-        {
-          "name": "--mg-c-button-secondary-gradient-color",
-          "annotation": "prop",
-          "docs": "Defines the gradient color for the secondary variant button."
-        },
-        {
-          "name": "--mg-c-button-success-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color for the success variant button."
-        },
-        {
-          "name": "--mg-c-button-success-border-color",
-          "annotation": "prop",
-          "docs": "Defines the border color for the success variant button."
-        },
-        {
-          "name": "--mg-c-button-success-font-color",
-          "annotation": "prop",
-          "docs": "Defines the font color for the success variant button."
-        },
-        {
-          "name": "--mg-c-button-success-gradient-color",
-          "annotation": "prop",
-          "docs": "Defines the gradient color for the success variant button."
-        },
-        {
-          "name": "--mg-c-button-warning-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color for the warning variant button."
-        },
-        {
-          "name": "--mg-c-button-warning-border-color",
-          "annotation": "prop",
-          "docs": "Defines the border color for the warning variant button."
-        },
-        {
-          "name": "--mg-c-button-warning-font-color",
-          "annotation": "prop",
-          "docs": "Defines the font color for the warning variant button."
-        },
-        {
-          "name": "--mg-c-button-warning-gradient-color",
-          "annotation": "prop",
-          "docs": "Defines the gradient color for the warning variant button."
         }
       ],
       "slots": [
@@ -1885,16 +1880,6 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-card-background",
-          "annotation": "prop",
-          "docs": "Defines the background property for the card. Unset by default, fallback on `--mg-c-card-background-default`."
-        },
-        {
-          "name": "--mg-c-card-background-default",
-          "annotation": "prop",
-          "docs": "Defines the default background property for the card. Default value: `--mg-b-color-light`."
-        },
-        {
           "name": "--mg-c-card-border",
           "annotation": "prop",
           "docs": "Defines the border property for the card. Unset by default, fallback on `--mg-c-card-border-default`."
@@ -1925,6 +1910,16 @@
           "docs": "Defines the default box shadow property for the card. Default value: `--mg-b-box-shadow`."
         },
         {
+          "name": "--mg-c-card-color-background",
+          "annotation": "prop",
+          "docs": "Defines the background property for the card. Unset by default, fallback on `--mg-c-card-color-background-default`."
+        },
+        {
+          "name": "--mg-c-card-color-background-default",
+          "annotation": "prop",
+          "docs": "Defines the default background property for the card. Default value: `--mg-b-color-light`."
+        },
+        {
           "name": "--mg-c-card-max-width",
           "annotation": "prop",
           "docs": "Defines the max-width property for the card. Unset by default."
@@ -1940,12 +1935,12 @@
           "docs": "Defines the default overflow property for the card. Unset by default."
         },
         {
-          "name": "--mg-c-card-padding",
+          "name": "--mg-c-card-spacing",
           "annotation": "prop",
-          "docs": "Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-padding-default`."
+          "docs": "Defines the padding property for the card. Unset by default, fallback on `--mg-c-card-spacing-default`."
         },
         {
-          "name": "--mg-c-card-padding-default",
+          "name": "--mg-c-card-spacing-default",
           "annotation": "prop",
           "docs": "Defines the default padding property for the card. Default value: `--mg-b-size-16`."
         }
@@ -2154,19 +2149,19 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-divider-background-color",
+          "name": "--mg-c-divider-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the divider. The default value is `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`."
+        },
+        {
+          "name": "--mg-c-divider-spacing-vertical",
+          "annotation": "prop",
+          "docs": "Defines the vertical spacing of the divider. The default value is `--mg-b-size-40`."
         },
         {
           "name": "--mg-c-divider-thickness",
           "annotation": "prop",
           "docs": "Defines the thickness of the divider. The default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-divider-vertical-spacing",
-          "annotation": "prop",
-          "docs": "Defines the vertical spacing of the divider. The default value is `--mg-b-size-40`."
         }
       ],
       "slots": [],
@@ -3484,27 +3479,27 @@
           "docs": "Defines the border radius of icons. Default value is `50%`."
         },
         {
-          "name": "--mg-c-icon-large-size",
+          "name": "--mg-c-icon-size-large",
           "annotation": "prop",
           "docs": "Defines the size of large icons. Default value is `--mg-b-size-20`."
         },
         {
-          "name": "--mg-c-icon-medium-size",
+          "name": "--mg-c-icon-size-medium",
           "annotation": "prop",
           "docs": "Defines the size of medium icons. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-icon-small-size",
+          "name": "--mg-c-icon-size-small",
           "annotation": "prop",
           "docs": "Defines the size of small icons. Default value is `--mg-b-size-12`."
         },
         {
-          "name": "--mg-c-icon-xlarge-size",
+          "name": "--mg-c-icon-size-xlarge",
           "annotation": "prop",
           "docs": "Defines the size of extra large icons. Default value is `--mg-b-size-24`."
         },
         {
-          "name": "--mg-c-icon-xxlarge-size",
+          "name": "--mg-c-icon-size-xxlarge",
           "annotation": "prop",
           "docs": "Defines the size of double extra large icons. Default value is `--mg-b-size-32`."
         }
@@ -3664,7 +3659,7 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-illustrated-message-padding-vertical",
+          "name": "--mg-c-illustrated-message-spacing-vertical",
           "annotation": "prop",
           "docs": "Defines the vertical padding of the illustrated message. Default value: `--mg-b-size-40`."
         }
@@ -3969,19 +3964,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -4602,19 +4602,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -5449,19 +5454,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -6188,19 +6198,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -6755,19 +6770,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -7314,19 +7334,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -7948,19 +7973,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -9517,19 +9547,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -10240,19 +10275,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -10729,19 +10769,24 @@
           "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
         },
         {
-          "name": "--mg-c-input-color",
+          "name": "--mg-c-input-color-border",
           "annotation": "prop",
-          "docs": "Defines the color of the input border and placeholder text. Default value is `rgb(181, 194, 201)`."
+          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
         },
         {
-          "name": "--mg-c-input-color-shadow-focus",
+          "name": "--mg-c-input-color-box-shadow-focus",
           "annotation": "prop",
           "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
         },
         {
-          "name": "--mg-c-input-error-bg-color",
+          "name": "--mg-c-input-error-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
+        },
+        {
+          "name": "--mg-c-input-placeholder-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
         },
         {
           "name": "--mg-c-input-toggle-border-radius-ratio",
@@ -11261,24 +11306,24 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-menu-item-border-color-active",
-          "annotation": "prop",
-          "docs": "Defines the border color of the active menu item. Default value is `var(--mg-b-color-app)`."
-        },
-        {
           "name": "--mg-c-menu-item-color",
           "annotation": "prop",
           "docs": "Defines the color of the menu item. Unset by default, fallback on `var(--mg-b-color-dark)`."
         },
         {
-          "name": "--mg-c-menu-item-color-active",
-          "annotation": "prop",
-          "docs": "Defines the color of the active menu item. Default value is `--mg-b-color-app`."
-        },
-        {
-          "name": "--mg-c-menu-item-focused-background-color",
+          "name": "--mg-c-menu-item-color-background-focus",
           "annotation": "prop",
           "docs": "Defines the background color of the focused menu item. Default value is `color-mix(in srgb, var(--mg-b-color-dark), white 90%)`."
+        },
+        {
+          "name": "--mg-c-menu-item-color-border-active",
+          "annotation": "prop",
+          "docs": "Defines the border color of the active menu item. Default value is `var(--mg-b-color-app)`."
+        },
+        {
+          "name": "--mg-c-menu-item-color-text-active",
+          "annotation": "prop",
+          "docs": "Defines the color of the active menu item. Default value is `--mg-b-color-app`."
         },
         {
           "name": "--mg-c-menu-item-navigation-button-max-width",
@@ -12102,11 +12147,6 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-panel-background",
-          "annotation": "prop",
-          "docs": "Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`."
-        },
-        {
           "name": "--mg-c-panel-border-radius",
           "annotation": "prop",
           "docs": "Defines the border radius of the panel. Default value: `--mg-b-size-radius`."
@@ -12117,7 +12157,12 @@
           "docs": "Defines the box shadow of the panel. Default value: `--mg-b-box-shadow`."
         },
         {
-          "name": "--mg-c-panel-content-padding",
+          "name": "--mg-c-panel-color-background",
+          "annotation": "prop",
+          "docs": "Defines the background of the panel. Default value: `color-mix(in srgb, var(--mg-b-color-info), white 97%)`."
+        },
+        {
+          "name": "--mg-c-panel-content-spacing",
           "annotation": "prop",
           "docs": "Defines the padding of the panel content. Default value: `--mg-b-size-16`."
         }
@@ -12395,12 +12440,12 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-popover-background-color",
+          "name": "--mg-c-popover-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the popover. Default value: `--mg-b-color-light`."
         },
         {
-          "name": "--mg-c-popover-font-color",
+          "name": "--mg-c-popover-color-text",
           "annotation": "prop",
           "docs": "Defines the font color of the popover. Default value: `--mg-b-color-font-dark`."
         },
@@ -12704,19 +12749,19 @@
           "docs": "Defines the bottom border of tabs. Default value: `--mg-b-border`."
         },
         {
-          "name": "--mg-c-tabs-border-color-active",
+          "name": "--mg-c-tabs-color-background-focus",
+          "annotation": "prop",
+          "docs": "Defines the background color of focused tabs. Default value: `color-mix(in srgb, var(--mg-b-color-app), transparent 90%)`."
+        },
+        {
+          "name": "--mg-c-tabs-color-border-active",
           "annotation": "prop",
           "docs": "Defines the border color of active tabs. Default value: `--mg-b-color-app`."
         },
         {
-          "name": "--mg-c-tabs-color-active",
+          "name": "--mg-c-tabs-color-text-active",
           "annotation": "prop",
           "docs": "Defines the color of active tabs. Default value: `--mg-b-color-app`."
-        },
-        {
-          "name": "--mg-c-tabs-focused-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color of focused tabs. Default value: `color-mix(in srgb, var(--mg-b-color-app), transparent 90%)`."
         }
       ],
       "slots": [
@@ -13071,17 +13116,17 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-tooltip-background-color",
-          "annotation": "prop",
-          "docs": "Defines the background color of the tooltip. Default value: `--mg-b-color-dark`."
-        },
-        {
           "name": "--mg-c-tooltip-border-radius",
           "annotation": "prop",
           "docs": "Defines the border radius of the tooltip. Default value: `--mg-b-size-radius`."
         },
         {
-          "name": "--mg-c-tooltip-font-color",
+          "name": "--mg-c-tooltip-color-background",
+          "annotation": "prop",
+          "docs": "Defines the background color of the tooltip. Default value: `--mg-b-color-dark`."
+        },
+        {
+          "name": "--mg-c-tooltip-color-text",
           "annotation": "prop",
           "docs": "Defines the font color of the tooltip. Default value: `--mg-b-color-light`."
         }

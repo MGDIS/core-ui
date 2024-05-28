@@ -89,9 +89,9 @@ Component's max-width is 400px.
 
 | Name                              | Description                                                                      |
 | --------------------------------- | -------------------------------------------------------------------------------- |
-| `--mg-c-tooltip-background-color` | Defines the background color of the tooltip. Default value: `--mg-b-color-dark`. |
 | `--mg-c-tooltip-border-radius`    | Defines the border radius of the tooltip. Default value: `--mg-b-size-radius`.   |
-| `--mg-c-tooltip-font-color`       | Defines the font color of the tooltip. Default value: `--mg-b-color-light`.      |
+| `--mg-c-tooltip-color-background` | Defines the background color of the tooltip. Default value: `--mg-b-color-dark`. |
+| `--mg-c-tooltip-color-text`       | Defines the font color of the tooltip. Default value: `--mg-b-color-light`.      |
 
 
 ## Dependencies

@@ -35,7 +35,7 @@ test.describe('mg-alert', () => {
     const html = createHTML({}, `<mg-card>child card</mg-card>`);
     await page.setContent(html);
     await page.addStyleTag({
-      content: `mg-alert:has(> mg-card){--mg-c-card-background:var(--mg-b-color-danger)}`,
+      content: `mg-alert:has(> mg-card){--mg-c-card-color-background:var(--mg-b-color-danger)}`,
     });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

@@ -176,12 +176,13 @@ No more `variables.scss` export, only `variables.css`.
   <mg-menu size="xlarge">...</mg-menu>
   ```
 
-### Changes in `mg-card` and `mg-message`
+### Changes in `mg-card`
 
-- Move `variant` and `variantStyle` props to `mg-message`.
+- Delete `variant` and `variantStyle` props.
 
 ### Changes in `mg-message`
 
+- Create `variantStyle` prop.
 - Move `close-button`, `delay` and `aria role` in `mg-alert` new component: .
 
 ### Hide components

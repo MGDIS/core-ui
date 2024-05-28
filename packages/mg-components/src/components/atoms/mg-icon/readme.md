@@ -65,11 +65,11 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
 | Name                        | Description                                                                      |
 | --------------------------- | -------------------------------------------------------------------------------- |
 | `--mg-c-icon-border-radius` | Defines the border radius of icons. Default value is `50%`.                      |
-| `--mg-c-icon-large-size`    | Defines the size of large icons. Default value is `--mg-b-size-20`.              |
-| `--mg-c-icon-medium-size`   | Defines the size of medium icons. Default value is `--mg-b-size-16`.             |
-| `--mg-c-icon-small-size`    | Defines the size of small icons. Default value is `--mg-b-size-12`.              |
-| `--mg-c-icon-xlarge-size`   | Defines the size of extra large icons. Default value is `--mg-b-size-24`.        |
-| `--mg-c-icon-xxlarge-size`  | Defines the size of double extra large icons. Default value is `--mg-b-size-32`. |
+| `--mg-c-icon-size-large`    | Defines the size of large icons. Default value is `--mg-b-size-20`.              |
+| `--mg-c-icon-size-medium`   | Defines the size of medium icons. Default value is `--mg-b-size-16`.             |
+| `--mg-c-icon-size-small`    | Defines the size of small icons. Default value is `--mg-b-size-12`.              |
+| `--mg-c-icon-size-xlarge`   | Defines the size of extra large icons. Default value is `--mg-b-size-24`.        |
+| `--mg-c-icon-size-xxlarge`  | Defines the size of double extra large icons. Default value is `--mg-b-size-32`. |
 
 
 ## Dependencies
