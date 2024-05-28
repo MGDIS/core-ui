@@ -80,6 +80,7 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Changes in `mg-menu`](#changes-in-mg-menu)
 - [Changes in `mg-card` and `mg-message`](#changes-in-mg-card-and-mg-message)
+- [Changes in `mg-message`](#changes-in-mg-message)
 - [Hide components](#hide-components)
 - [Internal components](#internal-components)
 - [Stylesheet](#stylesheet)
@@ -178,6 +179,10 @@ No more `variables.scss` export, only `variables.css`.
 ### Changes in `mg-card` and `mg-message`
 
 - Move `variant` and `variantStyle` props to `mg-message`.
+
+### Changes in `mg-message`
+
+- Move `close-button`, `delay` and `aria role` in `mg-alert` new component: .
 
 ### Hide components
 
