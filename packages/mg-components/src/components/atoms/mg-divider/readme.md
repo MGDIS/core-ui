@@ -36,9 +36,9 @@ Default margin applied on top and bottom of the divider is set to 40px.
 
 | Name                              | Description                                                                                                                      |
 | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `--mg-c-divider-background-color` | Defines the background color of the divider. The default value is `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`. |
+| `--mg-c-divider-color-background` | Defines the background color of the divider. The default value is `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`. |
+| `--mg-c-divider-spacing-vertical` | Defines the vertical spacing of the divider. The default value is `--mg-b-size-40`.                                              |
 | `--mg-c-divider-thickness`        | Defines the thickness of the divider. The default value is `--mg-b-size-border`.                                                 |
-| `--mg-c-divider-vertical-spacing` | Defines the vertical spacing of the divider. The default value is `--mg-b-size-40`.                                              |
 
 
 ----------------------------------------------
