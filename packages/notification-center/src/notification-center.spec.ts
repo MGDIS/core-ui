@@ -93,10 +93,10 @@ describe('Notification center', () => {
     });
 
     it('Should post a message', () => {
-      const messageData = { content: 'Default example' };
+      const notificationData = { content: 'Default example' };
       const spyPostMessage = jest.spyOn(window, 'postMessage');
-      notifsCenter.postMessage(messageData);
-      expect(spyPostMessage).toHaveBeenCalledWith({ ...messageData, appId: 'mg-notification-center' }, 'http://localhost');
+      notifsCenter.postMessage(notificationData);
+      expect(spyPostMessage).toHaveBeenCalledWith({ ...notificationData, appId: 'mg-notification-center' }, 'http://localhost');
     });
 
     it('Should remove previous message with same context', () => {
@@ -132,8 +132,8 @@ describe('Notification center', () => {
         }),
       );
       expect(document.body.innerHTML).toMatchSnapshot();
-      const mgMessage = document.querySelector('mg-message');
-      mgMessage?.dispatchEvent(new CustomEvent('component-hide', { bubbles: true }));
+      const mgAlert = document.querySelector('mg-alert');
+      mgAlert?.dispatchEvent(new CustomEvent('component-hide', { bubbles: true }));
       expect(document.body.innerHTML).toMatchSnapshot();
     });
   });
