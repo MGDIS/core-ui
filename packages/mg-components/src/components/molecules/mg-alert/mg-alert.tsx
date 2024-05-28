@@ -74,7 +74,7 @@ export class MgAlert {
   }
 
   /**
-   * Define if message has a cross button
+   * Define if message has a close button
    */
   @Prop({ mutable: true }) closeButton = false;
   @Watch('closeButton')
