@@ -266,7 +266,7 @@ importers:
     dependencies:
       '@stencil-community/eslint-plugin':
         specifier: 0.7.2
-        version: 0.7.2(@typescript-eslint/eslint-plugin@7.8.0)(@typescript-eslint/parser@7.8.0)(eslint-plugin-react@7.34.1)(eslint@8.57.0)(typescript@5.4.5)
+        version: 0.7.2(@typescript-eslint/eslint-plugin@7.8.0)(@typescript-eslint/parser@7.8.0)(eslint-plugin-react@7.34.2)(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/eslint-plugin':
         specifier: 7.8.0
         version: 7.8.0(@typescript-eslint/parser@7.8.0)(eslint@8.57.0)(typescript@5.4.5)
@@ -284,8 +284,8 @@ importers:
         version: 6.8.0(eslint@8.57.0)
     devDependencies:
       eslint-plugin-react:
-        specifier: 7.34.1
-        version: 7.34.1(eslint@8.57.0)
+        specifier: 7.34.2
+        version: 7.34.2(eslint@8.57.0)
       prettier-config:
         specifier: workspace:*
         version: link:../prettier-config
@@ -4068,7 +4068,7 @@ packages:
     resolution: {integrity: sha512-T7VNNlYVM1SgQ+VsMYhnDkcGmWhQdL0bDyGm5TlQ3GBXnJscEClUUOKduWTmm2zCnvNLC1hc3JpuXjs/nFOc5w==}
     dev: false
 
-  /@stencil-community/eslint-plugin@0.7.2(@typescript-eslint/eslint-plugin@7.8.0)(@typescript-eslint/parser@7.8.0)(eslint-plugin-react@7.34.1)(eslint@8.57.0)(typescript@5.4.5):
+  /@stencil-community/eslint-plugin@0.7.2(@typescript-eslint/eslint-plugin@7.8.0)(@typescript-eslint/parser@7.8.0)(eslint-plugin-react@7.34.2)(eslint@8.57.0)(typescript@5.4.5):
     resolution: {integrity: sha512-rj8rD63ZadJHcMrfyrm+SdmEKouBXn54NEBOeXd+7p9BnFCt2ehYZjA7OhGAOBhrxf7ZpUgXtDEXS9iEs//bRw==}
     engines: {node: '>=16.20.2'}
     peerDependencies:
@@ -4081,7 +4081,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 7.8.0(@typescript-eslint/parser@7.8.0)(eslint@8.57.0)(typescript@5.4.5)
       '@typescript-eslint/parser': 7.8.0(eslint@8.57.0)(typescript@5.4.5)
       eslint: 8.57.0
-      eslint-plugin-react: 7.34.1(eslint@8.57.0)
+      eslint-plugin-react: 7.34.2(eslint@8.57.0)
       eslint-utils: 3.0.0(eslint@8.57.0)
       jsdom: 23.2.0
       tsutils: 3.21.0(typescript@5.4.5)
@@ -10004,8 +10004,8 @@ packages:
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.8
 
-  /eslint-plugin-react@7.34.1(eslint@8.57.0):
-    resolution: {integrity: sha512-N97CxlouPT1AHt8Jn0mhhN2RrADlUAsk1/atcT2KyA/l9Q/E6ll7OIGwNumFmWfZ9skV3XXccYS19h80rHtgkw==}
+  /eslint-plugin-react@7.34.2(eslint@8.57.0):
+    resolution: {integrity: sha512-2HCmrU+/JNigDN6tg55cRDKCQWicYAPB38JGSFDQt95jDm8rrvSUo7YPkOIm5l6ts1j1zCvysNcasvfTMQzUOw==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
@@ -10940,7 +10940,7 @@ packages:
       fs.realpath: 1.0.0
       inflight: 1.0.6
       inherits: 2.0.4
-      minimatch: 5.0.1
+      minimatch: 5.1.6
       once: 1.4.0
     dev: true
 
