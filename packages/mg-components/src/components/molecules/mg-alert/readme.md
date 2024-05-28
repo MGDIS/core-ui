@@ -11,12 +11,12 @@ To hide the component, you must use the native `hidden` attribute.
 
 ## Properties
 
-| Property       | Attribute       | Description                                                                                                                   | Type                                           | Default     |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ----------- |
-| `closeButton`  | `close-button`  | Define if message has a cross button                                                                                          | `boolean`                                      | `false`     |
-| `delay`        | `delay`         | Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06) | `number`                                       | `undefined` |
-| `variant`      | `variant`       | Define variant                                                                                                                | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
-| `variantStyle` | `variant-style` | Define variant style                                                                                                          | `"bar-left" \| "fill"`                         | `undefined` |
+| Property       | Attribute       | Description                                                                                                  | Type                                           | Default     |
+| -------------- | --------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ----------- |
+| `closeButton`  | `close-button`  | Define if message has a close button                                                                         | `boolean`                                      | `false`     |
+| `delay`        | `delay`         | Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds | `number`                                       | `undefined` |
+| `variant`      | `variant`       | Define variant                                                                                               | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
+| `variantStyle` | `variant-style` | Define variant style                                                                                         | `"bar-left" \| "fill"`                         | `undefined` |
 
 
 ## Events

@@ -76,21 +76,21 @@ export namespace Components {
     }
     interface MgAlert {
         /**
-          * Define if message has a cross button
+          * Define if message has a close button
          */
         "closeButton": boolean;
         /**
-          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
+          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
         "delay"?: number;
         /**
           * Define variant
          */
-        "variant"?: undefined | VariantType;
+        "variant"?: VariantType;
         /**
           * Define variant style
          */
-        "variantStyle"?: undefined | VariantStyleType;
+        "variantStyle"?: VariantStyleType;
     }
     interface MgBadge {
         /**
@@ -2029,11 +2029,11 @@ declare namespace LocalJSX {
     }
     interface MgAlert {
         /**
-          * Define if message has a cross button
+          * Define if message has a close button
          */
         "closeButton"?: boolean;
         /**
-          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
+          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
         "delay"?: number;
         /**
@@ -2047,11 +2047,11 @@ declare namespace LocalJSX {
         /**
           * Define variant
          */
-        "variant"?: undefined | VariantType;
+        "variant"?: VariantType;
         /**
           * Define variant style
          */
-        "variantStyle"?: undefined | VariantStyleType;
+        "variantStyle"?: VariantStyleType;
     }
     interface MgBadge {
         /**
