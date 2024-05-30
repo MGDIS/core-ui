@@ -30,6 +30,10 @@
       gap: var(--mg-b-size-12) var(--mg-b-size-24);
       list-style: none;
     }
+
+    &.mg-c-input__input-group--disabled label {
+      opacity: var(--mg-b-opacity-element-disabled);
+    }
   }
 
   /**
@@ -45,16 +49,9 @@
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {
     margin-top: var(--mg-b-size-8);
   }
-}
 
-:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
-  margin-left: var(--mg-b-size-32);
-}
-
-:host(.mg-c-input.mg-c-input--checkbox),
-:host(.mg-c-input.mg-c-input--radio) {
-  .mg-c-input__input {
-    min-height: unset;
-    align-items: flex-start;
+  &.mg-c-input--readonly b {
+    min-height: var(--mg-b-font-size);
+    margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
   }
 }

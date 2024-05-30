@@ -379,42 +379,46 @@ export class MgInputTextarea {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.value}
+        // readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <div class="mg-c-input__with-character-left">
-          <textarea
-            class={{
-              'mg-c-input__box': true,
-              'mg-c-input__box--width': true,
-              'mg-c-input__box--resizable': this.resizable === 'both',
-              'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
-              'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
-            }}
-            value={this.value}
-            id={this.identifier}
-            name={this.name}
-            placeholder={this.placeholder}
-            title={this.placeholder}
-            rows={this.rows}
-            maxlength={this.maxlength}
-            disabled={this.disabled}
-            required={this.required}
-            aria-invalid={(this.invalid === true).toString()}
-            onInput={this.handleInput}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            ref={(el: HTMLTextAreaElement) => {
-              if (el !== null) this.input = el;
-            }}
-          ></textarea>
-          {!this.characterLeftHide && this.maxlength > 0 && (
-            <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
-          )}
-        </div>
+        {this.readonly ? (
+          this.value && <b>{this.value}</b>
+        ) : (
+          <div class="mg-c-input__with-character-left">
+            <textarea
+              class={{
+                'mg-c-input__box': true,
+                'mg-c-input__box--width': true,
+                'mg-c-input__box--resizable': this.resizable === 'both',
+                'mg-c-input__box--resizable-horizontal': this.resizable === 'horizontal',
+                'mg-c-input__box--resizable-vertical': this.resizable === 'vertical',
+              }}
+              value={this.value}
+              id={this.identifier}
+              name={this.name}
+              placeholder={this.placeholder}
+              title={this.placeholder}
+              rows={this.rows}
+              maxlength={this.maxlength}
+              disabled={this.disabled}
+              required={this.required}
+              aria-invalid={(this.invalid === true).toString()}
+              onInput={this.handleInput}
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              ref={(el: HTMLTextAreaElement) => {
+                if (el !== null) this.input = el;
+              }}
+            ></textarea>
+            {!this.characterLeftHide && this.maxlength > 0 && (
+              <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
+            )}
+          </div>
+        )}
       </mg-input>
     );
   }

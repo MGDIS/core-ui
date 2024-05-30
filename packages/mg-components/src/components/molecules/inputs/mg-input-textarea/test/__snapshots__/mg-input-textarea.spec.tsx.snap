@@ -15,13 +15,11 @@ exports[`mg-input-textarea Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
-        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -49,15 +47,14 @@ exports[`mg-input-textarea Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            blu
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3" value="blu"></textarea>
-        <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
+      <b>
+        blu
+      </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -130,18 +127,14 @@ exports[`mg-input-textarea Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            blu
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" required="" rows="3" value="blu"></textarea>
-        <mg-character-left characters="blu" identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
+      <b>
+        blu
+      </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -482,13 +475,11 @@ exports[`mg-input-textarea Should render with args { label: 'label', identifier:
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
-        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -1163,13 +1154,11 @@ exports[`mg-input-textarea validity, case next state is readonly validity ({ val
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <div class="mg-c-input__with-character-left"><textarea aria-describedby="identifier-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="4000" name="identifier" rows="3"></textarea>
-        <mg-character-left identifier="identifier-character-left" maxlength="4000"></mg-character-left>
-      </div>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">

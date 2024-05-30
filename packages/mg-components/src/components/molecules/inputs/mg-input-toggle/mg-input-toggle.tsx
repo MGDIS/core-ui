@@ -316,6 +316,7 @@ export class MgInputToggle {
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const checkedItem = this.getCheckedItem(this.checked);
     return (
       <mg-input
         label={this.label}
@@ -326,28 +327,31 @@ export class MgInputToggle {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={undefined}
-        readonlyValue={this.getCheckedItem(this.checked)?.title}
         tooltip={!this.readonly && this.tooltip}
         tooltipPosition={this.tooltipPosition}
         errorMessage={this.errorMessage}
       >
-        <button
-          type="button"
-          role="switch"
-          aria-checked={this.checked.toString()}
-          aria-readonly={this.disabled || this.readonly}
-          id={this.identifier}
-          class="mg-c-input__button-toggle"
-          disabled={this.disabled || this.readonly}
-          onClick={this.toggleChecked}
-        >
-          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-            <slot name="item-1"></slot>
-          </span>
-          <span aria-hidden="true" class="mg-c-input__toggle-item-container">
-            <slot name="item-2"></slot>
-          </span>
-        </button>
+        {this.readonly ? (
+          checkedItem && <b>{checkedItem.title}</b>
+        ) : (
+          <button
+            type="button"
+            role="switch"
+            aria-checked={this.checked.toString()}
+            aria-readonly={this.disabled || this.readonly}
+            id={this.identifier}
+            class="mg-c-input__button-toggle"
+            disabled={this.disabled || this.readonly}
+            onClick={this.toggleChecked}
+          >
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-1"></slot>
+            </span>
+            <span aria-hidden="true" class="mg-c-input__toggle-item-container">
+              <slot name="item-2"></slot>
+            </span>
+          </button>
+        )}
       </mg-input>
     );
   }

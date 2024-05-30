@@ -310,36 +310,11 @@ exports[`mg-input-radio Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
@@ -369,36 +344,11 @@ exports[`mg-input-radio Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
@@ -567,41 +517,14 @@ exports[`mg-input-radio Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            batman
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" checked="" id="identifier_0" name="identifier" required="" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" id="identifier_1" name="identifier" required="" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" id="identifier_2" name="identifier" required="" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-help-text" id="identifier_3" name="identifier" required="" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
+      <b>
+        batman
+      </b>
       <mg-input-title identifier="identifier" is-legend="true" readonly="true" required="true" slot="label">
         <!---->
         <span class="mg-c-input-title" id="identifier-title">
@@ -2041,36 +1964,14 @@ exports[`mg-input-radio validity, case next state is readonly validity ({ validi
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <ul class="mg-c-input__input-group-container" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-error" id="identifier_0" name="identifier" type="radio" value="0">
-          <label htmlfor="identifier_0">
-            batman
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-error" id="identifier_1" name="identifier" type="radio" value="1">
-          <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-error" id="identifier_2" name="identifier" type="radio" value="2">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="identifier-error" id="identifier_3" name="identifier" type="radio" value="3">
-          <label htmlfor="identifier_3">
-            bane
-          </label>
-        </li>
-      </ul>
       <div id="identifier-error" slot="error">
         This field is required.
       </div>

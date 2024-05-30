@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-05-27T10:20:30",
+  "timestamp": "2024-05-30T06:51:02",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -3736,30 +3736,6 @@
           "required": false
         },
         {
-          "name": "readonlyValue",
-          "type": "string | string[]",
-          "complexType": {
-            "original": "string | string[]",
-            "resolved": "string | string[]",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "readonly-value",
-          "reflectToAttr": false,
-          "docs": "Defines value to display in readonly mode",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            },
-            {
-              "type": "string[]"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "required",
           "type": "boolean",
           "complexType": {
@@ -4477,48 +4453,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -5329,48 +5264,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -6073,48 +5967,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "append-input",
@@ -6645,48 +6498,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -7209,48 +7021,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],
@@ -7848,48 +7619,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [
@@ -9422,48 +9152,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [
         {
           "name": "append-input",
@@ -10150,48 +9839,7 @@
         }
       ],
       "listeners": [],
-      "styles": [
-        {
-          "name": "--mg-c-input-border-radius",
-          "annotation": "prop",
-          "docs": "Defines the border radius of the input. Default value is `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-input-border-width",
-          "annotation": "prop",
-          "docs": "Defines the width of the input border. Default value is `--mg-b-size-border`."
-        },
-        {
-          "name": "--mg-c-input-check-size",
-          "annotation": "prop",
-          "docs": "Defines the size of the input check. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-input-color-border",
-          "annotation": "prop",
-          "docs": "Defines the color of the input border. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-color-box-shadow-focus",
-          "annotation": "prop",
-          "docs": "Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`."
-        },
-        {
-          "name": "--mg-c-input-error-color-background",
-          "annotation": "prop",
-          "docs": "Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`."
-        },
-        {
-          "name": "--mg-c-input-placeholder-color-text",
-          "annotation": "prop",
-          "docs": "Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`."
-        },
-        {
-          "name": "--mg-c-input-toggle-border-radius-ratio",
-          "annotation": "prop",
-          "docs": "Defines the border radius ratio of the input toggle. Default value is `2`."
-        }
-      ],
+      "styles": [],
       "slots": [],
       "parts": [],
       "dependents": [],

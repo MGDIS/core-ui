@@ -2,7 +2,7 @@ import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
 import { MgInput } from '../../mg-input/mg-input';
 import { MgInputTitle } from '../../../../atoms/internals/mg-input-title/mg-input-title';
-import { classDisabled, classFieldset, classReadonly, classVerticalList } from '../mg-input.conf';
+import { classDisabled, classFieldset } from '../mg-input.conf';
 
 const baseArgs = {
   label: 'label',
@@ -36,18 +36,6 @@ describe('mg-input', () => {
       { errorMessage },
       // fieldset
       { class: classFieldset },
-      // readonly
-      { class: classReadonly, readonlyValue: 'batman' },
-      { class: classReadonly, readonlyValue: ['batman'] },
-      { class: classReadonly, readonlyValue: ['batman', 'joker', 'bane'] },
-      { class: [classReadonly, classVerticalList].join(' '), readonlyValue: 'batman' },
-      { class: [classReadonly, classVerticalList].join(' '), readonlyValue: ['batman', 'joker', 'bane'] },
-      { class: [classReadonly, classVerticalList].join(' '), readonlyValue: ['batman'] },
-      { class: classReadonly, errorMessage },
-      { class: classReadonly },
-      { class: classReadonly, inputVerticalList: true },
-      { class: classReadonly, required: true, helpText },
-      { class: classReadonly, labelOnTop: true, tooltip },
       // disabled
       { class: classDisabled },
       { class: classDisabled, required: true, helpText },

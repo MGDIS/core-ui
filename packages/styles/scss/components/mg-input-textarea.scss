@@ -1,10 +1,14 @@
-@import 'mg-input';
 @import 'mg-input-box';
+@import 'mg-input-width';
 @import 'mg-input-character-left';
 @import '../utils/a11y';
 
 /* Component Custom Style */
 .mg-c-input {
+  &__input {
+    align-items: start;
+  }
+
   &__box {
     display: block;
     height: auto;
@@ -22,11 +26,16 @@
       resize: vertical;
     }
   }
+
+  &.mg-c-input--readonly b {
+    min-height: var(--mg-b-font-size);
+    margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
+  }
 }
 
 /**
-  * Character left
-  */
+ * Character left
+ */
 
 .mg-c-input__with-character-left {
   mg-character-left {

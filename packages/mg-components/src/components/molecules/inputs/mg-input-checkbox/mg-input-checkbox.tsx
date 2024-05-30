@@ -666,7 +666,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
             </ul>
           )
         ) : (
-          <strong>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</strong>
+          <b>{this.messages.input.checkbox[selectedValuesNb > 1 ? 'selectedValues' : 'selectedValue'].replace('{nb}', selectedValuesNb)}</b>
         )}
       </div>
     );
@@ -677,6 +677,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
     return (
       <mg-input
         label={this.label}
@@ -686,13 +687,24 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        readonlyValue={this.value.filter(({ value }) => value).map(({ title }) => title)}
         tooltip={!this.readonly ? this.tooltip : undefined}
         tooltipPosition={this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >
-        {this.type === 'checkbox' || this.readonly ? (
+        {this.readonly ? (
+          this.inputVerticalList ? (
+            <ul>
+              {readonlyValue.map(value => (
+                <li key={value}>
+                  <b>{value}</b>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <b>{readonlyValue.join(', ')}</b>
+          )
+        ) : this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList
             checkboxes={this.checkboxItems}
             displaySearchInput={this.displaySearchInput}

@@ -419,30 +419,33 @@ export class MgInputDate {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={localeDate(this.value, this.locale)}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >
-        <input
-          type="date"
-          class="mg-c-input__box"
-          min={this.min}
-          max={this.max}
-          value={this.value}
-          id={this.identifier}
-          name={this.name}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-          onKeyDown={this.handleKeyDown}
-          ref={(el: HTMLInputElement) => {
-            if (el !== null) this.input = el;
-          }}
-        />
+        {this.readonly ? (
+          this.value !== '' && <b>{localeDate(this.value, this.locale)}</b>
+        ) : (
+          <input
+            type="date"
+            class="mg-c-input__box"
+            min={this.min}
+            max={this.max}
+            value={this.value}
+            id={this.identifier}
+            name={this.name}
+            disabled={this.disabled}
+            required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
+            onInput={this.handleInput}
+            onBlur={this.handleBlur}
+            onKeyDown={this.handleKeyDown}
+            ref={(el: HTMLInputElement) => {
+              if (el !== null) this.input = el;
+            }}
+          />
+        )}
       </mg-input>
     );
   }

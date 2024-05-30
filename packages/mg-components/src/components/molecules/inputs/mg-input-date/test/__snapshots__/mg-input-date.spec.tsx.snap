@@ -619,21 +619,12 @@ exports[`mg-input-date Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
+      <b></b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -661,23 +652,14 @@ exports[`mg-input-date Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            6/2/2022
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
+      <b>
+        6/2/2022
+      </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -706,23 +688,14 @@ exports[`mg-input-date Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            02/06/2022
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
-        Format attendu&nbsp;:
-        <span aria-hidden="true">
-          mm/jj/aaaa
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / j j / a a a a
-        </span>
-        (ex&nbsp;: 12/24/2023)
-      </div>
+      <b>
+        02/06/2022
+      </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -751,23 +724,14 @@ exports[`mg-input-date Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            6/2/2022
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
+      <b>
+        6/2/2022
+      </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -838,16 +802,14 @@ exports[`mg-input-date Should render with args {
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong>
-            6/2/2022
-          </strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
+      <b>
+        6/2/2022
+      </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -1234,21 +1196,12 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
+      <b></b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -1832,11 +1785,15 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
           <slot name="label"></slot>
         </div>
         <div class="mg-c-input__input-container">
-          <strong></strong>
-          <slot></slot>
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
         </div>
       </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <b></b>
       <div id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">

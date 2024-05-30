@@ -48,7 +48,7 @@ const baseArgs = {
   tooltip: 'This is a tooltip',
   tooltipPosition: 'label',
   // Help Text
-  helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+  helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   errorMessage: 'Error to display',
   slot: inputFile,
 };

@@ -21,6 +21,7 @@ export class MgInputNumeric {
   private storedValue: string;
   private numericValue: number;
   private readonlyValue: string;
+  private slotContent: string;
 
   // HTML selector
   private input: HTMLInputElement;
@@ -460,7 +461,12 @@ export class MgInputNumeric {
   private validateAppendSlot = (): void => {
     const slotAppendInput: HTMLSlotElement = this.element.querySelector('[slot="append-input"]');
     if (slotAppendInput !== null) {
-      this.classCollection.add(slotAppendInput.nodeName === 'MG-BUTTON' ? 'mg-c-input--is-input-group-append' : 'mg-c-input--is-append-input-slot-content');
+      if (slotAppendInput.nodeName === 'MG-BUTTON') {
+        this.classCollection.add('mg-c-input--is-input-group-append');
+      } else {
+        this.classCollection.add('mg-c-input--is-append-input-slot-content');
+        this.slotContent = slotAppendInput.textContent;
+      }
     }
   };
 
@@ -510,31 +516,34 @@ export class MgInputNumeric {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <input
-          type="text"
-          class="mg-c-input__box mg-c-input__box--width"
-          value={this.displayValue()}
-          id={this.identifier}
-          name={this.name}
-          placeholder={this.placeholder}
-          title={this.placeholder}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onFocus={this.handleFocus}
-          onBlur={this.handleBlur}
-          ref={(el: HTMLInputElement) => {
-            if (el !== null) this.input = el;
-          }}
-        />
-        <slot name="append-input"></slot>
+        {this.readonly
+          ? this.readonlyValue && [<b>{this.readonlyValue}</b>, this.slotContent !== undefined ? this.slotContent : '']
+          : [
+              <input
+                type="text"
+                class="mg-c-input__box mg-c-input__box--width"
+                value={this.displayValue()}
+                id={this.identifier}
+                name={this.name}
+                placeholder={this.placeholder}
+                title={this.placeholder}
+                disabled={this.disabled}
+                required={this.required}
+                aria-invalid={(this.invalid === true).toString()}
+                onInput={this.handleInput}
+                onFocus={this.handleFocus}
+                onBlur={this.handleBlur}
+                ref={(el: HTMLInputElement) => {
+                  if (el !== null) this.input = el;
+                }}
+              />,
+              <slot name="append-input"></slot>,
+            ]}
       </mg-input>
     );
   }
