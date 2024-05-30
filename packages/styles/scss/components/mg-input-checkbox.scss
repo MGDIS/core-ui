@@ -116,8 +116,8 @@
   }
 
   &.mg-c-input--readonly ul {
-    min-height: var(--mg-b-font-size);
     display: flex;
+    min-height: var(--mg-b-font-size);
     flex-flow: column wrap;
     padding: 0;
     margin: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2) 0 0;

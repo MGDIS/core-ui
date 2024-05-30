@@ -49,8 +49,8 @@ mg-icon {
   margin-bottom: var(--mg-c-input-margin-bottom, 0);
 
   &__input-container {
-    min-height: var(--mg-b-size-min-height);
     width: 100%;
+    min-height: var(--mg-b-size-min-height);
 
     mg-tooltip {
       display: inline-flex;
@@ -128,25 +128,25 @@ mg-icon {
   display: flex;
 }
 
-:host(.mg-c-input.mg-c-input--textarea.mg-c-input--readonly) .mg-c-input__input {
-  align-items: start;
-  white-space: pre-line;
-}
-
-:host(.mg-c-input.mg-c-input--checkbox, .mg-c-input.mg-c-input--radio) .mg-c-input__input {
-  min-height: unset;
-}
-
-:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
-  margin-left: var(--mg-b-size-32);
-}
-
 :host(.mg-c-input.mg-c-input--checkbox),
 :host(.mg-c-input.mg-c-input--radio) {
   .mg-c-input__input {
     min-height: unset;
     align-items: flex-start;
   }
+}
+
+:host(.mg-c-input.mg-c-input--checkbox, .mg-c-input.mg-c-input--radio) .mg-c-input__input {
+  min-height: unset;
+}
+
+:host(.mg-c-input.mg-c-input--textarea.mg-c-input--readonly) .mg-c-input__input {
+  align-items: start;
+  white-space: pre-line;
+}
+
+:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
+  margin-left: var(--mg-b-size-32);
 }
 
 :host(.mg-c-input.mg-c-input--label-on-top) {
