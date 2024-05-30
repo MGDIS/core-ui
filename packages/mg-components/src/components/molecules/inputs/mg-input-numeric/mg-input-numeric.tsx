@@ -522,9 +522,10 @@ export class MgInputNumeric {
         errorMessage={this.errorMessage}
       >
         {this.readonly
-          ? this.readonlyValue && [<b>{this.readonlyValue}</b>, this.slotContent !== undefined ? this.slotContent : '']
+          ? this.readonlyValue && [<b key="readonly-value">{this.readonlyValue}</b>, this.slotContent ?? '']
           : [
               <input
+                key="input"
                 type="text"
                 class="mg-c-input__box mg-c-input__box--width"
                 value={this.displayValue()}
@@ -542,7 +543,7 @@ export class MgInputNumeric {
                   if (el !== null) this.input = el;
                 }}
               />,
-              <slot name="append-input"></slot>,
+              <slot key="slot" name="append-input"></slot>,
             ]}
       </mg-input>
     );

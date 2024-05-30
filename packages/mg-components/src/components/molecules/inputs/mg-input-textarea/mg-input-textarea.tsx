@@ -379,7 +379,6 @@ export class MgInputTextarea {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        // readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}

@@ -443,9 +443,10 @@ export class MgInputText {
         errorMessage={this.errorMessage}
       >
         {this.readonly
-          ? this.value && [<b>{this.value}</b>, this.slotContent !== undefined ? this.slotContent : '']
+          ? this.value && [<b key="readonly-value">{this.value}</b>, this.slotContent ?? '']
           : [
               <div
+                key="input"
                 class="mg-c-input__with-character-left"
                 style={{
                   '--mg-c-character-left-message-length': (!this.characterLeftHide
@@ -488,7 +489,7 @@ export class MgInputText {
                   <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
                 )}
               </div>,
-              <slot name="append-input"></slot>,
+              <slot key="slot" name="append-input"></slot>,
             ]}
       </mg-input>
     );

@@ -597,7 +597,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * render checkbox multi element
    * @returns html element
    */
-  private renderCheckboxMulti(): HTMLElement[] {
+  private renderCheckboxMulti(): HTMLElement {
     const selectedValuesNb = this.getSelectedItems().length;
     const checkboxes = this.getDisplayItems();
 
@@ -673,11 +673,29 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   }
 
   /**
+   * Renders the readonly value of the input.
+   * @returns The rendered readonly value.
+   */
+  private renderReadonly = (): HTMLElement => {
+    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+    return this.inputVerticalList ? (
+      <ul>
+        {readonlyValue.map(value => (
+          <li key={value}>
+            <b>{value}</b>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <b>{readonlyValue.join(', ')}</b>
+    );
+  };
+
+  /**
    * Render
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
     return (
       <mg-input
         label={this.label}
@@ -693,17 +711,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >
         {this.readonly ? (
-          this.inputVerticalList ? (
-            <ul>
-              {readonlyValue.map(value => (
-                <li key={value}>
-                  <b>{value}</b>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <b>{readonlyValue.join(', ')}</b>
-          )
+          this.renderReadonly()
         ) : this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList
             checkboxes={this.checkboxItems}

@@ -461,7 +461,6 @@ export class MgInputSelect {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        // readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}

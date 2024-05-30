@@ -310,7 +310,6 @@ export class MgInputPassword {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        // readonlyValue={this.value !== undefined ? '•'.repeat(this.value.length) : undefined}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
