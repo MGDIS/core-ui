@@ -692,10 +692,35 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   };
 
   /**
+   * Renders the MgInputCheckboxList component.
+   * @returns The rendered MgInputCheckboxList component.
+   */
+  private renderMgInputCheckboxList = () => (
+    <MgInputCheckboxList
+      checkboxes={this.checkboxItems}
+      displaySearchInput={this.displaySearchInput}
+      messages={this.messages.input.checkbox}
+      id="checkboxes-list"
+      disabled={this.disabled}
+      name={this.name}
+      invalid={this.invalid}
+    ></MgInputCheckboxList>
+  );
+
+  /**
    * Render
    * @returns HTML Element
    */
   render(): HTMLElement {
+    let inputContent: HTMLElement;
+    if (this.readonly) {
+      inputContent = this.renderReadonly();
+    } else if (this.type === 'checkbox') {
+      inputContent = this.renderMgInputCheckboxList();
+    } else {
+      inputContent = this.renderCheckboxMulti();
+    }
+
     return (
       <mg-input
         label={this.label}
@@ -710,21 +735,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >
-        {this.readonly ? (
-          this.renderReadonly()
-        ) : this.type === 'checkbox' || this.readonly ? (
-          <MgInputCheckboxList
-            checkboxes={this.checkboxItems}
-            displaySearchInput={this.displaySearchInput}
-            messages={this.messages.input.checkbox}
-            id="checkboxes-list"
-            disabled={this.disabled}
-            name={this.name}
-            invalid={this.invalid}
-          ></MgInputCheckboxList>
-        ) : (
-          this.renderCheckboxMulti()
-        )}
+        {inputContent}
       </mg-input>
     );
   }
