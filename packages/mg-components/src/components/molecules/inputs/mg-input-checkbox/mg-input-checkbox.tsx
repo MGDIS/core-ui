@@ -679,7 +679,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private renderReadonly = (): HTMLElement => {
     const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
     return this.inputVerticalList ? (
-      <ul>
+      <ul class="mg-c-input__readonly-value">
         {readonlyValue.map(value => (
           <li key={value}>
             <b>{value}</b>
@@ -687,7 +687,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         ))}
       </ul>
     ) : (
-      <b>{readonlyValue.join(', ')}</b>
+      <b class="mg-c-input__readonly-value">{readonlyValue.join(', ')}</b>
     );
   };
 

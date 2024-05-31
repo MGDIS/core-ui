@@ -425,7 +425,7 @@ export class MgInputDate {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          this.value !== '' && <b>{localeDate(this.value, this.locale)}</b>
+          this.value && <b class="mg-c-input__readonly-value">{localeDate(this.value, this.locale)}</b>
         ) : (
           <input
             type="date"

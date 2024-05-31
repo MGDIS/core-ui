@@ -385,7 +385,7 @@ export class MgInputTextarea {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          this.value && <b>{this.value}</b>
+          this.value && <b class="mg-c-input__readonly-value">{this.value}</b>
         ) : (
           <div class="mg-c-input__with-character-left">
             <textarea

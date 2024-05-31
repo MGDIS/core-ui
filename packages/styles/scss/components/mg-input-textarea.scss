@@ -1,5 +1,6 @@
 @import 'mg-input-box';
 @import 'mg-input-width';
+@import 'mg-input-readonly';
 @import 'mg-input-character-left';
 @import '../utils/a11y';
 
@@ -26,11 +27,10 @@
       resize: vertical;
     }
   }
+}
 
-  &.mg-c-input--readonly b {
-    min-height: var(--mg-b-font-size);
-    margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
-  }
+.mg-c-input__readonly-value {
+  white-space: pre-line;
 }
 
 /**
@@ -38,6 +38,8 @@
  */
 
 .mg-c-input__with-character-left {
+  flex-grow: 1;
+
   mg-character-left {
     display: block;
     text-align: end;

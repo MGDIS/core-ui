@@ -424,6 +424,21 @@ export class MgInputText {
   }
 
   /**
+   * Renders the readonly content of the input component.
+   * @returns The readonly content element.
+   */
+  private renderReadonly = (): HTMLElement => {
+    return this.slotContent !== undefined ? (
+      <span class="mg-c-input__readonly-value">
+        <b>{this.value}</b>
+        {this.slotContent}
+      </span>
+    ) : (
+      <b class="mg-c-input__readonly-value">{this.value}</b>
+    );
+  };
+
+  /**
    * Render
    * @returns HTML Element
    */
@@ -443,7 +458,7 @@ export class MgInputText {
         errorMessage={this.errorMessage}
       >
         {this.readonly
-          ? this.value && [<b key="readonly-value">{this.value}</b>, this.slotContent ?? '']
+          ? this.value && this.renderReadonly()
           : [
               <div
                 key="input"
