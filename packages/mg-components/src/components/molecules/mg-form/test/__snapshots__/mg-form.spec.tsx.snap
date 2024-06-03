@@ -638,6 +638,9 @@ exports[`mg-form Should display components errors (readonly: true) 1`] = `
           <div class="mg-c-input__input-container">
             <div class="mg-c-input__input">
               <slot></slot>
+              <mg-tooltip identifier="mg-input-toggle-tooltip" message="false">
+                <mg-icon icon="info-circle"></mg-icon>
+              </mg-tooltip>
             </div>
           </div>
         </mock:shadow-root>
@@ -5659,6 +5662,9 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier' }, r
           <div class="mg-c-input__input-container">
             <div class="mg-c-input__input">
               <slot></slot>
+              <mg-tooltip identifier="mg-input-toggle-tooltip" message="false">
+                <mg-icon icon="info-circle"></mg-icon>
+              </mg-tooltip>
             </div>
           </div>
         </mock:shadow-root>
@@ -6566,6 +6572,9 @@ exports[`mg-form Should render with args { args: { identifier: 'identifier', rea
           <div class="mg-c-input__input-container">
             <div class="mg-c-input__input">
               <slot></slot>
+              <mg-tooltip identifier="mg-input-toggle-tooltip" message="false">
+                <mg-icon icon="info-circle"></mg-icon>
+              </mg-tooltip>
             </div>
           </div>
         </mock:shadow-root>
