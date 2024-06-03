@@ -183,7 +183,7 @@ No more `variables.scss` export, only `variables.css`.
 ### Changes in `mg-message`
 
 - Add `variantStyle` prop.
-- Move `close-button`, `delay` and `aria role` in `mg-alert` new component: .
+- Move `close-button`, `delay` and `aria role` in `mg-alert` new component.
 
 ### Hide components
 
