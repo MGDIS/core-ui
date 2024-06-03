@@ -624,7 +624,7 @@ exports[`mg-input-date Should render with args {
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -698,7 +698,7 @@ exports[`mg-input-date Should render with args {
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
@@ -858,7 +858,6 @@ exports[`mg-input-date Should render with args { readonly: true }: 1`] = `
           </div>
         </div>
       </mock:shadow-root>
-      <b></b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -889,7 +888,6 @@ exports[`mg-input-date Should render with args { readonly: true, labelOnTop: tru
           </div>
         </div>
       </mock:shadow-root>
-      <b></b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -920,7 +918,6 @@ exports[`mg-input-date Should render with args { readonly: true, tooltip: 'toolt
           </div>
         </div>
       </mock:shadow-root>
-      <b></b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -948,7 +945,7 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -978,7 +975,7 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         02/06/2022
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1008,7 +1005,7 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1814,7 +1811,6 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
           </div>
         </div>
       </mock:shadow-root>
-      <b></b>
       <div id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">

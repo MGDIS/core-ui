@@ -324,6 +324,7 @@ export class MgInputRadio {
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const readonlyValue = this.options.find(option => option.value === this.value)?.title;
     return (
       <mg-input
         label={this.label}
@@ -339,7 +340,7 @@ export class MgInputRadio {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          this.value && <b>{this.value.toString()}</b>
+          readonlyValue && <b class="mg-c-input__readonly-value">{readonlyValue}</b>
         ) : (
           <ul class="mg-c-input__input-group-container" role="list">
             {this.options.map((input, index) => (

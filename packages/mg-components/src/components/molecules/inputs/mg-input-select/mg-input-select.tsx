@@ -270,7 +270,7 @@ export class MgInputSelect {
   @State() valueExist: boolean;
 
   /**
-   * Does value match any item option
+   * Readonly value
    */
   @State() readonlyValue: string;
 
@@ -467,7 +467,7 @@ export class MgInputSelect {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          this.readonlyValue && <b>{this.readonlyValue}</b>
+          this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
         ) : (
           <select
             class="mg-c-input__box"

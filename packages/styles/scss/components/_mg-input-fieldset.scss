@@ -1,3 +1,5 @@
+@import 'mg-input-readonly';
+
 /**
  * Manage style when input needs to be a fieldset, like checkbox and radio.
  */
@@ -48,10 +50,5 @@
 
   &.mg-c-input--label-on-top .mg-c-input__input-group-container {
     margin-top: var(--mg-b-size-8);
-  }
-
-  &.mg-c-input--readonly b {
-    min-height: var(--mg-b-font-size);
-    margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
   }
 }

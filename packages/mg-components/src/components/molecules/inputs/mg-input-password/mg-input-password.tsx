@@ -316,7 +316,7 @@ export class MgInputPassword {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          this.value !== undefined && <b>{'•'.repeat(this.value.length)}</b>
+          this.value !== undefined && <b class="mg-c-input__readonly-value">{'•'.repeat(this.value.length)}</b>
         ) : (
           <span class="mg-c-input__input-group">
             <input

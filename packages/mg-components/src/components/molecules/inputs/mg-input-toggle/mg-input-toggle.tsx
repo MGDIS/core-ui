@@ -332,7 +332,7 @@ export class MgInputToggle {
         errorMessage={this.errorMessage}
       >
         {this.readonly ? (
-          checkedItem && <b>{checkedItem.title}</b>
+          checkedItem && <b class="mg-c-input__readonly-value">{checkedItem.title}</b>
         ) : (
           <button
             type="button"

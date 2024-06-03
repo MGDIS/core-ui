@@ -1,5 +1,6 @@
 @import 'mg-input-box';
 @import 'mg-input-width';
+@import 'mg-input-readonly';
 @import 'mg-input-character-left';
 @import '../utils/a11y';
 
@@ -27,6 +28,11 @@
       display: block;
     }
   }
+}
+
+.mg-c-input.mg-c-input--readonly b {
+  min-height: var(--mg-b-font-size);
+  margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
 }
 
 /**

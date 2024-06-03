@@ -352,7 +352,7 @@ exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         $1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -411,7 +411,7 @@ exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] =
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1234567890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -470,7 +470,7 @@ exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`]
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -617,7 +617,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
@@ -846,7 +846,7 @@ exports[`mg-input-numeric type decimal Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -876,7 +876,7 @@ exports[`mg-input-numeric type decimal Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -906,7 +906,7 @@ exports[`mg-input-numeric type decimal Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1 234 567 890,00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -936,7 +936,7 @@ exports[`mg-input-numeric type decimal Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1481,7 +1481,7 @@ exports[`mg-input-numeric type decimal readonly true Should render with slot 1`]
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         3.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1528,10 +1528,12 @@ exports[`mg-input-numeric type decimal readonly true Should render with slot 2`]
           </div>
         </div>
       </mock:shadow-root>
-      <b>
-        3.00
-      </b>
-      km
+      <span class="mg-c-input__readonly-value">
+        <b>
+          3.00
+        </b>
+        km
+      </span>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -1688,7 +1690,7 @@ exports[`mg-input-numeric type integer Format currency args { readonly: true } 1
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         $1,234,567,890.00
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1747,7 +1749,7 @@ exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] =
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1234567890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1806,7 +1808,7 @@ exports[`mg-input-numeric type integer Format number args { readonly: true } 1`]
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1953,7 +1955,7 @@ exports[`mg-input-numeric type integer Should render with args {
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
@@ -2182,7 +2184,7 @@ exports[`mg-input-numeric type integer Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2212,7 +2214,7 @@ exports[`mg-input-numeric type integer Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2242,7 +2244,7 @@ exports[`mg-input-numeric type integer Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1 234 567 890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2272,7 +2274,7 @@ exports[`mg-input-numeric type integer Should render with args { readonly: true,
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         1,234,567,890
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2817,7 +2819,7 @@ exports[`mg-input-numeric type integer readonly true Should render with slot 1`]
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         3
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2864,10 +2866,12 @@ exports[`mg-input-numeric type integer readonly true Should render with slot 2`]
           </div>
         </div>
       </mock:shadow-root>
-      <b>
-        3
-      </b>
-      km
+      <span class="mg-c-input__readonly-value">
+        <b>
+          3
+        </b>
+        km
+      </span>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">

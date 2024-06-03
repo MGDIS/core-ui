@@ -70,7 +70,7 @@ exports[`mg-input-text Should render with args {
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         batman
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -148,7 +148,7 @@ exports[`mg-input-text Should render with args {
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         blu
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="true" slot="label">
@@ -383,7 +383,7 @@ exports[`mg-input-text Should render with args { readonly: true, value: 'blu' }:
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         blu
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1130,7 +1130,7 @@ exports[`mg-input-text readonly true Should render with slot. 1`] = `
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         blu
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1177,10 +1177,12 @@ exports[`mg-input-text readonly true Should render with slot. 2`] = `
           </div>
         </div>
       </mock:shadow-root>
-      <b>
-        blu
-      </b>
-      test
+      <span class="mg-c-input__readonly-value">
+        <b>
+          blu
+        </b>
+        test
+      </span>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -1211,7 +1213,7 @@ exports[`mg-input-text readonly true Should render with slot. 3`] = `
           </div>
         </div>
       </mock:shadow-root>
-      <b>
+      <b class="mg-c-input__readonly-value">
         blu
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
