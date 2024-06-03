@@ -270,7 +270,7 @@ export class MgInputSelect {
   @State() valueExist: boolean;
 
   /**
-   * Does value match any item option
+   * Readonly value
    */
   @State() readonlyValue: string;
 
@@ -339,7 +339,7 @@ export class MgInputSelect {
    * @param item - item to compare with
    * @returns truthy if input.value is an item
    */
-  private isInputValue = (item: SelectOption): boolean => item.title === this.input.value;
+  private isInputValue = (item: SelectOption): boolean => item.title === this.input?.value;
 
   /**
    * value props setter
@@ -461,41 +461,44 @@ export class MgInputSelect {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.readonlyValue}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <select
-          class="mg-c-input__box"
-          id={this.identifier}
-          name={this.name}
-          title={this.placeholder}
-          disabled={this.disabled}
-          required={this.required}
-          aria-invalid={(this.invalid === true).toString()}
-          onInput={this.handleInput}
-          onBlur={this.handleBlur}
-          ref={(el: HTMLSelectElement) => {
-            if (el !== null) this.input = el;
-          }}
-        >
-          {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder
-            <option value="" disabled={this.placeholderDisabled && this.valueExist}>
-              {this.placeholder}
-            </option>
-          )}
-          {this.options.map(option =>
-            isOptGroup(option) ? (
-              <optgroup label={option.group} key={option.group}>
-                {option.options.map(this.renderOption)}
-              </optgroup>
-            ) : (
-              isOption(option) && this.renderOption(option)
-            ),
-          )}
-        </select>
+        {this.readonly ? (
+          this.readonlyValue && <b class="mg-c-input__readonly-value">{this.readonlyValue}</b>
+        ) : (
+          <select
+            class="mg-c-input__box"
+            id={this.identifier}
+            name={this.name}
+            title={this.placeholder}
+            disabled={this.disabled}
+            required={this.required}
+            aria-invalid={(this.invalid === true).toString()}
+            onInput={this.handleInput}
+            onBlur={this.handleBlur}
+            ref={(el: HTMLSelectElement) => {
+              if (el !== null) this.input = el;
+            }}
+          >
+            {(!this.placeholderHide || !this.valueExist) && ( // In case passed value does not match any option we display the placeholder
+              <option value="" disabled={this.placeholderDisabled && this.valueExist}>
+                {this.placeholder}
+              </option>
+            )}
+            {this.options.map(option =>
+              isOptGroup(option) ? (
+                <optgroup label={option.group} key={option.group}>
+                  {option.options.map(this.renderOption)}
+                </optgroup>
+              ) : (
+                isOption(option) && this.renderOption(option)
+              ),
+            )}
+          </select>
+        )}
       </mg-input>
     );
   }

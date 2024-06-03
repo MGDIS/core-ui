@@ -278,10 +278,6 @@ export namespace Components {
          */
         "labelOnTop"?: boolean;
         /**
-          * Defines value to display in readonly mode
-         */
-        "readonlyValue": string | string[];
-        /**
           * Define if input is required
          */
         "required": boolean;
@@ -2237,10 +2233,6 @@ declare namespace LocalJSX {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
-        /**
-          * Defines value to display in readonly mode
-         */
-        "readonlyValue"?: string | string[];
         /**
           * Define if input is required
          */

@@ -109,11 +109,6 @@ export class MgInput {
   @Prop() required: boolean = false;
 
   /**
-   * Defines value to display in readonly mode
-   */
-  @Prop() readonlyValue: string | string[];
-
-  /**
    * Define error message to display
    */
   @Prop() errorMessage?: string;
@@ -135,7 +130,7 @@ export class MgInput {
   @Prop() helpText?: string;
   @Watch('helpText')
   watchHelpText(newValue: MgInput['helpText']): void {
-    if (newValue) {
+    if (newValue && !this.isReadonly) {
       this.renderHelpText();
     } else {
       this.helptextMessageSlotElement?.remove();
@@ -152,6 +147,7 @@ export class MgInput {
   @Watch('helpText')
   @Watch('ariaDescribedbyIDs')
   watchAriaDescribedbyIDs(): void {
+    if (this.isReadonly) return;
     // a11y IDs
     const ariaDescribedbyIDs = new Set(this.ariaDescribedbyIDs);
     // Help text
@@ -283,22 +279,6 @@ export class MgInput {
     this.helptextMessageSlotElement.innerHTML = this.helpText;
   }
 
-  /**
-   * Get readonly values
-   * @returns formated readonly value
-   */
-  private getReadonlyValues = (): string | string[] => {
-    if (Array.isArray(this.readonlyValue) && !this.isVerticalList) {
-      return this.readonlyValue.join(', ');
-    } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length > 1) {
-      return this.readonlyValue;
-    } else if (Array.isArray(this.readonlyValue) && this.readonlyValue.length === 1) {
-      return this.readonlyValue[0];
-    } else {
-      return this.readonlyValue?.length > 0 ? this.readonlyValue : '';
-    }
-  };
-
   /*************
    * Lifecycle *
    *************/
@@ -309,12 +289,12 @@ export class MgInput {
   componentWillLoad(): void {
     this.watchIdentifier(this.identifier);
     this.watchLabel();
+    this.watchClass();
     this.watchLabelOnTop(this.labelOnTop);
     this.watchLabelConfig();
     this.watchTooltipPosition(this.tooltipPosition);
     this.watchHelpText(this.helpText);
     this.watchErrorMessage(this.errorMessage);
-    this.watchClass();
   }
 
   /**
@@ -342,7 +322,6 @@ export class MgInput {
    * @returns HTML Element
    */
   render(): HTMLElement {
-    const readonlyValue = this.getReadonlyValues();
     const isGroup = this.isFieldset && !this.isReadonly;
     return (
       <Host class={this.element.classList.toString()} role={isGroup ? 'group' : undefined} aria-labelledby={isGroup ? `${this.identifier}-title` : undefined}>
@@ -351,37 +330,20 @@ export class MgInput {
           {this.tooltip && !this.isReadonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
         <div class="mg-c-input__input-container">
-          {this.isReadonly
-            ? [
-                Array.isArray(readonlyValue) ? (
-                  <ul key="readonly-value-list">
-                    {readonlyValue.map(value => (
-                      <li key={value}>
-                        <strong>{value}</strong>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <strong key="readonly-value">{readonlyValue}</strong>
-                ),
-                <slot key="default-slot"></slot>,
-              ]
-            : [
-                <div class="mg-c-input__input" key="tooltip">
-                  <slot></slot>
-                  {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
-                </div>,
-                this.helpText && (
-                  <div class="mg-c-input__help-text" key="help-text">
-                    <slot name={this.slotHelpText}></slot>
-                  </div>
-                ),
-                !this.isDisabled && this.errorMessage && (
-                  <div class="mg-c-input__error" aria-live="assertive" key="error-message">
-                    <slot name={this.slotError}></slot>
-                  </div>
-                ),
-              ]}
+          <div class="mg-c-input__input">
+            <slot></slot>
+            {this.tooltip && !this.labelOnTop && !this.isReadonly && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+          </div>
+          {this.helptextMessageSlotElement && (
+            <div class="mg-c-input__help-text">
+              <slot name={this.slotHelpText}></slot>
+            </div>
+          )}
+          {!this.isDisabled && this.errorMessage && (
+            <div class="mg-c-input__error" aria-live="assertive">
+              <slot name={this.slotError}></slot>
+            </div>
+          )}
         </div>
       </Host>
     );
