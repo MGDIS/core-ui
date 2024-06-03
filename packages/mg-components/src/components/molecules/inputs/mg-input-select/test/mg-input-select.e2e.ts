@@ -102,6 +102,9 @@ test.describe('mg-input-select', () => {
 
   [
     { readonly: true },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: 'blu', readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: 'blu', readonly: true, tooltip: 'tooltip', tooltipPosition: 'label' },
     { value: 'blu' },
     { value: 'blu', readonly: true },
     { value: 'blu', readonly: true, labelOnTop: true },

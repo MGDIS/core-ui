@@ -13,7 +13,7 @@ const getPage = (args, customSlots?) =>
         {customSlots
           ? customSlots
           : args.isIcon
-            ? ['cross', 'check'].map((icon, index) => (
+            ? ['cross', 'check'].map((icon: MgIcon['icon'], index) => (
                 <span slot={`item-${index + 1}`}>
                   <mg-icon icon={icon}></mg-icon>
                 </span>
@@ -63,53 +63,47 @@ describe('mg-input-toggle', () => {
       isIcon: true,
       isOnOff: true,
     },
-  ])('template', args => {
+  ])('template', templateArgs => {
     test.each([
+      {},
       {
-        ...args,
-      },
-      {
-        ...args,
         labelOnTop: true,
       },
       {
-        ...args,
         labelHide: true,
       },
       {
-        ...args,
         readonly: true,
       },
       {
-        ...args,
+        readonly: true,
+        tooltip: 'My Tooltip Message',
+        tooltipPosition: 'input',
+      },
+      {
         disabled: true,
       },
       {
-        ...args,
         helpText: 'Hello Joker',
       },
       {
-        ...args,
         tooltip: 'My Tooltip Message',
       },
       {
-        ...args,
         tooltip: 'My Tooltip Message',
         labelOnTop: true,
       },
       {
-        ...args,
         tooltip: 'My Tooltip Message',
         tooltipPosition: 'label',
       },
       {
-        ...args,
         tooltip: 'My Tooltip Message',
         tooltipPosition: 'input',
         labelOnTop: true,
       },
     ])('Should render with args %s:', async args => {
-      const { root } = await getPage(args);
+      const { root } = await getPage({ ...templateArgs, ...args });
       expect(root).toMatchSnapshot();
     });
   });

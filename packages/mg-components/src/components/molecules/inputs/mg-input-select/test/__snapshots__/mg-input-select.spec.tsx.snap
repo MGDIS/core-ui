@@ -1,155 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  labelHide: true
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title mg-u-visually-hidden">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
-        <option value="">
-          Select a value
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  labelOnTop: true
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
-        <option value="">
-          Select a value
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  placeholder: 'placeholder'
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="placeholder">
-        <option value="">
-          placeholder
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   placeholder: 'placeholder',
   placeholderDisabled: true
@@ -198,8 +49,6 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   placeholder: 'placeholder',
   placeholderDisabled: true,
@@ -249,94 +98,11 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  placeholder: 'placeholder',
-  placeholderHide: true
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="placeholder">
-        <option value="">
-          placeholder
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  readonly: true
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   readonly: true,
   labelOnTop: true,
-  tooltip: 'Tooltip message'
+  tooltip: 'Tooltip message',
+  tooltipPosition: 'input'
 }: 1`] = `
 <mg-input-select>
   <mock:shadow-root>
@@ -344,6 +110,9 @@ exports[`mg-input-select Should render with args {
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
         </div>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -365,18 +134,22 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   readonly: true,
-  value: 'o'
+  labelOnTop: true,
+  tooltip: 'Tooltip message',
+  tooltipPosition: 'input',
+  value: 'blu'
 }: 1`] = `
 <mg-input-select>
   <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--readonly mg-c-input--select">
       <mock:shadow-root>
         <div class="mg-c-input__title">
           <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
         </div>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
@@ -385,7 +158,7 @@ exports[`mg-input-select Should render with args {
         </div>
       </mock:shadow-root>
       <b>
-        blo
+        blu
       </b>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
@@ -401,8 +174,6 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   required: true,
   disabled: true,
@@ -459,8 +230,6 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   required: true,
   helpText: 'My help text',
@@ -521,8 +290,6 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   required: true,
   readonly: true,
@@ -559,113 +326,6 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  tooltip: 'My Tooltip Message'
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-              <mg-icon icon="info-circle"></mg-icon>
-            </mg-tooltip>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
-        <option value="">
-          Select a value
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  items: [Array],
-  tooltip: 'My Tooltip Message',
-  labelOnTop: true
-}: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
-        <option value="">
-          Select a value
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   tooltip: 'My Tooltip Message',
   tooltipPosition: 'input',
@@ -718,8 +378,6 @@ exports[`mg-input-select Should render with args {
 `;
 
 exports[`mg-input-select Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   items: [Array],
   tooltip: 'My Tooltip Message',
   tooltipPosition: 'label'
@@ -770,7 +428,7 @@ exports[`mg-input-select Should render with args {
 </mg-input-select>
 `;
 
-exports[`mg-input-select Should render with args { label: 'label', identifier: 'identifier', items: [] }: 1`] = `
+exports[`mg-input-select Should render with args { items: [] }: 1`] = `
 <mg-input-select>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--select">
@@ -802,51 +460,7 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
 </mg-input-select>
 `;
 
-exports[`mg-input-select Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 1`] = `
-<mg-input-select>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--select">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
-        <option value="">
-          Select a value
-        </option>
-        <option value="blu">
-          blu
-        </option>
-        <option value="bli">
-          bli
-        </option>
-        <option value="blo">
-          blo
-        </option>
-        <option value="bla">
-          bla
-        </option>
-      </select>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-select>
-`;
-
-exports[`mg-input-select Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 2`] = `
+exports[`mg-input-select Should render with args { items: [Array] }: 1`] = `
 <mg-input-select>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--select">
@@ -890,7 +504,51 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
 </mg-input-select>
 `;
 
-exports[`mg-input-select Should render with args { label: 'label', identifier: 'identifier', items: [Array] }: 3`] = `
+exports[`mg-input-select Should render with args { items: [Array] }: 2`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array] }: 3`] = `
 <mg-input-select>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--select">
@@ -921,6 +579,333 @@ exports[`mg-input-select Should render with args { label: 'label', identifier: '
             blo
           </option>
         </optgroup>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], labelHide: true }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], labelOnTop: true }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], placeholder: 'placeholder' }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="placeholder">
+        <option value="">
+          placeholder
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], placeholder: 'placeholder', placeholderHide: true }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="placeholder">
+        <option value="">
+          placeholder
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], readonly: true }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], readonly: true, value: 'o' }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--readonly mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b>
+        blo
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], tooltip: 'My Tooltip Message' }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
+        <option value="bla">
+          bla
+        </option>
+      </select>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-select>
+`;
+
+exports[`mg-input-select Should render with args { items: [Array], tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
+<mg-input-select>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--select">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <select aria-describedby="" aria-invalid="false" class="mg-c-input__box" id="identifier" name="identifier" title="Select a value">
+        <option value="">
+          Select a value
+        </option>
+        <option value="blu">
+          blu
+        </option>
+        <option value="bli">
+          bli
+        </option>
+        <option value="blo">
+          blo
+        </option>
         <option value="bla">
           bla
         </option>

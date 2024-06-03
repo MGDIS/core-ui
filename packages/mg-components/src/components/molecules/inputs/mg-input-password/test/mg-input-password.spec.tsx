@@ -21,21 +21,23 @@ describe('mg-input-password', () => {
     jest.runOnlyPendingTimers();
   });
   test.each([
-    { label: 'label', identifier: 'identifier' },
-    { label: 'label', identifier: 'identifier', labelHide: true },
-    { label: 'label', identifier: 'identifier', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', readonly: true },
-    { label: 'label', identifier: 'identifier', readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-    { label: 'label', identifier: 'identifier', readonly: true, value: 'blu' },
-    { label: 'label', identifier: 'identifier', required: true, value: 'blu', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', required: true, readonly: true, value: 'blu', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', required: true, disabled: true, value: 'blu', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+    {},
+    { labelHide: true },
+    { labelOnTop: true },
+    { readonly: true },
+    { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+    { readonly: true, value: 'blu' },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input', value: 'blu' },
+    { required: true, value: 'blu', helpText: 'My help text' },
+    { required: true, readonly: true, value: 'blu', helpText: 'My help text' },
+    { required: true, disabled: true, value: 'blu', helpText: 'My help text' },
+    { tooltip: 'My Tooltip Message' },
+    { tooltip: 'My Tooltip Message', labelOnTop: true },
+    { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
   ])('Should render with args %s:', async args => {
-    const { root } = await getPage(args);
+    const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();
   });
 

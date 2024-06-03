@@ -57,6 +57,10 @@ mg-icon {
       width: var(--mg-c-icon-size-medium);
       height: var(--mg-c-icon-size-medium);
       margin-left: var(--mg-b-size-8);
+
+      @media print {
+        display: none;
+      }
     }
   }
 
@@ -121,6 +125,10 @@ mg-icon {
     &__help-text {
       margin-top: var(--mg-b-size-4);
     }
+  }
+
+  :host(.mg-c-input.mg-c-input--readonly) &__input mg-tooltip {
+    margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
   }
 }
 

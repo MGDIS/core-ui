@@ -25,12 +25,10 @@ describe('mg-input-select', () => {
     jest.runOnlyPendingTimers();
   });
   test.each([
-    { label: 'label', identifier: 'identifier', items: [] },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'] },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], labelHide: true },
+    { items: [] },
+    { items: ['blu', 'bli', 'blo', 'bla'] },
+    { items: ['blu', 'bli', 'blo', 'bla'], labelHide: true },
     {
-      label: 'label',
-      identifier: 'identifier',
       items: [
         { title: 'blu', value: 'u' },
         { title: 'bli', value: 'i' },
@@ -39,8 +37,6 @@ describe('mg-input-select', () => {
       ],
     },
     {
-      label: 'label',
-      identifier: 'identifier',
       items: [
         { title: 'blu', value: 'u', group: 'blu' },
         { title: 'bli', value: 'i', group: 'blu' },
@@ -49,8 +45,6 @@ describe('mg-input-select', () => {
       ],
     },
     {
-      label: 'label',
-      identifier: 'identifier',
       items: [
         { title: 'blu', value: 'u' },
         { title: 'bli', value: 'i' },
@@ -60,22 +54,23 @@ describe('mg-input-select', () => {
       readonly: true,
       value: 'o',
     },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], labelOnTop: true },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], readonly: true },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, helpText: 'My help text', value: 'blu' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, readonly: true, helpText: 'My help text', value: 'blu' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], required: true, disabled: true, helpText: 'My help text', value: 'blu' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder' },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderHide: true },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderDisabled: true },
-    { label: 'label', identifier: 'identifier', items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderDisabled: true, value: 'ble' },
+    { items: ['blu', 'bli', 'blo', 'bla'], labelOnTop: true },
+    { items: ['blu', 'bli', 'blo', 'bla'], readonly: true },
+    { items: ['blu', 'bli', 'blo', 'bla'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message', tooltipPosition: 'input' },
+    { items: ['blu', 'bli', 'blo', 'bla'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message', tooltipPosition: 'input', value: 'blu' },
+    { items: ['blu', 'bli', 'blo', 'bla'], required: true, helpText: 'My help text', value: 'blu' },
+    { items: ['blu', 'bli', 'blo', 'bla'], required: true, readonly: true, helpText: 'My help text', value: 'blu' },
+    { items: ['blu', 'bli', 'blo', 'bla'], required: true, disabled: true, helpText: 'My help text', value: 'blu' },
+    { items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message' },
+    { items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', labelOnTop: true },
+    { items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { items: ['blu', 'bli', 'blo', 'bla'], tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+    { items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder' },
+    { items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderHide: true },
+    { items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderDisabled: true },
+    { items: ['blu', 'bli', 'blo', 'bla'], placeholder: 'placeholder', placeholderDisabled: true, value: 'ble' },
   ])('Should render with args %s:', async args => {
-    const { root } = await getPage(args);
+    const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();
   });
 

@@ -51,6 +51,9 @@ test.describe('mg-input-date', () => {
 
   [
     { readonly: true },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input', value: "1982-06-02" },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'label', value: "1982-06-02" },
     { value: '1982-06-02' },
     { value: '1982-06-02', readonly: true },
     { disabled: true },

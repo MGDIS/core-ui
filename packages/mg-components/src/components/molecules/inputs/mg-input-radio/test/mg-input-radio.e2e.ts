@@ -103,6 +103,9 @@ test.describe('mg-input-radio', () => {
 
   [
     { readonly: true },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: 'batman', readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: 'batman', readonly: true, tooltip: 'tooltip', tooltipPosition: 'label' },
     { value: 'batman' },
     { value: 'batman', readonly: true },
     { value: 'batman', readonly: true, labelOnTop: true },

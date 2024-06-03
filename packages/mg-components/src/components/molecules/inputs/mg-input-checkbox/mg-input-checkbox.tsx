@@ -676,8 +676,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Renders the readonly value of the input.
    * @returns The rendered readonly value.
    */
-  private renderReadonly = (): HTMLElement => {
-    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+  private renderReadonly = (readonlyValue: string[]): HTMLElement => {
     return this.inputVerticalList ? (
       <ul>
         {readonlyValue.map(value => (
@@ -696,6 +695,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * @returns HTML Element
    */
   render(): HTMLElement {
+    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+
     return (
       <mg-input
         label={this.label}
@@ -705,13 +706,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        tooltip={!this.readonly ? this.tooltip : undefined}
-        tooltipPosition={this.tooltipPosition}
+        tooltip={this.tooltip}
+        tooltipPosition={this.readonly && !readonlyValue.length ? 'label' : this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >
         {this.readonly ? (
-          this.renderReadonly()
+          this.renderReadonly(readonlyValue)
         ) : this.type === 'checkbox' || this.readonly ? (
           <MgInputCheckboxList
             checkboxes={this.checkboxItems}

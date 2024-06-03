@@ -24,25 +24,26 @@ describe('mg-input-text', () => {
     jest.runOnlyPendingTimers();
   });
   test.each([
-    { label: 'label', identifier: 'identifier' },
-    { label: 'label', identifier: 'identifier', labelHide: true },
-    { label: 'label', identifier: 'identifier', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', readonly: true },
-    { label: 'label', identifier: 'identifier', type: 'search' },
-    { label: 'label', identifier: 'identifier', type: 'search', icon: 'magnifying-glass' },
-    { label: 'label', identifier: 'identifier', datalistoptions: ['batman', 'robin', 'joker'] },
-    { label: 'label', identifier: 'identifier', readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-    { label: 'label', identifier: 'identifier', readonly: true, value: 'blu' },
-    { label: 'label', identifier: 'identifier', required: true, value: 'blu', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', required: true, readonly: true, value: 'blu', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', required: true, disabled: true, value: 'blu', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', displayCharacterLeft: false },
+    {},
+    { labelHide: true },
+    { labelOnTop: true },
+    { readonly: true },
+    { type: 'search' },
+    { type: 'search', icon: 'magnifying-glass' },
+    { datalistoptions: ['batman', 'robin', 'joker'] },
+    { readonly: true, labelOnTop: true, tooltip: 'Tooltip message', tooltipPosition: 'input' },
+    { readonly: true, labelOnTop: true, tooltip: 'Tooltip message', tooltipPosition: 'input', value: 'batman' },
+    { readonly: true, value: 'blu' },
+    { required: true, value: 'blu', helpText: 'My help text' },
+    { required: true, readonly: true, value: 'blu', helpText: 'My help text' },
+    { required: true, disabled: true, value: 'blu', helpText: 'My help text' },
+    { tooltip: 'My Tooltip Message' },
+    { tooltip: 'My Tooltip Message', labelOnTop: true },
+    { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+    { displayCharacterLeft: false },
   ])('Should render with args %s:', async args => {
-    const { root } = await getPage(args);
+    const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();
   });
 

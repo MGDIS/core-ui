@@ -25,27 +25,29 @@ describe('mg-input-numeric', () => {
   });
   describe.each(types)('type %s', type => {
     test.each([
-      { label: 'label', identifier: 'identifier', type },
-      { label: 'label', identifier: 'identifier', type, labelHide: true },
-      { label: 'label', identifier: 'identifier', type, labelOnTop: true },
-      { label: 'label', identifier: 'identifier', type, readonly: true },
-      { label: 'label', identifier: 'identifier', type, readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-      { label: 'label', identifier: 'identifier', type, readonly: true, value: '1234567890' },
-      { label: 'label', identifier: 'identifier', type, disabled: true, value: '1234567890' },
-      { label: 'label', identifier: 'identifier', type, required: true, value: '1234567890', helpText: 'My help text' },
-      { label: 'label', identifier: 'identifier', type, required: true, readonly: true, value: '1234567890', helpText: 'My help text' },
-      { label: 'label', identifier: 'identifier', type, required: true, disabled: true, value: '1234567890', helpText: 'My help text' },
-      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message' },
-      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', labelOnTop: true },
-      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
-      { label: 'label', identifier: 'identifier', type, tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
-      { label: 'label', identifier: 'identifier', type, value: '1234567890', currency: 'EUR' },
-      { label: 'label', identifier: 'identifier', type, value: '1234567890', lang: 'fr' },
-      { label: 'label', identifier: 'identifier', type, value: '1234567890', lang: 'xx' },
-      { label: 'label', identifier: 'identifier', type, readonly: true, value: '1234567890', lang: 'fr' },
-      { label: 'label', identifier: 'identifier', type, readonly: true, value: '1234567890', lang: 'xx' },
+      {},
+      { labelHide: true },
+      { labelOnTop: true },
+      { readonly: true },
+      { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+      { readonly: true, value: '1234567890' },
+      { readonly: true, value: '1234567890' },
+      { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+      { disabled: true, tooltip: 'tooltip', tooltipPosition: 'input', value: '1234567890' },
+      { required: true, value: '1234567890', helpText: 'My help text' },
+      { required: true, readonly: true, value: '1234567890', helpText: 'My help text' },
+      { required: true, disabled: true, value: '1234567890', helpText: 'My help text' },
+      { tooltip: 'My Tooltip Message' },
+      { tooltip: 'My Tooltip Message', labelOnTop: true },
+      { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+      { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+      { value: '1234567890', currency: 'EUR' },
+      { value: '1234567890', lang: 'fr' },
+      { value: '1234567890', lang: 'xx' },
+      { readonly: true, value: '1234567890', lang: 'fr' },
+      { readonly: true, value: '1234567890', lang: 'xx' },
     ])('Should render with args %s:', async args => {
-      const { root } = await getPage(args);
+      const { root } = await getPage({ label: 'label', identifier: 'identifier', type, ...args });
       expect(root).toMatchSnapshot();
     });
 
