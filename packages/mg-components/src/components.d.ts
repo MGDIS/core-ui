@@ -20,7 +20,7 @@ import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-i
 import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+import { IconType as IconType2, SizeType, SlotLabelType } from "./components/atoms/internals/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
@@ -45,7 +45,7 @@ export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-i
 export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
-export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
+export { IconType as IconType2, SizeType, SlotLabelType } from "./components/atoms/internals/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
