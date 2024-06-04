@@ -53,6 +53,27 @@ const inputsScriptSetValues = `
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
   mgInputToggle.value = mgInputToggle.items[1].value;`;
 
+const inputsScriptSetLongValues = `
+  mgInputRadio.items = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'bli', 'bla', 'blo'];
+  mgInputSelect.items = ['Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'bli', 'bla', 'blo'];
+  mgInputToggle.items = [
+    { title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', value: false },
+    { title: 'oui', value: true },
+  ];
+  mgInputCheckbox.value = [
+    { title: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', value: true },
+    { title: 'non', value: false },
+  ];
+  mgInputDate.value = '2022-04-15';
+  mgInputNumeric.value = 1234567890123;
+  mgInputPassword.value = 'p455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rDp455w0rD';
+  mgInputRadio.value = mgInputRadio.items[0];
+  mgInputSelect.value = mgInputSelect.items[0];
+  mgInputText.value = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.';
+  mgInputTextarea.value =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+  mgInputToggle.value = mgInputToggle.items[1].value;`;
+
 const inputsScriptRequiredAll = `
   mgInputCheckbox.required = true;
   mgInputDate.required = true;
@@ -203,6 +224,15 @@ test.describe('mg-form', () => {
     await page.addScriptTag({ content: inputsScriptSetValues });
 
     await page.setViewportSize({ width: 700, height: 800 });
+
+    await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+  });
+
+  test(`Should render readonly long values`, async ({ page }) => {
+    const html = createHTML({ readonly: true }, inputs);
+    await page.setContent(html);
+    await page.addScriptTag({ content: inputsScript });
+    await page.addScriptTag({ content: inputsScriptSetLongValues });
 
     await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
   });

@@ -1,6 +1,5 @@
+@use '../variables' as variables;
 @import '../utils/a11y';
-@import 'mg-input-width';
-@import 'mg-input-fieldset';
 
 /*!
  * @prop --mg-c-input-border-width: Defines the width of the input border. Default value is `--mg-b-size-border`.
@@ -12,8 +11,6 @@
  * @prop --mg-c-input-toggle-border-radius-ratio: Defines the border radius ratio of the input toggle. Default value is `2`.
  * @prop --mg-c-input-check-size: Defines the size of the input check. Default value is `--mg-b-size-16`.
  */
-
-$mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
 
 :host {
   display: block;
@@ -49,30 +46,10 @@ mg-icon {
   display: flex;
   min-height: var(--mg-b-size-min-height);
   align-items: flex-start;
-  margin-bottom: var(--mg-c-input-margin-bottom, 0);
 
   &__input-container {
+    width: 100%;
     min-height: var(--mg-b-size-min-height);
-
-    /* Readonly */
-    & > ul {
-      display: flex;
-      flex-flow: column wrap;
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      row-gap: var(--mg-b-size-8);
-    }
-
-    & > strong {
-      display: inline-block;
-    }
-
-    & > strong,
-    & > ul {
-      min-height: var(--mg-b-font-size);
-      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-b-font-size) * var(--mg-b-line-height)) / 2);
-    }
 
     mg-tooltip {
       display: inline-flex;
@@ -94,10 +71,7 @@ mg-icon {
     }
 
     /* Set custom opacity on disabled input */
-    .mg-c-input__box:disabled,
-    ::slotted(.mg-c-input__button-toggle:disabled),
-    &-group--disabled label,
-    .mg-c-input.mg-c-input--checkbox-multi.mg-c-input--disabled &-container strong {
+    ::slotted(.mg-c-input__button-toggle:disabled) {
       opacity: var(--mg-b-opacity-element-disabled);
     }
   }
@@ -141,48 +115,40 @@ mg-icon {
   }
 
   /* Manage space between input and first message */
-  :host(:not(&--textarea)) &__input + .mg-c-input {
+  :host(:not(&--textarea)) &__input + & {
     &__error,
     &__help-text {
       margin-top: var(--mg-b-size-4);
     }
   }
-
-  /**
-  * Readonly variation
-  */
-  &.mg-c-input--readonly {
-    > *:not([slot='label'], [name='append-input']),
-    ::slotted(mg-button[slot='append-input']) {
-      display: none;
-    }
-  }
-
-  /**
-  * Error variation
-  */
-  &.mg-c-input--has-error .mg-c-input__box {
-    border-color: var(--mg-b-color-danger);
-  }
 }
 
 :host(.mg-c-input) {
   display: flex;
+  margin-bottom: var(--mg-c-input-margin-bottom, 0);
 }
 
-:host(.mg-c-input.mg-c-input--textarea.mg-c-input--readonly) .mg-c-input__input-container {
-  white-space: pre-line;
+:host(.mg-c-input.mg-c-input--checkbox),
+:host(.mg-c-input.mg-c-input--radio) {
+  .mg-c-input__input {
+    min-height: unset;
+    align-items: flex-start;
+  }
 }
 
 :host(.mg-c-input.mg-c-input--checkbox, .mg-c-input.mg-c-input--radio) .mg-c-input__input {
   min-height: unset;
 }
 
+:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
+  margin-left: var(--mg-b-size-32);
+}
+
 :host(.mg-c-input.mg-c-input--label-on-top) {
   @include label-on-top-styles;
 }
 
-@media screen and (max-width: ($mg-input-breakpoint - 1px)) {
+@media screen and (max-width: (variables.$mg-input-breakpoint - 1px)) {
   :host(.mg-c-input) {
     @include label-on-top-styles;
   }

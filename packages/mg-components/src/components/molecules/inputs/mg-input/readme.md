@@ -50,7 +50,7 @@ If needed, this library has been identified for converting regular expressions: 
 
 ### Positioning of "i" icon
 
-![](./doc/img/mg-input-tooltip-position.png)
+![](./docs/img/mg-input-tooltip-position.png)
 
 By default, the "i" icon is positioned next to the input field.
 
@@ -66,7 +66,7 @@ By default, the value is left aligned, you can change the CSS variable `--mg-inp
 
 ### Responsive
 
-![](./doc/img/mg-input-responsive.png)
+![](./docs/img/mg-input-responsive.png)
 
 When the viewport width is less than 768px, the label is stacked above the input field.
 
@@ -99,7 +99,6 @@ When we enter in an input field with an error its state is checked everytime the
 | `label` _(required)_      | `label`            | Define input label                                                          | `string`             | `undefined` |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`            | `false`     |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`            | `undefined` |
-| `readonlyValue`           | `readonly-value`   | Defines value to display in readonly mode                                   | `string \| string[]` | `undefined` |
 | `required`                | `required`         | Define if input is required                                                 | `boolean`            | `false`     |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`             | `undefined` |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"` | `'input'`   |

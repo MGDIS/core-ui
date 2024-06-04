@@ -49,7 +49,7 @@ export const MgInputRadio = {
     tooltip: 'This is a tooltip',
     tooltipPosition: undefined,
     // Help Text
-    helpText: 'Help text with html <strong>bold</strong>, <em>italic</em>.',
+    helpText: 'Help text with html <b>bold</b>, <em>italic</em>.',
   },
 };
 

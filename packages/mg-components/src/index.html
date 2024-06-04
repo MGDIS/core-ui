@@ -1220,7 +1220,14 @@
               mg-width="16"
               maxlength="20"
             ></mg-input-text>
-            <mg-input-text identifier="mg-input-text" label="mg-input-text label" icon="exclamation-triangle" help-text="A l'aide !" maxlength="20"></mg-input-text>
+            <mg-input-text
+              identifier="mg-input-text"
+              label="mg-input-text label"
+              icon="exclamation-triangle"
+              help-text="A l'aide !"
+              maxlength="20"
+              tooltip="tooltip"
+            ></mg-input-text>
             <mg-input-text icon="check-circle" identifier="mg-input-text-serch" label="mg-input-text label">
               <mg-button slot="append-input" label="search"><mg-icon icon="magnifying-glass"></mg-icon> Search</mg-button>
             </mg-input-text>
@@ -1228,7 +1235,7 @@
               const mgInputText = document.querySelector('mg-input-text');
             </script>
 
-            <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label" help-text="aide"></mg-input-textarea>
+            <mg-input-textarea identifier="mg-input-textarea" label="mg-input-textarea label" help-text="aide" tooltip="tooltip"></mg-input-textarea>
             <script>
               const mgInputTextarea = document.querySelector('mg-input-textarea');
             </script>

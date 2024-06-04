@@ -1,5 +1,7 @@
-@import 'mg-input';
+@use '../variables' as variables;
 @import 'mg-input-box';
+@import 'mg-input-readonly';
+@import 'mg-input-width';
 @import '../utils/a11y';
 
 .mg-c-input__box {
@@ -8,7 +10,7 @@
   padding-bottom: 0;
 }
 
-@media screen and (max-width: ($mg-input-breakpoint - 1px)) {
+@media screen and (max-width: (variables.$mg-input-breakpoint - 1px)) {
   .mg-c-input__box {
     width: 100%;
   }
