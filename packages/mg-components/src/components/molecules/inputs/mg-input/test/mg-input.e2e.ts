@@ -2,7 +2,7 @@ import { expect } from '@playwright/test';
 import { renderProperties, renderAttributes } from '@mgdis/playwright-helpers';
 import { test } from '../../../../../utils/playwright.fixture';
 import { MgInput } from '../mg-input';
-import { TooltipPosition, classFieldset, classReadonly, classVerticalList } from '../mg-input.conf';
+import { TooltipPosition, classReadonly } from '../mg-input.conf';
 
 type PropsType = Partial<MgInput & { class: string }>;
 
@@ -80,45 +80,6 @@ test.describe('mg-input', () => {
           });
         },
       );
-    });
-  });
-
-  // readonly and required
-  [true, false].forEach(required => {
-    test.describe(`required="${required}"`, () => {
-      [{ required }, { required, helpText }, { required, errorMessage }, { required, helpText, errorMessage }].forEach((args, identifier) => {
-        test(`Render readonly and required with args ${renderAttributes({ ...args, identifier })}, case class: ${classReadonly}`, async ({ page }) => {
-          await setPageContent(page, { class: classReadonly, readonlyValue: 'batman', ...args });
-
-          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-        });
-      });
-    });
-  });
-
-  // readonly-value
-  [undefined, classVerticalList].map(className =>
-    [
-      { class: className },
-      { class: className, readonlyValue: 'batman' },
-      { class: className, readonlyValue: ['batman', 'joker', 'bane'] },
-      { class: className, readonlyValue: 'batman', errorMessage },
-      { class: className, readonlyValue: ['batman', 'joker', 'bane'], labelOnTop: true, tooltip },
-    ].forEach((args, identifier) => {
-      test(`Render readonly-value with args ${renderAttributes({ ...args, identifier })}, case class: ${classReadonly}`, async ({ page }) => {
-        await setPageContent(page, { ...args, class: [classReadonly, args.class].join(' ') });
-
-        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
-      });
-    }),
-  );
-
-  // fieldset
-  [undefined, classReadonly].forEach(className => {
-    test(`Render fieldset, case className ${className}`, async ({ page }) => {
-      await setPageContent(page, { class: [classFieldset, className].join(' '), readonlyValue: className ? 'batman' : undefined });
-
-      await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
     });
   });
 

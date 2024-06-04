@@ -99,7 +99,6 @@ When we enter in an input field with an error its state is checked everytime the
 | `label` _(required)_      | `label`            | Define input label                                                          | `string`             | `undefined` |
 | `labelHide`               | `label-hide`       | Define if label is visible                                                  | `boolean`            | `false`     |
 | `labelOnTop`              | `label-on-top`     | Define if label is displayed on top                                         | `boolean`            | `undefined` |
-| `readonlyValue`           | `readonly-value`   | Defines value to display in readonly mode                                   | `string \| string[]` | `undefined` |
 | `required`                | `required`         | Define if input is required                                                 | `boolean`            | `false`     |
 | `tooltip`                 | `tooltip`          | Add a tooltip message next to the input                                     | `string`             | `undefined` |
 | `tooltipPosition`         | `tooltip-position` | Define tooltip position                                                     | `"input" \| "label"` | `'input'`   |

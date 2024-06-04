@@ -68,15 +68,17 @@ describe('mg-input-numeric', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([
-      <mg-button slot="append-input" label="search">
-        <mg-icon icon="calculator"></mg-icon> Calculate
-      </mg-button>,
-      <span slot="append-input">km</span>,
-    ])('Should render with slot.', async slot => {
-      const args = { label: 'label', identifier: 'identifier', type };
-      const { root } = await getPage(args, slot);
-      expect(root).toMatchSnapshot();
+    describe.each([false, true])('readonly %s', readonly => {
+      test.each([
+        <mg-button slot="append-input" label="search">
+          <mg-icon icon="calculator"></mg-icon> Calculate
+        </mg-button>,
+        <span slot="append-input">km</span>,
+      ])('Should render with slot', async slot => {
+        const args = { label: 'label', identifier: 'identifier', type, readonly, value: 3 };
+        const { root } = await getPage(args, slot);
+        expect(root).toMatchSnapshot();
+      });
     });
 
     test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
