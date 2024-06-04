@@ -189,6 +189,7 @@ No more `variables.scss` export, only `variables.css`.
 
 - Add `variantStyle` prop.
 - Move `close-button`, `delay` and `aria role` in `mg-alert` new component.
+- Update `variant-style` `fill` value to `background`
 
 ### Hide components
 

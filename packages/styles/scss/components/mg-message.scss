@@ -29,8 +29,8 @@
         background-color: var(--mg-b-color-#{$variant});
       }
 
-      &.mg-c-message--fill {
-        --mg-c-card-background: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
+      &.mg-c-message--background {
+        --mg-c-card-color-background: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
       }
     }
   }
