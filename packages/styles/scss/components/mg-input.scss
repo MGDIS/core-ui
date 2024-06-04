@@ -148,7 +148,7 @@ mg-icon {
   min-height: unset;
 }
 
-:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi)) .mg-c-input__input-container mg-tooltip {
+:host(.mg-c-input.mg-c-input--fieldset:not(.mg-c-input--checkbox-multi, .mg-c-input--readonly)) .mg-c-input__input-container mg-tooltip {
   margin-left: var(--mg-b-size-32);
 }
 
