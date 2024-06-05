@@ -80,6 +80,8 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Changes in `mg-menu`](#changes-in-mg-menu)
+- [Changes in `mg-message`](#changes-in-mg-message)
+- [Changes in `mg-modal`](#changes-in-mg-modal)
 - [Hide Components](#hide-components)
 - [Internal components](#internal-components)
 - [Stylesheet](#stylesheet)
@@ -179,17 +181,43 @@ No more `variables.scss` export, only `variables.css`.
   <mg-menu size="xlarge">...</mg-menu>
   ```
 
-### Hide components
+### Changes in `mg-message`
 
-- `mg-message` and `mg-modal` no longer use the `hide` prop for visibility. Use the native `hidden` attribute.
+- No longer uses the `hide` prop for visibility. Use the native `hidden` attribute.
 
   ```html
   <!-- in v5 -->
   <mg-message hide>Non</mg-message>
-  <mg-modal modal-title="Modal title" hide><p slot="content">non</p></mg-modal>
   <!-- in v6 -->
   <mg-message hidden>Non</mg-message>
-  <mg-modal modal-title="Modal title" hidden><p slot="content">non</p></mg-modal>
+  ```
+
+### Changes in `mg-modal`
+
+- Removed `content` slot name, the unnamed slot is now the default one.
+
+  ```html
+  <!-- in v5 -->
+  <mg-modal modal-title="Modal title">
+    <p slot="content">Content</p>
+  </mg-modal>
+  <!-- in v6 -->
+  <mg-modal modal-title="Modal title">
+    <p>Content</p>
+  </mg-modal>
+  ```
+
+- No longer uses the `hide` prop for visibility. Use the native `hidden` attribute.
+
+  ```html
+  <!-- in v5 -->
+  <mg-modal modal-title="Modal title" hide>
+    <p slot="content">Content</p>
+  </mg-modal>
+  <!-- in v6 -->
+  <mg-modal modal-title="Modal title" hidden>
+    <p>Content</p>
+  </mg-modal>
   ```
 
 ### Internal components

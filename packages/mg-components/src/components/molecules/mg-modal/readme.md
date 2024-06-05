@@ -106,11 +106,10 @@ To hide the component, you must use the native `hidden` attribute.
 
 ## CSS Custom Properties
 
-| Name                             | Description                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------- |
-| `--mg-c-modal-border-radius`     | Defines the border radius of the modal. Default value: `--mg-b-size-radius`.    |
-| `--mg-c-modal-content-font-size` | Defines the font size of the modal content. Default value: `1.2rem`.            |
-| `--mg-c-modal-title-font-size`   | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`. |
+| Name                           | Description                                                                     |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| `--mg-c-modal-border-radius`   | Defines the border radius of the modal. Default value: `--mg-b-size-radius`.    |
+| `--mg-c-modal-title-font-size` | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`. |
 
 
 ## Dependencies

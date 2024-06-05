@@ -9,8 +9,8 @@ test.describe('mg-modal', () => {
   slotsToTests.forEach(slots => {
     test.describe(`render with slots: action:"${slots.action}" content:${slots.content}`, () => {
       [
-        { closeButton: false, hidden: false },
-        { closeButton: true, hidden: false },
+        { closeButton: false },
+        { closeButton: true },
         {
           closeButton: true,
           modalTitle:
@@ -20,14 +20,14 @@ test.describe('mg-modal', () => {
         test(`Should render ${renderAttributes(args)}`, async ({ page }) => {
           await setPageContent(page, args, slots);
 
-          await expect(page.locator(args.hidden ? 'body' : '.mg-c-modal')).toHaveScreenshot();
+          await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
         });
       });
     });
   });
 
   test('Should render hidden modal', async ({ page }) => {
-    await setPageContent(page, { hidden: true });
+    await setPageContent(page, { hidden: true }, { content: 'short' });
 
     await expect(page.locator('body')).toHaveScreenshot();
   });
@@ -38,7 +38,7 @@ test.describe('mg-modal', () => {
         page,
         { modalTitle: 'child mg-card', class: 'custom-modal-card' },
         {
-          content: `<mg-card slot="content">child card</mg-card>`,
+          content: `<mg-card>child card</mg-card>`,
         },
       );
 

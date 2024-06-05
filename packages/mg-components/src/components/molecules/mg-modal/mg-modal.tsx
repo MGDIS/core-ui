@@ -4,7 +4,7 @@ import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
 /*
- * @slot content - Modal content
+ * @slot - Modal content
  * @slot actions - Actions content
  */
 @Component({
@@ -97,11 +97,6 @@ export class MgModal {
    * Define if component is using actions slot
    */
   @State() hasActions = false;
-
-  /**
-   * Define if component is using content slot
-   */
-  @State() hasContent = false;
 
   /**
    * Component classes
@@ -208,7 +203,6 @@ export class MgModal {
     this.messages = initLocales(this.element).messages;
     // Validate
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
-    this.hasContent = this.element.querySelector('[slot="content"]') !== null;
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
     this.validateHidden(this.element.hidden);
@@ -270,13 +264,9 @@ export class MgModal {
                 {this.modalTitle}
               </h1>
             </header>
-
-            {this.hasContent && (
-              <article class="mg-c-modal__content">
-                <slot name="content"></slot>
-              </article>
-            )}
-
+            <article class="mg-c-modal__content">
+              <slot></slot>
+            </article>
             {this.hasActions && (
               <footer class="mg-c-modal__footer">
                 <slot name="actions"></slot>

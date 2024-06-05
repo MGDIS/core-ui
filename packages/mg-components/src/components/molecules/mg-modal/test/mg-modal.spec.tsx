@@ -13,7 +13,7 @@ const getPage = (args, slots?) =>
     template: () => (
       <mg-modal {...args}>
         {slots?.content && (
-          <p slot="content">
+          <p>
             <strong>Strong</strong> content with <a href="./">a link</a>!
           </p>
         )}
@@ -42,7 +42,7 @@ describe('mg-modal', () => {
     });
   });
 
-  describe.each([undefined, { content: true }, { actions: true }, { content: true, actions: true }])('Should render a modal', slots => {
+  describe.each([undefined, { content: true }, { actions: true }, { content: true, actions: true }])('Should render a modal with slots %s', slots => {
     test.each([
       { modalTitle: 'Modal Title', identifier: 'identifier' },
       { modalTitle: 'Modal Title', identifier: 'identifier', dialogRole: 'alertdialog' },
