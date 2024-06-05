@@ -42,7 +42,7 @@ describe('mg-input-text', () => {
     { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
     { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
     { displayCharacterLeft: false },
-    { characterLeftHide: true }
+    { characterLeftHide: true },
   ])('Should render with args %s:', async args => {
     const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();
