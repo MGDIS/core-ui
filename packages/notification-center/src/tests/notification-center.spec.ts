@@ -1,5 +1,5 @@
 import { defineCustomElements } from '@mgdis/mg-components/loader';
-import { NotificationCenter } from './notification-center';
+import { NotificationCenter } from '../notification-center';
 
 describe('Notification center', () => {
   let notifsCenter;
