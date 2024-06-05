@@ -18,7 +18,7 @@ class NotificationCenter {
     // If the window is not in an iframe
     if (!this.#isInIframe(window)) {
       // Check if mg-components is loaded
-      if (customElements.get('mg-alert') === undefined) {
+      if (this.#getNotificationTagName() === undefined) {
         console.error('mg-components is not loaded.');
       }
       // We listen to events
@@ -39,6 +39,7 @@ class NotificationCenter {
   #render = () => {
     // If notification center is not already created
     if (this.#rootWindow.document.getElementById(this.#appId) === null) {
+      const tagName = this.#getNotificationTagName();
       // Add style
       const css: Text = document.createTextNode(
         `#${this.#appId} {
@@ -55,12 +56,12 @@ class NotificationCenter {
           pointer-events: none;
           z-index: 1000;
         }
-        #${this.#appId} mg-alert {
+        #${this.#appId} ${tagName} {
           pointer-events: auto;
           animation: append-item .4s ease;
         }
         @media (prefers-reduced-motion) {
-          #${this.#appId} mg-alert {
+          #${this.#appId} ${tagName} {
             animation: none;
           }
         }
@@ -82,6 +83,22 @@ class NotificationCenter {
       this.#notificationsReceiver.innerHTML = '';
       this.#notificationsReceiver.id = this.#appId;
       this.#rootWindow.document.body.appendChild(this.#notificationsReceiver);
+    }
+  };
+
+  /**
+   * Get notification tagName
+   * @returns notification tag-name
+   */
+  #getNotificationTagName = (): undefined | 'mg-alert' | 'mg-message' => {
+    if (customElements.get('mg-alert')) {
+      // >=mg-compnents@v6
+      return 'mg-alert';
+    } else if (customElements.get('mg-message')) {
+      // <=mg-compnents@v5
+      return 'mg-message';
+    } else {
+      return undefined;
     }
   };
 
@@ -137,30 +154,33 @@ class NotificationCenter {
    * @param notification - notification data
    */
   #displayNotification = ({ content, variant, delay, context }: NotificationData): void => {
-    // Remove mg-alert with same context
-    if (context)
-      this.#notificationsReceiver.querySelectorAll(`mg-alert[data-mg-alert-context='${context}']`).forEach(mgAlert => {
-        mgAlert.remove();
+    const tagName = this.#getNotificationTagName();
+    if (!tagName) return;
+    // Remove notification with same context
+    if (context) {
+      this.#notificationsReceiver.querySelectorAll(`${tagName}[data-notification-context='${context}']`).forEach(element => {
+        element.remove();
       });
-    // Init mg-alert
-    const mgAlert: HTMLElement = document.createElement('mg-alert');
-    mgAlert.setAttribute('close-button', '');
+    }
+    // Init notification
+    const notificationElement: HTMLElement = document.createElement(tagName);
+    notificationElement.setAttribute('close-button', '');
     // Variant
-    if (variant) mgAlert.setAttribute('variant', variant);
+    if (variant) notificationElement.setAttribute('variant', variant);
     // Delay
     if (delay === undefined && variant === 'success') delay = 5;
     else if (delay !== undefined && delay < 3) delay = undefined;
-    if (delay) mgAlert.setAttribute('delay', delay.toString());
+    if (delay) notificationElement.setAttribute('delay', delay.toString());
     // Context
-    if (context) mgAlert.dataset.mgAlertContext = context;
+    if (context) notificationElement.dataset.notificationContext = context;
     // Remove notification on close
-    mgAlert.addEventListener('component-hide', () => {
-      mgAlert.remove();
+    notificationElement.addEventListener('component-hide', () => {
+      notificationElement.remove();
     });
     // Add content
-    mgAlert.innerHTML = sanitizeHtml(content);
-    // Add mg-alert
-    this.#notificationsReceiver.appendChild(mgAlert);
+    notificationElement.innerHTML = sanitizeHtml(content);
+    // Add notification
+    this.#notificationsReceiver.appendChild(notificationElement);
   };
 }
 

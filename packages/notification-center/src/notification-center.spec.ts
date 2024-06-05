@@ -1,4 +1,3 @@
-import { defineCustomElements } from '@mgdis/mg-components/loader';
 import { NotificationCenter } from './notification-center';
 
 describe('Notification center', () => {
@@ -45,13 +44,16 @@ describe('Notification center', () => {
     expect(spyConsole.mock.calls[0]?.[0]).toEqual('Different hosts between iframes:');
   });
 
-  describe('defined custom elements', () => {
-    beforeAll(() => {
-      // load mg-components
-      defineCustomElements(window);
-    });
+  it('Should not display notification when component is not defined', () => {
+    notifsCenter = new NotificationCenter();
+    // When the notification event was propagated, the notification component was not available in the registry.
+    window.dispatchEvent(new MessageEvent('message', { data: { content: 'Default example', appId: 'mg-notification-center' } }));
+    expect(document.body.innerHTML).toMatchSnapshot();
+  });
 
+  describe.each(['mg-alert', 'mg-message'])('defined custom elements %s', tagName => {
     beforeEach(() => {
+      jest.spyOn(window.customElements, 'get').mockImplementation(value => value === tagName);
       notifsCenter = new NotificationCenter();
       expect(notifsCenter).toBeDefined();
     });
@@ -132,8 +134,8 @@ describe('Notification center', () => {
         }),
       );
       expect(document.body.innerHTML).toMatchSnapshot();
-      const mgAlert = document.querySelector('mg-alert');
-      mgAlert?.dispatchEvent(new CustomEvent('component-hide', { bubbles: true }));
+      const notificationElement = document.querySelector(tagName);
+      notificationElement?.dispatchEvent(new CustomEvent('component-hide', { bubbles: true }));
       expect(document.body.innerHTML).toMatchSnapshot();
     });
   });

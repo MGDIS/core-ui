@@ -1,6 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Notification center defined custom elements Should display a notification {
+exports[`Notification center Should not display notification when component is not defined 1`] = `
+<div id="mg-notification-center">
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-alert Should display a notification {
   content: 'Success variant without delay',
   variant: 'success',
   delay: 0
@@ -14,7 +19,7 @@ exports[`Notification center defined custom elements Should display a notificati
 </div>
 `;
 
-exports[`Notification center defined custom elements Should display a notification { content: 'Danger variant', variant: 'danger' } 1`] = `
+exports[`Notification center defined custom elements mg-alert Should display a notification { content: 'Danger variant', variant: 'danger' } 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
             variant="danger"
@@ -24,7 +29,7 @@ exports[`Notification center defined custom elements Should display a notificati
 </div>
 `;
 
-exports[`Notification center defined custom elements Should display a notification { content: 'Default example' } 1`] = `
+exports[`Notification center defined custom elements mg-alert Should display a notification { content: 'Default example' } 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button>
     Default example
@@ -32,7 +37,7 @@ exports[`Notification center defined custom elements Should display a notificati
 </div>
 `;
 
-exports[`Notification center defined custom elements Should display a notification { content: 'Success variant', variant: 'success' } 1`] = `
+exports[`Notification center defined custom elements mg-alert Should display a notification { content: 'Success variant', variant: 'success' } 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
             variant="success"
@@ -43,7 +48,7 @@ exports[`Notification center defined custom elements Should display a notificati
 </div>
 `;
 
-exports[`Notification center defined custom elements Should display a notification { content: 'Warning variant', variant: 'warning' } 1`] = `
+exports[`Notification center defined custom elements mg-alert Should display a notification { content: 'Warning variant', variant: 'warning' } 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
             variant="warning"
@@ -53,17 +58,17 @@ exports[`Notification center defined custom elements Should display a notificati
 </div>
 `;
 
-exports[`Notification center defined custom elements Should display a notification { content: 'With context', context: 'blu' } 1`] = `
+exports[`Notification center defined custom elements mg-alert Should display a notification { content: 'With context', context: 'blu' } 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
-            data-mg-alert-context="blu"
+            data-notification-context="blu"
   >
     With context
   </mg-alert>
 </div>
 `;
 
-exports[`Notification center defined custom elements Should display a notification { content: 'With delay', delay: 5 } 1`] = `
+exports[`Notification center defined custom elements mg-alert Should display a notification { content: 'With delay', delay: 5 } 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
             delay="5"
@@ -73,7 +78,7 @@ exports[`Notification center defined custom elements Should display a notificati
 </div>
 `;
 
-exports[`Notification center defined custom elements Should remove message on close 1`] = `
+exports[`Notification center defined custom elements mg-alert Should remove message on close 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button>
     Message to close
@@ -81,37 +86,153 @@ exports[`Notification center defined custom elements Should remove message on cl
 </div>
 `;
 
-exports[`Notification center defined custom elements Should remove message on close 2`] = `
+exports[`Notification center defined custom elements mg-alert Should remove message on close 2`] = `
 <div id="mg-notification-center">
 </div>
 `;
 
-exports[`Notification center defined custom elements Should remove previous message with same context 1`] = `
+exports[`Notification center defined custom elements mg-alert Should remove previous message with same context 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
-            data-mg-alert-context="blu"
+            data-notification-context="blu"
   >
     First message with context
   </mg-alert>
 </div>
 `;
 
-exports[`Notification center defined custom elements Should remove previous message with same context 2`] = `
+exports[`Notification center defined custom elements mg-alert Should remove previous message with same context 2`] = `
 <div id="mg-notification-center">
   <mg-alert close-button
-            data-mg-alert-context="blu"
+            data-notification-context="blu"
   >
     Second message with same context
   </mg-alert>
 </div>
 `;
 
-exports[`Notification center defined custom elements Should remove unsafe or unknown html 1`] = `
+exports[`Notification center defined custom elements mg-alert Should remove unsafe or unknown html 1`] = `
 <div id="mg-notification-center">
   <mg-alert close-button>
     <p>
       Content with unsafe or unknown html
     </p>
   </mg-alert>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification {
+  content: 'Success variant without delay',
+  variant: 'success',
+  delay: 0
+} 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              variant="success"
+  >
+    Success variant without delay
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification { content: 'Danger variant', variant: 'danger' } 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              variant="danger"
+  >
+    Danger variant
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification { content: 'Default example' } 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button>
+    Default example
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification { content: 'Success variant', variant: 'success' } 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              variant="success"
+              delay="5"
+  >
+    Success variant
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification { content: 'Warning variant', variant: 'warning' } 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              variant="warning"
+  >
+    Warning variant
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification { content: 'With context', context: 'blu' } 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              data-notification-context="blu"
+  >
+    With context
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should display a notification { content: 'With delay', delay: 5 } 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              delay="5"
+  >
+    With delay
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should remove message on close 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button>
+    Message to close
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should remove message on close 2`] = `
+<div id="mg-notification-center">
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should remove previous message with same context 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              data-notification-context="blu"
+  >
+    First message with context
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should remove previous message with same context 2`] = `
+<div id="mg-notification-center">
+  <mg-message close-button
+              data-notification-context="blu"
+  >
+    Second message with same context
+  </mg-message>
+</div>
+`;
+
+exports[`Notification center defined custom elements mg-message Should remove unsafe or unknown html 1`] = `
+<div id="mg-notification-center">
+  <mg-message close-button>
+    <p>
+      Content with unsafe or unknown html
+    </p>
+  </mg-message>
 </div>
 `;
