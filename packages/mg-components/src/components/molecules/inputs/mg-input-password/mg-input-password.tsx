@@ -310,42 +310,45 @@ export class MgInputPassword {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.value !== undefined ? '•'.repeat(this.value.length) : undefined}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <span class="mg-c-input__input-group">
-          <input
-            type={this.displayPassword ? 'text' : 'password'}
-            class="mg-c-input__box mg-c-input__box--width"
-            value={this.value}
-            id={this.identifier}
-            name={this.name}
-            placeholder={this.placeholder}
-            title={this.placeholder}
-            disabled={this.disabled}
-            required={this.required}
-            aria-invalid={(this.invalid === true).toString()}
-            onInput={this.handleInput}
-            onBlur={this.handleBlur}
-            ref={(el: HTMLInputElement) => {
-              if (el !== null) this.input = el;
-            }}
-          />
-          <mg-button
-            label={this.messages.input.password[this.displayPassword ? 'hide' : 'display']}
-            disabled={this.disabled}
-            variant="flat"
-            class="mg-c-input__append-button"
-            is-icon
-            onClick={this.toggleDisplayPassword}
-            aria-controls={this.identifier}
-          >
-            <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
-          </mg-button>
-        </span>
+        {this.readonly ? (
+          this.value !== undefined && <b class="mg-c-input__readonly-value">{'•'.repeat(this.value.length)}</b>
+        ) : (
+          <span class="mg-c-input__input-group">
+            <input
+              type={this.displayPassword ? 'text' : 'password'}
+              class="mg-c-input__box mg-c-input__box--width"
+              value={this.value}
+              id={this.identifier}
+              name={this.name}
+              placeholder={this.placeholder}
+              title={this.placeholder}
+              disabled={this.disabled}
+              required={this.required}
+              aria-invalid={(this.invalid === true).toString()}
+              onInput={this.handleInput}
+              onBlur={this.handleBlur}
+              ref={(el: HTMLInputElement) => {
+                if (el !== null) this.input = el;
+              }}
+            />
+            <mg-button
+              label={this.messages.input.password[this.displayPassword ? 'hide' : 'display']}
+              disabled={this.disabled}
+              variant="flat"
+              class="mg-c-input__append-button"
+              is-icon
+              onClick={this.toggleDisplayPassword}
+              aria-controls={this.identifier}
+            >
+              <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+            </mg-button>
+          </span>
+        )}
       </mg-input>
     );
   }

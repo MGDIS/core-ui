@@ -76,6 +76,7 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-button`](#changes-in-mg-button)
 - [Changes in `mg-divider`](#changes-in-mg-divider)
 - [Changes in `mg-icon`](#changes-in-mg-icon)
+- [Changes in `mg-input`](#changes-in-mg-input)
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Changes in `mg-menu`](#changes-in-mg-menu)
@@ -140,6 +141,10 @@ No more `variables.scss` export, only `variables.css`.
   <mg-icon icon="cog" size="xxlarge"></mg-icon>
   ```
 
+### Changes in `mg-input`
+
+- The `readonly` and `readonlyValue` props have been removed. The component no longer handles the readonly style.
+
 ### Changes in `mg-input-numeric`
 
 - The `currency` type has been moved to the `format` attribute.
@@ -182,8 +187,8 @@ No more `variables.scss` export, only `variables.css`.
 
 ### Changes in `mg-message`
 
-- Create `variantStyle` prop.
-- Move `close-button`, `delay` and `aria role` in `mg-alert` new component: .
+- Add `variantStyle` prop.
+- Move `close-button`, `delay` and `aria role` in `mg-alert` new component.
 
 ### Hide components
 

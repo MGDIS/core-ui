@@ -34,8 +34,9 @@ export class MgInputText {
   private readonly classIsAppendInputSlotContent = 'mg-c-input--is-append-input-slot-content';
 
   // IDs
-  private characterLeftId;
-  private datalistId;
+  private characterLeftId: string;
+  private datalistId: string;
+  private slotContent: string;
 
   // HTML selector
   private input: HTMLInputElement;
@@ -374,7 +375,12 @@ export class MgInputText {
     const slotAppendInput: HTMLSlotElement[] = Array.from(this.element.querySelectorAll('[slot="append-input"]'));
 
     if (slotAppendInput.length === 1) {
-      this.classCollection.add(slotAppendInput[0].nodeName === 'MG-BUTTON' ? this.classIsInputGroupAppend : this.classIsAppendInputSlotContent);
+      if (slotAppendInput[0].nodeName === 'MG-BUTTON') {
+        this.classCollection.add(this.classIsInputGroupAppend);
+      } else {
+        this.classCollection.add(this.classIsAppendInputSlotContent);
+        this.slotContent = slotAppendInput[0].textContent;
+      }
     } else if (slotAppendInput.filter(slot => slot.nodeName === 'MG-BUTTON').length > 1) {
       this.classCollection.add(this.classIsInputGroupAppend);
       this.classCollection.add(this.classHasButtonsGroupAppend);
@@ -418,6 +424,21 @@ export class MgInputText {
   }
 
   /**
+   * Renders the readonly content of the input component.
+   * @returns The readonly content element.
+   */
+  private renderReadonly = (): HTMLElement => {
+    return this.slotContent !== undefined ? (
+      <span class="mg-c-input__readonly-value">
+        <b>{this.value}</b>
+        {this.slotContent}
+      </span>
+    ) : (
+      <b class="mg-c-input__readonly-value">{this.value}</b>
+    );
+  };
+
+  /**
    * Render
    * @returns HTML Element
    */
@@ -431,56 +452,60 @@ export class MgInputText {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={this.required}
-        readonlyValue={this.value}
         tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
-        <div
-          class="mg-c-input__with-character-left"
-          style={{
-            '--mg-c-character-left-message-length': (!this.characterLeftHide
-              ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
-              : 0
-            ).toString(),
-          }}
-        >
-          {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
-          <input
-            type={this.type}
-            class="mg-c-input__box mg-c-input__box--width"
-            value={this.value}
-            id={this.identifier}
-            list={this.hasDatalist() ? this.datalistId : undefined}
-            autocomplete={this.hasDatalist() ? 'off' : undefined}
-            name={this.name}
-            placeholder={this.placeholder}
-            title={this.placeholder}
-            maxlength={this.maxlength}
-            disabled={this.disabled}
-            required={this.required}
-            aria-invalid={(this.invalid === true).toString()}
-            pattern={this.pattern}
-            onInput={this.handleInput}
-            onFocus={this.handleFocus}
-            onBlur={this.handleBlur}
-            ref={(el: HTMLInputElement) => {
-              if (el !== null) this.input = el;
-            }}
-          />
-          {this.hasDatalist() && (
-            <datalist id={this.datalistId}>
-              {this.datalistoptions.map(option => (
-                <option value={option} key={option}></option>
-              ))}
-            </datalist>
-          )}
-          {!this.characterLeftHide && this.maxlength > 0 && (
-            <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
-          )}
-        </div>
-        <slot name="append-input"></slot>
+        {this.readonly
+          ? this.value && this.renderReadonly()
+          : [
+              <div
+                key="input"
+                class="mg-c-input__with-character-left"
+                style={{
+                  '--mg-c-character-left-message-length': (!this.characterLeftHide
+                    ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
+                    : 0
+                  ).toString(),
+                }}
+              >
+                {this.icon !== undefined && <mg-icon icon={this.icon}></mg-icon>}
+                <input
+                  type={this.type}
+                  class="mg-c-input__box mg-c-input__box--width"
+                  value={this.value}
+                  id={this.identifier}
+                  list={this.hasDatalist() ? this.datalistId : undefined}
+                  autocomplete={this.hasDatalist() ? 'off' : undefined}
+                  name={this.name}
+                  placeholder={this.placeholder}
+                  title={this.placeholder}
+                  maxlength={this.maxlength}
+                  disabled={this.disabled}
+                  required={this.required}
+                  aria-invalid={(this.invalid === true).toString()}
+                  pattern={this.pattern}
+                  onInput={this.handleInput}
+                  onFocus={this.handleFocus}
+                  onBlur={this.handleBlur}
+                  ref={(el: HTMLInputElement) => {
+                    if (el !== null) this.input = el;
+                  }}
+                />
+                {this.hasDatalist() && (
+                  <datalist id={this.datalistId}>
+                    {this.datalistoptions.map(option => (
+                      <option value={option} key={option}></option>
+                    ))}
+                  </datalist>
+                )}
+                {!this.characterLeftHide && this.maxlength > 0 && (
+                  <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
+                )}
+              </div>,
+              <slot key="slot" name="append-input"></slot>,
+            ]}
       </mg-input>
     );
   }

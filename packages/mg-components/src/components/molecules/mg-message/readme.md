@@ -11,7 +11,7 @@ The element can be of four different types depending on the message to be indica
 
 ## Specs
 
-![](./doc/img/mg-message-specs.png)
+![](./docs/img/mg-message-specs.png)
 
 <!-- Auto Generated Below -->
 

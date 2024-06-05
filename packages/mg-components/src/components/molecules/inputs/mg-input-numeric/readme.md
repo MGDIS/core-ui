@@ -16,11 +16,11 @@ It is possible to specify a unit after the field for integers and decimals. For 
 
 By default, the value is right aligned.
 
-![](./doc/img/mg-input-numeric-positioning-default.png)
+![](./docs/img/mg-input-numeric-positioning-default.png)
 
 You can change the CSS variable `--mg-c-input-text-align` to left align.
 
-![](./doc/img/mg-input-numeric-positioning-custom.png)
+![](./docs/img/mg-input-numeric-positioning-custom.png)
 
 ## Slot
 
@@ -28,7 +28,7 @@ The spacing between the field and the slot content is not managed by the compone
 
 ### Unit positioning
 
-![](./doc/img/mg-input-numeric-unit.png)
+![](./docs/img/mg-input-numeric-unit.png)
 
 Unit term must be placed into the field slot using a "space" character before the unit term.
 
@@ -110,20 +110,6 @@ Type: `Promise<void>`
 | Slot             | Description                          |
 | ---------------- | ------------------------------------ |
 | `"append-input"` | Content to display next to the input |
-
-
-## CSS Custom Properties
-
-| Name                                      | Description                                                                                                                          |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `--mg-c-input-border-radius`              | Defines the border radius of the input. Default value is `--mg-b-size-radius`.                                                       |
-| `--mg-c-input-border-width`               | Defines the width of the input border. Default value is `--mg-b-size-border`.                                                        |
-| `--mg-c-input-check-size`                 | Defines the size of the input check. Default value is `--mg-b-size-16`.                                                              |
-| `--mg-c-input-color-border`               | Defines the color of the input border. Default value is `rgb(181, 194, 201)`.                                                        |
-| `--mg-c-input-color-box-shadow-focus`     | Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`.                                       |
-| `--mg-c-input-error-color-background`     | Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`. |
-| `--mg-c-input-placeholder-color-text`     | Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`.                                                    |
-| `--mg-c-input-toggle-border-radius-ratio` | Defines the border radius ratio of the input toggle. Default value is `2`.                                                           |
 
 
 ## Dependencies

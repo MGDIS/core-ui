@@ -36,6 +36,11 @@
     &:disabled {
       opacity: var(--mg-b-opacity-element-disabled);
     }
+
+    // Error
+    .mg-c-input.mg-c-input--has-error & {
+      border-color: var(--mg-b-color-danger);
+    }
   }
 
   /**

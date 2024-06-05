@@ -2,7 +2,7 @@
 
 ### Style
 
-![](./doc/img/mg-card-style.png)
+![](./docs/img/mg-card-style.png)
 
 1. Border radius: 5px
 2. Background: [@color-light](./?path=/docs/style-colors--docs)
@@ -11,13 +11,13 @@
 
 ### Spacing
 
-![](./doc/img/mg-card-spacing.png)
+![](./docs/img/mg-card-spacing.png)
 
 A padding of 16px is applied around the content
 
 ### Size
 
-![](./doc/img/mg-card-size.png)
+![](./docs/img/mg-card-size.png)
 
 1. Ajusting with the content
 2. Ajusting with its parent (100%)

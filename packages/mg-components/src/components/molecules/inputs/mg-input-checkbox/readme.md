@@ -9,13 +9,13 @@ The style of the active checkbox is the browser's style.
 
 ## Specs
 
-![](./doc/img/mg-input-checkbox-specs.png)
+![](./docs/img/mg-input-checkbox-specs.png)
 
 ## Type "multi"
 
 ### Anatomy
 
-![](./doc/img/mg-input-checkbox-multi-anatomy.png)
+![](./docs/img/mg-input-checkbox-multi-anatomy.png)
 
 1. Button
   - variant: secondary
@@ -30,22 +30,22 @@ The style of the active checkbox is the browser's style.
 
 ### Type "multi" with sections
 
-![](./doc/img/mg-input-checkbox-multi-section.png)
+![](./docs/img/mg-input-checkbox-multi-section.png)
 
 #### Spacings
 
-![](./doc/img/mg-input-checkbox-multi-section-button-spacing.png)
+![](./docs/img/mg-input-checkbox-multi-section-button-spacing.png)
 
 "Select all" and "Unselect all" buttons are aligned on left. 
 
-![](./doc/img/mg-input-checkbox-multi-section-internal-spacing.png)
+![](./docs/img/mg-input-checkbox-multi-section-internal-spacing.png)
 
-![](./doc/img/mg-input-checkbox-multi-section-spacing.png)
+![](./docs/img/mg-input-checkbox-multi-section-spacing.png)
 
 
 ### Displayed values
 
-![](./doc/img/mg-input-checkbox-display-values.png)
+![](./docs/img/mg-input-checkbox-display-values.png)
 
 #### Without values
 
@@ -126,20 +126,6 @@ When used to set validity to `false`, you should use this method again to reset 
 Type: `Promise<void>`
 
 
-
-
-## CSS Custom Properties
-
-| Name                                      | Description                                                                                                                          |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `--mg-c-input-border-radius`              | Defines the border radius of the input. Default value is `--mg-b-size-radius`.                                                       |
-| `--mg-c-input-border-width`               | Defines the width of the input border. Default value is `--mg-b-size-border`.                                                        |
-| `--mg-c-input-check-size`                 | Defines the size of the input check. Default value is `--mg-b-size-16`.                                                              |
-| `--mg-c-input-color-border`               | Defines the color of the input border. Default value is `rgb(181, 194, 201)`.                                                        |
-| `--mg-c-input-color-box-shadow-focus`     | Defines the shadow color of the input when focused. Default value is `rgba(0, 221, 255, 0.5)`.                                       |
-| `--mg-c-input-error-color-background`     | Defines the background color of the input error message. Default value is `color-mix(in srgb, var(--mg-b-color-danger), white 95%)`. |
-| `--mg-c-input-placeholder-color-text`     | Defines the color of the placeholder text. Default value is `rgb(181, 194, 201)`.                                                    |
-| `--mg-c-input-toggle-border-radius-ratio` | Defines the border radius ratio of the input toggle. Default value is `2`.                                                           |
 
 
 ## Dependencies

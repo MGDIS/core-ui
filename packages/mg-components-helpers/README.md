@@ -62,4 +62,4 @@ Mostly used when your project doesn't have a bundler but uses scripts to compile
 
 ## Documentation
 
-Read the full [documentation](./doc/README.md)
+Read the full [documentation](./docs/README.md)

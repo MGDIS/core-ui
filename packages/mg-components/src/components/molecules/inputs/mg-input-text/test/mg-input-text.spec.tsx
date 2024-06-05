@@ -40,30 +40,32 @@ describe('mg-input-text', () => {
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
     { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', displayCharacterLeft: false },
+    { label: 'label', identifier: 'identifier', characterLeftHide: true },
   ])('Should render with args %s:', async args => {
     const { root } = await getPage(args);
     expect(root).toMatchSnapshot();
   });
 
-  test.each([
-    <mg-button slot="append-input" label="search">
-      <mg-icon icon="magnifying-glass"></mg-icon> Search
-    </mg-button>,
-    <span slot="append-input">test</span>,
-    [
-      <mg-button is-icon slot="append-input" label="cancel">
-        <mg-icon icon="cross"></mg-icon>
+  describe.each([false, true])('readonly %s', readonly => {
+    test.each([
+      <mg-button slot="append-input" label="search">
+        <mg-icon icon="magnifying-glass"></mg-icon> Search
       </mg-button>,
-      <mg-button is-icon slot="append-input" label="validate">
-        <mg-icon icon="check"></mg-icon>
-      </mg-button>,
-    ],
-  ])('Should render with slot.', async slot => {
-    const args = { label: 'label', identifier: 'identifier', type: 'search' };
+      <span slot="append-input">test</span>,
+      [
+        <mg-button is-icon slot="append-input" label="cancel">
+          <mg-icon icon="cross"></mg-icon>
+        </mg-button>,
+        <mg-button is-icon slot="append-input" label="validate">
+          <mg-icon icon="check"></mg-icon>
+        </mg-button>,
+      ],
+    ])('Should render with slot.', async slot => {
+      const args = { label: 'label', identifier: 'identifier', type: 'search', readonly, value: 'blu' };
 
-    const page = await getPage(args, slot);
-    expect(page.root).toMatchSnapshot();
+      const page = await getPage(args, slot);
+      expect(page.root).toMatchSnapshot();
+    });
   });
 
   test.each(['', ' ', undefined])('Should not render with invalid identifier property: %s', async identifier => {
