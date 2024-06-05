@@ -15,4 +15,4 @@ pnpm i @mgdis/stencil-helpers
 
 ## Documentation
 
-Read the full [documentation](./doc/README.md)
+Read the full [documentation](./docs/README.md)

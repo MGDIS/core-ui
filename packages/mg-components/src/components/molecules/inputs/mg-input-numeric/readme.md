@@ -16,11 +16,11 @@ It is possible to specify a unit after the field for integers and decimals. For 
 
 By default, the value is right aligned.
 
-![](./doc/img/mg-input-numeric-positioning-default.png)
+![](./docs/img/mg-input-numeric-positioning-default.png)
 
 You can change the CSS variable `--mg-c-input-text-align` to left align.
 
-![](./doc/img/mg-input-numeric-positioning-custom.png)
+![](./docs/img/mg-input-numeric-positioning-custom.png)
 
 ## Slot
 
@@ -28,7 +28,7 @@ The spacing between the field and the slot content is not managed by the compone
 
 ### Unit positioning
 
-![](./doc/img/mg-input-numeric-unit.png)
+![](./docs/img/mg-input-numeric-unit.png)
 
 Unit term must be placed into the field slot using a "space" character before the unit term.
 
