@@ -13,14 +13,18 @@
 }
 
 .mg-c-modal {
-  position: fixed;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--mg-b-size-24) 0;
-  background-color: color-mix(in srgb, var(--mg-b-color-light), transparent 15%);
-  inset: 0;
+  border: none;
+  background: none;
+
+  &[open] {
+    display: flex;
+    padding: var(--mg-b-size-24) var(--mg-b-size-8);
+  }
+
+  &::backdrop {
+    background-color: var(--mg-b-color-light);
+    opacity: 0.85;
+  }
 
   mg-card {
     display: flex;

@@ -50,25 +50,25 @@
         <div class="mg-l-group-elements">
           <mg-icon icon="info-circle"></mg-icon>
           <mg-icon icon="info-circle" size="large"></mg-icon>
-          <mg-icon icon="info-circle" size="extra-large"></mg-icon>
+          <mg-icon icon="info-circle" size="xxlarge"></mg-icon>
           <mg-icon icon="exclamation-triangle"></mg-icon>
           <mg-icon icon="exclamation-triangle" size="large"></mg-icon>
-          <mg-icon icon="exclamation-triangle" size="extra-large"></mg-icon>
+          <mg-icon icon="exclamation-triangle" size="xxlarge"></mg-icon>
           <mg-icon icon="check-circle"></mg-icon>
           <mg-icon icon="check-circle" size="large"></mg-icon>
-          <mg-icon icon="check-circle" size="extra-large"></mg-icon>
+          <mg-icon icon="check-circle" size="xxlarge"></mg-icon>
           <mg-icon icon="exclamation-circle"></mg-icon>
           <mg-icon icon="exclamation-circle" size="large"></mg-icon>
-          <mg-icon icon="exclamation-circle" size="extra-large"></mg-icon>
+          <mg-icon icon="exclamation-circle" size="xxlarge"></mg-icon>
           <mg-icon icon="cross"></mg-icon>
           <mg-icon icon="cross" size="large"></mg-icon>
-          <mg-icon icon="cross" size="extra-large"></mg-icon>
+          <mg-icon icon="cross" size="xxlarge"></mg-icon>
         </div>
         <h3>w/ text</h3>
         <div class="mg-l-group-elements">
           <span class="h2"><mg-icon icon="exclamation-triangle"></mg-icon>Titre</span>
           <span class="h1"><mg-icon icon="info-circle" size="large"></mg-icon>Titre</span>
-          <span class="h3"><mg-icon icon="check-circle" size="extra-large"></mg-icon>Titre</span>
+          <span class="h3"><mg-icon icon="check-circle" size="xxlarge"></mg-icon>Titre</span>
         </div>
         <h3>Variants</h3>
         <div class="mg-l-group-elements">
@@ -80,10 +80,10 @@
           <mg-icon icon="info-circle" size="large" variant="warning"></mg-icon>
           <mg-icon icon="info-circle" size="large" variant="danger"></mg-icon>
           <mg-icon icon="info-circle" size="large" variant="info"></mg-icon>
-          <mg-icon icon="info-circle" size="extra-large" variant="success"></mg-icon>
-          <mg-icon icon="info-circle" size="extra-large" variant="warning"></mg-icon>
-          <mg-icon icon="info-circle" size="extra-large" variant="danger"></mg-icon>
-          <mg-icon icon="info-circle" size="extra-large" variant="info"></mg-icon>
+          <mg-icon icon="info-circle" size="xxlarge" variant="success"></mg-icon>
+          <mg-icon icon="info-circle" size="xxlarge" variant="warning"></mg-icon>
+          <mg-icon icon="info-circle" size="xxlarge" variant="danger"></mg-icon>
+          <mg-icon icon="info-circle" size="xxlarge" variant="info"></mg-icon>
         </div>
       </section>
       <section>
@@ -401,13 +401,13 @@
           <mg-button variant="link" is-icon label="Label"><mg-icon icon="cross"></mg-icon></mg-button>
         </div>
         <div class="mg-l-group-elements" style="padding: 0 0 1rem">
-          <mg-button variant="primary" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
-          <mg-button variant="secondary" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
-          <mg-button variant="danger" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
-          <mg-button variant="danger-alt" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
-          <mg-button variant="info" is-icon label="Label"><mg-icon size="extra-large" icon="check-circle"></mg-icon></mg-button>
-          <mg-button variant="flat" is-icon label="Label"><mg-icon size="extra-large" icon="cross"></mg-icon></mg-button>
-          <mg-button variant="link" is-icon label="Label"><mg-icon size="extra-large" icon="cross"></mg-icon></mg-button>
+          <mg-button variant="primary" is-icon label="Label"><mg-icon size="xxlarge" icon="check-circle"></mg-icon></mg-button>
+          <mg-button variant="secondary" is-icon label="Label"><mg-icon size="xxlarge" icon="check-circle"></mg-icon></mg-button>
+          <mg-button variant="danger" is-icon label="Label"><mg-icon size="xxlarge" icon="check-circle"></mg-icon></mg-button>
+          <mg-button variant="danger-alt" is-icon label="Label"><mg-icon size="xxlarge" icon="check-circle"></mg-icon></mg-button>
+          <mg-button variant="info" is-icon label="Label"><mg-icon size="xxlarge" icon="check-circle"></mg-icon></mg-button>
+          <mg-button variant="flat" is-icon label="Label"><mg-icon size="xxlarge" icon="cross"></mg-icon></mg-button>
+          <mg-button variant="link" is-icon label="Label"><mg-icon size="xxlarge" icon="cross"></mg-icon></mg-button>
         </div>
         <div class="mg-l-group-elements" style="padding: 0 0 1rem">
           <mg-button variant="primary" is-icon label="Label"><mg-icon size="large" icon="check-circle"></mg-icon></mg-button>
@@ -772,35 +772,90 @@
 
         <h4>Modal</h4>
         <mg-button id="modal-button">Open modal</mg-button>
-        <mg-modal modal-title="Modal title" close-button hidden>
-          <p slot="content">
+        <mg-modal modal-title="Modal title" close-button open>
+          <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
             pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
           </p>
-          <mg-popover slot="content" close-button>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+          <!-- <mg-popover close-button>
             <mg-tooltip message="Blublu">
               <mg-button>Display popover</mg-button>
             </mg-tooltip>
             <div slot="content">Lorem ipsum dolor sit amet</div>
             <h1 slot="title">Titre Normal</h1>
           </mg-popover>
-          <mg-input-text slot="content" identifier="modal-mg-input-text" label="label"></mg-input-text>
-          <mg-button slot="content" onclick="alert('blu')">Primary</mg-button>
-          <input slot="content" type="text" />
+          <mg-input-text identifier="modal-mg-input-text" label="label"></mg-input-text>
+          <mg-button onclick="alert('blu')">Primary</mg-button>
+          <input type="text" />
           <div slot="actions" class="mg-l-group-elements mg-l-group-elements--align-right">
             <mg-button>Primary</mg-button><mg-button variant="secondary" onclick="closeModal()">close</mg-button>
-          </div>
+          </div> -->
         </mg-modal>
         <script>
           document.querySelector('#modal-button').addEventListener('click', () => {
             const mgModal = document.querySelector('mg-modal');
-            const isHidden = mgModal.hidden === true || mgModal.getAttribute('hidden') !== null;
-            if (isHidden) {
-              mgModal.removeAttribute('hidden');
-              mgModal.hidden = false;
+            const isOpen = mgModal.open;
+            console.log('isOpen', isOpen);
+            if (isOpen) {
+              mgModal.open = false;
             } else {
-              mgModal.hidden = true;
+              mgModal.open = true;
             }
           });
           const closeModal = () => {

@@ -6,21 +6,21 @@ test.use({ ...devices['Desktop Firefox'] });
 
 test.describe('mg-modal, firefox', () => {
   test.describe('navigation', () => {
-    test('Should navigate with keyboard', async ({ page }) => {
-      await setPageContent(page, { closeButton: true, hidden: true }, { action: true, content: 'short' });
+    test.only('Should navigate with keyboard', async ({ page }) => {
+      await setPageContent(page, { closeButton: true }, { action: true, content: 'short' });
+      await page.addStyleTag({ content: '.e2e-screenshot{height:100%}' });
       await expect(page.locator('body')).toHaveScreenshot();
 
       // open modal
       await page.keyboard.press('Tab');
       await page.keyboard.press('Enter');
-      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
-
-      // loop in modal
-      await page.keyboard.press('Tab');
-      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
 
       await page.keyboard.press('Tab');
-      await expect(page.locator('.mg-c-modal')).toHaveScreenshot();
+      await expect(page.locator('body')).toHaveScreenshot();
+
+      await page.keyboard.press('Shift+Tab'); // Dialog ensure focus but we also have to loop into FF URL and menu bar
+      await expect(page.locator('body')).toHaveScreenshot();
 
       // close modal
       await page.keyboard.press('Enter');

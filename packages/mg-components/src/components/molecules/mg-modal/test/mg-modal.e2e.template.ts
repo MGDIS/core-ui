@@ -35,7 +35,7 @@ export const setPageContent = async (page, args, slots?) => {
   await page.addScriptTag({
     content: `document.getElementById('${triggerModalId}').addEventListener('click', () => {
     const mgModal = document.querySelector('mg-modal');
-    mgModal.hidden = !mgModal.hidden;
+    mgModal.open = true;
   });`,
   });
 };
