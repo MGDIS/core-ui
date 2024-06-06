@@ -6,7 +6,7 @@ test.use({ ...devices['Desktop Firefox'] });
 
 test.describe('mg-modal, firefox', () => {
   test.describe('navigation', () => {
-    test.only('Should navigate with keyboard', async ({ page }) => {
+    test('Should navigate with keyboard', async ({ page }) => {
       await setPageContent(page, { closeButton: true }, { action: true, content: 'short' });
       await page.addStyleTag({ content: '.e2e-screenshot{height:100%}' });
       await expect(page.locator('body')).toHaveScreenshot();
