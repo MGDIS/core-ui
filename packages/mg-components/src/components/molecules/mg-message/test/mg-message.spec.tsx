@@ -48,12 +48,41 @@ describe('mg-message', () => {
     expect(classDanger).not.toBeNull();
   });
 
+  test('Should replace classes on variantStyle changes', async () => {
+    const page = await getPage({ identifier: 'identifier' }, getDefaultContent());
+    const element = page.doc.querySelector('mg-message');
+    let classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
+
+    expect(classbarLeft).not.toBeNull();
+
+    element.variantStyle = 'fill';
+    await page.waitForChanges();
+
+    classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
+    const classFill = element.shadowRoot.querySelector('.mg-c-message--fill');
+
+    expect(classbarLeft).toBeNull();
+    expect(classFill).not.toBeNull();
+  });
+
   test.each(['', 'blu'])('Should throw error with invalid variant property: %s', async variant => {
     expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', variant }, getDefaultContent());
     } catch (err) {
       expect(err.message).toMatch('<mg-message> prop "variant" must be one of:');
+    }
+  });
+
+  test.each(['', 'batman'])('should throw error %s', async variantStyle => {
+    expect.assertions(1);
+    try {
+      await getPage(
+        { identifier: 'identifier', variantStyle },
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+      );
+    } catch (err) {
+      expect(err.message).toMatch('<mg-message> prop "variantStyle" must be one of:');
     }
   });
 

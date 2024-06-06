@@ -8,7 +8,7 @@ The component manages:
 
 ## Anatomy
 
-![](./doc/img/mg-form-anatomy.png)
+![](./docs/img/mg-form-anatomy.png)
 
 1. Required field(s) message
 2. Inputs zone
@@ -18,7 +18,7 @@ The component manages:
 
 ### Required field(s) message
 
-![](./doc/img/mg-form-style-required-message.png)
+![](./docs/img/mg-form-style-required-message.png)
 
 Text is in 'Open Sans', Regular, 12px, [@color-dark](./?path=/docs/style-colors--docs)  
 The "\*" is in [@color-danger](./?path=/docs/style-colors--docs)
@@ -30,13 +30,13 @@ The "\*" is in [@color-danger](./?path=/docs/style-colors--docs)
 The `mg-form` component applies a 15px margin to the bottom of the slotted `mg-input-*` elements.
 The space between the label and the input area is increased to 30px.
 
-![](./doc/img/mg-form-spacing-inputs.png)
+![](./docs/img/mg-form-spacing-inputs.png)
 
 #### Label on top
 
 When the `label-on-top` prop is used, the vertical spacing is increased to 25px.
 
-![](./doc/img/mg-form-spacing-inputs-label-on-top.png)
+![](./docs/img/mg-form-spacing-inputs-label-on-top.png)
 
 ## Behavior
 

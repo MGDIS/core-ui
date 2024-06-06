@@ -74,6 +74,7 @@ No more `variables.scss` export, only `variables.css`.
 
 - [`size` prop updates](#size-prop-updates)
 - [Changes in `mg-button`](#changes-in-mg-button)
+- [Changes in `mg-card`](#changes-in-mg-card)
 - [Changes in `mg-divider`](#changes-in-mg-divider)
 - [Changes in `mg-icon`](#changes-in-mg-icon)
 - [Changes in `mg-input`](#changes-in-mg-input)
@@ -82,7 +83,6 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-menu`](#changes-in-mg-menu)
 - [Changes in `mg-message`](#changes-in-mg-message)
 - [Changes in `mg-modal`](#changes-in-mg-modal)
-- [Hide Components](#hide-components)
 - [Internal components](#internal-components)
 - [Stylesheet](#stylesheet)
 

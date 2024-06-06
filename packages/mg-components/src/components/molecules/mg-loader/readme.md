@@ -1,6 +1,6 @@
 ## Behavior
 
-![](./doc/img/mg-loader-anatomy.png)
+![](./docs/img/mg-loader-anatomy.png)
 
 The default loader message is "Loading in progress..." and can be overridden with the `message` prop.
 

@@ -18,10 +18,20 @@
   display: inline-block;
   min-height: var(--mg-b-size-min-height);
 
-  @each $semantic in variables.$semantics {
+  @each $semantic, $color in variables.$semantics {
     $variant: list.nth($semantic, 1);
-    &.mg-c-message--#{$variant} .mg-c-message__icon {
-      color: var(--mg-b-color-#{$variant});
+    &.mg-c-message--#{$variant} {
+      .mg-c-message__icon {
+        color: var(--mg-b-color-#{$variant});
+      }
+
+      &.mg-c-message--bar-left .mg-c-message__bar {
+        background-color: var(--mg-b-color-#{$variant});
+      }
+
+      &.mg-c-message--fill {
+        --mg-c-card-color-background: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
+      }
     }
   }
 
@@ -70,6 +80,14 @@
     position: absolute;
     top: 0;
     right: 0;
+  }
+
+  &__bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--mg-b-size-4);
+    height: 100%;
   }
 
   @include reset-slot-card-variables;
