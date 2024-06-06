@@ -20,8 +20,10 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
   // Expect to have a displayed message
   await expectedNotifications(page, 1);
 
-  // Clise on message close button
-  await page.locator('#mg-notification-center mg-alert mg-button').click();
+  // Click on message close button
+  const mgButton = await page.locator('#mg-notification-center mg-alert.hydrated mg-button');
+  await mgButton.waitFor();
+  await mgButton.dispatchEvent('click');
 
   // Do not expect to have any notifications
   await expectedNotifications(page, 0);
