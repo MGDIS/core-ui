@@ -2,7 +2,8 @@ import { test, expect, Page, FrameLocator } from '@playwright/test';
 
 const displayNotification = (page: Page, hasText: string, frame?: FrameLocator): Promise<void> => (frame ?? page).locator(`text="${hasText}"`).click();
 
-const expectedNotifications = (page: Page | FrameLocator, expected: number): Promise<void> => expect(page.locator('#mg-notification-center mg-alert')).toHaveCount(expected);
+const expectedNotifications = (page: Page | FrameLocator, expected: number): Promise<void> =>
+  expect(page.locator('#mg-notification-center .notification-center__notification')).toHaveCount(expected);
 
 const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLocator, frameTitle?: string): Promise<void> => {
   await page.goto(`http://localhost:3210/${file}`);
@@ -21,7 +22,7 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
   await expectedNotifications(page, 1);
 
   // Click on message close button
-  const mgButton = await page.locator('#mg-notification-center mg-alert.hydrated mg-button');
+  const mgButton = await page.locator('#mg-notification-center .notification-center__notification.hydrated mg-button');
   await mgButton.waitFor();
   await mgButton.dispatchEvent('click');
 

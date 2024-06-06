@@ -39,10 +39,9 @@ class NotificationCenter {
   #render = () => {
     // If notification center is not already created
     if (this.#rootWindow.document.getElementById(this.#appId) === null) {
-      const tagName = this.#getNotificationTagName();
       // Add style
       const css: Text = document.createTextNode(
-        `#${this.#appId} {
+        `#${this.#appId}.notification-center {
           position: fixed;
           bottom: 0;
           right: 0;
@@ -56,12 +55,12 @@ class NotificationCenter {
           pointer-events: none;
           z-index: 1000;
         }
-        #${this.#appId} ${tagName} {
+        #${this.#appId} .notification-center__notification {
           pointer-events: auto;
           animation: append-item .4s ease;
         }
         @media (prefers-reduced-motion) {
-          #${this.#appId} ${tagName} {
+          #${this.#appId} .notification-center__notification {
             animation: none;
           }
         }
@@ -82,6 +81,7 @@ class NotificationCenter {
       // Add div to receive notifications
       this.#notificationsReceiver.innerHTML = '';
       this.#notificationsReceiver.id = this.#appId;
+      this.#notificationsReceiver.classList.add('notification-center');
       this.#rootWindow.document.body.appendChild(this.#notificationsReceiver);
     }
   };
@@ -164,6 +164,7 @@ class NotificationCenter {
     }
     // Init notification
     const notificationElement: HTMLElement = document.createElement(tagName);
+    notificationElement.classList.add('notification-center__notification');
     notificationElement.setAttribute('close-button', '');
     // Variant
     if (variant) notificationElement.setAttribute('variant', variant);
