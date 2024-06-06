@@ -30,38 +30,38 @@ If the element is located at the edge of the screen, the tooltip is shifted to b
 
 ### Shapes
 
-![](./doc/img/mg-tooltip-shape.png)
+![](./docs/img/mg-tooltip-shape.png)
 
 ### Fonts
 
-![](./doc/img/mg-tooltip-font.png)
+![](./docs/img/mg-tooltip-font.png)
 
 ### Spacing
 
-![](./doc/img/mg-tooltip-spaces.png)
+![](./docs/img/mg-tooltip-spaces.png)
 
 ### Alignments
 
-![](./doc/img/mg-tooltip-alignments-text.png)
+![](./docs/img/mg-tooltip-alignments-text.png)
 
 ### Positioning
 
 Triangle is always centered on the call component
 
-![](./doc/img/mg-tooltip-positioning.png)
-![](./doc/img/mg-tooltip-positioning2.png)
+![](./docs/img/mg-tooltip-positioning.png)
+![](./docs/img/mg-tooltip-positioning2.png)
 
 ### Colors
 
-![](./doc/img/mg-tooltip-colors.png)
+![](./docs/img/mg-tooltip-colors.png)
 
 ### Sizes
 
-![](./doc/img/mg-tooltip-sizing.png)
+![](./docs/img/mg-tooltip-sizing.png)
 
 Component's max-width is 400px.
 
-![](./doc/img/mg-tooltip-max-width.png)
+![](./docs/img/mg-tooltip-max-width.png)
 
 <!-- Auto Generated Below -->
 

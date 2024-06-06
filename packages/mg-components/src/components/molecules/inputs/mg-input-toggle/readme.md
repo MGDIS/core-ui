@@ -10,15 +10,15 @@ The values must be transcribed by texts or icons.
 
 ### Types
 
-![](./doc/img/mg-input-toggle-use.png)
+![](./docs/img/mg-input-toggle-use.png)
 
 ### Specs
 
-![](./doc/img/mg-input-toggle-specs.png)
+![](./docs/img/mg-input-toggle-specs.png)
 
 ### Readonly
 
-![](./doc/img/mg-input-toggle-readonly.png)
+![](./docs/img/mg-input-toggle-readonly.png)
 
 <!-- Auto Generated Below -->
 
