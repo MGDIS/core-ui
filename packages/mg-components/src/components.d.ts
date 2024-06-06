@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
-import { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -23,7 +22,7 @@ import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-in
 import { IconType as IconType2, SizeType, SlotLabelType } from "./components/atoms/internals/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
-import { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+import { VariantStyleType, VariantType as VariantType1 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
@@ -33,7 +32,6 @@ import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
-export { VariantStyleType, VariantType as VariantType1 } from "./components/atoms/mg-card/mg-card.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -48,7 +46,7 @@ export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-in
 export { IconType as IconType2, SizeType, SlotLabelType } from "./components/atoms/internals/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
-export { VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
+export { VariantStyleType, VariantType as VariantType1 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { Placement } from "@popperjs/core";
@@ -127,14 +125,6 @@ export namespace Components {
         "variant": VariantType;
     }
     interface MgCard {
-        /**
-          * Define variant prop
-         */
-        "variant": undefined | VariantType1;
-        /**
-          * Define variantStyle prop
-         */
-        "variantStyle": undefined | VariantStyleType;
     }
     interface MgCharacterLeft {
         /**
@@ -1183,7 +1173,7 @@ export namespace Components {
     }
     interface MgMessage {
         /**
-          * Define if message has a cross button RG 01: https://jira.mgdis.fr/browse/PDA9-140
+          * Define if message has a cross button
          */
         "closeButton": boolean;
         /**
@@ -1199,9 +1189,13 @@ export namespace Components {
          */
         "noAriaRole"?: boolean;
         /**
-          * Message variant
+          * Define variant
          */
-        "variant": VariantType2;
+        "variant": undefined | VariantType1;
+        /**
+          * Define variant style
+         */
+        "variantStyle": undefined | VariantStyleType;
     }
     interface MgModal {
         /**
@@ -2075,14 +2069,6 @@ declare namespace LocalJSX {
         "variant"?: VariantType;
     }
     interface MgCard {
-        /**
-          * Define variant prop
-         */
-        "variant"?: undefined | VariantType1;
-        /**
-          * Define variantStyle prop
-         */
-        "variantStyle"?: undefined | VariantStyleType;
     }
     interface MgCharacterLeft {
         /**
@@ -3137,7 +3123,7 @@ declare namespace LocalJSX {
     }
     interface MgMessage {
         /**
-          * Define if message has a cross button RG 01: https://jira.mgdis.fr/browse/PDA9-140
+          * Define if message has a cross button
          */
         "closeButton"?: boolean;
         /**
@@ -3161,9 +3147,13 @@ declare namespace LocalJSX {
          */
         "onComponent-show"?: (event: MgMessageCustomEvent<void>) => void;
         /**
-          * Message variant
+          * Define variant
          */
-        "variant"?: VariantType2;
+        "variant"?: undefined | VariantType1;
+        /**
+          * Define variant style
+         */
+        "variantStyle"?: undefined | VariantStyleType;
     }
     interface MgModal {
         /**

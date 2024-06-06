@@ -9,13 +9,13 @@ The style of the active checkbox is the browser's style.
 
 ## Specs
 
-![](./doc/img/mg-input-checkbox-specs.png)
+![](./docs/img/mg-input-checkbox-specs.png)
 
 ## Type "multi"
 
 ### Anatomy
 
-![](./doc/img/mg-input-checkbox-multi-anatomy.png)
+![](./docs/img/mg-input-checkbox-multi-anatomy.png)
 
 1. Button
   - variant: secondary
@@ -30,22 +30,22 @@ The style of the active checkbox is the browser's style.
 
 ### Type "multi" with sections
 
-![](./doc/img/mg-input-checkbox-multi-section.png)
+![](./docs/img/mg-input-checkbox-multi-section.png)
 
 #### Spacings
 
-![](./doc/img/mg-input-checkbox-multi-section-button-spacing.png)
+![](./docs/img/mg-input-checkbox-multi-section-button-spacing.png)
 
 "Select all" and "Unselect all" buttons are aligned on left. 
 
-![](./doc/img/mg-input-checkbox-multi-section-internal-spacing.png)
+![](./docs/img/mg-input-checkbox-multi-section-internal-spacing.png)
 
-![](./doc/img/mg-input-checkbox-multi-section-spacing.png)
+![](./docs/img/mg-input-checkbox-multi-section-spacing.png)
 
 
 ### Displayed values
 
-![](./doc/img/mg-input-checkbox-display-values.png)
+![](./docs/img/mg-input-checkbox-display-values.png)
 
 #### Without values
 

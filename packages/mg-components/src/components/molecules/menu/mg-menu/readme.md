@@ -2,46 +2,46 @@
 
 ### Use
 
-![](./doc/img/mg-menu-horizontal-exemple.png)
+![](./docs/img/mg-menu-horizontal-exemple.png)
 
 Horizontal menu is used with large ("desktop") resolutions, it is placed in the upper area of the screen.
 
 ### Anatomy
 
-![](./doc/img/mg-menu-horizontal-anatomy.png)
+![](./docs/img/mg-menu-horizontal-anatomy.png)
 
-![](./doc/img/mg-menu-horizontal-item-anatomy.png)
+![](./docs/img/mg-menu-horizontal-item-anatomy.png)
 
 ### Behavior
 
 #### Sizing
 
-![](./doc/img/mg-menu-horizontal-sizing.png)
+![](./docs/img/mg-menu-horizontal-sizing.png)
 
 A horizontal menu can display different item sizes: regular, medium, large.
 
-![](./doc/img/mg-menu-horizontal-sizing-itemmaxwidth.png)
+![](./docs/img/mg-menu-horizontal-sizing-itemmaxwidth.png)
 
 The content of the element determines its width, but to handle the case where the content is too large (long label), it is possible to specify a maximum width for the element._Label_ and _Meta_ are then truncated.
 
 #### Sub-content
 
-![](./doc/img/mg-menu-horizontal-subcontent-submenu.png)
+![](./docs/img/mg-menu-horizontal-subcontent-submenu.png)
 
-![](./doc/img/mg-menu-horizontal-subcontent-slot.png)
+![](./docs/img/mg-menu-horizontal-subcontent-slot.png)
 
 A "submenu" or a "free content" can be set to the item.
 An icon "chevron-down" at the right of the item informs the user.
 
 ##### Badge
 
-![](./doc/img/mg-menu-horizontal-subcontent-badge.png)
+![](./docs/img/mg-menu-horizontal-subcontent-badge.png)
 
 If at least one sub-item has a badge, the item displays a badge with an exclamation symbol.
 
 #### Overflow
 
-![](./doc/img/mg-menu-horizontal-plus.png)
+![](./docs/img/mg-menu-horizontal-plus.png)
 
 When not all items can be displayed due to the width of the menu container, the items are grouped into a "plus item".
 
@@ -49,15 +49,15 @@ When not all items can be displayed due to the width of the menu container, the 
 
 ### Use
 
-![](./doc/img/mg-menu-vertical-use.png)
+![](./docs/img/mg-menu-vertical-use.png)
 
 The horizontal menu is used with large resolutions ("desktop"), it is mainly placed in the left area of the screen.
 
 ### Anatomy
 
-![](./doc/img/mg-menu-vertical-anatomy.png)
+![](./docs/img/mg-menu-vertical-anatomy.png)
 
-![](./doc/img/mg-menu-vertical-item-anatomy.png)
+![](./docs/img/mg-menu-vertical-item-anatomy.png)
 
 ### Behavior
 
@@ -69,13 +69,13 @@ The submenu is displayed by clicking on the item.
 
 ##### Badge
 
-![](./doc/img/mg-menu-vertical-subcontent-badge.png)
+![](./docs/img/mg-menu-vertical-subcontent-badge.png)
 
 If at least one sub-item has a badge, the item displays a badge with an exclamation symbol.
 
 #### Overflow
 
-![](./doc/img/mg-menu-vertical-scroll.png)
+![](./docs/img/mg-menu-vertical-scroll.png)
 
 When not all items can be displayed due to the height of the menu container, a scroll bar helps to see hidden items.
 
