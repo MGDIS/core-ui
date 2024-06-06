@@ -1,8 +1,9 @@
-import { MgMessage } from '@mgdis/mg-components/dist/components/mg-message';
+import type { MgAlert } from '@mgdis/mg-components/dist/components/mg-alert';
+import type { MgMessage } from '@mgdis/mg-components/dist/components/mg-message';
 
-export type MessageData = {
+export type NotificationData = {
   content: string;
-  variant?: MgMessage['variant'];
+  variant?: MgAlert['variant'] | MgMessage['variant'];
   delay?: number;
   context?: string;
   appId?: string;
