@@ -94,6 +94,7 @@ To hide the component, you must use the native `hidden` attribute.
 | `dialogRole`              | `dialog-role`  | Modal dialog role.                                                                                          | `"alertdialog" \| "dialog"` | `dialogRoles[0]`       |
 | `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                    | `createID('mg-modal')` |
 | `modalTitle` _(required)_ | `modal-title`  | Displayed modal title                                                                                       | `string`                    | `undefined`            |
+| `open`                    | `open`         | Define if modal is open                                                                                     | `boolean`                   | `false`                |
 
 
 ## Events
@@ -106,11 +107,10 @@ To hide the component, you must use the native `hidden` attribute.
 
 ## CSS Custom Properties
 
-| Name                             | Description                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------- |
-| `--mg-c-modal-border-radius`     | Defines the border radius of the modal. Default value: `--mg-b-size-radius`.    |
-| `--mg-c-modal-content-font-size` | Defines the font size of the modal content. Default value: `1.2rem`.            |
-| `--mg-c-modal-title-font-size`   | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`. |
+| Name                           | Description                                                                     |
+| ------------------------------ | ------------------------------------------------------------------------------- |
+| `--mg-c-modal-border-radius`   | Defines the border radius of the modal. Default value: `--mg-b-size-radius`.    |
+| `--mg-c-modal-title-font-size` | Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`. |
 
 
 ## Dependencies
