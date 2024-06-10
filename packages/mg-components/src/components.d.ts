@@ -6,8 +6,9 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-import { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
+import { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -22,7 +23,7 @@ import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-in
 import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
-import { VariantStyleType, VariantType as VariantType1 } from "./components/molecules/mg-message/mg-message.conf";
+import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 import { Placement } from "@popperjs/core";
@@ -30,8 +31,9 @@ import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.con
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
 export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
-export { ButtonType, VariantType } from "./components/atoms/mg-button/mg-button.conf";
+export { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
 export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/mg-form/mg-form.conf";
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
@@ -46,7 +48,7 @@ export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-in
 export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/mg-item-more/mg-item-more.conf";
 export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
 export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
-export { VariantStyleType, VariantType as VariantType1 } from "./components/molecules/mg-message/mg-message.conf";
+export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
 export { Placement } from "@popperjs/core";
@@ -71,6 +73,24 @@ export namespace Components {
           * Define the menu-items elements
          */
         "items": MgActionMoreItemType[];
+    }
+    interface MgAlert {
+        /**
+          * Define if message has a close button
+         */
+        "closeButton": boolean;
+        /**
+          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
+         */
+        "delay"?: number;
+        /**
+          * Define variant
+         */
+        "variant"?: VariantType;
+        /**
+          * Define variant style
+         */
+        "variantStyle"?: VariantStyleType;
     }
     interface MgBadge {
         /**
@@ -122,7 +142,7 @@ export namespace Components {
         /**
           * Define button variant
          */
-        "variant": VariantType;
+        "variant": VariantType1;
     }
     interface MgCard {
     }
@@ -1173,29 +1193,13 @@ export namespace Components {
     }
     interface MgMessage {
         /**
-          * Define if message has a cross button
-         */
-        "closeButton": boolean;
-        /**
-          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
-         */
-        "delay"?: number;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
-         */
-        "identifier": string;
-        /**
-          * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
-         */
-        "noAriaRole"?: boolean;
-        /**
           * Define variant
          */
-        "variant": undefined | VariantType1;
+        "variant": undefined | VariantType2;
         /**
           * Define variant style
          */
-        "variantStyle": undefined | VariantStyleType;
+        "variantStyle": undefined | VariantStyleType1;
     }
     interface MgModal {
         /**
@@ -1386,6 +1390,10 @@ export namespace Components {
         "message": string;
     }
 }
+export interface MgAlertCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLMgAlertElement;
+}
 export interface MgButtonCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgButtonElement;
@@ -1442,10 +1450,6 @@ export interface MgMenuItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgMenuItemElement;
 }
-export interface MgMessageCustomEvent<T> extends CustomEvent<T> {
-    detail: T;
-    target: HTMLMgMessageElement;
-}
 export interface MgModalCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLMgModalElement;
@@ -1480,6 +1484,24 @@ declare global {
     var HTMLMgActionMoreElement: {
         prototype: HTMLMgActionMoreElement;
         new (): HTMLMgActionMoreElement;
+    };
+    interface HTMLMgAlertElementEventMap {
+        "component-show": void;
+        "component-hide": void;
+    }
+    interface HTMLMgAlertElement extends Components.MgAlert, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLMgAlertElementEventMap>(type: K, listener: (this: HTMLMgAlertElement, ev: MgAlertCustomEvent<HTMLMgAlertElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLMgAlertElementEventMap>(type: K, listener: (this: HTMLMgAlertElement, ev: MgAlertCustomEvent<HTMLMgAlertElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLMgAlertElement: {
+        prototype: HTMLMgAlertElement;
+        new (): HTMLMgAlertElement;
     };
     interface HTMLMgBadgeElement extends Components.MgBadge, HTMLStencilElement {
     }
@@ -1800,19 +1822,7 @@ declare global {
         prototype: HTMLMgMenuItemElement;
         new (): HTMLMgMenuItemElement;
     };
-    interface HTMLMgMessageElementEventMap {
-        "component-show": void;
-        "component-hide": void;
-    }
     interface HTMLMgMessageElement extends Components.MgMessage, HTMLStencilElement {
-        addEventListener<K extends keyof HTMLMgMessageElementEventMap>(type: K, listener: (this: HTMLMgMessageElement, ev: MgMessageCustomEvent<HTMLMgMessageElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
-        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLMgMessageElementEventMap>(type: K, listener: (this: HTMLMgMessageElement, ev: MgMessageCustomEvent<HTMLMgMessageElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
-        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLMgMessageElement: {
         prototype: HTMLMgMessageElement;
@@ -1959,6 +1969,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "mg-action-more": HTMLMgActionMoreElement;
+        "mg-alert": HTMLMgAlertElement;
         "mg-badge": HTMLMgBadgeElement;
         "mg-button": HTMLMgButtonElement;
         "mg-card": HTMLMgCardElement;
@@ -2016,6 +2027,32 @@ declare namespace LocalJSX {
          */
         "items": MgActionMoreItemType[];
     }
+    interface MgAlert {
+        /**
+          * Define if message has a close button
+         */
+        "closeButton"?: boolean;
+        /**
+          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
+         */
+        "delay"?: number;
+        /**
+          * Emited event when alert is hidden
+         */
+        "onComponent-hide"?: (event: MgAlertCustomEvent<void>) => void;
+        /**
+          * Emited event when alert is diplayed
+         */
+        "onComponent-show"?: (event: MgAlertCustomEvent<void>) => void;
+        /**
+          * Define variant
+         */
+        "variant"?: VariantType;
+        /**
+          * Define variant style
+         */
+        "variantStyle"?: VariantStyleType;
+    }
     interface MgBadge {
         /**
           * Badge label. Include short description. Required for accessibility
@@ -2070,7 +2107,7 @@ declare namespace LocalJSX {
         /**
           * Define button variant
          */
-        "variant"?: VariantType;
+        "variant"?: VariantType1;
     }
     interface MgCard {
     }
@@ -3127,37 +3164,13 @@ declare namespace LocalJSX {
     }
     interface MgMessage {
         /**
-          * Define if message has a cross button
-         */
-        "closeButton"?: boolean;
-        /**
-          * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)
-         */
-        "delay"?: number;
-        /**
-          * Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created.
-         */
-        "identifier"?: string;
-        /**
-          * Define if aria role is unset For a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`. By toggle this props to `true`, you can unset the role to benefit from the template without any semantic role. Be careful to set the mode according to the context needs.
-         */
-        "noAriaRole"?: boolean;
-        /**
-          * Emited event when message is hidden
-         */
-        "onComponent-hide"?: (event: MgMessageCustomEvent<void>) => void;
-        /**
-          * Emited event when message is diplayed
-         */
-        "onComponent-show"?: (event: MgMessageCustomEvent<void>) => void;
-        /**
           * Define variant
          */
-        "variant"?: undefined | VariantType1;
+        "variant"?: undefined | VariantType2;
         /**
           * Define variant style
          */
-        "variantStyle"?: undefined | VariantStyleType;
+        "variantStyle"?: undefined | VariantStyleType1;
     }
     interface MgModal {
         /**
@@ -3385,6 +3398,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "mg-action-more": MgActionMore;
+        "mg-alert": MgAlert;
         "mg-badge": MgBadge;
         "mg-button": MgButton;
         "mg-card": MgCard;
@@ -3428,6 +3442,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "mg-action-more": LocalJSX.MgActionMore & JSXBase.HTMLAttributes<HTMLMgActionMoreElement>;
+            "mg-alert": LocalJSX.MgAlert & JSXBase.HTMLAttributes<HTMLMgAlertElement>;
             "mg-badge": LocalJSX.MgBadge & JSXBase.HTMLAttributes<HTMLMgBadgeElement>;
             "mg-button": LocalJSX.MgButton & JSXBase.HTMLAttributes<HTMLMgButtonElement>;
             "mg-card": LocalJSX.MgCard & JSXBase.HTMLAttributes<HTMLMgCardElement>;

@@ -74,14 +74,15 @@ No more `variables.scss` export, only `variables.css`.
 
 - [`size` prop updates](#size-prop-updates)
 - [Changes in `mg-button`](#changes-in-mg-button)
-- [Changes in `mg-card`](#changes-in-mg-card)
 - [Changes in `mg-divider`](#changes-in-mg-divider)
 - [Changes in `mg-icon`](#changes-in-mg-icon)
 - [Changes in `mg-input`](#changes-in-mg-input)
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Changes in `mg-menu`](#changes-in-mg-menu)
+- [Changes in `mg-card`](#changes-in-mg-card)
 - [Changes in `mg-message`](#changes-in-mg-message)
+- [Hide components](#hide-components)
 - [Changes in `mg-modal`](#changes-in-mg-modal)
 - [Internal components](#internal-components)
 - [Stylesheet](#stylesheet)
@@ -105,10 +106,6 @@ No more `variables.scss` export, only `variables.css`.
   <!-- in v6 -->
   <mg-button id="blu">Non</mg-button>
   ```
-
-### Changes in `mg-card`
-
-- Moved `variant` and `variantStyle` props to `mg-message`.
 
 ### Changes in `mg-divider`
 
@@ -185,9 +182,19 @@ No more `variables.scss` export, only `variables.css`.
   <mg-menu size="xlarge">...</mg-menu>
   ```
 
+### Changes in `mg-card`
+
+- Delete `variant` and `variantStyle` props.
+
 ### Changes in `mg-message`
 
+- Add `variantStyle` prop.
+- Move `close-button`, `delay` and `aria role` in `mg-alert` new component.
 - No longer uses the `hide` prop for visibility. Use the native `hidden` attribute.
+
+### Hide components
+
+- `mg-message` and `mg-modal` no longer use the `hide` prop for visibility. Use the native `hidden` attribute.
 
   ```html
   <!-- in v5 -->

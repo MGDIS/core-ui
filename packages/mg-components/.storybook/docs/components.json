@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-10T15:24:54",
+  "timestamp": "2024-06-10T15:40:27",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -1001,6 +1001,187 @@
       }
     },
     {
+      "filePath": "src/components/molecules/mg-alert/mg-alert.tsx",
+      "encapsulation": "shadow",
+      "tag": "mg-alert",
+      "readme": "## Usage\n\nWhen a trigger (such as a button) is activated, it can display an alert message. By default, activating the trigger erases any previous alert messages of the same type on the screen.\n\n## Hide component\n\nTo hide the component, you must use the native `hidden` attribute.\n",
+      "docs": "When a trigger (such as a button) is activated, it can display an alert message. By default, activating the trigger erases any previous alert messages of the same type on the screen.",
+      "docsTags": [],
+      "usage": {},
+      "props": [
+        {
+          "name": "closeButton",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "close-button",
+          "reflectToAttr": false,
+          "docs": "Define if message has a close button",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "delay",
+          "type": "number",
+          "complexType": {
+            "original": "number",
+            "resolved": "number",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "delay",
+          "reflectToAttr": false,
+          "docs": "Add a delay to hide/close message when it passed\nValue is defined in seconds and must greater than 2 seconds",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "number"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+          "complexType": {
+            "original": "VariantType",
+            "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
+            "references": {
+              "VariantType": {
+                "location": "import",
+                "path": "./mg-alert.conf",
+                "id": "src/components/molecules/mg-alert/mg-alert.conf.ts::VariantType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant",
+          "reflectToAttr": false,
+          "docs": "Define variant",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "danger",
+              "type": "string"
+            },
+            {
+              "value": "info",
+              "type": "string"
+            },
+            {
+              "value": "success",
+              "type": "string"
+            },
+            {
+              "value": "warning",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        },
+        {
+          "name": "variantStyle",
+          "type": "\"bar-left\" | \"fill\"",
+          "complexType": {
+            "original": "VariantStyleType",
+            "resolved": "\"bar-left\" | \"fill\"",
+            "references": {
+              "VariantStyleType": {
+                "location": "import",
+                "path": "./mg-alert.conf",
+                "id": "src/components/molecules/mg-alert/mg-alert.conf.ts::VariantStyleType"
+              }
+            }
+          },
+          "mutable": false,
+          "attr": "variant-style",
+          "reflectToAttr": false,
+          "docs": "Define variant style",
+          "docsTags": [],
+          "values": [
+            {
+              "value": "bar-left",
+              "type": "string"
+            },
+            {
+              "value": "fill",
+              "type": "string"
+            }
+          ],
+          "optional": true,
+          "required": false
+        }
+      ],
+      "methods": [],
+      "events": [
+        {
+          "event": "component-hide",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when alert is hidden",
+          "docsTags": []
+        },
+        {
+          "event": "component-show",
+          "detail": "void",
+          "bubbles": true,
+          "complexType": {
+            "original": "void",
+            "resolved": "void",
+            "references": {}
+          },
+          "cancelable": true,
+          "composed": true,
+          "docs": "Emited event when alert is diplayed",
+          "docsTags": []
+        }
+      ],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "parts": [],
+      "dependents": [],
+      "dependencies": [
+        "mg-message",
+        "mg-button",
+        "mg-icon"
+      ],
+      "dependencyGraph": {
+        "mg-alert": [
+          "mg-message",
+          "mg-button",
+          "mg-icon"
+        ],
+        "mg-message": [
+          "mg-card",
+          "mg-icon"
+        ],
+        "mg-button": [
+          "mg-icon"
+        ]
+      }
+    },
+    {
       "filePath": "src/components/atoms/mg-badge/mg-badge.tsx",
       "encapsulation": "shadow",
       "tag": "mg-badge",
@@ -1635,10 +1816,10 @@
       "parts": [],
       "dependents": [
         "mg-action-more",
+        "mg-alert",
         "mg-input-checkbox",
         "mg-input-checkbox-paginated",
         "mg-input-password",
-        "mg-message",
         "mg-modal",
         "mg-pagination",
         "mg-panel",
@@ -1654,6 +1835,9 @@
         "mg-action-more": [
           "mg-button"
         ],
+        "mg-alert": [
+          "mg-button"
+        ],
         "mg-input-checkbox": [
           "mg-button"
         ],
@@ -1661,9 +1845,6 @@
           "mg-button"
         ],
         "mg-input-password": [
-          "mg-button"
-        ],
-        "mg-message": [
           "mg-button"
         ],
         "mg-modal": [
@@ -3327,6 +3508,7 @@
       "parts": [],
       "dependents": [
         "mg-action-more",
+        "mg-alert",
         "mg-button",
         "mg-details",
         "mg-input",
@@ -3347,6 +3529,9 @@
       "dependencies": [],
       "dependencyGraph": {
         "mg-action-more": [
+          "mg-icon"
+        ],
+        "mg-alert": [
           "mg-icon"
         ],
         "mg-button": [
@@ -10814,97 +10999,11 @@
       "filePath": "src/components/molecules/mg-message/mg-message.tsx",
       "encapsulation": "shadow",
       "tag": "mg-message",
-      "readme": "## Usage\n\n### Types\n\nThe element can be of four different types depending on the message to be indicated:\n\n- validation (green)\n- information (blue)\n- warning (orange)\n- error (red)\n\nWhen a trigger (button...) is set up, it can trigger the display of a message. By default, the execution of the trigger erases the previous messages in the screen of the same type.\n\n## Specs\n\n![](./docs/img/mg-message-specs.png)\n\n## Hide component\n\nTo hide the component, you must use the native `hidden` attribute.\n",
+      "readme": "## Usage\n\n### Types\n\nThe element can be of four different types depending on the message to be indicated:\n\n- validation (green)\n- information (blue)\n- warning (orange)\n- error (red)\n\n## Specs\n\n![](./docs/img/mg-message-specs.png)\n",
       "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
-        {
-          "name": "closeButton",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "close-button",
-          "reflectToAttr": false,
-          "docs": "Define if message has a cross button",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "delay",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "delay",
-          "reflectToAttr": false,
-          "docs": "Add a delay to hide/close message when it passed\nValue is defined in seconds and must greater than 2 seconds (PDA9-314 RG-06)",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "identifier",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "identifier",
-          "reflectToAttr": false,
-          "docs": "Identifier is used for the element ID (id is a reserved prop in Stencil.js)\nIf not set, it will be created.",
-          "docsTags": [],
-          "default": "createID('mg-message')",
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "noAriaRole",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "no-aria-role",
-          "reflectToAttr": false,
-          "docs": "Define if aria role is unset\nFor a11y reasons, `<mg-message />` was design for `alert` needs with attached semantic role: `status`, `alert`.\nBy toggle this props to `true`, you can unset the role to benefit from the template without any semantic role.\nBe careful to set the mode according to the context needs.",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
         {
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
@@ -10981,36 +11080,7 @@
         }
       ],
       "methods": [],
-      "events": [
-        {
-          "event": "component-hide",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emited event when message is hidden",
-          "docsTags": []
-        },
-        {
-          "event": "component-show",
-          "detail": "void",
-          "bubbles": true,
-          "complexType": {
-            "original": "void",
-            "resolved": "void",
-            "references": {}
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emited event when message is diplayed",
-          "docsTags": []
-        }
-      ],
+      "events": [],
       "listeners": [],
       "styles": [
         {
@@ -11021,20 +11091,20 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "mg-alert"
+      ],
       "dependencies": [
         "mg-card",
-        "mg-icon",
-        "mg-button"
+        "mg-icon"
       ],
       "dependencyGraph": {
         "mg-message": [
           "mg-card",
-          "mg-icon",
-          "mg-button"
-        ],
-        "mg-button": [
           "mg-icon"
+        ],
+        "mg-alert": [
+          "mg-message"
         ]
       }
     },
@@ -12874,6 +12944,16 @@
       "declaration": "{\n    [P in K]: T[P];\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-alert/mg-alert.conf.ts::VariantType": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/components/molecules/mg-alert/mg-alert.conf.ts"
+    },
+    "src/components/molecules/mg-alert/mg-alert.conf.ts::VariantStyleType": {
+      "declaration": "any",
+      "docstring": "",
+      "path": "src/components/molecules/mg-alert/mg-alert.conf.ts"
     },
     "src/components/molecules/mg-form/mg-form.conf.ts::RequiredMessageStatusType": {
       "declaration": "\"default\" | \"hide\"",
