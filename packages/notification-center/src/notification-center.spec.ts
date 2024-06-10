@@ -1,9 +1,10 @@
-import { defineCustomElements } from '@mgdis/mg-components/loader';
 import { NotificationCenter } from './notification-center';
 
 describe('Notification center', () => {
   let notifsCenter;
-
+  beforeEach(() => {
+    jest.spyOn(window.customElements, 'whenDefined').mockImplementation(() => Promise.resolve());
+  });
   afterEach(() => {
     jest.resetAllMocks();
     jest.clearAllMocks();
@@ -12,13 +13,13 @@ describe('Notification center', () => {
     document.head.innerHTML = '';
   });
 
-  it('Should log an error if custom element are not loaded', () => {
-    const spyConsole = jest.spyOn(console, 'error');
+  it('Should log a warning while mg-component is loading', () => {
+    const spyConsole = jest.spyOn(console, 'warn');
 
     notifsCenter = new NotificationCenter();
 
     expect(notifsCenter).toBeDefined();
-    expect(spyConsole).toHaveBeenCalledWith('mg-components is not loaded.');
+    expect(spyConsole).toHaveBeenCalledWith('Waiting for mg-components to load.');
   });
 
   it('Should throw an error when cannot access parent', () => {
@@ -45,13 +46,18 @@ describe('Notification center', () => {
     expect(spyConsole.mock.calls[0]?.[0]).toEqual('Different hosts between iframes:');
   });
 
-  describe('defined custom elements', () => {
-    beforeAll(() => {
-      // load mg-components
-      defineCustomElements(window);
-    });
+  it('Should not display notification when component is not defined', () => {
+    const spyConsole = jest.spyOn(console, 'error');
+    notifsCenter = new NotificationCenter();
+    // When the notification event was propagated, the notification component was not available in the registry.
+    window.dispatchEvent(new MessageEvent('message', { data: { content: 'Default example', appId: 'mg-notification-center' } }));
+    expect(spyConsole).toHaveBeenCalledWith("notification-center won't work properly.");
+    expect(document.body.innerHTML).toMatchSnapshot();
+  });
 
+  describe.each(['mg-alert', 'mg-message'])('defined custom elements %s', tagName => {
     beforeEach(() => {
+      jest.spyOn(window.customElements, 'get').mockImplementation(value => value === tagName);
       notifsCenter = new NotificationCenter();
       expect(notifsCenter).toBeDefined();
     });
@@ -93,10 +99,10 @@ describe('Notification center', () => {
     });
 
     it('Should post a message', () => {
-      const messageData = { content: 'Default example' };
+      const notificationData = { content: 'Default example' };
       const spyPostMessage = jest.spyOn(window, 'postMessage');
-      notifsCenter.postMessage(messageData);
-      expect(spyPostMessage).toHaveBeenCalledWith({ ...messageData, appId: 'mg-notification-center' }, 'http://localhost');
+      notifsCenter.postMessage(notificationData);
+      expect(spyPostMessage).toHaveBeenCalledWith({ ...notificationData, appId: 'mg-notification-center' }, 'http://localhost');
     });
 
     it('Should remove previous message with same context', () => {
@@ -132,8 +138,8 @@ describe('Notification center', () => {
         }),
       );
       expect(document.body.innerHTML).toMatchSnapshot();
-      const mgMessage = document.querySelector('mg-message');
-      mgMessage?.dispatchEvent(new CustomEvent('component-hide', { bubbles: true }));
+      const notificationElement = document.querySelector(tagName);
+      notificationElement?.dispatchEvent(new CustomEvent('component-hide', { bubbles: true }));
       expect(document.body.innerHTML).toMatchSnapshot();
     });
   });
@@ -141,6 +147,7 @@ describe('Notification center', () => {
   it('Should fake iframe', () => {
     const spyWindowSelf = jest.spyOn(window, 'self', 'get').mockImplementationOnce(jest.fn());
     const spyWindowParent = jest.spyOn(window, 'parent', 'get').mockImplementation(() => window);
+    jest.spyOn(window.customElements, 'get').mockImplementation(() => 'mg-alert');
 
     notifsCenter = new NotificationCenter();
 
