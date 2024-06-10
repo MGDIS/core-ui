@@ -106,6 +106,10 @@ No more `variables.scss` export, only `variables.css`.
   <mg-button id="blu">Non</mg-button>
   ```
 
+### Changes in `mg-card`
+
+- Moved `variant` and `variantStyle` props to `mg-message`.
+
 ### Changes in `mg-divider`
 
 - Renamed the `size` prop to `full-width`. No other sizes are planned, and this change ensures consistency with the `mg-button` prop.
