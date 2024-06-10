@@ -6352,6 +6352,256 @@ exports[`mg-input-checkbox navigation Should NOT manage keyboard "tab" navigatio
 </mg-input-checkbox>
 `;
 
+exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 1`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 2`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 3`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox navigation Should NOT render error when uncheck from label click 4`] = `
+<mg-input-checkbox>
+  <mock:shadow-root>
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset mg-c-input--has-error" role="group">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+          <div aria-live="assertive" class="mg-c-input__error">
+            <slot name="error"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_0" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_0">
+            batman
+          </label>
+        </li>
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="identifier-error" aria-invalid="true" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_1">
+            robin
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_2" name="identifier" type="checkbox" value="false">
+          <label htmlfor="identifier_2">
+            joker
+          </label>
+        </li>
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="identifier-error" aria-invalid="true" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
+          <label htmlfor="identifier_3">
+            bane
+          </label>
+        </li>
+      </ul>
+      <div id="identifier-error" slot="error">
+        This field is required.
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="true" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-checkbox>
+`;
+
 exports[`mg-input-checkbox render by type checkbox Should enable "displaySearchInput" when value list is greater than 10 1`] = `
 <mg-input-checkbox>
   <mock:shadow-root>
