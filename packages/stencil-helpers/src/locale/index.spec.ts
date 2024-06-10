@@ -62,6 +62,11 @@ describe('locale', () => {
         const formatedDate = localeDate('2022-06-02', locale);
         expect(formatedDate).toEqual(locale === 'en' ? '6/2/2022' : '02/06/2022');
       });
+
+      test('Should return formated date with given timeZone config', () => {
+        const formatedDate = localeDate('2022-06-02', locale, { timeZone: 'America/New_York' });
+        expect(formatedDate).toEqual(locale === 'en' ? '6/1/2022' : '01/06/2022');
+      });
     });
 
     describe('defineLocales', () => {

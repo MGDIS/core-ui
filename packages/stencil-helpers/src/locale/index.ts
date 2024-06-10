@@ -13,7 +13,10 @@ export const getLocaleDatePattern = (locale: string) => {
   const year = { value: '2023', pattern: 'yyyy' };
   const month = { value: '12', pattern: 'mm' };
   const day = { value: '24', pattern: 'dd' };
-  return localeDate([year.value, month.value, day.value].join('-'), locale).replace(year.value, year.pattern).replace(month.value, month.pattern).replace(day.value, day.pattern);
+  return localeDate([year.value, month.value, day.value].join('-'), locale, { timeZone: 'UTC' })
+    .replace(year.value, year.pattern)
+    .replace(month.value, month.pattern)
+    .replace(day.value, day.pattern);
 };
 
 /**
@@ -90,18 +93,15 @@ export const dateRegExp = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
  * Locale date format
  * @param date - date to format
  * @param locale - locale to apply
+ * @param config - DateTimeFormatOptions object to apply
  * @returns formatted date
  * @example
  * ```ts
  * localeDate('2022-06-02', 'fr') // '02/06/2022'
  * ```
  */
-export const localeDate = (date: string | undefined, locale: string): string => {
-  if (typeof date !== 'string' || date === '' || !dateRegExp.test(date)) {
-    return '';
-  }
-  return new Intl.DateTimeFormat(locale).format(new Date(date));
-};
+export const localeDate = (date: string | undefined, locale: string, config?: Intl.DateTimeFormatOptions): string =>
+  typeof date !== 'string' || date === '' || !dateRegExp.test(date) ? '' : new Intl.DateTimeFormat(locale, config).format(new Date(date));
 
 /**
  * Get Intl object
