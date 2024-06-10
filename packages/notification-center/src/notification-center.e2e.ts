@@ -25,7 +25,7 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
   await expectedNotifications(page, 1);
 
   // Click on message close button
-  const mgButton = await page.locator('#mg-notification-center .notification-center__notification.hydrated mg-button');
+  const mgButton = page.locator('#mg-notification-center .notification-center__notification.hydrated mg-button');
   await mgButton.waitFor();
   await mgButton.dispatchEvent('click');
 
