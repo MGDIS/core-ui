@@ -13,7 +13,7 @@ describe('Notification center', () => {
     document.head.innerHTML = '';
   });
 
-  it('Should log a warningwhile mg-component is loading', () => {
+  it('Should log a warning while mg-component is loading', () => {
     const spyConsole = jest.spyOn(console, 'warn');
 
     notifsCenter = new NotificationCenter();
