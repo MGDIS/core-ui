@@ -198,6 +198,25 @@ No more `variables.scss` export, only `variables.css`.
 
 ### Changes in `mg-modal`
 
+- Component now uses the `<dialog>` native element to ensure better accessibility. Consequently, the component follows its logic to define visibility. The `hide` prop has been replaced by the `open` prop.
+
+  ```html
+  <!-- in v5 -->
+  <mg-modal modal-title="Modal title" hide>
+    <p slot="content">Closed modal</p>
+  </mg-modal>
+  <mg-modal modal-title="Modal title">
+    <p slot="content">Open modal</p>
+  </mg-modal>
+  <!-- in v6 -->
+  <mg-modal modal-title="Modal title">
+    <p>Closed modal</p>
+  </mg-modal>
+  <mg-modal modal-title="Modal title" open>
+    <p>Open modal</p>
+  </mg-modal>
+  ```
+
 - Removed `content` slot name, the unnamed slot is now the default one.
 
   ```html
@@ -207,19 +226,6 @@ No more `variables.scss` export, only `variables.css`.
   </mg-modal>
   <!-- in v6 -->
   <mg-modal modal-title="Modal title">
-    <p>Content</p>
-  </mg-modal>
-  ```
-
-- No longer uses the `hide` prop for visibility. Use the native `hidden` attribute.
-
-  ```html
-  <!-- in v5 -->
-  <mg-modal modal-title="Modal title" hide>
-    <p slot="content">Content</p>
-  </mg-modal>
-  <!-- in v6 -->
-  <mg-modal modal-title="Modal title" hidden>
     <p>Content</p>
   </mg-modal>
   ```

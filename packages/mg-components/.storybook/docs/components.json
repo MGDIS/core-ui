@@ -11144,6 +11144,28 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": false,
+          "docs": "Define if modal is open",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -11177,14 +11199,7 @@
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keydown",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [
         {
           "name": "--mg-c-modal-border-radius",

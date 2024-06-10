@@ -1214,6 +1214,10 @@ export namespace Components {
           * Displayed modal title
          */
         "modalTitle": string;
+        /**
+          * Define if modal is open
+         */
+        "open": boolean;
     }
     interface MgPagination {
         /**
@@ -3180,6 +3184,10 @@ declare namespace LocalJSX {
           * Emmited event when modal is diplayed
          */
         "onComponent-show"?: (event: MgModalCustomEvent<void>) => void;
+        /**
+          * Define if modal is open
+         */
+        "open"?: boolean;
     }
     interface MgPagination {
         /**
