@@ -34,11 +34,13 @@ class NotificationCenter {
         this.#addEventListener(this.#rootWindow, ({ data }: { data: NotificationData }) => {
           if (data.appId === this.#appId) this.#displayNotification(data);
         });
+
         // When DOM is ready we add our CSS and the notifications zone
         if (this.#rootWindow.document.readyState === 'complete') this.#render();
-        this.#rootWindow.addEventListener('DOMContentLoaded', () => {
-          this.#render();
-        });
+      });
+
+      this.#rootWindow.addEventListener('DOMContentLoaded', () => {
+        this.#render();
       });
     }
   }

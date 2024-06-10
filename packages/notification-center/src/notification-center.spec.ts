@@ -19,7 +19,7 @@ describe('Notification center', () => {
     notifsCenter = new NotificationCenter();
 
     expect(notifsCenter).toBeDefined();
-    expect(spyConsole).toHaveBeenCalledWith('Waiting for loading of mg-components.');
+    expect(spyConsole).toHaveBeenCalledWith('Waiting for mg-components to load.');
   });
 
   it('Should throw an error when cannot access parent', () => {
