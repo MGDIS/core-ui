@@ -11214,6 +11214,28 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": false,
+          "docs": "Define if modal is open",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -11247,24 +11269,12 @@
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keydown",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [
         {
           "name": "--mg-c-modal-border-radius",
           "annotation": "prop",
           "docs": "Defines the border radius of the modal. Default value: `--mg-b-size-radius`."
-        },
-        {
-          "name": "--mg-c-modal-content-font-size",
-          "annotation": "prop",
-          "docs": "Defines the font size of the modal content. Default value: `1.2rem`."
         },
         {
           "name": "--mg-c-modal-title-font-size",
