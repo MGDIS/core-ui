@@ -18,7 +18,7 @@ class NotificationCenter {
     this.#rootWindow = this.#getRootWindow(window);
     // If the window is not in an iframe
     if (!this.#isInIframe(window)) {
-      console.warn('Waiting for loading of mg-components.');
+      console.warn('Waiting for mg-components to load.');
 
       customElements.whenDefined('mg-message').then(() => {
         // Check if mg-components is loaded
