@@ -9,6 +9,7 @@ class NotificationCenter {
   #rootWindow: Window;
 
   #notificationsReceiver: HTMLDivElement = document.createElement('div');
+  #notifactionTagName: undefined | 'mg-message' | 'mg-alert';
 
   readonly #appId: string = 'mg-notification-center';
 
@@ -17,16 +18,27 @@ class NotificationCenter {
     this.#rootWindow = this.#getRootWindow(window);
     // If the window is not in an iframe
     if (!this.#isInIframe(window)) {
-      // Check if mg-components is loaded
-      if (this.#getNotificationTagName() === undefined) {
-        console.error('mg-components is not loaded.');
-      }
-      // We listen to events
-      this.#addEventListener(this.#rootWindow, ({ data }: { data: NotificationData }) => {
-        if (data.appId === this.#appId) this.#displayNotification(data);
+      console.warn('Waiting for mg-components to load.');
+
+      customElements.whenDefined('mg-message').then(() => {
+        // Check if mg-components is loaded
+        if (customElements.get('mg-alert')) {
+          // >=mg-compnents@v6
+          this.#notifactionTagName = 'mg-alert';
+        } else if (customElements.get('mg-message')) {
+          // <=mg-compnents@v5
+          this.#notifactionTagName = 'mg-message';
+        }
+
+        // We listen to events
+        this.#addEventListener(this.#rootWindow, ({ data }: { data: NotificationData }) => {
+          if (data.appId === this.#appId) this.#displayNotification(data);
+        });
+
+        // When DOM is ready we add our CSS and the notifications zone
+        if (this.#rootWindow.document.readyState === 'complete') this.#render();
       });
-      // When DOM is ready we add our CSS and the notifications zone
-      if (this.#rootWindow.document.readyState === 'complete') this.#render();
+
       this.#rootWindow.addEventListener('DOMContentLoaded', () => {
         this.#render();
       });
@@ -87,22 +99,6 @@ class NotificationCenter {
   };
 
   /**
-   * Get notification tagName
-   * @returns notification tag-name
-   */
-  #getNotificationTagName = (): undefined | 'mg-alert' | 'mg-message' => {
-    if (customElements.get('mg-alert')) {
-      // >=mg-compnents@v6
-      return 'mg-alert';
-    } else if (customElements.get('mg-message')) {
-      // <=mg-compnents@v5
-      return 'mg-message';
-    } else {
-      return undefined;
-    }
-  };
-
-  /**
    * Check if the window is in an iframe
    *
    * @param localWindow - the window that load the script
@@ -154,16 +150,20 @@ class NotificationCenter {
    * @param notification - notification data
    */
   #displayNotification = ({ content, variant, delay, context }: NotificationData): void => {
-    const tagName = this.#getNotificationTagName();
-    if (!tagName) return;
     // Remove notification with same context
     if (context) {
-      this.#notificationsReceiver.querySelectorAll(`${tagName}[data-notification-context='${context}']`).forEach(element => {
+      this.#notificationsReceiver.querySelectorAll(`${this.#notifactionTagName}[data-notification-context='${context}']`).forEach(element => {
         element.remove();
       });
     }
+
+    if (!this.#notifactionTagName) {
+      console.error("notification-center won't work properly.");
+      return;
+    }
+
     // Init notification
-    const notificationElement: HTMLElement = document.createElement(tagName);
+    const notificationElement: HTMLElement = document.createElement(this.#notifactionTagName);
     notificationElement.classList.add('notification-center__notification');
     notificationElement.setAttribute('close-button', '');
     // Variant

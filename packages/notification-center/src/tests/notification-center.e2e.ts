@@ -7,7 +7,10 @@ const expectedNotifications = (page: Page | FrameLocator, expected: number): Pro
 
 const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLocator, frameTitle?: string): Promise<void> => {
   await page.goto(`http://localhost:3210/${file}`);
+  // wait mg-component loaded
   await page.locator('html.hydrated').waitFor();
+  // wait notification-center loaded
+  await page.locator('#mg-notification-center').waitFor();
 
   // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(title);
@@ -22,7 +25,7 @@ const testPage = async (page: Page, file: string, title: RegExp, frame?: FrameLo
   await expectedNotifications(page, 1);
 
   // Click on message close button
-  const mgButton = await page.locator('#mg-notification-center .notification-center__notification.hydrated mg-button');
+  const mgButton = page.locator('#mg-notification-center .notification-center__notification.hydrated mg-button');
   await mgButton.waitFor();
   await mgButton.dispatchEvent('click');
 

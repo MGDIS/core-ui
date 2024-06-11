@@ -3,7 +3,6 @@
 /*!
  * @prop --mg-c-modal-border-radius: Defines the border radius of the modal. Default value: `--mg-b-size-radius`.
  * @prop --mg-c-modal-title-font-size: Defines the font size of the modal title. Default value: `--mg-b-font-size-h3`.
- * @prop --mg-c-modal-content-font-size: Defines the font size of the modal content. Default value: `1.2rem`.
  */
 
 :host {
@@ -14,14 +13,18 @@
 }
 
 .mg-c-modal {
-  position: fixed;
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--mg-b-size-24) 0;
-  background-color: color-mix(in srgb, var(--mg-b-color-light), transparent 15%);
-  inset: 0;
+  border: none;
+  background: none;
+
+  &[open] {
+    display: flex;
+    padding: var(--mg-b-size-24) var(--mg-b-size-8);
+  }
+
+  &::backdrop {
+    background-color: var(--mg-b-color-light);
+    opacity: 0.85;
+  }
 
   mg-card {
     display: flex;
@@ -59,10 +62,6 @@
     padding: var(--mg-b-size-16);
     margin: calc(var(--mg-b-size-16) * -1);
     overflow-y: auto;
-
-    &::slotted(*) {
-      font-size: var(--mg-c-modal-content-font-size);
-    }
   }
 
   @include reset-slot-card-variables;
