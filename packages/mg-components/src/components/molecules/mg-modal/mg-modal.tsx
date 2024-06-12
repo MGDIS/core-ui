@@ -1,10 +1,10 @@
-import { Component, h, Prop, State, Watch, Element, Event, EventEmitter } from '@stencil/core';
-import { createID, ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { Component, h, Prop, State, Watch, Element, Event, EventEmitter, Listen, forceUpdate } from '@stencil/core';
+import { createID, ClassList, focusableElements, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
 /*
- * @slot - Modal content
+ * @slot content - Modal content
  * @slot actions - Actions content
  */
 @Component({
@@ -18,7 +18,8 @@ export class MgModal {
    ************/
 
   // Modal focusable elements
-  private dialog: HTMLDialogElement;
+  private modalFocusableElements: HTMLElement[] = [];
+  private closeButtonElement: HTMLMgButtonElement;
 
   // IDs
   private titleId = '';
@@ -70,26 +71,37 @@ export class MgModal {
   @Prop() closeButton = false;
 
   /**
-   * Define if modal is open
+   * Watch hidden prop
    */
-  @Prop({ mutable: true }) open = false;
-  @Watch('open')
-  watchOpen(newValue: boolean): void {
+  // eslint-disable-next-line @stencil-community/no-unused-watch
+  @Watch('hidden')
+  validateHidden(newValue: boolean): void {
+    if (typeof newValue === 'string' && newValue === '') {
+      newValue = true;
+    }
     if (newValue) {
-      this.dialog.showModal();
-      this.componentShow.emit();
-      document.body.style.overflow = 'hidden';
-    } else {
-      this.dialog.close();
       this.componentHide.emit();
       document.body.style.overflow = this.bodyOverflow;
+      // reset focus handlers
+      this.getLastFocusableElement()?.removeEventListener('keydown', this.handleLastFocusableElement);
+      if (this.modalFocusableElements.length > 0) this.modalFocusableElements[0].removeEventListener('keydown', this.handleFirstFocusableElement);
+    } else {
+      this.componentShow.emit();
+      document.body.style.overflow = 'hidden';
+      this.setFocus();
     }
+    forceUpdate(this);
   }
 
   /**
    * Define if component is using actions slot
    */
   @State() hasActions = false;
+
+  /**
+   * Define if component is using content slot
+   */
+  @State() hasContent = false;
 
   /**
    * Component classes
@@ -106,15 +118,80 @@ export class MgModal {
    */
   @Event({ eventName: 'component-hide' }) componentHide: EventEmitter<void>;
 
-  /***********
-   * Handles *
-   ***********/
+  /**
+   * Handle 'escape' key down
+   * @param event - keydown event
+   */
+  @Listen('keydown', {
+    target: 'window',
+  })
+  handleKeyDown(event: KeyboardEvent): void {
+    // we can use 'Escape button" when this not a blocking modal, induced by closeButton value.
+    if (this.closeButton && event.key === 'Escape') {
+      this.element.hidden = true;
+    }
+  }
 
   /**
-   * Closes the modal.
+   * Handle last focusable element
+   * @param event - keyboard event
+   */
+  private handleLastFocusableElement = (event): void => {
+    if (event.key === 'Tab' && !event.shiftKey) {
+      event.preventDefault();
+      this.modalFocusableElements[0].focus();
+    }
+  };
+
+  /**
+   * Handle first focusable element
+   * @param event - keyboard event
+   */
+  private handleFirstFocusableElement = (event): void => {
+    if (event.key === 'Tab' && event.shiftKey) {
+      event.preventDefault();
+      this.getLastFocusableElement().focus();
+    }
+  };
+
+  /**
+   * Get last focusablmeElement
+   * @returns last modal focusable element
+   */
+  private getLastFocusableElement = (): HTMLElement | null => (this.modalFocusableElements.length > 0 ? this.modalFocusableElements[this.modalFocusableElements.length - 1] : null);
+
+  /**
+   * Method to manage focus on modal focusable elements
+   */
+  private setFocus = (): void => {
+    // Get all focusable elements
+    const slottedFocusableElements = Array.from(this.element.querySelectorAll(focusableElements));
+    // Check if slotted focusable elements have shadowDom with focusable elements
+    this.modalFocusableElements = slottedFocusableElements.reduce((acc, focusableElement) => {
+      acc.push(focusableElement.shadowRoot !== null ? focusableElement.shadowRoot.querySelector(focusableElements) || focusableElement : focusableElement);
+      return acc;
+    }, []);
+    if (this.closeButton && this.closeButtonElement !== undefined) {
+      this.modalFocusableElements.unshift(this.closeButtonElement);
+    }
+    // If modal elements can receive focus, we attach events to enable cycling through the modal.
+    if (this.modalFocusableElements.length > 0) {
+      // Add event listener on last element
+      this.getLastFocusableElement().addEventListener('keydown', this.handleLastFocusableElement);
+      // Add event listener on first element (case shift + tab)
+      this.modalFocusableElements[0].addEventListener('keydown', this.handleFirstFocusableElement);
+    }
+  };
+
+  /*************
+   * Handlers *
+   *************/
+
+  /**
+   * Handle close button
    */
   private handleClose = (): void => {
-    this.open = false;
+    this.element.hidden = true;
   };
 
   /*************
@@ -131,20 +208,24 @@ export class MgModal {
     this.messages = initLocales(this.element).messages;
     // Validate
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
+    this.hasContent = this.element.querySelector('[slot="content"]') !== null;
     this.titleId = `${this.identifier}-title`;
     this.validateModalTitle(this.modalTitle);
+    this.validateHidden(this.element.hidden);
     this.validateDialogRole(this.dialogRole);
   }
 
   /**
-   * Define open state on component load
+   * Add observer on component to set focus when displayed
    */
   componentDidLoad(): void {
-    this.watchOpen(this.open);
-    // update open prop when use escape key
-    this.dialog.addEventListener('close', () => {
-      this.open = false;
-    });
+    new MutationObserver(mutationList => {
+      // as mutation.target is null on chrome and '' or undefined on firefox we test both with the 'aria-hidden' attribute mutation
+      if (mutationList.some(mutation => mutation.attributeName === 'aria-hidden' && ['', null, undefined].includes((mutation.target as HTMLElement).ariaHidden))) {
+        // Set focus on first element
+        this.modalFocusableElements[0].focus();
+      }
+    }).observe(this.element.shadowRoot.getElementById(this.identifier), { attributes: true });
   }
 
   /**
@@ -153,16 +234,14 @@ export class MgModal {
    */
   render(): HTMLElement {
     return (
-      <dialog
+      <div
         role={this.dialogRole}
         id={this.identifier}
         class={this.classCollection.join()}
+        tabindex="-1"
         aria-labelledby={this.titleId}
-        ref={(el: HTMLDialogElement) => {
-          if (el !== null) {
-            this.dialog = el;
-          }
-        }}
+        aria-modal="true"
+        aria-hidden={this.element.hidden}
       >
         <mg-card>
           <div class="mg-c-modal__dialog">
@@ -173,8 +252,15 @@ export class MgModal {
                     is-icon
                     variant="flat"
                     label={this.messages.modal.closeButton}
-                    // eslint-disable-next-line react/jsx-no-bind
                     onClick={this.handleClose}
+                    ref={(el: HTMLMgButtonElement) => {
+                      if (el !== null) {
+                        // store closeButton Element
+                        this.closeButtonElement = el;
+                        // add close button element to modalFocusableElements when it is render
+                        this.modalFocusableElements.unshift(this.closeButtonElement);
+                      }
+                    }}
                   >
                     <mg-icon icon="cross"></mg-icon>
                   </mg-button>
@@ -184,9 +270,13 @@ export class MgModal {
                 {this.modalTitle}
               </h1>
             </header>
-            <article class="mg-c-modal__content">
-              <slot></slot>
-            </article>
+
+            {this.hasContent && (
+              <article class="mg-c-modal__content">
+                <slot name="content"></slot>
+              </article>
+            )}
+
             {this.hasActions && (
               <footer class="mg-c-modal__footer">
                 <slot name="actions"></slot>
@@ -194,7 +284,7 @@ export class MgModal {
             )}
           </div>
         </mg-card>
-      </dialog>
+      </div>
     );
   }
 }
