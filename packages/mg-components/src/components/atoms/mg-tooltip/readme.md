@@ -1,67 +1,28 @@
 ## Usage
 
-Tooltips are messages that provide additional information about an element.
-They are presented as a message that appears when an element is hovered over or when the keyboard is focused.
-Tooltips are called "custom" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.
-Our "custom tooltip" component is called "tooltip" here.
+Tooltips are messages that provide additional information about an element. They are presented as a message that appears when an element is hovered or focused. Tooltips are called "custom" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute. Our "custom tooltip" component is called "tooltip" here.
 
 ## Behavior
 
-The tooltip must be displayed when the element that allows its display:
+The tooltip must be displayed when the element that triggers its display:
 
 - Is hovered over by the mouse.
-- Takes the keyboard focus.
+- Takes keyboard focus.
 
-The tooltip must be hidden when the element that allows its display:
+The tooltip must be hidden when the element that triggers its display:
 
 - Is no longer hovered over by the mouse.
-- Loses the keyboard focus.
+- Loses keyboard focus.
 - Pressing the Escape key must hide the tooltip.
 
 The tooltip must remain displayed when its content is hovered over by the mouse.
 
-The tooltip can be placed above, to the right, below or to the left of the element it describes.
+The tooltip can be placed above, to the right, below, or to the left of the element it describes.
 
 By default, the message is displayed at the bottom of the element.
 
-If the element is located at the edge of the screen, the tooltip is shifted to be always visible.
+If the element is located at the edge of the screen, the tooltip is shifted to always remain visible.
 
-## Specs
-
-### Shapes
-
-![](./docs/img/mg-tooltip-shape.png)
-
-### Fonts
-
-![](./docs/img/mg-tooltip-font.png)
-
-### Spacing
-
-![](./docs/img/mg-tooltip-spaces.png)
-
-### Alignments
-
-![](./docs/img/mg-tooltip-alignments-text.png)
-
-### Positioning
-
-Triangle is always centered on the call component
-
-![](./docs/img/mg-tooltip-positioning.png)
-![](./docs/img/mg-tooltip-positioning2.png)
-
-### Colors
-
-![](./docs/img/mg-tooltip-colors.png)
-
-### Sizes
-
-![](./docs/img/mg-tooltip-sizing.png)
-
-Component's max-width is 400px.
-
-![](./docs/img/mg-tooltip-max-width.png)
 
 <!-- Auto Generated Below -->
 

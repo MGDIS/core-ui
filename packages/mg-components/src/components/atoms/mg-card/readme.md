@@ -1,26 +1,6 @@
-## Specifications
+# mg-card
 
-### Style
 
-![](./docs/img/mg-card-style.png)
-
-1. Border radius: 5px
-2. Background: [@color-light](./?path=/docs/style-colors--docs)
-3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%
-4. Shadow: [@shadow](./?path=/docs/style-colors--docs)
-
-### Spacing
-
-![](./docs/img/mg-card-spacing.png)
-
-A padding of 16px is applied around the content
-
-### Size
-
-![](./docs/img/mg-card-size.png)
-
-1. Ajusting with the content
-2. Ajusting with its parent (100%)
 
 <!-- Auto Generated Below -->
 

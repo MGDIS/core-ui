@@ -1,44 +1,6 @@
-## Specs
+# mg-tag
 
-![](./docs/img/mg-tag-specs.png)
 
-### Fill / Outline tags
-
-#### Colors
-
-![](./docs/img/mg-tag-colors.png)
-
-Icons take the color of the label.
-
-### Soft tags
-
-#### Font
-
-![](./docs/img/mg-tag-font.png)
-
-They are not on SemiBold but **Regular**.
-
-#### Colors
-
-![](./docs/img/mg-tag-icons-colors.png)
-
-1. Icons takes the color of the tag variant.
-2. Labels are [**@color-dark**](./?path=/docs/style-colors--docs) for all.
-3. Color background is **[**soft color**](./?path=/docs/style-colors--docs)** of the tag variant.
-
-#### Rules
-
-![](./docs/img/mg-tag-use.png)
-
-For accessibility, soft variant tags cannot use an icon on its own.
-
-## Theming
-
-![](./docs/img/mg-tag-variants.png)
-
-### With Icons
-
-![](./docs/img/mg-tag-icons.png)
 
 <!-- Auto Generated Below -->
 

@@ -1,26 +1,6 @@
-## Sizing
+# mg-divider
 
-![](./docs/img/mg-divider-sizing.png)
 
-Two sizes are possible:
-
-- Default: 120px
-- Full width: 100%
-
-Rules:
-
-- In full mode it takes 100% of its parent.
-- The thickness is 1px.
-
-## Spacing
-
-![](./docs/img/mg-divider-spacing.png)
-
-Default margin applied on top and bottom of the divider is set to 40px.
-
-## Color
-
-![](./docs/img/mg-divider-color.png)
 
 <!-- Auto Generated Below -->
 

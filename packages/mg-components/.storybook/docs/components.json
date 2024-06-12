@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-11T07:34:30",
+  "timestamp": "2024-06-12T15:21:20",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -1185,8 +1185,8 @@
       "filePath": "src/components/atoms/mg-badge/mg-badge.tsx",
       "encapsulation": "shadow",
       "tag": "mg-badge",
-      "readme": "## Design\n\nThe badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.\n\n## Specs\n\n![](./docs/img/mg-badge-specs.png)\n\n## Theming\n\n![](./docs/img/mg-badge-styles.png)\n",
-      "docs": "The badge is always placed on top of, or next to the element it is for.\n\nThe badge displays a number (can be followed by the `+` character) or a punctuation character.",
+      "readme": "## Usage \n\nThe badge is always placed on top of or next to the element it is associated with.\n\nThe badge displays a number (which can be followed by the `+` character) or a punctuation character.\n",
+      "docs": "The badge is always placed on top of or next to the element it is associated with.\n\nThe badge displays a number (which can be followed by the `+` character) or a punctuation character.",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -1354,8 +1354,8 @@
       "filePath": "src/components/atoms/mg-button/mg-button.tsx",
       "encapsulation": "shadow",
       "tag": "mg-button",
-      "readme": "## Usage\n\nA primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".\n\n## Specs\n\n![](./docs/img/mg-button-specs.png)\n\n## Placement\n\n![](./docs/img/mg-button-placement.png)\n\n## Theming\n\n![](./docs/img/mg-button-styles.png)\n\nFocused `mg-button` style is the one from the browser (outline).\n\n## Attributes combination: `disable-on-click` and `disabled`\n\nWhen a click is triggered, the component sets the `disabled` prop to true.\n\nTo benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.\n\nTo reset the loader after the process has completed, you need to set the `disabled` prop asynchronously.\n",
-      "docs": "A primary action button is, in most cases, unique on the screen, the other buttons must be displayed as \"secondary\", to highlight the primary action.\nEx: Validation, Save\n\nA tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.\n\nA button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.\n\nA button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as \"button\".",
+      "readme": "## Usage\n\nA primary action button is usually unique on the screen, with other buttons displayed as \"secondary\" to highlight the primary action, such as Validation or Save.\n\nA tooltip should be displayed on hover when the button only shows a non-explicit icon and has no label. The tooltip must indicate the button's action.\n\nFor a button that launches a potentially long process, it should be disabled and display a loader for the duration of the process. Use the `disable-on-click` attribute to ensure the button is disabled when clicked.\n\nA button with an `undefined` `type` in a form will natively have a [submit type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Button#attributes) and trigger form submission. For non-submission buttons, explicitly set the `type` attribute to \"button\".\n\n## Attribute Combination: `disable-on-click` and `disabled`\n\nWhen a click is triggered, the component sets the `disabled` prop to `true`.\n\nTo benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.\n\nTo reset the loader after the process has completed, set the `disabled` prop asynchronously.\n",
+      "docs": "A primary action button is usually unique on the screen, with other buttons displayed as \"secondary\" to highlight the primary action, such as Validation or Save.\n\nA tooltip should be displayed on hover when the button only shows a non-explicit icon and has no label. The tooltip must indicate the button's action.\n\nFor a button that launches a potentially long process, it should be disabled and display a loader for the duration of the process. Use the `disable-on-click` attribute to ensure the button is disabled when clicked.\n\nA button with an `undefined` `type` in a form will natively have a [submit type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Button#attributes) and trigger form submission. For non-submission buttons, explicitly set the `type` attribute to \"button\".",
       "docsTags": [
         {
           "name": "slot",
@@ -1865,7 +1865,6 @@
       "filePath": "src/components/atoms/mg-card/mg-card.tsx",
       "encapsulation": "shadow",
       "tag": "mg-card",
-      "readme": "## Specifications\n\n### Style\n\n![](./docs/img/mg-card-style.png)\n\n1. Border radius: 5px\n2. Background: [@color-light](./?path=/docs/style-colors--docs)\n3. Border: 1px, [@color-dark](./?path=/docs/style-colors--docs) with alpha at 5%\n4. Shadow: [@shadow](./?path=/docs/style-colors--docs)\n\n### Spacing\n\n![](./docs/img/mg-card-spacing.png)\n\nA padding of 16px is applied around the content\n\n### Size\n\n![](./docs/img/mg-card-size.png)\n\n1. Ajusting with the content\n2. Ajusting with its parent (100%)\n",
       "docs": "",
       "docsTags": [
         {
@@ -2116,8 +2115,8 @@
       "filePath": "src/components/atoms/mg-divider/mg-divider.tsx",
       "encapsulation": "shadow",
       "tag": "mg-divider",
-      "readme": "## Sizing\n\n![](./docs/img/mg-divider-sizing.png)\n\nTwo sizes are possible:\n\n- Default: 120px\n- Full width: 100%\n\nRules:\n\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.\n\n## Spacing\n\n![](./docs/img/mg-divider-spacing.png)\n\nDefault margin applied on top and bottom of the divider is set to 40px.\n\n## Color\n\n![](./docs/img/mg-divider-color.png)\n",
-      "docs": "![](./docs/img/mg-divider-sizing.png)\n\nTwo sizes are possible:\n\n- Default: 120px\n- Full width: 100%\n\nRules:\n\n- In full mode it takes 100% of its parent.\n- The thickness is 1px.",
+      "readme": "",
+      "docs": "",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -2480,8 +2479,8 @@
       "filePath": "src/components/atoms/mg-icon/mg-icon.tsx",
       "encapsulation": "shadow",
       "tag": "mg-icon",
-      "readme": "## Specifications\n\n### Sizing\n\n![](./docs/img/mg-icon-sizing.png) \n\nSizes (px):\n\n- small: 12x12\n- medium: 16x16\n- large: 20x20\n- xlarge: 24x24\n- xxlarge: 32x32\n\n### With \"variant\" applied\n\n![](./docs/img/mg-icon-sizing-variant.png)\n\nWhen *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.\nThe icon is centered in it.\n\n## Styling\n\n### Default\n\n![](./docs/img/mg-icon-styling-default.png)\n\nDefault color for the icon is the color used for the text.\nColor: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))\n\n### Variant style\n\n\n### Variant\n![](./docs/img/mg-icon-styling-iconVariant.png) \n\n\n![](./docs/img/mg-icon-styling-variant.png) \n\n\"variant\" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or \"app color\" to the background of the icon with Lightness set to 90% \nYou can select \"variant style\" to apply \"variant\" on the icon or the background or both.\n\n# File naming\n\nSeparator: \"-\" (dash).\nBy default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming\nVariant: \"-outline\". If pictogram variant has a background that has a full circle > add \"-circle\" *ex: check-circle, check-circle-outline*\n",
-      "docs": "",
+      "readme": "## File Naming\n\n- **Separator:** Use \"-\" (dash) as the separator.\n- **Default Version:** By default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming.\n- **Variant:** Use \"-outline\" for the outline variant.\n- **Background:** If a pictogram has a shaped background like a circle, add \"-circle\" (e.g., `check-circle`, `check-circle-outline`).\n",
+      "docs": "- **Separator:** Use \"-\" (dash) as the separator.\n- **Default Version:** By default, the pictograms are the \"filled\" version, but this doesn't need to be specified in the naming.\n- **Variant:** Use \"-outline\" for the outline variant.\n- **Background:** If a pictogram has a shaped background like a circle, add \"-circle\" (e.g., `check-circle`, `check-circle-outline`).",
       "docsTags": [],
       "usage": {},
       "props": [
@@ -12389,8 +12388,7 @@
       "filePath": "src/components/atoms/mg-tag/mg-tag.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tag",
-      "readme": "## Specs\n\n![](./docs/img/mg-tag-specs.png)\n\n### Fill / Outline tags\n\n#### Colors\n\n![](./docs/img/mg-tag-colors.png)\n\nIcons take the color of the label.\n\n### Soft tags\n\n#### Font\n\n![](./docs/img/mg-tag-font.png)\n\nThey are not on SemiBold but **Regular**.\n\n#### Colors\n\n![](./docs/img/mg-tag-icons-colors.png)\n\n1. Icons takes the color of the tag variant.\n2. Labels are [**@color-dark**](./?path=/docs/style-colors--docs) for all.\n3. Color background is **[**soft color**](./?path=/docs/style-colors--docs)** of the tag variant.\n\n#### Rules\n\n![](./docs/img/mg-tag-use.png)\n\nFor accessibility, soft variant tags cannot use an icon on its own.\n\n## Theming\n\n![](./docs/img/mg-tag-variants.png)\n\n### With Icons\n\n![](./docs/img/mg-tag-icons.png)\n",
-      "docs": "![](./docs/img/mg-tag-specs.png)",
+      "docs": "",
       "docsTags": [
         {
           "name": "slot",
@@ -12526,8 +12524,8 @@
       "filePath": "src/components/atoms/mg-tooltip/mg-tooltip.tsx",
       "encapsulation": "shadow",
       "tag": "mg-tooltip",
-      "readme": "## Usage\n\nTooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.\n\n## Behavior\n\nThe tooltip must be displayed when the element that allows its display:\n\n- Is hovered over by the mouse.\n- Takes the keyboard focus.\n\nThe tooltip must be hidden when the element that allows its display:\n\n- Is no longer hovered over by the mouse.\n- Loses the keyboard focus.\n- Pressing the Escape key must hide the tooltip.\n\nThe tooltip must remain displayed when its content is hovered over by the mouse.\n\nThe tooltip can be placed above, to the right, below or to the left of the element it describes.\n\nBy default, the message is displayed at the bottom of the element.\n\nIf the element is located at the edge of the screen, the tooltip is shifted to be always visible.\n\n## Specs\n\n### Shapes\n\n![](./docs/img/mg-tooltip-shape.png)\n\n### Fonts\n\n![](./docs/img/mg-tooltip-font.png)\n\n### Spacing\n\n![](./docs/img/mg-tooltip-spaces.png)\n\n### Alignments\n\n![](./docs/img/mg-tooltip-alignments-text.png)\n\n### Positioning\n\nTriangle is always centered on the call component\n\n![](./docs/img/mg-tooltip-positioning.png)\n![](./docs/img/mg-tooltip-positioning2.png)\n\n### Colors\n\n![](./docs/img/mg-tooltip-colors.png)\n\n### Sizes\n\n![](./docs/img/mg-tooltip-sizing.png)\n\nComponent's max-width is 400px.\n\n![](./docs/img/mg-tooltip-max-width.png)\n",
-      "docs": "Tooltips are messages that provide additional information about an element.\nThey are presented as a message that appears when an element is hovered over or when the keyboard is focused.\nTooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute.\nOur \"custom tooltip\" component is called \"tooltip\" here.",
+      "readme": "## Usage\n\nTooltips are messages that provide additional information about an element. They are presented as a message that appears when an element is hovered or focused. Tooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute. Our \"custom tooltip\" component is called \"tooltip\" here.\n\n## Behavior\n\nThe tooltip must be displayed when the element that triggers its display:\n\n- Is hovered over by the mouse.\n- Takes keyboard focus.\n\nThe tooltip must be hidden when the element that triggers its display:\n\n- Is no longer hovered over by the mouse.\n- Loses keyboard focus.\n- Pressing the Escape key must hide the tooltip.\n\nThe tooltip must remain displayed when its content is hovered over by the mouse.\n\nThe tooltip can be placed above, to the right, below, or to the left of the element it describes.\n\nBy default, the message is displayed at the bottom of the element.\n\nIf the element is located at the edge of the screen, the tooltip is shifted to always remain visible.\n\n",
+      "docs": "Tooltips are messages that provide additional information about an element. They are presented as a message that appears when an element is hovered or focused. Tooltips are called \"custom\" when they are not built on the basis of the standard HTML code provided for these elements by the specification: the title attribute. Our \"custom tooltip\" component is called \"tooltip\" here.",
       "docsTags": [
         {
           "name": "slot",
