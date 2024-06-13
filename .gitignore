@@ -1,6 +1,5 @@
 node_modules
 dist
-docs
 coverage
 playwright-report
 temp
@@ -16,3 +15,7 @@ loader
 build
 *.tgz
 .idea
+
+# ignore auto-generated docs
+packages/mg-components-helpers/docs
+packages/stencil-helpers/docs
