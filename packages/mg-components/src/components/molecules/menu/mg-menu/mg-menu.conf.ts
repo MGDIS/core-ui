@@ -1,5 +1,5 @@
 import type { Size } from '../../../../types';
-import type { MgItemMore } from '../../../atoms/internals/mg-item-more/mg-item-more';
+import type { MgItemMore } from '../../internals/mg-item-more/mg-item-more';
 
 /**
  * Menu direction type

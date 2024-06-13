@@ -7,7 +7,7 @@ import { MgPopover } from '../../../mg-popover/mg-popover';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
 import { forcePopoverId, mockWindowFrames } from '../../../../../utils/unit.test.utils';
 import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
-import { MgItemMore } from '../../../../atoms/internals/mg-item-more/mg-item-more';
+import { MgItemMore } from '../../../internals/mg-item-more/mg-item-more';
 
 mockWindowFrames();
 

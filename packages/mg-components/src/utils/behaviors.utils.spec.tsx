@@ -1,6 +1,6 @@
 import { h } from '@stencil/core/internal';
 import { newSpecPage } from '@stencil/core/testing';
-import { MgItemMore } from '../components/atoms/internals/mg-item-more/mg-item-more';
+import { MgItemMore } from '../components/molecules/internals/mg-item-more/mg-item-more';
 import { MgMenuItem } from '../components/molecules/menu/mg-menu-item/mg-menu-item';
 import { MgMenu } from '../components/molecules/menu/mg-menu/mg-menu';
 import { OverflowBehavior } from './behaviors.utils';
