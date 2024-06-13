@@ -1,5 +1,5 @@
 import { icons } from '../../../assets/icons';
-import type { Size } from '../../../types';
+import type { Size, Variant, VariantStyle } from '../../../types';
 /**
  * List of all possibles icons
  */
@@ -20,7 +20,7 @@ export const variants = ['success', 'warning', 'danger', 'info', 'app'] as const
 /**
  * Variant type from variants
  */
-export type IconVariantType = (typeof variants)[number];
+export type IconVariantType = Variant & (typeof variants)[number];
 
 /**
  * List of all possibles variants styles
@@ -30,4 +30,4 @@ export const variantStyles = ['icon', 'background', 'full'] as const;
 /**
  * Variant style type from variant style
  */
-export type IconVariantStyleType = (typeof variantStyles)[number];
+export type IconVariantStyleType = VariantStyle & (typeof variantStyles)[number];
