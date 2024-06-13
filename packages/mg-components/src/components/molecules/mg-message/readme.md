@@ -21,7 +21,7 @@ The element can be of four different types depending on the message to be indica
 | Property       | Attribute       | Description          | Type                                           | Default      |
 | -------------- | --------------- | -------------------- | ---------------------------------------------- | ------------ |
 | `variant`      | `variant`       | Define variant       | `"danger" \| "info" \| "success" \| "warning"` | `'info'`     |
-| `variantStyle` | `variant-style` | Define variant style | `"bar-left" \| "fill"`                         | `'bar-left'` |
+| `variantStyle` | `variant-style` | Define variant style | `"background" \| "bar-left"`                   | `'bar-left'` |
 
 
 ## CSS Custom Properties

@@ -57,11 +57,11 @@ describe('mg-message', () => {
 
       expect(classbarLeft).not.toBeNull();
 
-      element.variantStyle = 'fill';
+      element.variantStyle = 'background';
       await page.waitForChanges();
 
       classbarLeft = element.shadowRoot.querySelector('.mg-c-message--bar-left');
-      const classFill = element.shadowRoot.querySelector('.mg-c-message--fill');
+      const classFill = element.shadowRoot.querySelector('.mg-c-message--background');
 
       expect(classbarLeft).toBeNull();
       expect(classFill).not.toBeNull();

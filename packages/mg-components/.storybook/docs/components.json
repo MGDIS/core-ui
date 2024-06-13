@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-12T15:21:20",
+  "timestamp": "2024-06-12T07:54:41",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.2",
@@ -17,10 +17,10 @@
       "props": [
         {
           "name": "button",
-          "type": "{ label?: string; disabled?: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; isIcon: boolean; }",
+          "type": "{ label?: string; disabled?: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"danger\" | \"danger-alt\" | \"primary\" | \"secondary\"; isIcon: boolean; }",
           "complexType": {
             "original": "MgActionMoreButtonType",
-            "resolved": "{ label?: string; disabled?: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"; isIcon: boolean; }",
+            "resolved": "{ label?: string; disabled?: boolean; variant: \"flat\" | \"info\" | \"success\" | \"link\" | \"danger\" | \"danger-alt\" | \"primary\" | \"secondary\"; isIcon: boolean; }",
             "references": {
               "MgActionMoreButtonType": {
                 "location": "import",
@@ -51,19 +51,19 @@
               "type": "string"
             },
             {
-              "value": "primary",
-              "type": "string"
-            },
-            {
-              "value": "secondary",
-              "type": "string"
-            },
-            {
               "value": "danger",
               "type": "string"
             },
             {
-              "type": "\"danger-alt\"; isIcon: boolean; }"
+              "value": "danger-alt",
+              "type": "string"
+            },
+            {
+              "value": "primary",
+              "type": "string"
+            },
+            {
+              "type": "\"secondary\"; isIcon: boolean; }"
             }
           ],
           "optional": true,
@@ -1094,10 +1094,10 @@
         },
         {
           "name": "variantStyle",
-          "type": "\"bar-left\" | \"fill\"",
+          "type": "\"background\" | \"bar-left\"",
           "complexType": {
             "original": "VariantStyleType",
-            "resolved": "\"bar-left\" | \"fill\"",
+            "resolved": "\"background\" | \"bar-left\"",
             "references": {
               "VariantStyleType": {
                 "location": "import",
@@ -1113,11 +1113,11 @@
           "docsTags": [],
           "values": [
             {
-              "value": "bar-left",
+              "value": "background",
               "type": "string"
             },
             {
-              "value": "fill",
+              "value": "bar-left",
               "type": "string"
             }
           ],
@@ -1317,7 +1317,7 @@
         {
           "name": "--mg-c-badge-font-size",
           "annotation": "prop",
-          "docs": "Defines the font size of the badge. The default value is `1.1rem`."
+          "docs": "Defines the font size of the badge. The default value is `--mg-b-font-size-small`."
         },
         {
           "name": "--mg-c-badge-size",
@@ -11046,10 +11046,10 @@
         },
         {
           "name": "variantStyle",
-          "type": "\"bar-left\" | \"fill\"",
+          "type": "\"background\" | \"bar-left\"",
           "complexType": {
             "original": "undefined | VariantStyleType",
-            "resolved": "\"bar-left\" | \"fill\"",
+            "resolved": "\"background\" | \"bar-left\"",
             "references": {
               "VariantStyleType": {
                 "location": "import",
@@ -11066,11 +11066,11 @@
           "default": "'bar-left'",
           "values": [
             {
-              "value": "bar-left",
+              "value": "background",
               "type": "string"
             },
             {
-              "value": "fill",
+              "value": "bar-left",
               "type": "string"
             }
           ],
@@ -12501,7 +12501,7 @@
         {
           "name": "--mg-c-tag-font-size",
           "annotation": "prop",
-          "docs": "Defines the font size of the tag. Default value is `1.2rem`."
+          "docs": "Defines the font size of the tag. Default value is `--mg-b-font-size-small`."
         },
         {
           "name": "--mg-c-tag-height",
@@ -12764,12 +12764,12 @@
   ],
   "typeLibrary": {
     "src/components/atoms/mg-badge/mg-badge.conf.ts::BadgeVariantType": {
-      "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\" | \"text-color\"",
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\" | \"primary\" | \"secondary\" | \"text-color\"",
       "docstring": "",
       "path": "src/components/atoms/mg-badge/mg-badge.conf.ts"
     },
     "src/components/atoms/mg-button/mg-button.conf.ts::VariantType": {
-      "declaration": "\"flat\" | \"info\" | \"success\" | \"link\" | \"primary\" | \"secondary\" | \"danger\" | \"danger-alt\"",
+      "declaration": "\"flat\" | \"info\" | \"success\" | \"link\" | \"danger\" | \"danger-alt\" | \"primary\" | \"secondary\"",
       "docstring": "",
       "path": "src/components/atoms/mg-button/mg-button.conf.ts"
     },
@@ -12844,7 +12844,7 @@
       "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
     },
     "src/components/atoms/mg-tag/mg-tag.conf.ts::TagVariantType": {
-      "declaration": "\"info\" | \"success\" | \"primary\" | \"secondary\" | \"warning\" | \"danger\"",
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\" | \"primary\" | \"secondary\"",
       "docstring": "",
       "path": "src/components/atoms/mg-tag/mg-tag.conf.ts"
     },
@@ -12929,12 +12929,12 @@
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },
     "src/components/molecules/mg-alert/mg-alert.conf.ts::VariantType": {
-      "declaration": "any",
+      "declaration": "\"info\" | \"success\" | \"warning\" | \"danger\"",
       "docstring": "",
       "path": "src/components/molecules/mg-alert/mg-alert.conf.ts"
     },
     "src/components/molecules/mg-alert/mg-alert.conf.ts::VariantStyleType": {
-      "declaration": "any",
+      "declaration": "\"background\" | \"bar-left\"",
       "docstring": "",
       "path": "src/components/molecules/mg-alert/mg-alert.conf.ts"
     },
@@ -12959,7 +12959,7 @@
       "path": "src/components/molecules/mg-message/mg-message.conf.ts"
     },
     "src/components/molecules/mg-message/mg-message.conf.ts::VariantStyleType": {
-      "declaration": "\"fill\" | \"bar-left\"",
+      "declaration": "\"background\" | \"bar-left\"",
       "docstring": "",
       "path": "src/components/molecules/mg-message/mg-message.conf.ts"
     },

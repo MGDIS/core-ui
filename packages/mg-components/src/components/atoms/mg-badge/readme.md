@@ -21,7 +21,7 @@ The badge displays a number (which can be followed by the `+` character) or a pu
 
 | Name                      | Description                                                                                                                                   |
 | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--mg-c-badge-font-size`  | Defines the font size of the badge. The default value is `1.1rem`.                                                                            |
+| `--mg-c-badge-font-size`  | Defines the font size of the badge. The default value is `--mg-b-font-size-small`.                                                            |
 | `--mg-c-badge-size`       | Defines the height and minimum width of the badge. The default value is `--mg-b-size-16`.                                                     |
 | `--mg-c-badge-text-color` | Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`. |
 
