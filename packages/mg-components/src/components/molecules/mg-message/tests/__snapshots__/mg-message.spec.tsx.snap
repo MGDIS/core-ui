@@ -1,0 +1,143 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mg-message Render Should render a message with variant danger 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--danger">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="exclamation-circle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-message>
+`;
+
+exports[`mg-message Render Should render a message with variant info 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--info">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="info-circle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-message>
+`;
+
+exports[`mg-message Render Should render a message with variant success 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--success">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="check-circle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-message>
+`;
+
+exports[`mg-message Render Should render a message with variant warning 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--warning">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="exclamation-triangle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+</mg-message>
+`;
+
+exports[`mg-message Render Should render with action slot 1`] = `
+<mg-message>
+  <mock:shadow-root>
+    <div class="mg-c-message mg-c-message--bar-left mg-c-message--info">
+      <mg-card>
+        <span class="mg-c-message__bar"></span>
+        <span class="mg-c-message__icon">
+          <mg-icon icon="info-circle"></mg-icon>
+        </span>
+        <div class="mg-c-message__content">
+          <span class="mg-c-message__content-slot">
+            <slot></slot>
+          </span>
+          <span class="mg-c-message__content-separator"></span>
+          <span class="mg-c-message__content-actions-slot">
+            <slot name="actions"></slot>
+          </span>
+        </div>
+      </mg-card>
+    </div>
+  </mock:shadow-root>
+  <p>
+    <strong>
+      Strong
+    </strong>
+    content!
+  </p>
+  <div slot="actions">
+    <mg-button>
+      Primary
+    </mg-button>
+    <mg-button variant="secondary">
+      Secondary
+    </mg-button>
+  </div>
+</mg-message>
+`;

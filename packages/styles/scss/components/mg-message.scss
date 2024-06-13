@@ -29,14 +29,10 @@
         background-color: var(--mg-b-color-#{$variant});
       }
 
-      &.mg-c-message--fill {
+      &.mg-c-message--background {
         --mg-c-card-color-background: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
       }
     }
-  }
-
-  &.mg-c-message--close-button {
-    --mg-c-card-spacing: 0 var(--mg-b-size-min-height) 0 0;
   }
 
   ::slotted(*) {
@@ -74,12 +70,6 @@
   &__content-actions-slot {
     padding: var(--mg-b-size-8) 0;
     text-align: right;
-  }
-
-  &__close-button {
-    position: absolute;
-    top: 0;
-    right: 0;
   }
 
   &__bar {

@@ -23,7 +23,6 @@ export default {
       },
     },
   },
-  parameters: { actions: { handles: ['component-show', 'component-hide'] } },
 };
 
 /**
@@ -43,22 +42,8 @@ export const MgMessage = {
   args: {
     slotContent: `<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>`,
     slotActions: ``,
-    identifier: 'identifier',
     variant: variants[0], // info
     variantStyle: variantStyles[0], // bar-left
-    closeButton: false,
-    hidden: false,
-    delay: undefined,
-    noAriaRole: undefined,
-  },
-};
-
-export const WithCloseButton = {
-  render: Template,
-  args: {
-    ...MgMessage.args,
-    variant: 'danger',
-    closeButton: true,
   },
 };
 
@@ -67,6 +52,6 @@ export const WithActions = {
   args: {
     ...MgMessage.args,
     variant: 'warning',
-    slotActions: `<div class="mg-l-group-elements mg-l-group-elements--align-right"><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>`,
+    slotActions: `<div><mg-button>Primary</mg-button><mg-button variant="secondary">Secondary</mg-button></div>`,
   },
 };
