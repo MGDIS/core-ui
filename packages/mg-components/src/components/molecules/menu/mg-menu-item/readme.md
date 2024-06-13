@@ -1,106 +1,17 @@
-## Use
+## Usage
 
 Item menu is used with horizontal or vertical menus.
-
-## Anatomy
-
-![](./docs/img/mg-menu-item-anatomy.png)
-
-An item must have a label.
-An icon can be added before the text.
-A badge can be added after the text.
-When a submenu is available, a chevron is displayed (in horizontal and vertical menus) to indicate its presence.
-
-## Specs
-
-Item's display depends on the size of the menu (regular, medium, large) and its mode (horizontal, vertical).
-
-### Spacing
-
-![](./docs/img/mg-menu-item-spacing.png)
-
-### Sizing
-
-#### Horizontal menu
-
-![](./docs/img/mg-menu-item-sizing-horizontal.png)
-
-Width of the item depends on its content.
-
-![](./docs/img/mg-menu-item-sizing-maxwidth.png)
-
-If a max-width is set, the _label_ and the _meta_ use an ellipsis to truncate the content if necessary.
-
-#### Vertical menu
-
-![](./docs/img/mg-menu-item-sizing-vertical.png)
-
-Width of the item is 100% width of the menu.
-
-### Alignment
-
-#### Horizontal and vertical menus
-
-![](./docs/img/mg-menu-item-alignment.png)
-
-All contents are aligned vertically.
-
-#### Vertical menu
-
-![](./docs/img/mg-menu-item-alignment-vertical.png)
-
-All items are aligned to left.
-The chevron is aligned to the right of the item.
-
-### Styling
-
-![](./docs/img/mg-menu-item-horizontal-menu-styling.png)
-
-![](./docs/img/mg-menu-item-vertical-menu-styling.png)
-
-Hover item: the background is colored
-Active item: the font color changes, an active bar (3px) is displayed at the bottom of the item for horizontal, at the left of the item for vertical menus.
-
-#### Colors
-
-Standard color is @color-dark.
-Active color is the color of the app.
-Hover color is the color of the app with an opacity set to 10%.
-Disabled item's opacity is set to 40%.
-
-#### Fonts
-
-Family: Open Sans
-Regular size: 13px
-Medium/Large size: 15px
-
-#### Icons
-
-Medium/Large/XLarge menus: regular size
-
-## Behavior
-
-### Click
-
-Click on an item of the menu can:
-
-- redirect to a url
-- display child content (see below)
-
-If child content is available, an icon "chevron-down" is displayed at the right of the item.
-When opening the child content, the chevron makes a 180° rotation.
-When closing the child content, the chevron returns to position 0°.
 
 ## Child content
 
 ### Horizontal and vertical menus
 
-Child content is displayed
+Child content is displayed:
 
 - by clicking on the item
 - by pressing the space or enter key
 
-It is closed
+It is closed:
 
 - by clicking on the item
 - by pressing the space or enter key
@@ -113,33 +24,12 @@ The child content can be:
 
 #### In an horizontal menu
 
-![](./docs/img/mg-menu-submenu-alignment.png)
-
 Child content is displayed in a floating component over the content (like a popover).
 It is aligned to the left bottom of the item, excepted for the last item of the menu which is aligned to the right bottom.
 
 If the floating component is higher than the screen size, there is no overflow, user has to scroll the page.
 
-![](./docs/img/mg-menu-item-child-styling.png)
-
-The floating component has a _@color-light_ background and a _@shadow_.
-
-![](./docs/img/mg-menu-item-child-menu-spacing.png)
-
-If the floating component displays a submenu, there are top and bottom spacing of 10px.
-
-![](./docs/img/mg-menu-item-child-slot-spacing.png)
-
-If the floating component displays a slot, there is no spacing.
-
-![](./docs/img/mg-menu-submenu-slot.png)
-
-The minimal width of the submenu is the item's width.
-Width of the submenu is determined by the width of the largest item or the content of the slot.
-
 #### In a vertical menu
-
-![](./docs/img/mg-menu-submenu-vertical-menu.png)
 
 Menu is displayed under the item, with the same width. **(i) Vertical menu is recommended if you display a submenu.**
 Idem for the slot.
@@ -149,16 +39,6 @@ Items below are pushed to bottom.
 ##### Spacing
 
 Sub-items add to their left spacing the spacing between left border and content of their parent's item.
-
-## Slots
-
-### Image
-
-Recommanded element is an icon or a SVG.
-
-### Information
-
-Recommanded element is a mg-badge. Use it when you need to notify new events in this section.
 
 <!-- Auto Generated Below -->
 

@@ -1,5 +1,3 @@
-# mg-modal
-
 
 
 <!-- Auto Generated Below -->
@@ -21,6 +19,14 @@
 | ---------------- | ------------------------------------ | ------------------- |
 | `component-hide` | Emmited event when modal is hidden   | `CustomEvent<void>` |
 | `component-show` | Emmited event when modal is diplayed | `CustomEvent<void>` |
+
+
+## Slots
+
+| Slot        | Description     |
+| ----------- | --------------- |
+| `"actions"` | Actions content |
+| `"content"` | Modal content   |
 
 
 ## CSS Custom Properties

@@ -1,5 +1,3 @@
-# mg-card
-
 
 
 <!-- Auto Generated Below -->

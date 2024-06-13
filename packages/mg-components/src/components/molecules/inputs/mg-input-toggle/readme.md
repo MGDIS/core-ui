@@ -1,24 +1,9 @@
 ## Usage
 
-Clicking anywhere on the entire component area toggles the selected value.
-
-The first value is always selected by default.
-
-When the "on/off" property is used, the first value is always the disabled value and the style is adjusted.
-
-The values must be transcribed by texts or icons.
-
-### Types
-
-![](./docs/img/mg-input-toggle-use.png)
-
-### Specs
-
-![](./docs/img/mg-input-toggle-specs.png)
-
-### Readonly
-
-![](./docs/img/mg-input-toggle-readonly.png)
+- Clicking anywhere on the entire component area toggles the selected value.
+- The first value is always selected by default.
+- When the "on/off" property is used, the first value is always the disabled value, and the style is adjusted.
+- The values must be transcribed by text or icons.
 
 <!-- Auto Generated Below -->
 

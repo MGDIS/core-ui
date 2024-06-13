@@ -10,25 +10,11 @@ It is not possible to enter more than two digits after the decimal point.
 
 It is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.
 
-## Specs
-
-### Positioning
-
-By default, the value is right aligned.
-
-![](./docs/img/mg-input-numeric-positioning-default.png)
-
-You can change the CSS variable `--mg-c-input-text-align` to left align.
-
-![](./docs/img/mg-input-numeric-positioning-custom.png)
-
 ## Slot
 
 The spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.
 
 ### Unit positioning
-
-![](./docs/img/mg-input-numeric-unit.png)
 
 Unit term must be placed into the field slot using a "space" character before the unit term.
 

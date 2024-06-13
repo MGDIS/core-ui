@@ -1,10 +1,4 @@
-## Behavior
 
-![](./docs/img/mg-loader-anatomy.png)
-
-The default loader message is "Loading in progress..." and can be overridden with the `message` prop.
-
-The loader message can be hidden using the `messageHide` prop.
 
 <!-- Auto Generated Below -->
 
