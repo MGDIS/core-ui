@@ -1,3 +1,5 @@
+import type { Variant } from '../../../types';
+
 /**
  * List of all possibles variants
  */
@@ -6,4 +8,4 @@ export const variants = ['info', 'primary', 'secondary', 'success', 'warning', '
 /**
  * Variant type from variants
  */
-export type BadgeVariantType = (typeof variants)[number];
+export type BadgeVariantType = Variant & (typeof variants)[number];
