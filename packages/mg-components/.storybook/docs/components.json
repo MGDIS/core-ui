@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-06-12T07:54:41",
+  "timestamp": "2024-06-13T15:16:49",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.18.2",
+    "version": "4.18.3",
     "typescriptVersion": "5.4.5"
   },
   "components": [
@@ -11214,6 +11214,28 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": false,
+          "docs": "Define if modal is open",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -11247,14 +11269,7 @@
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keydown",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [
         {
           "name": "--mg-c-modal-border-radius",
