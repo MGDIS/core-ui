@@ -516,10 +516,9 @@ exports[`mg-input-numeric type decimal Format number args {} 1`] = `
 `;
 
 exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
   disabled: true,
+  tooltip: 'tooltip',
+  tooltipPosition: 'input',
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
@@ -532,6 +531,15 @@ exports[`mg-input-numeric type decimal Should render with args {
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="tooltip">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
           </div>
         </div>
       </mock:shadow-root>
@@ -551,253 +559,6 @@ exports[`mg-input-numeric type decimal Should render with args {
 `;
 
 exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  labelHide: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title mg-u-visually-hidden">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  labelOnTop: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  readonly: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  readonly: true,
-  labelOnTop: true,
-  tooltip: 'Tooltip message'
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  readonly: true,
-  value: '1234567890'
-}: 1`] = `
-<mg-input-numeric value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        1,234,567,890.00
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  readonly: true,
-  value: '1234567890',
-  lang: 'fr'
-}: 1`] = `
-<mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        1 234 567 890,00
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  readonly: true,
-  value: '1234567890',
-  lang: 'xx'
-}: 1`] = `
-<mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        1,234,567,890.00
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
   required: true,
   disabled: true,
   value: '1234567890',
@@ -838,9 +599,6 @@ exports[`mg-input-numeric type decimal Should render with args {
 `;
 
 exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
   required: true,
   readonly: true,
   value: '1234567890',
@@ -876,143 +634,6 @@ exports[`mg-input-numeric type decimal Should render with args {
 `;
 
 exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  required: true,
-  value: '1234567890',
-  helpText: 'My help text'
-}: 1`] = `
-<mg-input-numeric value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
-      <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  tooltip: 'My Tooltip Message'
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-              <mg-icon>
-                <mock:shadow-root>
-                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                  </svg>
-                </mock:shadow-root>
-              </mg-icon>
-            </mg-tooltip>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  tooltip: 'My Tooltip Message',
-  labelOnTop: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
   tooltip: 'My Tooltip Message',
   tooltipPosition: 'input',
   labelOnTop: true
@@ -1054,13 +675,400 @@ exports[`mg-input-numeric type decimal Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  tooltip: 'My Tooltip Message',
-  tooltipPosition: 'label'
-}: 1`] = `
+exports[`mg-input-numeric type decimal Should render with args { labelHide: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { labelOnTop: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="tooltip">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true, value: '1234567890' }: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890.00
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true, value: '1234567890' }: 2`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890.00
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true, value: '1234567890', lang: 'fr' }: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1 234 567 890,00
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { readonly: true, value: '1234567890', lang: 'xx' }: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890.00
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { required: true, value: '1234567890', helpText: 'My help text' }: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type decimal Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1098,13 +1106,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  value: '1234567890',
-  currency: 'EUR'
-}: 1`] = `
+exports[`mg-input-numeric type decimal Should render with args { value: '1234567890', currency: 'EUR' }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1133,13 +1135,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  value: '1234567890',
-  lang: 'fr'
-}: 1`] = `
+exports[`mg-input-numeric type decimal Should render with args { value: '1234567890', lang: 'fr' }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1168,13 +1164,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'decimal',
-  value: '1234567890',
-  lang: 'xx'
-}: 1`] = `
+exports[`mg-input-numeric type decimal Should render with args { value: '1234567890', lang: 'xx' }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1203,7 +1193,7 @@ exports[`mg-input-numeric type decimal Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type decimal Should render with args { label: 'label', identifier: 'identifier', type: 'decimal' }: 1`] = `
+exports[`mg-input-numeric type decimal Should render with args {}: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -1864,10 +1854,9 @@ exports[`mg-input-numeric type integer Format number args {} 1`] = `
 `;
 
 exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
   disabled: true,
+  tooltip: 'tooltip',
+  tooltipPosition: 'input',
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
@@ -1880,6 +1869,15 @@ exports[`mg-input-numeric type integer Should render with args {
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="tooltip">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
           </div>
         </div>
       </mock:shadow-root>
@@ -1899,253 +1897,6 @@ exports[`mg-input-numeric type integer Should render with args {
 `;
 
 exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  labelHide: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title mg-u-visually-hidden">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  labelOnTop: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  readonly: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  readonly: true,
-  labelOnTop: true,
-  tooltip: 'Tooltip message'
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  readonly: true,
-  value: '1234567890'
-}: 1`] = `
-<mg-input-numeric value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        1,234,567,890
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  readonly: true,
-  value: '1234567890',
-  lang: 'fr'
-}: 1`] = `
-<mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        1 234 567 890
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  readonly: true,
-  value: '1234567890',
-  lang: 'xx'
-}: 1`] = `
-<mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        1,234,567,890
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
   required: true,
   disabled: true,
   value: '1234567890',
@@ -2186,9 +1937,6 @@ exports[`mg-input-numeric type integer Should render with args {
 `;
 
 exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
   required: true,
   readonly: true,
   value: '1234567890',
@@ -2224,143 +1972,6 @@ exports[`mg-input-numeric type integer Should render with args {
 `;
 
 exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  required: true,
-  value: '1234567890',
-  helpText: 'My help text'
-}: 1`] = `
-<mg-input-numeric value="1234567890">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
-      <slot name="append-input"></slot>
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  tooltip: 'My Tooltip Message'
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-              <mg-icon>
-                <mock:shadow-root>
-                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                  </svg>
-                </mock:shadow-root>
-              </mg-icon>
-            </mg-tooltip>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  tooltip: 'My Tooltip Message',
-  labelOnTop: true
-}: 1`] = `
-<mg-input-numeric>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon>
-              <mock:shadow-root>
-                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
-                </svg>
-              </mock:shadow-root>
-            </mg-icon>
-          </mg-tooltip>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
-      <slot name="append-input"></slot>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-numeric>
-`;
-
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
   tooltip: 'My Tooltip Message',
   tooltipPosition: 'input',
   labelOnTop: true
@@ -2402,13 +2013,400 @@ exports[`mg-input-numeric type integer Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  tooltip: 'My Tooltip Message',
-  tooltipPosition: 'label'
-}: 1`] = `
+exports[`mg-input-numeric type integer Should render with args { labelHide: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { labelOnTop: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="tooltip">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true, value: '1234567890' }: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true, value: '1234567890' }: 2`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true, value: '1234567890', lang: 'fr' }: 1`] = `
+<mg-input-numeric lang="fr" value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1 234 567 890
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { readonly: true, value: '1234567890', lang: 'xx' }: 1`] = `
+<mg-input-numeric lang="xx" value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        1,234,567,890
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { required: true, value: '1234567890', helpText: 'My help text' }: 1`] = `
+<mg-input-numeric value="1234567890">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon>
+                <mock:shadow-root>
+                  <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                  </svg>
+                </mock:shadow-root>
+              </mg-icon>
+            </mg-tooltip>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
+<mg-input-numeric>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon>
+              <mock:shadow-root>
+                <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                  <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
+                </svg>
+              </mock:shadow-root>
+            </mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-numeric>
+`;
+
+exports[`mg-input-numeric type integer Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -2446,13 +2444,7 @@ exports[`mg-input-numeric type integer Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  value: '1234567890',
-  currency: 'EUR'
-}: 1`] = `
+exports[`mg-input-numeric type integer Should render with args { value: '1234567890', currency: 'EUR' }: 1`] = `
 <mg-input-numeric value="1234567890">
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -2481,13 +2473,7 @@ exports[`mg-input-numeric type integer Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  value: '1234567890',
-  lang: 'fr'
-}: 1`] = `
+exports[`mg-input-numeric type integer Should render with args { value: '1234567890', lang: 'fr' }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -2516,13 +2502,7 @@ exports[`mg-input-numeric type integer Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  type: 'integer',
-  value: '1234567890',
-  lang: 'xx'
-}: 1`] = `
+exports[`mg-input-numeric type integer Should render with args { value: '1234567890', lang: 'xx' }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">
@@ -2551,7 +2531,7 @@ exports[`mg-input-numeric type integer Should render with args {
 </mg-input-numeric>
 `;
 
-exports[`mg-input-numeric type integer Should render with args { label: 'label', identifier: 'identifier', type: 'integer' }: 1`] = `
+exports[`mg-input-numeric type integer Should render with args {}: 1`] = `
 <mg-input-numeric>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--numeric">

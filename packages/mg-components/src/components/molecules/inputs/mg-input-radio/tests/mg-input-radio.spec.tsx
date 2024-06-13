@@ -23,10 +23,8 @@ describe('mg-input-radio', () => {
     jest.runOnlyPendingTimers();
   });
   test.each([
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'] },
+    { items: ['batman', 'robin', 'joker', 'bane'] },
     {
-      label: 'label',
-      identifier: 'identifier',
       items: [
         { title: 'batman', value: 'u' },
         { title: 'robin', value: 'i' },
@@ -35,8 +33,6 @@ describe('mg-input-radio', () => {
       ],
     },
     {
-      label: 'label',
-      identifier: 'identifier',
       items: [
         { title: 'batman', value: 1 },
         { title: 'robin', value: 2 },
@@ -45,8 +41,6 @@ describe('mg-input-radio', () => {
       ],
     },
     {
-      label: 'label',
-      identifier: 'identifier',
       items: [
         { title: 'batman', value: true },
         { title: 'robin', value: false },
@@ -54,22 +48,24 @@ describe('mg-input-radio', () => {
         { title: 'bane', value: false },
       ],
     },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], labelOnTop: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], labelHide: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], inputVerticalList: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true, helpText: 'My help text', value: 'batman' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true, readonly: true, helpText: 'My help text', value: 'batman' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], required: true, disabled: true, helpText: 'My help text', value: 'batman' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], readonly: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], disabled: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], helpText: 'Hello joker' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
-    { label: 'label', identifier: 'identifier', items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], labelOnTop: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], labelHide: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], inputVerticalList: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], required: true, helpText: 'My help text', value: 'batman' },
+    { items: ['batman', 'robin', 'joker', 'bane'], required: true, readonly: true, helpText: 'My help text', value: 'batman' },
+    { items: ['batman', 'robin', 'joker', 'bane'], required: true, disabled: true, helpText: 'My help text', value: 'batman' },
+    { items: ['batman', 'robin', 'joker', 'bane'], readonly: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { items: ['batman', 'robin', 'joker', 'bane'], readonly: true, tooltip: 'tooltip', tooltipPosition: 'input', value: 'bane' },
+    { items: ['batman', 'robin', 'joker', 'bane'], readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+    { items: ['batman', 'robin', 'joker', 'bane'], disabled: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], helpText: 'Hello joker' },
+    { items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message' },
+    { items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', labelOnTop: true },
+    { items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { items: ['batman', 'robin', 'joker', 'bane'], tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
   ])('Should render with args %s:', async args => {
-    const { root } = await getPage(args);
+    const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();
   });
 

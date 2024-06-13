@@ -34,24 +34,26 @@ describe('mg-input-date', () => {
    * Snapshots
    */
   test.each([
-    { label: 'label', identifier: 'identifier' },
-    { label: 'label', identifier: 'identifier', labelHide: true },
-    { label: 'label', identifier: 'identifier', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', readonly: true },
-    { label: 'label', identifier: 'identifier', readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-    { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02' },
-    { label: 'label', identifier: 'identifier', required: true, value: '2022-06-02', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', required: true, readonly: true, value: '2022-06-02', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', required: true, disabled: true, value: '2022-06-02', helpText: 'My help text' },
-    { label: 'label', identifier: 'identifier', helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
-    { label: 'label', identifier: 'identifier', tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
-    { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'fr' },
-    { label: 'label', identifier: 'identifier', readonly: true, value: '2022-06-02', lang: 'xx' },
+    {},
+    { labelHide: true },
+    { labelOnTop: true },
+    { readonly: true },
+    { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+    { readonly: true, value: '2022-06-02' },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input', value: '2022-06-02' },
+    { required: true, value: '2022-06-02', helpText: 'My help text' },
+    { required: true, readonly: true, value: '2022-06-02', helpText: 'My help text' },
+    { required: true, disabled: true, value: '2022-06-02', helpText: 'My help text' },
+    { helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}' },
+    { tooltip: 'My Tooltip Message' },
+    { tooltip: 'My Tooltip Message', labelOnTop: true },
+    { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
+    { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+    { readonly: true, value: '2022-06-02', lang: 'fr' },
+    { readonly: true, value: '2022-06-02', lang: 'xx' },
   ])('Should render with args %s:', async args => {
-    const { root } = await getPage(args);
+    const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();
   });
 

@@ -47,6 +47,9 @@ test.describe('mg-input-numeric', () => {
 
   [
     { readonly: true },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: '123,45', readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: '123,45', readonly: true, tooltip: 'tooltip', tooltipPosition: 'label' },
     { value: '123,45', readonly: true },
     { value: '123,45', readonly: true, disabled: true },
     { disabled: true },
