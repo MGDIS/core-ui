@@ -3,7 +3,7 @@ import { isValidString } from '@mgdis/stencil-helpers';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
 import type { MessageType } from '../../../../locales/index.conf';
 import { OverflowBehavior } from '../../../../utils/behaviors.utils';
-import { Direction, sizes } from '../../../molecules/menu/mg-menu/mg-menu.conf';
+import { Direction, sizes } from '../../menu/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../../locales';
 
 /**

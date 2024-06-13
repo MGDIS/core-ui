@@ -3,11 +3,11 @@ import { newSpecPage } from '@stencil/core/testing';
 import { setupMutationObserverMock, setupResizeObserverMock } from '@mgdis/stencil-helpers';
 import { MgItemMore } from '../mg-item-more';
 import { forcePopoverId, mockWindowFrames } from '../../../../../utils/unit.test.utils';
-import { MgMenu } from '../../../../molecules/menu/mg-menu/mg-menu';
-import { MgMenuItem } from '../../../../molecules/menu/mg-menu-item/mg-menu-item';
-import { MgPopover } from '../../../../molecules/mg-popover/mg-popover';
-import { MgPopoverContent } from '../../../../molecules/mg-popover/mg-popover-content/mg-popover-content';
-import { Status } from '../../../../molecules/menu/mg-menu-item/mg-menu-item.conf';
+import { MgMenu } from '../../../menu/mg-menu/mg-menu';
+import { MgMenuItem } from '../../../menu/mg-menu-item/mg-menu-item';
+import { MgPopover } from '../../../mg-popover/mg-popover';
+import { MgPopoverContent } from '../../../mg-popover/mg-popover-content/mg-popover-content';
+import { Status } from '../../../menu/mg-menu-item/mg-menu-item.conf';
 
 mockWindowFrames();
 

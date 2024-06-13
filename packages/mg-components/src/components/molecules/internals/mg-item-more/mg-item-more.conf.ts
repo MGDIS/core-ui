@@ -1,4 +1,4 @@
-import type { MgMenu } from '../../../molecules/menu/mg-menu/mg-menu';
+import type { MgMenu } from '../../menu/mg-menu/mg-menu';
 import type { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 
 /**
