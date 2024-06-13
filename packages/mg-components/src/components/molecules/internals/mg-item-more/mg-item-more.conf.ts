@@ -1,5 +1,5 @@
 import type { MgMenu } from '../../../molecules/menu/mg-menu/mg-menu';
-import type { MgIcon } from '../../mg-icon/mg-icon';
+import type { MgIcon } from '../../../atoms/mg-icon/mg-icon';
 
 /**
  * SlotLabel prop type
