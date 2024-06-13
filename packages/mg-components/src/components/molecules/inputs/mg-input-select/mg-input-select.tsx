@@ -462,7 +462,7 @@ export class MgInputSelect {
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.tooltipPosition}
+        tooltipPosition={this.readonly && !this.readonlyValue ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >

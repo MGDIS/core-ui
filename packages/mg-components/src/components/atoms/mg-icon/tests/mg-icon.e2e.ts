@@ -27,7 +27,7 @@ test.describe('mg-icon', () => {
 
   variantStyles.forEach(variantStyle => {
     test(`render variants, with variantStyle ${variantStyle}`, async ({ page }) => {
-      const html = variants.map(variant => sizes.map(size => createHTML({ icon: 'check-circle', variant, variantStyle, size })).join('')).join('');
+      const html = variants.map(variant => sizes.map(size => createHTML({ icon: 'dashboard', variant, variantStyle, size })).join('')).join('');
 
       page.addStyleTag({ content: 'mg-icon[variant="app"]{--mg-b-color-app:#190099}' });
       await page.setContent(html);

@@ -55,7 +55,8 @@
   },
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
-    "*.{json,yaml,yml,md,mdx}": "prettier --write"
+    "*.{json,yaml,yml,md,mdx}": "prettier --write",
+    "*.{scss}": "stylelint --fix"
   },
   "dependencies": {
     "@changesets/cli": "2.27.5",

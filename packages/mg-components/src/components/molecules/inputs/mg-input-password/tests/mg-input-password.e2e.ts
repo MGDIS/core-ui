@@ -87,7 +87,10 @@ test.describe('mg-input-password', () => {
 
   [
     { readonly: true },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
     { value: 'blu' },
+    { value: 'blu', readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+    { value: 'blu', readonly: true, tooltip: 'tooltip', tooltipPosition: 'label' },
     { value: 'blu', readonly: true },
     { value: 'blu', readonly: true, labelOnTop: true },
     { disabled: true },

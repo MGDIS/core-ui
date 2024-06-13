@@ -39,6 +39,8 @@ test.describe('mg-input-checkbox', () => {
         { ...baseArgs, helpText: 'HelpText Message', required: true, disabled: true },
         { ...baseArgs, type, tooltip: 'blu' },
         { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label' },
+        { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label', readonly: true },
+        { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'input', readonly: true },
         { ...baseArgs, type, tooltip: 'blu', tooltipPosition: 'label', labelOnTop: true },
       ].forEach(args => {
         test(`Should render with template ${renderAttributes(args)}`, async ({ page }) => {
@@ -51,6 +53,23 @@ test.describe('mg-input-checkbox', () => {
               { title: 'Joker', value: null },
               { title: 'Bane', value: true, disabled: true },
             ],
+          };
+          const html = createHTML(componentArgs);
+          await page.setContent(html);
+          await page.addScriptTag({ content: renderProperties(componentArgs, `[identifier="${componentArgs.identifier}"]`) });
+
+          await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+        });
+      });
+
+      test.describe('readonly', () => {
+        test(`Should render with tooltip`, async ({ page }) => {
+          const componentArgs = {
+            ...baseArgs,
+            type,
+            readonly: true,
+            tooltip: 'tooltip',
+            tooltipPosition: 'input',
           };
           const html = createHTML(componentArgs);
           await page.setContent(html);
