@@ -2,7 +2,7 @@
 
 ### Sizing
 
-![](./doc/img/mg-icon-sizing.png) 
+![](./docs/img/mg-icon-sizing.png) 
 
 Sizes (px):
 
@@ -14,7 +14,7 @@ Sizes (px):
 
 ### With "variant" applied
 
-![](./doc/img/mg-icon-sizing-variant.png)
+![](./docs/img/mg-icon-sizing-variant.png)
 
 When *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.
 The icon is centered in it.
@@ -23,7 +23,7 @@ The icon is centered in it.
 
 ### Default
 
-![](./doc/img/mg-icon-styling-default.png)
+![](./docs/img/mg-icon-styling-default.png)
 
 Default color for the icon is the color used for the text.
 Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))
@@ -32,10 +32,10 @@ Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs)
 
 
 ### Variant
-![](./doc/img/mg-icon-styling-iconVariant.png) 
+![](./docs/img/mg-icon-styling-iconVariant.png) 
 
 
-![](./doc/img/mg-icon-styling-variant.png) 
+![](./docs/img/mg-icon-styling-variant.png) 
 
 "variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or "app color" to the background of the icon with Lightness set to 90% 
 You can select "variant style" to apply "variant" on the icon or the background or both.
@@ -77,6 +77,7 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
 ### Used by
 
  - [mg-action-more](../../molecules/mg-action-more)
+ - [mg-alert](../../molecules/mg-alert)
  - [mg-button](../mg-button)
  - [mg-details](../../molecules/mg-details)
  - [mg-input](../../molecules/inputs/mg-input)
@@ -98,6 +99,7 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
 ```mermaid
 graph TD;
   mg-action-more --> mg-icon
+  mg-alert --> mg-icon
   mg-button --> mg-icon
   mg-details --> mg-icon
   mg-input --> mg-icon

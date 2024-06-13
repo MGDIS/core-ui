@@ -21,7 +21,8 @@
     }
   },
   "scripts": {
-    "build": "tsc --noEmit && vite build && typedoc",
+    "build": "tsc --noEmit && vite build",
+    "doc": "typedoc",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",

@@ -1,5 +1,3 @@
-@use 'sass:list';
-@use '../variables' as variables;
 @import 'mixins/reset-mg-card-slotted-variables';
 
 /*!
@@ -33,26 +31,4 @@
   box-shadow: var(--mg-c-card-box-shadow, var(--mg-c-card-box-shadow-default));
 
   @include reset-slot-card-variables;
-
-  @each $variant, $color in list.join(variables.$app, variables.$semantics) {
-    &.mg-c-card--#{$variant} {
-      overflow: hidden;
-
-      &.mg-c-card--bar-left .mg-c-card__bar {
-        background-color: var(--mg-b-color-#{$variant});
-      }
-
-      &.mg-c-card--fill {
-        background-color: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
-      }
-    }
-  }
-
-  &__bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: var(--mg-b-size-4);
-    height: 100%;
-  }
 }

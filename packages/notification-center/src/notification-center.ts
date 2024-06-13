@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import type { MessageData } from './types';
+import type { NotificationData } from './types';
 import sanitizeHtml from 'sanitize-html';
 
 /**
@@ -8,7 +8,8 @@ import sanitizeHtml from 'sanitize-html';
 class NotificationCenter {
   #rootWindow: Window;
 
-  #messagesReceiver: HTMLDivElement = document.createElement('div');
+  #notificationsReceiver: HTMLDivElement = document.createElement('div');
+  #notifactionTagName: undefined | 'mg-message' | 'mg-alert';
 
   readonly #appId: string = 'mg-notification-center';
 
@@ -17,16 +18,27 @@ class NotificationCenter {
     this.#rootWindow = this.#getRootWindow(window);
     // If the window is not in an iframe
     if (!this.#isInIframe(window)) {
-      // Check if mg-components is loaded
-      if (customElements.get('mg-message') === undefined) {
-        console.error('mg-components is not loaded.');
-      }
-      // We listen to events
-      this.#addEventListener(this.#rootWindow, ({ data }: { data: MessageData }) => {
-        if (data.appId === this.#appId) this.#displayMessage(data);
+      console.warn('Waiting for mg-components to load.');
+
+      customElements.whenDefined('mg-message').then(() => {
+        // Check if mg-components is loaded
+        if (customElements.get('mg-alert')) {
+          // >=mg-compnents@v6
+          this.#notifactionTagName = 'mg-alert';
+        } else if (customElements.get('mg-message')) {
+          // <=mg-compnents@v5
+          this.#notifactionTagName = 'mg-message';
+        }
+
+        // We listen to events
+        this.#addEventListener(this.#rootWindow, ({ data }: { data: NotificationData }) => {
+          if (data.appId === this.#appId) this.#displayNotification(data);
+        });
+
+        // When DOM is ready we add our CSS and the notifications zone
+        if (this.#rootWindow.document.readyState === 'complete') this.#render();
       });
-      // When DOM is ready we add our CSS and the notifications zone
-      if (this.#rootWindow.document.readyState === 'complete') this.#render();
+
       this.#rootWindow.addEventListener('DOMContentLoaded', () => {
         this.#render();
       });
@@ -41,7 +53,7 @@ class NotificationCenter {
     if (this.#rootWindow.document.getElementById(this.#appId) === null) {
       // Add style
       const css: Text = document.createTextNode(
-        `#${this.#appId} {
+        `#${this.#appId}.notification-center {
           position: fixed;
           bottom: 0;
           right: 0;
@@ -55,12 +67,12 @@ class NotificationCenter {
           pointer-events: none;
           z-index: 1000;
         }
-        #${this.#appId} mg-message {
+        #${this.#appId} .notification-center__notification {
           pointer-events: auto;
           animation: append-item .4s ease;
         }
         @media (prefers-reduced-motion) {
-          #${this.#appId} mg-message {
+          #${this.#appId} .notification-center__notification {
             animation: none;
           }
         }
@@ -79,9 +91,10 @@ class NotificationCenter {
       style.appendChild(css);
       this.#rootWindow.document.head.appendChild(style);
       // Add div to receive notifications
-      this.#messagesReceiver.innerHTML = '';
-      this.#messagesReceiver.id = this.#appId;
-      this.#rootWindow.document.body.appendChild(this.#messagesReceiver);
+      this.#notificationsReceiver.innerHTML = '';
+      this.#notificationsReceiver.id = this.#appId;
+      this.#notificationsReceiver.classList.add('notification-center');
+      this.#rootWindow.document.body.appendChild(this.#notificationsReceiver);
     }
   };
 
@@ -105,12 +118,12 @@ class NotificationCenter {
   };
 
   /**
-   * Post message to root window
+   * Post notification to root window
    *
-   * @param message - message data
+   * @param notification - notification data
    */
-  postMessage = (message: MessageData): void => {
-    this.#rootWindow.postMessage({ ...message, appId: this.#appId }, document.location.origin);
+  postMessage = (notification: NotificationData): void => {
+    this.#rootWindow.postMessage({ ...notification, appId: this.#appId }, document.location.origin);
   };
 
   /**
@@ -132,35 +145,43 @@ class NotificationCenter {
   };
 
   /**
-   * Display message
+   * Display notification
    *
-   * @param message - message data
+   * @param notification - notification data
    */
-  #displayMessage = ({ content, variant, delay, context }: MessageData): void => {
-    // Remove mg-messages with same context
-    if (context)
-      this.#messagesReceiver.querySelectorAll(`mg-message[data-mg-message-context='${context}']`).forEach(mgMessage => {
-        mgMessage.remove();
+  #displayNotification = ({ content, variant, delay, context }: NotificationData): void => {
+    // Remove notification with same context
+    if (context) {
+      this.#notificationsReceiver.querySelectorAll(`${this.#notifactionTagName}[data-notification-context='${context}']`).forEach(element => {
+        element.remove();
       });
-    // Init mg-message
-    const mgMessage: HTMLElement = document.createElement('mg-message');
-    mgMessage.setAttribute('close-button', '');
+    }
+
+    if (!this.#notifactionTagName) {
+      console.error("notification-center won't work properly.");
+      return;
+    }
+
+    // Init notification
+    const notificationElement: HTMLElement = document.createElement(this.#notifactionTagName);
+    notificationElement.classList.add('notification-center__notification');
+    notificationElement.setAttribute('close-button', '');
     // Variant
-    if (variant) mgMessage.setAttribute('variant', variant);
+    if (variant) notificationElement.setAttribute('variant', variant);
     // Delay
     if (delay === undefined && variant === 'success') delay = 5;
     else if (delay !== undefined && delay < 3) delay = undefined;
-    if (delay) mgMessage.setAttribute('delay', delay.toString());
+    if (delay) notificationElement.setAttribute('delay', delay.toString());
     // Context
-    if (context) mgMessage.dataset.mgMessageContext = context;
-    // Remove message on close
-    mgMessage.addEventListener('component-hide', () => {
-      mgMessage.remove();
+    if (context) notificationElement.dataset.notificationContext = context;
+    // Remove notification on close
+    notificationElement.addEventListener('component-hide', () => {
+      notificationElement.remove();
     });
     // Add content
-    mgMessage.innerHTML = sanitizeHtml(content);
-    // Add mg-message
-    this.#messagesReceiver.appendChild(mgMessage);
+    notificationElement.innerHTML = sanitizeHtml(content);
+    // Add notification
+    this.#notificationsReceiver.appendChild(notificationElement);
   };
 }
 

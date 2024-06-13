@@ -14,7 +14,7 @@ services:
       - ./packages/notification-center/src:/app/packages/notification-center/src
       - ./packages/notification-center/playwright-report:/app/packages/notification-center/playwright-report
       - ./packages/notification-center/test-results:/app/packages/notification-center/test-results
-      - ./packages/styles/test:/app/packages/styles/test
+      - ./packages/styles/tests:/app/packages/styles/tests
       - ./packages/styles/playwright-report:/app/packages/styles/playwright-report
       - ./packages/styles/test-results:/app/packages/styles/test-results
     # Following is based on Playwright recommendation: https://playwright.dev/docs/ci#docker

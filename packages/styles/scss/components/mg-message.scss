@@ -18,15 +18,21 @@
   display: inline-block;
   min-height: var(--mg-b-size-min-height);
 
-  @each $semantic in variables.$semantics {
+  @each $semantic, $color in variables.$semantics {
     $variant: list.nth($semantic, 1);
-    &.mg-c-message--#{$variant} .mg-c-message__icon {
-      color: var(--mg-b-color-#{$variant});
-    }
-  }
+    &.mg-c-message--#{$variant} {
+      .mg-c-message__icon {
+        color: var(--mg-b-color-#{$variant});
+      }
 
-  &.mg-c-message--close-button {
-    --mg-c-card-spacing: 0 var(--mg-b-size-min-height) 0 0;
+      &.mg-c-message--bar-left .mg-c-message__bar {
+        background-color: var(--mg-b-color-#{$variant});
+      }
+
+      &.mg-c-message--background {
+        --mg-c-card-color-background: var(--mg-b-color-#{$color}-#{variables.$palette-index-light}, color-mix(in srgb, var(--mg-b-color-#{$variant}), white 80%));
+      }
+    }
   }
 
   ::slotted(*) {
@@ -66,10 +72,12 @@
     text-align: right;
   }
 
-  &__close-button {
+  &__bar {
     position: absolute;
     top: 0;
-    right: 0;
+    left: 0;
+    width: var(--mg-b-size-4);
+    height: 100%;
   }
 
   @include reset-slot-card-variables;
