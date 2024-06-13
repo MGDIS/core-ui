@@ -90,6 +90,17 @@ const inputsScriptRequiredSome = `
   mgInputRadio.required = true;
   mgInputText.required = true;`;
 
+const inputsScriptTooltipAll = `
+  mgInputCheckbox.tooltip = 'tooltip';
+  mgInputDate.tooltip = 'tooltip';
+  mgInputNumeric.tooltip = 'tooltip';
+  mgInputPassword.tooltip = 'tooltip';
+  mgInputRadio.tooltip = 'tooltip';
+  mgInputSelect.tooltip = 'tooltip';
+  mgInputText.tooltip = 'tooltip';
+  mgInputTextarea.tooltip = 'tooltip';
+  mgInputToggle.tooltip = 'tooltip';`;
+
 const inputsScriptRequiredSingle = `
   mgInputCheckbox.required = true;`;
 
@@ -127,6 +138,16 @@ test.describe('mg-form', () => {
         await page.setContent(html);
         await page.addScriptTag({ content: inputsScript });
         await page.addScriptTag({ content: inputsScriptSetValues });
+
+        await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
+      });
+
+      test(`Should render with tooltip`, async ({ page }) => {
+        const html = createHTML(args, inputs);
+        await page.setContent(html);
+        await page.addScriptTag({ content: inputsScript });
+        await page.addScriptTag({ content: inputsScriptSetValues });
+        await page.addScriptTag({ content: inputsScriptTooltipAll });
 
         await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();
       });

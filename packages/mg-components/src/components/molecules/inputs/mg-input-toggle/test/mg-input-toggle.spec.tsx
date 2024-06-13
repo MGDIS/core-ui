@@ -77,6 +77,10 @@ describe('mg-input-toggle', () => {
       },
       {
         readonly: true,
+        tooltip: 'tooltip',
+      },
+      {
+        readonly: true,
         tooltip: 'My Tooltip Message',
         tooltipPosition: 'input',
       },
