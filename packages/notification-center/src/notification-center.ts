@@ -53,7 +53,7 @@ class NotificationCenter {
           align-items: flex-end;
           gap: 0.5rem;
           pointer-events: none;
-          z-index: 1000;
+          z-index: 2000;
         }
         #${this.#appId} mg-message {
           pointer-events: auto;
