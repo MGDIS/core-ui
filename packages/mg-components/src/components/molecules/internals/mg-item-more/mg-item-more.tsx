@@ -1,17 +1,17 @@
 import { Component, h, Prop, Element, Host, Watch, State } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
-import { Direction, sizes } from '../menu/mg-menu/mg-menu.conf';
-import { OverflowBehavior } from '../../../utils/behaviors.utils';
-import { initLocales } from '../../../locales';
 import type { IconType, SizeType, SlotLabelType } from './mg-item-more.conf';
-import type { MessageType } from '../../../locales/index.conf';
+import type { MessageType } from '../../../../locales/index.conf';
+import { OverflowBehavior } from '../../../../utils/behaviors.utils';
+import { Direction, sizes } from '../../menu/mg-menu/mg-menu.conf';
+import { initLocales } from '../../../../locales';
 
 /**
  * @internal
  */
 @Component({
   tag: 'mg-item-more',
-  styleUrl: '../../../../node_modules/@mgdis/styles/dist/components/mg-item-more.css',
+  styleUrl: '../../../../../node_modules/@mgdis/styles/dist/components/mg-item-more.css',
   shadow: true,
 })
 export class MgItemMore {

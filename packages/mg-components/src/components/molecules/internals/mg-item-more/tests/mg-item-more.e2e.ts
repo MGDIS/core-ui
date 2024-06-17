@@ -1,9 +1,9 @@
 import { expect } from '@playwright/test';
 import { renderAttributes } from '@mgdis/playwright-helpers';
-import { test } from '../../../../utils/playwright.fixture';
-import { OverflowBehaviorElements } from '../../../../utils/behaviors.utils';
-import { Status } from '../../menu/mg-menu-item/mg-menu-item.conf';
-import { Direction, MenuSizeType, sizes } from '../../menu/mg-menu/mg-menu.conf';
+import { test } from '../../../../../utils/playwright.fixture';
+import { OverflowBehaviorElements } from '../../../../../utils/behaviors.utils';
+import { Status } from '../../../menu/mg-menu-item/mg-menu-item.conf';
+import { Direction, type MenuSizeType, sizes } from '../../../menu/mg-menu/mg-menu.conf';
 
 const verticalFrameSizes = {
   medium: {
