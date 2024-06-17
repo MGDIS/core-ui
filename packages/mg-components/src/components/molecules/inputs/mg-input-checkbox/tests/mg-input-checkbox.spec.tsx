@@ -57,39 +57,41 @@ describe('mg-input-checkbox', () => {
   });
 
   describe.each([...checkboxTypes, undefined])('render by type %s', type => {
-    let testValues: unknown[] = [
-      { label: 'label', identifier: 'identifier', value: getValues(), type },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, readonly: true },
-      { label: 'label', identifier: 'identifier', value: getValues().map(value => ({ ...value, value: true })), type, readonly: true },
-      { label: 'label', identifier: 'identifier', value: getValues().map(value => ({ ...value, value: true })), type, readonly: true, inputVerticalList: true },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, labelOnTop: true },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, labelHide: true },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, inputVerticalList: true },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, required: true },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, required: true, readonly: true, helpText: 'Hello joker' },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, required: true, disabled: true, helpText: 'Hello joker' },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, disabled: true },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, helpText: 'Hello joker' },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license' },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license', tooltipPosition: 'label' },
-      { label: 'label', identifier: 'identifier', value: getValues(), type, tooltip: 'Batman is a DC Comics license', tooltipPosition: 'input', labelOnTop: true },
+    let testValues: Partial<MgInputCheckbox>[] = [
+      { value: getValues(), type },
+      { value: getValues(), type, readonly: true },
+      { value: getValues(), type, readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+      { value: getValues().map(value => ({ ...value, value: true })), type, readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
+      { value: getValues().map(value => ({ ...value, value: true })), type, readonly: true },
+      { value: getValues().map(value => ({ ...value, value: true })), type, readonly: true, inputVerticalList: true },
+      { value: getValues(), type, labelOnTop: true },
+      { value: getValues(), type, labelHide: true },
+      { value: getValues(), type, inputVerticalList: true },
+      { value: getValues(), type, required: true },
+      { value: getValues(), type, required: true, readonly: true, helpText: 'Hello joker' },
+      { value: getValues(), type, required: true, disabled: true, helpText: 'Hello joker' },
+      { value: getValues(), type, readonly: true, labelOnTop: true, tooltip: 'Tooltip message' },
+      { value: getValues(), type, disabled: true },
+      { value: getValues(), type, helpText: 'Hello joker' },
+      { value: getValues(), type, tooltip: 'Batman is a DC Comics license' },
+      { value: getValues(), type, tooltip: 'Batman is a DC Comics license', tooltipPosition: 'label' },
+      { value: getValues(), type, tooltip: 'Batman is a DC Comics license', tooltipPosition: 'input', labelOnTop: true },
     ];
     if (type === 'multi') {
       testValues = [
         ...testValues,
         ...[true, false].flatMap(displaySelectedValues =>
           [
-            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', readonly: true },
-            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', disabled: true },
-            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', helpText: 'Hello joker' },
-            { label: 'label', identifier: 'identifier', value: getValues(), type: 'multi', tooltip: 'Batman is a DC Comics license' },
+            { value: getValues(), type: 'multi' as MgInputCheckbox['type'], readonly: true },
+            { value: getValues(), type: 'multi' as MgInputCheckbox['type'], disabled: true },
+            { value: getValues(), type: 'multi' as MgInputCheckbox['type'], helpText: 'Hello joker' },
+            { value: getValues(), type: 'multi' as MgInputCheckbox['type'], tooltip: 'Batman is a DC Comics license' },
           ].map(args => ({ ...args, displaySelectedValues })),
         ),
       ];
     }
     test.each(testValues)('Should render with args %s:', async args => {
-      const { root } = await getPage(args);
+      const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
       expect(root).toMatchSnapshot();
     });
 
@@ -427,6 +429,53 @@ describe('mg-input-checkbox', () => {
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
+    });
+
+    test('Should NOT render error when uncheck from label click', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message', required: true });
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const label = element.shadowRoot.querySelector('label');
+      const input = allInputs[0];
+
+      //mock validity
+      allInputs.forEach(input => {
+        input.checkValidity = jest.fn(() => false);
+        Object.defineProperty(input, 'validity', {
+          get: jest.fn(() => ({
+            valueMissing: true,
+          })),
+        });
+      });
+
+      // mock trigger input click when label is clicked
+      label.addEventListener('click', () => {
+        input.checked = !input.checked;
+        input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+        // when input change from a label "click" event a "blur" event is emit
+        input.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
+      });
+
+      label.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot(); //Snapshot on mouseenter
+
+      label.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(input.value).toEqual('false');
+      expect(page.root).toMatchSnapshot(); //Snapshot on click
+
+      label.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot(); //Snapshot on mouseleave
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot(); //Snapshot on blur
     });
 
     test.each(['next', 'prev'])('should manage keyboard "tab" navigation on "multi" type', async direction => {

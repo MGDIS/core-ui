@@ -553,8 +553,6 @@ exports[`mg-input-date Should override keyboard event even if display error 2`] 
 `;
 
 exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}'
 }: 1`] = `
 <mg-input-date>
@@ -605,42 +603,9 @@ exports[`mg-input-date Should render with args {
 `;
 
 exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   readonly: true,
-  labelOnTop: true,
-  tooltip: 'Tooltip message'
-}: 1`] = `
-<mg-input-date>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  readonly: true,
+  tooltip: 'tooltip',
+  tooltipPosition: 'input',
   value: '2022-06-02'
 }: 1`] = `
 <mg-input-date value="2022-06-02">
@@ -653,6 +618,9 @@ exports[`mg-input-date Should render with args {
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="tooltip">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
           </div>
         </div>
       </mock:shadow-root>
@@ -673,80 +641,6 @@ exports[`mg-input-date Should render with args {
 `;
 
 exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  readonly: true,
-  value: '2022-06-02',
-  lang: 'fr'
-}: 1`] = `
-<mg-input-date lang="fr" value="2022-06-02">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        02/06/2022
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  readonly: true,
-  value: '2022-06-02',
-  lang: 'xx'
-}: 1`] = `
-<mg-input-date lang="xx" value="2022-06-02">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <b class="mg-c-input__readonly-value">
-        6/2/2022
-      </b>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   required: true,
   disabled: true,
   value: '2022-06-02',
@@ -786,8 +680,6 @@ exports[`mg-input-date Should render with args {
 `;
 
 exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   required: true,
   readonly: true,
   value: '2022-06-02',
@@ -823,150 +715,6 @@ exports[`mg-input-date Should render with args {
 `;
 
 exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  required: true,
-  value: '2022-06-02',
-  helpText: 'My help text'
-}: 1`] = `
-<mg-input-date value="2022-06-02">
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
-      <div id="identifier-help-text" slot="help-text">
-        My help text
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-          <span class="mg-c-input-title__required">
-            <span class="mg-u-is-asterisk">
-              *
-            </span>
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  tooltip: 'My Tooltip Message'
-}: 1`] = `
-<mg-input-date>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-              <mg-icon icon="info-circle"></mg-icon>
-            </mg-tooltip>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  tooltip: 'My Tooltip Message',
-  labelOnTop: true
-}: 1`] = `
-<mg-input-date>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
-            <mg-icon icon="info-circle"></mg-icon>
-          </mg-tooltip>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
   tooltip: 'My Tooltip Message',
   tooltipPosition: 'input',
   labelOnTop: true
@@ -1014,12 +762,393 @@ exports[`mg-input-date Should render with args {
 </mg-input-date>
 `;
 
-exports[`mg-input-date Should render with args {
-  label: 'label',
-  identifier: 'identifier',
-  tooltip: 'My Tooltip Message',
-  tooltipPosition: 'label'
-}: 1`] = `
+exports[`mg-input-date Should render with args { labelHide: true }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date">
+      <mock:shadow-root>
+        <div class="mg-c-input__title mg-u-visually-hidden">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { labelOnTop: true }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { readonly: true }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="tooltip">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { readonly: true, value: '2022-06-02' }: 1`] = `
+<mg-input-date value="2022-06-02">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        6/2/2022
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { readonly: true, value: '2022-06-02', lang: 'fr' }: 1`] = `
+<mg-input-date lang="fr" value="2022-06-02">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        02/06/2022
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { readonly: true, value: '2022-06-02', lang: 'xx' }: 1`] = `
+<mg-input-date lang="xx" value="2022-06-02">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <b class="mg-c-input__readonly-value">
+        6/2/2022
+      </b>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
+        <!---->
+        <span class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </span>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { required: true, value: '2022-06-02', helpText: 'My help text' }: 1`] = `
+<mg-input-date value="2022-06-02">
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+          <span class="mg-c-input-title__required">
+            <span class="mg-u-is-asterisk">
+              *
+            </span>
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+            <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+              <mg-icon icon="info-circle"></mg-icon>
+            </mg-tooltip>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
+<mg-input-date>
+  <mock:shadow-root>
+    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
+      <mock:shadow-root>
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+          <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
+            <mg-icon icon="info-circle"></mg-icon>
+          </mg-tooltip>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </mock:shadow-root>
+      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
+      <div id="identifier-help-text" slot="help-text">
+        Expected format:
+        <span aria-hidden="true">
+          mm/dd/yyyy
+        </span>
+        <span class="mg-u-visually-hidden">
+          m m / d d / y y y y
+        </span>
+        (ex: 12/24/2023)
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </mock:shadow-root>
+</mg-input-date>
+`;
+
+exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--date">
@@ -1063,7 +1192,7 @@ exports[`mg-input-date Should render with args {
 </mg-input-date>
 `;
 
-exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier' }: 1`] = `
+exports[`mg-input-date Should render with args {}: 1`] = `
 <mg-input-date>
   <mock:shadow-root>
     <mg-input class="mg-c-input mg-c-input--date">
@@ -1098,115 +1227,6 @@ exports[`mg-input-date Should render with args { label: 'label', identifier: 'id
             label
           </span>
         </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', labelHide: true }: 1`] = `
-<mg-input-date>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
-        <div class="mg-c-input__title mg-u-visually-hidden">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', labelOnTop: true }: 1`] = `
-<mg-input-date>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-          <div class="mg-c-input__help-text">
-            <slot name="help-text"></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
-      <div id="identifier-help-text" slot="help-text">
-        Expected format:
-        <span aria-hidden="true">
-          mm/dd/yyyy
-        </span>
-        <span class="mg-u-visually-hidden">
-          m m / d d / y y y y
-        </span>
-        (ex: 12/24/2023)
-      </div>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
-        <!---->
-        <label class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </label>
-      </mg-input-title>
-    </mg-input>
-  </mock:shadow-root>
-</mg-input-date>
-`;
-
-exports[`mg-input-date Should render with args { label: 'label', identifier: 'identifier', readonly: true }: 1`] = `
-<mg-input-date>
-  <mock:shadow-root>
-    <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </mock:shadow-root>
-      <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
-        <!---->
-        <span class="mg-c-input-title" htmlfor="identifier">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </span>
       </mg-input-title>
     </mg-input>
   </mock:shadow-root>

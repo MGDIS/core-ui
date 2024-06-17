@@ -74,6 +74,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         _handleInput: this.handleInput.bind(this),
         _handleBlur: this.handleBlur.bind(this),
         _handleKeydown: this.handleKeydown.bind(this),
+        _handleMouseEnter: this.handleMouseEnter.bind(this),
+        _handleMouseLeave: this.handleMouseLeave.bind(this),
       }));
       this.valueChange.emit(newValue);
     } else {
@@ -359,7 +361,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Handle blur event
    */
-  private handleBlur = (): void => {
+  private handleBlur = (event: MouseEvent): void => {
+    if (this.handlerInProgress === Handler.MOUSEENTER) {
+      event.preventDefault();
+      return;
+    }
     // set guard
     this.handlerInProgress = Handler.BLUR;
 
@@ -418,6 +424,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   };
 
   /**
+   * Handle input label mouseenter event
+   */
+  private handleMouseEnter = () => {
+    this.handlerInProgress = Handler.MOUSEENTER;
+  };
+
+  /**
+   * Handle input label leave event
+   */
+  private handleMouseLeave = () => {
+    this.handlerInProgress = undefined;
+  };
+
+  /**
    * Update values
    */
   private updateValues = (): void => {
@@ -425,6 +445,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       delete o._handleBlur;
       delete o._handleInput;
       delete o._handleKeydown;
+      delete o._handleMouseEnter;
+      delete o._handleMouseLeave;
       delete o._id;
       return o;
     });
@@ -676,8 +698,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Renders the readonly value of the input.
    * @returns The rendered readonly value.
    */
-  private renderReadonly = (): HTMLElement => {
-    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+  private renderReadonly = (readonlyValue: string[]): HTMLElement => {
     return this.inputVerticalList ? (
       <ul class="mg-c-input__readonly-value">
         {readonlyValue.map(value => (
@@ -713,8 +734,10 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   render(): HTMLElement {
     let inputContent: HTMLElement;
+    const readonlyValue = this.value.filter(({ value }) => value).map(({ title }) => title);
+
     if (this.readonly) {
-      inputContent = this.renderReadonly();
+      inputContent = this.renderReadonly(readonlyValue);
     } else if (this.type === 'checkbox') {
       inputContent = this.renderMgInputCheckboxList();
     } else {
@@ -730,8 +753,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
-        tooltip={!this.readonly ? this.tooltip : undefined}
-        tooltipPosition={this.tooltipPosition}
+        tooltip={this.tooltip}
+        tooltipPosition={this.readonly && !readonlyValue.length ? 'label' : this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >

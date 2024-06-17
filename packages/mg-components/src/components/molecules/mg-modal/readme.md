@@ -11,6 +11,7 @@
 | `dialogRole`              | `dialog-role`  | Modal dialog role.                                                                                          | `"alertdialog" \| "dialog"` | `dialogRoles[0]`       |
 | `identifier`              | `identifier`   | Identifier is used for the element ID (id is a reserved prop in Stencil.js) If not set, it will be created. | `string`                    | `createID('mg-modal')` |
 | `modalTitle` _(required)_ | `modal-title`  | Displayed modal title                                                                                       | `string`                    | `undefined`            |
+| `open`                    | `open`         | Define if modal is open                                                                                     | `boolean`                   | `false`                |
 
 
 ## Events
@@ -25,8 +26,8 @@
 
 | Slot        | Description     |
 | ----------- | --------------- |
+|             | Modal content   |
 | `"actions"` | Actions content |
-| `"content"` | Modal content   |
 
 
 ## CSS Custom Properties

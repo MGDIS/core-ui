@@ -327,7 +327,7 @@ export class MgInputToggle {
         labelOnTop={this.labelOnTop}
         labelHide={this.labelHide}
         required={undefined}
-        tooltip={!this.readonly && this.tooltip}
+        tooltip={this.tooltip}
         tooltipPosition={this.tooltipPosition}
         errorMessage={this.errorMessage}
       >

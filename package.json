@@ -55,7 +55,8 @@
   },
   "lint-staged": {
     "*.{js,ts,mjs,mts,cjs,tsx}": "eslint --fix --ignore-path .gitignore",
-    "*.{json,yaml,yml,md,mdx}": "prettier --write"
+    "*.{json,yaml,yml,md,mdx}": "prettier --write",
+    "*.{scss}": "stylelint --fix"
   },
   "dependencies": {
     "@changesets/cli": "2.27.5",
@@ -63,8 +64,8 @@
     "codename": "0.0.6",
     "eslint-config-custom": "workspace:*",
     "husky": "9.0.11",
-    "lint-staged": "15.2.5",
+    "lint-staged": "15.2.7",
     "prettier-config": "workspace:*",
-    "turbo": "1.13.3"
+    "turbo": "1.13.4"
   }
 }

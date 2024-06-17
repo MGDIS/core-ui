@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-06-13T15:38:34",
+  "timestamp": "2024-06-17T08:09:43",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.18.2",
+    "version": "4.18.3",
     "typescriptVersion": "5.4.5"
   },
   "components": [
@@ -11215,7 +11215,7 @@
       "docsTags": [
         {
           "name": "slot",
-          "text": "content - Modal content"
+          "text": "- Modal content"
         },
         {
           "name": "slot",
@@ -11321,6 +11321,28 @@
           ],
           "optional": false,
           "required": true
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "complexType": {
+            "original": "boolean",
+            "resolved": "boolean",
+            "references": {}
+          },
+          "mutable": true,
+          "attr": "open",
+          "reflectToAttr": false,
+          "docs": "Define if modal is open",
+          "docsTags": [],
+          "default": "false",
+          "values": [
+            {
+              "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
         }
       ],
       "methods": [],
@@ -11354,14 +11376,7 @@
           "docsTags": []
         }
       ],
-      "listeners": [
-        {
-          "event": "keydown",
-          "target": "window",
-          "capture": false,
-          "passive": false
-        }
-      ],
+      "listeners": [],
       "styles": [
         {
           "name": "--mg-c-modal-border-radius",
@@ -11376,12 +11391,12 @@
       ],
       "slots": [
         {
-          "name": "actions",
-          "docs": "Actions content"
+          "name": "",
+          "docs": "Modal content"
         },
         {
-          "name": "content",
-          "docs": "Modal content"
+          "name": "actions",
+          "docs": "Actions content"
         }
       ],
       "parts": [],
@@ -12949,20 +12964,20 @@
       "docstring": "",
       "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
     },
-    "src/components/molecules/mg-item-more/mg-item-more.conf.ts::IconType": {
+    "src/components/molecules/internals/mg-item-more/mg-item-more.conf.ts::IconType": {
       "declaration": "{\n    [P in K]: T[P];\n}",
       "docstring": "",
-      "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
+      "path": "src/components/molecules/internals/mg-item-more/mg-item-more.conf.ts"
     },
-    "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SlotLabelType": {
+    "src/components/molecules/internals/mg-item-more/mg-item-more.conf.ts::SlotLabelType": {
       "declaration": "{\n  label?: string;\n  display?: boolean;\n}",
       "docstring": "",
-      "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
+      "path": "src/components/molecules/internals/mg-item-more/mg-item-more.conf.ts"
     },
-    "src/components/molecules/mg-item-more/mg-item-more.conf.ts::SizeType": {
+    "src/components/molecules/internals/mg-item-more/mg-item-more.conf.ts::SizeType": {
       "declaration": "\"medium\" | \"large\" | \"xlarge\"",
       "docstring": "",
-      "path": "src/components/molecules/mg-item-more/mg-item-more.conf.ts"
+      "path": "src/components/molecules/internals/mg-item-more/mg-item-more.conf.ts"
     },
     "../../node_modules/.pnpm/@popperjs+core@2.11.8/node_modules/@popperjs/core/index.d.ts::Placement": {
       "declaration": "any",
@@ -13000,7 +13015,7 @@
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem": {
-      "declaration": "export interface CheckboxItem extends CheckboxValue {\n  _id: string;\n  _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;\n  _handleBlur: () => void;\n  _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;\n}",
+      "declaration": "export interface CheckboxItem extends CheckboxValue {\n  _id: string;\n  _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;\n  _handleBlur: () => void;\n  _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;\n  _handleMouseEnter: () => void;\n  _handleMouseLeave: () => void;\n}",
       "docstring": "interface CheckboxItem\nuse to match checkbox attributes",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },

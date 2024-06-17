@@ -327,12 +327,12 @@ export class MgInput {
       <Host class={this.element.classList.toString()} role={isGroup ? 'group' : undefined} aria-labelledby={isGroup ? `${this.identifier}-title` : undefined}>
         <div class={{ 'mg-c-input__title': true, 'mg-u-visually-hidden': this.labelHide }}>
           <slot name={this.slotLabel}></slot>
-          {this.tooltip && !this.isReadonly && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
+          {this.tooltip && (this.tooltipPosition === 'label' || this.labelOnTop) && !this.labelHide && this.renderTooltip()}
         </div>
         <div class="mg-c-input__input-container">
           <div class="mg-c-input__input">
             <slot></slot>
-            {this.tooltip && !this.labelOnTop && !this.isReadonly && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
+            {this.tooltip && !this.labelOnTop && (this.tooltipPosition === 'input' || this.labelHide) && this.renderTooltip()}
           </div>
           {this.helptextMessageSlotElement && (
             <div class="mg-c-input__help-text">

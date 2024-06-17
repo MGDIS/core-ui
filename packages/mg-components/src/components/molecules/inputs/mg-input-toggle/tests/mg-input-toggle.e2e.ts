@@ -89,6 +89,7 @@ test.describe('mg-input-toggle', () => {
   [
     { tooltip: 'blu', tooltipPosition: 'label' as MgInputToggle['tooltipPosition'] },
     { tooltip: 'blu', tooltipPosition: 'input' as MgInputToggle['tooltipPosition'], labelOnTop: true },
+    { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' },
   ].forEach(args => {
     test(`Render with ${renderAttributes(args)}`, async ({ page }) => {
       await setPageContent(page, args);
