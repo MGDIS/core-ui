@@ -32,7 +32,9 @@ export const MgInputCheckboxList: FunctionalComponent<MgInputCheckboxListProps> 
           onBlur={input._handleBlur}
           onKeyDown={input._handleKeydown}
         />
-        <label htmlFor={input._id}>{input.title}</label>
+        <label htmlFor={input._id} onMouseEnter={input._handleMouseEnter} onMouseLeave={input._handleMouseLeave}>
+          {input.title}
+        </label>
       </li>
     ))}
   </ul>

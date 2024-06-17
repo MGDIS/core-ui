@@ -33,6 +33,7 @@ export type HTMLMgInputsElement =
 export enum Handler {
   BLUR = 'blur',
   FOCUS = 'focus',
+  MOUSEENTER = 'mouseenter',
 }
 
 export const classFieldset = 'mg-c-input--fieldset';
