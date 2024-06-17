@@ -431,6 +431,53 @@ describe('mg-input-checkbox', () => {
       expect(page.root).toMatchSnapshot();
     });
 
+    test('Should NOT render error when uncheck from label click', async () => {
+      const page = await getPage({ label: 'label', identifier: 'identifier', value: getValues(), type: 'checkbox', tooltip: 'Tooltip message', required: true });
+      const element = page.doc.querySelector('mg-input-checkbox');
+      const allInputs = Array.from(element.shadowRoot.querySelectorAll('input'));
+      const label = element.shadowRoot.querySelector('label');
+      const input = allInputs[0];
+
+      //mock validity
+      allInputs.forEach(input => {
+        input.checkValidity = jest.fn(() => false);
+        Object.defineProperty(input, 'validity', {
+          get: jest.fn(() => ({
+            valueMissing: true,
+          })),
+        });
+      });
+
+      // mock trigger input click when label is clicked
+      label.addEventListener('click', () => {
+        input.checked = !input.checked;
+        input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
+        // when input change from a label "click" event a "blur" event is emit
+        input.dispatchEvent(new MouseEvent('blur', { bubbles: true }));
+      });
+
+      label.dispatchEvent(new CustomEvent('mouseenter', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot(); //Snapshot on mouseenter
+
+      label.dispatchEvent(new CustomEvent('click', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(input.value).toEqual('false');
+      expect(page.root).toMatchSnapshot(); //Snapshot on click
+
+      label.dispatchEvent(new CustomEvent('mouseleave', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot(); //Snapshot on mouseleave
+
+      input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
+      await page.waitForChanges();
+
+      expect(page.root).toMatchSnapshot(); //Snapshot on blur
+    });
+
     test.each(['next', 'prev'])('should manage keyboard "tab" navigation on "multi" type', async direction => {
       const page = await getPage({
         label: 'label',

@@ -12881,7 +12881,7 @@
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem": {
-      "declaration": "export interface CheckboxItem extends CheckboxValue {\n  _id: string;\n  _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;\n  _handleBlur: () => void;\n  _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;\n}",
+      "declaration": "export interface CheckboxItem extends CheckboxValue {\n  _id: string;\n  _handleInput: (event: InputEvent & { target: HTMLInputElement }) => void;\n  _handleBlur: () => void;\n  _handleKeydown: (event: KeyboardEvent & { target: HTMLElement }) => void;\n  _handleMouseEnter: () => void;\n  _handleMouseLeave: () => void;\n}",
       "docstring": "interface CheckboxItem\nuse to match checkbox attributes",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },

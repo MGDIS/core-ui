@@ -74,6 +74,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         _handleInput: this.handleInput.bind(this),
         _handleBlur: this.handleBlur.bind(this),
         _handleKeydown: this.handleKeydown.bind(this),
+        _handleMouseEnter: this.handleMouseEnter.bind(this),
+        _handleMouseLeave: this.handleMouseLeave.bind(this),
       }));
       this.valueChange.emit(newValue);
     } else {
@@ -359,7 +361,11 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Handle blur event
    */
-  private handleBlur = (): void => {
+  private handleBlur = (event: MouseEvent): void => {
+    if (this.handlerInProgress === Handler.MOUSEENTER) {
+      event.preventDefault();
+      return;
+    }
     // set guard
     this.handlerInProgress = Handler.BLUR;
 
@@ -418,6 +424,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   };
 
   /**
+   * Handle input label mouseenter event
+   */
+  private handleMouseEnter = () => {
+    this.handlerInProgress = Handler.MOUSEENTER;
+  };
+
+  /**
+   * Handle input label leave event
+   */
+  private handleMouseLeave = () => {
+    this.handlerInProgress = undefined;
+  };
+
+  /**
    * Update values
    */
   private updateValues = (): void => {
@@ -425,6 +445,8 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       delete o._handleBlur;
       delete o._handleInput;
       delete o._handleKeydown;
+      delete o._handleMouseEnter;
+      delete o._handleMouseLeave;
       delete o._id;
       return o;
     });
