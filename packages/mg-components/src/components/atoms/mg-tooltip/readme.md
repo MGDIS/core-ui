@@ -99,7 +99,7 @@ Component's max-width is 400px.
 ### Used by
 
  - [mg-input](../../molecules/inputs/mg-input)
- - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
 
 ### Depends on
 

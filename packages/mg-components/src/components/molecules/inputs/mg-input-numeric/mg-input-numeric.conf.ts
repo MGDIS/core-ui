@@ -1,3 +1,5 @@
+import type { InputError } from '../../../../types';
+
 /**
  * List of all possibles types
  */
@@ -9,9 +11,4 @@ export const formats = ['none', 'number', 'currency'] as const;
 
 export type Format = (typeof formats)[number];
 
-export enum InputError {
-  MIN = 'min',
-  MAX = 'max',
-  MINMAX = 'minMax',
-  REQUIRED = 'required',
-}
+export type InputNumericError = InputError & ('min' | 'max' | 'minMax' | 'required');

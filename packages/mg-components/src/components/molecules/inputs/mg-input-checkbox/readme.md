@@ -132,7 +132,7 @@ Type: `Promise<void>`
 
 ### Depends on
 
-- [mg-input-checkbox-paginated](mg-input-checkbox-paginated)
+- mg-input-checkbox-paginated
 - [mg-popover](../../mg-popover)
 - [mg-button](../../../atoms/mg-button)
 - [mg-icon](../../../atoms/mg-icon)

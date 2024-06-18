@@ -193,12 +193,12 @@ export class MgActionMore {
             <div slot="content">
               <mg-menu direction={Direction.VERTICAL} label={this.messages.label}>
                 {this.items.map(item => (
-                  // eslint-disable-next-line react/jsx-no-bind
                   <mg-menu-item
                     key={item.label}
                     status={item.status || Status.VISIBLE}
                     target={item.target}
                     href={item.href}
+                    // eslint-disable-next-line react/jsx-no-bind
                     onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
                   >
                     {item.icon && <mg-icon icon={item.icon} slot="image"></mg-icon>}

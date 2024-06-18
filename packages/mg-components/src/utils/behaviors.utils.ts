@@ -5,10 +5,10 @@
  */
 const isMgItemMore = (element: HTMLElement): element is HTMLMgItemMoreElement => element.nodeName === 'MG-ITEM-MORE';
 
-export enum OverflowBehaviorElements {
-  BASE_INDEX = 'data-overflow-base-index',
-  PROXY_INDEX = 'data-overflow-proxy-index',
-}
+export const OverflowBehaviorElements = {
+  BASE_INDEX: 'data-overflow-base-index',
+  PROXY_INDEX: 'data-overflow-proxy-index',
+};
 
 export class OverflowBehavior {
   // variables

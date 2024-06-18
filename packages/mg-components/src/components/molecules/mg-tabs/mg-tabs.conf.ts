@@ -1,16 +1,16 @@
-import type { Size } from '../../../types';
-import { MgBadge } from '../../atoms/mg-badge/mg-badge';
-import { MgIcon } from '../../atoms/mg-icon/mg-icon';
+import type { Size, Status as StatusType } from '../../../types';
+import type { MgBadge } from '../../atoms/mg-badge/mg-badge';
+import type { MgIcon } from '../../atoms/mg-icon/mg-icon';
 
 /**
  * Available tabs items status
  */
-export enum Status {
-  VISIBLE = 'visible',
-  HIDDEN = 'hidden',
-  DISABLED = 'disabled',
-  ACTIVE = 'active',
-}
+export const Status: Record<string, StatusType> = {
+  VISIBLE: 'visible',
+  HIDDEN: 'hidden',
+  DISABLED: 'disabled',
+  ACTIVE: 'active',
+};
 
 /**
  * type TabItem
@@ -20,7 +20,7 @@ export type TabItem = {
   label: string;
   icon?: MgIcon['icon'];
   badge?: Pick<MgBadge, 'value' | 'variant' | 'label'> & { role: 'notification' | 'information' };
-  status: Status;
+  status: StatusType;
 };
 
 /**

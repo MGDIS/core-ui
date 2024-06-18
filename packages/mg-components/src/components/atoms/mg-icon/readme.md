@@ -82,7 +82,7 @@ Variant: "-outline". If pictogram variant has a background that has a full circl
  - [mg-details](../../molecules/mg-details)
  - [mg-input](../../molecules/inputs/mg-input)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
- - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
  - [mg-input-password](../../molecules/inputs/mg-input-password)
  - [mg-input-text](../../molecules/inputs/mg-input-text)
  - mg-item-more

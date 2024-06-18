@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-13T09:34:34",
+  "timestamp": "2024-06-18T10:15:07",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.3",
@@ -4619,270 +4619,6 @@
           "mg-input",
           "mg-icon",
           "mg-character-left"
-        ]
-      }
-    },
-    {
-      "filePath": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated/mg-input-checkbox-paginated.tsx",
-      "encapsulation": "scoped",
-      "tag": "mg-input-checkbox-paginated",
-      "readme": "# mg-input-checkbox-paginated\n\n\n",
-      "docs": "Internal component use to manage sections instances",
-      "docsTags": [],
-      "usage": {},
-      "props": [
-        {
-          "name": "checkboxes",
-          "type": "CheckboxItem[]",
-          "complexType": {
-            "original": "CheckboxItem[]",
-            "resolved": "CheckboxItem[]",
-            "references": {
-              "CheckboxItem": {
-                "location": "import",
-                "path": "../mg-input-checkbox.conf",
-                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "Define checkboxes to paginate",
-          "docsTags": [],
-          "default": "[]",
-          "values": [
-            {
-              "type": "CheckboxItem[]"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "currentPage",
-          "type": "number",
-          "complexType": {
-            "original": "number",
-            "resolved": "number",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "current-page",
-          "reflectToAttr": false,
-          "docs": "Current page",
-          "docsTags": [],
-          "default": "1",
-          "values": [
-            {
-              "type": "number"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "disabled",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "disabled",
-          "reflectToAttr": false,
-          "docs": "Define if mg-input-checkbox-list is disabled",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "invalid",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "invalid",
-          "reflectToAttr": false,
-          "docs": "Define mg-input-checkbox input invalid",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "messages",
-          "type": "{ [x: string]: string; }",
-          "complexType": {
-            "original": "Record<string, string>",
-            "resolved": "{ [x: string]: string; }",
-            "references": {
-              "Record": {
-                "location": "global",
-                "id": "global::Record"
-              }
-            }
-          },
-          "mutable": false,
-          "reflectToAttr": false,
-          "docs": "Define component message",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "{ [x: string]: string; }"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
-          "name": "name",
-          "type": "string",
-          "complexType": {
-            "original": "string",
-            "resolved": "string",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "name",
-          "reflectToAttr": false,
-          "docs": "Define mg-input-checkbox input name",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "string"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "readonly",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": false,
-          "attr": "readonly",
-          "reflectToAttr": false,
-          "docs": "Define if mg-input-checkbox-list is readonly",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": true,
-          "required": false
-        },
-        {
-          "name": "sectionKind",
-          "type": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
-          "complexType": {
-            "original": "SectionKind",
-            "resolved": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
-            "references": {
-              "SectionKind": {
-                "location": "import",
-                "path": "../mg-input-checkbox.conf",
-                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::SectionKind"
-              }
-            }
-          },
-          "mutable": false,
-          "attr": "section-kind",
-          "reflectToAttr": false,
-          "docs": "Define section kind",
-          "docsTags": [],
-          "values": [
-            {
-              "type": "SectionKind.NOT_SELECTED"
-            },
-            {
-              "type": "SectionKind.SELECTED"
-            }
-          ],
-          "optional": true,
-          "required": false
-        }
-      ],
-      "methods": [],
-      "events": [
-        {
-          "event": "mass-action",
-          "detail": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
-          "bubbles": true,
-          "complexType": {
-            "original": "HTMLMgInputCheckboxPaginatedElement['sectionKind']",
-            "resolved": "SectionKind.NOT_SELECTED | SectionKind.SELECTED",
-            "references": {
-              "HTMLMgInputCheckboxPaginatedElement": {
-                "location": "global",
-                "id": "global::HTMLMgInputCheckboxPaginatedElement"
-              }
-            }
-          },
-          "cancelable": true,
-          "composed": true,
-          "docs": "Emit 'mass-action' event\nused to informe that select-all/unselect-all button listner is triggered",
-          "docsTags": []
-        }
-      ],
-      "listeners": [],
-      "styles": [],
-      "slots": [],
-      "parts": [],
-      "dependents": [
-        "mg-input-checkbox"
-      ],
-      "dependencies": [
-        "mg-button",
-        "mg-icon",
-        "mg-tooltip",
-        "mg-pagination"
-      ],
-      "dependencyGraph": {
-        "mg-input-checkbox-paginated": [
-          "mg-button",
-          "mg-icon",
-          "mg-tooltip",
-          "mg-pagination"
-        ],
-        "mg-button": [
-          "mg-icon"
-        ],
-        "mg-tooltip": [
-          "mg-tooltip-content"
-        ],
-        "mg-pagination": [
-          "mg-button",
-          "mg-icon",
-          "mg-input-select"
-        ],
-        "mg-input-select": [
-          "mg-input"
-        ],
-        "mg-input": [
-          "mg-tooltip",
-          "mg-icon",
-          "mg-input-title"
-        ],
-        "mg-input-checkbox": [
-          "mg-input-checkbox-paginated"
         ]
       }
     },
@@ -10514,15 +10250,15 @@
       "props": [
         {
           "name": "direction",
-          "type": "Direction.HORIZONTAL | Direction.VERTICAL",
+          "type": "\"horizontal\" | \"vertical\"",
           "complexType": {
-            "original": "Direction",
-            "resolved": "Direction.HORIZONTAL | Direction.VERTICAL",
+            "original": "DirectionType",
+            "resolved": "\"horizontal\" | \"vertical\"",
             "references": {
-              "Direction": {
+              "DirectionType": {
                 "location": "import",
                 "path": "./mg-menu.conf",
-                "id": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::Direction"
+                "id": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::DirectionType"
               }
             }
           },
@@ -10534,10 +10270,12 @@
           "default": "Direction.HORIZONTAL",
           "values": [
             {
-              "type": "Direction.HORIZONTAL"
+              "value": "horizontal",
+              "type": "string"
             },
             {
-              "type": "Direction.VERTICAL"
+              "value": "vertical",
+              "type": "string"
             }
           ],
           "optional": false,
@@ -10784,15 +10522,15 @@
         },
         {
           "name": "status",
-          "type": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+          "type": "\"active\" | \"disabled\" | \"hidden\" | \"visible\"",
           "complexType": {
-            "original": "Status",
-            "resolved": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+            "original": "MgMenuStatusType",
+            "resolved": "\"active\" | \"disabled\" | \"hidden\" | \"visible\"",
             "references": {
-              "Status": {
+              "MgMenuStatusType": {
                 "location": "import",
                 "path": "./mg-menu-item.conf",
-                "id": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status"
+                "id": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::MgMenuStatusType"
               }
             }
           },
@@ -10804,16 +10542,20 @@
           "default": "Status.VISIBLE",
           "values": [
             {
-              "type": "Status.ACTIVE"
+              "value": "active",
+              "type": "string"
             },
             {
-              "type": "Status.DISABLED"
+              "value": "disabled",
+              "type": "string"
             },
             {
-              "type": "Status.HIDDEN"
+              "value": "hidden",
+              "type": "string"
             },
             {
-              "type": "Status.VISIBLE"
+              "value": "visible",
+              "type": "string"
             }
           ],
           "optional": true,
@@ -10892,11 +10634,11 @@
         },
         {
           "event": "status-change",
-          "detail": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+          "detail": "\"active\" | \"disabled\" | \"hidden\" | \"visible\"",
           "bubbles": true,
           "complexType": {
             "original": "HTMLMgMenuItemElement['status']",
-            "resolved": "Status.ACTIVE | Status.DISABLED | Status.HIDDEN | Status.VISIBLE",
+            "resolved": "\"active\" | \"disabled\" | \"hidden\" | \"visible\"",
             "references": {
               "HTMLMgMenuItemElement": {
                 "location": "global",
@@ -12815,9 +12557,9 @@
       "docstring": "",
       "path": "src/components/atoms/mg-icon/mg-icon.conf.ts"
     },
-    "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::Direction": {
-      "declaration": "export enum Direction {\n  VERTICAL = 'vertical',\n  HORIZONTAL = 'horizontal',\n}",
-      "docstring": "Menu direction type",
+    "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::DirectionType": {
+      "declaration": "export type DirectionType = 'vertical' | 'horizontal';",
+      "docstring": "",
       "path": "src/components/molecules/menu/mg-menu/mg-menu.conf.ts"
     },
     "src/components/molecules/menu/mg-menu/mg-menu.conf.ts::ItemMoreType": {
@@ -12855,9 +12597,9 @@
       "docstring": "",
       "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
     },
-    "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::Status": {
-      "declaration": "export enum Status {\n  VISIBLE = 'visible',\n  HIDDEN = 'hidden',\n  DISABLED = 'disabled',\n  ACTIVE = 'active',\n}",
-      "docstring": "Available menu item status",
+    "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts::MgMenuStatusType": {
+      "declaration": "\"disabled\" | \"hidden\" | \"visible\" | \"active\"",
+      "docstring": "",
       "path": "src/components/molecules/menu/mg-menu-item/mg-menu-item.conf.ts"
     },
     "src/components/atoms/mg-tag/mg-tag.conf.ts::TagVariantType": {
@@ -12885,9 +12627,9 @@
       "docstring": "interface CheckboxItem\nuse to match checkbox attributes",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
-    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::SectionKind": {
-      "declaration": "export enum SectionKind {\n  SELECTED = 'selected',\n  NOT_SELECTED = 'not-selected',\n}",
-      "docstring": "mg-input-checkbox-paginated section kind",
+    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::SectionKindType": {
+      "declaration": "export type SectionKindType = 'selected' | 'not-selected';",
+      "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
     "src/components/molecules/inputs/mg-input/mg-input.conf.ts::Width": {
@@ -13006,7 +12748,7 @@
       "path": "src/components/molecules/mg-tabs/mg-tabs.conf.ts"
     },
     "src/components/molecules/mg-tabs/mg-tabs.conf.ts::TabItem": {
-      "declaration": "{\n  label: string;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'variant' | 'label'> & { role: 'notification' | 'information' };\n  status: Status;\n}",
+      "declaration": "{\n  label: string;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'variant' | 'label'> & { role: 'notification' | 'information' };\n  status: StatusType;\n}",
       "docstring": "",
       "path": "src/components/molecules/mg-tabs/mg-tabs.conf.ts"
     }

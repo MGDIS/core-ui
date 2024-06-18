@@ -114,7 +114,7 @@ To reset the loader after the process has completed, you need to set the `disabl
  - [mg-action-more](../../molecules/mg-action-more)
  - [mg-alert](../../molecules/mg-alert)
  - [mg-input-checkbox](../../molecules/inputs/mg-input-checkbox)
- - [mg-input-checkbox-paginated](../../molecules/inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
  - [mg-input-password](../../molecules/inputs/mg-input-password)
  - [mg-modal](../../molecules/mg-modal)
  - [mg-pagination](../../molecules/mg-pagination)

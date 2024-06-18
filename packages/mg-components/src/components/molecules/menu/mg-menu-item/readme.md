@@ -165,22 +165,22 @@ Recommanded element is a mg-badge. Use it when you need to notify new events in 
 
 ## Properties
 
-| Property     | Attribute    | Description                                                                      | Type                                                                  | Default                    |
-| ------------ | ------------ | -------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------- |
-| `expanded`   | `expanded`   | Define menu-item content expanded.                                               | `boolean`                                                             | `false`                    |
-| `href`       | `href`       | Define menu-item href when defined menu-item contain an anchor instead of button | `string`                                                              | `undefined`                |
-| `identifier` | `identifier` | Identifier is used to control mg-popover                                         | `string`                                                              | `createID('mg-menu-item')` |
-| `status`     | `status`     | Define menu-item status.                                                         | `Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE` | `Status.VISIBLE`           |
-| `target`     | `target`     | Define target type                                                               | `"_blank" \| "_parent" \| "_self" \| "_top"`                          | `undefined`                |
+| Property     | Attribute    | Description                                                                      | Type                                              | Default                    |
+| ------------ | ------------ | -------------------------------------------------------------------------------- | ------------------------------------------------- | -------------------------- |
+| `expanded`   | `expanded`   | Define menu-item content expanded.                                               | `boolean`                                         | `false`                    |
+| `href`       | `href`       | Define menu-item href when defined menu-item contain an anchor instead of button | `string`                                          | `undefined`                |
+| `identifier` | `identifier` | Identifier is used to control mg-popover                                         | `string`                                          | `createID('mg-menu-item')` |
+| `status`     | `status`     | Define menu-item status.                                                         | `"active" \| "disabled" \| "hidden" \| "visible"` | `Status.VISIBLE`           |
+| `target`     | `target`     | Define target type                                                               | `"_blank" \| "_parent" \| "_self" \| "_top"`      | `undefined`                |
 
 
 ## Events
 
-| Event           | Description                       | Type                                                                               |
-| --------------- | --------------------------------- | ---------------------------------------------------------------------------------- |
-| `item-loaded`   | Emited event when item is loaded  | `CustomEvent<void>`                                                                |
-| `item-updated`  | Emited event when item is updated | `CustomEvent<void>`                                                                |
-| `status-change` | Emited event when status change   | `CustomEvent<Status.ACTIVE \| Status.DISABLED \| Status.HIDDEN \| Status.VISIBLE>` |
+| Event           | Description                       | Type                                                           |
+| --------------- | --------------------------------- | -------------------------------------------------------------- |
+| `item-loaded`   | Emited event when item is loaded  | `CustomEvent<void>`                                            |
+| `item-updated`  | Emited event when item is updated | `CustomEvent<void>`                                            |
+| `status-change` | Emited event when status change   | `CustomEvent<"active" \| "disabled" \| "hidden" \| "visible">` |
 
 
 ## Slots

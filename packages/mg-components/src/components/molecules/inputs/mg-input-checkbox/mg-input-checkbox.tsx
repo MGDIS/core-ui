@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
-import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SelectValuesButtonKey } from './mg-input-checkbox.conf';
+import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SectionKindType } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
-import { Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
+import { type Handler, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -270,7 +270,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Select values button text local key
    */
-  @State() selectValuesButtonKey: SelectValuesButtonKey = SelectValuesButtonKey.EDIT;
+  @State() selectValuesButtonKey: 'editButton' | 'showButton' | 'selectButton' = 'editButton';
 
   /**
    * Emitted event when value change
@@ -322,7 +322,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -362,12 +362,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle blur event
    */
   private handleBlur = (event: MouseEvent): void => {
-    if (this.handlerInProgress === Handler.MOUSEENTER) {
+    if (this.handlerInProgress === 'mouseenter') {
       event.preventDefault();
       return;
     }
     // set guard
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
 
     // Check validity
     this.checkValidity();
@@ -413,12 +413,12 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle select all button
    * @param event - mass action event trigger a global select/unselect on values
    */
-  private handleMassAction = (event: CustomEvent): void => {
+  private handleMassAction = (event: CustomEvent<SectionKindType>): void => {
     const displayItems = this.getDisplayItems();
 
     // update only displayed items
     displayItems.forEach(item => {
-      item.value = event.detail !== 'selected';
+      item.value = event.detail !== SectionKind.SELECTED;
     });
     this.updateValues();
   };
@@ -427,7 +427,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    * Handle input label mouseenter event
    */
   private handleMouseEnter = () => {
-    this.handlerInProgress = Handler.MOUSEENTER;
+    this.handlerInProgress = 'mouseenter';
   };
 
   /**
@@ -498,9 +498,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   private setButtonText = (): void => {
     // prevent key update while popover is openned
     if (this.hasOpenedPopover) return;
-    let messageKey = SelectValuesButtonKey.EDIT;
-    if (this.disabled) messageKey = SelectValuesButtonKey.SHOW;
-    else if (this.getSelectedItems().length < 1) messageKey = SelectValuesButtonKey.SELECT;
+    let messageKey: MgInputCheckbox['selectValuesButtonKey'] = 'editButton';
+    if (this.disabled) messageKey = 'showButton';
+    else if (this.getSelectedItems().length < 1) messageKey = 'selectButton';
 
     this.selectValuesButtonKey = messageKey;
   };
@@ -600,19 +600,19 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     const sections = [
       {
         ...baseSection,
-        sectionKind: SectionKind.SELECTED,
         checkboxes: checkedValues,
         messages: this.messages.input.checkbox.sections.selected,
       },
       {
         ...baseSection,
-        sectionKind: SectionKind.NOT_SELECTED,
         checkboxes: notCheckedValues,
         messages: this.messages.input.checkbox.sections.notSelected,
       },
     ];
 
-    return sections.map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction} key={section.sectionKind}></mg-input-checkbox-paginated>);
+    return sections
+      .filter(section => section.checkboxes.length)
+      .map(section => <mg-input-checkbox-paginated {...section} onMass-action={this.handleMassAction} key={section.messages}></mg-input-checkbox-paginated>);
   }
 
   /**

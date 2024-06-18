@@ -1,3 +1,4 @@
+import { type Handler as HandlerType } from '../../../../types';
 /**
  * Possible input width
  */
@@ -30,11 +31,7 @@ export type HTMLMgInputsElement =
 /**
  * Available handlers
  */
-export enum Handler {
-  BLUR = 'blur',
-  FOCUS = 'focus',
-  MOUSEENTER = 'mouseenter',
-}
+export type Handler = HandlerType & ('blur' | 'focus' | 'mouseenter');
 
 export const classFieldset = 'mg-c-input--fieldset';
 export const classDisabled = 'mg-c-input--disabled';

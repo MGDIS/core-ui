@@ -1,10 +1,8 @@
 import { Component, h, Prop, State, Host, Watch, Element, Event, EventEmitter } from '@stencil/core';
 import { ClassList, createID, isValidString, nextTick } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../../locales';
-import { Direction } from '../mg-menu/mg-menu.conf';
-import { Status, targets } from './mg-menu-item.conf';
-import type { MenuSizeType } from '../mg-menu/mg-menu.conf';
-import type { DirectionType, TargetType } from './mg-menu-item.conf';
+import { Direction, type MenuSizeType, type DirectionType } from '../mg-menu/mg-menu.conf';
+import { type MgMenuStatusType, Status, targets, type TargetType } from './mg-menu-item.conf';
 import type { MgPopover } from '../../mg-popover/mg-popover';
 import type { MessageType } from '../../../../locales/index.conf';
 
@@ -67,7 +65,7 @@ export class MgMenuItem {
   /**
    * Define menu-item status.
    */
-  @Prop({ reflect: true, mutable: true }) status?: Status = Status.VISIBLE;
+  @Prop({ reflect: true, mutable: true }) status?: MgMenuStatusType = Status.VISIBLE;
   @Watch('status')
   validateStatus(newValue: MgMenuItem['status'], oldValue?: MgMenuItem['status']): void {
     if (oldValue !== undefined) {
@@ -446,6 +444,7 @@ export class MgMenuItem {
 
   /**
    * Emit event when component is updated
+   * @returns promise process wich emit the 'item-updated' event
    */
   componentShouldUpdate(): Promise<void> {
     return nextTick(() => {

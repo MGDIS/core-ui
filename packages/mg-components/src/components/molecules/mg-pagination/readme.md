@@ -47,7 +47,7 @@ When there are elements to be displayed.
 
 ### Used by
 
- - [mg-input-checkbox-paginated](../inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
 
 ### Depends on
 
