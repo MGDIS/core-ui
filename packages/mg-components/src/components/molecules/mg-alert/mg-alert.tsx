@@ -3,7 +3,7 @@ import { ClassList } from '@mgdis/stencil-helpers';
 import { variants, variantStyles, VariantStyleType, VariantType } from './mg-alert.conf';
 import { initLocales } from '../../../locales';
 
-/*
+/**
  * @slot - Alert content
  * @slot actions - Actions content
  */

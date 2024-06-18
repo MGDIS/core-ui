@@ -1,61 +1,7 @@
 ## Usage
 
-True/False value notion.
+True/False value notion.  
 Only 2 possible values.
-
-### Theming
-
-The style of the active checkbox is the browser's style.
-
-## Specs
-
-![](./docs/img/mg-input-checkbox-specs.png)
-
-## Type "multi"
-
-### Anatomy
-
-![](./docs/img/mg-input-checkbox-multi-anatomy.png)
-
-1. Button
-  - variant: secondary
-  - icon: list
-2. Button
-  - variant: link
-3. Popover
-4. Checkbox
-5. Details
-6. Search
-7. Pagination
-
-### Type "multi" with sections
-
-![](./docs/img/mg-input-checkbox-multi-section.png)
-
-#### Spacings
-
-![](./docs/img/mg-input-checkbox-multi-section-button-spacing.png)
-
-"Select all" and "Unselect all" buttons are aligned on left. 
-
-![](./docs/img/mg-input-checkbox-multi-section-internal-spacing.png)
-
-![](./docs/img/mg-input-checkbox-multi-section-spacing.png)
-
-
-### Displayed values
-
-![](./docs/img/mg-input-checkbox-display-values.png)
-
-#### Without values
-
-If the space is too narrow the text button will do a line break.
-
-#### With values
-
-If the space is too narrow the button and values will do a line break.
-
-The component is ajusting with the space available. If the width is not enought big the values will do a breakline.
 
 ## Warning
 

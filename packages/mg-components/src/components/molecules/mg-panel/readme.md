@@ -1,34 +1,4 @@
-## Behavior
 
-The left zone of the header displays the item label, this zone is clickable and allows the user to unfold/fold the panel.
-If no content is available, the panel cannot be unfolded.
-When the panel is unfolded, the icon is vertically inverted.
-
-The right area of the header can accommodate any component.
-
-## Anatomy
-
-![](./docs/img/mg-panel-anatomy.png)
-
-## Specs
-
-### Sizing
-
-![](./docs/img/mg-panel-sizing.png)
-
-### Spacing
-
-![](./docs/img/mg-panel-spacing.png)
-
-Slot content padding can be customized using the --mg-c-panel-content-spacing CSS variable, default is 15px.
-
-### Alignments
-
-![](./docs/img/mg-panel-align.png)
-
-### Styles
-
-![](./docs/img/mg-panel-style.png)
 
 <!-- Auto Generated Below -->
 
@@ -54,6 +24,14 @@ Slot content padding can be customized using the --mg-c-panel-content-spacing CS
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
 | `title-change`    | Emmited event when title change    | `CustomEvent<string>`  |
+
+
+## Slots
+
+| Slot             | Description                |
+| ---------------- | -------------------------- |
+|                  | Panel content              |
+| `"header-right"` | Header right panel content |
 
 
 ## CSS Custom Properties

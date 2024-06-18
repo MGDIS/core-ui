@@ -4,7 +4,7 @@ import { initLocales } from '../../../locales';
 import { HTMLMgInputsElement } from '../inputs/mg-input/mg-input.conf';
 import { AriaRoleType, requiredMessageStatus, RequiredMessageStatusType, roles } from './mg-form.conf';
 
-/*
+/**
  * @slot - Form content
  * @slot actions - Actions content
  */

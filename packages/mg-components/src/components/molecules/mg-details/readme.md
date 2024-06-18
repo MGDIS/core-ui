@@ -1,48 +1,4 @@
-## Properties
 
-![](./docs/img/mg-details-components.png)
-
-- **summary** and **details** are slots which allow html content
-- **toggle** is defined by mg-icon plus a custom text
-  - mg-icon _chevron-down_ is used for the close state
-  - mg-icon _chevron-up_ is used for the open state
-
-## Behavior
-
-### Action
-
-The complete zone including the _summary_ and the _toggle_ is clickable and toggles the state of the component.
-
-![](./docs/img/mg-details-behavior.png)
-
-### Position
-
-_Toggle_ follows the _summary_ and is always on the top right.
-
-![](./docs/img/mg-details-position.png)
-
-### Responsive
-
-In mobile resolution, the text of the _toggle_ is hidden
-
-![](./docs/img/mg-details-responsive.png)
-
-## Specs
-
-### Spacing
-
-![](./docs/img/mg-details-spacing.png)
-
-### Icons
-
-Toggle's icon is chevron-down when closed.
-Toggle's icon is chevron-up when opened.
-
-The icon is displayed in "small" size.
-
-### Style
-
-Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/style-colors--docs).
 
 <!-- Auto Generated Below -->
 
@@ -62,6 +18,14 @@ Toggle's text is in 'Open Sans', 13px, Regular, [@color-dark](./?path=/docs/styl
 | Event             | Description                        | Type                   |
 | ----------------- | ---------------------------------- | ---------------------- |
 | `expanded-change` | Emmited event when expanded change | `CustomEvent<boolean>` |
+
+
+## Slots
+
+| Slot        | Description     |
+| ----------- | --------------- |
+| `"details"` | Details content |
+| `"summary"` | Summary content |
 
 
 ## CSS Custom Properties

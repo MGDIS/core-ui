@@ -1,28 +1,3 @@
-## Design
-
-### Indication of the number of characters left
-
-- when the focus is on the input field, the `mg-character-left` component is displayed
-- when the focus is no longer on the input field, the message disappears
-- by default limited to 400 alpha numeric characters
-
-#### Font
-
-![](./docs/img/mg-input-text-fonts.png)
-
-Open Sans, regular, 11px  
-Color: [@color-dark](./?path=/docs/style-colors--docs), opacity: 0.6
-
-#### Spacing
-
-![](./docs/img/mg-input-text-spacing.png)
-
-#### Position
-
-![](./docs/img/mg-input-text-position.png)
-
-Position: center
-
 ## Use as `search` input
 
 Due to [accessibility recommendation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/search#search_form_labels_and_accessibility), an `<input type="search" />` must be used within a `<form role="search" />` we recommend using mg-input-text as in dedicated story.

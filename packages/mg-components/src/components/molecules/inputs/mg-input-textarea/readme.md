@@ -1,24 +1,4 @@
-## Design
 
-### Indication of the number of characters left
-
-- when the focus is on the input field, the `mg-character-left` component is displayed
-- when the focus is no longer on the input field, the message disappears
-- by default limited to 4000 alpha numeric characters
-
-#### Font
-
-Open Sans, regular, 11px  
-Color: [@color-dark](./?path=/docs/style-colors--docs), opacity: 0.6
-
-#### Spacing
-
-![](./docs/img/mg-input-textarea-spacing.png)
-
-### Dimensions
-
-- the height of the component is by default 3 lines of text (this value is configurable)
-- by default, the input field cannot be resized
 
 <!-- Auto Generated Below -->
 

@@ -1,35 +1,20 @@
 ## Usage
 
-A primary action button is, in most cases, unique on the screen, the other buttons must be displayed as "secondary", to highlight the primary action.
-Ex: Validation, Save
+A primary action button is usually unique on the screen, with other buttons displayed as "secondary" to highlight the primary action, such as Validation or Save.
 
-A tooltip must be displayed on hover when the button only displays a non-explicit icon, and has no label. The tooltip must indicate the action of the button.
+A tooltip should be displayed on hover when the button only shows a non-explicit icon and has no label. The tooltip must indicate the button's action.
 
-A button that launches a potentially long process is disabled and displays a loader for the duration of the process needs to use the `disable-on-click` attribute to ensure that the button is disabled when clicked.
+For a button that launches a potentially long process, it should be disabled and display a loader for the duration of the process. Use the `disable-on-click` attribute to ensure the button is disabled when clicked.
 
-A button with undefined type in a form will natively have a [submit type](https://developer.mozilla.org/fr/docs/Web/HTML/Element/Button#attributs) and trigger form submission. So on non-submission buttons you need to explicitely set the type attribute as "button".
+A button with an `undefined` `type` in a form will natively have a [submit type](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Button#attributes) and trigger form submission. For non-submission buttons, explicitly set the `type` attribute to "button".
 
-## Specs
+## Attribute combination: `disable-on-click` and `disabled`
 
-![](./docs/img/mg-button-specs.png)
-
-## Placement
-
-![](./docs/img/mg-button-placement.png)
-
-## Theming
-
-![](./docs/img/mg-button-styles.png)
-
-Focused `mg-button` style is the one from the browser (outline).
-
-## Attributes combination: `disable-on-click` and `disabled`
-
-When a click is triggered, the component sets the `disabled` prop to true.
+When a click is triggered, the component sets the `disabled` prop to `true`.
 
 To benefit from a reactive `disabled` prop, you need to handle the `disabled-change` event.
 
-To reset the loader after the process has completed, you need to set the `disabled` prop asynchronously.
+To reset the loader after the process has completed, set the `disabled` prop asynchronously.
 
 <!-- Auto Generated Below -->
 

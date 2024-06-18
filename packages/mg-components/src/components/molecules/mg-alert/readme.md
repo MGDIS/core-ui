@@ -27,6 +27,14 @@ To hide the component, you must use the native `hidden` attribute.
 | `component-show` | Emited event when alert is diplayed | `CustomEvent<void>` |
 
 
+## Slots
+
+| Slot        | Description     |
+| ----------- | --------------- |
+|             | Alert content   |
+| `"actions"` | Actions content |
+
+
 ## Dependencies
 
 ### Depends on

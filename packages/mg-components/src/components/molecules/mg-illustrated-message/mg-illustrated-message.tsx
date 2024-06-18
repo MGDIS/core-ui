@@ -2,7 +2,7 @@ import { Component, Element, h, Prop } from '@stencil/core';
 import { isTagName } from '@mgdis/stencil-helpers';
 import type { IllustratedMessageSizeType } from './mg-illustrated-message.conf';
 
-/*
+/**
  * @slot illustration - Illustration content
  * @slot title - Title content
  * @slot details - Details content

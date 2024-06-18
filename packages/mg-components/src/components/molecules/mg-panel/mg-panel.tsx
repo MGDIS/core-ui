@@ -3,7 +3,7 @@ import { createID, ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { type ExpandToggleDisplayType, type TitlePositionType, expandToggleDisplays, titlePositions } from './mg-panel.conf';
 
-/*
+/**
  * @slot - Panel content
  * @slot header-right - Header right panel content
  */
