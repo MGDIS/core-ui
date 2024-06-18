@@ -2,58 +2,6 @@
 
 A popover is more enhanced than a tooltip but less blocking than a modal.
 
-## Behavior
-
-The window is displayed when clicking on its trigger.
-
-The window is displayed next to its trigger, usually below it. A triangle (in css) makes the link between the trigger and the window.
-
-The window closes:
-
-- when clicking on its trigger
-- clicking outside the window
-- when the ESC key is pressed
-- when clicking on the close button at the top right corner
-
-The size of the window is determined by the content (set a maximum size to avoid problems).
-
-The title and the close button are optional.
-
-## Specs
-
-### Fonts
-
-![](./docs/img/mg-popover-fonts.png)
-
-### Spacing
-
-![](./docs/img/mg-popover-spacing.png)
-
-### Sizing
-
-![](./docs/img/mg-popover-sizing.png)
-
-Default max-width: 400px
-The value of the max-width can be modified according to the case via the CSS variable.
-
-### Alignments
-
-![](./docs/img/mg-popover-align.png)
-
-### Positioning
-
-#### Item
-
-![](./docs/img/mg-popover-position.png)
-
-#### Screen
-
-![](./docs/img/mg-popover-position-screen.png)
-
-### Style
-
-![](./docs/img/mg-popover-style.png)
-
 <!-- Auto Generated Below -->
 
 

@@ -1,17 +1,4 @@
-## Usage
 
-### Types
-
-The element can be of four different types depending on the message to be indicated:
-
-- validation (green)
-- information (blue)
-- warning (orange)
-- error (red)
-
-## Specs
-
-![](./docs/img/mg-message-specs.png)
 
 <!-- Auto Generated Below -->
 
@@ -22,6 +9,14 @@ The element can be of four different types depending on the message to be indica
 | -------------- | --------------- | -------------------- | ---------------------------------------------- | ------------ |
 | `variant`      | `variant`       | Define variant       | `"danger" \| "info" \| "success" \| "warning"` | `'info'`     |
 | `variantStyle` | `variant-style` | Define variant style | `"background" \| "bar-left"`                   | `'bar-left'` |
+
+
+## Slots
+
+| Slot        | Description     |
+| ----------- | --------------- |
+|             | Message content |
+| `"actions"` | Actions content |
 
 
 ## CSS Custom Properties

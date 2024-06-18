@@ -1,7 +1,7 @@
 import { Component, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
 import { isValidString } from '@mgdis/stencil-helpers';
 
-/*
+/**
  * @slot summary - Summary content
  * @slot details - Details content
  */

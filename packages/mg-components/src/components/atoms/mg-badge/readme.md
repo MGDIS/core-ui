@@ -1,16 +1,8 @@
-## Design
+## Usage 
 
-The badge is always placed on top of, or next to the element it is for.
+The badge is always placed on top of or next to the element it is associated with.
 
-The badge displays a number (can be followed by the `+` character) or a punctuation character.
-
-## Specs
-
-![](./docs/img/mg-badge-specs.png)
-
-## Theming
-
-![](./docs/img/mg-badge-styles.png)
+The badge displays a number (which can be followed by the `+` character) or a punctuation character.
 
 <!-- Auto Generated Below -->
 

@@ -1,50 +1,9 @@
-## Specifications
+## File Naming
 
-### Sizing
-
-![](./docs/img/mg-icon-sizing.png) 
-
-Sizes (px):
-
-- small: 12x12
-- medium: 16x16
-- large: 20x20
-- xlarge: 24x24
-- xxlarge: 32x32
-
-### With "variant" applied
-
-![](./docs/img/mg-icon-sizing-variant.png)
-
-When *variant* is set a circle is put back to the icon with a width and height equal to the size of the icon multiplied by 2.
-The icon is centered in it.
-
-## Styling
-
-### Default
-
-![](./docs/img/mg-icon-styling-default.png)
-
-Default color for the icon is the color used for the text.
-Color: text of the page (usually [@color-dark](./?path=/docs/style-colors--docs))
-
-### Variant style
-
-
-### Variant
-![](./docs/img/mg-icon-styling-iconVariant.png) 
-
-
-![](./docs/img/mg-icon-styling-variant.png) 
-
-"variant" property applies [semantic color](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/style-colors--docs) or "app color" to the background of the icon with Lightness set to 90% 
-You can select "variant style" to apply "variant" on the icon or the background or both.
-
-# File naming
-
-Separator: "-" (dash).
-By default, the pictograms are the "filled" version, but this doesn't need to be specified in the naming
-Variant: "-outline". If pictogram variant has a background that has a full circle > add "-circle" *ex: check-circle, check-circle-outline*
+- **Separator:** Use "-" (dash) as the separator.
+- **Default Version:** By default, the pictograms are the "filled" version, but this doesn't need to be specified in the naming.
+- **Variant:** Use "-outline" for the outline variant.
+- **Background:** If a pictogram has a shaped background like a circle, add "-circle" (e.g., `check-circle`, `check-circle-outline`).
 
 <!-- Auto Generated Below -->
 

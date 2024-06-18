@@ -1,46 +1,8 @@
-## Anatomy
-
-![](./docs/img/mg-action-more-anatomy.png)
-
-## Specifications
-
-![](./docs/img/mg-action-more-popover-spacing.png)
-
-### Spacing
-
-Popover padding should be 10px up/down, 0px left/right.
-
 ## Behavior
 
 ### Action
 
 In addition of the standard popover's behavior, when an item of the menu is clicked the popover closes itself.
-
-## Items
-
-### Button's variant
-
-![](./docs/img/mg-action-more-options-variant.png)
-
-It is possible to set another variant (see [mg-button](http://core.pages.mgdis.fr/core-ui/core-ui/storybook/?path=/docs/atoms-mg-button--docs)).
-
-### Icon
-
-![](./docs/img/mg-action-more-options-icon.png)
-
-It is possible to set another icon
-
-### Label
-
-![](./docs/img/mg-action-more-options-label.png)
-
-It is possible to set another label.
-
-### Chevron
-
-![](./docs/img/mg-action-more-options-chevron.png)
-
-It is possible to display a chevron on the label right side, it make a 180 degree rotation on click.
 
 <!-- Auto Generated Below -->
 

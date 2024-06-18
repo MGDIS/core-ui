@@ -1,41 +1,4 @@
-## Anatomy
 
-![](./docs/img/mg-tabs-anatomy.png)
-
-## Specs
-
-### Spacing
-
-- Regular
-  - X = 20px;
-  - Y = 10px;
-- Large
-  - X = 30px;
-  - Y = 15px;
-
-![](./docs/img/mg-tabs-spacing.png)
-
-- if only text, no extra spacing,
-- if no badge: no extra spacing on the right
-- if only icon: no extra spacing on the right
-
-### Sizing
-
-![](./docs/img/mg-tabs-sizing.png)
-
-The header bottom border is 100% wide, 1px sizing and its color is @color-dark-soft. You can override it with [CSS variable](./?path=/docs/molecules-mg-tabs--docs#css-variables).
-
-![](./docs/img/mg-tabs-header-border.png)
-
-### States
-
-![](./docs/img/mg-tabs-states.png)
-
-### Responsive
-
-#### Line breaks (current management)
-
-![](./docs/img/mg-tabs-responsive.png)
 
 <!-- Auto Generated Below -->
 

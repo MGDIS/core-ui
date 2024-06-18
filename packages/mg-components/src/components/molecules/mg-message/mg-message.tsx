@@ -3,7 +3,7 @@ import { ClassList } from '@mgdis/stencil-helpers';
 import { variants, variantStyles, VariantStyleType, VariantType } from './mg-message.conf';
 import { type MgIcon } from '../../atoms/mg-icon/mg-icon';
 
-/*
+/**
  * @slot - Message content
  * @slot actions - Actions content
  */

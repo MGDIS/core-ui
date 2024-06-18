@@ -3,7 +3,7 @@ import { createID, ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { initLocales } from '../../../locales';
 import { DialogRoleType, dialogRoles } from './mg-modal.conf';
 
-/*
+/**
  * @slot - Modal content
  * @slot actions - Actions content
  */
