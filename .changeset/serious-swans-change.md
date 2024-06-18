@@ -12,4 +12,4 @@
 'vue-3': patch
 ---
 
-update dependancies
+update dependencies
