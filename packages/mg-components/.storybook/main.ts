@@ -119,6 +119,7 @@ const config: StorybookConfig = {
         'v5.27.0': 'https://626149b307606d003ada26b4-gwhcbziyca.chromatic.com',
         'v5.27.1': 'https://626149b307606d003ada26b4-jqeifeltaz.chromatic.com',
         'v5.27.2': 'https://626149b307606d003ada26b4-rgtwzbiszp.chromatic.com',
+        'v5.27.3': 'https://626149b307606d003ada26b4-nxqzxvfuib.chromatic.com',
       },
     },
   },
