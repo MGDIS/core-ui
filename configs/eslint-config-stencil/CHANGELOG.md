@@ -1,5 +1,12 @@
 # eslint-config-stencil
 
+## 1.1.10
+
+### Patch Changes
+
+- 43f1421: update dependancies
+  - eslint-config-custom@1.0.8
+
 ## 1.1.9
 
 ### Patch Changes

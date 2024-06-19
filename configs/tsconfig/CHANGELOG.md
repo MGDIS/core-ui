@@ -1,5 +1,11 @@
 # tsconfig
 
+## 1.0.3
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
 ## 1.0.2
 
 ### Patch Changes

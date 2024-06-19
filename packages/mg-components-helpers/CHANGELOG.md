@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
 ## 4.1.3
 
 ### Patch Changes

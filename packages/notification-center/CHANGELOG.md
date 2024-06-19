@@ -1,5 +1,12 @@
 # @mgdis/notification-center
 
+## 1.1.12
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- 28782b6: [#487](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/487) notification-center: update z-index to improve bootstrap compatibility
+
 ## 1.1.11
 
 ### Patch Changes
