@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.3.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
 ## 1.3.3
 
 ### Patch Changes

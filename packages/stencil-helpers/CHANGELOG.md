@@ -1,5 +1,12 @@
 # @mgdis/stencil-helpers
 
+## 1.1.5
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- 1e8734b: [#492](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/492) mg-input-date: Invalid help text when using UTC-x timezone
+
 ## 1.1.4
 
 ### Patch Changes

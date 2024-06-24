@@ -1,5 +1,19 @@
 # @mgdis/mg-components
 
+## 5.27.4
+
+### Patch Changes
+
+- 43f1421: update dependancies
+- 8343e1e: [#484](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/484) mg-tooltip: `<mg-button disable-on-click />` with tooltip forced position
+- 1e8734b: [#492](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/492) mg-input-date: Invalid help text when using UTC-x timezone
+- c8ff48e: [#490](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/490) mg-input-checkbox: the error message must not be shown when clicking on the checkbox label
+- Updated dependencies [43f1421]
+- Updated dependencies [1e8734b]
+  - @mgdis/stencil-helpers@1.1.5
+  - @mgdis/styles@1.3.4
+  - @mgdis/img@1.7.2
+
 ## 5.27.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.7.2
+
+### Patch Changes
+
+- 43f1421: update dependancies
+
 ## 1.7.1
 
 ### Patch Changes
