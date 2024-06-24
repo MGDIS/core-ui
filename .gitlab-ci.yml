@@ -423,7 +423,7 @@ styles:artifact:
   stage: artifacts
   rules:
     - if: !reference [.rules:if, except-tags]
-      changes: !reference [.rules:changes, styles, changes]
+      # changes: !reference [.rules:changes, styles, changes] TODO: uncomment when we have a real change
   extends:
     - .install:dependencies
   script:
