@@ -19,11 +19,6 @@ export type VariantStyle = 'icon' | 'background' | 'bar-left' | 'full';
 export type InputError = 'min' | 'max' | 'minMax' | 'required' | 'badInput';
 
 /**
- * Defines the possible values for handlers
- */
-export type Handler = 'blur' | 'focus' | 'click' | 'mouseenter' | 'mouseleave' | 'keyboard';
-
-/**
  * Defines the possible values for status
  */
 export type Status = 'visible' | 'hidden' | 'disabled' | 'active';

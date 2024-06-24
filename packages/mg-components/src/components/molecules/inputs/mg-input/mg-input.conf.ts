@@ -1,4 +1,3 @@
-import { type Handler as HandlerType } from '../../../../types';
 /**
  * Possible input width
  */
@@ -29,9 +28,9 @@ export type HTMLMgInputsElement =
   | (HTMLMgInputToggleElement & { required: true; invalid: false; displayError: () => void });
 
 /**
- * Available handlers
+ * Available WindowEvent types
  */
-export type Handler = HandlerType & ('blur' | 'focus' | 'mouseenter');
+export type EventType = keyof WindowEventMap & ('blur' | 'focus' | 'mouseenter');
 
 export const classFieldset = 'mg-c-input--fieldset';
 export const classDisabled = 'mg-c-input--disabled';

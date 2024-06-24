@@ -1,7 +1,7 @@
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
 import { TextType } from './mg-input-text.conf';
-import { type TooltipPosition, type Width, type Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
 
@@ -47,7 +47,7 @@ export class MgInputText {
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
 
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *

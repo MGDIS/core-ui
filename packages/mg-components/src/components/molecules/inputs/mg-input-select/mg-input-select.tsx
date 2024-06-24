@@ -3,7 +3,7 @@
 import { Component, Element, Event, h, Prop, State, EventEmitter, Watch, Method } from '@stencil/core';
 import { ClassList, allItemsAreString, isValidString } from '@mgdis/stencil-helpers';
 import { SelectOption, OptGroup } from './mg-input-select.conf';
-import { type TooltipPosition, type Width, type Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 /**
@@ -70,7 +70,7 @@ export class MgInputSelect {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *

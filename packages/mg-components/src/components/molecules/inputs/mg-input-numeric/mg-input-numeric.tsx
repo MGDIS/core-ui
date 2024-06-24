@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
 import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
-import { type TooltipPosition, type Width, type Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
 
 /**
@@ -32,7 +32,7 @@ export class MgInputNumeric {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
