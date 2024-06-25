@@ -45,6 +45,16 @@
     "storybook:build": "storybook build",
     "coverage": "TZ=UTC stencil test --spec --no-build --collectCoverage --reporters=\"default\" --reporters=\"jest-junit\""
   },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "lines": 100,
+        "functions": 100,
+        "branches": 100,
+        "statements": 100
+      }
+    }
+  },
   "jest-junit": {
     "outputDirectory": "coverage",
     "outputName": "junit.xml"
