@@ -12,6 +12,14 @@ const config: Config = {
   coverageDirectory: '<rootDir>/coverage/',
   testPathIgnorePatterns: ['node_modules', 'dist'],
   clearMocks: true,
+  coverageThreshold: {
+    global: {
+      lines: 100,
+      functions: 100,
+      branches: 100,
+      statements: 100
+    }
+  }
 };
 
 export default config;

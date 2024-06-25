@@ -93,5 +93,13 @@ export const config: Config = {
   testing: {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     coverageReporters: ['cobertura', 'lcov', 'html', 'text'],
+    coverageThreshold: {
+      global: {
+        lines: 100,
+        functions: 100,
+        branches: 100,
+        statements: 100
+      }
+    }
   },
 };
