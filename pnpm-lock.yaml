@@ -698,6 +698,9 @@ importers:
       jest-cli:
         specifier: 29.7.0
         version: 29.7.0(@types/node@20.14.5)(ts-node@10.9.2)
+      jest-config:
+        specifier: workspace:*
+        version: link:../../configs/jest-config
       jest-junit:
         specifier: 16.0.0
         version: 16.0.0
