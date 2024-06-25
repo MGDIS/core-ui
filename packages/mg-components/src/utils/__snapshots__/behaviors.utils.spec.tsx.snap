@@ -5,7 +5,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -24,7 +24,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" identifier="identifier-2" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -43,7 +43,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" identifier="identifier-3" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -64,23 +64,25 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
-            <slot name="image"></slot>
-            <div class="mg-c-menu-item__navigation-button-center">
-              <div class="mg-c-menu-item__navigation-button-text-content">
-                <slot name="label"></slot>
-                <slot name="information"></slot>
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
+                </div>
               </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down" size="small"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
             </div>
-            <span class="mg-c-menu-item__navigation-button-chevron">
-              <mg-icon icon="chevron-down" size="small"></mg-icon>
-            </span>
-          </button>
-          <div class="mg-c-menu-item__collapse-container" hidden="">
-            <slot></slot>
-          </div>
+          </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
@@ -90,9 +92,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -109,9 +111,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="horizontal" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -128,9 +130,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="horizontal" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -159,7 +161,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -178,7 +180,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" identifier="identifier-2" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -197,7 +199,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" identifier="identifier-3" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -218,23 +220,25 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
-            <slot name="image"></slot>
-            <div class="mg-c-menu-item__navigation-button-center">
-              <div class="mg-c-menu-item__navigation-button-text-content">
-                <slot name="label"></slot>
-                <slot name="information"></slot>
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
+                </div>
               </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down" size="small"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
             </div>
-            <span class="mg-c-menu-item__navigation-button-chevron">
-              <mg-icon icon="chevron-down" size="small"></mg-icon>
-            </span>
-          </button>
-          <div class="mg-c-menu-item__collapse-container" hidden="">
-            <slot></slot>
-          </div>
+          </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
@@ -244,9 +248,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -263,9 +267,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="horizontal" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -282,9 +286,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="horizontal" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -313,7 +317,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -332,7 +336,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" hidden="" identifier="identifier-2" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -351,7 +355,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" hidden="" identifier="identifier-3" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -372,23 +376,25 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   </mg-menu-item>
   <mg-item-more role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
-            <slot name="image"></slot>
-            <div class="mg-c-menu-item__navigation-button-center">
-              <div class="mg-c-menu-item__navigation-button-text-content">
-                <slot name="label"></slot>
-                <slot name="information"></slot>
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
+                </div>
               </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down" size="small"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
             </div>
-            <span class="mg-c-menu-item__navigation-button-chevron">
-              <mg-icon icon="chevron-down" size="small"></mg-icon>
-            </span>
-          </button>
-          <div class="mg-c-menu-item__collapse-container" hidden="">
-            <slot></slot>
-          </div>
+          </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
@@ -398,9 +404,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -417,9 +423,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="horizontal" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -436,9 +442,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="horizontal" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -467,7 +473,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   <mock:shadow-root>
     <slot></slot>
   </mock:shadow-root>
-  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="0" data-style-direction="horizontal" identifier="identifier-1" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -486,7 +492,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Batman
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="1" data-style-direction="horizontal" identifier="identifier-2" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -505,7 +511,7 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
       Joker
     </span>
   </mg-menu-item>
-  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" role="listitem" status="visible">
+  <mg-menu-item data-overflow-base-index="2" data-style-direction="horizontal" identifier="identifier-3" role="listitem" status="visible">
     <mock:shadow-root>
       <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
         <slot name="image"></slot>
@@ -526,23 +532,25 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
   </mg-menu-item>
   <mg-item-more hidden="" role="listitem">
     <mock:shadow-root>
-      <mg-menu-item data-overflow-more data-size="regular" role="presentation" status="visible">
+      <mg-menu-item data-overflow-more data-size="regular" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <mock:shadow-root>
-          <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
-            <slot name="image"></slot>
-            <div class="mg-c-menu-item__navigation-button-center">
-              <div class="mg-c-menu-item__navigation-button-text-content">
-                <slot name="label"></slot>
-                <slot name="information"></slot>
+          <mg-popover arrowhide="" data-fallback-placement="bottom-end" identifier="mg-item-more-popover" placement="bottom-start">
+            <button aria-expanded="false" class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--horizontal mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <slot name="image"></slot>
+              <div class="mg-c-menu-item__navigation-button-center">
+                <div class="mg-c-menu-item__navigation-button-text-content">
+                  <slot name="label"></slot>
+                  <slot name="information"></slot>
+                </div>
               </div>
+              <span class="mg-c-menu-item__navigation-button-chevron">
+                <mg-icon icon="chevron-down" size="small"></mg-icon>
+              </span>
+            </button>
+            <div class="mg-c-menu-item__collapse-container mg-c-menu-item__collapse-container--first-level" slot="content">
+              <slot></slot>
             </div>
-            <span class="mg-c-menu-item__navigation-button-chevron">
-              <mg-icon icon="chevron-down" size="small"></mg-icon>
-            </span>
-          </button>
-          <div class="mg-c-menu-item__collapse-container" hidden="">
-            <slot></slot>
-          </div>
+          </mg-popover>
         </mock:shadow-root>
         <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
@@ -552,9 +560,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
           <mock:shadow-root>
             <slot></slot>
           </mock:shadow-root>
-          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" hidden="" identifier="identifier-1" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -571,9 +579,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Batman
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" hidden="" identifier="identifier-2" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
@@ -590,9 +598,9 @@ exports[`behavior.utils OverflowBehavior render menu should manage resize with o
               Joker
             </span>
           </mg-menu-item>
-          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="horizontal" hidden="" role="listitem" status="visible">
+          <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" hidden="" identifier="identifier-3" role="listitem" status="visible">
             <mock:shadow-root>
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-regular mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">

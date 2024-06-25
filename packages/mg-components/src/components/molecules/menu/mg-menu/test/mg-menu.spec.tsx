@@ -30,18 +30,18 @@ const getPage = async (args, options = { submenu: true, itemMore: false }) => {
           <span slot="label">batman</span>
           {options.submenu && (
             <mg-menu label="batman - submenu" direction={Direction.VERTICAL}>
-              <mg-menu-item>
+              <mg-menu-item identifier="identifier-1">
                 <span slot="label">batman begins</span>
                 <mg-menu label="batman begins - submenu" direction={Direction.VERTICAL}>
-                  <mg-menu-item>
+                  <mg-menu-item identifier="identifier-1">
                     <span slot="label">movie</span>
                   </mg-menu-item>
                 </mg-menu>
               </mg-menu-item>
-              <mg-menu-item>
+              <mg-menu-item identifier="identifier-2">
                 <span slot="label">joker: the dark knight</span>
               </mg-menu-item>
-              <mg-menu-item>
+              <mg-menu-item identifier="identifier-3">
                 <span slot="label">bane: the dark knight rise</span>
               </mg-menu-item>
             </mg-menu>
@@ -70,11 +70,17 @@ const getPage = async (args, options = { submenu: true, itemMore: false }) => {
   jest.runOnlyPendingTimers();
   await page.waitForChanges();
 
+  // flush mg-item-more timeout and render
+  jest.runOnlyPendingTimers();
+  await page.waitForChanges();
+
   [page.doc, ...Array.from(page.doc.querySelectorAll('mg-menu')).map(el => el.shadowRoot)].forEach(el =>
     Array.from(el.querySelectorAll('mg-menu-item')).forEach((item, index) => {
       forcePopoverId(item, `mg-popover-test_${index}`);
     }),
   );
+
+  jest.runOnlyPendingTimers();
 
   return page;
 };
