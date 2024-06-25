@@ -1157,7 +1157,7 @@ export namespace Components {
          */
         "itemmore"?: ItemMoreType;
         /**
-          * Menu label. Include short menu description. Required for accessibility
+          * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
         /**
@@ -3115,7 +3115,7 @@ declare namespace LocalJSX {
          */
         "itemmore"?: ItemMoreType;
         /**
-          * Menu label. Include short menu description. Required for accessibility
+          * Menu label. Include short menu description. Required to define accessibility required attribute `aria-label`
          */
         "label": string;
         /**

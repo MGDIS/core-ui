@@ -71,6 +71,7 @@ export class MgItemMore {
    */
   private setProxyElement = (proxified: HTMLMgMenuItemElement): void => {
     const proxy: HTMLMgMenuItemElement = this.moreElementMenuItem.querySelector(`[identifier="${proxified.identifier}"]`);
+    if (!proxy) return;
 
     // remove proxy id to prevent duplicate key. default html id is: '';
     if (isValidString(proxy.id)) proxy.id = '';
@@ -96,6 +97,8 @@ export class MgItemMore {
         interactiveElement.addEventListener('click', proxyClickHandler);
       });
     };
+
+    updateProxy(proxified);
 
     proxified.addEventListener('item-updated', event => {
       updateProxy(event.target);

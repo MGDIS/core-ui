@@ -21,7 +21,7 @@ const setId = (hasId: boolean): string => (hasId ? `test-${id++}` : undefined);
 
 const getPage = async (args, options = { submenu: true, itemMore: false }) => {
   const components: unknown[] = [MgMenu, MgMenuItem, MgPopover, MgPopoverContent];
-  if (!options.submenu && options.itemMore) components.push(MgItemMore);
+  if (options.itemMore) components.push(MgItemMore);
   const page = await newSpecPage({
     components,
     template: () => (
@@ -110,7 +110,7 @@ describe('mg-menu', () => {
   afterEach(() => jest.clearAllTimers());
 
   describe('render', () => {
-    test.each([{}, { direction: 'horizontal' }, { direction: 'vertical' }, { itemmore: { icon: 'user' } }])('with args %s', async args => {
+    test.each([{}, { direction: 'horizontal' }, { direction: 'vertical' }, { itemmore: { icon: { icon: 'user' } } }])('with args %s', async args => {
       const { root } = await getPage({ label: 'batman menu', ...args });
 
       expect(root).toMatchSnapshot();
@@ -206,42 +206,33 @@ describe('mg-menu', () => {
     });
   });
 
-  describe('mg-item-more', () => {
+  describe.each([true, false])('mg-item-more, with submenu %s', submenu => {
     test('should manage "itemmore" prop update', async () => {
-      const page = await getPage({ label: 'batman menu' }, { submenu: false, itemMore: true });
+      const page = await getPage({ label: 'batman menu' }, { submenu, itemMore: true });
 
-      const mgMenu = page.doc.querySelector('mg-menu');
-      const mgItemMore = page.doc.querySelector('mg-item-more');
-      mgItemMore.dispatchEvent(new CustomEvent('item-loaded', { bubbles: true }));
+      page.doc.querySelector('mg-menu').itemmore = { icon: { icon: 'user' } };
 
-      await page.flushQueue();
-      await page.waitForChanges();
-
-      mgMenu.itemmore = { icon: { icon: 'user' } };
-
-      await page.flushQueue();
       await page.waitForChanges();
 
       expect(page.root).toMatchSnapshot();
     });
 
     test.each(['click', 'focus'])('should manage "mg-item-more" event %s', async event => {
-      const page = await getPage({ label: 'batman menu' }, { submenu: false, itemMore: true });
+      const page = await getPage({ label: 'batman menu' }, { submenu, itemMore: true });
 
       const mgItemMore = page.doc.querySelector('mg-item-more');
+      const moreMenuItem = mgItemMore.shadowRoot.querySelector('mg-menu-item');
+
       mgItemMore.dispatchEvent(new CustomEvent('item-loaded', { bubbles: true }));
 
       await page.flushQueue();
       await page.waitForChanges();
-
-      const moreMenuItem = mgItemMore.shadowRoot.querySelector('mg-menu-item');
 
       forcePopoverId(moreMenuItem, `mg-popover-test_more-item`);
       expect(page.root).toMatchSnapshot();
 
       moreMenuItem.shadowRoot.querySelector('button').dispatchEvent(new CustomEvent(event, { bubbles: true }));
 
-      await page.flushQueue();
       await page.waitForChanges();
 
       expect(moreMenuItem.expanded).toBe(event === 'click');
