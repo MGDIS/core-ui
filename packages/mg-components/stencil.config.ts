@@ -93,7 +93,7 @@ export const config: Config = {
   },
   testing: {
     setupFilesAfterEnv: ['./jest.setup.ts'],
-    coverageReporters: jestConfig.coverageReporters,
-    coverageThreshold: jestConfig.coverageThreshold
+    coverageReporters,
+    coverageThreshold
   },
 };
