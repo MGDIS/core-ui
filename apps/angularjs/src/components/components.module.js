@@ -1,6 +1,6 @@
 import angular from 'angular';
 
 import { APP_NAME } from '../app.constant';
-import helloWorld from './hello-world/hello-world.component';
+import technicalTest from './technical-test/technical-test.component';
 
-export default angular.module(`${APP_NAME}.components`, []).component('helloWorld', helloWorld).name;
+export default angular.module(`${APP_NAME}.components`, []).component('technicalTest', technicalTest).name;

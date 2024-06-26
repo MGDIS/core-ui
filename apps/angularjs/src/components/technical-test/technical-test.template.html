@@ -1,0 +1,28 @@
+<div class="technical-test">
+  <h2>Technical test - Todo App</h2>
+  <p>This component is the main screen content, it display a simple todo app.</p>
+  <h2>Add ToDo</h2>
+  <mg-input-text
+    reauired
+    label="Task"
+    label-hide
+    display-character-left="false"
+    ng-prop-value="$ctrl.newTask"
+    ng-on-value-change="$ctrl.newTask = $event.detail"
+    identifier="task"
+  >
+    <mg-button slot="append-input" ng-click="$ctrl.addTask()">Add</mg-button>
+  </mg-input-text>
+  <h2>Todos</h2>
+  <mg-card class="technical-test-todos">
+    <ul ng-if="$ctrl.tasks.length">
+      <li ng-repeat="task in $ctrl.tasks">
+        {{task.text}}
+        <mg-button type="button" variant="flat" is-icon label="label" ng-click="$ctrl.removeTask($index)">
+          <mg-icon icon="check"></mg-icon>
+        </mg-button>
+      </li>
+    </ul>
+    <p ng-if="!$ctrl.tasks.length">You're all done!</p>
+  </mg-card>
+</div>
