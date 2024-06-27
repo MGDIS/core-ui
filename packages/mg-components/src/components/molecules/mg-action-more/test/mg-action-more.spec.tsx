@@ -22,6 +22,15 @@ const getPage = async args => {
     forcePopoverId(item, mgPopoverIdentifier, 'mg-button');
   });
 
+  page.doc
+    .querySelector('mg-action-more')
+    .shadowRoot.querySelectorAll('mg-menu-item')
+    .forEach((item, index) => {
+      item.setAttribute('identifier', `identifier-${index}`);
+    });
+
+  await page.waitForChanges();
+
   return page;
 };
 
