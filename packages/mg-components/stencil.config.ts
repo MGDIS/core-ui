@@ -2,7 +2,7 @@ import { webTypesGenerator, vsCodeGenerator } from '@mgdis/stencil-helpers';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
-import { coverageReporters, coverageThreshold } from "jest-config/base";
+import { coverageReporters, coverageThreshold } from 'jest-config/base';
 import packageJson from './package.json';
 const { name, version, 'web-types': webTypes, contributes } = packageJson;
 
@@ -94,6 +94,6 @@ export const config: Config = {
   testing: {
     setupFilesAfterEnv: ['./jest.setup.ts'],
     coverageReporters,
-    coverageThreshold
+    coverageThreshold,
   },
 };
