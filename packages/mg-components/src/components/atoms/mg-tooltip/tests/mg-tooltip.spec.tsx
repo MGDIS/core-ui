@@ -91,9 +91,7 @@ describe('mg-tooltip', () => {
       <button aria-describedby="blu">button</button>,
       <mg-icon icon="check-circle"></mg-icon>,
       <mg-button>mg-button</mg-button>,
-      <mg-button disabled identifier="identifier-mg-button">
-        mg-button.disabled
-      </mg-button>,
+      <mg-button disabled>mg-button.disabled</mg-button>,
     ])('element', async element => {
       const args = { identifier: 'identifier', message: 'blu' };
       const page = await getPage(args, element);
