@@ -138,7 +138,7 @@ export class MgTabs {
    * @param status - status to valide
    * @returns status comparaison
    */
-  private tabHasStatus = (tab: TabItem, status: Status): boolean => tab.status === status;
+  private tabHasStatus = (tab: TabItem, status: TabItem['status']): boolean => tab.status === status;
 
   /**
    * Method to get element id from index
@@ -174,7 +174,7 @@ export class MgTabs {
    * @param status - button tab status
    * @returns button class/selector variant
    */
-  private getNavigationButtonClass = (status: Status): string => `${this.buttonTabBaseClass}--${status}`;
+  private getNavigationButtonClass = (status: TabItem['status']): string => `${this.buttonTabBaseClass}--${status}`;
 
   /**
    * Handle keyboard event on tabs

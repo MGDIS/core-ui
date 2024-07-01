@@ -28,13 +28,9 @@ export type HTMLMgInputsElement =
   | (HTMLMgInputToggleElement & { required: true; invalid: false; displayError: () => void });
 
 /**
- * Available handlers
+ * Available WindowEvent types
  */
-export enum Handler {
-  BLUR = 'blur',
-  FOCUS = 'focus',
-  MOUSEENTER = 'mouseenter',
-}
+export type EventType = keyof WindowEventMap & ('blur' | 'focus' | 'mouseenter');
 
 export const classFieldset = 'mg-c-input--fieldset';
 export const classDisabled = 'mg-c-input--disabled';

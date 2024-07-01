@@ -4,10 +4,15 @@ import type { MgItemMore } from '../../internals/mg-item-more/mg-item-more';
 /**
  * Menu direction type
  */
-export enum Direction {
-  VERTICAL = 'vertical',
-  HORIZONTAL = 'horizontal',
-}
+export type DirectionType = 'vertical' | 'horizontal';
+
+/**
+ * Menu direction values
+ */
+export const Direction: Record<string, DirectionType> = {
+  VERTICAL: 'vertical',
+  HORIZONTAL: 'horizontal',
+};
 
 /**
  * ItemMore prop type

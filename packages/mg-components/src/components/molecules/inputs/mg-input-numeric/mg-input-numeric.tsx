@@ -1,7 +1,7 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
-import { types, InputError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
-import { type TooltipPosition, type Width, Handler, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
+import { types, type InputNumericError, type NumericType, type Format, formats } from './mg-input-numeric.conf';
+import { type TooltipPosition, type Width, type EventType, classReadonly, classDisabled, widths } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales/';
 
 /**
@@ -32,7 +32,7 @@ export class MgInputNumeric {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -306,7 +306,7 @@ export class MgInputNumeric {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -379,7 +379,7 @@ export class MgInputNumeric {
   private handleBlur = (): void => {
     if (this.value === '-') this.value = '';
     // Display Error
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -405,7 +405,7 @@ export class MgInputNumeric {
       const inputError = this.getInputError();
       if (errorMessage !== undefined) {
         this.errorMessage = errorMessage;
-      } else if (inputError === InputError.REQUIRED) {
+      } else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       } else {
         this.errorMessage = this.messages.errors.numeric[inputError].replace('{min}', `${this.formatValue(this.min)}`).replace('{max}', `${this.formatValue(this.max)}`);
@@ -417,24 +417,24 @@ export class MgInputNumeric {
    * Get input error code
    * @returns error code
    */
-  private getInputError = (): null | InputError => {
-    let inputError = null;
+  private getInputError = (): null | InputNumericError => {
+    let inputError: InputNumericError = null;
     const hasNotEmptyValues = (toControl: number[]) => !toControl.some(value => [null, undefined].includes(value));
 
     // required
     if (!this.input.checkValidity() && this.input.validity.valueMissing) {
-      inputError = InputError.REQUIRED;
+      inputError = 'required';
     }
     // Min & Max
     else if (hasNotEmptyValues([this.min, this.numericValue]) && this.numericValue < this.min && this.max === undefined) {
       // Only a min value is set
-      inputError = InputError.MIN;
+      inputError = 'min';
     } else if (hasNotEmptyValues([this.max, this.numericValue]) && this.numericValue > this.max && this.min === undefined) {
       // Only a max value is set
-      inputError = InputError.MAX;
+      inputError = 'max';
     } else if (hasNotEmptyValues([this.min, this.max, this.numericValue]) && (this.numericValue < this.min || this.numericValue > this.max)) {
       // both min and max values are set
-      inputError = InputError.MINMAX;
+      inputError = 'minMax';
     }
     return inputError;
   };

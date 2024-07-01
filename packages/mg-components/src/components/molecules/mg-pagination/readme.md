@@ -31,7 +31,7 @@ A pagination component should be displayed only when it is useful, for example:
 
 ### Used by
 
- - [mg-input-checkbox-paginated](../inputs/mg-input-checkbox/mg-input-checkbox-paginated)
+ - mg-input-checkbox-paginated
 
 ### Depends on
 

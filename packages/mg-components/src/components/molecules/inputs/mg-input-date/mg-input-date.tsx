@@ -1,7 +1,7 @@
 import { Component, Element, Event, EventEmitter, h, Prop, State, Watch, Method } from '@stencil/core';
 import { ClassList, isValidString, localeDate, dateRegExp, dateToString, getLocaleDatePattern } from '@mgdis/stencil-helpers';
-import { InputError } from './mg-input-date.conf';
-import { Handler, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
+import { type InputDateError } from './mg-input-date.conf';
+import { type EventType, classReadonly, type TooltipPosition, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -24,7 +24,7 @@ export class MgInputDate {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -250,7 +250,7 @@ export class MgInputDate {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
 
   /**
@@ -268,7 +268,7 @@ export class MgInputDate {
    * Handle blur event
    */
   private handleBlur = (): void => {
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
@@ -303,28 +303,28 @@ export class MgInputDate {
    * get input error code
    * @returns error code
    */
-  private getInputError = (): null | InputError => {
-    let inputError = null;
+  private getInputError = (): null | InputDateError => {
+    let inputError: InputDateError = null;
 
     // required
     if (this.input.validity.valueMissing) {
-      inputError = InputError.REQUIRED;
+      inputError = 'required';
     }
     // pattern
     else if (this.value && !this.isValidPattern(this.value)) {
-      inputError = InputError.PATTERN;
+      inputError = 'badInput';
     }
     // min & max
     else if ((this.input.validity.rangeUnderflow || this.input.validity.rangeOverflow) && this.min?.length > 0 && this.max !== '9999-12-31') {
-      inputError = InputError.MINMAX;
+      inputError = 'minMax';
     }
     // min
     else if (this.input.validity.rangeUnderflow) {
-      inputError = InputError.MIN;
+      inputError = 'min';
     }
     // max
     else if (this.input.validity.rangeOverflow) {
-      inputError = InputError.MAX;
+      inputError = 'max';
     }
 
     return inputError;
@@ -343,11 +343,11 @@ export class MgInputDate {
         this.errorMessage = errorMessage;
       }
       // required
-      else if (inputError === InputError.REQUIRED) {
+      else if (inputError === 'required') {
         this.errorMessage = this.messages.errors[inputError];
       }
       // min, max & minMax
-      else if ([InputError.MIN, InputError.MAX, InputError.MINMAX].includes(inputError)) {
+      else if (['min', 'max', 'minMax'].includes(inputError)) {
         this.errorMessage = this.messages.errors.date[inputError]
           .replace('{min}', localeDate(this.min, this.systemLocale))
           .replace('{max}', localeDate(this.max, this.systemLocale));

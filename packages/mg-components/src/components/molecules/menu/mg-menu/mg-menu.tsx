@@ -1,6 +1,6 @@
 import { Component, h, Prop, State, Element, Watch, Host } from '@stencil/core';
 import { Direction, sizes } from './mg-menu.conf';
-import type { MenuSizeType, ItemMoreType } from './mg-menu.conf';
+import type { MenuSizeType, ItemMoreType, DirectionType } from './mg-menu.conf';
 
 /**
  * @slot - Menu content
@@ -44,7 +44,7 @@ export class MgMenu {
   /**
    * Component display direction.
    */
-  @Prop({ reflect: true }) direction: Direction = Direction.HORIZONTAL;
+  @Prop({ reflect: true }) direction: DirectionType = Direction.HORIZONTAL;
   @Watch('direction')
   validateDirection(newValue: MgMenu['direction']): void {
     if (![Direction.VERTICAL, Direction.HORIZONTAL].includes(newValue)) {

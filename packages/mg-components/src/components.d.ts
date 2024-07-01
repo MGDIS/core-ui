@@ -13,7 +13,7 @@ import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -21,8 +21,8 @@ import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-t
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-import { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-import { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+import { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+import { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 import { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 import { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 import { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
@@ -38,7 +38,7 @@ export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { CheckboxItem, CheckboxType, CheckboxValue, SectionKind } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -46,8 +46,8 @@ export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-t
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
-export { Direction, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
-export { Status, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
+export { DirectionType, ItemMoreType, MenuSizeType } from "./components/molecules/menu/mg-menu/mg-menu.conf";
+export { MgMenuStatusType, TargetType } from "./components/molecules/menu/mg-menu-item/mg-menu-item.conf";
 export { VariantStyleType as VariantStyleType1, VariantType as VariantType2 } from "./components/molecules/mg-message/mg-message.conf";
 export { DialogRoleType } from "./components/molecules/mg-modal/mg-modal.conf";
 export { ExpandToggleDisplayType, TitlePositionType } from "./components/molecules/mg-panel/mg-panel.conf";
@@ -412,10 +412,6 @@ export namespace Components {
           * Define if mg-input-checkbox-list is readonly
          */
         "readonly"?: boolean;
-        /**
-          * Define section kind
-         */
-        "sectionKind"?: SectionKind;
     }
     interface MgInputDate {
         /**
@@ -1155,7 +1151,7 @@ export namespace Components {
         /**
           * Component display direction.
          */
-        "direction": Direction;
+        "direction": DirectionType;
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */
@@ -1185,7 +1181,7 @@ export namespace Components {
         /**
           * Define menu-item status.
          */
-        "status"?: Status;
+        "status"?: MgMenuStatusType;
         /**
           * Define target type
          */
@@ -1616,7 +1612,7 @@ declare global {
         new (): HTMLMgInputCheckboxElement;
     };
     interface HTMLMgInputCheckboxPaginatedElementEventMap {
-        "mass-action": HTMLMgInputCheckboxPaginatedElement['sectionKind'];
+        "mass-action": SectionKindType;
     }
     /**
      * Internal component use to manage sections instances
@@ -2382,15 +2378,11 @@ declare namespace LocalJSX {
         /**
           * Emit 'mass-action' event used to informe that select-all/unselect-all button listner is triggered
          */
-        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<HTMLMgInputCheckboxPaginatedElement['sectionKind']>) => void;
+        "onMass-action"?: (event: MgInputCheckboxPaginatedCustomEvent<SectionKindType>) => void;
         /**
           * Define if mg-input-checkbox-list is readonly
          */
         "readonly"?: boolean;
-        /**
-          * Define section kind
-         */
-        "sectionKind"?: SectionKind;
     }
     interface MgInputDate {
         /**
@@ -3114,7 +3106,7 @@ declare namespace LocalJSX {
         /**
           * Component display direction.
          */
-        "direction"?: Direction;
+        "direction"?: DirectionType;
         /**
           * Customize "mg-item-more" element Used with direction: 'vertical' to manage overflow
          */
@@ -3156,7 +3148,7 @@ declare namespace LocalJSX {
         /**
           * Define menu-item status.
          */
-        "status"?: Status;
+        "status"?: MgMenuStatusType;
         /**
           * Define target type
          */

@@ -12,3 +12,13 @@ export type Variant = 'info' | 'success' | 'warning' | 'danger' | 'danger-alt' |
  * Defines the possible values for variantStyle
  */
 export type VariantStyle = 'icon' | 'background' | 'bar-left' | 'full';
+
+/**
+ * Defines the possible values for input error
+ */
+export type InputError = 'min' | 'max' | 'minMax' | 'required' | 'badInput';
+
+/**
+ * Defines the possible values for status
+ */
+export type Status = 'visible' | 'hidden' | 'disabled' | 'active';

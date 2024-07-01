@@ -1,7 +1,7 @@
 import { Component, Element, h, Host, Prop, Watch } from '@stencil/core';
 import { createID, focusableElements, getWindows, isValidString, nextTick } from '@mgdis/stencil-helpers';
 import { Instance as PopperInstance, createPopper, Placement, PositioningStrategy } from '@popperjs/core';
-import { Guard } from './mg-tooltip.conf';
+import { type GuardType, Guard } from './mg-tooltip.conf';
 
 /**
  * HTMLMgButtonElement type guard
@@ -31,7 +31,7 @@ export class MgTooltip {
   private hasCustomTabIndex: boolean;
 
   // tooltip actions guards
-  private guard: Guard;
+  private guard: GuardType;
 
   /**************
    * Decorators *
@@ -167,7 +167,7 @@ export class MgTooltip {
    * @param eventName - event name
    * @param conditionalGuard - guard condition
    */
-  private tooltipMouseListenerAction = (elementGuard: Guard, eventName: 'mouseenter' | 'mouseleave', conditionalGuard: Guard): void => {
+  private tooltipMouseListenerAction = (elementGuard: GuardType, eventName: 'mouseenter' | 'mouseleave', conditionalGuard: GuardType): void => {
     // active FOCUS guard cancel process
     if ([Guard.FOCUS, Guard.DISABLE_ON_CLICK].includes(this.guard)) {
       return;

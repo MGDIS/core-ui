@@ -1,6 +1,6 @@
 import { Component, Element, Event, h, Prop, EventEmitter, State, Method, Watch } from '@stencil/core';
 import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { type TooltipPosition, type Width, Handler, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
+import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 
 @Component({
@@ -28,7 +28,7 @@ export class MgInputTextarea {
 
   // hasDisplayedError (triggered by blur event)
   private hasDisplayedError = false;
-  private handlerInProgress: Handler;
+  private handlerInProgress: EventType;
 
   /**************
    * Decorators *
@@ -266,7 +266,7 @@ export class MgInputTextarea {
     this.valid = newValue;
     this.invalid = !this.valid;
     // We need to send valid event even if it is the same value
-    if (this.handlerInProgress === undefined || (this.handlerInProgress === Handler.BLUR && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
+    if (this.handlerInProgress === undefined || (this.handlerInProgress === 'blur' && this.valid !== oldValidValue)) this.inputValid.emit(this.valid);
   }
   /**
    * Handle input event
@@ -295,7 +295,7 @@ export class MgInputTextarea {
     this.classCollection.delete(this.classFocus);
     this.classCollection = new ClassList(this.classCollection.classes);
     // Display Error
-    this.handlerInProgress = Handler.BLUR;
+    this.handlerInProgress = 'blur';
     this.displayError().finally(() => {
       // reset guard
       this.handlerInProgress = undefined;
