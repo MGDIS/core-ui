@@ -627,6 +627,10 @@ export namespace Components {
          */
         "labelOnTop"?: boolean;
         /**
+          * Input max length
+         */
+        "maxlength": any;
+        /**
           * Define input width
          */
         "mgWidth": Width;
@@ -2592,6 +2596,10 @@ declare namespace LocalJSX {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
+        /**
+          * Input max length
+         */
+        "maxlength"?: any;
         /**
           * Define input width
          */
