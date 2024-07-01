@@ -7,6 +7,5 @@ module.exports = {
   extends: [...eslintrc.extends, 'plugin:@stencil-community/recommended', 'plugin:jsx-a11y/recommended'],
   rules: {
     ...eslintrc.rules,
-    '@stencil-community/strict-boolean-conditions': 'off',
   },
 };

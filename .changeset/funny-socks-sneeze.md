@@ -1,5 +1,5 @@
 ---
-'@mgdis/linting-stencil': major
+'@mgdis/linting-stencil': minor
 '@mgdis/mg-components': patch
 ---
 
