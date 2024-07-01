@@ -199,15 +199,24 @@ export class MgTooltip {
    * @param mgButton - slotted mg-button
    */
   private setMgButtonWrapper = (mgButton: HTMLMgButtonElement): void => {
-    if (mgButton.disabled) {
+    const buttonWrapperClass = 'mg-c-tooltip__mg-button-wrapper';
+    // For disabled mg-button, we need to wrap it in a new element
+    // We bind handlers to this new element to keep listener features as workaround to disabled mg-button `pointer-events: none`
+    // AND to prevent multiple nested wrappers from rendering when a new render is called with a disabled mg-button
+    if (mgButton.disabled && !mgButton.parentElement.classList.contains(buttonWrapperClass)) {
+      // wrap mg-button in a div
       const div = document.createElement('div');
-      div.classList.add('mg-c-tooltip__mg-button-wrapper');
+      div.classList.add(buttonWrapperClass);
       mgButton.parentNode.insertBefore(div, mgButton);
       div.appendChild(mgButton);
-      this.tooltipedElement = div;
-    } else if (mgButton.parentElement.classList.contains('mg-c-tooltip__mg-button-wrapper')) {
+
+      // update tooltipElement
+      this.setTooltipedElement(div);
+    } else if (!mgButton.disabled && mgButton.parentElement.classList.contains(buttonWrapperClass)) {
       this.element.firstElementChild.replaceWith(mgButton);
-      this.tooltipedElement = mgButton;
+
+      // update tooltipElement
+      this.setTooltipedElement(mgButton);
     }
   };
 
