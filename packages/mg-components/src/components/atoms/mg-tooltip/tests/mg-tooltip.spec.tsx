@@ -86,38 +86,41 @@ describe('mg-tooltip', () => {
     { eventIn: 'focus', eventOut: 'mouseleave' },
     { eventIn: 'mouseenter', eventOut: 'clickDocument' },
   ])('Should manage display on events enter with %s, leave with %s', ({ eventIn, eventOut }) => {
-    test.each([<span>span</span>, <button aria-describedby="blu">button</button>, <mg-icon icon="check-circle"></mg-icon>, <mg-button>mg-button</mg-button>])(
-      'element',
-      async element => {
-        const args = { identifier: 'identifier', message: 'blu' };
-        const page = await getPage(args, element);
-        const mgTooltip = page.doc.querySelector('mg-tooltip');
-        const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
-        const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
+    test.each([
+      <span>span</span>,
+      <button aria-describedby="blu">button</button>,
+      <mg-icon icon="check-circle"></mg-icon>,
+      <mg-button>mg-button</mg-button>,
+      <mg-button disabled>mg-button.disabled</mg-button>,
+    ])('element', async element => {
+      const args = { identifier: 'identifier', message: 'blu' };
+      const page = await getPage(args, element);
+      const mgTooltip = page.doc.querySelector('mg-tooltip');
+      const linkedTooltipElement = mgTooltip.querySelector(`[aria-describedby*='${args.identifier}']`);
+      const tooltip = mgTooltip.querySelector(`#${args.identifier}`);
 
-        linkedTooltipElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
+      linkedTooltipElement.dispatchEvent(new CustomEvent(eventIn, { bubbles: true }));
 
-        // flush windows addEventListener timeout
-        jest.runOnlyPendingTimers();
-        await page.waitForChanges();
+      // flush windows addEventListener timeout
+      jest.runOnlyPendingTimers();
+      await page.waitForChanges();
 
-        expect(page.root).toMatchSnapshot();
+      expect(page.root).toMatchSnapshot();
+      expect(tooltip).toHaveAttribute('data-show');
+
+      if (eventOut !== 'clickDocument') linkedTooltipElement.dispatchEvent(new CustomEvent(eventOut, { bubbles: true }));
+      else page.doc.dispatchEvent(new Event('click', { bubbles: true }));
+
+      if (eventOut !== 'blur') jest.runOnlyPendingTimers();
+
+      await page.waitForChanges();
+
+      if (eventIn === 'focus' && eventOut === 'mouseleave') {
         expect(tooltip).toHaveAttribute('data-show');
-
-        if (eventOut !== 'clickDocument') linkedTooltipElement.dispatchEvent(new CustomEvent(eventOut, { bubbles: true }));
-        else page.doc.dispatchEvent(new Event('click', { bubbles: true }));
-
-        if (eventOut !== 'blur') jest.runOnlyPendingTimers();
-
-        await page.waitForChanges();
-
-        if (eventIn === 'focus' && eventOut === 'mouseleave') {
-          expect(tooltip).toHaveAttribute('data-show');
-        } else {
-          expect(tooltip).not.toHaveAttribute('data-show');
-        }
-      },
-    );
+      } else {
+        expect(tooltip).not.toHaveAttribute('data-show');
+      }
+    });
 
     test.each([false, true])('should not call event methods when disabled and display:%s', async display => {
       const args = { identifier: 'identifier', message: 'blu', disabled: true, display };
