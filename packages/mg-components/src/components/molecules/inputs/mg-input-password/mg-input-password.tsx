@@ -74,6 +74,11 @@ export class MgInputPassword {
   @Prop() placeholder?: string;
 
   /**
+   * Input max length
+   */
+  @Prop() maxlength;
+
+  /**
    * Define if input is required
    */
   @Prop() required = false;
@@ -327,6 +332,7 @@ export class MgInputPassword {
             title={this.placeholder}
             disabled={this.disabled}
             required={this.required}
+            maxlength={this.maxlength}
             aria-invalid={(this.invalid === true).toString()}
             onInput={this.handleInput}
             onBlur={this.handleBlur}
