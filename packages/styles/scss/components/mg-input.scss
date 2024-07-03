@@ -80,6 +80,10 @@ mg-icon {
     align-items: center;
     justify-content: start;
 
+    &-icon {
+      color: hsl(var(--color-dark));
+    }
+
     mg-tooltip {
       align-self: baseline;
       margin-top: calc((var(--default-size) - var(--mg-icon-regular-size)) / 2);
