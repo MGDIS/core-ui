@@ -6,20 +6,20 @@ exports[`mg-modal Should render a modal with args {
   closeButton: true
 } 1`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -30,7 +30,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
@@ -40,20 +40,20 @@ exports[`mg-modal Should render a modal with args {
   closeButton: true
 } 2`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -67,7 +67,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -87,20 +87,20 @@ exports[`mg-modal Should render a modal with args {
   closeButton: true
 } 3`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -114,26 +114,26 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -146,20 +146,20 @@ exports[`mg-modal Should render a modal with args {
   closeButton: true
 } 4`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -176,7 +176,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -189,23 +189,23 @@ exports[`mg-modal Should render a modal with args {
   </p>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -219,20 +219,20 @@ exports[`mg-modal Should render a modal with args {
   hide: true
 } 1`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-hidden="" aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal mg-c-modal--hide" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -243,7 +243,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
@@ -254,20 +254,20 @@ exports[`mg-modal Should render a modal with args {
   hide: true
 } 2`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-hidden="" aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal mg-c-modal--hide" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -281,7 +281,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -302,20 +302,20 @@ exports[`mg-modal Should render a modal with args {
   hide: true
 } 3`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-hidden="" aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal mg-c-modal--hide" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -329,26 +329,26 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -362,20 +362,20 @@ exports[`mg-modal Should render a modal with args {
   hide: true
 } 4`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-hidden="" aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal mg-c-modal--hide" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -392,7 +392,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -405,23 +405,23 @@ exports[`mg-modal Should render a modal with args {
   </p>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -435,20 +435,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'fr'
 } 1`] = `
 <mg-modal lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -459,7 +459,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
@@ -470,20 +470,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'fr'
 } 2`] = `
 <mg-modal lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -497,7 +497,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -518,20 +518,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'fr'
 } 3`] = `
 <mg-modal lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -545,26 +545,26 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -578,20 +578,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'fr'
 } 4`] = `
 <mg-modal lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Fermer la modale" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -608,7 +608,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -621,23 +621,23 @@ exports[`mg-modal Should render a modal with args {
   </p>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -651,20 +651,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'xx'
 } 1`] = `
 <mg-modal lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -675,7 +675,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
@@ -686,20 +686,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'xx'
 } 2`] = `
 <mg-modal lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -713,7 +713,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -734,20 +734,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'xx'
 } 3`] = `
 <mg-modal lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -761,26 +761,26 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -794,20 +794,20 @@ exports[`mg-modal Should render a modal with args {
   lang: 'xx'
 } 4`] = `
 <mg-modal lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -824,7 +824,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -837,23 +837,23 @@ exports[`mg-modal Should render a modal with args {
   </p>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -866,7 +866,7 @@ exports[`mg-modal Should render a modal with args {
   dialogRole: 'alertdialog'
 } 1`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="alertdialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -878,7 +878,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
@@ -888,7 +888,7 @@ exports[`mg-modal Should render a modal with args {
   dialogRole: 'alertdialog'
 } 2`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="alertdialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -903,7 +903,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -923,7 +923,7 @@ exports[`mg-modal Should render a modal with args {
   dialogRole: 'alertdialog'
 } 3`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="alertdialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -938,26 +938,26 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -970,7 +970,7 @@ exports[`mg-modal Should render a modal with args {
   dialogRole: 'alertdialog'
 } 4`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="alertdialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -988,7 +988,7 @@ exports[`mg-modal Should render a modal with args {
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -1001,23 +1001,23 @@ exports[`mg-modal Should render a modal with args {
   </p>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -1026,7 +1026,7 @@ exports[`mg-modal Should render a modal with args {
 
 exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', identifier: 'identifier' } 1`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -1038,13 +1038,13 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
 exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', identifier: 'identifier' } 2`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -1059,7 +1059,7 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -1075,7 +1075,7 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
 
 exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', identifier: 'identifier' } 3`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -1090,26 +1090,26 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -1118,7 +1118,7 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
 
 exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', identifier: 'identifier' } 4`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -1136,7 +1136,7 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p slot="content">
     <strong>
       Strong
@@ -1149,23 +1149,23 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
   </p>
   <div class="mg-group-elements mg-group-elements--align-right" slot="actions">
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Primary
     </mg-button>
     <mg-button role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--secondary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       Secondary
     </mg-button>
   </div>
@@ -1174,20 +1174,20 @@ exports[`mg-modal Should render a modal with args { modalTitle: 'Modal Title', i
 
 exports[`mg-modal navigation Should hide panel with button 1`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -1198,26 +1198,26 @@ exports[`mg-modal navigation Should hide panel with button 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
 exports[`mg-modal navigation Should hide panel with button 2`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-hidden="" aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal mg-c-modal--hide" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -1228,26 +1228,26 @@ exports[`mg-modal navigation Should hide panel with button 2`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
 exports[`mg-modal navigation should hide panel with escape keyboard 1`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -1258,26 +1258,26 @@ exports[`mg-modal navigation should hide panel with escape keyboard 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
 exports[`mg-modal navigation should hide panel with escape keyboard 2`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-hidden="" aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal mg-c-modal--hide" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
           <header class="mg-c-modal__header">
             <span class="mg-c-modal__close-button">
               <mg-button aria-label="Close modal" is-icon="" role="button" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--flat mg-c-button--icon" id="identifier-close-button">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
             </span>
@@ -1288,13 +1288,13 @@ exports[`mg-modal navigation should hide panel with escape keyboard 2`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
 exports[`mg-modal navigation should hide panel with escape keyboard 3`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -1306,13 +1306,13 @@ exports[`mg-modal navigation should hide panel with escape keyboard 3`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;
 
 exports[`mg-modal navigation should hide panel with escape keyboard 4`] = `
 <mg-modal>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div aria-labelledby="identifier-title" aria-modal="true" class="mg-c-modal" id="identifier" role="dialog" tabindex="-1">
       <mg-card>
         <div class="mg-c-modal__dialog">
@@ -1324,6 +1324,6 @@ exports[`mg-modal navigation should hide panel with escape keyboard 4`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
 </mg-modal>
 `;

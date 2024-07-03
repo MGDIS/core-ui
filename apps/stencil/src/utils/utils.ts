@@ -5,4 +5,5 @@
  * @param last - last content
  * @returns formatted text
  */
-export const format = (first: string, middle: string, last: string): string => (Boolean(first) || '') + (Boolean(middle) ? ` ${middle}` : '') + (Boolean(last) ? ` ${last}` : '');
+export const format = (first: string, middle: string, last: string): string =>
+  (Boolean(first) ? first : '') + (Boolean(middle) ? ` ${middle}` : '') + (Boolean(last) ? ` ${last}` : '');

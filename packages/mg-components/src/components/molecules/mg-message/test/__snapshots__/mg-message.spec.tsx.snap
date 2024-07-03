@@ -2,7 +2,7 @@
 
 exports[`mg-message Should render a danger message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -15,7 +15,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -27,7 +27,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -45,7 +45,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -57,7 +57,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -75,7 +75,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -87,7 +87,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--danger" id="identifier" role="alert">
       <mg-card variant="danger" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -105,7 +105,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -117,7 +117,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 
 exports[`mg-message Should render a danger message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--danger" id="identifier">
       <mg-card variant="danger" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -130,7 +130,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -142,7 +142,7 @@ exports[`mg-message Should render a danger message with args { identifier: 'iden
 
 exports[`mg-message Should render a info message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -155,7 +155,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -167,7 +167,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 
 exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -185,7 +185,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -197,7 +197,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 
 exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -215,7 +215,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -227,7 +227,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 
 exports[`mg-message Should render a info message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--info" id="identifier" role="status">
       <mg-card variant="info" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -245,7 +245,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -257,7 +257,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 
 exports[`mg-message Should render a info message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--info" id="identifier">
       <mg-card variant="info" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -270,7 +270,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -282,7 +282,7 @@ exports[`mg-message Should render a info message with args { identifier: 'identi
 
 exports[`mg-message Should render a success message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -295,7 +295,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -307,7 +307,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 
 exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -325,7 +325,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -337,7 +337,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 
 exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -355,7 +355,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -367,7 +367,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 
 exports[`mg-message Should render a success message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--success" id="identifier" role="alert">
       <mg-card variant="success" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -385,7 +385,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -397,7 +397,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 
 exports[`mg-message Should render a success message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--success" id="identifier">
       <mg-card variant="success" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -410,7 +410,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -422,7 +422,7 @@ exports[`mg-message Should render a success message with args { identifier: 'ide
 
 exports[`mg-message Should render a warning message with args { identifier: 'identifier' } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -435,7 +435,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -447,7 +447,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -465,7 +465,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -477,7 +477,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true, lang: 'fr' } 1`] = `
 <mg-message lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -495,7 +495,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -507,7 +507,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', closeButton: true, lang: 'xx' } 1`] = `
 <mg-message lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--close-button mg-c-message--warning" id="identifier" role="alert">
       <mg-card variant="warning" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -525,7 +525,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
         </span>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -537,7 +537,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
 
 exports[`mg-message Should render a warning message with args { identifier: 'identifier', noAriaRole: true } 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--warning" id="identifier">
       <mg-card variant="warning" variant-style="bar-left">
         <span class="mg-c-message__icon">
@@ -550,7 +550,7 @@ exports[`mg-message Should render a warning message with args { identifier: 'ide
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong

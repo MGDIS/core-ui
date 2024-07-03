@@ -2,9 +2,9 @@
 
 exports[`mg-input-numeric Should update mg-width 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-2">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -13,7 +13,7 @@ exports[`mg-input-numeric Should update mg-width 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -25,15 +25,15 @@ exports[`mg-input-numeric Should update mg-width 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric Should update mg-width 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-4">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -42,7 +42,7 @@ exports[`mg-input-numeric Should update mg-width 2`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -54,15 +54,15 @@ exports[`mg-input-numeric Should update mg-width 2`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric Should update mg-width 3`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-16">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -71,7 +71,7 @@ exports[`mg-input-numeric Should update mg-width 3`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -83,15 +83,15 @@ exports[`mg-input-numeric Should update mg-width 3`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric Should update mg-width 4`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--width-full">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -100,7 +100,7 @@ exports[`mg-input-numeric Should update mg-width 4`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -112,15 +112,15 @@ exports[`mg-input-numeric Should update mg-width 4`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric display error message with locale: fr 1`] = `
 <mg-input-numeric lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -132,7 +132,7 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -152,15 +152,15 @@ exports[`mg-input-numeric display error message with locale: fr 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric display error message with locale: xx 1`] = `
 <mg-input-numeric lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -172,7 +172,7 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -192,15 +192,15 @@ exports[`mg-input-numeric display error message with locale: xx 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric should display override error with setError component's public method 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -209,7 +209,7 @@ exports[`mg-input-numeric should display override error with setError component'
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
@@ -226,15 +226,15 @@ exports[`mg-input-numeric should display override error with setError component'
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric should display override error with setError component's public method 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -243,7 +243,7 @@ exports[`mg-input-numeric should display override error with setError component'
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
@@ -260,15 +260,15 @@ exports[`mg-input-numeric should display override error with setError component'
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric should display override error with setError component's public method 3`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -277,7 +277,7 @@ exports[`mg-input-numeric should display override error with setError component'
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
@@ -294,15 +294,15 @@ exports[`mg-input-numeric should display override error with setError component'
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric should display override error with setError component's public method 4`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -314,7 +314,7 @@ exports[`mg-input-numeric should display override error with setError component'
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -334,15 +334,15 @@ exports[`mg-input-numeric should display override error with setError component'
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Format currency args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -352,7 +352,7 @@ exports[`mg-input-numeric type currency Format currency args { readonly: true } 
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -364,15 +364,15 @@ exports[`mg-input-numeric type currency Format currency args { readonly: true } 
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Format currency args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -381,7 +381,7 @@ exports[`mg-input-numeric type currency Format currency args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -393,15 +393,15 @@ exports[`mg-input-numeric type currency Format currency args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Format none args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -411,7 +411,7 @@ exports[`mg-input-numeric type currency Format none args { readonly: true } 1`] 
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -423,15 +423,15 @@ exports[`mg-input-numeric type currency Format none args { readonly: true } 1`] 
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Format none args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -440,7 +440,7 @@ exports[`mg-input-numeric type currency Format none args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -452,15 +452,15 @@ exports[`mg-input-numeric type currency Format none args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Format number args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -470,7 +470,7 @@ exports[`mg-input-numeric type currency Format number args { readonly: true } 1`
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -482,15 +482,15 @@ exports[`mg-input-numeric type currency Format number args { readonly: true } 1`
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Format number args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -499,7 +499,7 @@ exports[`mg-input-numeric type currency Format number args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -511,7 +511,7 @@ exports[`mg-input-numeric type currency Format number args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -523,9 +523,9 @@ exports[`mg-input-numeric type currency Should render with args {
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -534,7 +534,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -546,7 +546,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -557,9 +557,9 @@ exports[`mg-input-numeric type currency Should render with args {
   labelHide: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
         </div>
@@ -568,7 +568,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -580,7 +580,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -591,9 +591,9 @@ exports[`mg-input-numeric type currency Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -602,7 +602,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -614,7 +614,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -625,9 +625,9 @@ exports[`mg-input-numeric type currency Should render with args {
   readonly: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -635,7 +635,7 @@ exports[`mg-input-numeric type currency Should render with args {
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -647,7 +647,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -660,9 +660,9 @@ exports[`mg-input-numeric type currency Should render with args {
   tooltip: 'Tooltip message'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -670,7 +670,7 @@ exports[`mg-input-numeric type currency Should render with args {
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -682,7 +682,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -694,9 +694,9 @@ exports[`mg-input-numeric type currency Should render with args {
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -706,7 +706,7 @@ exports[`mg-input-numeric type currency Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -718,7 +718,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -731,9 +731,9 @@ exports[`mg-input-numeric type currency Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -743,7 +743,7 @@ exports[`mg-input-numeric type currency Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1 234 567 890,00&nbsp;$US">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -755,7 +755,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -768,9 +768,9 @@ exports[`mg-input-numeric type currency Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -780,7 +780,7 @@ exports[`mg-input-numeric type currency Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -792,7 +792,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -806,9 +806,9 @@ exports[`mg-input-numeric type currency Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -820,7 +820,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -835,7 +835,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -849,9 +849,9 @@ exports[`mg-input-numeric type currency Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -861,7 +861,7 @@ exports[`mg-input-numeric type currency Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -876,7 +876,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -889,9 +889,9 @@ exports[`mg-input-numeric type currency Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -903,7 +903,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -923,7 +923,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -934,9 +934,9 @@ exports[`mg-input-numeric type currency Should render with args {
   tooltip: 'My Tooltip Message'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -945,16 +945,16 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
             <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
               <mg-icon>
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                     <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                   </svg>
-                </mock:shadow-root>
+                </template>
               </mg-icon>
             </mg-tooltip>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -966,7 +966,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -978,18 +978,18 @@ exports[`mg-input-numeric type currency Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -998,7 +998,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1010,7 +1010,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1023,18 +1023,18 @@ exports[`mg-input-numeric type currency Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -1043,7 +1043,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1055,7 +1055,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1067,18 +1067,18 @@ exports[`mg-input-numeric type currency Should render with args {
   tooltipPosition: 'label'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -1087,7 +1087,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1099,7 +1099,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1111,9 +1111,9 @@ exports[`mg-input-numeric type currency Should render with args {
   currency: 'EUR'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1122,7 +1122,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="€1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1134,7 +1134,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1146,9 +1146,9 @@ exports[`mg-input-numeric type currency Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1157,7 +1157,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1 234 567 890,00&nbsp;$US">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1169,7 +1169,7 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1181,9 +1181,9 @@ exports[`mg-input-numeric type currency Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1192,7 +1192,7 @@ exports[`mg-input-numeric type currency Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1204,15 +1204,15 @@ exports[`mg-input-numeric type currency Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Should render with args { label: 'label', identifier: 'identifier', type: 'currency' }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1221,7 +1221,7 @@ exports[`mg-input-numeric type currency Should render with args { label: 'label'
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1233,15 +1233,15 @@ exports[`mg-input-numeric type currency Should render with args { label: 'label'
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Should render with slot. 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--is-input-group-append mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1250,7 +1250,7 @@ exports[`mg-input-numeric type currency Should render with slot. 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1262,21 +1262,21 @@ exports[`mg-input-numeric type currency Should render with slot. 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-label="search" role="button" slot="append-input" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary" id="button-identifier">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     <mg-icon>
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--calculator mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.8.7H3.2c-.3 0-.5.2-.5.5v13.7c0 .3.2.5.5.5h9.7c.3 0 .5-.2.5-.5V1.2c-.1-.3-.3-.5-.6-.5M5.6 13.4q0 .3-.3.3H4.1q-.3 0-.3-.3v-1.2q0-.3.3-.3h1.2q.3 0 .3.3zm0-3.3q0 .3-.3.3H4.1q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm3.3 3.3q0 .3-.3.3H7.4q-.3 0-.3-.3v-1.2q0-.3.3-.3h1.2q.3 0 .3.3zm0-3.3q0 .3-.3.3H7.4q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm3.3 3.3q0 .3-.3.3h-1.2q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm0-7.2q0 .3-.3.3H4.1q-.3 0-.3-.3V2.6q0-.3.3-.3h7.8q.3 0 .3.3z" fill="currentColor"></path>
         </svg>
-      </mock:shadow-root>
+      </template>
     </mg-icon>
     Calculate
   </mg-button>
@@ -1285,9 +1285,9 @@ exports[`mg-input-numeric type currency Should render with slot. 1`] = `
 
 exports[`mg-input-numeric type currency Should render with slot. 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1296,7 +1296,7 @@ exports[`mg-input-numeric type currency Should render with slot. 2`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1308,7 +1308,7 @@ exports[`mg-input-numeric type currency Should render with slot. 2`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
   <span slot="append-input">
     km
   </span>
@@ -1317,9 +1317,9 @@ exports[`mg-input-numeric type currency Should render with slot. 2`] = `
 
 exports[`mg-input-numeric type currency Should trigger events 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1331,7 +1331,7 @@ exports[`mg-input-numeric type currency Should trigger events 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -1346,15 +1346,15 @@ exports[`mg-input-numeric type currency Should trigger events 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Should update display value when value props change 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1363,7 +1363,7 @@ exports[`mg-input-numeric type currency Should update display value when value p
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1375,15 +1375,15 @@ exports[`mg-input-numeric type currency Should update display value when value p
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency Should update display value when value props change 2`] = `
 <mg-input-numeric value="10">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1392,7 +1392,7 @@ exports[`mg-input-numeric type currency Should update display value when value p
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$10.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1404,15 +1404,15 @@ exports[`mg-input-numeric type currency Should update display value when value p
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency display error with displayError component's public method 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1421,7 +1421,7 @@ exports[`mg-input-numeric type currency display error with displayError componen
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
@@ -1438,15 +1438,15 @@ exports[`mg-input-numeric type currency display error with displayError componen
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency display error with displayError component's public method 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1458,7 +1458,7 @@ exports[`mg-input-numeric type currency display error with displayError componen
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -1478,15 +1478,15 @@ exports[`mg-input-numeric type currency display error with displayError componen
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1498,7 +1498,7 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -1513,15 +1513,15 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1530,7 +1530,7 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1542,15 +1542,15 @@ exports[`mg-input-numeric type currency validity, case next state is disabled va
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1562,7 +1562,7 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -1577,15 +1577,15 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type currency validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1593,7 +1593,7 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1605,15 +1605,15 @@ exports[`mg-input-numeric type currency validity, case next state is readonly va
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1623,7 +1623,7 @@ exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1635,15 +1635,15 @@ exports[`mg-input-numeric type decimal Format currency args { readonly: true } 1
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1652,7 +1652,7 @@ exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1664,15 +1664,15 @@ exports[`mg-input-numeric type decimal Format currency args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1682,7 +1682,7 @@ exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] =
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1234567890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1694,15 +1694,15 @@ exports[`mg-input-numeric type decimal Format none args { readonly: true } 1`] =
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Format none args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1711,7 +1711,7 @@ exports[`mg-input-numeric type decimal Format none args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1234567890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1723,15 +1723,15 @@ exports[`mg-input-numeric type decimal Format none args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1741,7 +1741,7 @@ exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`]
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1753,15 +1753,15 @@ exports[`mg-input-numeric type decimal Format number args { readonly: true } 1`]
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Format number args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1770,7 +1770,7 @@ exports[`mg-input-numeric type decimal Format number args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1782,7 +1782,7 @@ exports[`mg-input-numeric type decimal Format number args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1794,9 +1794,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1805,7 +1805,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1817,7 +1817,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1828,9 +1828,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   labelHide: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
         </div>
@@ -1839,7 +1839,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1851,7 +1851,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1862,9 +1862,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1873,7 +1873,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -1885,7 +1885,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1896,9 +1896,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   readonly: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1906,7 +1906,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1918,7 +1918,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1931,9 +1931,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   tooltip: 'Tooltip message'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1941,7 +1941,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1953,7 +1953,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -1965,9 +1965,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1977,7 +1977,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -1989,7 +1989,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2002,9 +2002,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2014,7 +2014,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1 234 567 890,00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2026,7 +2026,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2039,9 +2039,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2051,7 +2051,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2063,7 +2063,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2077,9 +2077,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2091,7 +2091,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -2106,7 +2106,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2120,9 +2120,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2132,7 +2132,7 @@ exports[`mg-input-numeric type decimal Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -2147,7 +2147,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2160,9 +2160,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2174,7 +2174,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -2194,7 +2194,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2205,9 +2205,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   tooltip: 'My Tooltip Message'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2216,16 +2216,16 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
             <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
               <mg-icon>
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                     <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                   </svg>
-                </mock:shadow-root>
+                </template>
               </mg-icon>
             </mg-tooltip>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2237,7 +2237,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2249,18 +2249,18 @@ exports[`mg-input-numeric type decimal Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -2269,7 +2269,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2281,7 +2281,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2294,18 +2294,18 @@ exports[`mg-input-numeric type decimal Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -2314,7 +2314,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2326,7 +2326,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2338,18 +2338,18 @@ exports[`mg-input-numeric type decimal Should render with args {
   tooltipPosition: 'label'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -2358,7 +2358,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2370,7 +2370,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2382,9 +2382,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   currency: 'EUR'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2393,7 +2393,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2405,7 +2405,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2417,9 +2417,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2428,7 +2428,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1 234 567 890,00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2440,7 +2440,7 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -2452,9 +2452,9 @@ exports[`mg-input-numeric type decimal Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2463,7 +2463,7 @@ exports[`mg-input-numeric type decimal Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2475,15 +2475,15 @@ exports[`mg-input-numeric type decimal Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Should render with args { label: 'label', identifier: 'identifier', type: 'decimal' }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2492,7 +2492,7 @@ exports[`mg-input-numeric type decimal Should render with args { label: 'label',
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2504,15 +2504,15 @@ exports[`mg-input-numeric type decimal Should render with args { label: 'label',
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--is-input-group-append mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2521,7 +2521,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2533,21 +2533,21 @@ exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-label="search" role="button" slot="append-input" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary" id="button-identifier">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     <mg-icon>
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--calculator mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.8.7H3.2c-.3 0-.5.2-.5.5v13.7c0 .3.2.5.5.5h9.7c.3 0 .5-.2.5-.5V1.2c-.1-.3-.3-.5-.6-.5M5.6 13.4q0 .3-.3.3H4.1q-.3 0-.3-.3v-1.2q0-.3.3-.3h1.2q.3 0 .3.3zm0-3.3q0 .3-.3.3H4.1q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm3.3 3.3q0 .3-.3.3H7.4q-.3 0-.3-.3v-1.2q0-.3.3-.3h1.2q.3 0 .3.3zm0-3.3q0 .3-.3.3H7.4q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm3.3 3.3q0 .3-.3.3h-1.2q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm0-7.2q0 .3-.3.3H4.1q-.3 0-.3-.3V2.6q0-.3.3-.3h7.8q.3 0 .3.3z" fill="currentColor"></path>
         </svg>
-      </mock:shadow-root>
+      </template>
     </mg-icon>
     Calculate
   </mg-button>
@@ -2556,9 +2556,9 @@ exports[`mg-input-numeric type decimal Should render with slot. 1`] = `
 
 exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2567,7 +2567,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2579,7 +2579,7 @@ exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
   <span slot="append-input">
     km
   </span>
@@ -2588,9 +2588,9 @@ exports[`mg-input-numeric type decimal Should render with slot. 2`] = `
 
 exports[`mg-input-numeric type decimal Should trigger events 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2602,7 +2602,7 @@ exports[`mg-input-numeric type decimal Should trigger events 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -2617,15 +2617,15 @@ exports[`mg-input-numeric type decimal Should trigger events 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Should update display value when value props change 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2634,7 +2634,7 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2646,15 +2646,15 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal Should update display value when value props change 2`] = `
 <mg-input-numeric value="10">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2663,7 +2663,7 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="10.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2675,15 +2675,15 @@ exports[`mg-input-numeric type decimal Should update display value when value pr
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal display error with displayError component's public method 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2692,7 +2692,7 @@ exports[`mg-input-numeric type decimal display error with displayError component
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
@@ -2709,15 +2709,15 @@ exports[`mg-input-numeric type decimal display error with displayError component
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal display error with displayError component's public method 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2729,7 +2729,7 @@ exports[`mg-input-numeric type decimal display error with displayError component
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -2749,15 +2749,15 @@ exports[`mg-input-numeric type decimal display error with displayError component
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2769,7 +2769,7 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -2784,15 +2784,15 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2801,7 +2801,7 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2813,15 +2813,15 @@ exports[`mg-input-numeric type decimal validity, case next state is disabled val
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2833,7 +2833,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -2848,15 +2848,15 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type decimal validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2864,7 +2864,7 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2876,15 +2876,15 @@ exports[`mg-input-numeric type decimal validity, case next state is readonly val
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Format currency args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2894,7 +2894,7 @@ exports[`mg-input-numeric type integer Format currency args { readonly: true } 1
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2906,15 +2906,15 @@ exports[`mg-input-numeric type integer Format currency args { readonly: true } 1
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Format currency args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2923,7 +2923,7 @@ exports[`mg-input-numeric type integer Format currency args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="$1,234,567,890.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2935,15 +2935,15 @@ exports[`mg-input-numeric type integer Format currency args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2953,7 +2953,7 @@ exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] =
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1234567890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -2965,15 +2965,15 @@ exports[`mg-input-numeric type integer Format none args { readonly: true } 1`] =
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Format none args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2982,7 +2982,7 @@ exports[`mg-input-numeric type integer Format none args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1234567890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -2994,15 +2994,15 @@ exports[`mg-input-numeric type integer Format none args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Format number args { readonly: true } 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3012,7 +3012,7 @@ exports[`mg-input-numeric type integer Format number args { readonly: true } 1`]
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -3024,15 +3024,15 @@ exports[`mg-input-numeric type integer Format number args { readonly: true } 1`]
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Format number args {} 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3041,7 +3041,7 @@ exports[`mg-input-numeric type integer Format number args {} 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3053,7 +3053,7 @@ exports[`mg-input-numeric type integer Format number args {} 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3065,9 +3065,9 @@ exports[`mg-input-numeric type integer Should render with args {
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3076,7 +3076,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3088,7 +3088,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3099,9 +3099,9 @@ exports[`mg-input-numeric type integer Should render with args {
   labelHide: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
         </div>
@@ -3110,7 +3110,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3122,7 +3122,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3133,9 +3133,9 @@ exports[`mg-input-numeric type integer Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3144,7 +3144,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3156,7 +3156,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3167,9 +3167,9 @@ exports[`mg-input-numeric type integer Should render with args {
   readonly: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3177,7 +3177,7 @@ exports[`mg-input-numeric type integer Should render with args {
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -3189,7 +3189,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3202,9 +3202,9 @@ exports[`mg-input-numeric type integer Should render with args {
   tooltip: 'Tooltip message'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3212,7 +3212,7 @@ exports[`mg-input-numeric type integer Should render with args {
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -3224,7 +3224,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3236,9 +3236,9 @@ exports[`mg-input-numeric type integer Should render with args {
   value: '1234567890'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3248,7 +3248,7 @@ exports[`mg-input-numeric type integer Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -3260,7 +3260,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3273,9 +3273,9 @@ exports[`mg-input-numeric type integer Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3285,7 +3285,7 @@ exports[`mg-input-numeric type integer Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1 234 567 890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -3297,7 +3297,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3310,9 +3310,9 @@ exports[`mg-input-numeric type integer Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3322,7 +3322,7 @@ exports[`mg-input-numeric type integer Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -3334,7 +3334,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3348,9 +3348,9 @@ exports[`mg-input-numeric type integer Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3362,7 +3362,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -3377,7 +3377,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3391,9 +3391,9 @@ exports[`mg-input-numeric type integer Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3403,7 +3403,7 @@ exports[`mg-input-numeric type integer Should render with args {
           </strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -3418,7 +3418,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3431,9 +3431,9 @@ exports[`mg-input-numeric type integer Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3445,7 +3445,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -3465,7 +3465,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3476,9 +3476,9 @@ exports[`mg-input-numeric type integer Should render with args {
   tooltip: 'My Tooltip Message'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3487,16 +3487,16 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
             <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
               <mg-icon>
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                     <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                   </svg>
-                </mock:shadow-root>
+                </template>
               </mg-icon>
             </mg-tooltip>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3508,7 +3508,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3520,18 +3520,18 @@ exports[`mg-input-numeric type integer Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -3540,7 +3540,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3552,7 +3552,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3565,18 +3565,18 @@ exports[`mg-input-numeric type integer Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--label-on-top mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -3585,7 +3585,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3597,7 +3597,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3609,18 +3609,18 @@ exports[`mg-input-numeric type integer Should render with args {
   tooltipPosition: 'label'
 }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
             <mg-icon>
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <svg aria-hidden="true" class="mg-c-icon mg-c-icon--info-circle mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                   <path clip-rule="evenodd" d="M15 8A7 7 0 1 1 1 8a7 7 0 0 1 14 0m-7.75 4V7h1.5v5zm0-8v1.5h1.5V4z" fill="currentColor" fill-rule="evenodd"></path>
                 </svg>
-              </mock:shadow-root>
+              </template>
             </mg-icon>
           </mg-tooltip>
         </div>
@@ -3629,7 +3629,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3641,7 +3641,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3653,9 +3653,9 @@ exports[`mg-input-numeric type integer Should render with args {
   currency: 'EUR'
 }: 1`] = `
 <mg-input-numeric value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3664,7 +3664,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3676,7 +3676,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3688,9 +3688,9 @@ exports[`mg-input-numeric type integer Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-input-numeric lang="fr" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3699,7 +3699,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1 234 567 890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3711,7 +3711,7 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
@@ -3723,9 +3723,9 @@ exports[`mg-input-numeric type integer Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-input-numeric lang="xx" value="1234567890">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3734,7 +3734,7 @@ exports[`mg-input-numeric type integer Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1,234,567,890">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3746,15 +3746,15 @@ exports[`mg-input-numeric type integer Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Should render with args { label: 'label', identifier: 'identifier', type: 'integer' }: 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3763,7 +3763,7 @@ exports[`mg-input-numeric type integer Should render with args { label: 'label',
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3775,15 +3775,15 @@ exports[`mg-input-numeric type integer Should render with args { label: 'label',
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Should render with slot. 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--is-input-group-append mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3792,7 +3792,7 @@ exports[`mg-input-numeric type integer Should render with slot. 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3804,21 +3804,21 @@ exports[`mg-input-numeric type integer Should render with slot. 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-label="search" role="button" slot="append-input" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary" id="button-identifier">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     <mg-icon>
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <svg aria-hidden="true" class="mg-c-icon mg-c-icon--calculator mg-c-icon--size-regular" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
           <path d="M12.8.7H3.2c-.3 0-.5.2-.5.5v13.7c0 .3.2.5.5.5h9.7c.3 0 .5-.2.5-.5V1.2c-.1-.3-.3-.5-.6-.5M5.6 13.4q0 .3-.3.3H4.1q-.3 0-.3-.3v-1.2q0-.3.3-.3h1.2q.3 0 .3.3zm0-3.3q0 .3-.3.3H4.1q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm3.3 3.3q0 .3-.3.3H7.4q-.3 0-.3-.3v-1.2q0-.3.3-.3h1.2q.3 0 .3.3zm0-3.3q0 .3-.3.3H7.4q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm3.3 3.3q0 .3-.3.3h-1.2q-.3 0-.3-.3V8.9q0-.3.3-.3h1.2q.3 0 .3.3zm0-7.2q0 .3-.3.3H4.1q-.3 0-.3-.3V2.6q0-.3.3-.3h7.8q.3 0 .3.3z" fill="currentColor"></path>
         </svg>
-      </mock:shadow-root>
+      </template>
     </mg-icon>
     Calculate
   </mg-button>
@@ -3827,9 +3827,9 @@ exports[`mg-input-numeric type integer Should render with slot. 1`] = `
 
 exports[`mg-input-numeric type integer Should render with slot. 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--is-append-input-slot-content mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3838,7 +3838,7 @@ exports[`mg-input-numeric type integer Should render with slot. 2`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3850,7 +3850,7 @@ exports[`mg-input-numeric type integer Should render with slot. 2`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
   <span slot="append-input">
     km
   </span>
@@ -3859,9 +3859,9 @@ exports[`mg-input-numeric type integer Should render with slot. 2`] = `
 
 exports[`mg-input-numeric type integer Should trigger events 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3873,7 +3873,7 @@ exports[`mg-input-numeric type integer Should trigger events 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-help-text" slot="help-text">
@@ -3888,15 +3888,15 @@ exports[`mg-input-numeric type integer Should trigger events 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Should update display value when value props change 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3905,7 +3905,7 @@ exports[`mg-input-numeric type integer Should update display value when value pr
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3917,15 +3917,15 @@ exports[`mg-input-numeric type integer Should update display value when value pr
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer Should update display value when value props change 2`] = `
 <mg-input-numeric value="10">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3934,7 +3934,7 @@ exports[`mg-input-numeric type integer Should update display value when value pr
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="10">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -3946,15 +3946,15 @@ exports[`mg-input-numeric type integer Should update display value when value pr
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer display error with displayError component's public method 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -3963,7 +3963,7 @@ exports[`mg-input-numeric type integer display error with displayError component
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="true" slot="label">
@@ -3980,15 +3980,15 @@ exports[`mg-input-numeric type integer display error with displayError component
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer display error with displayError component's public method 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4000,7 +4000,7 @@ exports[`mg-input-numeric type integer display error with displayError component
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" required="" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -4020,15 +4020,15 @@ exports[`mg-input-numeric type integer display error with displayError component
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4040,7 +4040,7 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -4055,15 +4055,15 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer validity, case next state is disabled validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--disabled mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4072,7 +4072,7 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" disabled="" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4084,15 +4084,15 @@ exports[`mg-input-numeric type integer validity, case next state is disabled val
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 1`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4104,7 +4104,7 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -4119,15 +4119,15 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric type integer validity, case next state is readonly validity ({ validity: false, valueMissing: true }) 2`] = `
 <mg-input-numeric>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4135,7 +4135,7 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
           <strong></strong>
           <slot></slot>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
@@ -4147,15 +4147,15 @@ exports[`mg-input-numeric type integer validity, case next state is readonly val
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 1`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4164,7 +4164,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4176,15 +4176,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 2`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4193,7 +4193,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4205,15 +4205,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 3`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4222,7 +4222,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4234,15 +4234,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, max: 2, next: 3 } 4`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4251,7 +4251,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="3" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4263,15 +4263,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 1`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4280,7 +4280,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4292,15 +4292,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 2`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4309,7 +4309,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4321,15 +4321,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 3`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4341,7 +4341,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -4356,15 +4356,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 1, min: 2, next: 1 } 4`] = `
 <mg-input-numeric value="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4373,7 +4373,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="1" name="identifier" type="text" value="1.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4385,15 +4385,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 1`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4402,7 +4402,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4414,15 +4414,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 2`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4431,7 +4431,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4443,15 +4443,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 3`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--has-error mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4463,7 +4463,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-error" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="2" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <div id="identifier-error" slot="error">
@@ -4478,15 +4478,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, max: 2, next: 3 } 4`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4495,7 +4495,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" max="3" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4507,15 +4507,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 1`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4524,7 +4524,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4536,15 +4536,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 2`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4553,7 +4553,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4565,15 +4565,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 3`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4582,7 +4582,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="2" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4594,15 +4594,15 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
 
 exports[`mg-input-numeric validity, case update min/max prop value value { value: 3, min: 2, next: 1 } 4`] = `
 <mg-input-numeric value="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--numeric">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -4611,7 +4611,7 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" min="1" name="identifier" type="text" value="3.00">
       <slot name="append-input"></slot>
       <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
@@ -4623,6 +4623,6 @@ exports[`mg-input-numeric validity, case update min/max prop value value { value
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-numeric>
 `;
