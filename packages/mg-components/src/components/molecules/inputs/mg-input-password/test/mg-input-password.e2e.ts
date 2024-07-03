@@ -195,8 +195,8 @@ test.describe('mg-input-password', () => {
 
   test.describe('Style', () => {
     test('Should prevent style override from context', async ({ page }) => {
-      const html = createHTML({ ...baseArgs });
-      await page.addStyleTag({ content: 'body{color: white;}' });
+      const html = createHTML({ ...baseArgs, helpText: "text d'aide", tooltip: 'tooltip' });
+      await page.addStyleTag({ content: 'body{color: white;background-color: black;}' });
       await page.setContent(html);
 
       await expect(page.locator('.e2e-screenshot')).toHaveScreenshot();

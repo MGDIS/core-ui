@@ -343,7 +343,7 @@ export class MgInputPassword {
             onClick={this.toggleDisplayPassword}
             aria-controls={this.identifier}
           >
-            <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+            <mg-icon class="mg-c-input__input-icon" icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
           </mg-button>
         </span>
       </mg-input>
