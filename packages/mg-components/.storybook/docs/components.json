@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-06-18T10:15:07",
+  "timestamp": "2024-07-03T14:54:39",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.3",
@@ -6076,6 +6076,27 @@
           "required": false
         },
         {
+          "name": "maxlength",
+          "type": "any",
+          "complexType": {
+            "original": "any",
+            "resolved": "any",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "maxlength",
+          "reflectToAttr": false,
+          "docs": "Input max length",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "any"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "mgWidth",
           "type": "\"full\" | 16 | 2 | 4",
           "complexType": {
@@ -10405,7 +10426,7 @@
           "mutable": false,
           "attr": "label",
           "reflectToAttr": false,
-          "docs": "Menu label. Include short menu description.\nRequired for accessibility",
+          "docs": "Menu label. Include short menu description.\nRequired to define accessibility required attribute `aria-label`",
           "docsTags": [],
           "values": [
             {
@@ -10588,7 +10609,7 @@
           },
           "mutable": false,
           "attr": "identifier",
-          "reflectToAttr": false,
+          "reflectToAttr": true,
           "docs": "Identifier is used to control mg-popover",
           "docsTags": [],
           "default": "createID('mg-menu-item')",

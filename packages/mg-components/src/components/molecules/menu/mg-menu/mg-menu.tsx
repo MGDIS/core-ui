@@ -31,12 +31,12 @@ export class MgMenu {
 
   /**
    * Menu label. Include short menu description.
-   * Required for accessibility
+   * Required to define accessibility required attribute `aria-label`
    */
   @Prop() label!: string;
   @Watch('label')
   validateLabel(newValue: MgMenu['label']): void {
-    if (newValue === undefined) {
+    if (newValue === undefined && !this.element.getAttribute('aria-label')) {
       throw new Error(`<${this.name}> prop "label" is required.`);
     }
   }
