@@ -10,6 +10,12 @@ It is not possible to enter more than two digits after the decimal point.
 
 It is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.
 
+## Number Format
+
+Numeric values are formatted according to the page's language settings. The component checks for the closest `lang` attribute and applies formatting based on that value. If it cannot find a `lang` attribute, it defaults to `en`.
+
+**Reminder:** For accessibility purposes, the `lang` attribute should be set at least on the `<html>` tag.
+
 ## Slot
 
 The spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.
