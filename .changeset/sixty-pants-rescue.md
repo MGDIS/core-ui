@@ -2,4 +2,4 @@
 'eslint-config-custom': patch
 ---
 
-upgrade turbo dependencie
+upgrade turbo dependency
