@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.13
+
+### Patch Changes
+
+- c567b43: update dependencies
+
 ## 1.1.12
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @mgdis/img
 
+## 1.7.3
+
+### Patch Changes
+
+- c567b43: update dependencies
+
 ## 1.7.2
 
 ### Patch Changes
