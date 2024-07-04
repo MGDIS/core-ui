@@ -43,7 +43,7 @@ export class MgMenuItem {
   /**
    * Identifier is used to control mg-popover
    */
-  @Prop() identifier = createID('mg-menu-item');
+  @Prop({ reflect: true }) identifier = createID('mg-menu-item');
 
   /**
    * Define menu-item href
@@ -370,14 +370,14 @@ export class MgMenuItem {
       this.updateDisplayNotificationBadge();
       this.updatePopoverGuard();
 
-      // manage child dom changes with mutationObserver and listzners
+      // manage child dom changes with mutationObserver and listners
       this.initListeners();
 
       // emit loaded event when component is fully loaded
       this.itemLoaded.emit();
 
       new MutationObserver(mutationsList => {
-        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus([Status.ACTIVE]);
+        if (mutationsList.some(mutation => mutation.attributeName === 'hidden')) this.updateStatus(this.hasChildren ? undefined : [Status.ACTIVE]);
         if (mutationsList.some(mutation => mutation.type === 'characterData')) this.validateSlot();
         this.updateDisplayNotificationBadge();
         this.itemUpdated.emit();

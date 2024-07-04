@@ -74,6 +74,11 @@ export class MgInputPassword {
   @Prop() placeholder?: string;
 
   /**
+   * Input max length
+   */
+  @Prop() maxlength;
+
+  /**
    * Define if input is required
    */
   @Prop() required = false;
@@ -329,6 +334,7 @@ export class MgInputPassword {
               title={this.placeholder}
               disabled={this.disabled}
               required={this.required}
+              maxlength={this.maxlength}
               aria-invalid={(this.invalid === true).toString()}
               onInput={this.handleInput}
               onBlur={this.handleBlur}
@@ -345,7 +351,7 @@ export class MgInputPassword {
               onClick={this.toggleDisplayPassword}
               aria-controls={this.identifier}
             >
-              <mg-icon icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
+              <mg-icon class="mg-c-input__input-icon" icon={this.displayPassword ? 'eye-slash' : 'eye'}></mg-icon>
             </mg-button>
           </span>
         )}
