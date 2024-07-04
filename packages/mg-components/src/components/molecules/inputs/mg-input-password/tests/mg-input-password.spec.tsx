@@ -36,6 +36,7 @@ describe('mg-input-password', () => {
     { tooltip: 'My Tooltip Message', labelOnTop: true },
     { tooltip: 'My Tooltip Message', tooltipPosition: 'label' },
     { tooltip: 'My Tooltip Message', tooltipPosition: 'input', labelOnTop: true },
+    { maxlength: 20 },
   ])('Should render with args %s:', async args => {
     const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
     expect(root).toMatchSnapshot();

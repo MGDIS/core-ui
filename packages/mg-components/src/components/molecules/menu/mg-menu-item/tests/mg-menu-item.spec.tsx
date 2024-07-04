@@ -15,7 +15,7 @@ mockWindowFrames();
 
 const menu = (args: Partial<MgMenu> & { slots?: unknown } & Pick<MgMenu, 'label'> = { label: 'child-menu' }) => <mg-menu {...args}>{args.slots}</mg-menu>;
 const menuItem = (args, slot?) => (
-  <mg-menu-item {...args} identifier={args.identifier === undefined ? 'identifier' : args.identifier} data-overflow-more={args.overflow}>
+  <mg-menu-item {...args} identifier={!args.identifier ? 'identifier' : args.identifier} data-overflow-more={args.overflow}>
     {slot}
     {args.label && <span slot="label">{args.label}</span>}
     {args.metadata && <span slot="metadata">my metadata</span>}
@@ -367,25 +367,54 @@ describe('mg-menu-item', () => {
       expect(page.root).toMatchSnapshot();
     });
 
-    test.each([
+    describe.each([
       { from: Status.ACTIVE, to: Status.VISIBLE },
       { from: Status.VISIBLE, to: Status.ACTIVE },
-    ])('Should update status with child title "attribute" mutation, from status %s', async ({ from, to }) => {
-      const page = await getPage(menuItem({ label: 'Batman', status: from }, childMenu({ label: 'child menu', status: to })));
+    ])('menu-item status: %s', ({ from, to }) => {
+      test.each([
+        <mg-menu label="menu">
+          <mg-menu-item identifier="identifier-1" status={from}>
+            <span slot="label">level 1</span>
+            <mg-menu label="sub menu 1">
+              <mg-menu-item identifier="identifier-2" status={to}>
+                <span slot="label">level 2</span>
+              </mg-menu-item>
+            </mg-menu>
+          </mg-menu-item>
+        </mg-menu>,
+        <mg-menu label="menu">
+          <mg-menu-item identifier="identifier-1" status={from}>
+            <span slot="label">level 1</span>
+            <mg-menu label="sub menu 1">
+              <mg-menu-item identifier="identifier-2">
+                <span slot="label">level 2</span>
+                <mg-menu label="sub menu 2">
+                  <mg-menu-item identifier="identifier-3" status={to}>
+                    <span slot="label">level 3</span>
+                  </mg-menu-item>
+                </mg-menu>
+              </mg-menu-item>
+            </mg-menu>
+          </mg-menu-item>
+        </mg-menu>,
+      ])('Should update status with child title "attribute" mutation, from status %s', async template => {
+        const page = await getPage(template);
 
-      const menuItemElement = page.doc.querySelector('mg-menu-item');
-      const childMenuItemElement = page.doc.querySelector('mg-menu-item mg-menu mg-menu-item') as HTMLMgMenuItemElement;
+        const menuItemLevel1 = page.doc.querySelector('mg-menu-item');
+        const menuItemLevel2 = page.doc.querySelector('mg-menu-item mg-menu mg-menu-item');
+        const menuItemLevel3 = page.doc.querySelector('mg-menu-item mg-menu mg-menu-item mg-menu mg-menu-item');
 
-      expect(menuItemElement).toHaveProperty('status', to === Status.ACTIVE ? to : from);
-      expect(childMenuItemElement).toHaveProperty('status', to);
+        expect(menuItemLevel1).toHaveProperty('status', to === Status.ACTIVE ? to : from);
+        expect(menuItemLevel2).toHaveProperty('status', to);
 
-      childMenuItemElement.setAttribute('hidden', '');
-      fireMo[0]([{ attributeName: 'hidden' }]);
+        menuItemLevel2.setAttribute('hidden', '');
+        fireMo[menuItemLevel3 ? 2 : 0]([{ attributeName: 'hidden' }]);
 
-      await page.waitForChanges();
+        await page.waitForChanges();
 
-      expect(menuItemElement).toHaveProperty('status', to === Status.ACTIVE ? to : from);
-      expect(page.root).toMatchSnapshot();
+        expect(menuItemLevel1).toHaveProperty('status', to === Status.ACTIVE ? to : from);
+        expect(page.root).toMatchSnapshot();
+      });
     });
 
     test.each(['label', 'metadata'])('Should update status with child "characterData" mutation, from status %s', async slot => {
