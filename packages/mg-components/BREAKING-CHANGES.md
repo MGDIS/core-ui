@@ -157,6 +157,17 @@ No more `variables.scss` export, only `variables.css`.
   <mg-input-numeric identifier="blu" label="non" format="currency"></mg-input-numeric>
   ```
 
+- The default value for the `currency` prop is now `EUR` instead of `USD`.
+
+  ```html
+  <!-- in v5 -->
+  <mg-input-numeric identifier="blu" label="non" type="currency"></mg-input-numeric>
+  <mg-input-numeric identifier="blu" label="non" type="currency" currency="EUR"></mg-input-numeric>
+  <!-- in v6 -->
+  <mg-input-numeric identifier="blu" label="non" format="currency" currency="USD"></mg-input-numeric>
+  <mg-input-numeric identifier="blu" label="non" format="currency"></mg-input-numeric>
+  ```
+
 ### Changes in `mg-input-text` and `mg-input-textarea`
 
 - Renammed `display-character-left` prop to `character-left-hide`.  

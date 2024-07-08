@@ -10,6 +10,12 @@ It is not possible to enter more than two digits after the decimal point.
 
 It is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.
 
+## Number Format
+
+Numeric values are formatted according to the page's language settings. The component checks for the closest `lang` attribute and applies formatting based on that value. If it cannot find a `lang` attribute, it defaults to `en`.
+
+**Reminder:** For accessibility purposes, the `lang` attribute should be set at least on the `<html>` tag.
+
 ## Slot
 
 The spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.
@@ -25,7 +31,7 @@ Unit term must be placed into the field slot using a "space" character before th
 
 | Property                  | Attribute          | Description                                                                                                                                    | Type                               | Default           |
 | ------------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------- |
-| `currency`                | `currency`         | Define currency                                                                                                                                | `string`                           | `'USD'`           |
+| `currency`                | `currency`         | Define currency                                                                                                                                | `string`                           | `'EUR'`           |
 | `decimalLength`           | `decimal-length`   | Override decimal length decimal is the number after the decimal point                                                                          | `number`                           | `2`               |
 | `disabled`                | `disabled`         | Define if input is disabled                                                                                                                    | `boolean`                          | `false`           |
 | `format`                  | `format`           | Set local formatting. Numbers are formatted based on the locale.                                                                               | `"currency" \| "none" \| "number"` | `'number'`        |
