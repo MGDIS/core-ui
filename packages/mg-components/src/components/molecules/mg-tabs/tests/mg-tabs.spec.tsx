@@ -312,4 +312,16 @@ describe('mg-tabs', () => {
       expect(page.root).toMatchSnapshot();
     });
   });
+
+  test('Should manage diconnectedCallback hook', async () => {
+    const page = await getPage({ label: 'Sample label', items: ['batman', 'joker'], identifier: 'id' }, createSlots());
+
+    expect(page.body).toMatchSnapshot();
+
+    page.doc.querySelector('mg-tabs').remove();
+
+    await page.waitForChanges();
+
+    expect(page.body).toMatchSnapshot();
+  });
 });

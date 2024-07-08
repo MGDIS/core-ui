@@ -123,6 +123,40 @@ exports[`mg-tooltip Should keep displayed tooltip when hover it 1`] = `
 </mg-tooltip>
 `;
 
+exports[`mg-tooltip Should manage diconnectedCallback hook 1`] = `
+<body>
+  <mg-tooltip>
+    <mock:shadow-root>
+      <slot></slot>
+      <slot name="content"></slot>
+    </mock:shadow-root>
+    <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
+      <mg-button aria-disabled="true" role="button" tabindex="0">
+        <mock:shadow-root>
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </mock:shadow-root>
+        mg-button.disabled
+      </mg-button>
+    </div>
+    <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+      <mock:shadow-root>
+        <span class="mg-tooltip-content__message">
+          My tooltip message
+        </span>
+        <slot name="arrow"></slot>
+      </mock:shadow-root>
+      <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    </mg-tooltip-content>
+  </mg-tooltip>
+</body>
+`;
+
+exports[`mg-tooltip Should manage diconnectedCallback hook 2`] = `<body></body>`;
+
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'blur' }, leave with %s element 1`] = `
 <mg-tooltip>
   <mock:shadow-root>
