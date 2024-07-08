@@ -1,6 +1,15 @@
 @use 'sass:list';
+@use 'sass:map';
 @use '../variables' as variables;
 @import '../utils/a11y';
+
+$sizes-variant-background-spacing: (
+  'small': var(--mg-b-size-16),
+  'medium': var(--mg-b-size-24),
+  'large': var(--mg-b-size-32),
+  'xlarge': var(--mg-b-size-40),
+  'xxlarge': var(--mg-b-size-48),
+);
 
 /*!
  * @prop --mg-c-icon-size-small: Defines the size of small icons. Default value is `--mg-b-size-12`.
@@ -26,7 +35,7 @@
       height: var(--mg-c-icon-size-#{$size});
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-        padding: calc(var(--mg-c-icon-size-#{$size}) / 2);
+        padding: calc((#{map.get($sizes-variant-background-spacing, $size)} - var(--mg-c-icon-size-#{$size})) / 2);
       }
     }
   }
