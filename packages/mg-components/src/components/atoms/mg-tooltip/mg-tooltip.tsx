@@ -428,6 +428,17 @@ export class MgTooltip {
   }
 
   /**
+   * remove listeners
+   */
+  disconnectedCallback(): void {
+    document.removeEventListener('keydown', this.handlePressEscape);
+    this.windows.forEach((localWindow: Window) => {
+      localWindow.removeEventListener('click', this.handleClickOutside, false);
+      localWindow.removeEventListener('keydown', this.handlePressEscape, false);
+    });
+  }
+
+  /**
    * Render
    * @returns HTML Element
    */

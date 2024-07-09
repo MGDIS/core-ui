@@ -1,5 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`mg-tabs Should manage diconnectedCallback hook 1`] = `
+<body>
+  <mg-tabs active-tab="1">
+    <mock:shadow-root>
+      <div class="mg-c-tabs mg-c-tabs--size-medium">
+        <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
+          <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
+            batman
+          </button>
+          <button aria-controls="panel-2" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="2" id="id-2" role="tab" tabindex="-1">
+            joker
+          </button>
+        </header>
+        <article aria-labelledby="id-1" class="mg-c-tabs__content-container" id="panel-1" role="tabpanel" tabindex="0">
+          <slot name="tab_content-1"></slot>
+        </article>
+        <article aria-labelledby="id-2" class="mg-c-tabs__content-container" hidden="" id="panel-2" role="tabpanel" tabindex="-1">
+          <slot name="tab_content-2"></slot>
+        </article>
+      </div>
+    </mock:shadow-root>
+    <div slot="tab_content-1">
+      Content 1
+    </div>
+    <div slot="tab_content-2">
+      Content 2
+    </div>
+  </mg-tabs>
+</body>
+`;
+
+exports[`mg-tabs Should manage diconnectedCallback hook 2`] = `<body></body>`;
+
 exports[`mg-tabs navigation Should go to next tab on keyboard event 1`] = `
 <mg-tabs active-tab="1">
   <mock:shadow-root>
