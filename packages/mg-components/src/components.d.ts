@@ -13,7 +13,7 @@ import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue, MgInputCheckboxLocaleMessagesType, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -38,7 +38,7 @@ export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue, MgInputCheckboxLocaleMessagesType, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -341,6 +341,10 @@ export namespace Components {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
+        /**
+          * Define component locale messages overrides
+         */
+        "localemessages": MgInputCheckboxLocaleMessagesType;
         /**
           * Define input name If not set the value equals the identifier
          */
@@ -2310,6 +2314,10 @@ declare namespace LocalJSX {
           * Define if label is displayed on top
          */
         "labelOnTop"?: boolean;
+        /**
+          * Define component locale messages overrides
+         */
+        "localemessages"?: MgInputCheckboxLocaleMessagesType;
         /**
           * Define input name If not set the value equals the identifier
          */

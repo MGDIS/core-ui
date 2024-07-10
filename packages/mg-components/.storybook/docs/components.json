@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-03T15:24:58",
+  "timestamp": "2024-07-10T06:18:03",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.18.3",
@@ -4317,6 +4317,32 @@
             }
           ],
           "optional": true,
+          "required": false
+        },
+        {
+          "name": "localemessages",
+          "type": "MgInputCheckboxLocaleMessagesType",
+          "complexType": {
+            "original": "MgInputCheckboxLocaleMessagesType",
+            "resolved": "MgInputCheckboxLocaleMessagesType",
+            "references": {
+              "MgInputCheckboxLocaleMessagesType": {
+                "location": "import",
+                "path": "./mg-input-checkbox.conf",
+                "id": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::MgInputCheckboxLocaleMessagesType"
+              }
+            }
+          },
+          "mutable": false,
+          "reflectToAttr": false,
+          "docs": "Define component locale messages overrides",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "MgInputCheckboxLocaleMessagesType"
+            }
+          ],
+          "optional": false,
           "required": false
         },
         {
@@ -12775,6 +12801,11 @@
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxType": {
       "declaration": "\"checkbox\" | \"multi\"",
       "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
+    },
+    "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::MgInputCheckboxLocaleMessagesType": {
+      "declaration": "export interface MgInputCheckboxLocaleMessagesType extends ObjectType {\n  input: {\n    checkbox: {\n      editButton: string;\n      showButton: string;\n      selectButton: string;\n    };\n  };\n}",
+      "docstring": "mg-input-checkbox message override",
       "path": "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf.ts::CheckboxItem": {

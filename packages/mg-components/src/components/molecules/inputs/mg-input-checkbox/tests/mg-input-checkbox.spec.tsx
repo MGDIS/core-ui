@@ -90,6 +90,7 @@ describe('mg-input-checkbox', () => {
         ),
       ];
     }
+
     test.each(testValues)('Should render with args %s:', async args => {
       const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
       expect(root).toMatchSnapshot();
@@ -101,6 +102,15 @@ describe('mg-input-checkbox', () => {
         await getPage({ identifier, type, value: getValues() });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
+      }
+    });
+
+    test.each(['batman', []])('Should not render with invalid localemessages property: %s', async localemessages => {
+      expect.assertions(1);
+      try {
+        await getPage({ identifier: 'identifier', label: 'label', type, localemessages, value: getValues() });
+      } catch (err) {
+        expect(err.message).toMatch('<mg-input-checkbox> prop "localemessages" must be a MgInputCheckboxLocaleMessagesType.');
       }
     });
 
@@ -408,6 +418,31 @@ describe('mg-input-checkbox', () => {
 
     test('Should enable "displaySearchInput" when value list is greater than 10', async () => {
       const { root } = await getPage({ label: 'label', identifier: 'identifier', value: getValues(11), type });
+      expect(root).toMatchSnapshot();
+    });
+
+    test.each([
+      {
+        input: {
+          checkbox: {
+            editButton: 'custom editButton',
+            showButton: 'custom showButton',
+            selectButton: 'custom selectButton',
+          },
+        },
+      },
+      {
+        input: {},
+      },
+      {},
+    ])('Should render with custom locales: %s', async localemessages => {
+      const { root } = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value: getValues(),
+        type,
+        localemessages,
+      });
       expect(root).toMatchSnapshot();
     });
   });
