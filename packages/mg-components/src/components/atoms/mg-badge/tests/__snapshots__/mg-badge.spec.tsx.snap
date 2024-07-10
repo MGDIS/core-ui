@@ -15,6 +15,21 @@ exports[`mg-badge value ! 1`] = `
 </mg-badge>
 `;
 
+exports[`mg-badge value + 1`] = `
+<mg-badge>
+  <mock:shadow-root>
+    <span class="mg-c-badge mg-c-badge--info">
+      <span class="mg-c-badge__value">
+        +
+      </span>
+      <span class="mg-u-visually-hidden">
+        Batman
+      </span>
+    </span>
+  </mock:shadow-root>
+</mg-badge>
+`;
+
 exports[`mg-badge value ? 1`] = `
 <mg-badge>
   <mock:shadow-root>
@@ -51,6 +66,21 @@ exports[`mg-badge value 99+ 1`] = `
     <span class="mg-c-badge mg-c-badge--info">
       <span class="mg-c-badge__value">
         99+
+      </span>
+      <span class="mg-u-visually-hidden">
+        Batman
+      </span>
+    </span>
+  </mock:shadow-root>
+</mg-badge>
+`;
+
+exports[`mg-badge value 99? 1`] = `
+<mg-badge>
+  <mock:shadow-root>
+    <span class="mg-c-badge mg-c-badge--info">
+      <span class="mg-c-badge__value">
+        99?
       </span>
       <span class="mg-u-visually-hidden">
         Batman

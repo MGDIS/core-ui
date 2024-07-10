@@ -17,7 +17,7 @@ describe('mg-badge', () => {
     });
   });
 
-  test.each([1, 100, '!', '?', '99+'])('value %s', async value => {
+  test.each([1, 100, '!', '?', '99+', '+', '99?'])('value %s', async value => {
     const { root } = await getPage({ value, label: 'Batman' });
     expect(root).toMatchSnapshot();
   });
@@ -68,7 +68,7 @@ describe('mg-badge', () => {
       }
     });
 
-    test.each(['', 'Batman', '+', '99?'])('Should throw error, case invalid value prop', async value => {
+    test.each(['', 'Batman', 'Batman+', 'Batman!'])('Should throw error, case invalid value prop', async value => {
       expect.assertions(1);
       try {
         await getPage({ value, label: 'Batman' });
