@@ -3,20 +3,17 @@
 @use '../variables' as variables;
 @import '../utils/a11y';
 
-$sizes-variant-background-spacing: (
-  'small': var(--mg-b-size-16),
-  'medium': var(--mg-b-size-24),
-  'large': var(--mg-b-size-32),
-  'xlarge': var(--mg-b-size-40),
-  'xxlarge': var(--mg-b-size-48),
-);
-
 /*!
  * @prop --mg-c-icon-size-small: Defines the size of small icons. Default value is `--mg-b-size-12`.
  * @prop --mg-c-icon-size-medium: Defines the size of medium icons. Default value is `--mg-b-size-16`.
  * @prop --mg-c-icon-size-large: Defines the size of large icons. Default value is `--mg-b-size-20`.
  * @prop --mg-c-icon-size-xlarge: Defines the size of extra large icons. Default value is `--mg-b-size-24`.
  * @prop --mg-c-icon-size-xxlarge: Defines the size of double extra large icons. Default value is `--mg-b-size-32`.
+ * @prop --mg-c-icon-spacing-small: Defines the spacing of small icons. Default value is `calc(var(--mg-b-size-4) / 2)`.
+ * @prop --mg-c-icon-spacing-medium: Defines the spacing of medium icons. Default value is `--mg-b-size-4`.
+ * @prop --mg-c-icon-spacing-large: Defines the spacing of large icons. Default value is `calc(var(--mg-b-size-4) / 2 * 3)`.
+ * @prop --mg-c-icon-spacing-xlarge: Defines the spacing of extra large icons. Default value is `--mg-b-size-8`.
+ * @prop --mg-c-icon-spacing-xxlarge: Defines the spacing of double extra large icons. Default value is `--mg-b-size-8`.
  * @prop --mg-c-icon-border-radius: Defines the border radius of icons. Default value is `50%`.
  */
 
@@ -28,14 +25,14 @@ $sizes-variant-background-spacing: (
 .mg-c-icon {
   color: currentcolor;
 
-  @each $size in 'small', 'medium', 'large', 'xlarge', 'xxlarge' {
+  @each $size, $_, $_ in variables.$icons {
     &[size='#{$size}'],
     &.mg-c-icon--size-#{$size} {
       width: var(--mg-c-icon-size-#{$size});
       height: var(--mg-c-icon-size-#{$size});
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-        padding: calc((#{map.get($sizes-variant-background-spacing, $size)} - var(--mg-c-icon-size-#{$size})) / 2);
+        padding: var(--mg-c-icon-spacing-#{$size});
       }
     }
   }

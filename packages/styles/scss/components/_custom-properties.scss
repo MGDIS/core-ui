@@ -45,11 +45,11 @@
   --mg-c-divider-spacing-vertical: var(--mg-b-size-40);
 
   /* mg-icon */
-  --mg-c-icon-size-small: var(--mg-b-size-12);
-  --mg-c-icon-size-medium: var(--mg-b-size-16);
-  --mg-c-icon-size-large: var(--mg-b-size-20);
-  --mg-c-icon-size-xlarge: var(--mg-b-size-24);
-  --mg-c-icon-size-xxlarge: var(--mg-b-size-32);
+  @each $name, $size, $spacing in variables.$icons {
+    --mg-c-icon-size-#{$name}: #{$size};
+    --mg-c-icon-spacing-#{$name}: #{$spacing};
+  }
+
   --mg-c-icon-border-radius: 50%;
 
   /* mg-tag */

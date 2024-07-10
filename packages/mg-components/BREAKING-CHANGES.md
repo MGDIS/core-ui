@@ -142,6 +142,17 @@ No more `variables.scss` export, only `variables.css`.
   <mg-icon icon="cog" size="xxlarge"></mg-icon>
   ```
 
+- update `variant`prop `full`and `background` sizes.
+
+  ```css
+  .mg-c-icon.mg-c-icon--size-small[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
+    /* in v5 */
+    padding: calc(var(--mg-c-icon-size-small) / 2);
+    /* in v6 */
+    padding: var(--mg-c-icon-spacing-small);
+  }
+  ```
+
 ### Changes in `mg-input`
 
 - The `readonly` and `readonlyValue` props have been removed. The component no longer handles the readonly style.
