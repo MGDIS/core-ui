@@ -106,6 +106,7 @@ prepare_package "packages/stencil-helpers/package.json" '{
 # Create turbo.json
 echo '{
   "$schema": "https://turborepo.org/schema.json",
+  "globalEnv": ["PLAYWRIGHT_BROWSERS_PATH"],
   "tasks": {
     "test:e2e": {}
   }

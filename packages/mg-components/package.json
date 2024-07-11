@@ -38,7 +38,7 @@
     "test": "TZ=UTC stencil test --spec --e2e",
     "test:unit": "TZ=UTC stencil test --spec --collectCoverage",
     "test:e2e": "pnpm --package=@pnpm/@playwright/test dlx playwright test",
-    "test:e2e:docker": "PLAYWRIGHT_BROWSERS_PATH=/ms-playwright pnpm dlx @playwright/test test",
+    "test:e2e:docker": "pnpm dlx @playwright/test test",
     "test:watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
     "storybook": "storybook dev -p 6006",
