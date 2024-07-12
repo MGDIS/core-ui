@@ -1,5 +1,12 @@
 # Changelog
 
+## 4.1.5
+
+### Patch Changes
+
+- c567b43: update dependencies
+- 1583a06: [#497](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/497) fix mg-components-helpers export typos
+
 ## 4.1.4
 
 ### Patch Changes

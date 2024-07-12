@@ -394,4 +394,16 @@ describe('mg-tooltip', () => {
 
     expect(page.root).toMatchSnapshot();
   });
+
+  test('Should manage diconnectedCallback hook', async () => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, <mg-button disabled>mg-button.disabled</mg-button>);
+
+    expect(page.body).toMatchSnapshot();
+
+    page.doc.querySelector('mg-tooltip').remove();
+
+    await page.waitForChanges();
+
+    expect(page.body).toMatchSnapshot();
+  });
 });

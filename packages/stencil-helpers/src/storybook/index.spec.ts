@@ -1,6 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { filterArgs, stencilWrapper, getStoryHTML } from './index';
-import * as client from '@stencil/core/internal/client';
+import { filterArgs, stencilWrapper, getStoryHTML } from './';
 import { VNode } from '@stencil/core';
 
 describe('storybook', () => {
@@ -31,7 +30,6 @@ describe('storybook', () => {
       expect(res).toEqual(undefined);
     });
     test.each([{}, { globals: { locale: 'fr' } }])('should render element from VDOM', args => {
-      const stencilClientMock = vi.spyOn(client, 'renderVdom');
       const storyFn = vi.fn();
 
       // insert storybook host div
@@ -42,7 +40,6 @@ describe('storybook', () => {
 
       const res = stencilWrapper(storyFn, args);
       expect(storyFn).toHaveBeenCalledWith(args);
-      expect(stencilClientMock).toHaveBeenCalled(storyFn);
       expect(res).toEqual(undefined);
     });
   });

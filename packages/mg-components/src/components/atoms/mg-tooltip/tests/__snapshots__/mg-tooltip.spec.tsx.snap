@@ -2,20 +2,20 @@
 
 exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not match disabled condition 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -23,20 +23,20 @@ exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not mat
 
 exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not match disabled condition 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -44,29 +44,29 @@ exports[`mg-tooltip Should NOT update button wrapper when MutationRecord not mat
 
 exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not match disabled condition 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -74,29 +74,29 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
 
 exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not match disabled condition 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -104,41 +104,75 @@ exports[`mg-tooltip Should NOT update mg-button wrapper when MutationRecord not 
 
 exports[`mg-tooltip Should keep displayed tooltip when hover it 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
 `;
 
+exports[`mg-tooltip Should manage diconnectedCallback hook 1`] = `
+<body>
+  <mg-tooltip>
+    <template shadowrootmode="open">
+      <slot></slot>
+      <slot name="content"></slot>
+    </template>
+    <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
+      <mg-button aria-disabled="true" role="button" tabindex="0">
+        <template shadowrootmode="open">
+          <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
+            <div class="mg-c-button__content">
+              <slot></slot>
+            </div>
+          </div>
+        </template>
+        mg-button.disabled
+      </mg-button>
+    </div>
+    <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+      <template shadowrootmode="open">
+        <span class="mg-tooltip-content__message">
+          My tooltip message
+        </span>
+        <slot name="arrow"></slot>
+      </template>
+      <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+    </mg-tooltip-content>
+  </mg-tooltip>
+</body>
+`;
+
+exports[`mg-tooltip Should manage diconnectedCallback hook 2`] = `<body></body>`;
+
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'blur' }, leave with %s element 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -146,20 +180,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'blur' }, leave with %s element 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -167,24 +201,24 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'blur' }, leave with %s element 3`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -192,27 +226,27 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'blur' }, leave with %s element 4`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -220,29 +254,29 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'blur' }, leave with %s element 5`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -250,20 +284,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -271,20 +305,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -292,24 +326,24 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 3`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -317,27 +351,27 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 4`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -345,29 +379,29 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus', eventOut: 'mouseleave' }, leave with %s element 5`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -375,20 +409,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'focus
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -396,20 +430,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -417,24 +451,24 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 3`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -442,27 +476,27 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 4`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -470,29 +504,29 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'clickDocument' }, leave with %s element 5`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -500,20 +534,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'mouseleave' }, leave with %s element 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -521,20 +555,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'mouseleave' }, leave with %s element 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -542,24 +576,24 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'mouseleave' }, leave with %s element 3`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -567,27 +601,27 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'mouseleave' }, leave with %s element 4`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -595,29 +629,29 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouseenter', eventOut: 'mouseleave' }, leave with %s element 5`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         blu
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -625,20 +659,20 @@ exports[`mg-tooltip Should manage display on events enter with { eventIn: 'mouse
 
 exports[`mg-tooltip Should render with element with given placement 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="top" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -646,20 +680,20 @@ exports[`mg-tooltip Should render with element with given placement 1`] = `
 
 exports[`mg-tooltip Should toggle tooltip from prop display, case display false 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -667,20 +701,20 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display false 
 
 exports[`mg-tooltip Should toggle tooltip from prop display, case display false 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -688,20 +722,20 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display false 
 
 exports[`mg-tooltip Should toggle tooltip from prop display, case display true 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -709,20 +743,20 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display true 1
 
 exports[`mg-tooltip Should toggle tooltip from prop display, case display true 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     batman
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         batman
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -730,20 +764,20 @@ exports[`mg-tooltip Should toggle tooltip from prop display, case display true 2
 
 exports[`mg-tooltip Should update button wrapper dynamically 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -751,20 +785,20 @@ exports[`mg-tooltip Should update button wrapper dynamically 1`] = `
 
 exports[`mg-tooltip Should update button wrapper dynamically 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="identifier" disabled="">
     button.disabled
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -772,29 +806,29 @@ exports[`mg-tooltip Should update button wrapper dynamically 2`] = `
 
 exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -802,18 +836,18 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 1`] = `
 
 exports[`mg-tooltip Should update mg-button wrapper dynamically 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-disabled="true" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button.disabled
   </mg-button>
 </mg-tooltip>
@@ -821,29 +855,29 @@ exports[`mg-tooltip Should update mg-button wrapper dynamically 2`] = `
 
 exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is updated 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -851,29 +885,29 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
 
 exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is updated 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="new-identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -881,27 +915,27 @@ exports[`mg-tooltip Should update mg-tooltip-content id when "identifier" is upd
 
 exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click /> 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mgButton.disableOnClick
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -909,35 +943,35 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
 
 exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click /> 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" aria-disabled="true" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--disabled mg-c-button--loading mg-c-button--primary">
         <mg-icon>
-          <mock:shadow-root>
+          <template shadowrootmode="open">
             <svg aria-hidden="true" class="mg-c-icon mg-c-icon--loader mg-c-icon--size-medium mg-c-icon--spin" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
               <path d="M13.657 8A5.657 5.657 0 1 1 2.343 8a5.657 5.657 0 0 1 11.314 0M3.475 8a4.526 4.526 0 1 0 9.05 0 4.526 4.526 0 0 0-9.05 0" fill="currentColor" fill-opacity=".2"></path>
               <path d="M2.343 8A5.657 5.657 0 0 1 8 2.343v1.132A4.525 4.525 0 0 0 3.475 8z" fill="currentColor"></path>
             </svg>
-          </mock:shadow-root>
+          </template>
         </mg-icon>
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mgButton.disableOnClick
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -945,27 +979,27 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
 
 exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click /> 3`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" aria-disabled="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mgButton.disableOnClick
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -973,27 +1007,27 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
 
 exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed with <mg-button disabled-on-click /> 4`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" aria-disabled="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mgButton.disableOnClick
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1001,20 +1035,20 @@ exports[`mg-tooltip Should update wrapper dynamically and keep tooltip displayed
 
 exports[`mg-tooltip render Should render with tooltip 1`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1022,20 +1056,20 @@ exports[`mg-tooltip render Should render with tooltip 1`] = `
 
 exports[`mg-tooltip render Should render with tooltip 2`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1043,20 +1077,20 @@ exports[`mg-tooltip render Should render with tooltip 2`] = `
 
 exports[`mg-tooltip render Should render with tooltip 3`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1064,20 +1098,20 @@ exports[`mg-tooltip render Should render with tooltip 3`] = `
 
 exports[`mg-tooltip render Should render with tooltip 4`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1085,20 +1119,20 @@ exports[`mg-tooltip render Should render with tooltip 4`] = `
 
 exports[`mg-tooltip render Should render with tooltip 5`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1106,20 +1140,20 @@ exports[`mg-tooltip render Should render with tooltip 5`] = `
 
 exports[`mg-tooltip render Should render with tooltip 6`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <span aria-describedby="identifier" role="button" tabindex="0">
     span
   </span>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1127,20 +1161,20 @@ exports[`mg-tooltip render Should render with tooltip 6`] = `
 
 exports[`mg-tooltip render Should render with tooltip 7`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1148,20 +1182,20 @@ exports[`mg-tooltip render Should render with tooltip 7`] = `
 
 exports[`mg-tooltip render Should render with tooltip 8`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1169,20 +1203,20 @@ exports[`mg-tooltip render Should render with tooltip 8`] = `
 
 exports[`mg-tooltip render Should render with tooltip 9`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1190,20 +1224,20 @@ exports[`mg-tooltip render Should render with tooltip 9`] = `
 
 exports[`mg-tooltip render Should render with tooltip 10`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1211,20 +1245,20 @@ exports[`mg-tooltip render Should render with tooltip 10`] = `
 
 exports[`mg-tooltip render Should render with tooltip 11`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1232,20 +1266,20 @@ exports[`mg-tooltip render Should render with tooltip 11`] = `
 
 exports[`mg-tooltip render Should render with tooltip 12`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <button aria-describedby="blu identifier">
     button
   </button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1253,24 +1287,24 @@ exports[`mg-tooltip render Should render with tooltip 12`] = `
 
 exports[`mg-tooltip render Should render with tooltip 13`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1278,24 +1312,24 @@ exports[`mg-tooltip render Should render with tooltip 13`] = `
 
 exports[`mg-tooltip render Should render with tooltip 14`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1303,24 +1337,24 @@ exports[`mg-tooltip render Should render with tooltip 14`] = `
 
 exports[`mg-tooltip render Should render with tooltip 15`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1328,24 +1362,24 @@ exports[`mg-tooltip render Should render with tooltip 15`] = `
 
 exports[`mg-tooltip render Should render with tooltip 16`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1353,24 +1387,24 @@ exports[`mg-tooltip render Should render with tooltip 16`] = `
 
 exports[`mg-tooltip render Should render with tooltip 17`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1378,24 +1412,24 @@ exports[`mg-tooltip render Should render with tooltip 17`] = `
 
 exports[`mg-tooltip render Should render with tooltip 18`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-icon aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <svg aria-hidden="true" class="mg-c-icon mg-c-icon--check-circle mg-c-icon--size-medium" fill="none" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1m-1 9.795-2.5-2.5.795-.795L7 9.205 10.705 5.5l.798.793z" fill="currentColor"></path>
       </svg>
-    </mock:shadow-root>
+    </template>
   </mg-icon>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1403,27 +1437,27 @@ exports[`mg-tooltip render Should render with tooltip 18`] = `
 
 exports[`mg-tooltip render Should render with tooltip 19`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1431,27 +1465,27 @@ exports[`mg-tooltip render Should render with tooltip 19`] = `
 
 exports[`mg-tooltip render Should render with tooltip 20`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1459,27 +1493,27 @@ exports[`mg-tooltip render Should render with tooltip 20`] = `
 
 exports[`mg-tooltip render Should render with tooltip 21`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1487,27 +1521,27 @@ exports[`mg-tooltip render Should render with tooltip 21`] = `
 
 exports[`mg-tooltip render Should render with tooltip 22`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1515,27 +1549,27 @@ exports[`mg-tooltip render Should render with tooltip 22`] = `
 
 exports[`mg-tooltip render Should render with tooltip 23`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1543,27 +1577,27 @@ exports[`mg-tooltip render Should render with tooltip 23`] = `
 
 exports[`mg-tooltip render Should render with tooltip 24`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-describedby="identifier" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1571,29 +1605,29 @@ exports[`mg-tooltip render Should render with tooltip 24`] = `
 
 exports[`mg-tooltip render Should render with tooltip 25`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1601,29 +1635,29 @@ exports[`mg-tooltip render Should render with tooltip 25`] = `
 
 exports[`mg-tooltip render Should render with tooltip 26`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1631,29 +1665,29 @@ exports[`mg-tooltip render Should render with tooltip 26`] = `
 
 exports[`mg-tooltip render Should render with tooltip 27`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1661,29 +1695,29 @@ exports[`mg-tooltip render Should render with tooltip 27`] = `
 
 exports[`mg-tooltip render Should render with tooltip 28`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1691,29 +1725,29 @@ exports[`mg-tooltip render Should render with tooltip 28`] = `
 
 exports[`mg-tooltip render Should render with tooltip 29`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>
@@ -1721,29 +1755,29 @@ exports[`mg-tooltip render Should render with tooltip 29`] = `
 
 exports[`mg-tooltip render Should render with tooltip 30`] = `
 <mg-tooltip>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <div aria-describedby="identifier" class="mg-c-tooltip__mg-button-wrapper">
     <mg-button aria-disabled="true" role="button" tabindex="0">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-button mg-c-button--disabled mg-c-button--primary">
           <div class="mg-c-button__content">
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       mg-button.disabled
     </mg-button>
   </div>
   <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <span class="mg-tooltip-content__message">
         My tooltip message
       </span>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
   </mg-tooltip-content>
 </mg-tooltip>

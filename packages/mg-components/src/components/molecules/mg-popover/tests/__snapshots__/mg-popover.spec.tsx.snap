@@ -2,35 +2,35 @@
 
 exports[`mg-popover Should render with element 1`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -44,35 +44,35 @@ exports[`mg-popover Should render with element 1`] = `
 
 exports[`mg-popover Should render with element 2`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="top" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: auto; margin: 0; right: auto; bottom: 0; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -86,35 +86,35 @@ exports[`mg-popover Should render with element 2`] = `
 
 exports[`mg-popover Should render with element 3`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -128,36 +128,36 @@ exports[`mg-popover Should render with element 3`] = `
 
 exports[`mg-popover Should render with element 4`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
-          <mock:shadow-root>
+          <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
               <div class="mg-c-button__content">
                 <slot></slot>
               </div>
             </div>
-          </mock:shadow-root>
+          </template>
           <mg-icon icon="cross"></mg-icon>
         </mg-button>
         <div class="mg-c-popover-content__title">
@@ -166,7 +166,7 @@ exports[`mg-popover Should render with element 4`] = `
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -180,35 +180,35 @@ exports[`mg-popover Should render with element 4`] = `
 
 exports[`mg-popover Should render with element 5`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -222,36 +222,36 @@ exports[`mg-popover Should render with element 5`] = `
 
 exports[`mg-popover Should render with element 6`] = `
 <mg-popover lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <mg-button aria-label="Fermer" is-icon="" role="button" tabindex="0">
-          <mock:shadow-root>
+          <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
               <div class="mg-c-button__content">
                 <slot></slot>
               </div>
             </div>
-          </mock:shadow-root>
+          </template>
           <mg-icon icon="cross"></mg-icon>
         </mg-button>
         <div class="mg-c-popover-content__title">
@@ -260,7 +260,7 @@ exports[`mg-popover Should render with element 6`] = `
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -274,36 +274,36 @@ exports[`mg-popover Should render with element 6`] = `
 
 exports[`mg-popover Should render with element 7`] = `
 <mg-popover lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <mg-button aria-label="Close" is-icon="" role="button" tabindex="0">
-          <mock:shadow-root>
+          <template shadowrootmode="open">
             <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
               <div class="mg-c-button__content">
                 <slot></slot>
               </div>
             </div>
-          </mock:shadow-root>
+          </template>
           <mg-icon icon="cross"></mg-icon>
         </mg-button>
         <div class="mg-c-popover-content__title">
@@ -312,7 +312,7 @@ exports[`mg-popover Should render with element 7`] = `
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -326,35 +326,35 @@ exports[`mg-popover Should render with element 7`] = `
 
 exports[`mg-popover Should render with element 8`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -368,35 +368,35 @@ exports[`mg-popover Should render with element 8`] = `
 
 exports[`mg-popover Should render with element 9`] = `
 <mg-popover data-fallback-placement="left">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -410,35 +410,35 @@ exports[`mg-popover Should render with element 9`] = `
 
 exports[`mg-popover Should update mg-popover-content id when identifier is updated 1`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -452,35 +452,35 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
 
 exports[`mg-popover Should update mg-popover-content id when identifier is updated 2`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="false" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden id="new-identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -494,35 +494,35 @@ exports[`mg-popover Should update mg-popover-content id when identifier is updat
 
 exports[`mg-popover Should update popper instance when slot %s update 1`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
@@ -536,35 +536,35 @@ exports[`mg-popover Should update popper instance when slot %s update 1`] = `
 
 exports[`mg-popover Should update popper instance when slot %s update 2`] = `
 <mg-popover>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <slot></slot>
     <slot name="content"></slot>
-  </mock:shadow-root>
+  </template>
   <mg-button aria-controls="identifier" aria-expanded="true" role="button" tabindex="0">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-button mg-c-button--primary">
         <div class="mg-c-button__content">
           <slot></slot>
         </div>
       </div>
-    </mock:shadow-root>
+    </template>
     mg-button
   </mg-button>
   <mg-popover-content data-popper-placement="bottom" data-popper-reference-hidden data-show id="identifier" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <mg-card class="mg-c-popover-content">
-        <mock:shadow-root>
+        <template shadowrootmode="open">
           <div class="mg-c-card">
             <slot></slot>
           </div>
-        </mock:shadow-root>
+        </template>
         <div class="mg-c-popover-content__title">
           <slot name="title"></slot>
         </div>
         <slot name="content"></slot>
       </mg-card>
       <slot name="arrow"></slot>
-    </mock:shadow-root>
+    </template>
     <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
     <h2 slot="title">
       Blu bli blo bla
