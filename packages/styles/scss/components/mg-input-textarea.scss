@@ -42,6 +42,7 @@
 }
 
 /* Firefox selector */
+/* stylelint-disable-next-line at-rule-no-vendor-prefix */
 @-moz-document url-prefix() {
   .mg-c-input__box {
     overflow-x: hidden; // remove Firefox bottom "phantom scrollbar" in textarea
