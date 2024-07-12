@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-12T07:49:13",
+  "timestamp": "2024-07-12T12:35:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -12828,7 +12828,7 @@
       "path": "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts"
     },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
-      "declaration": "export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n};",
+      "declaration": "export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  icon?: Pick<MgIcon, 'icon'> & Partial<Pick<MgIcon, 'variant' | 'variantStyle'>>;\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n};",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },

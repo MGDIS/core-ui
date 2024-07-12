@@ -201,7 +201,7 @@ export class MgActionMore {
                     // eslint-disable-next-line react/jsx-no-bind
                     onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
                   >
-                    {item.icon && <mg-icon icon={item.icon} slot="image"></mg-icon>}
+                    {item.icon?.icon && <mg-icon icon={item.icon.icon} variant={item.icon.variant} variantStyle={item.icon.variantStyle} slot="image"></mg-icon>}
                     <span slot="label">{item.label}</span>
                     {item.badge?.label && <mg-badge label={item.badge.label} value={item.badge.value} slot="information" variant="text-color"></mg-badge>}
                   </mg-menu-item>
