@@ -1,5 +1,12 @@
 # notification-center
 
+## 1.0.39
+
+### Patch Changes
+
+- @mgdis/notification-center@1.1.13
+- @mgdis/mg-components@5.28.1
+
 ## 1.0.38
 
 ### Patch Changes

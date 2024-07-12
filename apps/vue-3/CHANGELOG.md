@@ -1,5 +1,12 @@
 # vue-3
 
+## 0.0.25
+
+### Patch Changes
+
+- @mgdis/notification-center@1.1.13
+- @mgdis/mg-components@5.28.1
+
 ## 0.0.24
 
 ### Patch Changes

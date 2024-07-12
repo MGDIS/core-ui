@@ -1,5 +1,16 @@
 # Changelog
 
+## Release (2024-07-12-09-59_Small-Sky-Blue-Sea-Lion)
+
+### Packages released
+
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+- [styles changelog](packages/styles/CHANGELOG.md)
+
 ## Release (2024-07-04-08-41_Chubby-Cotton-Candy-Cormorant)
 
 ### Packages released

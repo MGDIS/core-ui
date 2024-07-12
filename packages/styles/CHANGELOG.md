@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.3.6
+
+### Patch Changes
+
+- 4ee49fe: Update dependencies
+
 ## 1.3.5
 
 ### Patch Changes
