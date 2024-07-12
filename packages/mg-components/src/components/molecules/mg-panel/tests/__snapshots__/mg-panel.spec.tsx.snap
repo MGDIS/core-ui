@@ -6,19 +6,19 @@ exports[`mg-panel Should render with args {
   expandToggleDisplay: 'icon'
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
@@ -33,7 +33,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -43,19 +43,19 @@ exports[`mg-panel Should render with args {
   expandToggleDisplay: 'text'
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -71,7 +71,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -81,32 +81,32 @@ exports[`mg-panel Should render with args {
   titleEditable: true
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -119,7 +119,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -130,19 +130,19 @@ exports[`mg-panel Should render with args {
   expandToggleDisplay: 'icon'
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
@@ -157,7 +157,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -168,32 +168,32 @@ exports[`mg-panel Should render with args {
   expandToggleDisplay: 'text'
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -206,7 +206,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -217,32 +217,32 @@ exports[`mg-panel Should render with args {
   lang: 'fr'
 }: 1`] = `
 <mg-panel lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Modifier le titre de la section." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -255,7 +255,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -266,32 +266,32 @@ exports[`mg-panel Should render with args {
   lang: 'xx'
 }: 1`] = `
 <mg-panel lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -304,7 +304,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -316,32 +316,32 @@ exports[`mg-panel Should render with args {
   titlePatternErrorMessage: "You can't enter a bad guy !"
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -354,7 +354,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -364,19 +364,19 @@ exports[`mg-panel Should render with args {
   titlePosition: 'left'
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -392,7 +392,7 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
@@ -402,7 +402,7 @@ exports[`mg-panel Should render with args {
   titlePosition: 'right'
 }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header mg-c-panel__header--reverse" id="identifier-header">
@@ -411,13 +411,13 @@ exports[`mg-panel Should render with args {
           </div>
           <div class="mg-c-panel__header-title mg-c-panel__header-title--reverse">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -430,25 +430,25 @@ exports[`mg-panel Should render with args {
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle: 'panel title' }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -464,25 +464,25 @@ exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle: 'panel title', expanded: true }: 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
                 panel title
@@ -498,25 +498,25 @@ exports[`mg-panel Should render with args { identifier: 'identifier', panelTitle
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisabled = true 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-disabled="true" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
                 panel title
@@ -532,25 +532,25 @@ exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisable
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisabled = true 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-disabled="true" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
                 panel title
@@ -566,25 +566,25 @@ exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisable
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisabled = true 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-disabled="true" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -600,25 +600,25 @@ exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisable
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisabled = true 4`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-disabled="true" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--disabled mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -634,38 +634,38 @@ exports[`mg-panel navigation Should NOT collapse panel, case expandToggleDisable
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case input new value does NOT match pattern 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -678,33 +678,33 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case input new value does NOT match pattern 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="panel title">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -713,7 +713,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="panel title">
                   </div>
@@ -727,25 +727,25 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -759,33 +759,33 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case input new value does NOT match pattern 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -794,7 +794,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
@@ -808,25 +808,25 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -840,33 +840,33 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case input new value does NOT match pattern 4`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" pattern-error-message="You can't enter a bad guy !" value="joker">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -875,7 +875,7 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="true" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" pattern="^(?!(joker)$)[a-z A-Z0-9s]+$" type="text" value="joker">
                   </div>
@@ -889,25 +889,25 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -921,38 +921,38 @@ exports[`mg-panel navigation Should NOT update panel title, case input new value
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case no enter in input 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -965,33 +965,33 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case no enter in input 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -1000,7 +1000,7 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1014,25 +1014,25 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -1046,38 +1046,38 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should NOT update panel title, case no enter in input 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1090,25 +1090,25 @@ exports[`mg-panel navigation Should NOT update panel title, case no enter in inp
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle collapse panel, expanded false 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -1124,25 +1124,25 @@ exports[`mg-panel navigation Should toggle collapse panel, expanded false 1`] = 
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle collapse panel, expanded false 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
                 panel title
@@ -1158,25 +1158,25 @@ exports[`mg-panel navigation Should toggle collapse panel, expanded false 2`] = 
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle collapse panel, expanded false 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -1192,25 +1192,25 @@ exports[`mg-panel navigation Should toggle collapse panel, expanded false 3`] = 
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle collapse panel, expanded true 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
                 panel title
@@ -1226,25 +1226,25 @@ exports[`mg-panel navigation Should toggle collapse panel, expanded true 1`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle collapse panel, expanded true 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -1260,25 +1260,25 @@ exports[`mg-panel navigation Should toggle collapse panel, expanded true 2`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle collapse panel, expanded true 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="true" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon" icon="chevron-up"></mg-icon>
                 panel title
@@ -1294,38 +1294,38 @@ exports[`mg-panel navigation Should toggle collapse panel, expanded true 3`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle edit panel title 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1338,33 +1338,33 @@ exports[`mg-panel navigation Should toggle edit panel title 1`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle edit panel title 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -1373,7 +1373,7 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1387,25 +1387,25 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -1419,38 +1419,38 @@ exports[`mg-panel navigation Should toggle edit panel title 2`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle edit panel title 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1463,25 +1463,25 @@ exports[`mg-panel navigation Should toggle edit panel title 3`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation Should toggle edit panel title 4`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
@@ -1497,38 +1497,38 @@ exports[`mg-panel navigation Should toggle edit panel title 4`] = `
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation should update panel title, case first-of-type 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1541,33 +1541,33 @@ exports[`mg-panel navigation should update panel title, case first-of-type 1`] =
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation should update panel title, case first-of-type 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -1576,7 +1576,7 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1590,25 +1590,25 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -1622,38 +1622,38 @@ exports[`mg-panel navigation should update panel title, case first-of-type 2`] =
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation should update panel title, case first-of-type 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1666,38 +1666,38 @@ exports[`mg-panel navigation should update panel title, case first-of-type 3`] =
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation should update panel title, case last-of-type 1`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1710,33 +1710,33 @@ exports[`mg-panel navigation should update panel title, case last-of-type 1`] = 
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation should update panel title, case last-of-type 2`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title mg-c-panel__header-title--full">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
               </span>
             </mg-button>
             <mg-input-text label-hide="" value="panel title">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <mg-input class="mg-c-input mg-c-input--has-buttons-group-append mg-c-input--is-input-group-append mg-c-input--text mg-c-input--width-full">
-                  <mock:shadow-root>
+                  <template shadowrootmode="open">
                     <div class="mg-c-input__title mg-u-visually-hidden">
                       <slot name="label"></slot>
                     </div>
@@ -1745,7 +1745,7 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
                         <slot></slot>
                       </div>
                     </div>
-                  </mock:shadow-root>
+                  </template>
                   <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 0;">
                     <input aria-describedby="identifier-edition-input-character-left" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier-edition-input" maxlength="400" name="identifier-edition-input" type="text" value="panel title">
                   </div>
@@ -1759,25 +1759,25 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
                     </label>
                   </mg-input-title>
                 </mg-input>
-              </mock:shadow-root>
+              </template>
               <mg-button aria-label="Cancel" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="cross"></mg-icon>
               </mg-button>
               <mg-button aria-label="Confirm" is-icon="" role="button" slot="append-input" tabindex="0">
-                <mock:shadow-root>
+                <template shadowrootmode="open">
                   <div class="mg-c-button mg-c-button--icon mg-c-button--secondary">
                     <div class="mg-c-button__content">
                       <slot></slot>
                     </div>
                   </div>
-                </mock:shadow-root>
+                </template>
                 <mg-icon icon="check"></mg-icon>
               </mg-button>
             </mg-input-text>
@@ -1791,38 +1791,38 @@ exports[`mg-panel navigation should update panel title, case last-of-type 2`] = 
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
 
 exports[`mg-panel navigation should update panel title, case last-of-type 3`] = `
 <mg-panel>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <section class="mg-c-panel" id="identifier">
       <mg-card>
         <header class="mg-c-panel__header" id="identifier-header">
           <div class="mg-c-panel__header-title">
             <mg-button aria-controls="identifier-content" aria-expanded="false" aria-label="Updated panel title" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <span class="mg-c-panel__collapse-button-content">
                 <mg-icon class="mg-c-panel__collapse-button-icon mg-c-panel__collapse-button-icon--reverse" icon="chevron-up"></mg-icon>
                 Updated panel title
               </span>
             </mg-button>
             <mg-button aria-label="Edit section title." is-icon="" role="button" tabindex="0">
-              <mock:shadow-root>
+              <template shadowrootmode="open">
                 <div class="mg-c-button mg-c-button--flat mg-c-button--icon">
                   <div class="mg-c-button__content">
                     <slot></slot>
                   </div>
                 </div>
-              </mock:shadow-root>
+              </template>
               <mg-icon icon="pen"></mg-icon>
             </mg-button>
           </div>
@@ -1835,6 +1835,6 @@ exports[`mg-panel navigation should update panel title, case last-of-type 3`] = 
         </article>
       </mg-card>
     </section>
-  </mock:shadow-root>
+  </template>
 </mg-panel>
 `;
