@@ -68,12 +68,12 @@ describe('mg-badge', () => {
       }
     });
 
-    test.each(['', 'Batman', 'Batman+', 'Batman!'])('Should throw error, case invalid value prop', async value => {
+    test.each(['', 'Batman', 'BATMAN', 'batman', 'Batman+', 'Batman!'])('Should throw error, case invalid value prop %s', async value => {
       expect.assertions(1);
       try {
         await getPage({ value, label: 'Batman' });
       } catch (err) {
-        expect(err.message).toContain('<mg-badge> prop "value" must be integer or ponctuation character.');
+        expect(err.message).toContain('<mg-badge> prop "value" must be integer and/or special character.');
       }
     });
   });
