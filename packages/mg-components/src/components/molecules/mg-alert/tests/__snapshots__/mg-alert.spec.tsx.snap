@@ -2,7 +2,7 @@
 
 exports[`mg-alert Render Should render a danger alert with args { closeButton: true } 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="danger">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -11,7 +11,7 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -23,7 +23,7 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
 
 exports[`mg-alert Render Should render a danger alert with args { closeButton: true, lang: 'fr' } 1`] = `
 <mg-alert lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="danger">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -32,7 +32,7 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -44,7 +44,7 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
 
 exports[`mg-alert Render Should render a danger alert with args { closeButton: true, lang: 'xx' } 1`] = `
 <mg-alert lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="danger">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -53,7 +53,7 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -65,11 +65,11 @@ exports[`mg-alert Render Should render a danger alert with args { closeButton: t
 
 exports[`mg-alert Render Should render a danger alert with args {} 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert" role="alert" variant="danger">
       <slot></slot>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -81,7 +81,7 @@ exports[`mg-alert Render Should render a danger alert with args {} 1`] = `
 
 exports[`mg-alert Render Should render a info alert with args { closeButton: true } 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -90,7 +90,7 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -102,7 +102,7 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
 
 exports[`mg-alert Render Should render a info alert with args { closeButton: true, lang: 'fr' } 1`] = `
 <mg-alert lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -111,7 +111,7 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -123,7 +123,7 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
 
 exports[`mg-alert Render Should render a info alert with args { closeButton: true, lang: 'xx' } 1`] = `
 <mg-alert lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="status" variant="info">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -132,7 +132,7 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -144,11 +144,11 @@ exports[`mg-alert Render Should render a info alert with args { closeButton: tru
 
 exports[`mg-alert Render Should render a info alert with args {} 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert" role="status" variant="info">
       <slot></slot>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -160,7 +160,7 @@ exports[`mg-alert Render Should render a info alert with args {} 1`] = `
 
 exports[`mg-alert Render Should render a success alert with args { closeButton: true } 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -169,7 +169,7 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -181,7 +181,7 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
 
 exports[`mg-alert Render Should render a success alert with args { closeButton: true, lang: 'fr' } 1`] = `
 <mg-alert lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -190,7 +190,7 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -202,7 +202,7 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
 
 exports[`mg-alert Render Should render a success alert with args { closeButton: true, lang: 'xx' } 1`] = `
 <mg-alert lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="success">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -211,7 +211,7 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -223,11 +223,11 @@ exports[`mg-alert Render Should render a success alert with args { closeButton: 
 
 exports[`mg-alert Render Should render a success alert with args {} 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert" role="alert" variant="success">
       <slot></slot>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -239,7 +239,7 @@ exports[`mg-alert Render Should render a success alert with args {} 1`] = `
 
 exports[`mg-alert Render Should render a warning alert with args { closeButton: true } 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="warning">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -248,7 +248,7 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -260,7 +260,7 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
 
 exports[`mg-alert Render Should render a warning alert with args { closeButton: true, lang: 'fr' } 1`] = `
 <mg-alert lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="warning">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -269,7 +269,7 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -281,7 +281,7 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
 
 exports[`mg-alert Render Should render a warning alert with args { closeButton: true, lang: 'xx' } 1`] = `
 <mg-alert lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert mg-c-alert--close-button" role="alert" variant="warning">
       <slot></slot>
       <span class="mg-c-alert__close-button">
@@ -290,7 +290,7 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
         </mg-button>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -302,11 +302,11 @@ exports[`mg-alert Render Should render a warning alert with args { closeButton: 
 
 exports[`mg-alert Render Should render a warning alert with args {} 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert" role="alert" variant="warning">
       <slot></slot>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -318,14 +318,14 @@ exports[`mg-alert Render Should render a warning alert with args {} 1`] = `
 
 exports[`mg-alert Render Should render with action slot 1`] = `
 <mg-alert>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-message class="mg-c-alert" role="alert">
       <slot></slot>
       <span slot="actions">
         <slot name="actions"></slot>
       </span>
     </mg-message>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong

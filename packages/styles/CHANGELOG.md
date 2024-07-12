@@ -1,5 +1,11 @@
 # @mgdis/styles
 
+## 1.3.5
+
+### Patch Changes
+
+- 2218c8b: [#496](https://gitlab.mgdis.fr/core/core-ui/core-ui/-/issues/496) mg-input-password: Prevent mg-icon style to be overridden
+
 ## 1.3.4
 
 ### Patch Changes

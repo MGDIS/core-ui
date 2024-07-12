@@ -28,6 +28,7 @@ pnpm build "$@"
 # Prepare root package.json
 prepare_package "package.json" '{
   name, 
+  packageManager,
   "scripts": {
     "apps:mg-components": .scripts."apps:mg-components",
     "apps:notification-center": .scripts."apps:notification-center",
@@ -106,7 +107,8 @@ prepare_package "packages/stencil-helpers/package.json" '{
 # Create turbo.json
 echo '{
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "globalEnv": ["PLAYWRIGHT_BROWSERS_PATH"],
+  "tasks": {
     "test:e2e": {}
   }
 }' > "$temp_dir/turbo.json"

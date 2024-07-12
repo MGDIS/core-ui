@@ -3,7 +3,7 @@
 exports[`mg-tabs Should manage diconnectedCallback hook 1`] = `
 <body>
   <mg-tabs active-tab="1">
-    <mock:shadow-root>
+    <template shadowrootmode="open">
       <div class="mg-c-tabs mg-c-tabs--size-medium">
         <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
           <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -20,7 +20,7 @@ exports[`mg-tabs Should manage diconnectedCallback hook 1`] = `
           <slot name="tab_content-2"></slot>
         </article>
       </div>
-    </mock:shadow-root>
+    </template>
     <div slot="tab_content-1">
       Content 1
     </div>
@@ -35,7 +35,7 @@ exports[`mg-tabs Should manage diconnectedCallback hook 2`] = `<body></body>`;
 
 exports[`mg-tabs navigation Should go to next tab on keyboard event 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -52,7 +52,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 1`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -64,7 +64,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 1`] = `
 
 exports[`mg-tabs navigation Should go to next tab on keyboard event 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -81,7 +81,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 2`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -93,7 +93,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 2`] = `
 
 exports[`mg-tabs navigation Should go to next tab on keyboard event 3`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -110,7 +110,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 3`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -122,7 +122,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 3`] = `
 
 exports[`mg-tabs navigation Should go to next tab on keyboard event 4`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -139,7 +139,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 4`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -151,7 +151,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 4`] = `
 
 exports[`mg-tabs navigation Should go to next tab on keyboard event 5`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -168,7 +168,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 5`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -180,7 +180,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 5`] = `
 
 exports[`mg-tabs navigation Should go to next tab on keyboard event 6`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -197,7 +197,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 6`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -209,7 +209,7 @@ exports[`mg-tabs navigation Should go to next tab on keyboard event 6`] = `
 
 exports[`mg-tabs navigation Should manage Tab key 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -226,7 +226,7 @@ exports[`mg-tabs navigation Should manage Tab key 1`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -238,7 +238,7 @@ exports[`mg-tabs navigation Should manage Tab key 1`] = `
 
 exports[`mg-tabs navigation Should manage Tab key 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -255,7 +255,7 @@ exports[`mg-tabs navigation Should manage Tab key 2`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -267,7 +267,7 @@ exports[`mg-tabs navigation Should manage Tab key 2`] = `
 
 exports[`mg-tabs navigation Should manage Tab key 3`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -284,7 +284,7 @@ exports[`mg-tabs navigation Should manage Tab key 3`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -296,7 +296,7 @@ exports[`mg-tabs navigation Should manage Tab key 3`] = `
 
 exports[`mg-tabs navigation Should manage mixed navigation 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -313,7 +313,7 @@ exports[`mg-tabs navigation Should manage mixed navigation 1`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -325,7 +325,7 @@ exports[`mg-tabs navigation Should manage mixed navigation 1`] = `
 
 exports[`mg-tabs navigation Should manage mixed navigation 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -342,7 +342,7 @@ exports[`mg-tabs navigation Should manage mixed navigation 2`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -354,7 +354,7 @@ exports[`mg-tabs navigation Should manage mixed navigation 2`] = `
 
 exports[`mg-tabs navigation Should manage mixed navigation 3`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -371,7 +371,7 @@ exports[`mg-tabs navigation Should manage mixed navigation 3`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -383,7 +383,7 @@ exports[`mg-tabs navigation Should manage mixed navigation 3`] = `
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -406,7 +406,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 1`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -421,7 +421,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 1`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -444,7 +444,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 2`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -459,7 +459,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 2`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 3`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -482,7 +482,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 3`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -497,7 +497,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 3`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 4`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -520,7 +520,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 4`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -535,7 +535,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 4`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 5`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -558,7 +558,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 5`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -573,7 +573,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 5`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 6`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -596,7 +596,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 6`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -611,7 +611,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 6`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 7`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -634,7 +634,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 7`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -649,7 +649,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 7`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 8`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -672,7 +672,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 8`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -687,7 +687,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 8`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 9`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -710,7 +710,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 9`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -725,7 +725,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 9`] 
 
 exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 10`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -748,7 +748,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 10`]
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -763,7 +763,7 @@ exports[`mg-tabs navigation should go to next VISIBLE tab on keyboard event 10`]
 
 exports[`mg-tabs navigation should go to next tab on click event 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -780,7 +780,7 @@ exports[`mg-tabs navigation should go to next tab on click event 1`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -792,7 +792,7 @@ exports[`mg-tabs navigation should go to next tab on click event 1`] = `
 
 exports[`mg-tabs navigation should go to next tab on click event 2`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -809,7 +809,7 @@ exports[`mg-tabs navigation should go to next tab on click event 2`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -821,7 +821,7 @@ exports[`mg-tabs navigation should go to next tab on click event 2`] = `
 
 exports[`mg-tabs navigation should go to next tab on click event 3`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -838,7 +838,7 @@ exports[`mg-tabs navigation should go to next tab on click event 3`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -850,7 +850,7 @@ exports[`mg-tabs navigation should go to next tab on click event 3`] = `
 
 exports[`mg-tabs navigation should go to next tab on click event 4`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="-1">
@@ -867,7 +867,7 @@ exports[`mg-tabs navigation should go to next tab on click event 4`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -879,7 +879,7 @@ exports[`mg-tabs navigation should go to next tab on click event 4`] = `
 
 exports[`mg-tabs navigation should prevent click on tab with status disabled 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -896,7 +896,7 @@ exports[`mg-tabs navigation should prevent click on tab with status disabled 1`]
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -908,7 +908,7 @@ exports[`mg-tabs navigation should prevent click on tab with status disabled 1`]
 
 exports[`mg-tabs navigation should prevent click on tab with status disabled 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -925,7 +925,7 @@ exports[`mg-tabs navigation should prevent click on tab with status disabled 2`]
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -937,7 +937,7 @@ exports[`mg-tabs navigation should prevent click on tab with status disabled 2`]
 
 exports[`mg-tabs navigation should prevent click on tab with status hidden 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -954,7 +954,7 @@ exports[`mg-tabs navigation should prevent click on tab with status hidden 1`] =
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -966,7 +966,7 @@ exports[`mg-tabs navigation should prevent click on tab with status hidden 1`] =
 
 exports[`mg-tabs navigation should prevent click on tab with status hidden 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="id-1" role="tab" tabindex="0">
@@ -983,7 +983,7 @@ exports[`mg-tabs navigation should prevent click on tab with status hidden 2`] =
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -995,7 +995,7 @@ exports[`mg-tabs navigation should prevent click on tab with status hidden 2`] =
 
 exports[`mg-tabs template display large tabs with activeProps set by props 1`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1018,7 +1018,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 1`] =
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1033,7 +1033,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 1`] =
 
 exports[`mg-tabs template display large tabs with activeProps set by props 2`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1056,7 +1056,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 2`] =
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1071,7 +1071,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 2`] =
 
 exports[`mg-tabs template display large tabs with activeProps set by props 3`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1094,7 +1094,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 3`] =
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1109,7 +1109,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 3`] =
 
 exports[`mg-tabs template display large tabs with activeProps set by props 4`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1132,7 +1132,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 4`] =
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1147,7 +1147,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 4`] =
 
 exports[`mg-tabs template display large tabs with activeProps set by props 5`] = `
 <mg-tabs active-tab="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1170,7 +1170,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 5`] =
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1185,7 +1185,7 @@ exports[`mg-tabs template display large tabs with activeProps set by props 5`] =
 
 exports[`mg-tabs template display medium tabs with activeProps set by props 1`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1208,7 +1208,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 1`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1223,7 +1223,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 1`] 
 
 exports[`mg-tabs template display medium tabs with activeProps set by props 2`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1246,7 +1246,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 2`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1261,7 +1261,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 2`] 
 
 exports[`mg-tabs template display medium tabs with activeProps set by props 3`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1284,7 +1284,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 3`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1299,7 +1299,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 3`] 
 
 exports[`mg-tabs template display medium tabs with activeProps set by props 4`] = `
 <mg-tabs active-tab="2">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1322,7 +1322,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 4`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1337,7 +1337,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 4`] 
 
 exports[`mg-tabs template display medium tabs with activeProps set by props 5`] = `
 <mg-tabs active-tab="3">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="false" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="-1">
@@ -1360,7 +1360,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 5`] 
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1375,7 +1375,7 @@ exports[`mg-tabs template display medium tabs with activeProps set by props 5`] 
 
 exports[`mg-tabs template display only slots with name "tab_content-*" 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
@@ -1392,7 +1392,7 @@ exports[`mg-tabs template display only slots with name "tab_content-*" 1`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1407,7 +1407,7 @@ exports[`mg-tabs template display only slots with name "tab_content-*" 1`] = `
 
 exports[`mg-tabs template display only slots with name "tab_content-*" 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
@@ -1424,7 +1424,7 @@ exports[`mg-tabs template display only slots with name "tab_content-*" 2`] = `
         <slot name="tab_content-2"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1439,7 +1439,7 @@ exports[`mg-tabs template display only slots with name "tab_content-*" 2`] = `
 
 exports[`mg-tabs template render 1`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
@@ -1462,7 +1462,7 @@ exports[`mg-tabs template render 1`] = `
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1477,7 +1477,7 @@ exports[`mg-tabs template render 1`] = `
 
 exports[`mg-tabs template render 2`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-medium">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
@@ -1506,7 +1506,7 @@ exports[`mg-tabs template render 2`] = `
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1521,7 +1521,7 @@ exports[`mg-tabs template render 2`] = `
 
 exports[`mg-tabs template render 3`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-large">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
@@ -1544,7 +1544,7 @@ exports[`mg-tabs template render 3`] = `
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
@@ -1559,7 +1559,7 @@ exports[`mg-tabs template render 3`] = `
 
 exports[`mg-tabs template render 4`] = `
 <mg-tabs active-tab="1">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-tabs mg-c-tabs--size-large">
       <header aria-label="Sample label" class="mg-c-tabs__header" role="tablist">
         <button aria-controls="panel-1" aria-selected="true" class="mg-c-tabs__navigation-button mg-c-tabs__navigation-button--active mg-c-tabs__navigation-button--horizontal" data-index="1" id="identifier-1" role="tab" tabindex="0">
@@ -1588,7 +1588,7 @@ exports[`mg-tabs template render 4`] = `
         <slot name="tab_content-3"></slot>
       </article>
     </div>
-  </mock:shadow-root>
+  </template>
   <div slot="tab_content-1">
     Content 1
   </div>
