@@ -25,14 +25,14 @@
 .mg-c-icon {
   color: currentcolor;
 
-  @each $size, $_, $_ in variables.$icons {
+  @each $size, $_, $spacing in variables.$icons {
     &[size='#{$size}'],
     &.mg-c-icon--size-#{$size} {
       width: var(--mg-c-icon-size-#{$size});
       height: var(--mg-c-icon-size-#{$size});
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-        padding: var(--mg-c-icon-spacing-#{$size});
+        padding: $spacing;
       }
     }
   }
