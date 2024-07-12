@@ -4,16 +4,6 @@
 @import '../utils/a11y';
 
 /*!
- * @prop --mg-c-icon-size-small: Defines the size of small icons. Default value is `--mg-b-size-12`.
- * @prop --mg-c-icon-size-medium: Defines the size of medium icons. Default value is `--mg-b-size-16`.
- * @prop --mg-c-icon-size-large: Defines the size of large icons. Default value is `--mg-b-size-20`.
- * @prop --mg-c-icon-size-xlarge: Defines the size of extra large icons. Default value is `--mg-b-size-24`.
- * @prop --mg-c-icon-size-xxlarge: Defines the size of double extra large icons. Default value is `--mg-b-size-32`.
- * @prop --mg-c-icon-spacing-small: Defines the spacing of small icons. Default value is `calc(var(--mg-b-size-4) / 2)`.
- * @prop --mg-c-icon-spacing-medium: Defines the spacing of medium icons. Default value is `--mg-b-size-4`.
- * @prop --mg-c-icon-spacing-large: Defines the spacing of large icons. Default value is `calc(var(--mg-b-size-4) / 2 * 3)`.
- * @prop --mg-c-icon-spacing-xlarge: Defines the spacing of extra large icons. Default value is `--mg-b-size-8`.
- * @prop --mg-c-icon-spacing-xxlarge: Defines the spacing of double extra large icons. Default value is `--mg-b-size-8`.
  * @prop --mg-c-icon-border-radius: Defines the border radius of icons. Default value is `50%`.
  */
 
@@ -25,11 +15,14 @@
 .mg-c-icon {
   color: currentcolor;
 
-  @each $size, $_, $spacing in variables.$icons {
-    &[size='#{$size}'],
-    &.mg-c-icon--size-#{$size} {
-      width: var(--mg-c-icon-size-#{$size});
-      height: var(--mg-c-icon-size-#{$size});
+  @each $name, $size, $spacing in variables.$icons {
+    /*!
+     * @prop --mg-c-icon-size-#{$name}: Defines the size of #{$name} icons. Default value is `#{$size}`.
+     */
+    &[size='#{$name}'],
+    &.mg-c-icon--size-#{$name} {
+      width: var(--mg-c-icon-size-#{$name});
+      height: var(--mg-c-icon-size-#{$name});
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
         padding: $spacing;

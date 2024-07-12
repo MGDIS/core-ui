@@ -21,19 +21,14 @@
 
 ## CSS Custom Properties
 
-| Name                          | Description                                                                              |
-| ----------------------------- | ---------------------------------------------------------------------------------------- |
-| `--mg-c-icon-border-radius`   | Defines the border radius of icons. Default value is `50%`.                              |
-| `--mg-c-icon-size-large`      | Defines the size of large icons. Default value is `--mg-b-size-20`.                      |
-| `--mg-c-icon-size-medium`     | Defines the size of medium icons. Default value is `--mg-b-size-16`.                     |
-| `--mg-c-icon-size-small`      | Defines the size of small icons. Default value is `--mg-b-size-12`.                      |
-| `--mg-c-icon-size-xlarge`     | Defines the size of extra large icons. Default value is `--mg-b-size-24`.                |
-| `--mg-c-icon-size-xxlarge`    | Defines the size of double extra large icons. Default value is `--mg-b-size-32`.         |
-| `--mg-c-icon-spacing-large`   | Defines the spacing of large icons. Default value is `calc(var(--mg-b-size-4) / 2 * 3)`. |
-| `--mg-c-icon-spacing-medium`  | Defines the spacing of medium icons. Default value is `--mg-b-size-4`.                   |
-| `--mg-c-icon-spacing-small`   | Defines the spacing of small icons. Default value is `calc(var(--mg-b-size-4) / 2)`.     |
-| `--mg-c-icon-spacing-xlarge`  | Defines the spacing of extra large icons. Default value is `--mg-b-size-8`.              |
-| `--mg-c-icon-spacing-xxlarge` | Defines the spacing of double extra large icons. Default value is `--mg-b-size-8`.       |
+| Name                        | Description                                                           |
+| --------------------------- | --------------------------------------------------------------------- |
+| `--mg-c-icon-border-radius` | Defines the border radius of icons. Default value is `50%`.           |
+| `--mg-c-icon-size-large`    | Defines the size of large icons. Default value is `--mg-b-size-20`.   |
+| `--mg-c-icon-size-medium`   | Defines the size of medium icons. Default value is `--mg-b-size-16`.  |
+| `--mg-c-icon-size-small`    | Defines the size of small icons. Default value is `--mg-b-size-12`.   |
+| `--mg-c-icon-size-xlarge`   | Defines the size of xlarge icons. Default value is `--mg-b-size-24`.  |
+| `--mg-c-icon-size-xxlarge`  | Defines the size of xxlarge icons. Default value is `--mg-b-size-32`. |
 
 
 ## Dependencies

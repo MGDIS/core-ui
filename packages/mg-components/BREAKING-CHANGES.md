@@ -142,16 +142,7 @@ No more `variables.scss` export, only `variables.css`.
   <mg-icon icon="cog" size="xxlarge"></mg-icon>
   ```
 
-- update `variant`prop `full`and `background` sizes.
-
-  ```css
-  .mg-c-icon.mg-c-icon--size-small[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-    /* in v5 */
-    padding: calc(var(--mg-c-icon-size-small) / 2);
-    /* in v6 */
-    padding: var(--mg-c-icon-spacing-small);
-  }
-  ```
+- Update `variant` `full` and `background` sizes icon/circle ratio. Icon is bigger for the same size.
 
 ### Changes in `mg-input`
 

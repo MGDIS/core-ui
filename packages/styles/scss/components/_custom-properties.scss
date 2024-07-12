@@ -45,9 +45,8 @@
   --mg-c-divider-spacing-vertical: var(--mg-b-size-40);
 
   /* mg-icon */
-  @each $name, $size, $spacing in variables.$icons {
-    --mg-c-icon-size-#{$name}: #{$size};
-    --mg-c-icon-spacing-#{$name}: #{$spacing};
+  @each $name, $size, $_ in variables.$icons {
+    --mg-c-icon-size-#{$name}: var(#{$size});
   }
 
   --mg-c-icon-border-radius: 50%;

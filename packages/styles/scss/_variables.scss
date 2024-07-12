@@ -109,8 +109,8 @@ $mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
  * Defines icons sizes
  */
 $icons:
-  'small' var(--mg-b-size-12) calc(var(--mg-b-size-4) / 2),
-  'medium' var(--mg-b-size-16) var(--mg-b-size-4),
-  'large' var(--mg-b-size-20) calc(var(--mg-b-size-4) / 2 * 3),
-  'xlarge' var(--mg-b-size-24) var(--mg-b-size-8),
-  'xxlarge' var(--mg-b-size-32) var(--mg-b-size-8);
+  'small' --mg-b-size-12 calc(var(--mg-b-size-4) / 2),
+  'medium' --mg-b-size-16 var(--mg-b-size-4),
+  'large' --mg-b-size-20 calc(var(--mg-b-size-4) / 2 * 3),
+  'xlarge' --mg-b-size-24 var(--mg-b-size-8),
+  'xxlarge' --mg-b-size-32 var(--mg-b-size-8);
