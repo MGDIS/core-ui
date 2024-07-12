@@ -19,6 +19,19 @@
 | `--mg-c-divider-thickness`        | Defines the thickness of the divider. The default value is `--mg-b-size-border`.                                                 |
 
 
+## Dependencies
+
+### Used by
+
+ - [mg-action-more](../../molecules/mg-action-more)
+
+### Graph
+```mermaid
+graph TD;
+  mg-action-more --> mg-divider
+  style mg-divider fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

@@ -7,6 +7,12 @@
   --mg-c-popover-max-width: unset;
 }
 
-.mg-c-action-more__chevron {
-  @include rotate('.mg-c-action-more__chevron', 200ms);
+.mg-c-action-more {
+  &__divider {
+    --mg-c-divider-spacing-vertical: var(--mg-b-size-4);
+  }
+
+  &__chevron {
+    @include rotate('.mg-c-action-more__chevron', 200ms);
+  }
 }

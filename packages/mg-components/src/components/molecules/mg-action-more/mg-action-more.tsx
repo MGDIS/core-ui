@@ -13,7 +13,10 @@ import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType
  */
 const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
   const items = prop as MgActionMoreItemType[];
-  return typeof items === 'object' && items.every(item => typeof item === 'object' && typeof item.label === 'string' && typeof item.mouseEventHandler === 'function');
+  return (
+    typeof items === 'object' &&
+    items.every(item => (typeof item === 'object' && typeof item.label === 'string' && typeof item.mouseEventHandler === 'function') || item.isDivider === true)
+  );
 };
 
 /**
@@ -68,6 +71,8 @@ export class MgActionMore {
   validateItems(newValue: MgActionMore['items']): void {
     if (!isMgActionMoreItems(newValue)) {
       throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType.`);
+    } else if (isMgActionMoreItems(newValue) && newValue.length > 0 && (newValue[0].isDivider || newValue[newValue.length - 1].isDivider)) {
+      throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array.`);
     }
   }
 
@@ -184,7 +189,7 @@ export class MgActionMore {
 
     return (
       <Host data-mg-popover-guard={this.mgPopoverIdentifier}>
-        <span class="mg-action-more">
+        <span class={this.classBase}>
           <mg-popover identifier={this.mgPopoverIdentifier} display={this.expanded} onDisplay-change={this.handleDisplayChange}>
             <mg-button variant={this.button.variant} isIcon={this.button.isIcon} disabled={this.button.disabled} type="button" label={buttonLabel} onClick={this.handleButton}>
               {this.icon && <mg-icon {...this.icon}></mg-icon>}
@@ -192,20 +197,24 @@ export class MgActionMore {
             </mg-button>
             <div slot="content">
               <mg-menu direction={Direction.VERTICAL} label={this.messages.label}>
-                {this.items.map(item => (
-                  <mg-menu-item
-                    key={item.label}
-                    status={item.status || Status.VISIBLE}
-                    target={item.target}
-                    href={item.href}
-                    // eslint-disable-next-line react/jsx-no-bind
-                    onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
-                  >
-                    {item.icon && <mg-icon icon={item.icon} slot="image"></mg-icon>}
-                    <span slot="label">{item.label}</span>
-                    {item.badge?.label && <mg-badge label={item.badge.label} value={item.badge.value} slot="information" variant="text-color"></mg-badge>}
-                  </mg-menu-item>
-                ))}
+                {this.items.map(item =>
+                  item.isDivider ? (
+                    <mg-divider class="mg-c-action-more__divider"></mg-divider>
+                  ) : (
+                    <mg-menu-item
+                      key={item.label}
+                      status={item.status || Status.VISIBLE}
+                      target={item.target}
+                      href={item.href}
+                      // eslint-disable-next-line react/jsx-no-bind
+                      onClick={e => this.handleItemClick(e, item.mouseEventHandler)}
+                    >
+                      {item.icon && <mg-icon icon={item.icon} slot="image"></mg-icon>}
+                      <span slot="label">{item.label}</span>
+                      {item.badge?.label && <mg-badge label={item.badge.label} value={item.badge.value} slot="information" variant="text-color"></mg-badge>}
+                    </mg-menu-item>
+                  ),
+                )}
               </mg-menu>
             </div>
           </mg-popover>

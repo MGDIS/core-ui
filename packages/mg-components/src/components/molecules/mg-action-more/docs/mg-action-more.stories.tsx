@@ -41,6 +41,9 @@ export const MgActionMoreIcon = {
         },
       },
       {
+        isDivider: true,
+      },
+      {
         label: 'element 3',
         mouseEventHandler,
         icon: 'user',

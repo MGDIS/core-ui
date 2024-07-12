@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-12T07:49:13",
+  "timestamp": "2024-07-12T13:43:57",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -962,6 +962,7 @@
         "mg-popover",
         "mg-button",
         "mg-menu",
+        "mg-divider",
         "mg-menu-item",
         "mg-badge"
       ],
@@ -971,6 +972,7 @@
           "mg-popover",
           "mg-button",
           "mg-menu",
+          "mg-divider",
           "mg-menu-item",
           "mg-badge"
         ],
@@ -2202,9 +2204,15 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "mg-action-more"
+      ],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {
+        "mg-action-more": [
+          "mg-divider"
+        ]
+      }
     },
     {
       "filePath": "src/components/molecules/mg-form/mg-form.tsx",
@@ -12828,7 +12836,7 @@
       "path": "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts"
     },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
-      "declaration": "export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n};",
+      "declaration": "export type MgActionMoreItemType = Partial<Pick<MgMenuItem, 'status' | 'href' | 'target'>> & {\n  label?: string;\n  mouseEventHandler?: IMouseEventHandler;\n  isDivider?: boolean;\n  icon?: MgIcon['icon'];\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n};",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },
