@@ -1,29 +1,23 @@
-[@mgdis/mg-components-helpers](../README.md) / vue
+[**@mgdis/mg-components-helpers**](../../README.md) • **Docs**
 
-# Module: vue
+***
 
-## Table of contents
+[@mgdis/mg-components-helpers](../../README.md) / [vue](../README.md) / mgModel
 
-### Variables
+# Variable: mgModel
 
-- [mgModel](vue.md#mgmodel)
-
-## Variables
-
-### mgModel
-
-• `Const` **mgModel**: `Object`
+> `const` **mgModel**: `object`
 
 Custom `v-mg-model` directive
 
-**`Remarks`**
+## Remarks
 
 Packages requirements
 - "@mgdis/mg-components": \>=3
 - "vue": \>=2
 - "lodash"
 
-**`Example`**
+## Example
 
 ```js
 // src/main.js
@@ -38,12 +32,18 @@ new Vue({
 }).$mount('#app');
 ```
 
-#### Type declaration
+## Type declaration
 
-| Name | Type |
-| :------ | :------ |
-| `install` | (`Vue`: `App`) => `void` |
+### install()
 
-#### Defined in
+#### Parameters
+
+• **Vue**: `App`
+
+#### Returns
+
+`void`
+
+## Source
 
 vue/mg-model/mg-model.ts:30
