@@ -2,7 +2,7 @@
 
 exports[`mg-message Render Should render a message with variant danger 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--bar-left mg-c-message--danger">
       <mg-card>
         <span class="mg-c-message__bar"></span>
@@ -16,7 +16,7 @@ exports[`mg-message Render Should render a message with variant danger 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -28,7 +28,7 @@ exports[`mg-message Render Should render a message with variant danger 1`] = `
 
 exports[`mg-message Render Should render a message with variant info 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--bar-left mg-c-message--info">
       <mg-card>
         <span class="mg-c-message__bar"></span>
@@ -42,7 +42,7 @@ exports[`mg-message Render Should render a message with variant info 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -54,7 +54,7 @@ exports[`mg-message Render Should render a message with variant info 1`] = `
 
 exports[`mg-message Render Should render a message with variant success 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--bar-left mg-c-message--success">
       <mg-card>
         <span class="mg-c-message__bar"></span>
@@ -68,7 +68,7 @@ exports[`mg-message Render Should render a message with variant success 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -80,7 +80,7 @@ exports[`mg-message Render Should render a message with variant success 1`] = `
 
 exports[`mg-message Render Should render a message with variant warning 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--bar-left mg-c-message--warning">
       <mg-card>
         <span class="mg-c-message__bar"></span>
@@ -94,7 +94,7 @@ exports[`mg-message Render Should render a message with variant warning 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong
@@ -106,7 +106,7 @@ exports[`mg-message Render Should render a message with variant warning 1`] = `
 
 exports[`mg-message Render Should render with action slot 1`] = `
 <mg-message>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-message mg-c-message--bar-left mg-c-message--info">
       <mg-card>
         <span class="mg-c-message__bar"></span>
@@ -124,7 +124,7 @@ exports[`mg-message Render Should render with action slot 1`] = `
         </div>
       </mg-card>
     </div>
-  </mock:shadow-root>
+  </template>
   <p>
     <strong>
       Strong

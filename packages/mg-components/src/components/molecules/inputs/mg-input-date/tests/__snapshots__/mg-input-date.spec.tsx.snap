@@ -2,9 +2,9 @@
 
 exports[`mg-input-date Should display error with invalid value, case value="31-12-2022" 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -16,7 +16,7 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -37,15 +37,15 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="31-12-2022" 2`] = `
 <mg-input-date value="31-12-2022">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -60,7 +60,7 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="31-12-2022">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -90,15 +90,15 @@ exports[`mg-input-date Should display error with invalid value, case value="31-1
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="2020" 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -110,7 +110,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -131,15 +131,15 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="2020" 2`] = `
 <mg-input-date value="2020">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -154,7 +154,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2020">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -184,15 +184,15 @@ exports[`mg-input-date Should display error with invalid value, case value="2020
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="2021" 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -204,7 +204,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -225,15 +225,15 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="2021" 2`] = `
 <mg-input-date value="2021">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -248,7 +248,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2021">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -278,15 +278,15 @@ exports[`mg-input-date Should display error with invalid value, case value="2021
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="2022-02-24T08:01:44.460Z" 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -298,7 +298,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -319,15 +319,15 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should display error with invalid value, case value="2022-02-24T08:01:44.460Z" 2`] = `
 <mg-input-date value="2022-02-24T08:01:44.460Z">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -342,7 +342,7 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2022-02-24T08:01:44.460Z">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -372,15 +372,15 @@ exports[`mg-input-date Should display error with invalid value, case value="2022
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should override Backspace keyboard event 1`] = `
 <mg-input-date value="2021-10-14">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -392,7 +392,7 @@ exports[`mg-input-date Should override Backspace keyboard event 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2021-10-14">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -413,15 +413,15 @@ exports[`mg-input-date Should override Backspace keyboard event 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should override Delete keyboard event 1`] = `
 <mg-input-date value="2021-10-14">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -433,7 +433,7 @@ exports[`mg-input-date Should override Delete keyboard event 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2021-10-14">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -454,15 +454,15 @@ exports[`mg-input-date Should override Delete keyboard event 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should override keyboard event even if display error 1`] = `
 <mg-input-date value="20212-10-14">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -477,7 +477,7 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="20212-10-14">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -507,15 +507,15 @@ exports[`mg-input-date Should override keyboard event even if display error 1`] 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should override keyboard event even if display error 2`] = `
 <mg-input-date value="">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -527,7 +527,7 @@ exports[`mg-input-date Should override keyboard event even if display error 2`] 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -548,7 +548,7 @@ exports[`mg-input-date Should override keyboard event even if display error 2`] 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
@@ -556,9 +556,9 @@ exports[`mg-input-date Should render with args {
   helpText: 'My help text use pattern {pattern} for date: {date}. {defaultHelpText}'
 }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -570,7 +570,7 @@ exports[`mg-input-date Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         My help text use pattern
@@ -598,7 +598,7 @@ exports[`mg-input-date Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
@@ -609,9 +609,9 @@ exports[`mg-input-date Should render with args {
   value: '2022-06-02'
 }: 1`] = `
 <mg-input-date value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -623,7 +623,7 @@ exports[`mg-input-date Should render with args {
             </mg-tooltip>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
@@ -636,7 +636,7 @@ exports[`mg-input-date Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
@@ -647,9 +647,9 @@ exports[`mg-input-date Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-date value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--disabled">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -661,7 +661,7 @@ exports[`mg-input-date Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
       <div id="identifier-help-text" slot="help-text">
         My help text
@@ -675,7 +675,7 @@ exports[`mg-input-date Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
@@ -686,9 +686,9 @@ exports[`mg-input-date Should render with args {
   helpText: 'My help text'
 }: 1`] = `
 <mg-input-date value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -697,7 +697,7 @@ exports[`mg-input-date Should render with args {
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
@@ -710,7 +710,7 @@ exports[`mg-input-date Should render with args {
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
@@ -720,9 +720,9 @@ exports[`mg-input-date Should render with args {
   labelOnTop: true
 }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
@@ -737,7 +737,7 @@ exports[`mg-input-date Should render with args {
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -758,15 +758,15 @@ exports[`mg-input-date Should render with args {
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { labelHide: true }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title mg-u-visually-hidden">
           <slot name="label"></slot>
         </div>
@@ -778,7 +778,7 @@ exports[`mg-input-date Should render with args { labelHide: true }: 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -799,15 +799,15 @@ exports[`mg-input-date Should render with args { labelHide: true }: 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { labelOnTop: true }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -819,7 +819,7 @@ exports[`mg-input-date Should render with args { labelOnTop: true }: 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -840,15 +840,15 @@ exports[`mg-input-date Should render with args { labelOnTop: true }: 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { readonly: true }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -857,7 +857,7 @@ exports[`mg-input-date Should render with args { readonly: true }: 1`] = `
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -867,15 +867,15 @@ exports[`mg-input-date Should render with args { readonly: true }: 1`] = `
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { readonly: true, labelOnTop: true, tooltip: 'Tooltip message' }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="Tooltip message">
@@ -887,7 +887,7 @@ exports[`mg-input-date Should render with args { readonly: true, labelOnTop: tru
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -897,15 +897,15 @@ exports[`mg-input-date Should render with args { readonly: true, labelOnTop: tru
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { readonly: true, tooltip: 'tooltip', tooltipPosition: 'input' }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="tooltip">
@@ -917,7 +917,7 @@ exports[`mg-input-date Should render with args { readonly: true, tooltip: 'toolt
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <mg-input-title identifier="identifier" is-legend="false" readonly="true" required="false" slot="label">
         <!---->
         <span class="mg-c-input-title" htmlfor="identifier">
@@ -927,15 +927,15 @@ exports[`mg-input-date Should render with args { readonly: true, tooltip: 'toolt
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { readonly: true, value: '2022-06-02' }: 1`] = `
 <mg-input-date value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -944,7 +944,7 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
@@ -957,15 +957,15 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { readonly: true, value: '2022-06-02', lang: 'fr' }: 1`] = `
 <mg-input-date lang="fr" value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -974,7 +974,7 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <b class="mg-c-input__readonly-value">
         02/06/2022
       </b>
@@ -987,15 +987,15 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { readonly: true, value: '2022-06-02', lang: 'xx' }: 1`] = `
 <mg-input-date lang="xx" value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1004,7 +1004,7 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
             <slot></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <b class="mg-c-input__readonly-value">
         6/2/2022
       </b>
@@ -1017,15 +1017,15 @@ exports[`mg-input-date Should render with args { readonly: true, value: '2022-06
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { required: true, value: '2022-06-02', helpText: 'My help text' }: 1`] = `
 <mg-input-date value="2022-06-02">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1037,7 +1037,7 @@ exports[`mg-input-date Should render with args { required: true, value: '2022-06
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date" value="2022-06-02">
       <div id="identifier-help-text" slot="help-text">
         My help text
@@ -1056,15 +1056,15 @@ exports[`mg-input-date Should render with args { required: true, value: '2022-06
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message' }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1079,7 +1079,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message' }
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1100,15 +1100,15 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message' }
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', labelOnTop: true }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--label-on-top">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
@@ -1123,7 +1123,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1144,15 +1144,15 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', tooltipPosition: 'label' }: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
           <mg-tooltip identifier="identifier-tooltip" message="My Tooltip Message">
@@ -1167,7 +1167,7 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1188,15 +1188,15 @@ exports[`mg-input-date Should render with args { tooltip: 'My Tooltip Message', 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should render with args {}: 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1208,7 +1208,7 @@ exports[`mg-input-date Should render with args {}: 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1229,15 +1229,15 @@ exports[`mg-input-date Should render with args {}: 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date Should trigger events 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1249,7 +1249,7 @@ exports[`mg-input-date Should trigger events 1`] = `
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         My help text
@@ -1263,15 +1263,15 @@ exports[`mg-input-date Should trigger events 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date display error message with locale: fr 1`] = `
 <mg-input-date lang="fr">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1286,7 +1286,7 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Format attendu&nbsp;:
@@ -1315,15 +1315,15 @@ exports[`mg-input-date display error message with locale: fr 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date display error message with locale: xx 1`] = `
 <mg-input-date lang="xx">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1338,7 +1338,7 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1367,15 +1367,15 @@ exports[`mg-input-date display error message with locale: xx 1`] = `
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date display error with displayError component's public method 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1387,7 +1387,7 @@ exports[`mg-input-date display error with displayError component's public method
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1413,15 +1413,15 @@ exports[`mg-input-date display error with displayError component's public method
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date display error with displayError component's public method 2`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1436,7 +1436,7 @@ exports[`mg-input-date display error with displayError component's public method
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1465,15 +1465,15 @@ exports[`mg-input-date display error with displayError component's public method
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date should display override error with setError component's public method 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1485,7 +1485,7 @@ exports[`mg-input-date should display override error with setError component's p
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1511,15 +1511,15 @@ exports[`mg-input-date should display override error with setError component's p
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date should display override error with setError component's public method 2`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1531,7 +1531,7 @@ exports[`mg-input-date should display override error with setError component's p
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1557,15 +1557,15 @@ exports[`mg-input-date should display override error with setError component's p
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date should display override error with setError component's public method 3`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1577,7 +1577,7 @@ exports[`mg-input-date should display override error with setError component's p
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1603,15 +1603,15 @@ exports[`mg-input-date should display override error with setError component's p
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date should display override error with setError component's public method 4`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1626,7 +1626,7 @@ exports[`mg-input-date should display override error with setError component's p
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" required="" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1655,15 +1655,15 @@ exports[`mg-input-date should display override error with setError component's p
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case next state is disabled validity ({ validity: false, valueMissing: true, badInput: false }) 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1678,7 +1678,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1702,15 +1702,15 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case next state is disabled validity ({ validity: false, valueMissing: true, badInput: false }) 2`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--disabled">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1722,7 +1722,7 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" disabled="" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1743,15 +1743,15 @@ exports[`mg-input-date validity, case next state is disabled validity ({ validit
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case next state is readonly validity ({ validity: false, valueMissing: true, badInput: false }) 1`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1766,7 +1766,7 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1790,15 +1790,15 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case next state is readonly validity ({ validity: false, valueMissing: true, badInput: false }) 2`] = `
 <mg-input-date>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--readonly">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1810,7 +1810,7 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <div id="identifier-help-text" slot="help-text">
         Expected format:
         <span aria-hidden="true">
@@ -1830,15 +1830,15 @@ exports[`mg-input-date validity, case next state is readonly validity ({ validit
         </span>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 1`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1850,7 +1850,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1871,15 +1871,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 2`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1891,7 +1891,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1912,15 +1912,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 3`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1932,7 +1932,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="2024-02-01" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1953,15 +1953,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', max: '2024-02-01', next: '2024-03-01' }) 4`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -1973,7 +1973,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="2024-03-01" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -1994,15 +1994,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 1`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2014,7 +2014,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2035,15 +2035,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 2`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2055,7 +2055,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2076,15 +2076,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 3`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2099,7 +2099,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-02-01" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2123,15 +2123,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-01-01', min: '2024-02-01', next: '2024-01-01' }) 4`] = `
 <mg-input-date value="2024-01-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2143,7 +2143,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-01-01" name="identifier" type="date" value="2024-01-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2164,15 +2164,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 1`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2184,7 +2184,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2205,15 +2205,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 2`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2225,7 +2225,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2246,15 +2246,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 3`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date mg-c-input--has-error">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2269,7 +2269,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="error"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text identifier-error" aria-invalid="true" class="mg-c-input__box" id="identifier" max="2024-02-01" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2293,15 +2293,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', max: '2024-02-01', next: '2024-03-01' }) 4`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2313,7 +2313,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="2024-03-01" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2334,15 +2334,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 1`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2354,7 +2354,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2375,15 +2375,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 2`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2395,7 +2395,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2416,15 +2416,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 3`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2436,7 +2436,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-02-01" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2457,15 +2457,15 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
 
 exports[`mg-input-date validity, case update min/max prop value value ({ value: '2024-03-01', min: '2024-02-01', next: '2024-01-01' }) 4`] = `
 <mg-input-date value="2024-03-01">
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <mg-input class="mg-c-input mg-c-input--date">
-      <mock:shadow-root>
+      <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
         </div>
@@ -2477,7 +2477,7 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
             <slot name="help-text"></slot>
           </div>
         </div>
-      </mock:shadow-root>
+      </template>
       <input aria-describedby="identifier-help-text" aria-invalid="false" class="mg-c-input__box" id="identifier" max="9999-12-31" min="2024-01-01" name="identifier" type="date" value="2024-03-01">
       <div id="identifier-help-text" slot="help-text">
         Expected format:
@@ -2498,6 +2498,6 @@ exports[`mg-input-date validity, case update min/max prop value value ({ value: 
         </label>
       </mg-input-title>
     </mg-input>
-  </mock:shadow-root>
+  </template>
 </mg-input-date>
 `;
