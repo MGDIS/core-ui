@@ -1,5 +1,12 @@
 # Changelog
 
+## Release (2024-07-12-11-09_Thirsty-Tickle-Me-Pink-Turtle)
+
+### Packages released
+
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [playwright-helpers changelog](packages/playwright-helpers/CHANGELOG.md)
+
 ## Release (2024-07-12-09-59_Small-Sky-Blue-Sea-Lion)
 
 ### Packages released

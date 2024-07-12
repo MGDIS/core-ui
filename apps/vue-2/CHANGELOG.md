@@ -1,5 +1,13 @@
 # vue-2
 
+## 0.0.26
+
+### Patch Changes
+
+- Updated dependencies [6195e7a]
+  - @mgdis/notification-center@1.1.14
+  - @mgdis/mg-components@5.28.1
+
 ## 0.0.25
 
 ### Patch Changes
