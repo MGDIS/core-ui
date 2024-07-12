@@ -2,16 +2,16 @@
 
 exports[`mg-divider full-width false 1`] = `
 <mg-divider>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-divider"></div>
-  </mock:shadow-root>
+  </template>
 </mg-divider>
 `;
 
 exports[`mg-divider full-width true 1`] = `
 <mg-divider>
-  <mock:shadow-root>
+  <template shadowrootmode="open">
     <div class="mg-c-divider mg-c-divider--full-width"></div>
-  </mock:shadow-root>
+  </template>
 </mg-divider>
 `;

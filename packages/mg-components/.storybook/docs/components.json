@@ -1,8 +1,8 @@
 {
-  "timestamp": "2024-07-03T14:54:39",
+  "timestamp": "2024-07-12T07:49:13",
   "compiler": {
     "name": "@stencil/core",
-    "version": "4.18.3",
+    "version": "4.19.2",
     "typescriptVersion": "5.4.5"
   },
   "components": [
@@ -5213,7 +5213,7 @@
       "filePath": "src/components/molecules/inputs/mg-input-numeric/mg-input-numeric.tsx",
       "encapsulation": "shadow",
       "tag": "mg-input-numeric",
-      "readme": "## Usage\n\nAn amount field is a numeric field.  \nBy default it is limited to 16 characters (including comma).\n\nIt is not possible to enter characters other than numbers, \",\" or \".\".\n\nRounding is to two digits after the decimal point.  \nIt is not possible to enter more than two digits after the decimal point.\n\nIt is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n### Unit positioning\n\nUnit term must be placed into the field slot using a \"space\" character before the unit term.\n",
+      "readme": "## Usage\n\nAn amount field is a numeric field.  \nBy default it is limited to 16 characters (including comma).\n\nIt is not possible to enter characters other than numbers, \",\" or \".\".\n\nRounding is to two digits after the decimal point.  \nIt is not possible to enter more than two digits after the decimal point.\n\nIt is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.\n\n## Number Format\n\nNumeric values are formatted according to the page's language settings. The component checks for the closest `lang` attribute and applies formatting based on that value. If it cannot find a `lang` attribute, it defaults to `en`.\n\n**Reminder:** For accessibility purposes, the `lang` attribute should be set at least on the `<html>` tag.\n\n## Slot\n\nThe spacing between the field and the slot content is not managed by the component, it must be defined in slot implementation.\n\n### Unit positioning\n\nUnit term must be placed into the field slot using a \"space\" character before the unit term.\n",
       "docs": "An amount field is a numeric field.  \nBy default it is limited to 16 characters (including comma).\n\nIt is not possible to enter characters other than numbers, \",\" or \".\".\n\nRounding is to two digits after the decimal point.  \nIt is not possible to enter more than two digits after the decimal point.\n\nIt is possible to specify a unit after the field for integers and decimals. For currencies, the symbol is positioned in the input field.",
       "docsTags": [
         {
@@ -5236,7 +5236,7 @@
           "reflectToAttr": false,
           "docs": "Define currency",
           "docsTags": [],
-          "default": "'USD'",
+          "default": "'EUR'",
           "values": [
             {
               "type": "string"

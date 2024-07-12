@@ -205,7 +205,7 @@ export class MgInputNumeric {
   /**
    * Define currency
    */
-  @Prop() currency = 'USD';
+  @Prop() currency = 'EUR';
 
   /**
    * Override integer length

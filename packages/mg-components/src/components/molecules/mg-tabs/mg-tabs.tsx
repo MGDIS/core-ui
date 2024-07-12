@@ -213,6 +213,14 @@ export class MgTabs {
   };
 
   /**
+   * Reset focus on document click
+   * @param event - mouse event
+   */
+  private handleDocumentClick = (event: MouseEvent & { target: HTMLElement }): void => {
+    if (event.target.closest('mg-tabs') !== this.element) this.resetFocus();
+  };
+
+  /**
    * Method to reset focus behavior
    */
   private resetFocus = (): void => {
@@ -253,13 +261,14 @@ export class MgTabs {
    * add listners
    */
   componentDidLoad(): void {
-    document.addEventListener(
-      'click',
-      (event: MouseEvent & { target: HTMLElement }) => {
-        if (event.target.closest('mg-tabs') !== this.element) this.resetFocus();
-      },
-      false,
-    );
+    document.addEventListener('click', this.handleDocumentClick, false);
+  }
+
+  /**
+   * remove listeners
+   */
+  disconnectedCallback(): void {
+    document.removeEventListener('keydown', this.handleDocumentClick);
   }
 
   /**
