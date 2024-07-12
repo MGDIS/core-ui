@@ -1,5 +1,11 @@
 # stencil
 
+## 0.0.20
+
+### Patch Changes
+
+- @mgdis/mg-components@5.28.1
+
 ## 0.0.19
 
 ### Patch Changes
