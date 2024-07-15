@@ -196,7 +196,7 @@ No more `variables.scss` export, only `variables.css`.
 
 ### Changes in `mg-action-more`
 
-- Update `items` icon propertie. Item icon take a `MgIcon` object.
+- Update `items` icon property. Item icon takes a `MgIcon` object.
 
   ```ts
   // in v5
