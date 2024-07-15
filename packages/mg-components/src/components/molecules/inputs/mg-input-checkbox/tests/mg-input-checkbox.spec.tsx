@@ -36,7 +36,7 @@ const getDefaultValues = (): CheckboxValue[] =>
   ].map(item => item);
 
 const getValues = (length?: number): CheckboxValue[] =>
-  length
+  length > 0
     ? Array.from({ length }, (_, index) => ({
         title: `item ${index + 1}`,
         value: false,

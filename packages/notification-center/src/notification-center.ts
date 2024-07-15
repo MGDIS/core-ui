@@ -136,7 +136,7 @@ class NotificationCenter {
     // Check if we have permission to access parent
     try {
       const parentDocument = localWindow.parent.document;
-      if (!parentDocument) throw new Error('Cannot access parent document');
+      if (!parentDocument) throw new Error('Cannot access parent document.');
     } catch (err) {
       console.error('Different hosts between iframes:', err);
       return localWindow;

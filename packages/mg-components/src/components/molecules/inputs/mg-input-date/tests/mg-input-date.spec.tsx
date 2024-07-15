@@ -431,7 +431,7 @@ describe('mg-input-date', () => {
         ...minMax,
       });
     } catch (err) {
-      expect(err.message).toBe("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
+      expect(err.message).toBe("<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'.");
     }
   });
 

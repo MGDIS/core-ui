@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-12T18:09:52",
+  "timestamp": "2024-07-12T20:15:02",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -10479,7 +10479,7 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-menu-background-color",
+          "name": "--mg-c-menu-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`."
         }
@@ -10756,11 +10756,6 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-menu-item-color",
-          "annotation": "prop",
-          "docs": "Defines the color of the menu item. Unset by default, fallback on `var(--mg-b-color-dark)`."
-        },
-        {
           "name": "--mg-c-menu-item-color-background-focus",
           "annotation": "prop",
           "docs": "Defines the background color of the focused menu item. Default value is `color-mix(in srgb, var(--mg-b-color-dark), white 90%)`."
@@ -10769,6 +10764,11 @@
           "name": "--mg-c-menu-item-color-border-active",
           "annotation": "prop",
           "docs": "Defines the border color of the active menu item. Default value is `var(--mg-b-color-app)`."
+        },
+        {
+          "name": "--mg-c-menu-item-color-text",
+          "annotation": "prop",
+          "docs": "Defines the color of the menu item. Unset by default, fallback on `var(--mg-b-color-dark)`."
         },
         {
           "name": "--mg-c-menu-item-color-text-active",

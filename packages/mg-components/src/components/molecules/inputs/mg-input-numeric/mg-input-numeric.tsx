@@ -186,7 +186,7 @@ export class MgInputNumeric {
   @Watch('type')
   validateType(newValue: MgInputNumeric['type']): void {
     if (!types.includes(newValue)) {
-      throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}`);
+      throw new Error(`<mg-input-numeric> prop "type" must be one of: ${types.join(', ')}.`);
     }
   }
 
@@ -198,7 +198,7 @@ export class MgInputNumeric {
   @Watch('format')
   watchFormat(newValue: MgInputNumeric['format']): void {
     if (!formats.includes(newValue)) {
-      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}`);
+      throw new Error(`<mg-input-numeric> prop "format" must be one of: ${formats.join(', ')}.`);
     }
   }
 
@@ -287,9 +287,9 @@ export class MgInputNumeric {
   @Method()
   async setError(valid: MgInputNumeric['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-numeric> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-numeric> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);

@@ -31,28 +31,28 @@ export class MgMessage {
   /**
    * Define variant
    */
-  @Prop() variant: undefined | VariantType = 'info';
+  @Prop() variant: VariantType = 'info';
   @Watch('variant')
   watchVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
+      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
-      if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
-      if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+      if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
+      if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);
     }
   }
 
   /**
    * Define variant style
    */
-  @Prop() variantStyle: undefined | VariantStyleType = 'bar-left';
+  @Prop() variantStyle: VariantStyleType = 'bar-left';
   @Watch('variantStyle')
   watchVariantStyle(newValue: MgMessage['variantStyle'], oldValue?: MgMessage['variantStyle']): void {
     if (!variantStyles.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
+      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}.`);
     } else {
-      if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
-      if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+      if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
+      if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);
     }
   }
 
@@ -108,7 +108,7 @@ export class MgMessage {
     return (
       <div class={this.classCollection.join()}>
         <mg-card>
-          {this.variantStyle.startsWith('bar-') && <span class="mg-c-message__bar"></span>}
+          {this.variantStyle === 'bar-left' && <span class="mg-c-message__bar"></span>}
           <span class="mg-c-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>

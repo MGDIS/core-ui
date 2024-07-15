@@ -305,9 +305,9 @@ export class MgInputSelect {
   @Method()
   async setError(valid: MgInputSelect['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-select> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-select> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);

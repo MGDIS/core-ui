@@ -58,7 +58,7 @@ export class MgMenuItem {
   @Watch('target')
   watchTarget(newValue: MgMenuItem['target']): void {
     if (newValue && !targets.includes(newValue)) {
-      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}`);
+      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}.`);
     }
   }
 
@@ -398,7 +398,7 @@ export class MgMenuItem {
         tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
-        target={this.href && this.target ? this.target : undefined}
+        target={this.href !== undefined && this.target !== undefined ? this.target : undefined}
         aria-expanded={this.hasChildren && this.expanded.toString()}
         aria-current={this.status === Status.ACTIVE && 'page'}
         onClick={this.handleElementCLick}

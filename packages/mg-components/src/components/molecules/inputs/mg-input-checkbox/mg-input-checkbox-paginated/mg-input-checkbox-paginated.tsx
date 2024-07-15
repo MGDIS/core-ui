@@ -125,7 +125,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
    * @param items - items to count
    * @returns page count from items
    */
-  private getPageCount = (items: unknown[]): number => (items?.length ? Math.ceil(items.length / this.offset) : 0);
+  private getPageCount = (items: unknown[]): number => (items?.length > 0 ? Math.ceil(items.length / this.offset) : 0);
 
   /**
    * Handle mg-pagination current page change event

@@ -99,7 +99,7 @@ export class MgInput {
   @Watch('tooltipPosition')
   watchTooltipPosition(newValue: MgInput['tooltipPosition']) {
     if (!tooltipPositions.includes(newValue)) {
-      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
+      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}.`);
     }
   }
 
@@ -302,7 +302,7 @@ export class MgInput {
    */
   componentDidLoad(): void {
     this.watchAriaDescribedbyIDs();
-    if (!this.isReadonly && !this.isFieldset && !this.element.querySelector(`#${this.identifier}`)) {
+    if (!this.isReadonly && !this.isFieldset && this.element.querySelector(`#${this.identifier}`) === null) {
       throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
     }
   }

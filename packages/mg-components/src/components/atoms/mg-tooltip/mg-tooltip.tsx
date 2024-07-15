@@ -333,7 +333,7 @@ export class MgTooltip {
    * Render tooltip content element and init listeners
    */
   private renderTooltipContent(): void {
-    if (this.mgTooltipContent) {
+    if (this.mgTooltipContent !== undefined) {
       this.mgTooltipContent.setAttribute('id', this.identifier);
     } else {
       this.mgTooltipContent = document.createElement('mg-tooltip-content');
@@ -400,7 +400,7 @@ export class MgTooltip {
     }
 
     // Add tabindex to slotted element if we can't find any interactive element
-    if (!this.disabled && !interactiveElement) {
+    if (!this.disabled && [undefined, null].includes(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
       // Add role on non-interactive element to work with "aria-describedby" for screen readers

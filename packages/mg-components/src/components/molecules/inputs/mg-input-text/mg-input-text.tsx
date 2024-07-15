@@ -284,9 +284,9 @@ export class MgInputText {
   @Method()
   async setError(valid: MgInputText['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-text> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-text> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-text> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-text> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);

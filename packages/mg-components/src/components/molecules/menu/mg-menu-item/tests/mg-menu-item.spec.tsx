@@ -195,7 +195,7 @@ describe('mg-menu-item', () => {
       try {
         await getPage(menuItem({ label: 'label', href: '#', target }));
       } catch (err) {
-        expect(err.message).toBe(`<mg-link> prop "target" must be one of: ${targets.join(', ')}`);
+        expect(err.message).toBe(`<mg-link> prop "target" must be one of: ${targets.join(', ')}.`);
       }
     });
 
@@ -408,7 +408,7 @@ describe('mg-menu-item', () => {
         expect(menuItemLevel2).toHaveProperty('status', to);
 
         menuItemLevel2.setAttribute('hidden', '');
-        fireMo[menuItemLevel3 ? 2 : 0]([{ attributeName: 'hidden' }]);
+        fireMo[menuItemLevel3 !== null ? 2 : 0]([{ attributeName: 'hidden' }]);
 
         await page.waitForChanges();
 
