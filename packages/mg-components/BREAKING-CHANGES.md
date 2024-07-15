@@ -198,20 +198,26 @@ No more `variables.scss` export, only `variables.css`.
 
 - Update `items` icon property. Item icon takes a `MgIcon` object.
 
-  ```ts
-  // in v5
-  export type MgActionMoreItemType = [...] & {
-    ...
-    icon?: MgIcon['icon'];
-    ...
-  };
+  ```html
+  <!-- in v5 -->
+  <mg-action-more></mg-action-more>
+  <script>
+    const mgActionMore = document.querySelector('mg-action-more')
+    mgActionMore.items = [{
+      ...
+      icon: 'user'
+    }]
+  </script>
 
-  // in v6
-  export type MgActionMoreItemType = [...] & {
-    ...
-    icon?: Pick<MgIcon, 'icon'> & Partial<Pick<MgIcon, 'variant' | 'variantStyle'>>;
-    ...
-  };
+  <!-- in v6 -->
+  <mg-action-more></mg-action-more>
+  <script>
+    const mgActionMore = document.querySelector('mg-action-more')
+    mgActionMore.items = [{
+      ...
+      icon: {icon: 'user'}
+    }]
+  </script>
   ```
 
 ### Changes in `mg-card`
