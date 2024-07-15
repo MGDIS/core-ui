@@ -82,7 +82,6 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-menu`](#changes-in-mg-menu)
 - [Changes in `mg-card`](#changes-in-mg-card)
 - [Changes in `mg-message`](#changes-in-mg-message)
-- [Changes in `mg-badge`](#changes-in-mg-badge)
 - [Hide components](#hide-components)
 - [Changes in `mg-modal`](#changes-in-mg-modal)
 - [Internal components](#internal-components)
@@ -215,10 +214,6 @@ No more `variables.scss` export, only `variables.css`.
   <!-- in v6 -->
   <mg-message hidden>Non</mg-message>
   ```
-
-### Changes in `mg-badge`
-
-- Update `value` prop rule. Only alphabetical characters are excluded now.
 
 ### Changes in `mg-modal`
 
