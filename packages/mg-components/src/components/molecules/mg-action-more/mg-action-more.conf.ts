@@ -21,13 +21,17 @@ export type MgActionMoreMessageType = { label: string };
 /**
  * prop item type
  */
-export type MgActionMoreItemType = Partial<Pick<MgMenuItem, 'status' | 'href' | 'target'>> & {
-  label?: string;
-  mouseEventHandler?: IMouseEventHandler;
-  isDivider?: boolean;
+export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {
+  label: string;
+  mouseEventHandler: IMouseEventHandler;
   icon?: MgIcon['icon'];
   badge?: Pick<MgBadge, 'value' | 'label'>;
 };
+
+/**
+ * prop item divider type
+ */
+export type MgActionMoreDividerType = { isDivider: boolean };
 
 /**
  * MouseEvent callback interface

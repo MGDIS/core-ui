@@ -4,7 +4,7 @@ import { Status } from '../menu/mg-menu-item/mg-menu-item.conf';
 import { Direction } from '../menu/mg-menu/mg-menu.conf';
 import { initLocales } from '../../../locales';
 import type { MessageType } from '../../../locales/index.conf';
-import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType } from './mg-action-more.conf';
+import type { MgActionMoreItemType, MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreDividerType } from './mg-action-more.conf';
 
 /**
  * MgActionMore['items'] type guard
@@ -15,9 +15,16 @@ const isMgActionMoreItems = (prop: unknown): prop is MgActionMoreItemType[] => {
   const items = prop as MgActionMoreItemType[];
   return (
     typeof items === 'object' &&
-    items.every(item => (typeof item === 'object' && typeof item.label === 'string' && typeof item.mouseEventHandler === 'function') || item.isDivider === true)
+    items.every(item => (typeof item === 'object' && typeof item.label === 'string' && typeof item.mouseEventHandler === 'function') || isMgActionMoreDivider(item))
   );
 };
+
+/**
+ * MgActionMoreDividerType type guard
+ * @param item - component item
+ * @returns return true if type is valid
+ */
+const isMgActionMoreDivider = (item: unknown): item is MgActionMoreDividerType => typeof item === 'object' && (item as MgActionMoreDividerType).isDivider;
 
 /**
  * MgActionMore['button'] type guard
@@ -66,12 +73,12 @@ export class MgActionMore {
   /**
    * Define the menu-items elements
    */
-  @Prop() items!: MgActionMoreItemType[];
+  @Prop() items!: (MgActionMoreItemType | MgActionMoreDividerType)[];
   @Watch('items')
   validateItems(newValue: MgActionMore['items']): void {
     if (!isMgActionMoreItems(newValue)) {
-      throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType.`);
-    } else if (isMgActionMoreItems(newValue) && newValue.length > 0 && (newValue[0].isDivider || newValue[newValue.length - 1].isDivider)) {
+      throw new Error(`<${this.name}> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`);
+    } else if (isMgActionMoreItems(newValue) && newValue.length > 0 && (isMgActionMoreDivider(newValue[0]) || isMgActionMoreDivider(newValue[newValue.length - 1]))) {
       throw new Error(`<${this.name}> prop "items" can’t have a divider at the beginning or the end of the array.`);
     }
   }
@@ -198,7 +205,7 @@ export class MgActionMore {
             <div slot="content">
               <mg-menu direction={Direction.VERTICAL} label={this.messages.label}>
                 {this.items.map(item =>
-                  item.isDivider ? (
+                  isMgActionMoreDivider(item) ? (
                     <mg-divider class="mg-c-action-more__divider"></mg-divider>
                   ) : (
                     <mg-menu-item
