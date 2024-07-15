@@ -1,5 +1,13 @@
 # @mgdis/mg-components
 
+## 5.28.1
+
+### Patch Changes
+
+- Updated dependencies [4ee49fe]
+  - @mgdis/stencil-helpers@1.1.7
+  - @mgdis/styles@1.3.6
+
 ## 5.28.0
 
 ### Minor Changes
