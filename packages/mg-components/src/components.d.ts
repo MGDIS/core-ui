@@ -13,7 +13,7 @@ import { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 import { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 import { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 import { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-import { CheckboxItem, CheckboxType, CheckboxValue, MgInputCheckboxLocaleMessagesType, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -38,7 +38,7 @@ export { AriaRoleType, RequiredMessageStatusType } from "./components/molecules/
 export { IconSizeType, IconType, IconVariantStyleType, IconVariantType } from "./components/atoms/mg-icon/mg-icon.conf";
 export { IllustratedMessageSizeType } from "./components/molecules/mg-illustrated-message/mg-illustrated-message.conf";
 export { TooltipPosition, Width } from "./components/molecules/inputs/mg-input/mg-input.conf";
-export { CheckboxItem, CheckboxType, CheckboxValue, MgInputCheckboxLocaleMessagesType, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
+export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./components/molecules/inputs/mg-input-checkbox/mg-input-checkbox.conf";
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
@@ -314,6 +314,10 @@ export namespace Components {
          */
         "displaySelectedValues"?: boolean;
         /**
+          * Define edit button message
+         */
+        "editButtonMessage": string;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -342,10 +346,6 @@ export namespace Components {
          */
         "labelOnTop"?: boolean;
         /**
-          * Define component locale messages overrides
-         */
-        "localemessages": MgInputCheckboxLocaleMessagesType;
-        /**
           * Define input name If not set the value equals the identifier
          */
         "name": string;
@@ -358,11 +358,19 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Define sele btButton message
+         */
+        "selectButtonMessage": string;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
         "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
+        /**
+          * Define show button message
+         */
+        "showButtonMessage": string;
         /**
           * Add a tooltip message next to the input
          */
@@ -2287,6 +2295,10 @@ declare namespace LocalJSX {
          */
         "displaySelectedValues"?: boolean;
         /**
+          * Define edit button message
+         */
+        "editButtonMessage"?: string;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -2315,10 +2327,6 @@ declare namespace LocalJSX {
          */
         "labelOnTop"?: boolean;
         /**
-          * Define component locale messages overrides
-         */
-        "localemessages"?: MgInputCheckboxLocaleMessagesType;
-        /**
           * Define input name If not set the value equals the identifier
          */
         "name"?: string;
@@ -2338,6 +2346,14 @@ declare namespace LocalJSX {
           * Define if mg-input-checkbox is required
          */
         "required"?: boolean;
+        /**
+          * Define sele btButton message
+         */
+        "selectButtonMessage"?: string;
+        /**
+          * Define show button message
+         */
+        "showButtonMessage"?: string;
         /**
           * Add a tooltip message next to the input
          */

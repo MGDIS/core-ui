@@ -7200,10 +7200,14 @@ exports[`mg-input-checkbox render by type checkbox Should render with args { val
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type checkbox Should render with custom locales: { input: [Object] } 1`] = `
+exports[`mg-input-checkbox render by type checkbox Should render with custom locales: {
+  showButtonMessage: 'show button message',
+  value: [Array],
+  disabled: true
+} 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--disabled mg-c-input--fieldset" role="group">
       <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -7215,28 +7219,16 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
         </div>
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
-            batman
+            item 1
           </label>
         </li>
         <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
           <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
+            item 2
           </label>
         </li>
       </ul>
@@ -7253,7 +7245,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type checkbox Should render with custom locales: { input: {} } 1`] = `
+exports[`mg-input-checkbox render by type checkbox Should render with custom locales: { editButtonMessage: 'edit button message', value: [Array] } 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
@@ -7271,25 +7263,13 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
         <li class="mg-c-input__input-group">
           <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
           <label htmlfor="identifier_0">
-            batman
+            item 1
           </label>
         </li>
-        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
+            item 2
           </label>
         </li>
       </ul>
@@ -7306,7 +7286,7 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type checkbox Should render with custom locales: {} 1`] = `
+exports[`mg-input-checkbox render by type checkbox Should render with custom locales: { selectButtonMessage: 'select button message', value: [Array] } 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
@@ -7322,27 +7302,15 @@ exports[`mg-input-checkbox render by type checkbox Should render with custom loc
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
         <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <input aria-describedby="" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
-            batman
+            item 1
           </label>
         </li>
-        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
+            item 2
           </label>
         </li>
       </ul>
@@ -10947,7 +10915,88 @@ exports[`mg-input-checkbox render by type multi Should render with args { value:
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type multi Should render with custom locales: { input: [Object] } 1`] = `
+exports[`mg-input-checkbox render by type multi Should render with custom locales: {
+  showButtonMessage: 'show button message',
+  value: [Array],
+  disabled: true
+} 1`] = `
+<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
+  <template shadowrootmode="open">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--disabled mg-c-input--fieldset" role="group">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__input-container">
+        <mg-popover>
+          <template shadowrootmode="open">
+            <slot></slot>
+            <slot name="content"></slot>
+          </template>
+          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
+            <template shadowrootmode="open">
+              <div class="mg-c-button mg-c-button--secondary">
+                <div class="mg-c-button__content">
+                  <slot></slot>
+                </div>
+              </div>
+            </template>
+            <mg-icon icon="list"></mg-icon>
+            show button message
+          </mg-button>
+          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+            <template shadowrootmode="open">
+              <mg-card class="mg-c-popover-content">
+                <div class="mg-c-popover-content__title">
+                  <slot name="title"></slot>
+                </div>
+                <slot name="content"></slot>
+              </mg-card>
+              <slot name="arrow"></slot>
+            </template>
+            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
+            <div class="mg-c-input__content" slot="content">
+              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_0" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_0">
+                    item 1
+                  </label>
+                </li>
+                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+                  <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                  <label htmlfor="identifier_1">
+                    item 2
+                  </label>
+                </li>
+              </ul>
+            </div>
+          </mg-popover-content>
+        </mg-popover>
+        <b>
+          0 selected value
+        </b>
+      </div>
+      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
+        <!---->
+        <legend class="mg-c-input-title" id="identifier-title">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </legend>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-checkbox>
+`;
+
+exports[`mg-input-checkbox render by type multi Should render with custom locales: { editButtonMessage: 'edit button message', value: [Array] } 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
@@ -10976,7 +11025,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
               </div>
             </template>
             <mg-icon icon="list"></mg-icon>
-            custom editButton
+            edit button message
           </mg-button>
           <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
             <template shadowrootmode="open">
@@ -10994,25 +11043,13 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
                 <li class="mg-c-input__input-group">
                   <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
                   <label htmlfor="identifier_0">
-                    batman
+                    item 1
                   </label>
                 </li>
-                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-                  <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_1">
-                    robin
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-                  <label htmlfor="identifier_2">
-                    joker
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-                  <label htmlfor="identifier_3">
-                    bane
+                    item 2
                   </label>
                 </li>
               </ul>
@@ -11036,7 +11073,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type multi Should render with custom locales: { input: {} } 1`] = `
+exports[`mg-input-checkbox render by type multi Should render with custom locales: { selectButtonMessage: 'select button message', value: [Array] } 1`] = `
 <mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
@@ -11065,7 +11102,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
               </div>
             </template>
             <mg-icon icon="list"></mg-icon>
-            Edit
+            select button message
           </mg-button>
           <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
             <template shadowrootmode="open">
@@ -11081,27 +11118,15 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
             <div class="mg-c-input__content" slot="content">
               <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
                 <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_0">
-                    batman
+                    item 1
                   </label>
                 </li>
-                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-                  <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+                <li class="mg-c-input__input-group">
+                  <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
                   <label htmlfor="identifier_1">
-                    robin
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-                  <label htmlfor="identifier_2">
-                    joker
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-                  <label htmlfor="identifier_3">
-                    bane
+                    item 2
                   </label>
                 </li>
               </ul>
@@ -11109,96 +11134,7 @@ exports[`mg-input-checkbox render by type multi Should render with custom locale
           </mg-popover-content>
         </mg-popover>
         <b>
-          1 selected value
-        </b>
-      </div>
-      <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
-        <!---->
-        <legend class="mg-c-input-title" id="identifier-title">
-          <span class="mg-c-input-title__text">
-            label
-          </span>
-        </legend>
-      </mg-input-title>
-    </mg-input>
-  </template>
-</mg-input-checkbox>
-`;
-
-exports[`mg-input-checkbox render by type multi Should render with custom locales: {} 1`] = `
-<mg-input-checkbox data-mg-popover-guard="identifier-input-mg-popover">
-  <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--checkbox-multi mg-c-input--fieldset" role="group">
-      <template shadowrootmode="open">
-        <div class="mg-c-input__title">
-          <slot name="label"></slot>
-        </div>
-        <div class="mg-c-input__input-container">
-          <div class="mg-c-input__input">
-            <slot></slot>
-          </div>
-        </div>
-      </template>
-      <div class="mg-c-input__input-container">
-        <mg-popover>
-          <template shadowrootmode="open">
-            <slot></slot>
-            <slot name="content"></slot>
-          </template>
-          <mg-button aria-controls="identifier-input-mg-popover" aria-describedby="identifier-title" aria-expanded="false" role="button" tabindex="0">
-            <template shadowrootmode="open">
-              <div class="mg-c-button mg-c-button--secondary">
-                <div class="mg-c-button__content">
-                  <slot></slot>
-                </div>
-              </div>
-            </template>
-            <mg-icon icon="list"></mg-icon>
-            Edit
-          </mg-button>
-          <mg-popover-content data-arrow-hide data-popper-placement="bottom" data-popper-reference-hidden id="identifier-input-mg-popover" slot="content" style="position: fixed; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
-            <template shadowrootmode="open">
-              <mg-card class="mg-c-popover-content">
-                <div class="mg-c-popover-content__title">
-                  <slot name="title"></slot>
-                </div>
-                <slot name="content"></slot>
-              </mg-card>
-              <slot name="arrow"></slot>
-            </template>
-            <div data-popper-arrow slot="arrow" style="position: absolute;"></div>
-            <div class="mg-c-input__content" slot="content">
-              <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
-                  <label htmlfor="identifier_0">
-                    batman
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-                  <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
-                  <label htmlfor="identifier_1">
-                    robin
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-                  <label htmlfor="identifier_2">
-                    joker
-                  </label>
-                </li>
-                <li class="mg-c-input__input-group">
-                  <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-                  <label htmlfor="identifier_3">
-                    bane
-                  </label>
-                </li>
-              </ul>
-            </div>
-          </mg-popover-content>
-        </mg-popover>
-        <b>
-          1 selected value
+          0 selected value
         </b>
       </div>
       <mg-input-title identifier="identifier" is-legend="true" readonly="false" required="false" slot="label">
@@ -14144,10 +14080,14 @@ exports[`mg-input-checkbox render by type undefined Should render with args { va
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type undefined Should render with custom locales: { input: [Object] } 1`] = `
+exports[`mg-input-checkbox render by type undefined Should render with custom locales: {
+  showButtonMessage: 'show button message',
+  value: [Array],
+  disabled: true
+} 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
-    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
+    <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--disabled mg-c-input--fieldset" role="group">
       <template shadowrootmode="open">
         <div class="mg-c-input__title">
           <slot name="label"></slot>
@@ -14159,28 +14099,16 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
         </div>
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
+          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
-            batman
+            item 1
           </label>
         </li>
         <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
           <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
+            item 2
           </label>
         </li>
       </ul>
@@ -14197,7 +14125,7 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type undefined Should render with custom locales: { input: {} } 1`] = `
+exports[`mg-input-checkbox render by type undefined Should render with custom locales: { editButtonMessage: 'edit button message', value: [Array] } 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
@@ -14215,25 +14143,13 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
         <li class="mg-c-input__input-group">
           <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
           <label htmlfor="identifier_0">
-            batman
+            item 1
           </label>
         </li>
-        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
+            item 2
           </label>
         </li>
       </ul>
@@ -14250,7 +14166,7 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
 </mg-input-checkbox>
 `;
 
-exports[`mg-input-checkbox render by type undefined Should render with custom locales: {} 1`] = `
+exports[`mg-input-checkbox render by type undefined Should render with custom locales: { selectButtonMessage: 'select button message', value: [Array] } 1`] = `
 <mg-input-checkbox>
   <template shadowrootmode="open">
     <mg-input aria-labelledby="identifier-title" class="mg-c-input mg-c-input--checkbox mg-c-input--fieldset" role="group">
@@ -14266,27 +14182,15 @@ exports[`mg-input-checkbox render by type undefined Should render with custom lo
       </template>
       <ul class="mg-c-input__input-group-container" id="checkboxes-list" role="list">
         <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" checked="" id="identifier_0" name="identifier" type="checkbox" value="true">
+          <input aria-describedby="" aria-invalid="false" id="identifier_0" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_0">
-            batman
+            item 1
           </label>
         </li>
-        <li class="mg-c-input__input-group mg-c-input__input-group--disabled">
-          <input aria-describedby="" aria-invalid="false" disabled="" id="identifier_1" name="identifier" type="checkbox" value="false">
+        <li class="mg-c-input__input-group">
+          <input aria-describedby="" aria-invalid="false" id="identifier_1" name="identifier" type="checkbox" value="false">
           <label htmlfor="identifier_1">
-            robin
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_2" name="identifier" type="checkbox" value="false">
-          <label htmlfor="identifier_2">
-            joker
-          </label>
-        </li>
-        <li class="mg-c-input__input-group">
-          <input aria-describedby="" aria-invalid="false" id="identifier_3" indeterminate="" name="identifier" type="checkbox">
-          <label htmlfor="identifier_3">
-            bane
+            item 2
           </label>
         </li>
       </ul>

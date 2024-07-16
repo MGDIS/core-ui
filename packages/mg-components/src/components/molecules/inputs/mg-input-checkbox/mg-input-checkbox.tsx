@@ -1,16 +1,7 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 import { Component, Element, Event, h, Prop, EventEmitter, State, Watch, Method } from '@stencil/core';
-import { ClassList, cleanString, isValidString, mergeObjectValues } from '@mgdis/stencil-helpers';
-import {
-  CheckboxItem,
-  CheckboxType,
-  CheckboxValue,
-  checkboxTypes,
-  SectionKind,
-  MgInputCheckboxListProps,
-  SectionKindType,
-  MgInputCheckboxLocaleMessagesType,
-} from './mg-input-checkbox.conf';
+import { ClassList, cleanString, isValidString } from '@mgdis/stencil-helpers';
+import { CheckboxItem, CheckboxType, CheckboxValue, checkboxTypes, SectionKind, MgInputCheckboxListProps, SectionKindType } from './mg-input-checkbox.conf';
 import { MgInputCheckboxList } from './MgInputCheckboxList';
 import { type EventType, classDisabled, type TooltipPosition, classReadonly, classFieldset, classVerticalList } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
@@ -192,7 +183,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       this.hasDisplayedError = prop !== 'required';
       this.setErrorMessage(this.hasDisplayedError);
     }
-    this.setButtonText();
+    this.setButtonTextKey();
   }
 
   @Watch('disabled')
@@ -227,28 +218,18 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop({ mutable: true }) invalid: boolean;
 
   /**
-   * Define component locale messages overrides
+   * Define edit button message
    */
-  @Prop() localemessages: MgInputCheckboxLocaleMessagesType;
-  @Watch('localemessages')
-  watchLocaleMessages(newValue: MgInputCheckbox['localemessages']): void {
-    // reset messages values from default
-    this.messages = initLocales(this.element).messages;
+  @Prop() editButtonMessage: string;
+  /**
+   * Define show button message
+   */
+  @Prop() showButtonMessage: string;
 
-    if ((newValue && typeof newValue !== 'object') || (newValue && Array.isArray(newValue))) {
-      throw new Error('<mg-input-checkbox> prop "localemessages" must be a MgInputCheckboxLocaleMessagesType.');
-    } else if (newValue) {
-      const keysToUpdates = [];
-
-      // select paths to update
-      if (newValue.input?.checkbox?.editButton) keysToUpdates.push('input.checkbox.editButton');
-      if (newValue.input?.checkbox?.showButton) keysToUpdates.push('input.checkbox.showButton');
-      if (newValue.input?.checkbox?.selectButton) keysToUpdates.push('input.checkbox.selectButton');
-
-      // apply needeed messages updates
-      this.messages = mergeObjectValues(this.messages, newValue, keysToUpdates);
-    }
-  }
+  /**
+   * Define sele btButton message
+   */
+  @Prop() selectButtonMessage: string;
 
   /**
    * Component classes
@@ -272,7 +253,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.displaySearchInput = this.type === 'multi' && newValue.length > this.searchStart;
     // refresh search values
     if (this.displaySearchInput) this.updateSearchResults();
-    this.setButtonText();
+    this.setButtonTextKey();
   }
 
   /**
@@ -428,7 +409,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.hasOpenedPopover = event.detail;
 
     // 2. update selected valued button text
-    this.setButtonText();
+    this.setButtonTextKey();
 
     // 3. when popover display change to hide, update reset needeed props and run checkValidity
     if (!event.detail) {
@@ -528,7 +509,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Set button text locale key
    */
-  private setButtonText = (): void => {
+  private setButtonTextKey = (): void => {
     // prevent key update while popover is openned
     if (this.hasOpenedPopover) return;
     let messageKey: MgInputCheckbox['selectValuesButtonKey'] = 'editButton';
@@ -536,6 +517,22 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     else if (this.getSelectedItems().length < 1) messageKey = 'selectButton';
 
     this.selectValuesButtonKey = messageKey;
+  };
+
+  /**
+   * Get select values button message
+   * @returns message to display
+   */
+  private getSelectValuesButtonMessage = (): string => {
+    if (this.selectValuesButtonKey === 'editButton' && isValidString(this.editButtonMessage)) {
+      return this.editButtonMessage;
+    } else if (this.selectValuesButtonKey === 'showButton' && isValidString(this.showButtonMessage)) {
+      return this.showButtonMessage;
+    } else if (this.selectValuesButtonKey === 'selectButton' && isValidString(this.selectButtonMessage)) {
+      return this.selectButtonMessage;
+    } else {
+      return this.messages.input.checkbox[this.selectValuesButtonKey];
+    }
   };
 
   /**
@@ -580,7 +577,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
    */
   componentWillLoad(): ReturnType<typeof setTimeout> {
     // Get locales
-    this.watchLocaleMessages(this.localemessages);
+    this.messages = initLocales(this.element).messages;
 
     // Validate
     // `validateType` must be done before `validateValue` because we need to set mode['auto'|'custom'] from type
@@ -669,7 +666,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         >
           <mg-button variant="secondary" aria-describedby={`${this.identifier}-title`}>
             <mg-icon icon="list"></mg-icon>
-            {this.messages.input.checkbox[this.selectValuesButtonKey]}
+            {this.getSelectValuesButtonMessage()}
           </mg-button>
           <div slot="content" class="mg-c-input__content">
             {this.displaySearchInput ? (

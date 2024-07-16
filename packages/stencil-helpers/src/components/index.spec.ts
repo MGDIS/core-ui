@@ -1,5 +1,5 @@
 import { describe, expect, test, afterEach, vi } from 'vitest';
-import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick, mergeObjectValues } from './';
+import { createID, ClassList, allItemsAreString, isTagName, getWindows, isValidString, cleanString, nextTick } from './';
 
 describe('components.utils', () => {
   describe('createID', () => {
@@ -172,110 +172,6 @@ describe('components.utils', () => {
       const res = await job;
       expect(fn).toHaveBeenCalled();
       expect(res).toBeUndefined();
-    });
-  });
-
-  describe('mergeObjectValues', () => {
-    test.each([
-      {
-        newValues: { name: 'robin' },
-        keys: ['name'],
-        expected: {
-          name: 'robin',
-          friends: ['robin'],
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-      {
-        newValues: { gears: { car: 'batmobile V2' } },
-        keys: ['gears.car'],
-        expected: {
-          name: 'batman',
-          friends: ['robin'],
-          gears: {
-            car: 'batmobile V2',
-          },
-        },
-      },
-      {
-        newValues: { friends: [] },
-        keys: ['friends'],
-        expected: {
-          name: 'batman',
-          friends: [],
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-      {
-        newValues: {},
-        keys: ['friends'],
-        expected: {
-          name: 'batman',
-          friends: undefined,
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-
-      {
-        newValues: { hello: [] },
-        keys: ['hello'],
-        expected: {
-          name: 'batman',
-          friends: ['robin'],
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-      {
-        newValues: { name: 'robin' },
-        keys: [{}],
-        expected: {
-          name: 'batman',
-          friends: ['robin'],
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-      {
-        newValues: undefined,
-        keys: [{}],
-        expected: {
-          name: 'batman',
-          friends: ['robin'],
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-      {
-        newValues: { name: 'robin' },
-        keys: undefined,
-        expected: {
-          name: 'batman',
-          friends: ['robin'],
-          gears: {
-            car: 'batmobile',
-          },
-        },
-      },
-    ])('Should merge object', ({ newValues, expected, keys }) => {
-      const origin = {
-        name: 'batman',
-        friends: ['robin'],
-        gears: {
-          car: 'batmobile',
-        },
-      };
-      const updated = mergeObjectValues(origin, newValues, keys as string[]);
-      expect(updated).toEqual(expected);
     });
   });
 });

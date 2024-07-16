@@ -1,5 +1,3 @@
-import { ObjectType } from '../types';
-
 /**
  * Create random ID
  * @param prefix - add prefix to created ID
@@ -179,30 +177,3 @@ export const cleanString = (text: string): string =>
  * @returns differed code excution
  */
 export const nextTick = async (callback: () => void): Promise<void> => callback();
-
-/**
- * Merge newValues into original object from defined keys
- * @param object - original object to update
- * @param newValues - new values to apply to object
- * @param paths - newValues paths to update
- * @returns updated object
- */
-export const mergeObjectValues = (object: ObjectType, newValues: ObjectType = {}, paths: string[] = []): ObjectType => {
-  // prevent origin mutation by making a uniq one
-  const merged = JSON.parse(JSON.stringify(object));
-  for (const path of paths) {
-    if (isValidString(path)) {
-      const [key, ...rest] = path.split('.');
-      if (!isValidString(key) || !Object.keys(merged).includes(key)) {
-        continue;
-      } else if (rest.length > 0) {
-        merged[key] = mergeObjectValues(merged[key] as ObjectType, newValues[key] as ObjectType, [rest.join('.')]);
-      } else {
-        merged[path] = newValues[path];
-      }
-    } else {
-      continue;
-    }
-  }
-  return merged;
-};

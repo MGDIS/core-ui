@@ -27,13 +27,12 @@ const getPage = args => {
   return page;
 };
 
-const getDefaultValues = (): CheckboxValue[] =>
-  [
-    { title: 'batman', value: true },
-    { title: 'robin', value: false, disabled: true },
-    { title: 'joker', value: false },
-    { title: 'bane', value: null },
-  ].map(item => item);
+const getDefaultValues = (): CheckboxValue[] => [
+  { title: 'batman', value: true },
+  { title: 'robin', value: false, disabled: true },
+  { title: 'joker', value: false },
+  { title: 'bane', value: null },
+];
 
 const getValues = (length?: number): CheckboxValue[] =>
   length
@@ -102,15 +101,6 @@ describe('mg-input-checkbox', () => {
         await getPage({ identifier, type, value: getValues() });
       } catch (err) {
         expect(err.message).toMatch('<mg-input> prop "identifier" is required.');
-      }
-    });
-
-    test.each(['batman', []])('Should not render with invalid localemessages property: %s', async localemessages => {
-      expect.assertions(1);
-      try {
-        await getPage({ identifier: 'identifier', label: 'label', type, localemessages, value: getValues() });
-      } catch (err) {
-        expect(err.message).toMatch('<mg-input-checkbox> prop "localemessages" must be a MgInputCheckboxLocaleMessagesType.');
       }
     });
 
@@ -423,25 +413,31 @@ describe('mg-input-checkbox', () => {
 
     test.each([
       {
-        input: {
-          checkbox: {
-            editButton: 'custom editButton',
-            showButton: 'custom showButton',
-            selectButton: 'custom selectButton',
-          },
-        },
+        selectButtonMessage: 'select button message',
+        value: getValues(2),
       },
       {
-        input: {},
+        editButtonMessage: 'edit button message',
+        value: getValues(2).map((item, i) => {
+          if (i === 0) item.value = true;
+          return item;
+        }),
       },
-      {},
-    ])('Should render with custom locales: %s', async localemessages => {
+      {
+        showButtonMessage: 'show button message',
+        value: getValues(2),
+        disabled: true,
+      },
+    ])('Should render with custom locales: %s', async ({ value, disabled, selectButtonMessage, editButtonMessage, showButtonMessage }) => {
       const { root } = await getPage({
         label: 'label',
         identifier: 'identifier',
-        value: getValues(),
+        value,
         type,
-        localemessages,
+        selectButtonMessage,
+        editButtonMessage,
+        showButtonMessage,
+        disabled,
       });
       expect(root).toMatchSnapshot();
     });
