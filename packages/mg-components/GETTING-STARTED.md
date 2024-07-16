@@ -154,7 +154,8 @@ In your project using mg-components:
 
 ```js
 {
-  "html.customData": ["./node_modules/@mgdis/mg-components/ide/vscode/html-custom-data.json"]
+  "html.customData": ["./node_modules/@mgdis/mg-components/ide/vscode/html-custom-data.json"],
+  "css.customData": ["./node_modules/@mgdis/mg-components/ide/vscode/css-custom-data.json"]
 }
 ```
 

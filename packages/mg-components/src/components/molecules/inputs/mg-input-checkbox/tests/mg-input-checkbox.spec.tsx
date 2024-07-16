@@ -27,13 +27,12 @@ const getPage = args => {
   return page;
 };
 
-const getDefaultValues = (): CheckboxValue[] =>
-  [
-    { title: 'batman', value: true },
-    { title: 'robin', value: false, disabled: true },
-    { title: 'joker', value: false },
-    { title: 'bane', value: null },
-  ].map(item => item);
+const getDefaultValues = (): CheckboxValue[] => [
+  { title: 'batman', value: true },
+  { title: 'robin', value: false, disabled: true },
+  { title: 'joker', value: false },
+  { title: 'bane', value: null },
+];
 
 const getValues = (length?: number): CheckboxValue[] =>
   length > 0
@@ -90,6 +89,7 @@ describe('mg-input-checkbox', () => {
         ),
       ];
     }
+
     test.each(testValues)('Should render with args %s:', async args => {
       const { root } = await getPage({ label: 'label', identifier: 'identifier', ...args });
       expect(root).toMatchSnapshot();
@@ -408,6 +408,37 @@ describe('mg-input-checkbox', () => {
 
     test('Should enable "displaySearchInput" when value list is greater than 10', async () => {
       const { root } = await getPage({ label: 'label', identifier: 'identifier', value: getValues(11), type });
+      expect(root).toMatchSnapshot();
+    });
+
+    test.each([
+      {
+        selectButtonMessage: 'select button message',
+        value: getValues(2),
+      },
+      {
+        editButtonMessage: 'edit button message',
+        value: getValues(2).map((item, i) => {
+          if (i === 0) item.value = true;
+          return item;
+        }),
+      },
+      {
+        showButtonMessage: 'show button message',
+        value: getValues(2),
+        disabled: true,
+      },
+    ])('Should render with custom locales: %s', async ({ value, disabled, selectButtonMessage, editButtonMessage, showButtonMessage }) => {
+      const { root } = await getPage({
+        label: 'label',
+        identifier: 'identifier',
+        value,
+        type,
+        selectButtonMessage,
+        editButtonMessage,
+        showButtonMessage,
+        disabled,
+      });
       expect(root).toMatchSnapshot();
     });
   });

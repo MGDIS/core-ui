@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { webTypesGenerator, vsCodeGenerator } from '.';
+import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '.';
 import { JsonDocs } from '@stencil/core/internal';
 
 describe('ide', () => {
@@ -100,7 +100,14 @@ describe('ide', () => {
             passive: false,
           },
         ],
-        styles: [],
+        styles: [
+          {
+            name: '--custom-property',
+            docs: 'Custom property documentation',
+            annotation: '',
+            mode: undefined,
+          },
+        ],
         slots: [
           {
             name: '',
@@ -142,8 +149,14 @@ describe('ide', () => {
     });
   });
   describe('vsCodeGenerator', () => {
-    test('Should generate VScode custom data', () => {
-      const customData = vsCodeGenerator('1.0.0', jsonDocs, 'http://sb.test/?path=/docs/', 'http://sources.test/');
+    test('Should generate VScode HTML custom data', () => {
+      const customData = vsCodeGenerator(jsonDocs, 'http://sb.test/?path=/docs/', 'http://sources.test/');
+      expect(customData).toMatchSnapshot();
+    });
+  });
+  describe('vsCodeCssGenerator', () => {
+    test('Should generate VScode CSS custom data', () => {
+      const customData = vsCodeCssGenerator(jsonDocs);
       expect(customData).toMatchSnapshot();
     });
   });
