@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.6
+
+### Patch Changes
+
+- 4ee49fe: Update dependencies
+
 ## 4.1.5
 
 ### Patch Changes
