@@ -42,6 +42,9 @@ const items = [
     mouseEventHandler,
   },
   {
+    isDivider: true,
+  },
+  {
     label: 'robin',
     mouseEventHandler,
     status: Status.HIDDEN,
@@ -177,14 +180,28 @@ describe('mg-action-more', () => {
 
   describe('errors', () => {
     test.each([
-      { args: {}, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType.` },
-      { args: { items: ['batman'] }, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType.` },
-      { args: { items: [{ label: 'batman' }] }, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType.` },
+      { args: {}, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.` },
+      { args: { items: ['batman'] }, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.` },
+      {
+        args: { items: [{ label: 'batman' }] },
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`,
+      },
       {
         args: { items: [{ label: 'batman', mouseEventHandler: 'batman' }] },
-        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType.`,
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`,
       },
-      { args: { items: [{ mouseEventHandler: 'batman' }] }, error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType.` },
+      {
+        args: { items: [{ isDivider: true }, { label: 'batman', mouseEventHandler: () => {} }] },
+        error: `<mg-action-more> prop "items" can’t have a divider at the beginning or the end of the array.`,
+      },
+      {
+        args: { items: [{ label: 'batman', mouseEventHandler: () => {} }, { isDivider: true }] },
+        error: `<mg-action-more> prop "items" can’t have a divider at the beginning or the end of the array.`,
+      },
+      {
+        args: { items: [{ mouseEventHandler: 'batman' }] },
+        error: `<mg-action-more> prop "items" is required and all values must be the same type, MgActionMoreItemType or MgActionMoreDividerType.`,
+      },
       { args: { items: [{ label: 'batman', mouseEventHandler }], button: {} }, error: `<mg-action-more> prop button must match MgActionMoreButtonType.` },
       { args: { items: [{ label: 'batman', mouseEventHandler }], button: { variant: 'primary' } }, error: `<mg-action-more> prop button must match MgActionMoreButtonType.` },
       { args: { items: [{ label: 'batman', mouseEventHandler }], button: { isIcon: true } }, error: `<mg-action-more> prop button must match MgActionMoreButtonType.` },

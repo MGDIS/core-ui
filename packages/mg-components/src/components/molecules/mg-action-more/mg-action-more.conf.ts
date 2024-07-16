@@ -29,6 +29,11 @@ export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'
 };
 
 /**
+ * prop item divider type
+ */
+export type MgActionMoreDividerType = { isDivider: boolean };
+
+/**
  * MouseEvent callback interface
  */
 type IMouseEventHandler = (event: MouseEvent) => void;

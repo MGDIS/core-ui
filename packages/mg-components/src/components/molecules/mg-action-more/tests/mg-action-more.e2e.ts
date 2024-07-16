@@ -32,6 +32,9 @@ const items: MgActionMore['items'] = [
     status: Status.HIDDEN,
   },
   {
+    isDivider: true,
+  },
+  {
     label: 'joker',
     mouseEventHandler,
     badge: {

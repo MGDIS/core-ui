@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
@@ -30,7 +30,7 @@ import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
@@ -72,7 +72,7 @@ export namespace Components {
         /**
           * Define the menu-items elements
          */
-        "items": MgActionMoreItemType[];
+        "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
     }
     interface MgAlert {
         /**
@@ -2025,7 +2025,7 @@ declare namespace LocalJSX {
         /**
           * Define the menu-items elements
          */
-        "items": MgActionMoreItemType[];
+        "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
     }
     interface MgAlert {
         /**

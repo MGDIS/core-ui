@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-12T12:35:10",
+  "timestamp": "2024-07-16T08:32:34",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -925,15 +925,20 @@
         },
         {
           "name": "items",
-          "type": "MgActionMoreItemType[]",
+          "type": "(MgActionMoreItemType | MgActionMoreDividerType)[]",
           "complexType": {
-            "original": "MgActionMoreItemType[]",
-            "resolved": "MgActionMoreItemType[]",
+            "original": "(MgActionMoreItemType | MgActionMoreDividerType)[]",
+            "resolved": "(MgActionMoreItemType | MgActionMoreDividerType)[]",
             "references": {
               "MgActionMoreItemType": {
                 "location": "import",
                 "path": "./mg-action-more.conf",
                 "id": "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType"
+              },
+              "MgActionMoreDividerType": {
+                "location": "import",
+                "path": "./mg-action-more.conf",
+                "id": "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreDividerType"
               }
             }
           },
@@ -943,7 +948,10 @@
           "docsTags": [],
           "values": [
             {
-              "type": "MgActionMoreItemType[]"
+              "type": "(MgActionMoreItemType"
+            },
+            {
+              "type": "MgActionMoreDividerType)[]"
             }
           ],
           "optional": false,
@@ -962,6 +970,7 @@
         "mg-popover",
         "mg-button",
         "mg-menu",
+        "mg-divider",
         "mg-menu-item",
         "mg-badge"
       ],
@@ -971,6 +980,7 @@
           "mg-popover",
           "mg-button",
           "mg-menu",
+          "mg-divider",
           "mg-menu-item",
           "mg-badge"
         ],
@@ -2202,9 +2212,15 @@
       ],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": [
+        "mg-action-more"
+      ],
       "dependencies": [],
-      "dependencyGraph": {}
+      "dependencyGraph": {
+        "mg-action-more": [
+          "mg-divider"
+        ]
+      }
     },
     {
       "filePath": "src/components/molecules/mg-form/mg-form.tsx",
@@ -12829,6 +12845,11 @@
     },
     "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreItemType": {
       "declaration": "export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {\n  label: string;\n  mouseEventHandler: IMouseEventHandler;\n  icon?: Pick<MgIcon, 'icon'> & Partial<Pick<MgIcon, 'variant' | 'variantStyle'>>;\n  badge?: Pick<MgBadge, 'value' | 'label'>;\n};",
+      "docstring": "",
+      "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
+    },
+    "src/components/molecules/mg-action-more/mg-action-more.conf.ts::MgActionMoreDividerType": {
+      "declaration": "{ isDivider: boolean }",
       "docstring": "",
       "path": "src/components/molecules/mg-action-more/mg-action-more.conf.ts"
     },

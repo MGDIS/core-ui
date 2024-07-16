@@ -3,7 +3,7 @@
 exports[`mg-action-more navigation Should run item mouseEventHandler by clicking on menu-item 1`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -54,6 +54,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -187,7 +188,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
 exports[`mg-action-more navigation Should run item mouseEventHandler by clicking on menu-item 2`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -238,6 +239,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -371,7 +373,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
 exports[`mg-action-more navigation Should run item mouseEventHandler by clicking on menu-item 3`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -422,6 +424,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -555,7 +558,7 @@ exports[`mg-action-more navigation Should run item mouseEventHandler by clicking
 exports[`mg-action-more navigation Should update expanded when popover display change 1`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -609,6 +612,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -742,7 +746,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
 exports[`mg-action-more navigation Should update expanded when popover display change 2`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -796,6 +800,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -929,7 +934,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
 exports[`mg-action-more navigation Should update expanded when popover display change 3`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -983,6 +988,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -1116,7 +1122,7 @@ exports[`mg-action-more navigation Should update expanded when popover display c
 exports[`mg-action-more render Should render with args [object Object] 1`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -1167,6 +1173,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -1300,7 +1307,7 @@ exports[`mg-action-more render Should render with args [object Object] 1`] = `
 exports[`mg-action-more render Should render with args [object Object] 2`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -1351,6 +1358,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -1484,7 +1492,7 @@ exports[`mg-action-more render Should render with args [object Object] 2`] = `
 exports[`mg-action-more render Should render with args [object Object] 3`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -1538,6 +1546,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -1671,7 +1680,7 @@ exports[`mg-action-more render Should render with args [object Object] 3`] = `
 exports[`mg-action-more render Should render with args [object Object] 4`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -1726,6 +1735,7 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -1859,7 +1869,7 @@ exports[`mg-action-more render Should render with args [object Object] 4`] = `
 exports[`mg-action-more render Should render with args [object Object] 5`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -1911,6 +1921,7 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -2044,7 +2055,7 @@ exports[`mg-action-more render Should render with args [object Object] 5`] = `
 exports[`mg-action-more render Should render with args [object Object] 6`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -2095,6 +2106,7 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -2228,7 +2240,7 @@ exports[`mg-action-more render Should render with args [object Object] 6`] = `
 exports[`mg-action-more render Should render with args [object Object] 7`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -2279,6 +2291,7 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -2412,7 +2425,7 @@ exports[`mg-action-more render Should render with args [object Object] 7`] = `
 exports[`mg-action-more render Should toggle menu on click 1`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -2463,6 +2476,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -2596,7 +2610,7 @@ exports[`mg-action-more render Should toggle menu on click 1`] = `
 exports[`mg-action-more render Should toggle menu on click 2`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -2647,6 +2661,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -2780,7 +2795,7 @@ exports[`mg-action-more render Should toggle menu on click 2`] = `
 exports[`mg-action-more render Should toggle menu on click 3`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -2831,6 +2846,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -2964,7 +2980,7 @@ exports[`mg-action-more render Should toggle menu on click 3`] = `
 exports[`mg-action-more render Should toggle menu on click 4`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -3015,6 +3031,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -3148,7 +3165,7 @@ exports[`mg-action-more render Should toggle menu on click 4`] = `
 exports[`mg-action-more render Should toggle menu on click 5`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -3202,6 +3219,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -3335,7 +3353,7 @@ exports[`mg-action-more render Should toggle menu on click 5`] = `
 exports[`mg-action-more render Should toggle menu on click 6`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -3389,6 +3407,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -3522,7 +3541,7 @@ exports[`mg-action-more render Should toggle menu on click 6`] = `
 exports[`mg-action-more render Should toggle menu on click 7`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -3577,6 +3596,7 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -3710,7 +3730,7 @@ exports[`mg-action-more render Should toggle menu on click 7`] = `
 exports[`mg-action-more render Should toggle menu on click 8`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -3765,6 +3785,7 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -3898,7 +3919,7 @@ exports[`mg-action-more render Should toggle menu on click 8`] = `
 exports[`mg-action-more render Should toggle menu on click 9`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -3950,6 +3971,7 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -4083,7 +4105,7 @@ exports[`mg-action-more render Should toggle menu on click 9`] = `
 exports[`mg-action-more render Should toggle menu on click 10`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -4135,6 +4157,7 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -4268,7 +4291,7 @@ exports[`mg-action-more render Should toggle menu on click 10`] = `
 exports[`mg-action-more render Should toggle menu on click 11`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -4319,6 +4342,7 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -4452,7 +4476,7 @@ exports[`mg-action-more render Should toggle menu on click 11`] = `
 exports[`mg-action-more render Should toggle menu on click 12`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -4503,6 +4527,7 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -4636,7 +4661,7 @@ exports[`mg-action-more render Should toggle menu on click 12`] = `
 exports[`mg-action-more render Should toggle menu on click 13`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -4687,6 +4712,7 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
@@ -4820,7 +4846,7 @@ exports[`mg-action-more render Should toggle menu on click 13`] = `
 exports[`mg-action-more render Should toggle menu on click 14`] = `
 <mg-action-more data-mg-popover-guard="mg-popover-test_0">
   <template shadowrootmode="open">
-    <span class="mg-action-more">
+    <span class="mg-c-action-more">
       <mg-popover>
         <template shadowrootmode="open">
           <slot></slot>
@@ -4871,6 +4897,7 @@ exports[`mg-action-more render Should toggle menu on click 14`] = `
                   batman
                 </span>
               </mg-menu-item>
+              <mg-divider class="mg-c-action-more__divider"></mg-divider>
               <mg-menu-item identifier="identifier-1" role="listitem" status="hidden">
                 <template shadowrootmode="open">
                   <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--hidden mg-c-menu-item__navigation-button--size-medium" hidden="" tabindex="-1">
