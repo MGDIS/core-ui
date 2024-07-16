@@ -24,7 +24,7 @@ export type MgActionMoreMessageType = { label: string };
 export type MgActionMoreItemType = Pick<MgMenuItem, 'status' | 'href' | 'target'> & {
   label: string;
   mouseEventHandler: IMouseEventHandler;
-  icon?: MgIcon['icon'];
+  icon?: Pick<MgIcon, 'icon'> & Partial<Pick<MgIcon, 'variant' | 'variantStyle'>>;
   badge?: Pick<MgBadge, 'value' | 'label'>;
 };
 

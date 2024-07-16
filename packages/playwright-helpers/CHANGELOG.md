@@ -1,5 +1,11 @@
 # @mgdis/playwright-helpers
 
+## 1.0.9
+
+### Patch Changes
+
+- 6195e7a: Update PW
+
 ## 1.0.8
 
 ### Patch Changes

@@ -25,8 +25,8 @@ export class MgBadge {
   @Prop() value!: string | number;
   @Watch('value')
   validateValue(newValue: MgBadge['value']): void {
-    if (/^(\d+\+*|[?*!a-z])$/i.exec(`${newValue}`) === null) {
-      throw new Error('<mg-badge> prop "value" must be integer or ponctuation character.');
+    if (/^[^A-Z]+$/i.exec(`${newValue}`) === null) {
+      throw new Error('<mg-badge> prop "value" must be integer and/or special character.');
     }
   }
 

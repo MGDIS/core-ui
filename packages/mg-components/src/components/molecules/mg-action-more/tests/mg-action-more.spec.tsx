@@ -60,7 +60,19 @@ const items = [
   {
     label: 'bane',
     mouseEventHandler,
-    icon: 'user',
+    icon: {},
+    href: '#',
+  },
+  {
+    label: 'robin',
+    mouseEventHandler,
+    icon: { icon: 'user' },
+    href: '#',
+  },
+  {
+    label: 'harley quinn',
+    mouseEventHandler,
+    icon: { icon: 'user', variant: 'success', variantStyle: 'icon' },
     href: '#',
   },
   {

@@ -1,5 +1,11 @@
 # @mgdis/notification-center
 
+## 1.1.14
+
+### Patch Changes
+
+- 6195e7a: Update PW
+
 ## 1.1.13
 
 ### Patch Changes

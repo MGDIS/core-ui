@@ -46,7 +46,7 @@ export const MgActionMoreIcon = {
       {
         label: 'element 3',
         mouseEventHandler,
-        icon: 'user',
+        icon: { icon: 'user' },
       },
       {
         label: 'element 4',
