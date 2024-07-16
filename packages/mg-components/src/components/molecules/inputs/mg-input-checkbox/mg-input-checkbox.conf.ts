@@ -1,5 +1,3 @@
-import type { ObjectType } from '@mgdis/stencil-helpers';
-
 /**
  * interface CheckboxValue
  * use to match returned value
@@ -64,17 +62,4 @@ export interface MgInputCheckboxListProps extends IMgInputCheckboxBase {
   messages: Record<string, unknown>;
   checkboxes: CheckboxItem[];
   id: string;
-}
-
-/**
- * mg-input-checkbox message override
- */
-export interface MgInputCheckboxLocaleMessagesType extends ObjectType {
-  input: {
-    checkbox: {
-      editButton: string;
-      showButton: string;
-      selectButton: string;
-    };
-  };
 }

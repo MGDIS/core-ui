@@ -314,7 +314,7 @@ export namespace Components {
          */
         "displaySelectedValues"?: boolean;
         /**
-          * Define edit button message
+          * Overwrite default "edit" button message
          */
         "editButtonMessage": string;
         /**
@@ -358,7 +358,7 @@ export namespace Components {
          */
         "required": boolean;
         /**
-          * Define sele btButton message
+          * Overwrite default "select" button message
          */
         "selectButtonMessage": string;
         /**
@@ -368,7 +368,7 @@ export namespace Components {
          */
         "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
         /**
-          * Define show button message
+          * Overwrite default "show" button message
          */
         "showButtonMessage": string;
         /**
@@ -2295,7 +2295,7 @@ declare namespace LocalJSX {
          */
         "displaySelectedValues"?: boolean;
         /**
-          * Define edit button message
+          * Overwrite default "edit" button message
          */
         "editButtonMessage"?: string;
         /**
@@ -2347,11 +2347,11 @@ declare namespace LocalJSX {
          */
         "required"?: boolean;
         /**
-          * Define sele btButton message
+          * Overwrite default "select" button message
          */
         "selectButtonMessage"?: string;
         /**
-          * Define show button message
+          * Overwrite default "show" button message
          */
         "showButtonMessage"?: string;
         /**

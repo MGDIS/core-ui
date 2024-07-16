@@ -218,16 +218,16 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop({ mutable: true }) invalid: boolean;
 
   /**
-   * Define edit button message
+   * Overwrite default "edit" button message
    */
   @Prop() editButtonMessage: string;
   /**
-   * Define show button message
+   * Overwrite default "show" button message
    */
   @Prop() showButtonMessage: string;
 
   /**
-   * Define sele btButton message
+   * Overwrite default "select" button message
    */
   @Prop() selectButtonMessage: string;
 
