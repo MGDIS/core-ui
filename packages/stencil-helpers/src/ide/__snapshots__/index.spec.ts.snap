@@ -1,6 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ide > vsCodeGenerator > Should generate VScode custom data 1`] = `
+exports[`ide > vsCodeCssGenerator > Should generate VScode CSS custom data 1`] = `
+{
+  "properties": [
+    {
+      "description": "Custom property documentation",
+      "name": "--custom-property",
+    },
+  ],
+  "version": 1.1,
+}
+`;
+
+exports[`ide > vsCodeGenerator > Should generate VScode HTML custom data 1`] = `
 {
   "globalAttributes": [],
   "tags": [
@@ -98,7 +110,7 @@ Slots:
     },
   ],
   "valueSets": [],
-  "version": "1.0.0",
+  "version": 1.1,
 }
 `;
 
@@ -123,6 +135,14 @@ Type: \`string\`",
               },
             },
           ],
+          "css": {
+            "properties": [
+              {
+                "description": "Custom property documentation",
+                "name": "--custom-property",
+              },
+            ],
+          },
           "description": "Attributes:
 - \`prop\`: docs
 
@@ -181,6 +201,9 @@ Type: \`string\`",
         },
         {
           "attributes": [],
+          "css": {
+            "properties": [],
+          },
           "description": "overview
 
 ",

@@ -1,4 +1,4 @@
-import { webTypesGenerator, vsCodeGenerator } from '@mgdis/stencil-helpers';
+import { webTypesGenerator, vsCodeGenerator, vsCodeCssGenerator } from '@mgdis/stencil-helpers';
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { Config } from '@stencil/core';
@@ -58,13 +58,16 @@ export const config: Config = {
         const sourceBaseUrl = 'https://gitlab.mgdis.fr/core/core-ui/core-ui/-/tree/master/packages/mg-components/';
         // Web Types
         const webTypesContent = webTypesGenerator(name, version, jsonDocs, storybookBaseUrl);
-        // VS Code
-        const vsCodeContent = vsCodeGenerator(version, jsonDocs, storybookBaseUrl, sourceBaseUrl);
+        // VS Code HTML
+        const vsCodeContent = vsCodeGenerator(jsonDocs, storybookBaseUrl, sourceBaseUrl);
+        // VS Code CSS
+        const vsCodeCssContent = vsCodeCssGenerator(jsonDocs);
         // Write files
         await mkdir(dirname(webTypes), { recursive: true });
         await mkdir(dirname(contributes.html.customData), { recursive: true });
         await writeFile(webTypes, JSON.stringify(webTypesContent, null, 2), 'utf8');
         await writeFile(contributes.html.customData, JSON.stringify(vsCodeContent, null, 2), 'utf8');
+        await writeFile(contributes.css.customData, JSON.stringify(vsCodeCssContent, null, 2), 'utf8');
       },
     },
   ],

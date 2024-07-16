@@ -19,7 +19,7 @@ const renderHTML = async (page, args) => {
 
 const mouseEventHandler = () => 'hello batman';
 
-const defaultViewPortSize = { width: 150, height: 240 };
+const defaultViewPortSize = { width: 150, height: 270 };
 
 const items: MgActionMore['items'] = [
   {
@@ -32,6 +32,9 @@ const items: MgActionMore['items'] = [
     status: Status.HIDDEN,
   },
   {
+    isDivider: true,
+  },
+  {
     label: 'joker',
     mouseEventHandler,
     badge: {
@@ -42,7 +45,13 @@ const items: MgActionMore['items'] = [
   {
     label: 'bane',
     mouseEventHandler,
-    icon: 'user',
+    icon: { icon: 'user' },
+    href: '#',
+  },
+  {
+    label: 'robin',
+    mouseEventHandler,
+    icon: { icon: 'user', variant: 'success', variantStyle: 'icon' },
     href: '#',
   },
   {
