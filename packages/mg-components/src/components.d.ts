@@ -314,6 +314,10 @@ export namespace Components {
          */
         "displaySelectedValues"?: boolean;
         /**
+          * Overwrite default "edit" button message
+         */
+        "editButtonMessage": string;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -354,11 +358,19 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Overwrite default "select" button message
+         */
+        "selectButtonMessage": string;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
         "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
+        /**
+          * Overwrite default "show" button message
+         */
+        "showButtonMessage": string;
         /**
           * Add a tooltip message next to the input
          */
@@ -2283,6 +2295,10 @@ declare namespace LocalJSX {
          */
         "displaySelectedValues"?: boolean;
         /**
+          * Overwrite default "edit" button message
+         */
+        "editButtonMessage"?: string;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -2330,6 +2346,14 @@ declare namespace LocalJSX {
           * Define if mg-input-checkbox is required
          */
         "required"?: boolean;
+        /**
+          * Overwrite default "select" button message
+         */
+        "selectButtonMessage"?: string;
+        /**
+          * Overwrite default "show" button message
+         */
+        "showButtonMessage"?: string;
         /**
           * Add a tooltip message next to the input
          */

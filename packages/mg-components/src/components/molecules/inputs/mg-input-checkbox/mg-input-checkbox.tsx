@@ -183,7 +183,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       this.hasDisplayedError = prop !== 'required';
       this.setErrorMessage(this.hasDisplayedError);
     }
-    this.setButtonText();
+    this.setButtonTextKey();
   }
 
   @Watch('disabled')
@@ -218,6 +218,20 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Prop({ mutable: true }) invalid: boolean;
 
   /**
+   * Overwrite default "edit" button message
+   */
+  @Prop() editButtonMessage: string;
+  /**
+   * Overwrite default "show" button message
+   */
+  @Prop() showButtonMessage: string;
+
+  /**
+   * Overwrite default "select" button message
+   */
+  @Prop() selectButtonMessage: string;
+
+  /**
    * Component classes
    */
   @State() classCollection: ClassList = new ClassList([this.baseClassName, classFieldset]);
@@ -239,7 +253,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.displaySearchInput = this.type === 'multi' && newValue.length > this.searchStart;
     // refresh search values
     if (this.displaySearchInput) this.updateSearchResults();
-    this.setButtonText();
+    this.setButtonTextKey();
   }
 
   /**
@@ -395,7 +409,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     this.hasOpenedPopover = event.detail;
 
     // 2. update selected valued button text
-    this.setButtonText();
+    this.setButtonTextKey();
 
     // 3. when popover display change to hide, update reset needeed props and run checkValidity
     if (!event.detail) {
@@ -495,7 +509,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   /**
    * Set button text locale key
    */
-  private setButtonText = (): void => {
+  private setButtonTextKey = (): void => {
     // prevent key update while popover is openned
     if (this.hasOpenedPopover) return;
     let messageKey: MgInputCheckbox['selectValuesButtonKey'] = 'editButton';
@@ -503,6 +517,22 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
     else if (this.getSelectedItems().length < 1) messageKey = 'selectButton';
 
     this.selectValuesButtonKey = messageKey;
+  };
+
+  /**
+   * Get select values button message
+   * @returns message to display
+   */
+  private getSelectValuesButtonMessage = (): string => {
+    if (this.selectValuesButtonKey === 'editButton' && isValidString(this.editButtonMessage)) {
+      return this.editButtonMessage;
+    } else if (this.selectValuesButtonKey === 'showButton' && isValidString(this.showButtonMessage)) {
+      return this.showButtonMessage;
+    } else if (this.selectValuesButtonKey === 'selectButton' && isValidString(this.selectButtonMessage)) {
+      return this.selectButtonMessage;
+    } else {
+      return this.messages.input.checkbox[this.selectValuesButtonKey];
+    }
   };
 
   /**
@@ -636,7 +666,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         >
           <mg-button variant="secondary" aria-describedby={`${this.identifier}-title`}>
             <mg-icon icon="list"></mg-icon>
-            {this.messages.input.checkbox[this.selectValuesButtonKey]}
+            {this.getSelectValuesButtonMessage()}
           </mg-button>
           <div slot="content" class="mg-c-input__content">
             {this.displaySearchInput ? (

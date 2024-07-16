@@ -159,7 +159,7 @@ describe('components.utils', () => {
     });
 
     test('Should return orignal value when param is NOT a string', () => {
-      expect(cleanString(undefined)).toEqual(undefined);
+      expect(cleanString(undefined as unknown as string)).toEqual(undefined);
     });
   });
 

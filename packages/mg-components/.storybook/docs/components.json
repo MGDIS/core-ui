@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-16T08:32:34",
+  "timestamp": "2024-07-16T12:31:26",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -4187,6 +4187,27 @@
           "required": false
         },
         {
+          "name": "editButtonMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "edit-button-message",
+          "reflectToAttr": false,
+          "docs": "Overwrite default \"edit\" button message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
           "name": "helpText",
           "type": "string",
           "complexType": {
@@ -4396,6 +4417,48 @@
           "values": [
             {
               "type": "boolean"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "selectButtonMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "select-button-message",
+          "reflectToAttr": false,
+          "docs": "Overwrite default \"select\" button message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
+            }
+          ],
+          "optional": false,
+          "required": false
+        },
+        {
+          "name": "showButtonMessage",
+          "type": "string",
+          "complexType": {
+            "original": "string",
+            "resolved": "string",
+            "references": {}
+          },
+          "mutable": false,
+          "attr": "show-button-message",
+          "reflectToAttr": false,
+          "docs": "Overwrite default \"show\" button message",
+          "docsTags": [],
+          "values": [
+            {
+              "type": "string"
             }
           ],
           "optional": false,
