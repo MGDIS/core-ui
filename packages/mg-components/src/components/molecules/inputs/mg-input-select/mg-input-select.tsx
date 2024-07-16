@@ -88,7 +88,7 @@ export class MgInputSelect {
   @Watch('value')
   validateValue(newValue: MgInputSelect['value']): void {
     if (allItemsAreString(this.items) && typeof newValue === 'string') {
-      this.readonlyValue = this.input?.value ? this.input.value : newValue;
+      this.readonlyValue = this.input?.value !== undefined ? this.input.value : newValue;
     } else if (allItemsAreOptions(this.items)) {
       this.readonlyValue = this.items.find(item => item.value === newValue)?.title;
     } else {
@@ -221,7 +221,7 @@ export class MgInputSelect {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -462,7 +462,7 @@ export class MgInputSelect {
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && !this.readonlyValue ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && this.readonlyValue === null ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >

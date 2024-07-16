@@ -20,7 +20,7 @@ const tooltip = 'Batman is a DC Comics license';
 const getProps = (args: PropsType = {}): PropsType => ({ ...defaultProps, ...args });
 
 const createHTML = (props: PropsType, slot?: string) => {
-  return `<mg-input ${renderAttributes(props)}>${slot ? slot : `<input type="file" id="identifier" class="mg-c-input__box" ${props.class?.includes(classReadonly) ? 'hidden' : ''}></input>`}`;
+  return `<mg-input ${renderAttributes(props)}>${slot !== undefined ? slot : `<input type="file" id="identifier" class="mg-c-input__box" ${props.class?.includes(classReadonly) ? 'hidden' : ''}></input>`}`;
 };
 
 const setPageContent = async (page, args?: PropsType, slot?: string) => {

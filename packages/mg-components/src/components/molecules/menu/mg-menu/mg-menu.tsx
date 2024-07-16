@@ -61,7 +61,7 @@ export class MgMenu {
   validateItemMore(newValue: MgMenu['itemmore']): void {
     if (newValue !== undefined && this.direction !== Direction.HORIZONTAL) {
       throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${Direction.HORIZONTAL}.`);
-    } else if (newValue) {
+    } else if (newValue !== undefined) {
       this.renderMgItemMore();
     }
   }
@@ -113,7 +113,7 @@ export class MgMenu {
       item.shadowRoot.querySelector('button,a').addEventListener(trigger, () => {
         this.focusedMenuItem = index;
         // reset expanded on previous active menu item
-        (this.getItemMoreMenuItem() ? [...this.menuItems, this.getItemMoreMenuItem()] : this.menuItems).forEach((item, index) => {
+        (this.getItemMoreMenuItem() !== undefined ? [...this.menuItems, this.getItemMoreMenuItem()] : this.menuItems).forEach((item, index) => {
           this.closeMenuItem(item, index !== this.focusedMenuItem);
         });
       });
@@ -146,7 +146,7 @@ export class MgMenu {
     }
 
     // Insert mg-item-more outside the mg-menu shadowdom
-    if (!this.itemMoreElement) {
+    if (this.itemMoreElement === undefined) {
       this.itemMoreElement = document.createElement('mg-item-more');
       this.itemMoreElement.addEventListener('item-loaded', this.handleItemLoaded);
       this.element.appendChild(this.itemMoreElement);

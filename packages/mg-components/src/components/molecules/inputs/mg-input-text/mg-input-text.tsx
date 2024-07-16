@@ -184,7 +184,7 @@ export class MgInputText {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -453,7 +453,7 @@ export class MgInputText {
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && !this.value ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >
