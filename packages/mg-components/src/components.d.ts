@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+import { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 import { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 import { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 import { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
@@ -30,7 +30,7 @@ import { Placement } from "@popperjs/core";
 import { SkipLink } from "./components/molecules/mg-skip-links/mg-skip-links.conf";
 import { SizeType as SizeType1, TabItem } from "./components/molecules/mg-tabs/mg-tabs.conf";
 import { TagVariantType } from "./components/atoms/mg-tag/mg-tag.conf";
-export { MgActionMoreButtonType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
+export { MgActionMoreButtonType, MgActionMoreDividerType, MgActionMoreIconType, MgActionMoreItemType } from "./components/molecules/mg-action-more/mg-action-more.conf";
 export { VariantStyleType, VariantType } from "./components/molecules/mg-alert/mg-alert.conf";
 export { BadgeVariantType } from "./components/atoms/mg-badge/mg-badge.conf";
 export { ButtonType, VariantType as VariantType1 } from "./components/atoms/mg-button/mg-button.conf";
@@ -72,7 +72,7 @@ export namespace Components {
         /**
           * Define the menu-items elements
          */
-        "items": MgActionMoreItemType[];
+        "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
     }
     interface MgAlert {
         /**
@@ -314,6 +314,10 @@ export namespace Components {
          */
         "displaySelectedValues"?: boolean;
         /**
+          * Overwrite default "edit" button message
+         */
+        "editButtonMessage": string;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -354,11 +358,19 @@ export namespace Components {
          */
         "required": boolean;
         /**
+          * Overwrite default "select" button message
+         */
+        "selectButtonMessage": string;
+        /**
           * Set an error and display a custom error message. This method can be used to set the component's error state from its context by passing a boolean value to the `valid` parameter. It must be paired with an error message to display for the given context. When used to set validity to `false`, you should use this method again to reset the validity to `true`.
           * @param valid - value indicating the validity
           * @param errorMessage - the error message to display
          */
         "setError": (valid: MgInputCheckbox['valid'], errorMessage: string) => Promise<void>;
+        /**
+          * Overwrite default "show" button message
+         */
+        "showButtonMessage": string;
         /**
           * Add a tooltip message next to the input
          */
@@ -2025,7 +2037,7 @@ declare namespace LocalJSX {
         /**
           * Define the menu-items elements
          */
-        "items": MgActionMoreItemType[];
+        "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
     }
     interface MgAlert {
         /**
@@ -2283,6 +2295,10 @@ declare namespace LocalJSX {
          */
         "displaySelectedValues"?: boolean;
         /**
+          * Overwrite default "edit" button message
+         */
+        "editButtonMessage"?: string;
+        /**
           * Add a help text under the input, usually expected data format and example
          */
         "helpText"?: string;
@@ -2330,6 +2346,14 @@ declare namespace LocalJSX {
           * Define if mg-input-checkbox is required
          */
         "required"?: boolean;
+        /**
+          * Overwrite default "select" button message
+         */
+        "selectButtonMessage"?: string;
+        /**
+          * Overwrite default "show" button message
+         */
+        "showButtonMessage"?: string;
         /**
           * Add a tooltip message next to the input
          */

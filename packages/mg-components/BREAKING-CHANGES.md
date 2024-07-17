@@ -80,6 +80,7 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Changes in `mg-menu`](#changes-in-mg-menu)
+- [Changes in `mg-action-more`](#changes-in-mg-action-more)
 - [Changes in `mg-card`](#changes-in-mg-card)
 - [Changes in `mg-message`](#changes-in-mg-message)
 - [Hide components](#hide-components)
@@ -193,6 +194,32 @@ No more `variables.scss` export, only `variables.css`.
   <!-- in v6 -->
   <mg-menu size="large">...</mg-menu>
   <mg-menu size="xlarge">...</mg-menu>
+  ```
+
+### Changes in `mg-action-more`
+
+- Update `items` icon property. Item icon takes a `MgIcon` object.
+
+  ```html
+  <!-- in v5 -->
+  <mg-action-more></mg-action-more>
+  <script>
+    const mgActionMore = document.querySelector('mg-action-more')
+    mgActionMore.items = [{
+      ...
+      icon: 'user'
+    }]
+  </script>
+
+  <!-- in v6 -->
+  <mg-action-more></mg-action-more>
+  <script>
+    const mgActionMore = document.querySelector('mg-action-more')
+    mgActionMore.items = [{
+      ...
+      icon: {icon: 'user'}
+    }]
+  </script>
   ```
 
 ### Changes in `mg-card`

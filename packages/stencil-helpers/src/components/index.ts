@@ -151,7 +151,7 @@ const getChildWindows = (localWindow: Window, windows: Window[] = []): Window[] 
  * @param value - value to check
  * @returns `true` if string is valid
  */
-export const isValidString = (value: unknown): boolean => typeof value === 'string' && value.trim() !== '';
+export const isValidString = (value: unknown): value is string => typeof value === 'string' && value.trim() !== '';
 
 /**
  * Cleans string characters by removing special characters and converting to lowercase.

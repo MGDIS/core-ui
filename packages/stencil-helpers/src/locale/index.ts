@@ -1,4 +1,4 @@
-import type { ObjectType } from './index.conf';
+import type { ObjectType } from '../types';
 
 /**
  * Gets the date pattern based on the specified locale.
