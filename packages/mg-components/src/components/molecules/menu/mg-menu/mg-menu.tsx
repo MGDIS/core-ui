@@ -113,7 +113,8 @@ export class MgMenu {
       item.shadowRoot.querySelector('button,a').addEventListener(trigger, () => {
         this.focusedMenuItem = index;
         // reset expanded on previous active menu item
-        (this.getItemMoreMenuItem() !== undefined ? [...this.menuItems, this.getItemMoreMenuItem()] : this.menuItems).forEach((item, index) => {
+        const itemMoreMenuItem = this.getItemMoreMenuItem();
+        (![null, undefined].includes(itemMoreMenuItem) ? [...this.menuItems, itemMoreMenuItem] : this.menuItems).forEach((item, index) => {
           this.closeMenuItem(item, index !== this.focusedMenuItem);
         });
       });

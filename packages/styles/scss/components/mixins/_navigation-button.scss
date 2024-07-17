@@ -51,16 +51,16 @@
     }
     &:hover:not(.#{$prefix}__navigation-button--disabled),
     &:focus-visible:not(.#{$prefix}__navigation-button--disabled) {
-      background-color: var(--#{$prefix}-color-background-focus);
+      background-color: color-mix(in srgb, var(--#{$prefix}-color), transparent 90%);
     }
     &.#{$prefix}__navigation-button--active {
-      color: var(--#{$prefix}-color-text-active);
+      color: var(--#{$prefix}-color);
       font-weight: 600;
       &.#{$prefix}__navigation-button--horizontal {
-        box-shadow: inset 0 calc(-1 * var(--mg-b-size-4)) var(--#{$prefix}-color-border-active);
+        box-shadow: inset 0 calc(-1 * var(--mg-b-size-4)) var(--#{$prefix}-color);
       }
       &.#{$prefix}__navigation-button--vertical {
-        box-shadow: inset var(--mg-b-size-4) 0 var(--#{$prefix}-color-border-active);
+        box-shadow: inset var(--mg-b-size-4) 0 var(--#{$prefix}-color);
       }
     }
     &.#{$prefix}__navigation-button--hidden {

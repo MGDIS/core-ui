@@ -95,9 +95,9 @@ export class MgItemMore {
       proxy.innerHTML = element.innerHTML;
       // When `href` is updated we need to wait the full component re-render before update its handler
       setTimeout(() => {
-        const interactiveElement = proxy.shadowRoot.querySelector('a, button');
-        interactiveElement.removeEventListener('click', proxyClickHandler);
-        interactiveElement.addEventListener('click', proxyClickHandler);
+        const interactiveElement = proxy.shadowRoot.querySelector('a,button');
+        interactiveElement?.removeEventListener('click', proxyClickHandler);
+        interactiveElement?.addEventListener('click', proxyClickHandler);
       });
     };
 
