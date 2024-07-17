@@ -363,7 +363,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }
 
       const enableInputs = Array.from(this.element.shadowRoot.querySelectorAll('input'))
-        .filter(input => input.getAttribute('disabled') === null)
+        .filter(input => !input.hasAttribute('disabled'))
         .map(({ id }) => id);
       const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 

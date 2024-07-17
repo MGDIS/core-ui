@@ -36,7 +36,7 @@ export class MgMenu {
   @Prop() label!: string;
   @Watch('label')
   validateLabel(newValue: MgMenu['label']): void {
-    if (newValue === undefined && this.element.getAttribute('aria-label') === null) {
+    if (newValue === undefined && !this.element.hasAttribute('aria-label')) {
       throw new Error(`<${this.name}> prop "label" is required.`);
     }
   }
