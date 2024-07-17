@@ -143,24 +143,7 @@ No more `variables.scss` export, only `variables.css`.
   <mg-icon icon="cog" size="xxlarge"></mg-icon>
   ```
 
-- Remove `--mg-icon-{{size}}-size` css variables.
-
-  ```css
-  /* in v5 */
-  :root {
-    [...]
-    --mg-icon-small-size: 1.2rem;
-    --mg-icon-regular-size: 1.6rem;
-    --mg-icon-medium-size: 2rem;
-    --mg-icon-large-size: 2.4rem;
-    --mg-icon-extra-large-size: 3.2rem;
-  }
-
-  /* in v6 */
-  :root {
-    [...]
-  }
-  ```
+- Remove CSS custom properties.
 
 ### Changes in `mg-input`
 
