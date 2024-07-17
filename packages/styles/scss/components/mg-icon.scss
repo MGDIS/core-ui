@@ -1,5 +1,4 @@
 @use 'sass:list';
-@use 'sass:map';
 @use '../variables' as variables;
 @import '../utils/a11y';
 
@@ -15,17 +14,14 @@
 .mg-c-icon {
   color: currentcolor;
 
-  @each $name, $size, $spacing in variables.$icons {
-    /*!
-     * @prop --mg-c-icon-size-#{$name}: Defines the size of #{$name} icons. Default value is `#{$size}`.
-     */
+  @each $name, $icon-size, $circle-size in variables.$icons {
     &[size='#{$name}'],
     &.mg-c-icon--size-#{$name} {
-      width: var(--mg-c-icon-size-#{$name});
-      height: var(--mg-c-icon-size-#{$name});
+      width: $icon-size;
+      height: $icon-size;
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-        padding: $spacing;
+        padding: calc((#{$circle-size} - #{$icon-size}) / 2);
       }
     }
   }

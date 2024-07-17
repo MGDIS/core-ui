@@ -1,3 +1,4 @@
+@use 'sass:list';
 @use '../variables' as variables;
 @import '../utils/a11y';
 
@@ -53,8 +54,8 @@ mg-icon {
 
     mg-tooltip {
       display: inline-flex;
-      width: var(--mg-c-icon-size-medium);
-      height: var(--mg-c-icon-size-medium);
+      width: list.nth(list.nth(variables.$icons, 2), 2);
+      height: list.nth(list.nth(variables.$icons, 2), 2);
       margin-left: var(--mg-b-size-8);
 
       @media print {
@@ -71,7 +72,7 @@ mg-icon {
 
     mg-tooltip {
       align-self: baseline;
-      margin-top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-size-medium)) / 2);
+      margin-top: calc((var(--mg-b-size-min-height) - list.nth(list.nth(variables.$icons, 2), 2)) / 2);
     }
 
     /* Set custom opacity on disabled input */

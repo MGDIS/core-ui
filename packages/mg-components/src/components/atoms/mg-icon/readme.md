@@ -21,14 +21,9 @@
 
 ## CSS Custom Properties
 
-| Name                        | Description                                                           |
-| --------------------------- | --------------------------------------------------------------------- |
-| `--mg-c-icon-border-radius` | Defines the border radius of icons. Default value is `50%`.           |
-| `--mg-c-icon-size-large`    | Defines the size of large icons. Default value is `--mg-b-size-20`.   |
-| `--mg-c-icon-size-medium`   | Defines the size of medium icons. Default value is `--mg-b-size-16`.  |
-| `--mg-c-icon-size-small`    | Defines the size of small icons. Default value is `--mg-b-size-12`.   |
-| `--mg-c-icon-size-xlarge`   | Defines the size of xlarge icons. Default value is `--mg-b-size-24`.  |
-| `--mg-c-icon-size-xxlarge`  | Defines the size of xxlarge icons. Default value is `--mg-b-size-32`. |
+| Name                        | Description                                                 |
+| --------------------------- | ----------------------------------------------------------- |
+| `--mg-c-icon-border-radius` | Defines the border radius of icons. Default value is `50%`. |
 
 
 ## Dependencies

@@ -1,3 +1,5 @@
+@use 'sass:list';
+@use '../variables' as variables;
 @import 'mixins/reset-mg-card-slotted-variables';
 
 /*!
@@ -53,7 +55,7 @@
   &__close-button {
     height: var(--mg-c-modal-title-font-size);
     margin-top: calc((var(--mg-b-size-min-height) - (var(--mg-c-modal-title-font-size) * var(--mg-b-line-height))) / 2 * -1); // -6px;
-    margin-right: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-size-medium)) / 2 * -1); // -10px;
+    margin-right: calc((var(--mg-b-size-min-height) - list.nth(list.nth(variables.$icons, 2), 2)) / 2 * -1); // -10px;
     margin-left: var(--mg-b-size-16);
     float: right;
   }
