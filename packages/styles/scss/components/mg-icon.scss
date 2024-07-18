@@ -1,5 +1,7 @@
 @use 'sass:list';
+@use 'sass:map';
 @use '../variables' as variables;
+@use '../functions' as functions;
 @import '../utils/a11y';
 
 /*!
@@ -14,9 +16,11 @@
 .mg-c-icon {
   color: currentcolor;
 
-  @each $name, $icon-size, $circle-size in variables.$icons {
-    &[size='#{$name}'],
-    &.mg-c-icon--size-#{$name} {
+  @each $size in map.keys(variables.$icons) {
+    $icon-size: functions.get-icon-size($size);
+    $circle-size: list.nth(map.get(variables.$icons, $size), 2);
+    &[size='#{$size}'],
+    &.mg-c-icon--size-#{$size} {
       width: $icon-size;
       height: $icon-size;
 

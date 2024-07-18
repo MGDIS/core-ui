@@ -1,5 +1,6 @@
 @use 'sass:list';
 @use '../variables' as variables;
+@use '../functions' as functions;
 @import 'mg-input-box';
 @import 'mg-input-width';
 @import 'mg-input-readonly';
@@ -50,6 +51,6 @@
   }
 
   .mg-c-input__box {
-    padding-left: calc(list.nth(list.nth(variables.$icons, 2), 2) + var(--mg-b-size-8) * 2);
+    padding-left: calc(functions.get-icon-size('medium') + var(--mg-b-size-8) * 2);
   }
 }
