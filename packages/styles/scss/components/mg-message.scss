@@ -16,6 +16,8 @@
 }
 
 .mg-c-message {
+  $icon-size: functions.get-icon-size('medium');
+
   display: inline-block;
   min-height: var(--mg-b-size-min-height);
 
@@ -45,7 +47,7 @@
 
   &__icon {
     position: absolute;
-    top: calc((var(--mg-b-size-min-height) - functions.get-icon-size('medium')) / 2);
+    top: calc((var(--mg-b-size-min-height) - #{$icon-size}) / 2);
     left: calc(var(--mg-b-size-4) + var(--mg-b-size-8)); // vertical bar + spacing
     line-height: 1;
   }
@@ -53,7 +55,7 @@
   &__content {
     display: flex;
     flex-wrap: wrap;
-    padding: 0 var(--mg-b-size-8) 0 calc(var(--mg-b-size-4) + var(--mg-b-size-8) + functions.get-icon-size('medium') + var(--mg-b-size-8)); // vertical bar + spacing + icon + spacing;
+    padding: 0 var(--mg-b-size-8) 0 calc(var(--mg-b-size-4) + var(--mg-b-size-8) + #{$icon-size} + var(--mg-b-size-8)); // vertical bar + spacing + icon + spacing;
     place-content: stretch flex-end;
   }
 

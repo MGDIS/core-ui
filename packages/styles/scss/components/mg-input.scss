@@ -1,4 +1,3 @@
-@use 'sass:list';
 @use '../variables' as variables;
 @use '../functions' as functions;
 @import '../utils/a11y';
@@ -45,6 +44,8 @@ mg-icon {
 }
 
 .mg-c-input {
+  $icon-size: functions.get-icon-size('medium');
+
   display: flex;
   min-height: var(--mg-b-size-min-height);
   align-items: flex-start;
@@ -55,8 +56,8 @@ mg-icon {
 
     mg-tooltip {
       display: inline-flex;
-      width: functions.get-icon-size('medium');
-      height: functions.get-icon-size('medium');
+      width: $icon-size;
+      height: $icon-size;
       margin-left: var(--mg-b-size-8);
 
       @media print {
@@ -73,7 +74,7 @@ mg-icon {
 
     mg-tooltip {
       align-self: baseline;
-      margin-top: calc((var(--mg-b-size-min-height) - functions.get-icon-size('medium')) / 2);
+      margin-top: calc((var(--mg-b-size-min-height) - #{$icon-size}) / 2);
     }
 
     /* Set custom opacity on disabled input */
