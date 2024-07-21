@@ -222,8 +222,8 @@ importers:
         specifier: 3.20.0
         version: 3.20.0
       jsdom:
-        specifier: 24.1.0
-        version: 24.1.0
+        specifier: 24.1.1
+        version: 24.1.1
       sass:
         specifier: 1.77.8
         version: 1.77.8
@@ -235,7 +235,7 @@ importers:
         version: 5.3.3(@types/node@20.14.11)(sass@1.77.8)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
       vue-tsc:
         specifier: 2.0.26
         version: 2.0.26(typescript@5.5.3)
@@ -342,7 +342,7 @@ importers:
     dependencies:
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
     devDependencies:
       eslint-config-custom:
         specifier: workspace:*
@@ -483,8 +483,8 @@ importers:
         specifier: 16.4.5
         version: 16.4.5
       jsdom:
-        specifier: 24.1.0
-        version: 24.1.0
+        specifier: 24.1.1
+        version: 24.1.1
       sharp:
         specifier: 0.33.4
         version: 0.33.4
@@ -773,7 +773,7 @@ importers:
         version: 4.0.3(typedoc@0.25.13)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
       vitest-config:
         specifier: workspace:*
         version: link:../../configs/vitest-config
@@ -874,7 +874,7 @@ importers:
         version: 5.5.3
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
       vitest-config:
         specifier: workspace:*
         version: link:../../configs/vitest-config
@@ -920,7 +920,7 @@ importers:
         version: 3.9.1(@types/node@20.14.11)(typescript@5.5.3)(vite@5.3.3)
       vitest:
         specifier: 1.6.0
-        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+        version: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
       vitest-config:
         specifier: workspace:*
         version: link:../../configs/vitest-config
@@ -6603,7 +6603,7 @@ packages:
       magicast: 0.3.4
       picocolors: 1.0.1
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+      vitest: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -6626,7 +6626,7 @@ packages:
       std-env: 3.7.0
       strip-literal: 2.1.0
       test-exclude: 6.0.0
-      vitest: 1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8)
+      vitest: 1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -12092,6 +12092,15 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /https-proxy-agent@7.0.5:
+    resolution: {integrity: sha512-1e4Wqeblerz+tMKPIq2EMGiiWW1dIjZOksyHWSUm1rmuvw/how9hBHZ38lAGj5ID4Ik6EdkOw7NmWPy6LAwalw==}
+    engines: {node: '>= 14'}
+    dependencies:
+      agent-base: 7.1.1
+      debug: 4.3.5(supports-color@8.1.1)
+    transitivePeerDependencies:
+      - supports-color
+
   /human-id@1.0.2:
     resolution: {integrity: sha512-UNopramDEhHJD+VR+ehk8rOslwSfByxPIZyJRfV739NDhN5LF1fa1MqnzKm2lGTQRjNrjK19Q5fhkgIfjlVUKw==}
     dev: false
@@ -13260,7 +13269,7 @@ packages:
       whatwg-encoding: 2.0.0
       whatwg-mimetype: 3.0.0
       whatwg-url: 11.0.0
-      ws: 8.17.0
+      ws: 8.18.0
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -13304,8 +13313,8 @@ packages:
       - utf-8-validate
     dev: false
 
-  /jsdom@24.1.0:
-    resolution: {integrity: sha512-6gpM7pRXCwIOKxX47cgOyvyQDN/Eh0f1MeKySBV2xGdKtqJBLj8P25eY3EVCWo2mglDDzozR2r2MW4T+JiNUZA==}
+  /jsdom@24.1.1:
+    resolution: {integrity: sha512-5O1wWV99Jhq4DV7rCLIoZ/UIhyQeDR7wHVyZAHAshbrvZsLs+Xzz7gtwnlJTJDjleiTKh54F4dXrX70vJQTyJQ==}
     engines: {node: '>=18'}
     peerDependencies:
       canvas: ^2.11.2
@@ -13319,11 +13328,11 @@ packages:
       form-data: 4.0.0
       html-encoding-sniffer: 4.0.0
       http-proxy-agent: 7.0.2
-      https-proxy-agent: 7.0.4
+      https-proxy-agent: 7.0.5
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.10
+      nwsapi: 2.2.12
       parse5: 7.1.2
-      rrweb-cssom: 0.7.0
+      rrweb-cssom: 0.7.1
       saxes: 6.0.0
       symbol-tree: 3.2.4
       tough-cookie: 4.1.4
@@ -13332,7 +13341,7 @@ packages:
       whatwg-encoding: 3.1.1
       whatwg-mimetype: 4.0.0
       whatwg-url: 14.0.0
-      ws: 8.17.0
+      ws: 8.18.0
       xml-name-validator: 5.0.0
     transitivePeerDependencies:
       - bufferutil
@@ -14247,6 +14256,10 @@ packages:
 
   /nwsapi@2.2.10:
     resolution: {integrity: sha512-QK0sRs7MKv0tKe1+5uZIQk/C8XGza4DAnztJG8iD+TpJIORARrCxczA738awHrZoHeTjSSoHqao2teO0dC/gFQ==}
+    dev: true
+
+  /nwsapi@2.2.12:
+    resolution: {integrity: sha512-qXDmcVlZV4XRtKFzddidpfVP4oMSGhga+xdMc25mv8kaLUHtgzCDhUxkrN8exkGdTlLNaXj7CV3GtON7zuGZ+w==}
 
   /nypm@0.3.8:
     resolution: {integrity: sha512-IGWlC6So2xv6V4cIDmoV0SwwWx7zLG086gyqkyumteH2fIgCAM4nDVFB2iDRszDvmdSVW9xb1N+2KjQ6C7d4og==}
@@ -15868,8 +15881,8 @@ packages:
   /rrweb-cssom@0.6.0:
     resolution: {integrity: sha512-APM0Gt1KoXBz0iIkkdB/kfvGOwC4UuJFeG/c+yV7wSc7q96cG/kJ0HiYCnzivD9SB53cLV1MlHFNfOuPaadYSw==}
 
-  /rrweb-cssom@0.7.0:
-    resolution: {integrity: sha512-KlSv0pm9kgQSRxXEMgtivPJ4h826YHsuob8pSHcfSZsSXGtvpEAie8S0AnXuObEJ7nhikOb4ahwxDm0H2yW17g==}
+  /rrweb-cssom@0.7.1:
+    resolution: {integrity: sha512-TrEMa7JGdVm0UThDJSx7ddw5nVm3UJS9o9CCIZ72B1vSyEZoziDqBYP3XIoi/12lKrJR8rE3jeFHMok2F/Mnsg==}
 
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -17976,7 +17989,7 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /vitest@1.6.0(@types/node@20.14.11)(jsdom@24.1.0)(sass@1.77.8):
+  /vitest@1.6.0(@types/node@20.14.11)(jsdom@24.1.1)(sass@1.77.8):
     resolution: {integrity: sha512-H5r/dN06swuFnzNFhq/dnz37bPXnq8xB2xB5JOVk8K09rUtoeNN+LHWkoQ0A/i3hvbUKKcCei9KpbxqHMLhLLA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -18011,7 +18024,7 @@ packages:
       chai: 4.4.1
       debug: 4.3.4
       execa: 8.0.1
-      jsdom: 24.1.0
+      jsdom: 24.1.1
       local-pkg: 0.5.0
       magic-string: 0.30.10
       pathe: 1.1.2
@@ -18764,6 +18777,7 @@ packages:
         optional: true
       utf-8-validate:
         optional: true
+    dev: false
 
   /ws@8.18.0:
     resolution: {integrity: sha512-8VbfWfHLbbwu3+N6OKsOMpBdT4kXPDDB9cJk2bJ6mh9ucxdlnNvH1e+roYkKmN9Nxw2yjz7VzeO9oOz2zJ04Pw==}
