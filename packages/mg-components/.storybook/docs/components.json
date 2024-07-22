@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-17T17:53:20",
+  "timestamp": "2024-07-18T21:20:25",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -1343,6 +1343,11 @@
       "listeners": [],
       "styles": [
         {
+          "name": "--mg-c-badge-color-text",
+          "annotation": "prop",
+          "docs": "Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`."
+        },
+        {
           "name": "--mg-c-badge-font-size",
           "annotation": "prop",
           "docs": "Defines the font size of the badge. The default value is `--mg-b-font-size-small`."
@@ -1351,11 +1356,6 @@
           "name": "--mg-c-badge-size",
           "annotation": "prop",
           "docs": "Defines the height and minimum width of the badge. The default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-badge-text-color",
-          "annotation": "prop",
-          "docs": "Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`."
         }
       ],
       "slots": [],

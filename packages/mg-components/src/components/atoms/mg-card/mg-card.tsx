@@ -1,5 +1,4 @@
-import { Component, h, State } from '@stencil/core';
-import { ClassList } from '@mgdis/stencil-helpers';
+import { Component, h } from '@stencil/core';
 
 /**
  * @slot - Card content
@@ -11,15 +10,6 @@ import { ClassList } from '@mgdis/stencil-helpers';
 })
 export class MgCard {
   /*************
-   * Decorators *
-   *************/
-
-  /**
-   * Component classes
-   */
-  @State() classCollection: ClassList = new ClassList(['mg-c-card']);
-
-  /*************
    * Lifecycle *
    *************/
 
@@ -29,7 +19,7 @@ export class MgCard {
    */
   render(): HTMLElement {
     return (
-      <div class={this.classCollection.join()}>
+      <div class="mg-c-card">
         <slot></slot>
       </div>
     );

@@ -72,7 +72,10 @@ No more `variables.scss` export, only `variables.css`.
 
 ## mg-components v6.0.0
 
+- [Style Sheets](#style-sheets)
 - [`size` prop updates](#size-prop-updates)
+- [Changes in banners](#changes-in-banners)
+- [Changes in `mg-action-more`](#changes-in-mg-action-more)
 - [Changes in `mg-button`](#changes-in-mg-button)
 - [Changes in `mg-divider`](#changes-in-mg-divider)
 - [Changes in `mg-icon`](#changes-in-mg-icon)
@@ -80,22 +83,194 @@ No more `variables.scss` export, only `variables.css`.
 - [Changes in `mg-input-numeric`](#changes-in-mg-input-numeric)
 - [Changes in `mg-input-text` and `mg-input-textarea`](#changes-in-mg-input-text-and-mg-input-textarea)
 - [Changes in `mg-menu`](#changes-in-mg-menu)
-- [Changes in `mg-action-more`](#changes-in-mg-action-more)
-- [Changes in `mg-card`](#changes-in-mg-card)
-- [Changes in `mg-message`](#changes-in-mg-message)
-- [Hide components](#hide-components)
 - [Changes in `mg-modal`](#changes-in-mg-modal)
 - [Internal components](#internal-components)
-- [Stylesheet](#stylesheet)
+
+### Style Sheets
+
+We now provide a single `mg-components.css` file containing all custom properties and the minimal styles required for mg-components to function. Additional stylesheets are available in the `@mgdis/styles` package.
+
+Using CDN:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.css" />
+<!-- If other style sheets are needed -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/styles@2/dist/styles.css" />
+```
+
+Using a build tool:
+
+```TS
+import '@mgdis/mg-components/dist/mg-components/mg-components.css';
+import '@mgdis/styles/dist/styles.css'; // If other style sheets are needed
+```
+
+#### Custom Properties
+
+- All custom properties (CSS variables) are now prefixed with `mg-` to prevent collisions with other CSS frameworks or custom variables. Additionally, prefixes indicate their purpose more clearly: `b-` for base, `c-` for component-specific, and `l-` for layout-related custom properties.
+
+  ```CSS
+  /* in v5 */
+  --font-size: 1.3rem;
+  --color-primary: #000;
+  --mg-button-border-radius: 0.3rem;
+  --mg-grid-spacing: 1rem;
+
+  /* in v6 */
+  --mg-b-font-size: 1.3rem;
+  --mg-b-color-primary: #000;
+  --mg-c-button-border-radius: 0.3rem;
+  --mg-l-grid-spacing: 1rem;
+  ```
+
+##### Recurring Changes
+
+Here are some notable changes to custom properties:
+
+| v5 custom properties      | v6 custom properties         |
+| ------------------------- | ---------------------------- |
+| --color-dark              | --mg-b-color-dark            |
+| --box-shadow              | --mg-b-box-shadow            |
+| --mg-card-border          | --mg-c-card-border           |
+| --mg-card-padding         | --mg-c-card-spacing          |
+| --mg-card-background      | --mg-c-card-color-background |
+| --mg-input-title-display  | --mg-c-input-title-display   |
+| --mg-inputs-title-width   | --mg-c-input-title-width     |
+| --mg-inputs-margin-bottom | --mg-c-input-margin-bottom   |
+
+#### CSS Classes
+
+- CSS classes now follow the same prefixes as the custom properties. Component classes use the `c-` prefix, layout classes use the `l-` prefix, and utility classes use the `u-` prefix.
+
+  ```html
+  <!-- in v5 -->
+  <div class="mg-card">Component class</div>
+  <div class="mg-group-elements">Layout class</div>
+  <div class="mg-visually-hidden">Utility class</div>
+
+  <!-- in v6 -->
+  <div class="mg-c-card">Component class</div>
+  <div class="mg-l-group-elements">Layout class</div>
+  <div class="mg-u-visually-hidden">Utility class</div>
+  ```
+
+##### Recurring Changes
+
+Here are some notable changes to classes:
+
+| v5 classes                     | v6 classes                       |
+| ------------------------------ | -------------------------------- |
+| mg-group-elements              | mg-l-group-elements              |
+| mg-group-elements--align-right | mg-l-group-elements--align-right |
+
+Read more in the [`@mgdis/styles` package documentation](../styles/README.md).
+
+#### Colors
+
+We have simplified the way we handle colors by no longer using HSL color variables, which were often confusing to implement. Previously, `--mg-color-app-hsl` was intended to be used in an HSL CSS property like `hsl(var(--mg-color-app-hsl))` or to add transparency with `hsl(var(--mg-color-app-hsl) / 50%)`. We also provided separate H, S, and L variables to easily adjust the lightness value, like `hsl(var(--mg-color-app-h) var(--mg-color-app-s) 20)`.
+
+Now, we directly use color values, which can be in various formats such as hex, HSL, RGB, and more. For color mixing, we utilize the [`color-mix`](https://developer.mozilla.org/docs/Web/CSS/color_value/color-mix) function, e.g., `color-mix(in srgb, var(--mg-b-color-dark), transparent 85%)`.
 
 ### `size` prop updates
 
 - Medium is the new regular. The `size` prop is used in `mg-icon`, `mg-menu`, `mg-illustrated-message`, and `mg-tab` components. To ensure consistency and follow standards, we renamed and organized size values as follows:
 
-  | version |       |         |        |        |             |
+  | version |       | default |        |        |             |
   | ------- | ----- | ------- | ------ | ------ | ----------- |
   | v5      | small | regular | medium | large  | extra-large |
   | v6      | small | medium  | large  | xlarge | xxlarge     |
+
+### Changes in banners
+
+Our components for displaying card messages, `mg-card`, `mg-message`, and the new `mg-alert`, have been refactored to clarify their use cases:
+
+- `mg-card` is now a simple container without any props and **should not be used to display messages**.
+- `mg-message` is used to display information **without requiring a live aria role**.
+- `mg-alert` is the component to use for notifications after an action, **with an aria role**.
+
+#### Changes in `mg-card`
+
+- Moved `variant` and `variant-style` to the `mg-message` component.
+
+  ```html
+  <!-- in v5 -->
+  <mg-card variant="success" variant-style="fill"> > You did it ! </mg-card>
+  <!-- in v6 -->
+  <mg-message variant="success" variant-style="backgroud"> > You did it ! </mg-message>
+  ```
+
+#### Changes in `mg-message`
+
+- Updated `variant-style` value from `fill` to `background`.
+
+  ```html
+  <!-- in v5 -->
+  <mg-message variant-style="fill"> > You did it ! </mg-message>
+  <!-- in v6 -->
+  <mg-message variant-style="background"> > You did it ! </mg-message>
+  ```
+
+- Removed `close-button` and `delay` props, which are now in the new `mg-alert` component.
+
+  ```html
+  <!-- in v5 -->
+  <mg-message close-button delay="10"> You did it ! </mg-message>
+  <!-- in v6 -->
+  <mg-alert close-button delay="10"> You did it ! </mg-alert>
+  ```
+
+- Removed `no-aria-role` and `hide` props.
+
+#### New `mg-alert` component
+
+`mg-alert` is similar to `mg-message` but is dedicated to alerts with an aria role. Here are the changes:
+
+- No longer uses the `hide` prop for visibility. Use the native `hidden` attribute.
+
+  ```html
+  <!-- in v5 -->
+  <mg-message hide>Non</mg-message>
+  <!-- in v6 -->
+  <mg-alert hidden>Non</mg-alert>
+  ```
+
+- Updated `variant-style` value from `fill` to `background`.
+
+  ```html
+  <!-- in v5 -->
+  <mg-message variant-style="fill"> > You did it ! </mg-message>
+  <!-- in v6 -->
+  <mg-alert variant-style="background"> > You did it ! </mg-alert>
+  ```
+
+### Changes in `mg-action-more`
+
+- Update items `icon` property. The item `icon` now takes a `MgIcon` object, allowing for additional properties such as `variant`.
+
+  ```html
+  <!-- in v5 -->
+  <mg-action-more></mg-action-more>
+  <script>
+    const mgActionMore = document.querySelector('mg-action-more')
+    mgActionMore.items = [{
+      ...
+      icon: 'user'
+    }]
+  </script>
+
+  <!-- in v6 -->
+  <mg-action-more></mg-action-more>
+  <script>
+    const mgActionMore = document.querySelector('mg-action-more')
+    mgActionMore.items = [{
+      ...
+      icon: {
+        icon: 'user',
+        variant: 'danger'
+      }
+    }]
+  </script>
+  ```
 
 ### Changes in `mg-button`
 
@@ -194,54 +369,6 @@ No more `variables.scss` export, only `variables.css`.
   <mg-menu size="xlarge">...</mg-menu>
   ```
 
-### Changes in `mg-action-more`
-
-- Update `items` icon property. Item icon takes a `MgIcon` object.
-
-  ```html
-  <!-- in v5 -->
-  <mg-action-more></mg-action-more>
-  <script>
-    const mgActionMore = document.querySelector('mg-action-more')
-    mgActionMore.items = [{
-      ...
-      icon: 'user'
-    }]
-  </script>
-
-  <!-- in v6 -->
-  <mg-action-more></mg-action-more>
-  <script>
-    const mgActionMore = document.querySelector('mg-action-more')
-    mgActionMore.items = [{
-      ...
-      icon: {icon: 'user'}
-    }]
-  </script>
-  ```
-
-### Changes in `mg-card`
-
-- Delete `variant` and `variantStyle` props.
-
-### Changes in `mg-message`
-
-- Add `variantStyle` prop.
-- Move `close-button`, `delay` and `aria role` in `mg-alert` new component.
-- Update `variant-style` `fill` value to `background`
-- No longer uses the `hide` prop for visibility. Use the native `hidden` attribute.
-
-### Hide components
-
-- `mg-message` and `mg-modal` no longer use the `hide` prop for visibility. Use the native `hidden` attribute.
-
-  ```html
-  <!-- in v5 -->
-  <mg-message hide>Non</mg-message>
-  <!-- in v6 -->
-  <mg-message hidden>Non</mg-message>
-  ```
-
 ### Changes in `mg-modal`
 
 - Component now uses the `<dialog>` native element to ensure better accessibility. Consequently, the component follows its logic to define visibility. The `hide` prop has been replaced by the `open` prop.
@@ -278,37 +405,4 @@ No more `variables.scss` export, only `variables.css`.
 
 ### Internal components
 
-- `mg-input-title` and `mg-character-left` components are now considered internal and should not be used outside of `mg-components`. Dedicated stories for these components have been removed.
-
-### Stylesheet
-
-- We now only have a `mg-components.css` file that contains all the variables and the minimum styles needed to make mg-components work. Other stylesheets can be found in the `@mgdis/styles` package.
-
-  Using CDN:
-
-  ```html
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/mg-components@6/dist/mg-components/mg-components.css" />
-  <!-- If other stylesheets are needed -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mgdis/styles@2/dist/styles.css" />
-  ```
-
-  Using a build tool:
-
-  ```TS
-  import '@mgdis/mg-components/dist/mg-components/mg-components.css';
-  import '@mgdis/styles/dist/styles.css'; // If other stylesheets are needed
-  ```
-
-- All custom properties, a.k.a. CSS variables, have been prefixed with `mg-` to avoid collisions with other CSS frameworks or your own variables. Additionally, we have prefixed them to indicate their purpose more clearly: `b-` for base, `c-` for component-specific, `l-` for layout-related, and `u-` for utility custom properties.
-
-  ```CSS
-  /* in v5 */
-  --font-size: 1.3rem;
-  --mg-button-border-radius: 0.3rem;
-  --mg-grid-spacing: 1rem;
-
-  /* in v6 */
-  --mg-b-font-size: 1.3rem;
-  --mg-c-button-border-radius: 0.3rem;
-  --mg-l-grid-spacing: 1rem;
-  ```
+- `mg-character-left`, `mg-input-title` and `mg-item-more` components are now considered internal and should not be used outside of `mg-components`. Dedicated stories for these components have been removed.
