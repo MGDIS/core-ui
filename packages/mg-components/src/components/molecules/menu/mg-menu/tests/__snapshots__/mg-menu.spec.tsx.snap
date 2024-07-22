@@ -837,7 +837,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more role="listitem">
+  <mg-item-more role="listitem" size="medium">
     <template shadowrootmode="open">
       <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <template shadowrootmode="open">
@@ -875,7 +875,7 @@ exports[`mg-menu mg-item-more, with submenu false should manage "itemmore" prop 
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="user" slot="image"></mg-icon>
+        <mg-icon icon="user" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -2007,7 +2007,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more role="listitem">
+  <mg-item-more role="listitem" size="medium">
     <template shadowrootmode="open">
       <mg-menu-item data-overflow-more data-size="medium" data-style-direction="horizontal" identifier="mg-item-more" role="presentation" status="visible">
         <template shadowrootmode="open">
@@ -2045,7 +2045,7 @@ exports[`mg-menu mg-item-more, with submenu true should manage "itemmore" prop u
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="user" slot="image"></mg-icon>
+        <mg-icon icon="user" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -3990,7 +3990,7 @@ exports[`mg-menu render with args { itemmore: [Object] } 1`] = `
       bane
     </span>
   </mg-menu-item>
-  <mg-item-more></mg-item-more>
+  <mg-item-more size="medium"></mg-item-more>
 </mg-menu>
 `;
 
