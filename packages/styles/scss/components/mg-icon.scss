@@ -1,13 +1,10 @@
 @use 'sass:list';
+@use 'sass:map';
 @use '../variables' as variables;
+@use '../functions' as functions;
 @import '../utils/a11y';
 
 /*!
- * @prop --mg-c-icon-size-small: Defines the size of small icons. Default value is `--mg-b-size-12`.
- * @prop --mg-c-icon-size-medium: Defines the size of medium icons. Default value is `--mg-b-size-16`.
- * @prop --mg-c-icon-size-large: Defines the size of large icons. Default value is `--mg-b-size-20`.
- * @prop --mg-c-icon-size-xlarge: Defines the size of extra large icons. Default value is `--mg-b-size-24`.
- * @prop --mg-c-icon-size-xxlarge: Defines the size of double extra large icons. Default value is `--mg-b-size-32`.
  * @prop --mg-c-icon-border-radius: Defines the border radius of icons. Default value is `50%`.
  */
 
@@ -19,14 +16,16 @@
 .mg-c-icon {
   color: currentcolor;
 
-  @each $size in 'small', 'medium', 'large', 'xlarge', 'xxlarge' {
-    &[size='#{$size}'],
-    &.mg-c-icon--size-#{$size} {
-      width: var(--mg-c-icon-size-#{$size});
-      height: var(--mg-c-icon-size-#{$size});
+  @each $name, $size in variables.$icons {
+    $icon-size: functions.get-icon-size($name);
+    $circle-size: list.nth($size, 2);
+    &[size='#{$name}'],
+    &.mg-c-icon--size-#{$name} {
+      width: $icon-size;
+      height: $icon-size;
 
       &[class*='mg-c-icon--variant-']:not(.mg-c-icon--variant-style-icon) {
-        padding: calc(var(--mg-c-icon-size-#{$size}) / 2);
+        padding: calc((#{$circle-size} - #{$icon-size}) / 2);
       }
     }
   }

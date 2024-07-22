@@ -1,3 +1,5 @@
+@use '../functions' as functions;
+
 /**
  * Style for input "box":
  * - input[type="text"]
@@ -85,6 +87,6 @@
 
   &.mg-c-input--is-append-input-slot-content:not(.mg-c-input--readonly) ::slotted([slot='append-input']) {
     align-self: start;
-    padding-top: calc((var(--mg-b-size-min-height) - var(--mg-c-icon-size-medium)) / 2);
+    padding-top: calc((var(--mg-b-size-min-height) - functions.get-icon-size('medium')) / 2);
   }
 }

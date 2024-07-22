@@ -318,6 +318,8 @@ Our components for displaying card messages, `mg-card`, `mg-message`, and the ne
   <mg-icon icon="cog" size="xxlarge"></mg-icon>
   ```
 
+- Remove CSS custom properties.
+
 ### Changes in `mg-input`
 
 - The `readonly` and `readonlyValue` props have been removed. The component no longer handles the readonly style.
