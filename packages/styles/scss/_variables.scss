@@ -104,3 +104,14 @@ $palettes: (
  * Defines the breakpoint for the input components.
  */
 $mg-input-breakpoint: 768px; /* stylelint-disable-line unit-disallowed-list */
+
+/**
+ * Defines icons sizes
+ */
+$icons: (
+  'small': var(--mg-b-size-12) var(--mg-b-size-16),
+  'medium': var(--mg-b-size-16) var(--mg-b-size-24),
+  'large': var(--mg-b-size-20) var(--mg-b-size-32),
+  'xlarge': var(--mg-b-size-24) var(--mg-b-size-40),
+  'xxlarge': var(--mg-b-size-32) var(--mg-b-size-48),
+);
