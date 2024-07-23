@@ -137,7 +137,7 @@ export class MgInputTextarea {
     });
 
     // apply new width
-    if (newValue) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
+    if (newValue !== undefined) this.classCollection.add(`mg-c-input--width-${this.mgWidth}`);
   }
 
   /**
@@ -247,9 +247,9 @@ export class MgInputTextarea {
   @Method()
   async setError(valid: MgInputTextarea['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-textarea> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-textarea> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -380,7 +380,7 @@ export class MgInputTextarea {
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && !this.value ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && this.value === undefined ? 'label' : this.tooltipPosition}
         helpText={this.helpText}
         errorMessage={this.errorMessage}
       >

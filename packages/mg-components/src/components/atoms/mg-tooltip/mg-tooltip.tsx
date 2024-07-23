@@ -91,7 +91,7 @@ export class MgTooltip {
   watchDisabled(newValue: MgTooltip['disabled']): void {
     if (this.hasCustomTabIndex) {
       if (newValue) this.tooltipedElement.removeAttribute('tabindex');
-      else if (this.tooltipedElement.getAttribute('tabindex') === null) this.tooltipedElement.setAttribute('tabindex', '0');
+      else if (!this.tooltipedElement.hasAttribute('tabindex')) this.tooltipedElement.setAttribute('tabindex', '0');
     }
   }
 
@@ -319,13 +319,11 @@ export class MgTooltip {
    */
   private setAriaDescribedby = (element: HTMLElement): void => {
     // Set aria-describedby
-    const ariaDescribedby = element.getAttribute('aria-describedby');
-
-    if (ariaDescribedby === null) {
+    if (!element.hasAttribute('aria-describedby')) {
       this.tooltipedElement.setAttribute('aria-describedby', this.identifier);
     } else {
       // We ensure to have uniq ids
-      element.setAttribute('aria-describedby', `${[...new Set([...ariaDescribedby.split(' '), this.identifier])].join(' ')}`);
+      element.setAttribute('aria-describedby', `${[...new Set([...element.getAttribute('aria-describedby').split(' '), this.identifier])].join(' ')}`);
     }
   };
 
@@ -333,7 +331,7 @@ export class MgTooltip {
    * Render tooltip content element and init listeners
    */
   private renderTooltipContent(): void {
-    if (this.mgTooltipContent) {
+    if (this.mgTooltipContent !== undefined) {
       this.mgTooltipContent.setAttribute('id', this.identifier);
     } else {
       this.mgTooltipContent = document.createElement('mg-tooltip-content');
@@ -400,7 +398,7 @@ export class MgTooltip {
     }
 
     // Add tabindex to slotted element if we can't find any interactive element
-    if (!this.disabled && !interactiveElement) {
+    if (!this.disabled && [undefined, null].includes(interactiveElement)) {
       this.hasCustomTabIndex = true;
       slotElement.tabIndex = 0;
       // Add role on non-interactive element to work with "aria-describedby" for screen readers

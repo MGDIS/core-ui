@@ -46,11 +46,11 @@ export class MgInputDate {
 
     // check value validity
     if (newValue && !isValidString(newValue)) {
-      throw new Error("<mg-input-date> props 'value' must be a valid string");
-    } else if (!newValue || (newValue && this.isValidPattern(newValue))) {
+      throw new Error("<mg-input-date> props 'value' must be a valid string.");
+    } else if (newValue === null || this.isValidPattern(newValue)) {
       this.valueChange.emit(newValue);
     } else {
-      console.error("<mg-input-date> props 'value' doesn't match pattern: yyyy-mm-dd");
+      console.error("<mg-input-date> props 'value' doesn't match pattern: 'yyyy-mm-dd'.");
     }
   }
 
@@ -110,7 +110,7 @@ export class MgInputDate {
   @Watch('max')
   validateMinMax(newValue: string): void {
     if (newValue && !this.isValidPattern(newValue)) {
-      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
+      throw new Error("<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'.");
     }
   }
 
@@ -211,9 +211,9 @@ export class MgInputDate {
   @Method()
   async setError(valid: MgInputDate['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-date> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-date> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-date> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);
@@ -296,7 +296,7 @@ export class MgInputDate {
    * Check if input is valid
    */
   private checkValidity = (): void => {
-    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (!this.value || this.isValidPattern(this.value))));
+    this.setValidity(this.readonly || this.disabled || (this.input.checkValidity() && (['', undefined].includes(this.value) || this.isValidPattern(this.value))));
   };
 
   /**
@@ -420,7 +420,7 @@ export class MgInputDate {
         labelHide={this.labelHide}
         required={this.required}
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && !this.value ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && ['', undefined].includes(this.value) ? 'label' : this.tooltipPosition}
         helpText={this.formatHelpText(this.helpText)}
         errorMessage={this.errorMessage}
       >

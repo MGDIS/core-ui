@@ -99,7 +99,7 @@ export class MgInput {
   @Watch('tooltipPosition')
   watchTooltipPosition(newValue: MgInput['tooltipPosition']) {
     if (!tooltipPositions.includes(newValue)) {
-      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}`);
+      throw new Error(`<mg-input> prop "tooltipPosition" must be one of: ${tooltipPositions.join(', ')}.`);
     }
   }
 
@@ -114,7 +114,7 @@ export class MgInput {
   @Prop() errorMessage?: string;
   @Watch('errorMessage')
   watchErrorMessage(newValue: MgInput['errorMessage']): void {
-    if (newValue) {
+    if (newValue !== undefined) {
       this.element.classList.add(this.classHasError);
       this.renderErrorMessage();
     } else {
@@ -151,13 +151,13 @@ export class MgInput {
     // a11y IDs
     const ariaDescribedbyIDs = new Set(this.ariaDescribedbyIDs);
     // Help text
-    if (this.helpText) {
+    if (this.helpText !== undefined) {
       this.renderHelpText();
       if (!ariaDescribedbyIDs.has(this.helpTextId)) ariaDescribedbyIDs.add(this.helpTextId);
     }
 
     // Error Message
-    if (this.errorMessage) {
+    if (this.errorMessage !== undefined) {
       this.renderErrorMessage();
       if (!ariaDescribedbyIDs.has(this.helpTextErrorId)) ariaDescribedbyIDs.add(this.helpTextErrorId);
     }
@@ -256,7 +256,7 @@ export class MgInput {
    */
   private renderErrorMessage(): void {
     this.errorMessageSlotElement = this.element.querySelector(`[slot=${this.slotError}]`);
-    if (!this.errorMessageSlotElement) {
+    if (this.errorMessageSlotElement === null) {
       this.errorMessageSlotElement = document.createElement('div');
       this.errorMessageSlotElement.setAttribute('slot', this.slotError);
       this.element.appendChild(this.errorMessageSlotElement);
@@ -270,7 +270,7 @@ export class MgInput {
    */
   private renderHelpText(): void {
     this.helptextMessageSlotElement = this.element.querySelector(`[slot=${this.slotHelpText}]`);
-    if (!this.helptextMessageSlotElement) {
+    if (this.helptextMessageSlotElement === null) {
       this.helptextMessageSlotElement = document.createElement('div');
       this.helptextMessageSlotElement.setAttribute('slot', this.slotHelpText);
       this.element.appendChild(this.helptextMessageSlotElement);
@@ -302,7 +302,7 @@ export class MgInput {
    */
   componentDidLoad(): void {
     this.watchAriaDescribedbyIDs();
-    if (!this.isReadonly && !this.isFieldset && !this.element.querySelector(`#${this.identifier}`)) {
+    if (!this.isReadonly && !this.isFieldset && this.element.querySelector(`#${this.identifier}`) === null) {
       throw new Error(`<mg-input> "identifier" prop has no target for id: ${this.identifier}. Add an id to the targeted input.`);
     }
   }

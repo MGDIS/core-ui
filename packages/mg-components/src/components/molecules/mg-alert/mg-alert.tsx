@@ -58,7 +58,7 @@ export class MgAlert {
   @Watch('variant')
   watchVariant(newValue: MgAlert['variant']): void {
     if (newValue && !variants.includes(newValue)) {
-      throw new Error(`<mg-alert> prop "variant" must be one of: ${variants.join(', ')}`);
+      throw new Error(`<mg-alert> prop "variant" must be one of: ${variants.join(', ')}.`);
     }
   }
 
@@ -69,7 +69,7 @@ export class MgAlert {
   @Watch('variantStyle')
   watchVariantStyle(newValue: MgAlert['variantStyle']): void {
     if (newValue && !variantStyles.includes(newValue)) {
-      throw new Error(`<mg-alert> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
+      throw new Error(`<mg-alert> prop "variantStyle" must be one of: ${variantStyles.join(', ')}.`);
     }
   }
 

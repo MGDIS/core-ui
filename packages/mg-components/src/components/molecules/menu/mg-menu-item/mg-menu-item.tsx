@@ -58,7 +58,7 @@ export class MgMenuItem {
   @Watch('target')
   watchTarget(newValue: MgMenuItem['target']): void {
     if (newValue && !targets.includes(newValue)) {
-      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}`);
+      throw new Error(`<mg-link> prop "target" must be one of: ${targets.join(', ')}.`);
     }
   }
 
@@ -217,8 +217,7 @@ export class MgMenuItem {
   private updateDisplayNotificationBadge = (): void => {
     const childMenu = this.element.querySelector('mg-menu');
     this.displayNotificationBadge =
-      childMenu !== null &&
-      Array.from(childMenu.children).some((subItem: HTMLMgMenuItemElement) => subItem.querySelector('mg-badge') !== null && subItem.getAttribute('hidden') === null);
+      childMenu !== null && Array.from(childMenu.children).some((subItem: HTMLMgMenuItemElement) => subItem.querySelector('mg-badge') !== null && !subItem.hasAttribute('hidden'));
   };
 
   /**
@@ -227,7 +226,7 @@ export class MgMenuItem {
    */
   private hasActiveChild = (): boolean =>
     Array.from(this.element.querySelector('mg-menu')?.children || []).some(
-      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && element.getAttribute('hidden') === null,
+      (element: HTMLMgMenuItemElement) => element.nodeName === 'MG-MENU-ITEM' && this.hasStatus(element, Status.ACTIVE) && !element.hasAttribute('hidden'),
     );
 
   /**
@@ -241,7 +240,7 @@ export class MgMenuItem {
     ['label', 'metadata'].forEach(slot => {
       Array.from(this.element.querySelectorAll(`[slot="${slot}"]`)).forEach(element => {
         if (!isValidString(element.textContent)) throw new Error(`<${this.name}> slot "${slot}" must have text content.`);
-        if ((guard && element.getAttribute('title') === null) || !guard) element.setAttribute('title', element.textContent);
+        if ((guard && !element.hasAttribute('title')) || !guard) element.setAttribute('title', element.textContent);
       });
     });
   };
@@ -283,7 +282,7 @@ export class MgMenuItem {
   private updatePopoverGuard(): void {
     if (this.displayPopover())
       Array.from(this.element.children)
-        .filter((child: HTMLElement) => child.getAttribute('slot') === null && child.nodeName !== 'MG-MENU' && Boolean(child.dataset))
+        .filter((child: HTMLElement) => !child.hasAttribute('slot') && child.nodeName !== 'MG-MENU' && Boolean(child.dataset))
         .forEach((slot: HTMLElement) => (slot.dataset.mgPopoverGuard = this.getPopoverIdentifier()));
   }
 
@@ -398,7 +397,7 @@ export class MgMenuItem {
         tabindex={[Status.DISABLED, Status.HIDDEN].includes(this.status) ? -1 : undefined}
         disabled={this.status === Status.DISABLED}
         hidden={this.status === Status.HIDDEN}
-        target={this.href && this.target ? this.target : undefined}
+        target={this.href !== undefined && this.target !== undefined ? this.target : undefined}
         aria-expanded={this.hasChildren && this.expanded.toString()}
         aria-current={this.status === Status.ACTIVE && 'page'}
         onClick={this.handleElementCLick}

@@ -222,9 +222,9 @@ export class MgInputRadio {
   @Method()
   async setError(valid: MgInputRadio['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-radio> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-radio> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-radio> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-radio> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(valid ? undefined : errorMessage);

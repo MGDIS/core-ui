@@ -1,12 +1,12 @@
 @import '../utils/a11y';
 
 /*!
- * @prop --mg-c-menu-background-color: Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`.
+ * @prop --mg-c-menu-color-background: Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`.
  */
 
 :host {
   display: flex;
-  background-color: var(--mg-c-menu-background-color, var(--mg-b-color-light));
+  background-color: var(--mg-c-menu-color-background, var(--mg-b-color-light));
 }
 
 :host([direction='vertical']) {

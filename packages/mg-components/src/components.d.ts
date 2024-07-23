@@ -1207,11 +1207,11 @@ export namespace Components {
         /**
           * Define variant
          */
-        "variant": undefined | VariantType2;
+        "variant": VariantType2;
         /**
           * Define variant style
          */
-        "variantStyle": undefined | VariantStyleType1;
+        "variantStyle": VariantStyleType1;
     }
     interface MgModal {
         /**
@@ -3190,11 +3190,11 @@ declare namespace LocalJSX {
         /**
           * Define variant
          */
-        "variant"?: undefined | VariantType2;
+        "variant"?: VariantType2;
         /**
           * Define variant style
          */
-        "variantStyle"?: undefined | VariantStyleType1;
+        "variantStyle"?: VariantStyleType1;
     }
     interface MgModal {
         /**

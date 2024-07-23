@@ -36,7 +36,7 @@ export class MgMenu {
   @Prop() label!: string;
   @Watch('label')
   validateLabel(newValue: MgMenu['label']): void {
-    if (newValue === undefined && !this.element.getAttribute('aria-label')) {
+    if (newValue === undefined && !this.element.hasAttribute('aria-label')) {
       throw new Error(`<${this.name}> prop "label" is required.`);
     }
   }
@@ -61,7 +61,7 @@ export class MgMenu {
   validateItemMore(newValue: MgMenu['itemmore']): void {
     if (newValue !== undefined && this.direction !== Direction.HORIZONTAL) {
       throw new Error(`<${this.name}> prop "itemmore" must be paired with direction ${Direction.HORIZONTAL}.`);
-    } else if (newValue) {
+    } else if (newValue !== undefined) {
       this.renderMgItemMore();
     }
   }
@@ -113,7 +113,8 @@ export class MgMenu {
       item.shadowRoot.querySelector('button,a').addEventListener(trigger, () => {
         this.focusedMenuItem = index;
         // reset expanded on previous active menu item
-        (this.getItemMoreMenuItem() ? [...this.menuItems, this.getItemMoreMenuItem()] : this.menuItems).forEach((item, index) => {
+        const itemMoreMenuItem = this.getItemMoreMenuItem();
+        (![null, undefined].includes(itemMoreMenuItem) ? [...this.menuItems, itemMoreMenuItem] : this.menuItems).forEach((item, index) => {
           this.closeMenuItem(item, index !== this.focusedMenuItem);
         });
       });
@@ -146,13 +147,15 @@ export class MgMenu {
     }
 
     // Insert mg-item-more outside the mg-menu shadowdom
-    if (!this.itemMoreElement) {
+    if (this.itemMoreElement === undefined) {
       this.itemMoreElement = document.createElement('mg-item-more');
       this.itemMoreElement.addEventListener('item-loaded', this.handleItemLoaded);
       this.element.appendChild(this.itemMoreElement);
     }
 
     // update mg-item-more props
+    if (this.itemmore === undefined) return;
+    if (this.itemmore.size === undefined) this.itemmore.size = this.size;
     for (const attribute in this.itemmore) {
       const newValue = this.itemmore[attribute];
       // to improve rendering we use HTML attributes as much as possible

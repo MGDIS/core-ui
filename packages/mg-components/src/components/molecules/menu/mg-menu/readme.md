@@ -73,7 +73,7 @@ With a mg-badge/mg-tag/mg-icon, **you must set the component using HTML attribut
 
 | Name                           | Description                                                                                   |
 | ------------------------------ | --------------------------------------------------------------------------------------------- |
-| `--mg-c-menu-background-color` | Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`. |
+| `--mg-c-menu-color-background` | Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`. |
 
 
 ## Dependencies

@@ -210,9 +210,9 @@ export class MgInputToggle {
   @Method()
   async setError(valid: boolean, errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-toggle> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-toggle> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.valid = valid;
       this.inputValid.emit(valid);
