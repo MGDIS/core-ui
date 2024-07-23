@@ -13,7 +13,6 @@ To hide the component, you must use the native `hidden` attribute.
 
 | Property       | Attribute       | Description                                                                                                  | Type                                           | Default     |
 | -------------- | --------------- | ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- | ----------- |
-| `closeButton`  | `close-button`  | Define if message has a close button                                                                         | `boolean`                                      | `false`     |
 | `delay`        | `delay`         | Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds | `number`                                       | `undefined` |
 | `variant`      | `variant`       | Define variant                                                                                               | `"danger" \| "info" \| "success" \| "warning"` | `undefined` |
 | `variantStyle` | `variant-style` | Define variant style                                                                                         | `"background" \| "bar-left"`                   | `undefined` |
