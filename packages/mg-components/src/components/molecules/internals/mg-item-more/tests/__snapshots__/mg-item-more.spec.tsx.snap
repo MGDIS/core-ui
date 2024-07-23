@@ -100,7 +100,7 @@ exports[`mg-item-more Should fire disconnect callback 1`] = `
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -337,7 +337,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -509,7 +509,7 @@ exports[`mg-item-more events Should update proxy property when base item Mutatio
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -681,7 +681,7 @@ exports[`mg-item-more events Should update proxy status when base item item-upda
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -853,7 +853,7 @@ exports[`mg-item-more events Should update proxy status when base item item-upda
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -1025,7 +1025,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -1197,7 +1197,7 @@ exports[`mg-item-more events should trigger base item click event when proxy ite
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -1369,7 +1369,7 @@ exports[`mg-item-more render should manage resize with observer, case { hasId: t
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -1541,7 +1541,7 @@ exports[`mg-item-more render should manage resize with observer, case { icon: [O
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -1717,7 +1717,7 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="large" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -1727,13 +1727,14 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           </template>
           <mg-menu-item data-overflow-proxy-index="0" data-style-direction="vertical" identifier="identifier-1" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
+                  <slot name="metadata"></slot>
                 </div>
               </button>
               <div class="mg-c-menu-item__collapse-container" hidden="">
@@ -1746,13 +1747,14 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="1" data-style-direction="vertical" identifier="identifier-2" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
+                  <slot name="metadata"></slot>
                 </div>
               </button>
               <div class="mg-c-menu-item__collapse-container" hidden="">
@@ -1765,13 +1767,14 @@ exports[`mg-item-more render should manage resize with observer, case { size: 'l
           </mg-menu-item>
           <mg-menu-item data-overflow-proxy-index="2" data-style-direction="vertical" identifier="identifier-3" role="listitem" status="visible">
             <template shadowrootmode="open">
-              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-medium mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
+              <button class="mg-c-menu-item__navigation-button mg-c-menu-item__navigation-button--size-large mg-c-menu-item__navigation-button--vertical mg-c-menu-item__navigation-button--visible">
                 <slot name="image"></slot>
                 <div class="mg-c-menu-item__navigation-button-center">
                   <div class="mg-c-menu-item__navigation-button-text-content">
                     <slot name="label"></slot>
                     <slot name="information"></slot>
                   </div>
+                  <slot name="metadata"></slot>
                 </div>
               </button>
               <div class="mg-c-menu-item__collapse-container" hidden="">
@@ -1889,7 +1892,7 @@ exports[`mg-item-more render should manage resize with observer, case { slotlabe
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
@@ -2061,7 +2064,7 @@ exports[`mg-item-more render should manage resize with observer, case undefined 
             </mg-popover-content>
           </mg-popover>
         </template>
-        <mg-icon icon="ellipsis-vertical" slot="image"></mg-icon>
+        <mg-icon icon="ellipsis-vertical" size="medium" slot="image"></mg-icon>
         <span class="mg-u-visually-hidden" slot="label" title="Additional menu">
           Additional menu
         </span>
