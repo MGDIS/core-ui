@@ -1,6 +1,6 @@
-# MGDIS AngularJS Linting
+# @mgdis/linting-angularjs
 
-This project centralizes all the AngularJS linting rules/libraries at mgdis.
+This project centralizes all the AngularJS linting rules/libraries at MGDIS.
 
 You can add linting very easily to your project.
 

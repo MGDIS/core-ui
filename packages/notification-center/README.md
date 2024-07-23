@@ -1,4 +1,4 @@
-# Notification center
+# @mgdis/notification-center
 
 Notification center is the new way to display notifications in MGDIS products.
 

@@ -35,7 +35,6 @@ scss/
   │   ├── _colors.scss
   │   └── ...
   ├── styles.scss
-  └── variables.scss
 ```
 
 - The `base/` folder contains styles that establish the base styles of the project, such as global typography, etc.
@@ -43,7 +42,6 @@ scss/
 - The `layout/` folder contains styles related to the overall layout structure of the project.
 - The `utilities/` folder contains various utility classes and mixins to apply common styles throughout the project.
 - The `styles.scss` file acts as the entry point, where all other partial files are imported and compiled into a single CSS file.
-- The `custom-properties.scss` file where all the custom CSS properties are stored.
 
 Each folder contains an `_index.scss` in charge of importing all the folder files.
 
@@ -61,9 +59,9 @@ All classes **MUST** start with `.mg-`.
 
 In addition to a global namespace, we added prefixes to each class to make it more apparent what job that class is doing. Here’s the class prefixes:
 
-- `c-` for UI components, such as `.mg-c-card` or `.mg-c-header`
-- `l-` for layout-related styles, such as `.mg-l-grid__item` or `.mg-l--two-column`
-- `u-` for utilities, such as `.mg-u-margin-bottom-double` or `.mg-u-margin-bottom-double`
+- `c-` for UI components, such as `.mg-c-card` or `.mg-c-button`
+- `l-` for layout-related styles, such as `.mg-l-grid` or `.mg-l-group-elements`
+- `u-` for utilities, such as `.mg-u-visually-hidden` or `.mg-u-h1`
 
 ## Custom Properties
 
@@ -80,7 +78,6 @@ In addition to a global namespace, we have added prefixes to each custom propert
 - `b-` for base custom properties, such as `font-size`, which will be `--mg-b-font-size`.
 - `c-` for component-specific custom properties, such as the `min-width` variable of the `mg-card` component, which will be `--mg-c-card-min-width`.
 - `l-` for layout-related custom properties, such as grid spacing, which will be `--mg-l-grid-spacing`.
-- `u-` for utility custom properties.
 
 ## Lint
 

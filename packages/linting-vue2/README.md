@@ -1,4 +1,4 @@
-# MGDIS VueJS 2 Linting
+# @mgdis/linting-vue2
 
 This project centralizes all the VueJS 2 linting rules/libraries at MGDIS.
 
