@@ -34,7 +34,7 @@ scss/
   │   ├── _spacing.scss
   │   ├── _colors.scss
   │   └── ...
-  ├── styles.scss
+  └── styles.scss
 ```
 
 - The `base/` folder contains styles that establish the base styles of the project, such as global typography, etc.
