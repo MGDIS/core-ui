@@ -154,8 +154,6 @@ export class MgMenu {
     }
 
     // update mg-item-more props
-    if (this.itemmore === undefined) return;
-    if (this.itemmore.size === undefined) this.itemmore.size = this.size;
     for (const attribute in this.itemmore) {
       const newValue = this.itemmore[attribute];
       // to improve rendering we use HTML attributes as much as possible
@@ -165,6 +163,7 @@ export class MgMenu {
         this.itemMoreElement[attribute] = newValue;
       }
     }
+    if (this.itemmore?.size === undefined) this.itemMoreElement.size = this.size;
   };
 
   /*************
