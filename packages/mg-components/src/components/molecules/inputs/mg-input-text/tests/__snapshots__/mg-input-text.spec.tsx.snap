@@ -277,6 +277,43 @@ exports[`mg-input-text Should render with args { datalistoptions: [Array] }: 1`]
 </mg-input-text>
 `;
 
+exports[`mg-input-text Should render with args { datalistoptions: [Array] }: 2`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" list="identifier-datalist" maxlength="400" name="identifier" type="text">
+        <datalist id="identifier-datalist">
+          <option value="batman"></option>
+          <option value="robin"></option>
+          <option value="joker"></option>
+        </datalist>
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
 exports[`mg-input-text Should render with args { displayCharacterLeft: false }: 1`] = `
 <mg-input-text>
   <template shadowrootmode="open">
@@ -718,6 +755,92 @@ exports[`mg-input-text Should trigger events 1`] = `
       </template>
       <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
         <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" class="mg-c-input__box mg-c-input__box--width" id="identifier" maxlength="400" name="identifier" type="text">
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should trigger events 2`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" list="identifier-datalist" maxlength="400" name="identifier" type="text">
+        <datalist id="identifier-datalist">
+          <option value="Blu"></option>
+          <option value="Bla"></option>
+          <option value="Blo"></option>
+        </datalist>
+        <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
+      </div>
+      <slot name="append-input"></slot>
+      <div id="identifier-help-text" slot="help-text">
+        My help text
+      </div>
+      <mg-input-title identifier="identifier" is-legend="false" readonly="false" required="false" slot="label">
+        <!---->
+        <label class="mg-c-input-title" htmlfor="identifier">
+          <span class="mg-c-input-title__text">
+            label
+          </span>
+        </label>
+      </mg-input-title>
+    </mg-input>
+  </template>
+</mg-input-text>
+`;
+
+exports[`mg-input-text Should trigger events 3`] = `
+<mg-input-text>
+  <template shadowrootmode="open">
+    <mg-input class="mg-c-input mg-c-input--text mg-c-input--width-full mg-u-is-focused">
+      <template shadowrootmode="open">
+        <div class="mg-c-input__title">
+          <slot name="label"></slot>
+        </div>
+        <div class="mg-c-input__input-container">
+          <div class="mg-c-input__input">
+            <slot></slot>
+          </div>
+          <div class="mg-c-input__help-text">
+            <slot name="help-text"></slot>
+          </div>
+        </div>
+      </template>
+      <div class="mg-c-input__with-character-left" style="--mg-c-character-left-message-length: 7;">
+        <input aria-describedby="identifier-character-left identifier-help-text" aria-invalid="false" autocomplete="off" class="mg-c-input__box mg-c-input__box--width" id="identifier" list="identifier-datalist" maxlength="400" name="identifier" type="text">
+        <datalist id="identifier-datalist">
+          <option value="Blu"></option>
+          <option value="Bla"></option>
+          <option value="Blo"></option>
+        </datalist>
         <mg-character-left identifier="identifier-character-left" maxlength="400"></mg-character-left>
       </div>
       <slot name="append-input"></slot>

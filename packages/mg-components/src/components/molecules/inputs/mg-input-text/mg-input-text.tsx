@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
 import { allItemsAreString, ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { Option, TextType } from './mg-input-text.conf';
+import { OptionType, TextType } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
@@ -11,14 +13,15 @@ import { IconType } from '../../../../components';
  * @returns true id object is an option
  */
 
-const isOption = (option: unknown): option is Option => typeof option === 'object' && typeof (option as Option).title === 'string';
+const isOption = (option: unknown): option is OptionType =>
+  typeof option === 'object' && typeof (option as OptionType).title === 'string' && (option as OptionType).value !== undefined;
 
 /**
  * Check if datalist options are well structured.
  * @param options - Datalist options to check.
  * @returns True if datalist is well structured.
  */
-const isDatalistOptions = (options: unknown[]): options is string[] => allItemsAreString(options) || Array.isArray(options) && options.every(isOption);
+const isDatalistOptions = (options: unknown[]): options is string[] => allItemsAreString(options) || (Array.isArray(options) && options.every(isOption));
 
 /**
  * @slot append-input - Content to display next to the input
@@ -68,11 +71,11 @@ export class MgInputText {
   /**
    * Component value
    */
-  @Prop({ mutable: true, reflect: true }) value: string | Option;
+  @Prop({ mutable: true, reflect: true }) value: any;
   @Watch('value')
   handleValue(newValue: string): void {
-    if (this.datalistoptions.every(isOption)) {
-      this.valueChange.emit(this.datalistoptions.find(option => option.title === newValue) || newValue)
+    if (this.datalistoptions?.every(isOption)) {
+      this.valueChange.emit(this.datalistoptions.find(option => option.title === newValue)?.value || newValue);
     } else {
       this.valueChange.emit(newValue);
     }
@@ -131,7 +134,7 @@ export class MgInputText {
   /**
    * Define datalist options
    */
-  @Prop() datalistoptions: string[] | Option[];
+  @Prop() datalistoptions: string[] | OptionType[];
   @Watch('datalistoptions')
   validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
     if (Boolean(newValue) && !isDatalistOptions(newValue)) {
@@ -476,7 +479,7 @@ export class MgInputText {
                 class="mg-c-input__with-character-left"
                 style={{
                   '--mg-c-character-left-message-length': (!this.characterLeftHide
-                    ? (this.maxlength - (isOption(this.value) ? this.value.title : this.value || '').length).toString().length + this.maxlength.toString().length + 1
+                    ? (this.maxlength - (this.value || '').length).toString().length + this.maxlength.toString().length + 1
                     : 0
                   ).toString(),
                 }}
@@ -485,7 +488,7 @@ export class MgInputText {
                 <input
                   type={this.type}
                   class="mg-c-input__box mg-c-input__box--width"
-                  value={isOption(this.value) ? this.value.title : this.value}
+                  value={this.value}
                   id={this.identifier}
                   list={this.hasDatalist() ? this.datalistId : undefined}
                   autocomplete={this.hasDatalist() ? 'off' : undefined}
@@ -512,7 +515,7 @@ export class MgInputText {
                   </datalist>
                 )}
                 {!this.characterLeftHide && this.maxlength > 0 && (
-                  <mg-character-left identifier={this.characterLeftId} characters={isOption(this.value) ? this.value.title : this.value} maxlength={this.maxlength}></mg-character-left>
+                  <mg-character-left identifier={this.characterLeftId} characters={this.value} maxlength={this.maxlength}></mg-character-left>
                 )}
               </div>,
               <slot key="slot" name="append-input"></slot>,

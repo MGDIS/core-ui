@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-25T13:50:16",
+  "timestamp": "2024-07-25T14:34:01",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -7709,13 +7709,13 @@
           "name": "datalistoptions",
           "type": "Option[] | string[]",
           "complexType": {
-            "original": "string[] | Option[]",
+            "original": "string[] | OptionType[]",
             "resolved": "Option[] | string[]",
             "references": {
-              "Option": {
+              "OptionType": {
                 "location": "import",
                 "path": "./mg-input-text.conf",
-                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::Option"
+                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::OptionType"
               }
             }
           },
@@ -9021,17 +9021,11 @@
         },
         {
           "name": "value",
-          "type": "string | { title: string; value: unknown; }",
+          "type": "any",
           "complexType": {
-            "original": "string | Option",
-            "resolved": "string | { title: string; value: unknown; }",
-            "references": {
-              "Option": {
-                "location": "import",
-                "path": "./mg-input-text.conf",
-                "id": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::Option"
-              }
-            }
+            "original": "any",
+            "resolved": "any",
+            "references": {}
           },
           "mutable": true,
           "attr": "value",
@@ -9040,10 +9034,7 @@
           "docsTags": [],
           "values": [
             {
-              "type": "string"
-            },
-            {
-              "type": "{ title: string; value: unknown; }"
+              "type": "any"
             }
           ],
           "optional": false,
@@ -9175,11 +9166,11 @@
         },
         {
           "event": "value-change",
-          "detail": "string | { title: string; value: unknown; }",
+          "detail": "any",
           "bubbles": true,
           "complexType": {
             "original": "HTMLMgInputTextElement['value']",
-            "resolved": "string | { title: string; value: unknown; }",
+            "resolved": "any",
             "references": {
               "HTMLMgInputTextElement": {
                 "location": "global",
@@ -12905,14 +12896,9 @@
       "path": "src/components/molecules/inputs/mg-input-radio/mg-input-radio.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-select/mg-input-select.conf.ts::SelectOption": {
-      "declaration": "{\n  title: string;\n  value: unknown;\n  disabled?: boolean;\n  group?: string;\n}",
+      "declaration": "export type SelectOption = Option & {\n  disabled?: boolean;\n  group?: string;\n};",
       "docstring": "",
       "path": "src/components/molecules/inputs/mg-input-select/mg-input-select.conf.ts"
-    },
-    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::Option": {
-      "declaration": "{\n    title: string;\n    value: unknown;\n}",
-      "docstring": "",
-      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::TextType": {
       "declaration": "export type TextType = 'text' | 'search';",
@@ -12923,6 +12909,11 @@
       "declaration": "any",
       "docstring": "",
       "path": "src/components.d.ts"
+    },
+    "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts::OptionType": {
+      "declaration": "{\n  title: string;\n  value: unknown;\n}",
+      "docstring": "",
+      "path": "src/components/molecules/inputs/mg-input-text/mg-input-text.conf.ts"
     },
     "src/components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf.ts::ToggleValue": {
       "declaration": "{\n  title: string;\n  value: unknown;\n}",

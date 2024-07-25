@@ -1,12 +1,11 @@
+import { Option } from '../../../../types';
+
 /**
  * TextType from text types
  */
 export type TextType = 'text' | 'search';
 
 /**
- * 
+ * Option type
  */
-export type Option = {
-    title: string;
-    value: unknown;
-}
+export type OptionType = Option;

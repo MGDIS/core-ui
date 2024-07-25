@@ -1,10 +1,10 @@
+import { Option } from '../../../../types';
+
 /**
  * type SelectOption
  * use to match select \> option attributes
  */
-export type SelectOption = {
-  title: string;
-  value: unknown;
+export type SelectOption = Option & {
   disabled?: boolean;
   group?: string;
 };
