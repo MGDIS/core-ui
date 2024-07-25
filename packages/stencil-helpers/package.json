@@ -22,8 +22,8 @@
   },
   "scripts": {
     "build": "tsc --noEmit && vite build && typedoc",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
+    "test": "TZ=UTC vitest",
+    "coverage": "TZ=UTC vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
