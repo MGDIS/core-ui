@@ -159,8 +159,12 @@ export class MgPanel {
    * Update title handler
    * @param event - input value change event
    */
-  private handleUpdateTitle = (event: CustomEvent<string>): void => {
-    this.updatedPanelTitle = event.detail;
+  private handleUpdateTitle = (event: CustomEvent<HTMLMgInputTextElement['value']>): void => {
+    if (typeof event.detail === 'string') {
+      this.updatedPanelTitle = event.detail;
+    } else {
+      this.updatedPanelTitle = event.detail.title;
+    }
   };
 
   /**

@@ -17,7 +17,7 @@ import { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./co
 import { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 import { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 import { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
-import { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+import { Option, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 import { IconType as IconType1 } from "./components";
 import { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 import { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
@@ -42,7 +42,7 @@ export { CheckboxItem, CheckboxType, CheckboxValue, SectionKindType } from "./co
 export { Format, NumericType } from "./components/molecules/inputs/mg-input-numeric/mg-input-numeric.conf";
 export { RadioOption } from "./components/molecules/inputs/mg-input-radio/mg-input-radio.conf";
 export { SelectOption } from "./components/molecules/inputs/mg-input-select/mg-input-select.conf";
-export { TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
+export { Option, TextType } from "./components/molecules/inputs/mg-input-text/mg-input-text.conf";
 export { IconType as IconType1 } from "./components";
 export { ToggleValue } from "./components/molecules/inputs/mg-input-toggle/mg-input-toggle.conf";
 export { IconType as IconType2, SizeType, SlotLabelType } from "./components/molecules/internals/mg-item-more/mg-item-more.conf";
@@ -857,7 +857,7 @@ export namespace Components {
         /**
           * Define datalist options
          */
-        "datalistoptions": string[];
+        "datalistoptions": string[] | Option[];
         /**
           * Define if input is disabled
          */
@@ -955,7 +955,7 @@ export namespace Components {
         /**
           * Component value
          */
-        "value": string;
+        "value": string | Option;
     }
     interface MgInputTextarea {
         /**
@@ -2834,7 +2834,7 @@ declare namespace LocalJSX {
         /**
           * Define datalist options
          */
-        "datalistoptions"?: string[];
+        "datalistoptions"?: string[] | Option[];
         /**
           * Define if input is disabled
          */
@@ -2926,7 +2926,7 @@ declare namespace LocalJSX {
         /**
           * Component value
          */
-        "value"?: string;
+        "value"?: string | Option;
     }
     interface MgInputTextarea {
         /**
