@@ -202,6 +202,8 @@ export class StorybookPreview {
    */
   extractArgTypes = (tagName: string) => {
     const componentData = this.#getComponentData(tagName);
+
+    // Extract props arg types
     const componentPropsArgTypes = componentData?.props.reduce((acc, prop) => {
       // Get Controls
       const { control, options } = this.#getPropControl(prop);
@@ -224,7 +226,23 @@ export class StorybookPreview {
         },
       };
     }, {});
-    return componentPropsArgTypes;
+
+    // Extract events arg types
+    const componentEventsArgTypes = componentData?.events.reduce((acc, event) => {
+      return {
+        ...acc,
+        [event.event]: {
+          name: event.event,
+          description: event.docs,
+          table: {
+            category: 'events',
+            type: { summary: event.detail },
+          },
+        },
+      };
+    }, {});
+
+    return { ...componentPropsArgTypes, ...componentEventsArgTypes };
   };
 
   /**
