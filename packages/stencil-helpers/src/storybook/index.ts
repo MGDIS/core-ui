@@ -207,7 +207,6 @@ export class StorybookPreview {
     const componentPropsArgTypes = componentData?.props.reduce((acc, prop) => {
       // Get Controls
       const { control, options } = this.#getPropControl(prop);
-      console.log('extractArgTypes', prop.attr, control.type, options);
 
       // Set Component ArgTypes
       return {
@@ -242,7 +241,37 @@ export class StorybookPreview {
       };
     }, {});
 
-    return { ...componentPropsArgTypes, ...componentEventsArgTypes };
+    // Extracts Slots arg types
+    const componentSlotsArgTypes = componentData?.slots.reduce((acc, slot) => {
+      return {
+        ...acc,
+        [slot.name]: {
+          name: slot.name !== '' ? slot.name : 'default', // default slot are unnamed
+          description: slot.docs,
+          table: {
+            category: 'slots',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
+    // Extracts CSS Properties arg types
+    const componentCSSPropArgTypes = componentData?.styles.reduce((acc, style) => {
+      return {
+        ...acc,
+        [style.name]: {
+          name: style.name,
+          description: style.docs,
+          table: {
+            category: 'custom properties',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
+    return { ...componentPropsArgTypes, ...componentEventsArgTypes, ...componentSlotsArgTypes, ...componentCSSPropArgTypes };
   };
 
   /**
