@@ -100,7 +100,7 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
-          * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
+          * Define form id to attach button with. If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
          */
         "form"?: string;
         /**
@@ -2064,7 +2064,7 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
-          * Define form id to attach button with. If this attribute is not set, the <button> is associated with its ancestor <form> element.
+          * Define form id to attach button with. If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
          */
         "form"?: string;
         /**
