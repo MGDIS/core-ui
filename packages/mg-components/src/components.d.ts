@@ -76,10 +76,6 @@ export namespace Components {
     }
     interface MgAlert {
         /**
-          * Define if message has a close button
-         */
-        "closeButton": boolean;
-        /**
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
         "delay"?: number;
@@ -2040,10 +2036,6 @@ declare namespace LocalJSX {
         "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
     }
     interface MgAlert {
-        /**
-          * Define if message has a close button
-         */
-        "closeButton"?: boolean;
         /**
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */

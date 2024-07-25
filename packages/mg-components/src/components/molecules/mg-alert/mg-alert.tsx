@@ -74,20 +74,6 @@ export class MgAlert {
   }
 
   /**
-   * Define if message has a close button
-   */
-  @Prop({ mutable: true }) closeButton = false;
-  @Watch('closeButton')
-  watchCloseButton(newValue: MgAlert['closeButton']): void {
-    if (newValue && this.hasActions) {
-      this.closeButton = false;
-      throw new Error('<mg-alert> prop "close-button" can\'t be used with the actions slot.');
-    } else {
-      this.classCollection[newValue ? 'add' : 'delete'](this.classCloseButton);
-    }
-  }
-
-  /**
    * Watch hidden prop
    */
   // eslint-disable-next-line @stencil-community/no-unused-watch
@@ -197,9 +183,11 @@ export class MgAlert {
     this.watchVariantStyle(this.variantStyle);
     this.watchDelay(this.delay);
     this.watchHidden(this.element.hidden);
-    // Check if close button is an can be activated
+    // Check if component has actions slot
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
-    this.watchCloseButton(this.closeButton);
+    if (!this.hasActions) {
+      this.classCollection.add(this.classCloseButton);
+    }
   }
 
   /**
@@ -210,12 +198,11 @@ export class MgAlert {
     return (
       <mg-message class={this.classCollection.join()} role={this.variant === 'info' ? 'status' : 'alert'} variant={this.variant} variantStyle={this.variantStyle}>
         <slot></slot>
-        {this.hasActions && (
+        {this.hasActions ? (
           <span slot="actions">
             <slot name="actions"></slot>
           </span>
-        )}
-        {this.closeButton && (
+        ) : (
           <span class="mg-c-alert__close-button">
             <mg-button is-icon variant="flat" label={this.messages.alert.closeButton} onClick={this.handleClose}>
               <mg-icon icon="cross"></mg-icon>

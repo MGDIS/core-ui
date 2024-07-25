@@ -21,7 +21,7 @@ describe('mg-alert', () => {
 
   describe('Render', () => {
     describe.each(variants)('Should render a %s alert', variant => {
-      test.each([{}, { closeButton: true }, { closeButton: true, lang: 'fr' }, { closeButton: true, lang: 'xx' }])('with args %s', async args => {
+      test.each([{}, { lang: 'fr' }, { lang: 'xx' }])('with args %s', async args => {
         const { root } = await getPage({ ...args, variant }, getDefaultContent());
         expect(root).toMatchSnapshot();
       });
@@ -39,9 +39,8 @@ describe('mg-alert', () => {
     });
   });
 
-  test('Should hide message on close button', async () => {
-    const args = { closeButton: true };
-    const page = await getPage(args, getDefaultContent());
+  test('Should hide alert on close button', async () => {
+    const page = await getPage({}, getDefaultContent());
 
     const element = page.doc.querySelector('mg-alert');
     const button = element.shadowRoot.querySelector('mg-button');
@@ -55,7 +54,7 @@ describe('mg-alert', () => {
     expect(page.rootInstance.element.hidden).toBe(true);
   });
 
-  test('Should hide message on delay', async () => {
+  test('Should hide alert on delay', async () => {
     const args = { delay: 2 };
     const page = await getPage(args, getDefaultContent());
 
@@ -116,7 +115,7 @@ describe('mg-alert', () => {
       }
     });
 
-    test.each([' ', 'batman'])('should throw error %s', async variantStyle => {
+    test.each([' ', 'batman'])('should throw error with invalid variantStyle property: %s', async variantStyle => {
       expect.assertions(1);
       try {
         await getPage(
@@ -128,27 +127,12 @@ describe('mg-alert', () => {
       }
     });
 
-    test('Should throw error with invalid delay property: 50ms', async () => {
+    test('Should throw error with invalid delay property', async () => {
       expect.assertions(1);
       try {
         await getPage({ delay: 1 }, getDefaultContent());
       } catch (err) {
         expect(err.message).toMatch('<mg-alert> prop "delay" must be greater than 2 seconds.');
-      }
-    });
-
-    test('Should throw error when using prop "close-button" with an action slot', async () => {
-      expect.assertions(1);
-      try {
-        await getPage({ closeButton: true }, [
-          getDefaultContent(),
-          <div slot="actions">
-            <mg-button>Primary</mg-button>
-            <mg-button variant="secondary">Secondary</mg-button>
-          </div>,
-        ]);
-      } catch (err) {
-        expect(err.message).toMatch('<mg-alert> prop "close-button" can\'t be used with the actions slot.');
       }
     });
   });

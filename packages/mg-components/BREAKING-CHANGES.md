@@ -194,9 +194,9 @@ Our components for displaying card messages, `mg-card`, `mg-message`, and the ne
 
   ```html
   <!-- in v5 -->
-  <mg-card variant="success" variant-style="fill"> > You did it ! </mg-card>
+  <mg-card variant="success" variant-style="fill"> >You did it !</mg-card>
   <!-- in v6 -->
-  <mg-message variant="success" variant-style="backgroud"> > You did it ! </mg-message>
+  <mg-message variant="success" variant-style="backgroud"> >You did it !</mg-message>
   ```
 
 #### Changes in `mg-message`
@@ -205,21 +205,21 @@ Our components for displaying card messages, `mg-card`, `mg-message`, and the ne
 
   ```html
   <!-- in v5 -->
-  <mg-message variant-style="fill"> > You did it ! </mg-message>
+  <mg-message variant-style="fill"> >You did it !</mg-message>
   <!-- in v6 -->
-  <mg-message variant-style="background"> > You did it ! </mg-message>
+  <mg-message variant-style="background"> >You did it !</mg-message>
   ```
 
-- Removed `close-button` and `delay` props, which are now in the new `mg-alert` component.
+- Removed `delay` props, which are now in the new `mg-alert` component.
 
   ```html
   <!-- in v5 -->
-  <mg-message close-button delay="10"> You did it ! </mg-message>
+  <mg-message delay="10">You did it !</mg-message>
   <!-- in v6 -->
-  <mg-alert close-button delay="10"> You did it ! </mg-alert>
+  <mg-alert delay="10">You did it !</mg-alert>
   ```
 
-- Removed `no-aria-role` and `hide` props.
+- Removed `close-button`, `no-aria-role` and `hide` props.
 
 #### New `mg-alert` component
 
@@ -229,18 +229,27 @@ Our components for displaying card messages, `mg-card`, `mg-message`, and the ne
 
   ```html
   <!-- in v5 -->
-  <mg-message hide>Non</mg-message>
+  <mg-message hide>You did it !</mg-message>
   <!-- in v6 -->
-  <mg-alert hidden>Non</mg-alert>
+  <mg-alert hidden>You did it !</mg-alert>
+  ```
+
+- `close-button` props no longer exists. `mg-alert` has a close button by default, which is automatically removed if content is set in the `actions` slot.
+
+  ```html
+  <!-- in v5 -->
+  <mg-message close-button>You did it !</mg-message>
+  <!-- in v6 -->
+  <mg-alert>You did it !</mg-alert>
   ```
 
 - Updated `variant-style` value from `fill` to `background`.
 
   ```html
   <!-- in v5 -->
-  <mg-message variant-style="fill"> > You did it ! </mg-message>
+  <mg-message variant-style="fill"> >You did it !</mg-message>
   <!-- in v6 -->
-  <mg-alert variant-style="background"> > You did it ! </mg-alert>
+  <mg-alert variant-style="background"> >You did it !</mg-alert>
   ```
 
 ### Changes in `mg-action-more`

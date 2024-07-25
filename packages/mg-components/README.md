@@ -1,4 +1,4 @@
-# MG Components
+# @mgdis/mg-components
 
 ## Introduction
 

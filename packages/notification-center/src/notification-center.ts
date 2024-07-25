@@ -165,7 +165,6 @@ class NotificationCenter {
     // Init notification
     const notificationElement: HTMLElement = document.createElement(this.#notifactionTagName);
     notificationElement.classList.add('notification-center__notification');
-    notificationElement.setAttribute('close-button', '');
     // Variant
     if (variant) notificationElement.setAttribute('variant', variant);
     // Delay
