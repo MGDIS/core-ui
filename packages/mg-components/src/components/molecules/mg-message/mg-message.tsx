@@ -96,7 +96,7 @@ export class MgMessage {
     // Validate
     this.watchVariant(this.variant);
     this.watchVariantStyle(this.variantStyle);
-    // Check if close button is an can be activated
+    // Check if component has actions slot
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
   }
 
@@ -116,12 +116,12 @@ export class MgMessage {
             <span class="mg-c-message__content-slot">
               <slot></slot>
             </span>
-            {this.hasActions && <span class="mg-c-message__content-separator"></span>}
-            {this.hasActions && (
-              <span class="mg-c-message__content-actions-slot">
+            {this.hasActions && [
+              <span class="mg-c-message__content-separator" key="content-separator"></span>,
+              <span class="mg-c-message__content-actions-slot" key="content-actions-slot">
                 <slot name="actions"></slot>
-              </span>
-            )}
+              </span>,
+            ]}
           </div>
         </mg-card>
       </div>
