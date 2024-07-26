@@ -9,10 +9,13 @@ import { MgTooltipContent } from '../mg-tooltip-content/mg-tooltip-content';
 
 mockWindowFrames();
 
-const getPage = (args, element) =>
+const getPage = (args, element, ParentTagName?) =>
   newSpecPage({
     components: [MgTooltip, MgTooltipContent, MgButton, MgIcon],
-    template: () => <mg-tooltip {...args}>{element}</mg-tooltip>,
+    template: () => {
+      const mgTooltip = () => <mg-tooltip {...args}>{element}</mg-tooltip>;
+      return ParentTagName ? <ParentTagName>{mgTooltip()}</ParentTagName> : mgTooltip();
+    },
   });
 
 const setfirstElementChildReplaceWith = (element: HTMLElement): void => {
@@ -312,6 +315,12 @@ describe('mg-tooltip', () => {
 
     fireMo([{ attributeName: 'class' }]);
     await page.waitForChanges();
+
+    expect(page.root).toMatchSnapshot();
+  });
+
+  test('Should set popper strategy to absolute', async () => {
+    const page = await getPage({ identifier: 'identifier', message: 'My tooltip message' }, 'tooltip in popover', 'mg-popover');
 
     expect(page.root).toMatchSnapshot();
   });
