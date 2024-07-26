@@ -241,6 +241,21 @@ export class StorybookPreview {
       };
     }, {});
 
+    // Extracts Methods arg types
+    const componentMethodsArgTypes = componentData?.methods.reduce((acc, method) => {
+      return {
+        ...acc,
+        [method.name]: {
+          name: method.name,
+          description: method.docs,
+          table: {
+            category: 'methods',
+            type: { summary: method.signature },
+          },
+        },
+      };
+    }, {});
+
     // Extracts Slots arg types
     const componentSlotsArgTypes = componentData?.slots.reduce((acc, slot) => {
       return {
@@ -271,7 +286,13 @@ export class StorybookPreview {
       };
     }, {});
 
-    return { ...componentPropsArgTypes, ...componentEventsArgTypes, ...componentSlotsArgTypes, ...componentCSSPropArgTypes };
+    return {
+      ...componentPropsArgTypes,
+      ...componentEventsArgTypes,
+      ...componentMethodsArgTypes,
+      ...componentSlotsArgTypes,
+      ...componentCSSPropArgTypes,
+    };
   };
 
   /**
