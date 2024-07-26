@@ -31,6 +31,13 @@ describe('mg-input-text', () => {
     { type: 'search' },
     { type: 'search', icon: 'magnifying-glass' },
     { datalistoptions: ['batman', 'robin', 'joker'] },
+    {
+      datalistoptions: [
+        { title: 'batman', value: '1' },
+        { title: 'robin', value: '2' },
+        { title: 'joker', value: '3' },
+      ],
+    },
     { readonly: true, labelOnTop: true, tooltip: 'Tooltip message', tooltipPosition: 'input' },
     { readonly: true, labelOnTop: true, tooltip: 'Tooltip message', tooltipPosition: 'input', value: 'batman' },
     { readonly: true, value: 'blu' },
@@ -79,12 +86,17 @@ describe('mg-input-text', () => {
     }
   });
 
-  test.each([{ batman: undefined }, [undefined, 'batman']])('Should not render with invalid datalistoptions property: %s', async datalistoptions => {
+  test.each([
+    { batman: undefined },
+    [undefined, 'batman'],
+    [{ title: 'batman' }, { title: 'robin', value: '2' }, { title: 'joker', value: '3' }],
+    [{ value: '1' }, { title: 'robin', value: '2' }, { title: 'joker', value: '3' }],
+  ])('Should not render with invalid datalistoptions property: %s', async datalistoptions => {
     expect.assertions(1);
     try {
       await getPage({ identifier: 'identifier', label: 'comics', datalistoptions });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, string.');
+      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType.');
     }
   });
 
@@ -133,9 +145,17 @@ describe('mg-input-text', () => {
     }
   });
 
-  test('Should trigger events', async () => {
-    const inputValue = 'Blu';
-    const args = { label: 'label', identifier: 'identifier', helpText: 'My help text' };
+  test.each(['Blu', 'Bla', 'Bli', 'Blo'])('Should trigger events, case title: %s', async inputValue => {
+    const isDatalist = inputValue !== 'Blu';
+    const datalistoptions = isDatalist
+      ? [
+          { title: 'Blu', value: '1' },
+          { title: 'Bla', value: '2' },
+          { title: 'Blo', value: inputValue === 'Blo' ? { object: { hello: 'world' } } : '3' },
+          { title: 'Ble', value: inputValue === 'Ble' ? null : '4' },
+        ]
+      : undefined;
+    const args = { label: 'label', identifier: 'identifier', helpText: 'My help text', datalistoptions };
     const page = await getPage(args);
 
     const element = page.doc.querySelector('mg-input-text');
@@ -162,7 +182,9 @@ describe('mg-input-text', () => {
     input.value = inputValue;
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(inputValue);
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(
+      ['Bla', 'Blo', 'Ble'].includes(inputValue) ? datalistoptions.find(option => option.title === inputValue).value : inputValue,
+    );
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();

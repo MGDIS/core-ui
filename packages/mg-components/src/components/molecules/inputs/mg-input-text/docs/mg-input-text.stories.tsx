@@ -159,3 +159,18 @@ export const Datalist = {
     datalistoptions: ['agent', 'admin', 'user'],
   },
 };
+
+export const DatalistOption = {
+  render: Template,
+
+  args: {
+    ...MgInputText.args,
+    type: 'text',
+    icon: 'magnifying-glass',
+    datalistoptions: [
+      { title: 'agent', value: '/agent/123' },
+      { title: 'admin', value: '/admin/123' },
+      { title: 'user', value: '/user/123' },
+    ],
+  },
+};

@@ -22,3 +22,11 @@ export type InputError = 'min' | 'max' | 'minMax' | 'required' | 'badInput';
  * Defines the possible values for status
  */
 export type Status = 'visible' | 'hidden' | 'disabled' | 'active';
+
+/**
+ * Define option type
+ */
+export type Option = {
+  title: string;
+  value: unknown;
+};

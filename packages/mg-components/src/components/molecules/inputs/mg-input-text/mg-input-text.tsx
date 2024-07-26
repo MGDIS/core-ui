@@ -1,17 +1,27 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Component, Event, h, Prop, EventEmitter, State, Element, Method, Watch } from '@stencil/core';
-import { ClassList, isValidString } from '@mgdis/stencil-helpers';
-import { TextType } from './mg-input-text.conf';
+import { allItemsAreString, ClassList, isValidString } from '@mgdis/stencil-helpers';
+import { OptionType, TextType } from './mg-input-text.conf';
 import { type TooltipPosition, type Width, type EventType, widths, classReadonly, classDisabled } from '../mg-input/mg-input.conf';
 import { initLocales } from '../../../../locales';
 import { IconType } from '../../../../components';
 
 /**
+ * Check if object is an option
+ * @param option - object to validate
+ * @returns true id object is an option
+ */
+
+const isOption = (option: unknown): option is OptionType =>
+  typeof option === 'object' && typeof (option as OptionType).title === 'string' && (option as OptionType).value !== undefined;
+
+/**
  * Check if datalist options are well structured.
- *
  * @param options - Datalist options to check.
  * @returns True if datalist is well structured.
  */
-const isDatalistOption = (options: unknown[]): options is string[] => Array.isArray(options) && options.every(option => typeof option === 'string');
+const isDatalistOptions = (options: unknown[]): options is string[] => allItemsAreString(options) || (Array.isArray(options) && options.every(isOption));
 
 /**
  * @slot append-input - Content to display next to the input
@@ -61,10 +71,14 @@ export class MgInputText {
   /**
    * Component value
    */
-  @Prop({ mutable: true, reflect: true }) value: string;
+  @Prop({ mutable: true, reflect: true }) value: any;
   @Watch('value')
   handleValue(newValue: string): void {
-    this.valueChange.emit(newValue);
+    if (this.datalistoptions?.every(isOption)) {
+      this.valueChange.emit(this.datalistoptions.find(option => option.title === newValue)?.value || newValue);
+    } else {
+      this.valueChange.emit(newValue);
+    }
   }
 
   /**
@@ -120,11 +134,11 @@ export class MgInputText {
   /**
    * Define datalist options
    */
-  @Prop() datalistoptions: string[];
+  @Prop() datalistoptions: string[] | OptionType[];
   @Watch('datalistoptions')
   validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
-    if (Boolean(newValue) && !isDatalistOption(newValue)) {
-      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string.');
+    if (Boolean(newValue) && !isDatalistOptions(newValue)) {
+      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType.');
     }
   }
 
@@ -391,7 +405,7 @@ export class MgInputText {
    * Method to control datalist display condition
    * @returns true if display condition success
    */
-  private hasDatalist = (): boolean => isDatalistOption(this.datalistoptions) && this.datalistoptions.length > 0;
+  private hasDatalist = (): boolean => isDatalistOptions(this.datalistoptions) && this.datalistoptions.length > 0;
 
   /*************
    * Lifecycle *
@@ -496,7 +510,7 @@ export class MgInputText {
                 {this.hasDatalist() && (
                   <datalist id={this.datalistId}>
                     {this.datalistoptions.map(option => (
-                      <option value={option} key={option}></option>
+                      <option value={isOption(option) ? option.title : option} key={option}></option>
                     ))}
                   </datalist>
                 )}
