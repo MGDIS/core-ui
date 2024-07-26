@@ -96,7 +96,7 @@ describe('mg-input-text', () => {
     try {
       await getPage({ identifier: 'identifier', label: 'comics', datalistoptions });
     } catch (err) {
-      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, string or Option.');
+      expect(err.message).toMatch('<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType.');
     }
   });
 
@@ -145,13 +145,14 @@ describe('mg-input-text', () => {
     }
   });
 
-  test.each(['Blu', 'Bla', 'Bli'])('Should trigger events', async inputValue => {
-    const isDatalist = ['Bla', 'Bli'].includes(inputValue);
+  test.each(['Blu', 'Bla', 'Bli', 'Blo'])('Should trigger events, case title: %s', async inputValue => {
+    const isDatalist = inputValue !== 'Blu';
     const datalistoptions = isDatalist
       ? [
           { title: 'Blu', value: '1' },
           { title: 'Bla', value: '2' },
-          { title: 'Blo', value: '3' },
+          { title: 'Blo', value: inputValue === 'Blo' ? { object: { hello: 'world' } } : '3' },
+          { title: 'Ble', value: inputValue === 'Ble' ? null : '4' },
         ]
       : undefined;
     const args = { label: 'label', identifier: 'identifier', helpText: 'My help text', datalistoptions };
@@ -181,7 +182,9 @@ describe('mg-input-text', () => {
     input.value = inputValue;
     input.dispatchEvent(new CustomEvent('input', { bubbles: true }));
     await page.waitForChanges();
-    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(isDatalist && inputValue === 'Bla' ? datalistoptions[1].value : inputValue);
+    expect(page.rootInstance.valueChange.emit).toHaveBeenCalledWith(
+      ['Bla', 'Blo', 'Ble'].includes(inputValue) ? datalistoptions.find(option => option.title === inputValue).value : inputValue,
+    );
 
     input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
     await page.waitForChanges();
