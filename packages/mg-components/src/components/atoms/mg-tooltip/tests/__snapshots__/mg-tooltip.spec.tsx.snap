@@ -678,6 +678,25 @@ exports[`mg-tooltip Should render with element with given placement 1`] = `
 </mg-tooltip>
 `;
 
+exports[`mg-tooltip Should set popper strategy to absolute 1`] = `
+<mg-tooltip>
+  <template shadowrootmode="open">
+    <slot></slot>
+    <slot name="content"></slot>
+  </template>
+  tooltip in popover
+  <mg-tooltip-content data-popper-placement="bottom" data-popper-reference-hidden id="identifier" role="tooltip" slot="content" style="position: absolute; left: 0; top: 0; margin: 0; right: auto; bottom: auto; transform: translate(0px, 0px);">
+    <template shadowrootmode="open">
+      <span class="mg-tooltip-content__message">
+        My tooltip message
+      </span>
+      <slot name="arrow"></slot>
+    </template>
+    <div aria-describedby="identifier" data-popper-arrow role="button" slot="arrow" tabindex="0" style="position: absolute;"></div>
+  </mg-tooltip-content>
+</mg-tooltip>
+`;
+
 exports[`mg-tooltip Should toggle tooltip from prop display, case display false 1`] = `
 <mg-tooltip>
   <template shadowrootmode="open">

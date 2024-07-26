@@ -223,11 +223,9 @@ export class MgTooltip {
 
   /**
    * Set popper instance
+   * @param strategy - popper strategy to apply on instance
    */
-  private setPopper = (): void => {
-    // use element data attribute: `data-popper-strategy`, in order to get popper strategy configuration
-    const strategy = (this.element.dataset.popperStrategy || 'fixed') as PositioningStrategy;
-
+  private setPopper = (strategy: PositioningStrategy): void => {
     // Create popperjs tooltip
     this.popper = createPopper(this.tooltipedElement, this.mgTooltipContent, {
       placement: this.placement,
@@ -409,7 +407,7 @@ export class MgTooltip {
     this.setAriaDescribedby(slotElement);
 
     // set Tooltip
-    this.setPopper();
+    this.setPopper(this.element.closest('mg-popover') ? 'absolute' : 'fixed');
 
     // add document keyboard handler
     document.addEventListener('keydown', this.handlePressEscape);

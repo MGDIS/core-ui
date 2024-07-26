@@ -169,7 +169,7 @@ export class MgInputCheckboxPaginated implements IMgInputCheckboxBase {
             <p class="mg-c-input__section-header-title mg-c-input__section-header-title--static">{getText(this.checkboxes)}</p>
           )}
           {((this.sectionKind === SectionKind.SELECTED && this.expanded) || this.sectionKind === SectionKind.NOT_SELECTED) && (
-            <mg-tooltip class="mg-c-input__section-header-tootlip" message={this.messages.tooltip} data-popper-strategy="absolute">
+            <mg-tooltip class="mg-c-input__section-header-tootlip" message={this.messages.tooltip}>
               <mg-button variant="link" onClick={this.massActionHandler}>
                 {this.messages.action}
               </mg-button>
