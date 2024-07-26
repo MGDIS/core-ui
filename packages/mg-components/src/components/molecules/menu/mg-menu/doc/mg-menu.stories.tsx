@@ -8,15 +8,6 @@ import type { MgMenu as MgMenuType } from '../mg-menu';
 export default {
   component: 'mg-menu',
   title: 'Molecules/Menus/mg-menu',
-  argTypes: {
-    direction: {
-      options: [undefined, Direction.HORIZONTAL, Direction.VERTICAL],
-      control: { type: 'select' },
-    },
-    itemmore: {
-      control: { type: 'object' },
-    },
-  },
 };
 
 /****************

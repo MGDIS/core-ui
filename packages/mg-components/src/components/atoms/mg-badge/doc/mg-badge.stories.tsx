@@ -6,11 +6,6 @@ import type { MgBadge as MgBadgeType } from '../mg-badge';
 export default {
   component: 'mg-badge',
   title: 'Atoms/mg-badge',
-  argTypes: {
-    value: {
-      control: { type: 'text' },
-    },
-  },
 };
 
 /**

@@ -1,0 +1,242 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`storybook > StorybookPreview > extractArgTypes > Should extract arg types 1`] = `
+{
+  "": {
+    "description": "",
+    "name": "default",
+    "table": {
+      "category": "slots",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+  "--custom-prop": {
+    "description": "custom prop docs",
+    "name": "--custom-prop",
+    "table": {
+      "category": "custom properties",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+  "arraytypes": {
+    "control": {
+      "type": "object",
+    },
+    "description": "docs",
+    "name": "arraytypes",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "number[] | string[]",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "attr": {
+    "control": {
+      "type": "text",
+    },
+    "description": "docs",
+    "name": "attr",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "string",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "boolean": {
+    "control": {
+      "type": "boolean",
+    },
+    "description": "docs",
+    "name": "boolean",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "boolean",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "event": {
+    "description": "docs",
+    "name": "event",
+    "table": {
+      "category": "events",
+      "type": {
+        "summary": "boolean",
+      },
+    },
+  },
+  "method": {
+    "description": "docs",
+    "name": "method",
+    "table": {
+      "category": "methods",
+      "type": {
+        "summary": "",
+      },
+    },
+  },
+  "multionetype": {
+    "control": {
+      "type": "object",
+    },
+    "description": "docs",
+    "name": "multionetype",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "(string | number)[]",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "multitype": {
+    "control": {
+      "type": "select",
+    },
+    "description": "docs",
+    "name": "multitype",
+    "options": [
+      undefined,
+      "blu",
+      "bli",
+    ],
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": ""blu" | "bli"",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "multitypewithstring": {
+    "control": {
+      "type": "text",
+    },
+    "description": "docs",
+    "name": "multitypewithstring",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "number | string",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "number": {
+    "control": {
+      "type": "number",
+    },
+    "description": "docs",
+    "name": "number",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "number",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "objecttype": {
+    "control": {
+      "type": "object",
+    },
+    "description": "docs",
+    "name": "objecttype",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "{ type: string, value: "blu" | "bli" }",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "prop": {
+    "control": {
+      "type": "text",
+    },
+    "description": "docs",
+    "name": "prop",
+    "options": undefined,
+    "table": {
+      "category": "props",
+      "defaultValue": {
+        "summary": undefined,
+      },
+      "type": {
+        "summary": "string",
+      },
+    },
+    "type": {
+      "required": true,
+    },
+  },
+  "title": {
+    "description": "",
+    "name": "title",
+    "table": {
+      "category": "slots",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+}
+`;
+
+exports[`storybook > StorybookPreview > extractComponentDescription > Should extract component description 1`] = `""`;

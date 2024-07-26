@@ -6,15 +6,6 @@ import type { MgMessage as MgMessageType } from '../mg-message';
 export default {
   component: 'mg-message',
   title: 'Molecules/mg-message',
-  argTypes: {
-    variant: {
-      options: variants,
-      control: { type: 'select' },
-      table: {
-        defaultValue: { summary: variants[0] },
-      },
-    },
-  },
   parameters: { actions: { handles: ['component-show', 'component-hide'] } },
 };
 
