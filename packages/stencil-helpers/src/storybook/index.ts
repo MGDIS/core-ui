@@ -221,7 +221,6 @@ export class StorybookPreview {
     const componentPropsArgTypes = componentData?.props.reduce((acc, prop) => {
       // Get Controls
       const { control, options } = this.#getPropControl(prop);
-
       // Set Component ArgTypes
       return {
         ...acc,
@@ -241,8 +240,8 @@ export class StorybookPreview {
     }, {});
 
     // Extract events arg types
-    const componentEventsArgTypes = componentData?.events.reduce((acc, event) => {
-      return {
+    const componentEventsArgTypes = componentData?.events.reduce(
+      (acc, event) => ({
         ...acc,
         [event.event]: {
           name: event.event,
@@ -252,12 +251,13 @@ export class StorybookPreview {
             type: { summary: event.detail },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extracts Methods arg types
-    const componentMethodsArgTypes = componentData?.methods.reduce((acc, method) => {
-      return {
+    const componentMethodsArgTypes = componentData?.methods.reduce(
+      (acc, method) => ({
         ...acc,
         [method.name]: {
           name: method.name,
@@ -267,12 +267,13 @@ export class StorybookPreview {
             type: { summary: method.signature },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extracts Slots arg types
-    const componentSlotsArgTypes = componentData?.slots.reduce((acc, slot) => {
-      return {
+    const componentSlotsArgTypes = componentData?.slots.reduce(
+      (acc, slot) => ({
         ...acc,
         [slot.name]: {
           name: slot.name !== '' ? slot.name : 'default', // default slot are unnamed
@@ -282,12 +283,13 @@ export class StorybookPreview {
             type: { summary: undefined },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extracts CSS Properties arg types
-    const componentCSSPropArgTypes = componentData?.styles.reduce((acc, style) => {
-      return {
+    const componentCSSPropArgTypes = componentData?.styles.reduce(
+      (acc, style) => ({
         ...acc,
         [style.name]: {
           name: style.name,
@@ -297,8 +299,9 @@ export class StorybookPreview {
             type: { summary: undefined },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extract component dependencies
     const componentDependencies = componentData?.dependencies.reduce((acc, dependency) => {
@@ -319,8 +322,6 @@ export class StorybookPreview {
     // Extract dependents components
     const componentDependents = componentData?.dependents.reduce((acc, dependent) => {
       const dependentData = this.#getComponentData(dependent);
-      console.log('dependentData', dependentData);
-
       return {
         ...acc,
         [dependent]: {
