@@ -1,18 +1,5 @@
 import { JsonDocs, JsonDocsComponent, JsonDocsProp } from '@stencil/core/internal';
-
-/**
- * Retrieve Component Storybook URL from file path
- * @param storybookBaseUrl - Storybook Base URL
- * @param filePath - Component file path
- * @returns Component Storybook URL
- */
-const getStorybookUrl = (storybookBaseUrl: string, filePath: string | undefined): string | undefined => {
-  if (!filePath) {
-    return;
-  }
-  const split = filePath.split('/');
-  return `${storybookBaseUrl}${split.slice(2, split.length - 1).join('-')}--docs`;
-};
+import { getStorybookUrl } from '../storybook';
 
 /**
  * Retrieve Component source URL from file path

@@ -138,6 +138,20 @@ export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }: VNode): str
   return host.innerHTML;
 };
 
+/**
+ * Retrieve Component Storybook URL from file path
+ * @param storybookBaseUrl - Storybook Base URL
+ * @param filePath - Component file path
+ * @returns Component Storybook URL
+ */
+export const getStorybookUrl = (storybookBaseUrl: string, filePath: string | undefined): string | undefined => {
+  if (!filePath) {
+    return;
+  }
+  const split = filePath.split('/');
+  return `${storybookBaseUrl}${split.slice(2, split.length - 1).join('-')}--docs`;
+};
+
 export class StorybookPreview {
   /**
    * JsonDocs
@@ -207,7 +221,6 @@ export class StorybookPreview {
     const componentPropsArgTypes = componentData?.props.reduce((acc, prop) => {
       // Get Controls
       const { control, options } = this.#getPropControl(prop);
-
       // Set Component ArgTypes
       return {
         ...acc,
@@ -227,8 +240,8 @@ export class StorybookPreview {
     }, {});
 
     // Extract events arg types
-    const componentEventsArgTypes = componentData?.events.reduce((acc, event) => {
-      return {
+    const componentEventsArgTypes = componentData?.events.reduce(
+      (acc, event) => ({
         ...acc,
         [event.event]: {
           name: event.event,
@@ -238,12 +251,13 @@ export class StorybookPreview {
             type: { summary: event.detail },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extracts Methods arg types
-    const componentMethodsArgTypes = componentData?.methods.reduce((acc, method) => {
-      return {
+    const componentMethodsArgTypes = componentData?.methods.reduce(
+      (acc, method) => ({
         ...acc,
         [method.name]: {
           name: method.name,
@@ -253,12 +267,13 @@ export class StorybookPreview {
             type: { summary: method.signature },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extracts Slots arg types
-    const componentSlotsArgTypes = componentData?.slots.reduce((acc, slot) => {
-      return {
+    const componentSlotsArgTypes = componentData?.slots.reduce(
+      (acc, slot) => ({
         ...acc,
         [slot.name]: {
           name: slot.name !== '' ? slot.name : 'default', // default slot are unnamed
@@ -268,18 +283,52 @@ export class StorybookPreview {
             type: { summary: undefined },
           },
         },
-      };
-    }, {});
+      }),
+      {},
+    );
 
     // Extracts CSS Properties arg types
-    const componentCSSPropArgTypes = componentData?.styles.reduce((acc, style) => {
-      return {
+    const componentCSSPropArgTypes = componentData?.styles.reduce(
+      (acc, style) => ({
         ...acc,
         [style.name]: {
           name: style.name,
           description: style.docs,
           table: {
             category: 'custom properties',
+            type: { summary: undefined },
+          },
+        },
+      }),
+      {},
+    );
+
+    // Extract component dependencies
+    const componentDependencies = componentData?.dependencies.reduce((acc, dependency) => {
+      const dependencyData = this.#getComponentData(dependency);
+      return {
+        ...acc,
+        [dependency]: {
+          name: dependency,
+          description: `<a href="./?path=/docs/${getStorybookUrl('', dependencyData?.filePath)}">View Component Documentation</a>`,
+          table: {
+            category: 'depends on',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
+    // Extract dependents components
+    const componentDependents = componentData?.dependents.reduce((acc, dependent) => {
+      const dependentData = this.#getComponentData(dependent);
+      return {
+        ...acc,
+        [dependent]: {
+          name: dependent,
+          description: `<a href="./?path=/docs/${getStorybookUrl('', dependentData?.filePath)}">View Component Documentation</a>`,
+          table: {
+            category: 'used by',
             type: { summary: undefined },
           },
         },
@@ -292,6 +341,8 @@ export class StorybookPreview {
       ...componentMethodsArgTypes,
       ...componentSlotsArgTypes,
       ...componentCSSPropArgTypes,
+      ...componentDependencies,
+      ...componentDependents,
     };
   };
 

@@ -114,7 +114,9 @@ describe('storybook', () => {
     describe('extractArgTypes', () => {
       test('Should extract arg types', () => {
         const { extractArgTypes } = new StorybookPreview(jsonDocs as JsonDocs);
-        const res = extractArgTypes('my-comp');
+        let res = extractArgTypes('my-comp');
+        expect(res).toMatchSnapshot();
+        res = extractArgTypes('my-second-comp');
         expect(res).toMatchSnapshot();
       });
     });
