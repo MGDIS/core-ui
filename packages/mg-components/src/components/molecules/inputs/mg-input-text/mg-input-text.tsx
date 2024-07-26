@@ -138,7 +138,7 @@ export class MgInputText {
   @Watch('datalistoptions')
   validateDatalistoptions(newValue: MgInputText['datalistoptions']) {
     if (Boolean(newValue) && !isDatalistOptions(newValue)) {
-      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string or Option.');
+      throw new Error('<mg-input-text> prop "datalistoptions" values must be the same type, string or OptionType.');
     }
   }
 
