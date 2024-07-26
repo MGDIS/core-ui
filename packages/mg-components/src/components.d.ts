@@ -76,10 +76,6 @@ export namespace Components {
     }
     interface MgAlert {
         /**
-          * Define if message has a close button
-         */
-        "closeButton": boolean;
-        /**
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
         "delay"?: number;
@@ -1207,11 +1203,11 @@ export namespace Components {
         /**
           * Define variant
          */
-        "variant": undefined | VariantType2;
+        "variant": VariantType2;
         /**
           * Define variant style
          */
-        "variantStyle": undefined | VariantStyleType1;
+        "variantStyle": VariantStyleType1;
     }
     interface MgModal {
         /**
@@ -2040,10 +2036,6 @@ declare namespace LocalJSX {
         "items": (MgActionMoreItemType | MgActionMoreDividerType)[];
     }
     interface MgAlert {
-        /**
-          * Define if message has a close button
-         */
-        "closeButton"?: boolean;
         /**
           * Add a delay to hide/close message when it passed Value is defined in seconds and must greater than 2 seconds
          */
@@ -3190,11 +3182,11 @@ declare namespace LocalJSX {
         /**
           * Define variant
          */
-        "variant"?: undefined | VariantType2;
+        "variant"?: VariantType2;
         /**
           * Define variant style
          */
-        "variantStyle"?: undefined | VariantStyleType1;
+        "variantStyle"?: VariantStyleType1;
     }
     interface MgModal {
         /**

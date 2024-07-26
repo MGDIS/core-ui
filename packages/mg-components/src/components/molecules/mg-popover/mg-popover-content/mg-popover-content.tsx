@@ -69,7 +69,7 @@ export class MgPopoverContent {
 
     const slottedTitleElement = this.element.querySelector('[slot="title"]');
     if (slottedTitleElement && !isTagName(slottedTitleElement, headingTags)) {
-      throw new Error(`<mg-popover> Slotted title must be a heading: ${headingTags.join(', ')}`);
+      throw new Error(`<mg-popover> Slotted title must be a heading: ${headingTags.join(', ')}.`);
     }
   }
 

@@ -74,7 +74,7 @@ export class MgItemMore {
    */
   private setProxyElement = (proxified: HTMLMgMenuItemElement): void => {
     const proxy: HTMLMgMenuItemElement = this.moreElementMenuItem.querySelector(`[identifier="${proxified.identifier}"]`);
-    if (!proxy) return;
+    if (proxy === null) return;
 
     // remove proxy id to prevent duplicate key. default html id is: '';
     if (isValidString(proxy.id)) proxy.id = '';
@@ -129,7 +129,7 @@ export class MgItemMore {
 
       // we need to get all `mg-menu-item` linked to the cloned one to set mirror process
       nextTick(() => {
-        if (child.querySelector('mg-menu')) {
+        if (child.querySelector('mg-menu') !== null) {
           child.querySelectorAll('mg-menu-item').forEach(this.setProxyElement);
         } else {
           this.setProxyElement(child);
@@ -172,7 +172,7 @@ export class MgItemMore {
    * Set OverflowBehavior when parentMenu state is upate AND defined
    */
   componentDidUpdate(): void {
-    if (this.parentMenu && !this.overflowBehavior) {
+    if (this.parentMenu && this.overflowBehavior === undefined) {
       this.parentMenuItems = Array.from(this.parentMenu.children).filter(item => item.nodeName === 'MG-MENU-ITEM') as HTMLMgMenuItemElement[];
       this.overflowBehavior = new OverflowBehavior(this.parentMenu, this.renderMgMenuItemOverflowElement);
     }
@@ -198,7 +198,9 @@ export class MgItemMore {
             data-size={this.parentMenu.size}
             identifier="mg-item-more"
             ref={el => {
-              if (el) this.moreElementMenuItem = el;
+              if (el !== null) {
+                this.moreElementMenuItem = el;
+              }
             }}
           >
             <mg-icon icon={this.icon.icon} size={this.size} slot="image"></mg-icon>

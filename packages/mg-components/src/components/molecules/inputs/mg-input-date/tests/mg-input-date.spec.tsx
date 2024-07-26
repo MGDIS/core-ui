@@ -329,16 +329,16 @@ describe('mg-input-date', () => {
       expect(element.valid).toEqual(true);
       expect(page.root).toMatchSnapshot(); // no error displayed
 
-      if (min) element.min = min;
-      if (max) element.max = max;
+      if (min !== undefined) element.min = min;
+      if (max !== undefined) element.max = max;
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
       expect(element.valid).toEqual(input.checkValidity());
       expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
 
-      if (min) element.min = next;
-      if (max) element.max = next;
+      if (min !== undefined) element.min = next;
+      if (max !== undefined) element.max = next;
       await page.waitForChanges();
 
       expect(element.valid).toEqual(true);
@@ -431,7 +431,7 @@ describe('mg-input-date', () => {
         ...minMax,
       });
     } catch (err) {
-      expect(err.message).toBe("<mg-input-date> props 'min/max' doesn't match pattern: yyyy-mm-dd");
+      expect(err.message).toBe("<mg-input-date> props 'min/max' doesn't match pattern: 'yyyy-mm-dd'.");
     }
   });
 

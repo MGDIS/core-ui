@@ -317,9 +317,9 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
   @Method()
   async setError(valid: MgInputCheckbox['valid'], errorMessage: string): Promise<void> {
     if (typeof valid !== 'boolean') {
-      throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean');
+      throw new Error('<mg-input-checkbox> method "setError()" param "valid" must be a boolean.');
     } else if (!isValidString(errorMessage)) {
-      throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string');
+      throw new Error('<mg-input-checkbox> method "setError()" param "errorMessage" must be a string.');
     } else {
       this.setValidity(valid);
       this.setErrorMessage(undefined, valid ? undefined : errorMessage);
@@ -363,12 +363,13 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
       }
 
       const enableInputs = Array.from(this.element.shadowRoot.querySelectorAll('input'))
-        .filter(input => !input.getAttribute('disabled'))
+        .filter(input => !input.hasAttribute('disabled'))
         .map(({ id }) => id);
       const originInputIndex = enableInputs.findIndex(id => id === event.target.id);
 
       // close popover when tab trigger focus outside its DOM
-      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && !this.searchInput)) this.mgPopover.display = false;
+      if ((originInputIndex + 1 >= enableInputs.length && !event.shiftKey) || (originInputIndex === 0 && event.shiftKey && this.searchInput === undefined))
+        this.mgPopover.display = false;
     }
   };
 
@@ -661,7 +662,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
           display={this.hasOpenedPopover}
           onDisplay-change={this.handleMgPopoverDisplayChange}
           ref={(el: HTMLMgPopoverElement) => {
-            if (el) this.mgPopover = el;
+            if (el !== null) this.mgPopover = el;
           }}
         >
           <mg-button variant="secondary" aria-describedby={`${this.identifier}-title`}>
@@ -784,7 +785,7 @@ export class MgInputCheckbox implements Omit<MgInputCheckboxListProps, 'id' | 'c
         labelHide={this.labelHide}
         required={!this.readonly ? this.required : undefined} // required is only used display asterisk
         tooltip={this.tooltip}
-        tooltipPosition={this.readonly && !readonlyValue.length ? 'label' : this.tooltipPosition}
+        tooltipPosition={this.readonly && readonlyValue.length === 0 ? 'label' : this.tooltipPosition}
         helpText={!this.readonly ? this.helpText : undefined}
         errorMessage={!this.readonly ? this.errorMessage : undefined}
       >

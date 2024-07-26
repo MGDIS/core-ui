@@ -30,12 +30,10 @@
 
 ## CSS Custom Properties
 
-| Name                                 | Description                                                                                                                |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| `--mg-c-tabs-border-bottom`          | Defines the bottom border of tabs. Default value: `--mg-b-border`.                                                         |
-| `--mg-c-tabs-color-background-focus` | Defines the background color of focused tabs. Default value: `color-mix(in srgb, var(--mg-b-color-app), transparent 90%)`. |
-| `--mg-c-tabs-color-border-active`    | Defines the border color of active tabs. Default value: `--mg-b-color-app`.                                                |
-| `--mg-c-tabs-color-text-active`      | Defines the color of active tabs. Default value: `--mg-b-color-app`.                                                       |
+| Name                     | Description                                                                                         |
+| ------------------------ | --------------------------------------------------------------------------------------------------- |
+| `--mg-c-tabs-color`      | Defines tabs global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`. |
+| `--mg-c-tabs-color-text` | Defines tabs text color. Unset by default, fallback on `--mg-b-color-dark`.                         |
 
 
 ## Dependencies

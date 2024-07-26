@@ -1,3 +1,4 @@
+@use '../functions' as functions;
 @import 'mixins/reset-mg-card-slotted-variables';
 
 $border-arrow-head: var(--mg-b-size-8) solid var(--mg-c-popover-color-background);
@@ -28,7 +29,7 @@ $border-arrow-side: calc(var(--mg-b-size-24) / 2) solid transparent;
 
   mg-button {
     margin-top: calc(-1 * ((var(--mg-b-size-min-height) - var(--mg-c-popover-title-font-size) * var(--mg-b-line-height)) / 2));
-    margin-right: calc(-1 * ((var(--mg-b-size-min-height) - var(--mg-c-icon-size-medium)) / 2));
+    margin-right: calc(-1 * ((var(--mg-b-size-min-height) - functions.get-icon-size('medium')) / 2));
     margin-left: var(--mg-b-size-32);
     float: right;
   }

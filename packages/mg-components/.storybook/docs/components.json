@@ -1,5 +1,5 @@
 {
-  "timestamp": "2024-07-25T14:34:01",
+  "timestamp": "2024-07-26T06:32:10",
   "compiler": {
     "name": "@stencil/core",
     "version": "4.19.2",
@@ -1029,28 +1029,6 @@
       "usage": {},
       "props": [
         {
-          "name": "closeButton",
-          "type": "boolean",
-          "complexType": {
-            "original": "boolean",
-            "resolved": "boolean",
-            "references": {}
-          },
-          "mutable": true,
-          "attr": "close-button",
-          "reflectToAttr": false,
-          "docs": "Define if message has a close button",
-          "docsTags": [],
-          "default": "false",
-          "values": [
-            {
-              "type": "boolean"
-            }
-          ],
-          "optional": false,
-          "required": false
-        },
-        {
           "name": "delay",
           "type": "number",
           "complexType": {
@@ -1343,6 +1321,11 @@
       "listeners": [],
       "styles": [
         {
+          "name": "--mg-c-badge-color-text",
+          "annotation": "prop",
+          "docs": "Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`."
+        },
+        {
           "name": "--mg-c-badge-font-size",
           "annotation": "prop",
           "docs": "Defines the font size of the badge. The default value is `--mg-b-font-size-small`."
@@ -1351,11 +1334,6 @@
           "name": "--mg-c-badge-size",
           "annotation": "prop",
           "docs": "Defines the height and minimum width of the badge. The default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-badge-text-color",
-          "annotation": "prop",
-          "docs": "Defines the font color of the badge when used with the `text-color` variant and without `outline`. The default value is `--mg-b-color-light`."
         }
       ],
       "slots": [],
@@ -3547,31 +3525,6 @@
           "name": "--mg-c-icon-border-radius",
           "annotation": "prop",
           "docs": "Defines the border radius of icons. Default value is `50%`."
-        },
-        {
-          "name": "--mg-c-icon-size-large",
-          "annotation": "prop",
-          "docs": "Defines the size of large icons. Default value is `--mg-b-size-20`."
-        },
-        {
-          "name": "--mg-c-icon-size-medium",
-          "annotation": "prop",
-          "docs": "Defines the size of medium icons. Default value is `--mg-b-size-16`."
-        },
-        {
-          "name": "--mg-c-icon-size-small",
-          "annotation": "prop",
-          "docs": "Defines the size of small icons. Default value is `--mg-b-size-12`."
-        },
-        {
-          "name": "--mg-c-icon-size-xlarge",
-          "annotation": "prop",
-          "docs": "Defines the size of extra large icons. Default value is `--mg-b-size-24`."
-        },
-        {
-          "name": "--mg-c-icon-size-xxlarge",
-          "annotation": "prop",
-          "docs": "Defines the size of double extra large icons. Default value is `--mg-b-size-32`."
         }
       ],
       "slots": [],
@@ -10567,7 +10520,7 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-menu-background-color",
+          "name": "--mg-c-menu-color-background",
           "annotation": "prop",
           "docs": "Defines the background color of the menu. Unset by default, fallback on `--mg-b-color-light`."
         }
@@ -10846,22 +10799,12 @@
         {
           "name": "--mg-c-menu-item-color",
           "annotation": "prop",
-          "docs": "Defines the color of the menu item. Unset by default, fallback on `var(--mg-b-color-dark)`."
+          "docs": "Defines menu item global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`."
         },
         {
-          "name": "--mg-c-menu-item-color-background-focus",
+          "name": "--mg-c-menu-item-color-text",
           "annotation": "prop",
-          "docs": "Defines the background color of the focused menu item. Default value is `color-mix(in srgb, var(--mg-b-color-dark), white 90%)`."
-        },
-        {
-          "name": "--mg-c-menu-item-color-border-active",
-          "annotation": "prop",
-          "docs": "Defines the border color of the active menu item. Default value is `var(--mg-b-color-app)`."
-        },
-        {
-          "name": "--mg-c-menu-item-color-text-active",
-          "annotation": "prop",
-          "docs": "Defines the color of the active menu item. Default value is `--mg-b-color-app`."
+          "docs": "Defines the color of the menu item. Unset by default, fallback on `--mg-b-color-dark`."
         },
         {
           "name": "--mg-c-menu-item-navigation-button-max-width",
@@ -10948,7 +10891,7 @@
           "name": "variant",
           "type": "\"danger\" | \"info\" | \"success\" | \"warning\"",
           "complexType": {
-            "original": "undefined | VariantType",
+            "original": "VariantType",
             "resolved": "\"danger\" | \"info\" | \"success\" | \"warning\"",
             "references": {
               "VariantType": {
@@ -10989,7 +10932,7 @@
           "name": "variantStyle",
           "type": "\"background\" | \"bar-left\"",
           "complexType": {
-            "original": "undefined | VariantStyleType",
+            "original": "VariantStyleType",
             "resolved": "\"background\" | \"bar-left\"",
             "references": {
               "VariantStyleType": {
@@ -12346,24 +12289,14 @@
       "listeners": [],
       "styles": [
         {
-          "name": "--mg-c-tabs-border-bottom",
+          "name": "--mg-c-tabs-color",
           "annotation": "prop",
-          "docs": "Defines the bottom border of tabs. Default value: `--mg-b-border`."
+          "docs": "Defines tabs global color, used for bottom line and active tabs. Default value: `--mg-b-color-app`."
         },
         {
-          "name": "--mg-c-tabs-color-background-focus",
+          "name": "--mg-c-tabs-color-text",
           "annotation": "prop",
-          "docs": "Defines the background color of focused tabs. Default value: `color-mix(in srgb, var(--mg-b-color-app), transparent 90%)`."
-        },
-        {
-          "name": "--mg-c-tabs-color-border-active",
-          "annotation": "prop",
-          "docs": "Defines the border color of active tabs. Default value: `--mg-b-color-app`."
-        },
-        {
-          "name": "--mg-c-tabs-color-text-active",
-          "annotation": "prop",
-          "docs": "Defines the color of active tabs. Default value: `--mg-b-color-app`."
+          "docs": "Defines tabs text color. Unset by default, fallback on `--mg-b-color-dark`."
         }
       ],
       "slots": [

@@ -16,7 +16,7 @@ You can install the library using jsDelivr CDN by adding those script in the HTM
 Add MG Components to your project.
 
 ```bash
-npm install @mgdis/mg-components
+npm i @mgdis/mg-components
 ```
 
 You need now to import the stylesheet who came with in the `App.vue` file:
@@ -62,7 +62,7 @@ Vue.config.ignoredElements = [/mg-\w*/];
 Add MG Components to your project.
 
 ```bash
-npm install @mgdis/mg-components
+npm i @mgdis/mg-components
 ```
 
 You need now to import the stylesheet who came with in the `app.js` file:

@@ -77,7 +77,7 @@ export class MgPagination {
   @Watch('totalPages')
   validateTotalPages(newValue: number): void {
     if (newValue < 1) {
-      throw new Error('<mg-pagination> prop "totalPages" must be greater than 0');
+      throw new Error('<mg-pagination> prop "totalPages" must be greater than 0.');
     }
   }
 
@@ -88,9 +88,9 @@ export class MgPagination {
   @Watch('currentPage')
   validateCurrentPage(newValue: number): void {
     if (newValue < 1) {
-      throw new Error('<mg-pagination> prop "currentPage" must be greater than 0');
+      throw new Error('<mg-pagination> prop "currentPage" must be greater than 0.');
     } else if (newValue > this.totalPages) {
-      throw new Error('<mg-pagination> prop "currentPage" can not be greater than total page');
+      throw new Error('<mg-pagination> prop "currentPage" can not be greater than total page.');
     }
 
     this.currentPageChange.emit(newValue);

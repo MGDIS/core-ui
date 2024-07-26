@@ -31,28 +31,28 @@ export class MgMessage {
   /**
    * Define variant
    */
-  @Prop() variant: undefined | VariantType = 'info';
+  @Prop() variant: VariantType = 'info';
   @Watch('variant')
   watchVariant(newValue: MgMessage['variant'], oldValue?: MgMessage['variant']): void {
     if (!variants.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}`);
+      throw new Error(`<mg-message> prop "variant" must be one of: ${variants.join(', ')}.`);
     } else {
-      if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
-      if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+      if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
+      if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);
     }
   }
 
   /**
    * Define variant style
    */
-  @Prop() variantStyle: undefined | VariantStyleType = 'bar-left';
+  @Prop() variantStyle: VariantStyleType = 'bar-left';
   @Watch('variantStyle')
   watchVariantStyle(newValue: MgMessage['variantStyle'], oldValue?: MgMessage['variantStyle']): void {
     if (!variantStyles.includes(newValue)) {
-      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}`);
+      throw new Error(`<mg-message> prop "variantStyle" must be one of: ${variantStyles.join(', ')}.`);
     } else {
-      if (newValue) this.classCollection.add(`${this.classBase}--${newValue}`);
-      if (oldValue) this.classCollection.delete(`${this.classBase}--${oldValue}`);
+      if (newValue !== undefined) this.classCollection.add(`${this.classBase}--${newValue}`);
+      if (oldValue !== undefined) this.classCollection.delete(`${this.classBase}--${oldValue}`);
     }
   }
 
@@ -96,7 +96,7 @@ export class MgMessage {
     // Validate
     this.watchVariant(this.variant);
     this.watchVariantStyle(this.variantStyle);
-    // Check if close button is an can be activated
+    // Check if component has actions slot
     this.hasActions = this.element.querySelector('[slot="actions"]') !== null;
   }
 
@@ -108,7 +108,7 @@ export class MgMessage {
     return (
       <div class={this.classCollection.join()}>
         <mg-card>
-          {this.variantStyle.startsWith('bar-') && <span class="mg-c-message__bar"></span>}
+          {this.variantStyle === 'bar-left' && <span class="mg-c-message__bar"></span>}
           <span class="mg-c-message__icon">
             <mg-icon icon={this.getIcon()}></mg-icon>
           </span>
@@ -116,12 +116,12 @@ export class MgMessage {
             <span class="mg-c-message__content-slot">
               <slot></slot>
             </span>
-            {this.hasActions && <span class="mg-c-message__content-separator"></span>}
-            {this.hasActions && (
-              <span class="mg-c-message__content-actions-slot">
+            {this.hasActions && [
+              <span class="mg-c-message__content-separator" key="content-separator"></span>,
+              <span class="mg-c-message__content-actions-slot" key="content-actions-slot">
                 <slot name="actions"></slot>
-              </span>
-            )}
+              </span>,
+            ]}
           </div>
         </mg-card>
       </div>

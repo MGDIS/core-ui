@@ -1,4 +1,4 @@
-# MG Components helpers
+# @mgdis/mg-components-helpers
 
 The goal of mg-components-helpers is to deliver a package which solve the commons compatibilities issues with mg-components web-components.
 

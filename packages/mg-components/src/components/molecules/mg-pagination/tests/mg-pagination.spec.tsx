@@ -69,24 +69,24 @@ describe('mg-pagination', () => {
       expect.assertions(1);
       try {
         await getPage({ totalPages: 0 });
-      } catch ({ message }) {
-        expect(message).toBe('<mg-pagination> prop "totalPages" must be greater than 0');
+      } catch (err) {
+        expect(err.message).toBe('<mg-pagination> prop "totalPages" must be greater than 0.');
       }
     });
     test('Should throw an error, case currentPage props invalid: 0', async () => {
       expect.assertions(1);
       try {
         await getPage({ currentPage: 0 });
-      } catch ({ message }) {
-        expect(message).toBe('<mg-pagination> prop "currentPage" must be greater than 0');
+      } catch (err) {
+        expect(err.message).toBe('<mg-pagination> prop "currentPage" must be greater than 0.');
       }
     });
     test('Should throw an error, case currentPage props invalid: currentPage > totalPages', async () => {
       expect.assertions(1);
       try {
         await getPage({ currentPage: 2, totalPages: 1 });
-      } catch ({ message }) {
-        expect(message).toBe('<mg-pagination> prop "currentPage" can not be greater than total page');
+      } catch (err) {
+        expect(err.message).toBe('<mg-pagination> prop "currentPage" can not be greater than total page.');
       }
     });
   });

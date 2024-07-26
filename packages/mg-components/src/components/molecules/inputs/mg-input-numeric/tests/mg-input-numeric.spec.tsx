@@ -1,6 +1,6 @@
 import { h } from '@stencil/core';
 import { newSpecPage } from '@stencil/core/testing';
-import { localeCurrency, localeNumber } from '@mgdis/stencil-helpers';
+import { localeNumber } from '@mgdis/stencil-helpers';
 import { MgInputNumeric } from '../mg-input-numeric';
 import { MgButton } from '../../../../atoms/mg-button/mg-button';
 import { MgIcon } from '../../../../atoms/mg-icon/mg-icon';
@@ -206,8 +206,10 @@ describe('mg-input-numeric', () => {
         } else if (valueMissing) {
           expect(page.rootInstance.errorMessage).toEqual(messages.errors.required);
         }
+
         expect(page.rootInstance.valid).toEqual(validity);
         expect(page.rootInstance.invalid).toEqual(!validity);
+
         if (valueMissing) {
           expect(page.root).toMatchSnapshot(); //Snapshot with readonly/disabled FALSE
           element[nextState] = true;
@@ -236,21 +238,15 @@ describe('mg-input-numeric', () => {
 
       if (args.min !== undefined && args.max === undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.min
-            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en', decimalLeft)}`)
-            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en', decimalLeft)}`),
+          messages.errors.numeric.min.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       } else if (args.min === undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.max
-            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en', decimalLeft)}`)
-            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en', decimalLeft)}`),
+          messages.errors.numeric.max.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       } else if (args.min !== undefined && args.max !== undefined) {
         expect(page.rootInstance.errorMessage).toEqual(
-          messages.errors.numeric.minMax
-            .replace('{min}', `${type === 'currency' ? localeCurrency(args.min, 'en', 'USD') : localeNumber(args.min, 'en', decimalLeft)}`)
-            .replace('{max}', `${type === 'currency' ? localeCurrency(args.max, 'en', 'USD') : localeNumber(args.max, 'en', decimalLeft)}`),
+          messages.errors.numeric.minMax.replace('{min}', localeNumber(args.min, 'en', decimalLeft)).replace('{max}', localeNumber(args.max, 'en', decimalLeft)),
         );
       }
 
@@ -583,16 +579,16 @@ describe('mg-input-numeric', () => {
       expect(element.valid).toEqual(true);
       expect(page.root).toMatchSnapshot(); // no error displayed
 
-      if (min) element.min = min;
-      if (max) element.max = max;
+      if (min !== undefined) element.min = min;
+      if (max !== undefined) element.max = max;
       input.dispatchEvent(new CustomEvent('blur', { bubbles: true }));
       await page.waitForChanges();
 
       expect(element.valid).toEqual(input.checkValidity());
       expect(page.root).toMatchSnapshot(); // error displayed if !element.valid
 
-      if (min) element.min = next;
-      if (max) element.max = next;
+      if (min !== undefined) element.min = next;
+      if (max !== undefined) element.max = next;
       await page.waitForChanges();
 
       expect(element.valid).toEqual(true);

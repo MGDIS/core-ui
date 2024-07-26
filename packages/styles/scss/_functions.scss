@@ -67,3 +67,8 @@
 @function get-color($palette, $index) {
   @return map.get(map.get(variables.$palettes, $palette), $index);
 }
+
+// function to get icon size from a name
+@function get-icon-size($size) {
+  @return list.nth(map.get(variables.$icons, $size), 1);
+}
