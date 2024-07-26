@@ -226,12 +226,12 @@
       ],
       "parts": [],
       "dependents": [],
-      "dependencies": [],
+      "dependencies": ["my-second-comp"],
       "dependencyGraph": {}
     },
     {
       "encapsulation": "shadow",
-      "tag": "my-comp",
+      "tag": "my-second-comp",
       "overview": "overview",
       "readme": "",
       "docs": "",
@@ -244,7 +244,7 @@
       "styles": [],
       "slots": [],
       "parts": [],
-      "dependents": [],
+      "dependents": ["my-comp"],
       "dependencies": [],
       "dependencyGraph": {}
     }

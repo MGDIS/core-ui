@@ -166,6 +166,16 @@ exports[`storybook > StorybookPreview > extractArgTypes > Should extract arg typ
       "required": true,
     },
   },
+  "my-second-comp": {
+    "description": "<a href="./?path=/docs/undefined">View Component Documentation</a>",
+    "name": "my-second-comp",
+    "table": {
+      "category": "depends on",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
   "number": {
     "control": {
       "type": "number",
@@ -231,6 +241,21 @@ exports[`storybook > StorybookPreview > extractArgTypes > Should extract arg typ
     "name": "title",
     "table": {
       "category": "slots",
+      "type": {
+        "summary": undefined,
+      },
+    },
+  },
+}
+`;
+
+exports[`storybook > StorybookPreview > extractArgTypes > Should extract arg types 2`] = `
+{
+  "my-comp": {
+    "description": "<a href="./?path=/docs/atoms-my-comp--docs">View Component Documentation</a>",
+    "name": "my-comp",
+    "table": {
+      "category": "used by",
       "type": {
         "summary": undefined,
       },

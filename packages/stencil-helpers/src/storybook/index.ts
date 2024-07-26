@@ -138,6 +138,20 @@ export const getStoryHTML = ({ $tag$, $attrs$, $children$, $text$ }: VNode): str
   return host.innerHTML;
 };
 
+/**
+ * Retrieve Component Storybook URL from file path
+ * @param storybookBaseUrl - Storybook Base URL
+ * @param filePath - Component file path
+ * @returns Component Storybook URL
+ */
+export const getStorybookUrl = (storybookBaseUrl: string, filePath: string | undefined): string | undefined => {
+  if (!filePath) {
+    return;
+  }
+  const split = filePath.split('/');
+  return `${storybookBaseUrl}${split.slice(2, split.length - 1).join('-')}--docs`;
+};
+
 export class StorybookPreview {
   /**
    * JsonDocs
@@ -286,12 +300,48 @@ export class StorybookPreview {
       };
     }, {});
 
+    // Extract component dependencies
+    const componentDependencies = componentData?.dependencies.reduce((acc, dependency) => {
+      const dependencyData = this.#getComponentData(dependency);
+      return {
+        ...acc,
+        [dependency]: {
+          name: dependency,
+          description: `<a href="./?path=/docs/${getStorybookUrl('', dependencyData?.filePath)}">View Component Documentation</a>`,
+          table: {
+            category: 'depends on',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
+    // Extract dependents components
+    const componentDependents = componentData?.dependents.reduce((acc, dependent) => {
+      const dependentData = this.#getComponentData(dependent);
+      console.log('dependentData', dependentData);
+
+      return {
+        ...acc,
+        [dependent]: {
+          name: dependent,
+          description: `<a href="./?path=/docs/${getStorybookUrl('', dependentData?.filePath)}">View Component Documentation</a>`,
+          table: {
+            category: 'used by',
+            type: { summary: undefined },
+          },
+        },
+      };
+    }, {});
+
     return {
       ...componentPropsArgTypes,
       ...componentEventsArgTypes,
       ...componentMethodsArgTypes,
       ...componentSlotsArgTypes,
       ...componentCSSPropArgTypes,
+      ...componentDependencies,
+      ...componentDependents,
     };
   };
 
