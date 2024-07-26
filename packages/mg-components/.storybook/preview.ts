@@ -1,16 +1,16 @@
-import { extractArgTypes, extractComponentDescription, setStencilDocJson } from '@pxtrn/storybook-addon-docs-stencil';
-import { StencilJsonDocs } from '@pxtrn/storybook-addon-docs-stencil/dist/types';
 import { Preview } from '@storybook/html';
 import { withActions } from '@storybook/addon-actions/decorator';
-import { stencilWrapper, getStoryHTML } from '@mgdis/stencil-helpers';
-import docJson from './docs/components.json';
+import { JsonDocs } from '@stencil/core/internal';
+import { stencilWrapper, getStoryHTML, StorybookPreview } from '@mgdis/stencil-helpers';
+import jsonDoc from './components.json';
 
 // import mg-components
-import { defineCustomElements } from '../loader';
 import '../dist/mg-components/mg-components.css';
-
+import { defineCustomElements } from '../loader';
 defineCustomElements();
-setStencilDocJson(docJson as unknown as StencilJsonDocs);
+
+// Create a StorybookPreview instance
+const { extractArgTypes, extractComponentDescription } = new StorybookPreview(jsonDoc as unknown as JsonDocs);
 
 export const parameters: Preview['parameters'] = {
   controls: {
@@ -24,7 +24,6 @@ export const parameters: Preview['parameters'] = {
     extractComponentDescription,
     transformSource: (_, ctx) => getStoryHTML(ctx.originalStoryFn(ctx.args)),
   },
-
   options: {
     storySort: {
       order: ['Intro', 'Atoms', 'Molecules', 'Style'],

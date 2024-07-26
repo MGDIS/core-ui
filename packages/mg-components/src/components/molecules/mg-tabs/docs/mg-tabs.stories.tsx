@@ -1,18 +1,11 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-
 import { sizes, Status } from '../mg-tabs.conf';
 import type { MgTabs as MgTabsType } from '../mg-tabs';
 
 export default {
   component: 'mg-tabs',
   title: 'Molecules/mg-tabs',
-  argTypes: {
-    size: {
-      options: sizes,
-      control: { type: 'select' },
-    },
-  },
   parameters: { actions: { handles: ['active-tab-change'] } },
 };
 

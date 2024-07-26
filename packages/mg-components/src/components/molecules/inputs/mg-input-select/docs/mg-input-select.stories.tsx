@@ -2,32 +2,11 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import messages from '../../../../../locales/en/messages.json';
 import type { MgInputSelect as MgInputSelectType } from '../mg-input-select';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-select',
   title: 'Molecules/Inputs/mg-input-select',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  argTypes: {
-    placeholder: {
-      table: {
-        defaultValue: { summary: messages.input.select.placeholder },
-      },
-    },
-    mgWidth: {
-      name: 'mg-width',
-      options: [undefined, 2, 4, 16, 'full'],
-      control: { type: 'select' },
-    },
-    value: {
-      control: 'object',
-    },
-    tooltipPosition: {
-      name: 'tooltip-position',
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

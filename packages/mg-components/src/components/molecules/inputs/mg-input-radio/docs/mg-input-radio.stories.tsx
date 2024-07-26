@@ -1,7 +1,6 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputRadio as MgInputRadioType } from '../mg-input-radio';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-radio',
@@ -11,11 +10,6 @@ export default {
     value: {
       options: [null, 'ht', 'ttc', 'mixte'],
       control: { type: 'radio' },
-    },
-    tooltipPosition: {
-      name: 'tooltip-position',
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
     },
   },
 };

@@ -1,6 +1,8 @@
 import { describe, expect, test, vi } from 'vitest';
-import { filterArgs, stencilWrapper, getStoryHTML } from './';
+import { filterArgs, stencilWrapper, getStoryHTML, StorybookPreview } from './';
 import { VNode } from '@stencil/core';
+import jsonDocs from '../../json-doc.test.json';
+import { JsonDocs } from '@stencil/core/internal';
 
 describe('storybook', () => {
   describe('filterArgs', () => {
@@ -36,7 +38,7 @@ describe('storybook', () => {
       const storybookRoot = document.createElement('div');
       storybookRoot.setAttribute('lang', 'fr');
       storybookRoot.setAttribute('id', 'storybook-root');
-      document.querySelector('body').appendChild(storybookRoot);
+      document.querySelector('body')?.appendChild(storybookRoot);
 
       const res = stencilWrapper(storyFn, args);
       expect(storyFn).toHaveBeenCalledWith(args);
@@ -105,6 +107,25 @@ describe('storybook', () => {
     ])('Should render story code exemple', ({ args, expected }) => {
       const res = getStoryHTML(args as unknown as VNode);
       expect(res).toEqual(expected);
+    });
+  });
+
+  describe('StorybookPreview', () => {
+    describe('extractArgTypes', () => {
+      test('Should extract arg types', () => {
+        const { extractArgTypes } = new StorybookPreview(jsonDocs as JsonDocs);
+        let res = extractArgTypes('my-comp');
+        expect(res).toMatchSnapshot();
+        res = extractArgTypes('my-second-comp');
+        expect(res).toMatchSnapshot();
+      });
+    });
+    describe('extractComponentDescription', () => {
+      test('Should extract component description', () => {
+        const { extractComponentDescription } = new StorybookPreview(jsonDocs as JsonDocs);
+        const res = extractComponentDescription('my-comp');
+        expect(res).toMatchSnapshot();
+      });
     });
   });
 });

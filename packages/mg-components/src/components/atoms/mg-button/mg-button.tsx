@@ -73,7 +73,7 @@ export class MgButton {
 
   /**
    * Define form id to attach button with.
-   * If this attribute is not set, the <button> is associated with its ancestor <form> element.
+   * If this attribute is not set, the `<button>` is associated with its ancestor `<form>` element.
    */
   @Prop() form?: string;
 

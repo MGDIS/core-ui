@@ -1,19 +1,11 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputDate as MgInputDateType } from '../mg-input-date';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-date',
   title: 'Molecules/Inputs/mg-input-date',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  argTypes: {
-    tooltipPosition: {
-      name: 'tooltip-position',
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

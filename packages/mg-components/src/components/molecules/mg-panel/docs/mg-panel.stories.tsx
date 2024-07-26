@@ -7,18 +7,6 @@ export default {
   component: 'mg-panel',
   title: 'Molecules/mg-panel',
   parameters: { actions: { handles: ['title-change', 'expanded-change'] } },
-  argTypes: {
-    titlePosition: {
-      name: 'title-position',
-      options: [...titlePositions],
-      control: { type: 'select' },
-    },
-    expandToggleDisplay: {
-      name: 'expand-toggle-display',
-      options: [...expandToggleDisplays],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

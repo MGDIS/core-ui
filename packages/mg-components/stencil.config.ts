@@ -34,7 +34,7 @@ export const config: Config = {
     },
     {
       type: 'docs-json',
-      file: '.storybook/docs/components.json',
+      file: '.storybook/components.json',
     },
     {
       type: 'docs-readme',

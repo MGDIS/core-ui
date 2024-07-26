@@ -184,7 +184,7 @@ sonar:
     - .install:dependencies
   script:
     - gitlabci-quality-gate A+++
-    - sonar-scanner -D sonar.login=$SONAR_KEY
+    - sonar-scanner -D sonar.token=$SONAR_KEY
     - gitlabci-sonar-compare report
   needs:
     - test:unit

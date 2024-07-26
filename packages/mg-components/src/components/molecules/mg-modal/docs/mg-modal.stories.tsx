@@ -7,13 +7,6 @@ import type { MgModal as MgModalType } from '../mg-modal';
 export default {
   component: 'mg-modal',
   title: 'Molecules/mg-modal',
-  argTypes: {
-    dialogRole: {
-      name: 'dialog-role',
-      options: [undefined, ...dialogRoles],
-      control: { type: 'select' },
-    },
-  },
   parameters: { actions: { handles: ['component-show', 'component-hide'] } },
 };
 

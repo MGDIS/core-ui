@@ -1,24 +1,11 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgInputPassword as MgInputPasswordType } from '../mg-input-password';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-password',
   title: 'Molecules/Inputs/mg-input-password',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  argTypes: {
-    mgWidth: {
-      name: 'mg-width',
-      options: [2, 4, 16, 'full'],
-      control: { type: 'select' },
-    },
-    tooltipPosition: {
-      name: 'tooltip-position',
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

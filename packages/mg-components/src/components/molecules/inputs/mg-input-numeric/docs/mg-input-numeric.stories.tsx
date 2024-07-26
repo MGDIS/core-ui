@@ -2,28 +2,11 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { types } from '../mg-input-numeric.conf';
 import type { MgInputNumeric as MgInputNumericType } from '../mg-input-numeric';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-numeric',
   title: 'Molecules/Inputs/mg-input-numeric',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  argTypes: {
-    type: {
-      options: types,
-      control: { type: 'select' },
-    },
-    mgWidth: {
-      name: 'mg-width',
-      options: [undefined, 2, 4, 16, 'full'],
-      control: { type: 'select' },
-    },
-    tooltipPosition: {
-      name: 'tooltip-position',
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**
