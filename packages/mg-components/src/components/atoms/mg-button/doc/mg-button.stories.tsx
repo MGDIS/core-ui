@@ -1,5 +1,5 @@
 import { h } from '@stencil/core';
-import { variants, buttonTypes } from '../mg-button.conf';
+import { variants } from '../mg-button.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import type { MgButton as MgButtonType } from '../mg-button';
@@ -7,12 +7,6 @@ import type { MgButton as MgButtonType } from '../mg-button';
 export default {
   component: 'mg-button',
   title: 'Atoms/mg-button',
-  argTypes: {
-    type: {
-      options: [undefined, ...buttonTypes],
-      control: { type: 'select' },
-    },
-  },
   parameters: { actions: { handles: ['disabled-change'] } },
 };
 

@@ -1,30 +1,12 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { sizes, variantStyles, variants } from '../mg-icon.conf';
+import { sizes } from '../mg-icon.conf';
 import iconList from '@mgdis/img/dist/icons/index.json';
 import type { MgIcon as MgIconType } from '../mg-icon';
 
 export default {
   component: 'mg-icon',
   title: 'Atoms/mg-icon',
-  argTypes: {
-    icon: {
-      options: iconList,
-      control: { type: 'select' },
-    },
-    size: {
-      options: sizes,
-      control: { type: 'select' },
-    },
-    variant: {
-      options: [undefined, ...variants],
-      control: { type: 'select' },
-    },
-    variantStyle: {
-      options: [undefined, ...variantStyles],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

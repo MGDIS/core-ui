@@ -22,8 +22,8 @@
   },
   "scripts": {
     "build": "tsc --noEmit && vite build && typedoc",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
+    "test": "TZ=UTC vitest",
+    "coverage": "TZ=UTC vitest run --coverage",
     "lint": "pnpm lint:es && pnpm lint:prettier",
     "lint:fix": "pnpm lint:es:fix && pnpm lint:prettier:fix",
     "lint:es": "eslint '**/*.{ts,tsx}' --ignore-path ../../.gitignore",
@@ -35,7 +35,7 @@
     "@stencil/core": "4.19.2"
   },
   "devDependencies": {
-    "@types/node": "20.14.12",
+    "@types/node": "20.14.13",
     "@vitest/coverage-istanbul": "1.6.0",
     "@vitest/coverage-v8": "1.6.0",
     "eslint-config-custom": "workspace:*",

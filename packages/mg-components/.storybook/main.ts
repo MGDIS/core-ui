@@ -38,7 +38,6 @@ const config: StorybookConfig = {
   },
   addons: [
     getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@pxtrn/storybook-addon-docs-stencil'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-interactions'),

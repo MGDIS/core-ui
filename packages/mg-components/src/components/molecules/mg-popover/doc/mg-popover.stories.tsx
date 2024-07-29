@@ -10,11 +10,6 @@ export default {
     docs: { iframeHeight: 600 },
     actions: { handles: ['display-change'] },
   },
-  argTypes: {
-    placement: {
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

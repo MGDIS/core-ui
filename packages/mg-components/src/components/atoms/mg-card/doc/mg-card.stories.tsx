@@ -1,21 +1,10 @@
 import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
-import { variantStyles, variants } from '../mg-card.conf';
 import type { MgCard as MgCardType } from '../mg-card';
 
 export default {
   component: 'mg-card',
   title: 'Atoms/mg-card',
-  argTypes: {
-    variant: {
-      options: [undefined, ...variants],
-      control: { type: 'select' },
-    },
-    variantStyle: {
-      options: [undefined, ...variantStyles],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

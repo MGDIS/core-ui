@@ -2,22 +2,11 @@ import { h } from '@stencil/core';
 import { filterArgs } from '@mgdis/stencil-helpers';
 import { checkboxTypes } from '../mg-input-checkbox.conf';
 import type { MgInputCheckbox as MgInputCheckboxType } from '../mg-input-checkbox';
-import { tooltipPositions } from '../../mg-input/mg-input.conf';
 
 export default {
   component: 'mg-input-checkbox',
   title: 'Molecules/Inputs/mg-input-checkbox',
   parameters: { actions: { handles: ['value-change', 'input-valid'] } },
-  argTypes: {
-    type: {
-      options: [undefined, ...checkboxTypes],
-      control: { type: 'select' },
-    },
-    tooltipPosition: {
-      options: [undefined, ...tooltipPositions],
-      control: { type: 'select' },
-    },
-  },
 };
 
 /**

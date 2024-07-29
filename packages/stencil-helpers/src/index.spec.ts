@@ -23,27 +23,12 @@ import {
   setupMutationObserverMock,
   setupResizeObserverMock,
   setupSubmitEventMock,
+  StorybookPreview,
+  webTypesGenerator,
+  vsCodeGenerator,
 } from '.';
 
 describe('stencil-helpers', () => {
-  describe('storybook', () => {
-    test('import', () => {
-      expect(getStoryHTML).toBeDefined();
-      expect(stencilWrapper).toBeDefined();
-      expect(filterArgs).toBeDefined();
-    });
-  });
-  describe('locale', () => {
-    test('import', () => {
-      expect(localeCurrency).toBeDefined();
-      expect(localeNumber).toBeDefined();
-      expect(dateRegExp).toBeDefined();
-      expect(localeDate).toBeDefined();
-      expect(defineLocales).toBeDefined();
-      expect(dateToString).toBeDefined();
-      expect(getLocaleDatePattern).toBeDefined();
-    });
-  });
   describe('components', () => {
     test('import', () => {
       expect(createID).toBeDefined();
@@ -58,6 +43,35 @@ describe('stencil-helpers', () => {
       expect(nextTick).toBeDefined();
     });
   });
+
+  describe('ide', () => {
+    test('import', () => {
+      expect(webTypesGenerator).toBeDefined();
+      expect(vsCodeGenerator).toBeDefined();
+    });
+  });
+
+  describe('locale', () => {
+    test('import', () => {
+      expect(localeCurrency).toBeDefined();
+      expect(localeNumber).toBeDefined();
+      expect(dateRegExp).toBeDefined();
+      expect(localeDate).toBeDefined();
+      expect(defineLocales).toBeDefined();
+      expect(dateToString).toBeDefined();
+      expect(getLocaleDatePattern).toBeDefined();
+    });
+  });
+
+  describe('storybook', () => {
+    test('import', () => {
+      expect(getStoryHTML).toBeDefined();
+      expect(stencilWrapper).toBeDefined();
+      expect(filterArgs).toBeDefined();
+      expect(StorybookPreview).toBeDefined();
+    });
+  });
+
   describe('test', () => {
     test('import', () => {
       expect(setupMutationObserverMock).toBeDefined();
