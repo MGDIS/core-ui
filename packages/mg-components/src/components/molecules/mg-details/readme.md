@@ -50,6 +50,43 @@ If needed some [variables](./?path=/docs/css-variables--docs) are available to c
 
 - `--mg-details-spacing`: define space between summary and details, default: `1.5rem`
 
+## 💥 Troubleshooting
+
+### How to resize the `<iframe>` element when the `<mg-details>` component is toggled?
+
+You can use the external library `iframe-resizer`. When the library is instantiated in the `window`, it adds a new property `parentIFrame` which includes a `size()` method.
+
+Then you can use `window.parentIFrame.size()` to manually trigger a resize on the `iframe` when the `<mg-details>` element's `expanded` property is toggled.
+
+```jsx
+class MyComponent {
+  [...] 
+  #expanded = true;
+
+  handleExpandedChange = () => {
+    if (window.parentIFrame) {
+      // This setTimeout is mandatory
+      // We have to ensure that component resizing is done before triggering iframe resizing
+      setTimeout(() => {
+        window.parentIFrame.size()
+      }, 0);
+    }
+  };
+
+  render() {
+    return (
+      <mg-details
+        [...]
+        expanded={this.#expanded}
+        on-expanded-change={this.handleExpandedChange}
+      >
+        [...]
+      </mg-details>
+    );
+  }
+}
+```
+
 <!-- Auto Generated Below -->
 
 
