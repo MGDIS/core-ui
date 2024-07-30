@@ -4,7 +4,6 @@
   "description": "Display notifications throught iframes",
   "author": "Simon Duhem <duhem-s@mgdis.fr>",
   "license": "BSD-3-Clause",
-  "types": "dist/src/index.d.ts",
   "scripts": {
     "build": "tsc --noEmit && vite build",
     "test:unit": "jest --coverage",
@@ -24,6 +23,7 @@
   ],
   "main": "./dist/notification-center.umd.js",
   "module": "./dist/notification-center.es.js",
+  "types": "./dist/notification-center.d.ts",
   "exports": {
     ".": {
       "types": "./dist/notification-center.d.ts",
