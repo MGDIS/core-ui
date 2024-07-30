@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.7
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+
 ## 4.1.6
 
 ### Patch Changes

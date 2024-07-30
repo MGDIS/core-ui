@@ -1,5 +1,13 @@
 # @mgdis/mg-components
 
+## 5.28.2
+
+### Patch Changes
+
+- 9c9620c: update dependencies
+- Updated dependencies [9c9620c]
+  - @mgdis/stencil-helpers@1.1.8
+
 ## 5.28.1
 
 ### Patch Changes

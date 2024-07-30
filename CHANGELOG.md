@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2024-07-30-11-20_Comfortable-Cotton-Candy-Caribou)
+
+### Packages released
+
+- [eslint-config-vue3 changelog](packages/eslint-config-vue3/CHANGELOG.md)
+- [eslint-plugin-html changelog](packages/eslint-plugin-html/CHANGELOG.md)
+- [eslint-plugin-vue changelog](packages/eslint-plugin-vue/CHANGELOG.md)
+- [linting-angularjs changelog](packages/linting-angularjs/CHANGELOG.md)
+- [linting-stencil changelog](packages/linting-stencil/CHANGELOG.md)
+- [linting-vue2 changelog](packages/linting-vue2/CHANGELOG.md)
+- [mg-components-helpers changelog](packages/mg-components-helpers/CHANGELOG.md)
+- [mg-components changelog](packages/mg-components/CHANGELOG.md)
+- [notification-center changelog](packages/notification-center/CHANGELOG.md)
+- [stencil-helpers changelog](packages/stencil-helpers/CHANGELOG.md)
+
 ## Release (2024-07-12-11-09_Thirsty-Tickle-Me-Pink-Turtle)
 
 ### Packages released
